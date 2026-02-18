@@ -171,11 +171,147 @@ def resolve_case(
                 resolution_decision_seq = %s,
                 updated_at = NOW()
             WHERE id = %s::uuid
-              AND status IN ('open', 'assigned', 'approved')
+              AND status IN ('open', 'assigned', 'approved', 'executing')
             """,
             (status, resolved_by, resolution_decision_seq, case_id),
         )
         return {"updated": bool(getattr(cursor, "rowcount", 0))}
+    finally:
+        cursor.close()
+
+
+def approve_case(
+    db_conn,
+    *,
+    case_id: str,
+    approved_by: str,
+) -> Dict[str, Any]:
+    """
+    Transition: open/assigned -> approved.
+
+    No commit/rollback here; caller owns transaction boundaries.
+    """
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(
+            """
+            UPDATE review_cases
+            SET status = 'approved',
+                resolved_by = %s,
+                updated_at = NOW()
+            WHERE id = %s::uuid
+              AND status IN ('open', 'assigned')
+            """,
+            (approved_by, case_id),
+        )
+        return {"updated": bool(getattr(cursor, "rowcount", 0))}
+    finally:
+        cursor.close()
+
+
+def claim_for_execution(
+    db_conn,
+    *,
+    case_id: str,
+) -> Optional[Dict[str, Any]]:
+    """
+    Transition: approved -> executing, returning frozen action_snapshot.
+
+    No commit/rollback here; caller owns transaction boundaries.
+    """
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(
+            """
+            UPDATE review_cases
+            SET status = 'executing',
+                updated_at = NOW()
+            WHERE id = %s::uuid
+              AND status = 'approved'
+            RETURNING action_snapshot, trace_id
+            """,
+            (case_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            return None
+        action_snapshot_raw, trace_id_raw = row
+        if isinstance(action_snapshot_raw, str):
+            action_snapshot = json.loads(action_snapshot_raw)
+        elif isinstance(action_snapshot_raw, dict):
+            action_snapshot = action_snapshot_raw
+        else:
+            action_snapshot = {}
+        return {
+            "action_snapshot": action_snapshot,
+            "trace_id": str(trace_id_raw) if trace_id_raw is not None else None,
+        }
+    finally:
+        cursor.close()
+
+
+def mark_executed(
+    db_conn,
+    *,
+    case_id: str,
+) -> Dict[str, Any]:
+    """
+    Transition: executing -> executed.
+
+    No commit/rollback here; caller owns transaction boundaries.
+    """
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(
+            """
+            UPDATE review_cases
+            SET status = 'executed',
+                resolved_at = NOW(),
+                updated_at = NOW()
+            WHERE id = %s::uuid
+              AND status = 'executing'
+            """,
+            (case_id,),
+        )
+        return {"updated": bool(getattr(cursor, "rowcount", 0))}
+    finally:
+        cursor.close()
+
+
+def read_case_for_resume(
+    db_conn,
+    *,
+    case_id: str,
+) -> Optional[Dict[str, Any]]:
+    """
+    Read a case row to support crash-safe resume for status=executing.
+    Read-only; does not mutate state.
+    """
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(
+            """
+            SELECT status, action_snapshot, trace_id
+            FROM review_cases
+            WHERE id = %s::uuid
+            """,
+            (case_id,),
+        )
+        row = cursor.fetchone()
+        if not row:
+            return None
+        status_raw, action_snapshot_raw, trace_id_raw = row
+        if isinstance(action_snapshot_raw, str):
+            action_snapshot = json.loads(action_snapshot_raw)
+        elif isinstance(action_snapshot_raw, dict):
+            action_snapshot = action_snapshot_raw
+        else:
+            action_snapshot = {}
+        return {
+            "status": str(status_raw),
+            "action_snapshot": action_snapshot,
+            "trace_id": str(trace_id_raw) if trace_id_raw is not None else None,
+        }
     finally:
         cursor.close()
 

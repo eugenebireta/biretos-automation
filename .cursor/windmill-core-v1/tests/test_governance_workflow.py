@@ -98,10 +98,43 @@ class _Cursor:
                 self.rowcount = 1
             return
 
+        if normalized.startswith("update review_cases set status = 'approved'"):
+            approved_by, case_id = params
+            row = self._conn.review_cases_by_id.get(str(case_id))
+            if row and row["status"] in {"open", "assigned"}:
+                row["status"] = "approved"
+                row["resolved_by"] = str(approved_by)
+                self.rowcount = 1
+            return
+
+        if normalized.startswith("update review_cases set status = 'executing'"):
+            (case_id,) = params
+            row = self._conn.review_cases_by_id.get(str(case_id))
+            if row and row["status"] == "approved":
+                row["status"] = "executing"
+                self.rowcount = 1
+                self._rows = [(row["action_snapshot"], row["trace_id"])]
+            return
+
+        if normalized.startswith("update review_cases set status = 'executed'"):
+            (case_id,) = params
+            row = self._conn.review_cases_by_id.get(str(case_id))
+            if row and row["status"] == "executing":
+                row["status"] = "executed"
+                row["resolved_at"] = "NOW()"
+                self.rowcount = 1
+            return
+
+        if normalized.startswith("select status, action_snapshot, trace_id from review_cases where id = %s::uuid"):
+            (case_id,) = params
+            row = self._conn.review_cases_by_id.get(str(case_id))
+            self._rows = [(row["status"], row["action_snapshot"], row["trace_id"])] if row else []
+            return
+
         if normalized.startswith("update review_cases set status = %s"):
             status, resolved_by, resolution_decision_seq, case_id = params
             row = self._conn.review_cases_by_id.get(str(case_id))
-            if row and row["status"] in {"open", "assigned", "approved"}:
+            if row and row["status"] in {"open", "assigned", "approved", "executing"}:
                 row["status"] = str(status)
                 row["resolved_by"] = str(resolved_by)
                 row["resolution_decision_seq"] = resolution_decision_seq
@@ -359,4 +392,248 @@ def test_resolve_order_id_excluded(monkeypatch):
         db_conn=None,
     )
     assert out is None
+
+
+def test_approve_case_from_open():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=10,
+        policy_hash="ph",
+        action_snapshot={"a": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+
+    upd = gw.approve_case(conn, case_id=case_id, approved_by="alice")
+    assert upd["updated"] is True
+    assert conn.review_cases_by_id[case_id]["status"] == "approved"
+    assert conn.review_cases_by_id[case_id]["resolved_by"] == "alice"
+
+
+def test_approve_case_from_assigned():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=11,
+        policy_hash="ph",
+        action_snapshot={"a": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    gw.assign_case(conn, case_id=case_id, assigned_to="bob")
+
+    upd = gw.approve_case(conn, case_id=case_id, approved_by="bob")
+    assert upd["updated"] is True
+    assert conn.review_cases_by_id[case_id]["status"] == "approved"
+
+
+def test_approve_case_already_approved():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=12,
+        policy_hash="ph",
+        action_snapshot={"a": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    conn.review_cases_by_id[case_id]["status"] = "approved"
+
+    upd = gw.approve_case(conn, case_id=case_id, approved_by="alice")
+    assert upd["updated"] is False
+
+
+def test_claim_for_execution_success():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=13,
+        policy_hash="ph",
+        action_snapshot={"x": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    conn.review_cases_by_id[case_id]["status"] = "approved"
+
+    res = gw.claim_for_execution(conn, case_id=case_id)
+    assert isinstance(res, dict)
+    assert conn.review_cases_by_id[case_id]["status"] == "executing"
+    assert res["action_snapshot"] == {"x": 1}
+    assert res["trace_id"] == trace_id
+
+
+def test_claim_for_execution_not_approved():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=14,
+        policy_hash="ph",
+        action_snapshot={},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+
+    res = gw.claim_for_execution(conn, case_id=case_id)
+    assert res is None
+    assert conn.review_cases_by_id[case_id]["status"] == "open"
+
+
+def test_claim_concurrent_race():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=15,
+        policy_hash="ph",
+        action_snapshot={"x": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    conn.review_cases_by_id[case_id]["status"] = "approved"
+
+    r1 = gw.claim_for_execution(conn, case_id=case_id)
+    r2 = gw.claim_for_execution(conn, case_id=case_id)
+    assert r1 is not None
+    assert r2 is None
+
+
+def test_mark_executed_from_executing():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=16,
+        policy_hash="ph",
+        action_snapshot={"x": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    conn.review_cases_by_id[case_id]["status"] = "approved"
+    gw.claim_for_execution(conn, case_id=case_id)
+
+    upd = gw.mark_executed(conn, case_id=case_id)
+    assert upd["updated"] is True
+    assert conn.review_cases_by_id[case_id]["status"] == "executed"
+
+
+def test_mark_executed_wrong_status():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=17,
+        policy_hash="ph",
+        action_snapshot={"x": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    conn.review_cases_by_id[case_id]["status"] = "approved"
+
+    upd = gw.mark_executed(conn, case_id=case_id)
+    assert upd["updated"] is False
+    assert conn.review_cases_by_id[case_id]["status"] == "approved"
+
+
+def test_read_case_for_resume_executing():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=18,
+        policy_hash="ph",
+        action_snapshot={"x": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    conn.review_cases_by_id[case_id]["status"] = "executing"
+
+    res = gw.read_case_for_resume(conn, case_id=case_id)
+    assert res is not None
+    assert res["status"] == "executing"
+    assert res["action_snapshot"] == {"x": 1}
+    assert res["trace_id"] == trace_id
+
+
+def test_resolve_case_from_executing():
+    gw = _import_governance_workflow()
+    conn = _Conn()
+    trace_id = str(uuid4())
+    created = gw.create_review_case(
+        conn,
+        trace_id=trace_id,
+        order_id=None,
+        gate_name="commercial_sanity",
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=19,
+        policy_hash="ph",
+        action_snapshot={"x": 1},
+        resume_context=None,
+        sla_deadline_at=None,
+    )
+    case_id = created["case_id"]
+    conn.review_cases_by_id[case_id]["status"] = "executing"
+
+    upd = gw.resolve_case(conn, case_id=case_id, status="cancelled", resolved_by="system")
+    assert upd["updated"] is True
+    assert conn.review_cases_by_id[case_id]["status"] == "cancelled"
 

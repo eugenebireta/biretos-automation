@@ -454,6 +454,34 @@ def handle_router_action(action: Dict[str, Any], db_conn) -> Dict[str, Any]:
         else:
             result = dispatch_action(action, db_conn=db_conn, trace_id=metadata.get("trace_id"))
 
+        if result.get("status") == "pending_approval":
+            try:
+                from governance_trigger import handle_pending_approval
+
+                trigger_result = handle_pending_approval(
+                    action=action,
+                    pending_result=result,
+                    db_conn=db_conn,
+                    trace_id=metadata.get("trace_id"),
+                )
+                result["governance"] = trigger_result
+            except Exception as e:
+                error_msg = str(e)
+                log_event(
+                    "governance_trigger_failed",
+                    {
+                        "action_type": action_type,
+                        "error": error_msg,
+                        "trace_id": metadata.get("trace_id"),
+                    },
+                )
+                result["governance_error"] = error_msg
+                if chat_id:
+                    send_telegram_message(
+                        chat_id,
+                        "Внимание: действие требует одобрения, но автоматическое создание заявки не удалось. Обратитесь к администратору.",
+                    )
+
         # РРЎРџР РђР’Р›Р•РќРР•: Р’СЃРµРіРґР° С„РѕСЂРјР°С‚РёСЂСѓРµРј Рё РѕС‚РїСЂР°РІР»СЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚
         message_text, reply_markup = format_action_result(action, result)
         if message_text and chat_id:
@@ -1784,6 +1812,10 @@ def process_job(job: Dict[str, Any], db_conn) -> Dict[str, Any]:
         from governance_case_creator import execute_governance_case_create
 
         return execute_governance_case_create(payload, db_conn, trace_id=trace_id)
+    elif job_type == "governance_execute":
+        from governance_executor import execute_governance_case
+
+        return execute_governance_case(payload, db_conn, trace_id=trace_id)
     else:
         raise Exception(f"Unknown job_type for RU worker: {job_type}")
 
@@ -1899,7 +1931,7 @@ def main():
                     SELECT id, job_type, payload, trace_id
                     FROM job_queue
                     WHERE status = 'pending'
-                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'order_event', 'governance_case_create')
+                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'order_event', 'governance_case_create', 'governance_execute')
                     ORDER BY created_at ASC
                     LIMIT 1
                     FOR UPDATE SKIP LOCKED
@@ -1911,7 +1943,7 @@ def main():
                     SELECT id, job_type, payload, NULL::uuid AS trace_id
                     FROM job_queue
                     WHERE status = 'pending'
-                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'order_event', 'governance_case_create')
+                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'order_event', 'governance_case_create', 'governance_execute')
                     ORDER BY created_at ASC
                     LIMIT 1
                     FOR UPDATE SKIP LOCKED
