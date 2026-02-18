@@ -1,0 +1,53 @@
+﻿# =========================
+# Images
+# =========================
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.bmp
+*.tif
+*.tiff
+/media/
+/photos/
+/images/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv*/
+.venv*/
+
+# =========================
+# Logs / Temp
+# =========================
+*.log
+*.tmp
+*.bak
+/tmp/
+/cache/
+/diagnostics/raw/
+
+# =========================
+# OS
+# =========================
+.DS_Store
+
+# =========================
+# Local / Secrets
+# =========================
+insales_to_shopware_migration/config.json
+
+# =========================
+# Databases / Snapshots / Large Data
+# =========================
+*.sqlite
+*.db
+*.ndjson
+backup_insales/
+insales_snapshot/
+n8n-workflows/
