@@ -1,0 +1,44 @@
+﻿FINAL WEBHOOK STATUS
+
+COMPLETED:
+1. Token installed: <REDACTED_TELEGRAM_TOKEN>
+2. Webhook set: https://biretos.ae/webhook/telegram
+3. webhook_service: RUNNING (localhost:8001)
+4. job_queue: HAS telegram_update jobs (1 pending found)
+
+ISSUE:
+Webhook СѓРєР°Р·С‹РІР°РµС‚ РЅР° РїСѓР±Р»РёС‡РЅС‹Р№ URL (https://biretos.ae/webhook/telegram),
+РЅРѕ webhook_service СЂР°Р±РѕС‚Р°РµС‚ Р»РѕРєР°Р»СЊРЅРѕ (localhost:8001).
+Р”Р»СЏ СЂР°Р±РѕС‚С‹ РЅСѓР¶РµРЅ reverse proxy РЅР° СЃРµСЂРІРµСЂРµ РёР»Рё ngrok С‚СѓРЅРЅРµР»СЊ.
+
+VERIFICATION:
+- Telegram webhook: SET
+- Pending updates: 2 (Р±С‹Р»Рѕ РІ РёСЃС…РѕРґРЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё)
+- job_queue: 1 pending telegram_update job (Р·РЅР°С‡РёС‚ update Р±С‹Р» РїРѕР»СѓС‡РµРЅ)
+
+NEXT STEP:
+Р”Р»СЏ РїРѕР»РЅРѕР№ РїСЂРѕРІРµСЂРєРё РЅСѓР¶РµРЅ РґРѕСЃС‚СѓРї Рє СЃРµСЂРІРµСЂСѓ РґР»СЏ РЅР°СЃС‚СЂРѕР№РєРё reverse proxy,
+РёР»Рё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ ngrok РґР»СЏ С‚СѓРЅРЅРµР»РёСЂРѕРІР°РЅРёСЏ localhost:8001.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

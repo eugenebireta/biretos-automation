@@ -1,0 +1,75 @@
+==========================================
+  ИНСТРУКЦИЯ ДЛЯ НАСТРОЙКИ НА RU VPS
+==========================================
+
+ПРОБЛЕМА:
+- Webhook не установлен (Telegram требует HTTPS)
+- webhook_service должен быть запущен на RU VPS
+
+РЕШЕНИЕ (выбери один вариант):
+
+==========================================
+ВАРИАНТ 1: Быстрый (если есть домен с SSL)
+==========================================
+
+1. Подключись к RU VPS:
+   ssh user@77.233.222.214
+
+2. Запусти webhook_service:
+   cd /path/to/windmill-core-v1/webhook_service
+   nohup python3 main.py > webhook_service.log 2>&1 &
+
+3. Установи webhook на домен с SSL:
+   curl "https://api.telegram.org/bot8498388416:AAGXJ1Lgdyprvy8gytJnj5V6KmTcCXxXNXk/setWebhook?url=https://your-domain.com/webhook/telegram"
+
+==========================================
+ВАРИАНТ 2: Nginx с самоподписанным SSL
+==========================================
+
+1. На RU VPS создай SSL сертификат:
+   sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+     -keyout /etc/ssl/private/nginx-selfsigned.key \
+     -out /etc/ssl/certs/nginx-selfsigned.crt
+
+2. Настрой nginx (см. DEPLOY_WEBHOOK_RU_VPS.md)
+
+3. Установи webhook:
+   curl "https://api.telegram.org/bot8498388416:AAGXJ1Lgdyprvy8gytJnj5V6KmTcCXxXNXk/setWebhook?url=https://77.233.222.214/webhook/telegram"
+
+==========================================
+ВАРИАНТ 3: Временно через USA VPS
+==========================================
+
+Если срочно нужно запустить, можно временно:
+1. Настроить USA VPS (biretos.ae) для проксирования на RU VPS
+2. Webhook остается на biretos.ae, но запросы идут на RU VPS
+
+==========================================
+ПРОВЕРКА
+==========================================
+
+После настройки:
+1. Проверь webhook:
+   curl "https://api.telegram.org/bot8498388416:AAGXJ1Lgdyprvy8gytJnj5V6KmTcCXxXNXk/getWebhookInfo"
+
+2. Отправь /start боту
+
+3. Проверь логи:
+   tail -f /path/to/windmill-core-v1/webhook_service/webhook_service.log
+
+==========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

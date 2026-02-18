@@ -1,0 +1,45 @@
+WEBHOOK SERVICE DEPLOYMENT COMPLETED
+
+ACTIONS TAKEN:
+1. Added location /webhook/telegram to nginx shopware.conf
+2. Configured proxy_pass to localhost:8001
+3. Reloaded nginx
+4. Copied webhook_service files to server
+5. Installed dependencies
+6. Started webhook_service on server (port 8001)
+
+CONFIGURATION:
+- Public URL: http://biretos.ae/webhook/telegram
+- Backend: http://localhost:8001/webhook/telegram (on server)
+- Webhook: SET to https://biretos.ae/webhook/telegram
+- nginx: reverse proxy configured and reloaded
+
+STATUS:
+- nginx: RUNNING and configured
+- webhook_service: DEPLOYED on server port 8001
+- Reverse proxy: CONFIGURED
+
+READY FOR TESTING:
+System is ready to receive Telegram webhook requests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

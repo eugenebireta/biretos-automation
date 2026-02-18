@@ -1,0 +1,35 @@
+CURRENT STATUS CHECK
+
+COMPLETED:
+1. nginx config: location /webhook/telegram added to shopware.conf
+2. nginx: reloaded successfully
+3. webhook_service files: copied to server
+4. Telegram webhook: SET to https://biretos.ae/webhook/telegram
+
+PENDING VERIFICATION:
+- webhook_service running on server port 8001
+- Reverse proxy working (biretos.ae/webhook/telegram -> localhost:8001)
+- Telegram updates reaching webhook_service
+- Jobs being processed by ru_worker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

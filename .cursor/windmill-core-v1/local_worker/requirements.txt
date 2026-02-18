@@ -1,0 +1,26 @@
+httpx==0.25.1
+
+# Опциональные зависимости:
+
+# torch - для GPU-light heavy compute
+# Для установки с CUDA: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# Для CPU-only: pip install torch torchvision torchaudio
+
+# OCR dependencies (опционально, для ocr_test job_type)
+# Pillow - для обработки изображений (рекомендуется)
+pillow>=10.0.0
+# pytesseract - Python wrapper для Tesseract OCR
+# pip install pytesseract
+# Также требуется установка Tesseract binary:
+# Windows: https://github.com/UB-Mannheim/tesseract/wiki
+# Linux: sudo apt-get install tesseract-ocr
+# macOS: brew install tesseract
+# pdf2image - для обработки PDF (опционально, только для PDF)
+# pip install pdf2image
+# Также требуется poppler:
+# Windows: https://github.com/oschwartz10612/poppler-windows/releases
+# Linux: sudo apt-get install poppler-utils
+# macOS: brew install poppler
+
+# ВАЖНО: OCR dependencies опциональны. Без них pipeline работает в stub/mock режиме.
+

@@ -1,0 +1,34 @@
+{
+  "trace_id": "2d176da5-c62a-4ef8-bb30-8c88a27f298b",
+  "rfq_id": "c34b771d-b78c-4087-a0d4-1fee62ebcbe4",
+  "status": "DONE",
+  "items_count": 4,
+  "part_numbers": [
+    "ABB-AX32-12",
+    "HONEYWELL-HC900",
+    "SIEMENS-6ES7",
+    "TM-TRC-001"
+  ],
+  "contact": {
+    "emails": [
+      "ivan.petrov@example.com"
+    ],
+    "phones": [
+      "+7 (495) 123-45-67"
+    ]
+  },
+  "company": {
+    "inn": "7701234567"
+  },
+  "parsing_metadata": {
+    "llm_used": false
+  },
+  "confidence_overall": 0.9125,
+  "confidence_breakdown": {
+    "part_numbers": 0.95,
+    "phones": 0.9,
+    "emails": 0.9,
+    "inn": 0.9
+  },
+  "raw_text": "Добрый день!\n\nПрошу предоставить коммерческое предложение на следующие позиции:\n\nTM-TRC-001 - 5 шт\nABB-AX32-12 - 2 шт\nSIEMENS-6ES7 - 10 шт\nHONEYWELL-HC900 - 1 шт\n\nКонтактная информация:\nИНН: 7701234567\nEmail: ivan.petrov@example.com\nТелефон: +7 (495) 123-45-67\n\nС уважением,\nИван Петров\nМенеджер по закупкам\n"
+}

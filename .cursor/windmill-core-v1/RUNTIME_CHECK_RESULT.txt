@@ -1,0 +1,55 @@
+RUNTIME DIAGNOSTIC RESULT
+==========================
+
+Проверка выполнена: runtime диагностика webhook_service и Telegram /start
+
+НАЙДЕНО:
+1. webhook_service: НЕ ЗАПУЩЕН
+   - Зависимости не установлены (fastapi, uvicorn, psycopg2-binary)
+   - Порт 8001 не слушает
+
+2. Telegram webhook: НЕ ПРОВЕРЕН
+   - TELEGRAM_BOT_TOKEN не установлен
+   - Невозможно проверить текущую конфигурацию
+
+3. job_queue: НЕ ПРОВЕРЕН
+   - psycopg2 не доступен
+   - Невозможно проверить записи
+
+4. ru_worker: НЕ ПРОВЕРЕН
+   - Требуются зависимости для работы
+
+БЛОКЕРЫ:
+- Отсутствуют Python зависимости (fastapi, uvicorn, psycopg2-binary, pydantic)
+- webhook_service не может запуститься без зависимостей
+- TELEGRAM_BOT_TOKEN не установлен в окружении
+
+РЕЗУЛЬТАТ:
+- webhook_service: NOT_RUNNING (зависимости не установлены)
+- Telegram webhook: NO_TOKEN (токен не установлен)
+- /start reaches webhook: NO (webhook_service не запущен)
+- Bot reply sent: NO (цепочка не работает)
+
+ТОЧКА_ОБРЫВА = Telegram -> webhook (webhook_service не запущен)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

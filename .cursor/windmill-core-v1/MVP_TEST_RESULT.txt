@@ -1,0 +1,43 @@
+TELEGRAM MVP TEST RESULT
+========================
+
+СТАТУС РАЗВЕРТЫВАНИЯ:
+=====================
+✅ PostgreSQL установлен и работает (Docker контейнер biretos-postgres)
+✅ База данных biretos_automation создана
+✅ Таблица job_queue создана и готова
+✅ webhook_service запущен на порту 8001 (health check: OK)
+✅ ru_worker запущен (2 процесса работают)
+✅ .env файл настроен с токеном Telegram
+
+ТЕСТИРОВАНИЕ:
+=============
+✅ Webhook endpoint отвечает: POST /webhook/telegram → {"ok":true,"message":"Update received"}
+
+СЛЕДУЮЩИЕ ШАГИ:
+===============
+1. Настроить Telegram webhook URL (нужен HTTPS домен или reverse proxy)
+2. Отправить /start боту в Telegram для реального теста
+3. Проверить логи ru_worker для обработки команды
+4. Проверить, что бот ответил "OK"
+
+ТЕКУЩИЙ СТАТУС:
+===============
+RESULT: PARTIAL
+- Сервисы запущены и работают
+- Webhook принимает запросы
+- Нужно настроить Telegram webhook URL для реального тестирования
+
+
+
+
+
+
+
+
+
+
+
+
+
+

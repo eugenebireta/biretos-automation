@@ -1,0 +1,42 @@
+REVERSE PROXY SETUP COMPLETED
+
+ACTIONS TAKEN:
+1. Created nginx config: /etc/nginx/sites-available/webhook-service
+2. Added location /webhook/telegram -> proxy_pass http://localhost:8001
+3. Linked config to sites-enabled
+4. Tested nginx config (nginx -t)
+5. Reloaded nginx
+
+CONFIGURATION:
+- Public URL: http://biretos.ae/webhook/telegram
+- Backend: http://localhost:8001/webhook/telegram
+- Webhook: SET to https://biretos.ae/webhook/telegram
+
+ISSUE:
+webhook_service is NOT running on server (localhost:8001 not accessible)
+Need to deploy webhook_service on server OR use SSH tunnel
+
+NEXT STEP:
+Deploy webhook_service on server port 8001 OR setup SSH tunnel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+WEBHOOK STATUS ANALYSIS
+
+FINDINGS:
+1. Webhook установлен на: https://biretos.ae/webhook/telegram
+2. webhook_service работает на: localhost:8001 (не публично доступен)
+3. Есть 1 pending telegram_update job - значит update был получен
+
+PROBLEM:
+Webhook указывает на публичный URL, но webhook_service работает локально.
+Нужно либо:
+- Настроить reverse proxy на сервере (nginx/caddy) для проксирования https://biretos.ae/webhook/telegram -> localhost:8001/webhook/telegram
+- Или использовать ngrok для туннелирования localhost:8001
+
+CURRENT STATUS:
+- Telegram webhook: SET (https://biretos.ae/webhook/telegram)
+- webhook_service: RUNNING (localhost:8001)
+- job_queue: HAS 1 pending telegram_update job
+- ru_worker: NEEDS VERIFICATION (проверка обработки jobs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

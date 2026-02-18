@@ -1,0 +1,51 @@
+TELEGRAM MVP - ФИНАЛЬНЫЙ СТАТУС
+=================================
+
+РЕЗУЛЬТАТ: FAIL
+
+ПРИЧИНА: ru_worker не подключается к PostgreSQL - не загружаются переменные окружения из .env файла
+
+ЧТО СДЕЛАНО:
+============
+✅ PostgreSQL установлен (Docker контейнер biretos-postgres)
+✅ База данных biretos_automation создана
+✅ Таблица job_queue создана
+✅ webhook_service запущен и работает (порт 8001, health check OK)
+✅ Webhook endpoint принимает запросы: POST /webhook/telegram → {"ok":true}
+✅ Код упрощен: /start → sendMessage("OK")
+✅ Файлы развернуты на сервер
+
+ПРОБЛЕМА:
+=========
+❌ ru_worker не может подключиться к PostgreSQL
+   - Ошибка: "fe_sendauth: no password supplied"
+   - Причина: переменные окружения не загружаются в ru_worker.py
+   - ru_worker.py не использует python-dotenv для загрузки .env файла
+
+ИСПРАВЛЕНИЕ:
+============
+Добавить загрузку .env в ru_worker.py (как в webhook_service/main.py):
+```python
+try:
+    from dotenv import load_dotenv
+    env_path = Path(__file__).parent.parent / ".env"
+    load_dotenv(env_path)
+except ImportError:
+    pass
+```
+
+Или запускать ru_worker через скрипт, который экспортирует переменные окружения.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

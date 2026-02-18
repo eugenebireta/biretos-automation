@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: windmill_postgres
+    environment:
+      POSTGRES_DB: windmill
+      POSTGRES_USER: windmill
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-windmill_secure_password_change_me}
+    volumes:
+      - windmill_postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U windmill"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  windmill:
+    image: windmillhq/windmill:latest
+    container_name: windmill_server
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://windmill:${POSTGRES_PASSWORD:-windmill_secure_password_change_me}@postgres:5432/windmill
+      BASE_URL: ${BASE_URL:-http://77.233.222.214:8000}
+      TOKEN_SECRET: ${TOKEN_SECRET:-change_me_to_random_secret}
+      PORT: 8000
+    volumes:
+      - windmill_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  windmill_postgres_data:
+  windmill_data:
+
+
+
+
+
+
+
+
+
+
+
+
+
+

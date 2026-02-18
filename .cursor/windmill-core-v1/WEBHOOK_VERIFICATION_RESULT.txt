@@ -1,0 +1,36 @@
+TELEGRAM WEBHOOK VERIFICATION
+
+STATUS:
+1. Webhook check: PENDING
+2. Webhook setup: PENDING
+3. Logs verification: PENDING
+
+NOTE:
+For webhook to work, webhook_service must be accessible from internet.
+Current setup: localhost:8001 (not publicly accessible)
+Options:
+1. Use ngrok or similar tunnel service
+2. Deploy webhook_service on public server (216.9.227.124)
+3. Configure reverse proxy (nginx/caddy) on server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

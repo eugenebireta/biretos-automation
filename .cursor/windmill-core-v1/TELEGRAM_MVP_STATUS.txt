@@ -1,0 +1,70 @@
+TELEGRAM MVP STATUS REPORT
+===========================
+
+РЕЖИМ: AGENT
+ЦЕЛЬ: Дожать Telegram MVP БЕЗ Windmill на RU VPS (77.233.222.214)
+
+ПРОВЕРКА КОДА:
+==============
+
+✅ 1. Windmill НЕ используется
+   - Добавлены комментарии в webhook_service/main.py (строка 1-6)
+   - Убрано упоминание Windmill из названия приложения
+   - Комментарии в ru_worker/ru_worker.py (строка 16)
+
+✅ 2. webhook_service:
+   - ✅ raw body логируется (main.py:493-548)
+   - ✅ message.chat.id проверяется (main.py:587-625)
+   - ✅ Telegram webhook endpoint: /webhook/telegram
+
+✅ 3. ru_worker:
+   - ✅ Получает telegram_update (ru_worker.py:387-544)
+   - ✅ Создает telegram_command job (ru_worker.py:526-537)
+   - ✅ Обрабатывает /start команду
+
+✅ 4. Упрощенная логика:
+   - ✅ /start → sendMessage("OK") (telegram_command_worker.py:303-314)
+   - ✅ Без кнопок, без state, без бизнес-логики
+   - ✅ Просто отправляет "OK" на /start
+
+ПРОБЛЕМА:
+=========
+❌ PostgreSQL не установлен на сервере 77.233.222.214
+   - Порт 5432 не слушает
+   - Нет PostgreSQL контейнера
+   - База данных biretos_automation не существует
+   - Таблица job_queue не создана
+
+НЕОБХОДИМО:
+===========
+1. Установить PostgreSQL (Docker или системный)
+2. Создать базу данных biretos_automation
+3. Создать пользователя biretos_user
+4. Применить схему schema/job_queue.sql
+5. Настроить .env файл с параметрами подключения
+6. Развернуть webhook_service и ru_worker на сервер
+7. Запустить сервисы
+8. Настроить Telegram webhook
+
+ТЕКУЩИЙ СТАТУС:
+===============
+RESULT: FAIL
+
+Причина: PostgreSQL не установлен, без БД невозможно протестировать MVP
+
+Исправление: Установить PostgreSQL и создать базу данных согласно schema/job_queue.sql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
