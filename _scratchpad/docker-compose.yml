@@ -1,0 +1,18 @@
+services:
+  shopware:
+    image: dockware/dev:latest
+    container_name: shopware
+    ports:
+      - "8000:80"
+      - "8443:443"
+    environment:
+      - APP_URL=https://dev.bireta.ru
+      - TRUSTED_PROXIES=127.0.0.1,172.18.0.1
+      - MYSQL_ROOT_PASSWORD=shopware
+      - MYSQL_DATABASE=shopware
+    volumes:
+      - shopware_files:/var/www/html
+
+volumes:
+  shopware_files:
+

@@ -1,0 +1,87 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "local-socks",
+      "port": 10808,
+      "protocol": "socks",
+      "settings": {
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "moscow-proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "77.233.222.214",
+            "port": 10800,
+            "users": [
+              {
+                "id": "e01f3fb1-f4b8-47c8-a032-2daaa679c816",
+                "encryption": "none",
+                "level": 0
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "chatgpt.com",
+          "*.chatgpt.com",
+          "openai.com",
+          "*.openai.com",
+          "cursor.sh",
+          "anthropic.com",
+          "github.com",
+          "githubusercontent.com",
+          "npmjs.org"
+        ],
+        "outboundTag": "moscow-proxy"
+      },
+      {
+        "type": "field",
+        "ip": ["8.47.69.8", "8.6.112.0/24"],
+        "outboundTag": "moscow-proxy"
+      }
+    ]
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "1.1.1.1",
+        "domains": [
+          "chatgpt.com",
+          "*.chatgpt.com",
+          "openai.com",
+          "*.openai.com",
+          "cursor.sh",
+          "anthropic.com",
+          "github.com",
+          "githubusercontent.com",
+          "npmjs.org"
+        ]
+      },
+      "8.8.8.8"
+    ]
+  }
+}

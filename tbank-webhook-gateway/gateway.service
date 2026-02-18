@@ -1,0 +1,26 @@
+[Unit]
+Description=T-Bank Webhook Gateway
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/tbank-webhook-gateway
+Environment="PATH=/opt/tbank-webhook-gateway/venv/bin"
+EnvironmentFile=/opt/tbank-webhook-gateway/config/gateway.env
+ExecStart=/opt/tbank-webhook-gateway/venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8080 --workers 2
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+
+
+
+

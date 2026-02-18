@@ -1,0 +1,636 @@
+{
+  "{{ messages.design }}": [
+    {
+      "group_name": "{{ messages.background }}",
+      "items": [
+        {
+          "name": "bg",
+          "label": "{{ messages.general_background }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        },
+        {
+          "name": "color-btn-bg",
+          "label": "{{ messages.button_color }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.text }}",
+      "items": [
+        {
+          "name": "color-accent-text",
+          "label": "{{ messages.accent_color_text }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        },
+        {
+          "name": "color-text-dark",
+          "label": "{{ messages.dark_text_color }}",
+          "value": "#000000",
+          "help": "",
+          "type": "color"
+        },
+        {
+          "name": "color-text-light",
+          "label": "{{ messages.light_text_color }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.icons_pack }}",
+      "items": [
+        {
+          "name": "icons_pack",
+          "label": "{{ messages.select_icons_pack }}",
+          "value": null,
+          "options": [
+            [
+              "{{ messages.elementary }}",
+              "elementary"
+            ],
+            [
+              "{{ messages.round }}",
+              "circle"
+            ],
+            [
+              "{{ messages.intermittent }}",
+              "intermittent"
+            ],
+            [
+              "{{ messages.icons_standard }}",
+              "insales-default"
+            ],
+            [
+              "{{ messages.slim_icons }}",
+              "thin"
+            ],
+            [
+              "{{ messages.icons_system }}",
+              "system"
+            ],
+            [
+              "{{ messages.icons_solid }}",
+              "solid"
+            ],
+            [
+              "{{ messages.icons_rounded }}",
+              "rounded"
+            ],
+            [
+              "{{ messages.icons_minimalistic }}",
+              "minimal"
+            ]
+          ],
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.border_radius_btn_form }}",
+      "items": [
+        {
+          "name": "controls-btn-border-radius",
+          "label": "{{ messages.select_border_radius }}",
+          "value": "",
+          "options": [
+            [
+              "{{ messages.border_radius_0 }}",
+              "0px"
+            ],
+            [
+              "{{ messages.border_radius_small }}",
+              "6px"
+            ],
+            [
+              "{{ messages.border_radius_medium }}",
+              "10px"
+            ],
+            [
+              "{{ messages.border_radius_large }}",
+              "30px"
+            ]
+          ],
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.background_notice }}",
+      "items": [
+        {
+          "name": "color-notice-warning",
+          "label": "{{ messages.warning }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        },
+        {
+          "name": "color-notice-success",
+          "label": "{{ messages.success }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        },
+        {
+          "name": "color-notice-error",
+          "label": "{{ messages.error }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        },
+        {
+          "name": "color-notice-info",
+          "label": "{{ messages.information }}",
+          "value": "#ffffff",
+          "help": "",
+          "type": "color"
+        }
+      ]
+    }
+  ],
+  "{{ messages.fonts }}": [
+    {
+      "group_name": "{{ messages.font_main_text }}",
+      "items": [
+        {
+          "name": "font-family",
+          "value": null,
+          "label": "{{ messages.font }}",
+          "type": "fonts_select"
+        },
+        {
+          "name": "font-size",
+          "options": [
+            [
+              "12 px",
+              "12px"
+            ],
+            [
+              "14 px",
+              "14px"
+            ],
+            [
+              "16 px",
+              "16px"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.font_size_primary }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.headers_font }}",
+      "items": [
+        {
+          "name": "font-family-heading",
+          "value": null,
+          "label": "{{ messages.font }}",
+          "type": "fonts_select"
+        },
+        {
+          "name": "heading-ratio",
+          "label": "{{ messages.font_size_primary }}",
+          "class": "range",
+          "min": 1,
+          "max" : 3,
+          "step": 0.25,
+          "type": "number",
+          "with_btns": true
+        },
+        {
+          "name": "heading-weight",
+          "label": "{{ messages.weight_font }}",
+          "class": "range",
+          "min": 100,
+          "max" : 900,
+          "step": 100,
+          "type": "range"
+        }
+      ]
+    }
+  ],
+  "{{ messages.favicon }}": [
+    {
+      "group_name": "{{ messages.favicon }}",
+      "items": [
+        {
+          "name": "favicon.png",
+          "type": "file",
+          "label": "{{ messages.picture }}",
+          "value": null,
+          "help": "",
+          "general": true,
+          "general_label": "{{ messages.favicon }}"
+        }
+      ]
+    }
+  ],
+  "{{ messages.catalog }}": [
+    {
+      "items": [
+        {
+          "name": "collection_count",
+          "value": null,
+          "label": "{{ messages.category_count }}",
+          "min": 2,
+          "max": 100,
+          "step": 1,
+          "type": "number",
+          "with_btns": true
+        }
+      ]
+    }
+  ],
+  "{{ messages.search_placeholder }}": [
+    {
+      "items": [
+        {
+          "name": "search_count",
+          "value": null,
+          "label": "{{ messages.search_count }}",
+          "min": 2,
+          "max": 100,
+          "step": 1,
+          "type": "number",
+          "with_btns": true
+        }
+      ]
+    }
+  ],
+  "{{ messages.blog }}": [
+    {
+      "items": [
+        {
+          "name": "blog_size",
+          "label": "{{ messages.articles_size }}",
+          "value": null,
+          "min": 3,
+          "max": 12,
+          "step": 1,
+          "type": "number",
+          "with_btns": true
+        }
+      ]
+    }
+  ],
+  "{{ messages.purchase_settings }}": [
+    {
+      "group_name": "{{ messages.buy_button }}",
+      "items": [
+        {
+          "name": "product_not_available",
+          "options": [
+            [
+              "{{ messages.show }}",
+              "shown"
+            ],
+            [
+              "{{ messages.pre_order }}",
+              "preorder"
+            ],
+            [
+              "{{ messages.hide }}",
+              "hidden"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.product_not_available }}",
+          "type": "select"
+        }
+      ]
+    }
+  ],
+  "{{ messages.sidebar }}": [
+    {
+      "group_name": "{{ messages.sidebar }}",
+      "items": [
+        {
+          "name": "layout-content-max-width",
+          "label": "{{ messages.max_width_layout }}",
+          "min": 980,
+          "max": 1920,
+          "step": 2,
+          "type": "number",
+          "with_btns": true,
+          "unit": "px",
+          "general": true
+        },
+        {
+          "name": "delta_sidebar",
+          "label": "{{ messages.width }}",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "type": "number",
+          "with_btns": true
+        },
+        {
+          "name":"type_sidebar",
+          "options":[
+            [
+              "{{ messages.normal }}",
+              "normal"
+            ],
+            [
+              "{{ messages.sticky }}",
+              "sticky"
+            ]
+          ],
+          "value":null,
+          "label":"{{ messages.sidebar_type }}",
+          "type":"select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.home_page }}",
+      "items": [
+        {
+          "name": "sidebar_index_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_index_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.catalog_page }}",
+      "items": [
+        {
+          "name": "sidebar_collection_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_collection_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.cart_page }}",
+      "items": [
+        {
+          "name": "sidebar_cart_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_cart_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.product_page }}",
+      "items": [
+        {
+          "name": "sidebar_product_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_product_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.blog_page }}",
+      "items": [
+        {
+          "name": "sidebar_blog_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_blog_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.article_page }}",
+      "items": [
+        {
+          "name": "sidebar_article_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_article_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.text_page }}",
+      "items": [
+        {
+          "name": "sidebar_page_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_page_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.compare_page }}",
+      "items": [
+        {
+          "name": "sidebar_compare_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_compare_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    },
+    {
+      "group_name": "{{ messages.search_page }}",
+      "items": [
+        {
+          "name": "sidebar_search_show",
+          "type": "checkbox",
+          "label": "{{ messages.sidebar_show }}",
+          "value": null,
+          "help": ""
+        },
+        {
+          "name": "sidebar_search_position",
+          "options": [
+            [
+              "{{ messages.align_left}}",
+              "left"
+            ],
+            [
+              "{{ messages.align_right }}",
+              "right"
+            ]
+          ],
+          "value": null,
+          "label": "{{ messages.sidebar_position }}",
+          "type": "select"
+        }
+      ]
+    }
+  ],
+  "{{ messages.feedback_form }}": [
+    {
+      "group_name": "ReCAPTCHA",
+      "items": [
+        {
+          "name": "feedback_captcha_enabled",
+          "type": "checkbox",
+          "label": "{{ messages.enable_recaptcha }}",
+          "value": null,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "{{ messages.favorites }}":[
+    {
+      "items":[
+        {
+          "name":"favorite_enabled",
+          "type":"checkbox",
+          "label":"{{ messages.enable_favorites }}",
+          "value":null,
+          "help":""
+        }
+      ]
+    }
+  ]
+}

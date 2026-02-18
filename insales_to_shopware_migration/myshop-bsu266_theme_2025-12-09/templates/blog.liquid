@@ -1,0 +1,7 @@
+{% assign blog_size = settings.blog_size | default: "6" %}
+{% paginate articles by blog_size %}
+
+{% for widgetDrop in widget_lists.blog-list.widgets %}
+  {% widget widgetDrop %}
+{% endfor %}
+{% endpaginate %}

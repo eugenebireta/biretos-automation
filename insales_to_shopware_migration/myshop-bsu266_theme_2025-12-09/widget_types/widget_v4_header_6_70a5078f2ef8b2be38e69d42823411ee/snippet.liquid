@@ -1,0 +1,348 @@
+{% capture phone_block %}
+  {% if widget_settings.phone_number and widget_settings.phone_number != '' %}
+    <div class="header__phone">
+      <a class="header__phone-value" href="tel:{{widget_settings.phone_number | strip_html | remove: '(' | remove: ')' | remove: '-' | remove: ' ' | lstrip }}">{{widget_settings.phone_number}}</a>
+    </div>
+  {% endif %}
+  {% if widget_settings.phone_number_2 and widget_settings.phone_number_2 != '' %}
+    <div class="header__phone _phone-2">
+      <a class="header__phone-value" href="tel:{{widget_settings.phone_number_2 | strip_html | remove: '(' | remove: ')' | remove: '-' | remove: ' ' | lstrip }}">{{widget_settings.phone_number_2}}</a>
+    </div>
+  {% endif %}
+{% endcapture %}
+
+{% capture logo_block %}
+  {% if widget_settings.logo-img %}
+    {% assign logo_url = widget_settings.logo-img %}
+    {% assign logo_size = widget_settings.logo-max-width | times: 2 | round: 0| default: 400 %}
+    {% unless logo_url contains '.svg' %}
+    {% assign logo_url = widget_settings.logo-img | img_url: logo_size %}
+    {% endunless %}
+    {% if template contains 'index' %}
+      <span class="header__logo">
+        <img src="{{ logo_url }}" alt="{{ account.title }}" title="{{ account.title | strip_html }}" />
+      </span>
+    {% else %}
+      <a href="{% if language.not_default? %}
+      /?lang={{ language.locale }} {% else %} / {% endif %}" class="header__logo">
+        <img src="{{ logo_url }}" alt="{{ account.title }}" title="{{ account.title | strip_html }}" />
+      </a>
+    {% endif %}
+  {% else %}
+      {% if template contains 'index' %}
+        <span class="header__logo">
+          {% default_logo %}
+        </span>
+      {% else %}
+        <a href="{% if language.not_default? %}
+        /?lang={{ language.locale }} {% else %} / {% endif %}" class="header__logo">
+          {% default_logo %}
+        </a>
+      {% endif %}
+  {% endif %}
+{% endcapture %}
+
+
+<div class="header {% if languages.size <= 1 %}header_no-languages{% endif %}">
+  <div class="header__mobile-head">
+    <div class="header__mobile-head-content">
+      <button type="button" class="button button_size-l header__hide-mobile-menu-btn js-hide-mobile-menu">
+          <span class="icon icon-times"></span>
+      </button>
+
+      {% if languages.size > 1 %}
+        {% if editor_mode? or widget_settings.hide-language != true %}
+          <div class="header__mobile-languages">
+            {% for lang in languages %}
+            <a href="?lang={{lang.locale}}" class="header__language {% if language.locale == lang.locale %}is-active{%endif%}">{{ lang.locale }}</a>
+            {% endfor %}
+           </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="header__content">
+    <div class="header-part-main">
+      <div class="header-part-main__inner">
+        <div class="header__area-logo">
+          {{ logo_block }}
+        </div>
+
+        <div class="header__area-catalog">
+          <button type="button" class="button button_size-m header__show-collection-btn js-show-header-collections">
+            <span class="icon icon-bars _show"></span>
+            <span class="icon icon-times _hide"></span>
+            {{ messages.catalog }}
+          </button>
+        </div>
+
+        <div class="header__area-search">
+          <div class="header__search">
+            <form action="/search" method="get" class="header__search-form">
+              <input type="text" autocomplete="off" class="form-control form-control_size-m header__search-field" name="q" value="" placeholder="{{ messages.search_placeholder }}" />
+              <button type="submit" class="button button_size-m header__search-btn">
+                <span class="icon icon-search"></span>
+              </button>
+              <input type="hidden" name="lang" value="{{ language.locale }}">
+            </form>
+            <button type="button" class="button button_size-m header__search-mobile-btn js-show-mobile-search">
+                <span class="icon icon-search _show"></span>
+              <span class="icon icon-times _hide"></span>
+              </button>
+            </div>
+        </div>
+
+
+        <div class="header__area-controls">
+          {% if settings.compare_enabled == null or settings.compare_enabled %}
+          {% if widget_settings.hide-compare != true %}
+            <a href="/compares" class="header__control-btn header__compare" data-compare-counter-btn>
+              <span class="icon icon-compare">
+                <span class="header__control-bage compare-empty" data-compare-counter></span>
+              </span>
+            </a>
+          {% endif %}
+          {% endif %}
+
+          {% if settings.favorite_enabled == true and widget_settings.hide-favorite != true %}
+            <a href="/favorites" class="header__control-btn header__favorite">
+              <span class="icon icon-favorites">
+                <span class="header__control-bage favorites-empty" data-ui-favorites-counter></span>
+              </span>
+            </a>
+          {% endif %}
+
+          {% if editor_mode? or widget_settings.hide-personal != true %}
+            <a href="/client_account/orders" class="button button_size-m header__control-btn header__cabinet">
+              <span class="icon icon-user"></span>
+              <span class="header__control-text" >{{ messages.profile }}</span>
+            </a>
+          {% endif %}
+
+          <a href="{{cart_url}}" class="button button_size-m header__control-btn header__cart">
+            <span class="icon icon-cart">
+            </span>
+            <span class="header__control-text" >{{ messages.cart }}</span>
+            <span class="header__control-bage-cart" data-cart-positions-count></span>
+          </a>
+        </div>
+
+
+        {% assign source_handle = collections.first.parent.handle %}
+        {% assign subcollections_items_limit = widget_settings.subcollections-items-limit | to_integer %}
+
+        {% capture cache_menu_key %}cache_menu_key_{{ collections.last_updated_at }}_{{ language.locale }}_{{ widget_settings.hide-menu-photo }}_{{ widget_settings.subcollections-items-limit }}{% endcapture %}
+
+        <div class="header__collections">
+          <div class="header__collections-content">
+            <div class="header__collections-head">{{messages.catalog}}</div>
+
+            {% assign level_1 = collections[source_handle].subcollections %}
+            <ul class="grid-list header__collections-menu" data-navigation data-subcollections-items-limit={{subcollections_items_limit}}>
+              {% cache cache_menu_key %}
+              {% for level_1_item in level_1 %}
+                {% assign level_2 = level_1_item.subcollections %}
+
+                <li class="header__collections-item is-level-1" data-navigation-item>
+                  {% if editor_mode? or widget_settings.hide-menu-photo != true %}
+                    {% if level_1_item.image.original_url contains 'no_image'%}
+                      {% if level_1_item.products_count > 0 %}
+                        {% assign collection_first_product = level_1_item.products | first %}
+
+                        {% if collection_first_product.images.size > 0 %}
+                          {% assign collection_photo = collection_first_product.first_image %}
+                        {% else %}
+                          {% assign collection_photo = level_1_item.image %}
+                        {% endif %}
+                      {% else %}
+                        {% assign collection_photo = level_1_item.image %}
+                      {% endif%}
+                    {% else %}
+                      {% assign collection_photo = level_1_item.image %}
+                    {% endif %}
+
+                    {% assign img_title = level_1_item.title | escape %}
+                    {% if level_1_item.image.file_name.size > 0 %}
+                      {% assign img_title = level_1_item.image.file_name | escape %}
+                    {% endif %}
+
+                    <a href="{{ level_1_item.url }}" class="img-ratio img-ratio_cover header__collections-photo">
+                      <div class="img-ratio__inner">
+                        {% if level_1_item.image.original_url contains 'no_image'%}
+                          {% if level_1_item.products_count > 0 %}
+                            {% assign collection_first_product = level_1_item.products | first %}
+
+                            {% if collection_first_product.images.size > 0 %}
+                              {% assign collection_photo = collection_first_product.first_image %}
+                            {% else %}
+                              {% assign collection_photo = level_1_item.image %}
+                            {% endif %}
+                          {% else %}
+                              {% assign collection_photo = level_1_item.image %}
+                          {% endif%}
+                        {% else %}
+                            {% assign collection_photo = level_1_item.image %}
+                        {% endif %}
+
+                        {% if collection_photo.original_url contains 'no_image' %}
+                          <picture>
+                            <img data-src="{{ collection_photo.large_url }}" class="lazyload">
+                          </picture>
+                        {% else %}
+                          <picture>
+                            <source data-srcset="{{ collection_photo | image_url: 500, format: 'webp' }}" type="image/webp" class="lazyload">
+                            <img data-src="{{ collection_photo | image_url: 500 }}" class="lazyload">
+                          </picture>
+                        {% endif %}
+                      </div>
+                    </a>
+                  {% endif %}
+
+                  <div class="header__collections-controls">
+                    <a href="{{ level_1_item.url }}" class="header__collections-link" data-navigation-link="{{ level_1_item.url }}" >
+                      {{ level_1_item.title }}
+                    </a>
+
+                    {% if level_2.size > 0 %}
+                      <button class="header__collections-show-submenu-btn js-show-mobile-submenu" type="button">
+                        <span class="icon icon-angle-down"></span>
+                      </button>
+                    {% endif %}
+                  </div>
+
+                  {% if level_2.size > 0 %}
+                    <ul class="header__collections-submenu" data-navigation-submenu>
+                      {% for level_2_item in level_2 %}
+                        <li class="header__collections-item {%if forloop.index > subcollections_items_limit %}is-hide{% endif%}" data-navigation-item>
+                          <div class="header__collections-controls">
+                            <a href="{{ level_2_item.url }}" class="header__collections-link" data-navigation-link="{{ level_2_item.url }}" >
+                              {{ level_2_item.title }}
+                            </a>
+                          </div>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                    <div class="header__collections-show-more {% if level_2.size > subcollections_items_limit %}is-show{% endif %}">
+                      <span class="button-link header__collections-show-more-link js-show-more-subcollections">
+                        <span class="header__collections-show-more-text-show">{{ messages.show_more_subcollections }}</span>
+                        <span class="header__collections-show-more-text-hide">{{ messages.hide }}</span>
+                        <span class="icon icon-angle-down"></span>
+                      </span>
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+              {% endcache %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="header-part-top">
+      <div class="header-part-top__inner">
+        <div class="header__area-menu">
+          <ul class="header__menu js-cut-list" data-navigation data-navigation data-menu-handle="{{ widget_settings.menu_handle }}">
+            {% for link in linklists[widget_settings.menu_handle].links %}
+              <li class="header__menu-item" data-navigation-item data-menu-item-id="{{ link.id}}">
+                <div class="header__menu-controls">
+                  <a href="{{ link.url }}" class="header__menu-link" data-navigation-link="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if languages.size > 1 %}
+        {% if editor_mode? or widget_settings.hide-language != true %}
+
+        <div class="header__languages">
+          
+          
+          <div class="header__languages-cur js-toggle-languages-list">
+            <img src="{{ language.icon_url }}">{{lang.locale}}
+            <span class="icon icon-angle-down"></span>
+          </div>
+          <div class="header__languages-drop">
+            <div class="header__languages-list">
+              {% for lang in languages %}
+              {% if language.locale != lang.locale %}
+                <a href="?lang={{lang.locale}}" class="header__languages-item"><img src="{{ language.icon_url }}">{{lang.locale}}</a>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          
+            {% comment %}
+            <div>
+              {% if languages.size > 1 %}
+                <div>1
+                  {% for language in languages %}
+                    <a href="{{ language.switch_url }}">
+                     <img src="{{ language.icon_url }}">
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            {% endcomment %}
+
+            {% if allow_change_site_currency %}
+            <form action="/site_currencies/update_current" method="post" style="margin: 0 10px;">
+              <select name="site_currency_code" onchange="this.parentNode.submit()">
+                {% for currency in account.site_currencies %}
+                  {% assign selected = "" %}
+                  {% if currency.current %}
+                    {% assign selected = "selected" %}
+                  {% endif %}
+
+                  <option {{ selected }} value="{{ currency.code }}">{{ currency.unit }}&nbsp;{{ currency.code }}</option>
+                {% endfor %}
+              </select>
+            </form>
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+        {% endif %}
+
+        <div class="header__area-contacts">
+          {{phone_block}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="header-mobile-panel">
+  <div class="header-mobile-panel__content">
+    <button type="button" class="button button_size-l header-mobile-panel__show-menu-btn js-show-mobile-menu">
+      <span class="icon icon-bars"></span>
+    </button>
+
+    <div class="header-mobile-panel__logo">
+      {{ logo_block }}
+    </div>
+
+    <div class="header-mobile-panel__controls">
+      <a href="tel:{{widget_settings.phone_number | strip_html | remove: '(' | remove: ')' | remove: '-' | remove: ' ' | lstrip }}" class="header__control-btn header__mobile-cart">
+        <span class="icon icon-phone">     
+        </span>
+      </a>
+      {% comment %}
+      <a href="{{cart_url}}" class="header__control-btn header__mobile-cart">
+        <span class="icon icon-cart">
+          <span class="header__control-bage" data-cart-positions-count></span>
+        </span>
+      </a>
+      {% endcomment %}
+    </div>
+  </div>
+</div>
+
+<div class="header__collections-overlay"></div>
+
+{% assign image_title = null %}

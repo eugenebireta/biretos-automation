@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "mode": "bind-categories",
+  "total_products_processed": 3,
+  "updated": 0,
+  "skipped": 3,
+  "errors": 0,
+  "dry_run": false,
+  "issue": "Товары из InSales snapshot не найдены в Shopware (404 ошибка)",
+  "details": {
+    "problem": "Товары из migration_map.json не существуют в Shopware",
+    "example": {
+      "insales_id": "287629663",
+      "shopware_id_from_map": "a2ced898179e4f0780522e9da562a068",
+      "exists_in_shopware": false,
+      "error": "404 - Resource not found"
+    },
+    "recommendation": "Использовать режим --rebind-categories для товаров, которые уже существуют в Shopware, или сначала импортировать товары из InSales"
+  },
+  "products_in_shopware": {
+    "total": 10,
+    "note": "Товары в Shopware существуют, но не имеют productNumber и не связаны с InSales через migration_map"
+  }
+}
+
+
+

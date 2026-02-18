@@ -1,0 +1,5 @@
+﻿EnvPath: C:\cursor_project\biretos-automation
+CHECK .env => Exists=True Path=C:\cursor_project\biretos-automation\.env
+CHECK .env.n8n => Exists=False Path=C:\cursor_project\biretos-automation\.env.n8n
+CHECK env_keys_READY_TO_RENAME => Exists=False Path=C:\cursor_project\biretos-automation\env_keys_READY_TO_RENAME
+CHECK config/secrets.json => Exists=False Path=C:\cursor_project\biretos-automation\config\secrets.json

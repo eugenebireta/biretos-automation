@@ -1,0 +1,9 @@
+      {% if product.id %}
+        <script>
+          window.convead_product_info = {
+            product_id: '{{ product.id }}',
+            product_name: '{{ product.title }}',
+            product_url: '{{ account.url }}{{ product.canonical_url }}'
+          };
+        </script>
+      {% endif %}

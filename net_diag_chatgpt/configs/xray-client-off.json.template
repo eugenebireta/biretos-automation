@@ -1,0 +1,29 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "local-socks",
+      "port": {{PROXY_SOCKS5_PORT}},
+      "protocol": "socks",
+      "settings": {
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch"
+  },
+  "dns": {
+    "servers": [
+      "8.8.8.8"
+    ]
+  }
+}

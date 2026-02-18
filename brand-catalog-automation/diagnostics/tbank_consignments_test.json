@@ -1,0 +1,114 @@
+﻿{
+    "generated_at":  "2025-12-07T17:48:17.1666955Z",
+    "base_url":  "https://api.tbank.ru",
+    "results":  [
+                    {
+                        "endpoint":  "/v1/consignments?limit=3\u0026status=paid",
+                        "url":  "https://api.tbank.ru/v1/consignments?limit=3\u0026status=paid",
+                        "status":  null,
+                        "headers":  {
+                                        "timing-allow-origin":  "https://www.tinkoff.ru",
+                                        "access-control-allow-origin":  "*",
+                                        "access-control-allow-methods":  "GET, POST, PUT, DELETE, HEAD",
+                                        "x-envoy-upstream-service-time":  "3",
+                                        "x-k8s-istio-drop-ok":  "true",
+                                        "pragma":  "no-cache",
+                                        "Content-Length":  "224",
+                                        "Cache-Control":  "max-age=1,no-cache, must-revalidate, proxy-revalidate, no-store",
+                                        "Content-Type":  "application/json;charset=utf-8",
+                                        "Date":  "Sun, 07 Dec 2025 17:48:18 GMT",
+                                        "Expires":  "Sun, 07 Dec 2025 17:48:19 GMT",
+                                        "Last-Modified":  "Sun, 07 Dec 2025 17:48:18 GMT",
+                                        "Server":  "MSX Turbo R (R900) Web Server 1.13",
+                                        "X-Powered-By":  "MSX Basic Web Clustered Engine (WCE pi) - NG",
+                                        "x-edge-processing-time":  "7",
+                                        "strict-transport-security":  "max-age=63072000"
+                                    },
+                        "body_raw":  "{\"resultCode\":\"INVALID_REQUEST_DATA\",\"errorMessage\":\"3N65X5G6G - Неизвестный тип запроса consignments\",\"plainMessage\":\"Неизвестный тип запроса consignments\",\"trackingId\":\"3N65X5G6G\"}",
+                        "body_json":  {
+                                          "resultCode":  "INVALID_REQUEST_DATA",
+                                          "errorMessage":  "3N65X5G6G - Неизвестный тип запроса consignments",
+                                          "plainMessage":  "Неизвестный тип запроса consignments",
+                                          "trackingId":  "3N65X5G6G"
+                                      }
+                    },
+                    {
+                        "endpoint":  "/v1/consignments?limit=3",
+                        "url":  "https://api.tbank.ru/v1/consignments?limit=3",
+                        "status":  null,
+                        "headers":  {
+                                        "timing-allow-origin":  "https://www.tinkoff.ru",
+                                        "access-control-allow-origin":  "*",
+                                        "access-control-allow-methods":  "GET, POST, PUT, DELETE, HEAD",
+                                        "x-envoy-upstream-service-time":  "3",
+                                        "x-k8s-istio-drop-ok":  "true",
+                                        "pragma":  "no-cache",
+                                        "Content-Length":  "224",
+                                        "Cache-Control":  "max-age=1,no-cache, must-revalidate, proxy-revalidate, no-store",
+                                        "Content-Type":  "application/json;charset=utf-8",
+                                        "Date":  "Sun, 07 Dec 2025 17:48:18 GMT",
+                                        "Expires":  "Sun, 07 Dec 2025 17:48:19 GMT",
+                                        "Last-Modified":  "Sun, 07 Dec 2025 17:48:18 GMT",
+                                        "Server":  "MSX Turbo R (R900) Web Server 1.13",
+                                        "X-Powered-By":  "MSX Basic Web Clustered Engine (WCE pi) - NG",
+                                        "x-edge-processing-time":  "9",
+                                        "strict-transport-security":  "max-age=63072000"
+                                    },
+                        "body_raw":  "{\"resultCode\":\"INVALID_REQUEST_DATA\",\"errorMessage\":\"LKZKG69BJ - Неизвестный тип запроса consignments\",\"plainMessage\":\"Неизвестный тип запроса consignments\",\"trackingId\":\"LKZKG69BJ\"}",
+                        "body_json":  {
+                                          "resultCode":  "INVALID_REQUEST_DATA",
+                                          "errorMessage":  "LKZKG69BJ - Неизвестный тип запроса consignments",
+                                          "plainMessage":  "Неизвестный тип запроса consignments",
+                                          "trackingId":  "LKZKG69BJ"
+                                      }
+                    },
+                    {
+                        "endpoint":  "/v1/invoices?limit=3\u0026status=paid",
+                        "url":  "https://api.tbank.ru/v1/invoices?limit=3\u0026status=paid",
+                        "status":  null,
+                        "headers":  {
+                                        "timing-allow-origin":  "https://www.tinkoff.ru",
+                                        "access-control-allow-origin":  "*",
+                                        "access-control-allow-methods":  "GET, POST, PUT, DELETE, HEAD",
+                                        "x-envoy-upstream-service-time":  "5",
+                                        "x-k8s-istio-drop-ok":  "true",
+                                        "pragma":  "no-cache",
+                                        "Content-Length":  "216",
+                                        "Cache-Control":  "max-age=1,no-cache, must-revalidate, proxy-revalidate, no-store",
+                                        "Content-Type":  "application/json;charset=utf-8",
+                                        "Date":  "Sun, 07 Dec 2025 17:48:18 GMT",
+                                        "Expires":  "Sun, 07 Dec 2025 17:48:19 GMT",
+                                        "Last-Modified":  "Sun, 07 Dec 2025 17:48:18 GMT",
+                                        "Server":  "MSX Turbo R (R900) Web Server 1.13",
+                                        "X-Powered-By":  "MSX Basic Web Clustered Engine (WCE pi) - NG",
+                                        "x-edge-processing-time":  "14",
+                                        "strict-transport-security":  "max-age=63072000"
+                                    },
+                        "body_raw":  "{\"resultCode\":\"INVALID_REQUEST_DATA\",\"errorMessage\":\"LRHRAMPT6 - Неизвестный тип запроса invoices\",\"plainMessage\":\"Неизвестный тип запроса invoices\",\"trackingId\":\"LRHRAMPT6\"}",
+                        "body_json":  {
+                                          "resultCode":  "INVALID_REQUEST_DATA",
+                                          "errorMessage":  "LRHRAMPT6 - Неизвестный тип запроса invoices",
+                                          "plainMessage":  "Неизвестный тип запроса invoices",
+                                          "trackingId":  "LRHRAMPT6"
+                                      }
+                    },
+                    {
+                        "endpoint":  "/api/v1/consignments?limit=3",
+                        "url":  "https://api.tbank.ru/api/v1/consignments?limit=3",
+                        "status":  null,
+                        "headers":  {
+                                        "x-edge-processing-time":  "1",
+                                        "strict-transport-security":  "max-age=63072000",
+                                        "Content-Length":  "44",
+                                        "Content-Type":  "application/json",
+                                        "Date":  "Sun, 07 Dec 2025 17:48:18 GMT",
+                                        "Server":  "MSX Turbo R (R900) Web Server 1.13",
+                                        "X-Powered-By":  "MSX Basic Web Clustered Engine (WCE pi) - NG"
+                                    },
+                        "body_raw":  "{\"status\": \"What did you want to see here?\"}",
+                        "body_json":  {
+                                          "status":  "What did you want to see here?"
+                                      }
+                    }
+                ]
+}

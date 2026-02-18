@@ -1,0 +1,9 @@
+{% assign search_size = settings.search_count | default: "12" %}
+
+{% paginate search.results by search_size %}
+
+{% for widgetDrop in widget_lists.search-list.widgets %}
+  {% widget widgetDrop %}
+{% endfor %}
+
+{% endpaginate %}

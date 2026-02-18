@@ -1,0 +1,35 @@
+{
+  "_comment": "CRITICAL: This file is auto-loaded by AI. Do NOT hardcode IPs in scripts.",
+  "servers": {
+    "biretos-prod": {
+      "strict_mode": true,
+      "host": "216.9.227.124",
+      "user": "root",
+      "description": "Production VPS (biretos.ae) - USA Exit Node",
+      "ssh_key_path": "~/.ssh/id_rsa",
+      "wireguard": {
+        "interface": "wg0",
+        "internal_ip": "10.99.99.1/24",
+        "port": 51821
+      }
+    },
+    "biretos-dev": {
+      "strict_mode": true,
+      "host": "77.233.222.214",
+      "user": "root",
+      "description": "Development Server - Moscow Relay Node",
+      "ssh_key_path": "~/.ssh/id_rsa",
+      "wireguard": {
+        "interface": "wg0",
+        "internal_ip": "10.99.99.2/24"
+      },
+      "xray": {
+        "port": 10800,
+        "protocol": "vless"
+      }
+    }
+  }
+}
+
+
+

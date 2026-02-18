@@ -1,0 +1,17 @@
+# ⚠️ ERROR PROTOCOL TRIGGER (Always Active)
+
+IF ANY TOOL FAILS (Timeout, Error, Exit Code != 0):
+→ IMMEDIATELY read `ai_engineering/AI_ISSUES_LOG.md`
+→ THEN read `ai_engineering/autonomous_debug_rules.txt` Section 3
+→ DO NOT retry command until analysis is complete
+
+This trigger overrides all other instincts. No exceptions.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html
+  class="{{ default_checkout2_layout_class }}"
+  style="
+    {% include "system_v4_required_styles" %}
+  "
+>
+  <head>
+    {% include "head" %}
+  </head>
+  <body class="adaptive" data-multi-lang="{{ language.not_default? }}" data-theme-template="{{ template }}">
+    {% include "system_no_js_alert" %}
+    <div class="page_layout page_layout-clear">
+      <header>
+        {% for widgetDrop in widget_lists.header-list.widgets %}
+        {% widget widgetDrop %}
+        {% endfor %}
+      </header>
+      <main>
+        <div class="layout">
+          <div class="layout__content">
+            <div class='checkout-v2-wrapper co-section--checkout_content'>
+              <div class='co-section--checkout_order co-section--checkout_order_sided'>
+                <div class='co-section--checkout_header co-checkout-block--padded'>
+                  <div class="decorated-title-wrapper co-checkout-title">
+                    <h1 class='decorated-title co-title co-title--h1'>
+                      {% yield 'title' %}
+                    </h1>
+                  </div>
+                </div>
+                {% yield 'sidebar' %}
+                {% yield %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        {% for widgetDrop in widget_lists.footer-list.widgets %}
+        {% widget widgetDrop %}
+        {% endfor %}
+      </footer>
+    </div>
+    
+    <div data-fixed-panels="bottom">
+      {% for widgetDrop in widget_lists.bottom-panel-list.widgets %}
+      {% widget widgetDrop %}
+      {% endfor %}
+    </div>
+
+    <div class="outside-widgets">
+      {% for widgetDrop in widget_lists.outside-list.widgets %}
+      {% widget widgetDrop %}
+      {% endfor %}
+    </div>
+  </body>
+  {{ 'checkout2.core' | global_stylesheet_tag }}
+
+  {%- capture css_js_lists -%}header-list, footer-list, sidebar-list, outside-list, {{ template }}-list, {{ template }}-section_top-list, {{ template }}-section_bottom-list, bottom-panel-list, top-panel-list{%- endcapture -%}
+
+  {% if sidebar_show %}
+    {% if template contains 'blog' or template contains 'article' %}
+        {% assign css_js_lists = css_js_lists | append: ', sidebar_blog-list' %}
+    {% else %}
+        {% assign css_js_lists = css_js_lists | append: ', sidebar-list' %}
+    {% endif %}
+  {% endif %}
+
+  {% widgets_assets css_js_lists %}
+
+  {% include "styles" %}
+  <script src="{{ 'theme.js' | asset_url }}" charset="utf-8"></script>
+
+  {% include "microdata" %}
+</html>

@@ -1,0 +1,22 @@
+# ============================================
+# Cursor Global Rules for Biretos Automation
+# ============================================
+
+# 1. Controlled Context Loading
+# Always load the AI engineering instructions before any planning or execution.
+
+@include ai_engineering/ask_autoload.txt
+
+# Do not remove the include above. All Ask/Plan/Agent sessions must obey the
+# Controlled Context Rule, architecture constraints, and behavior layers defined
+# under ai_engineering/.
+
+# 2. Autonomous Engineer Mode
+# - Каждый новый чат обязан начинаться с Pre-Flight Check (ключи, env, инфраструктура).
+# - Любой код должен быть протестирован автоматически до отчёта пользователю.
+# - При ошибках запускать Autonomous Debug Loop (до 3 попыток) перед обращением к пользователю.
+# - Минимизировать вопросы: использовать No-Nagging Policy и делать безопасные предположения.
+# - В отчётах показывать статус Pre-Flight, количество попыток и результат тестов.
+# - Любые действия обязаны следовать ARCHITECTURE_GUIDE.md и CONTEXT_RULES.md.
+
+

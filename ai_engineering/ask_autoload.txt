@@ -1,0 +1,77 @@
+# ============================================
+# MINIMAL AUTOLOAD SET — Context Router Default Mode
+# ============================================
+#
+# КРИТИЧЕСКОЕ ПРАВИЛО: Загрузка остальных правил ЗАПРЕЩЕНА напрямую.
+# Все остальные правила загружаются ТОЛЬКО через AI_CONTEXT_ROUTER.md
+# по категории задачи (planning, execution, preflight, debug, architecture и т.д.).
+#
+# Это обеспечивает:
+# - Экономию токенов (загружаются только нужные правила)
+# - Узкую загрузку контекста вместо чтения всех правил подряд
+# - Дефолтный режим "правила работы" без напоминаний пользователя
+#
+# См. также: ai_engineering/AI_CONTEXT_ROUTER.md для алгоритма выбора ON-DEMAND групп.
+
+# === MINIMAL AUTOLOAD SET (всегда загружается) ===
+
+@include ai_engineering/error_protocol_trigger.txt
+# Высший приоритет: "overrides all other instincts. No exceptions."
+# Критичен для безопасности при любых ошибках
+
+@include ai_engineering/ask_context_wrapper.txt
+# Базовое правило Controlled Context Mode
+# Запрет автоматического сканирования проекта
+
+@include ai_engineering/ask_behavior_rules.txt
+# Базовые правила поведения ASK
+# Формирование плана, запрос подтверждения, запрет выполнения
+
+@include ai_engineering/AI_CONTEXT_ROUTER.md
+# Meta-router для выбора правил по задаче
+# Определяет, ЧТО читать из системы AI-правил
+
+@include ai_engineering/AI_RULES_INDEX.md
+# Навигационный индекс для контекст-роутинга
+# Карта всех правил и их ролей
+
+# === ЗАПРЕТ ПРЯМОЙ ЗАГРУЗКИ ===
+#
+# СТРОГО ЗАПРЕЩЕНО добавлять @include для остальных файлов правил:
+# - agent_behavior_rules.txt
+# - plan_sanitizer_rules.txt
+# - agent_safety_executor.txt
+# - loop_protection_rules.txt
+# - personality_rules.txt
+# - intent_expansion_rules.txt
+# - clarification_filter_rules.txt
+# - smooth_interaction_rules.txt
+# - self_reflection_kernel.txt
+# - preflight_check_rules.txt
+# - autonomous_debug_rules.txt
+# - no_nagging_policy.txt
+# - key_vault_map.txt
+# - infrastructure/config/servers.json
+#
+# Эти файлы загружаются ТОЛЬКО через AI_CONTEXT_ROUTER.md по категории задачи.
+# Нарушение этого правила считается архитектурной ошибкой.
+
+# === СПРАВОЧНАЯ ИНФОРМАЦИЯ (не загружается автоматически) ===
+
+# ARCHITECTURAL GATE: Mechanism Hierarchy
+# Перед созданием ЛЮБОГО нового механизма ОБЯЗАТЕЛЬНО проверь:
+#   ai_engineering/MECHANISM_HIERARCHY.md
+# Правило: "Если PRIMARY механизм существует — создание нового запрещено."
+# Загружается через AI_CONTEXT_ROUTER.md GROUP "architecture" или on-demand.
+
+# CRITICAL: Agent Network Safety Rules
+# Agent must NEVER run ssh/xray/wg directly via run_terminal_cmd.
+# Use ONLY safe-run scripts for background processes:
+#   pwsh infrastructure/safe-run/Start-Xray.ps1
+#   pwsh infrastructure/safe-run/Start-SSH-Tunnel.ps1
+#   pwsh infrastructure/safe-run/Check-Tunnel.ps1
+# For remote execution use existing wrappers:
+#   pwsh infrastructure/scripts/Invoke-SafeSsh.ps1 -ServerName <name> -Command "..."
+#   pwsh infrastructure/scripts/Invoke-SafeScp.ps1 -ServerName <name> -Source ... -Destination ...
+# ssh-keygen MUST NOT be executed by the agent. User ONLY. Never via run_terminal_cmd.
+# Загружается через AI_CONTEXT_ROUTER.md GROUP "network" при работе с SSH/SCP.

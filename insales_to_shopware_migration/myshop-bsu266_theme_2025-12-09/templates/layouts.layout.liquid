@@ -1,0 +1,144 @@
+{%- assign setting_show = 'sidebar_' | append: template | append: '_show' -%}
+{%- assign setting_position = 'sidebar_' | append: template | append: '_position' -%}
+{%- assign layout_delta = template | append: '_delta_sidebar' -%}
+
+{%- assign sidebar_show = settings[setting_show] -%}
+{%- assign sidebar_type = settings.type_sidebar | default: 'normal' -%}
+{%- assign sidebar_position = settings[setting_position] -%}
+
+<!DOCTYPE html>
+<html
+  style="
+    {% include "system_v4_required_styles" %}
+  "
+  >
+  <head>
+    {% include "head" %}
+  </head>
+  <body data-multi-lang="{{ language.not_default? }}" data-theme-template="{{ template }}" data-sidebar-type="{{ sidebar_type }}" data-sidebar-position="{{ sidebar_position }}">
+    <div class="preloader">
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+    {% include "system_no_js_alert" %}
+    <div class="page_layout {% if sidebar_show %}page_layout_{{ sidebar_type }}_{{ sidebar_position }}{% else %}page_layout-clear{% endif %} {{- settings.fixed_sidebar_border -}} {% if template contains 'collection' %}page_layout_section_top{% endif %}">
+      <header>
+      {% for widgetDrop in widget_lists.header-list.widgets %}
+        {% widget widgetDrop %}
+      {% endfor %}
+      </header>
+
+      {% if template contains 'collection' %}
+      <section class="page_section_top">
+        {% for widgetDrop in widget_lists.collection-section_top-list.widgets %}
+          {% widget widgetDrop %}
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      <main>
+        {{ content_for_layout }}
+      </main>
+
+      {% if sidebar_show or editor_mode? %}
+      <aside>
+        <section data-sidebar>
+          {% if template contains 'blog' %}
+            {% for widgetDrop in widget_lists.sidebar_blog-list.widgets %}
+              {% widget widgetDrop %}
+            {% endfor %}
+            {% elsif template contains 'collection'  %}
+                {% for widgetDrop in widget_lists.sidebar_collection-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'index' %}
+                {% for widgetDrop in widget_lists.sidebar_index-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'article' %}
+                {% for widgetDrop in widget_lists.sidebar_article-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'compares' %}
+                {% for widgetDrop in widget_lists.sidebar_compare-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'product' %}
+                {% for widgetDrop in widget_lists.sidebar_product-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'favorite' %}
+                {% for widgetDrop in widget_lists.sidebar_favorite-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'search' %}
+                {% for widgetDrop in widget_lists.sidebar_search-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'page' %}
+                {% for widgetDrop in widget_lists.sidebar_page-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}
+            {% elsif template contains 'cart' %}
+                {% for widgetDrop in widget_lists.sidebar_cart-list.widgets %}
+                  {% widget widgetDrop %}
+                {% endfor %}      
+            {% endif %}
+        </section>
+      </aside>
+      {% endif %}
+
+      <footer>
+        {% for widgetDrop in widget_lists.footer-list.widgets %}
+          {% widget widgetDrop %}
+        {% endfor %}
+      </footer>
+    </div>
+    
+    <div data-fixed-panels="bottom">
+      {% for widgetDrop in widget_lists.bottom-panel-list.widgets %}
+        {% widget widgetDrop %}
+      {% endfor %}
+    </div>
+
+    <div class="outside-widgets">
+      {% for widgetDrop in widget_lists.outside-list.widgets %}
+        {% widget widgetDrop %}
+      {% endfor %}
+    </div>
+  </body>
+
+
+	{%- capture css_js_lists -%}header-list, footer-list, sidebar-list, outside-list, {{ template }}-list, {{ template }}-section_top-list, {{ template }}-section_bottom-list, bottom-panel-list, top-panel-list{%- endcapture -%}
+
+  {% if sidebar_show or editor_mode? %}
+    {% if template contains 'blog' %}
+    {% assign css_js_lists = css_js_lists | append: ', sidebar_blog-list' %}
+    {% elsif template contains 'article' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_article-list' %}
+    {% elsif template contains 'index' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_index-list' %}
+    {% elsif template contains 'collection' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_collection-list' %}
+    {% elsif template contains 'product' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_product-list' %}
+    {% elsif template contains 'compares' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_compare-list' %}
+    {% elsif template contains 'favorite' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_favorite-list' %}
+    {% elsif template contains 'search' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_search-list' %}
+    {% elsif template contains 'page' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_page-list' %}
+    {% elsif template contains 'cart' %}
+      {% assign css_js_lists = css_js_lists | append: ', sidebar_cart-list' %}
+    {% endif %}
+  {% endif %}
+
+  {% widgets_assets css_js_lists %}
+
+  {% include "styles" %}
+
+  <script src="{{ 'theme.js' | asset_url }}" charset="utf-8"></script>
+
+  {% include "microdata" %}
+</html>

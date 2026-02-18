@@ -1,0 +1,59 @@
+"""
+Очистка кеша Shopware для отображения изменений на сайте.
+"""
+import sys
+from pathlib import Path
+import paramiko
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "insales_to_shopware_migration" / "src"))
+
+from import_utils import load_json, ROOT
+
+config = load_json(ROOT / "config.json")
+
+# Параметры SSH
+host = "77.233.222.214"
+ssh_username = "root"
+ssh_password = "HuPtNj39"
+container_name = "shopware"
+
+print("Очистка кеша Shopware...")
+print(f"Подключение к {host}...")
+
+try:
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(host, username=ssh_username, password=ssh_password, timeout=10)
+    print(f"  [OK] Подключено к {host}")
+    
+    # Очистка кеша
+    print("\nВыполнение cache:clear...")
+    command = f"docker exec {container_name} php bin/console cache:clear"
+    stdin, stdout, stderr = ssh.exec_command(command, timeout=60)
+    
+    output_lines = []
+    for line in stdout:
+        try:
+            line_str = line.decode('utf-8', errors='ignore').strip()
+            if line_str:
+                output_lines.append(line_str)
+                print(f"    {line_str}")
+        except:
+            pass
+    
+    exit_status = stdout.channel.recv_exit_status()
+    
+    if exit_status == 0:
+        print(f"  [OK] Кеш очищен успешно")
+    else:
+        print(f"  [WARNING] Кеш очищен с кодом {exit_status}")
+    
+    ssh.close()
+    
+except Exception as e:
+    print(f"  [ERROR] Ошибка: {e}")
+    import traceback
+    traceback.print_exc()
+    sys.exit(1)
+
+print("\n✅ Готово! Изменения должны отобразиться на сайте.")

@@ -1,0 +1,27 @@
+﻿
+
+
+[TEST] GET https://business.tinkoff.ru/openapi/api/v1/company
+{"name":"РРџ Р‘РР Р•РўРђ Р•Р’Р“Р•РќРР™ РџРђР’Р›РћР’РР§","city":"","requisites":{"fullName":"РРќР”РР’РР”РЈРђР›Р¬РќР«Р™ РџР Р•Р”РџР РРќРРњРђРўР•Р›Р¬ Р‘РР Р•РўРђ Р•Р’Р“Р•РќРР™ РџРђР’Р›РћР’РР§","foreignName":"PE BIRETA EVGENIY PAVLOVICH","address":",426003,,, РР¶РµРІСЃРє Рі,, РљР°СЂР»Р° РњР°СЂРєСЃР° СѓР», Рґ 130,,","legalAddress":"427693, Р РћРЎРЎРРЇ, РЈР”РњРЈР РўРЎРљРђРЇ Р Р•РЎРџ, Р®РљРђРњР•РќРЎРљРР™ Р -Рќ, Р”Р•Р Р•Р’РќРЇ РњРЈР›Р›РРќРћ, РЈР› РўРћРџРћР›РРќРђРЇ, 14","inn":"744715563839","ogrn":"320745600102092"},"bank":{"bankName":"РђРћ \"РўР‘РђРќРљ\"","bankAddress":"РњРѕСЃРєРІР°, 127287, СѓР». РҐСѓС‚РѕСЂСЃРєР°СЏ 2-СЏ, Рґ. 38Рђ, СЃС‚СЂ. 26","corrAccount":"30101810145250000974","bankInn":"7710140679","bankBic":"044525974"},"registrationDate":"2020-09-07","opf":"РРџ","taxationScheme":"USN_INCOMES","legalStatus":"active"}
+HTTP_CODE:200
+---
+
+[TEST] GET https://business.tinkoff.ru/openapi/api/v1/bank-statement
+{"errorId":"25cb6c6b0e","errorMessage":"Р’Р°С€ Р·Р°РїСЂРѕСЃ РЅРµРІР°Р»РёРґРµРЅ: Invalid value for: query parameter accountNumber (missing)","errorCode":"INVALID_DATA"}
+HTTP_CODE:400
+---
+
+[TEST] GET https://business.tinkoff.ru/openapi/api/v1/statement
+{"errorMessage":"Р’Р°С€ Р·Р°РїСЂРѕСЃ РЅРµРІР°Р»РёРґРµРЅ: Invalid data","errorCode":"VALIDATION_ERROR","errorId":"5d0da9f7-87a7-4432-8493-941fa7a170cf","errorDetails":{"validation error":"Query parameter 'accountNumber' is required on path '/api/v1/statement' but not found in request.; Query parameter 'from' is required on path '/api/v1/statement' but not found in request."}}
+HTTP_CODE:400
+---
+
+[TEST] GET https://business.tinkoff.ru/openapi/api/v1/invoices
+<html><body><h1>Resource not found</h1></body></html>
+HTTP_CODE:404
+---
+
+[TEST] GET https://business.tinkoff.ru/openapi/api/v1/consignments
+<html><body><h1>Resource not found</h1></body></html>
+HTTP_CODE:404
+---

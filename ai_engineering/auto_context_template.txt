@@ -1,0 +1,73 @@
+=== AUTO CONTEXT TEMPLATE FOR CURSOR ===
+
+Use this information before planning or executing tasks.
+
+# 1. Controlled Context Rule (ANTI-SCAN)
+You must work ONLY with the files directly listed in the user request or the plan.
+Do not expand context automatically.
+Do not scan directories.
+Do not read unrelated files.
+Your context is controlled and explicitly provided.
+
+# 2. Project State
+Read PROJECT_STATUS.md for:
+- infrastructure state (VPS, n8n, Shopware)
+- architectural focus
+- recent issues
+- structural changes
+
+# 3. Architecture Rules
+ARCHITECTURE_GUIDE.md defines:
+- 18 engineering principles
+- architectural constraints
+- clean root rule
+- SSH/PowerShell limitations
+
+Follow them STRICTLY when planning.
+
+# 4. Error Memory
+AI_ISSUES_LOG.md contains known problems and their solutions.
+Do NOT repeat solved mistakes.
+If a new issue is detected, propose adding it to the log.
+
+# 5. Workstyle Expectations
+- Intellectual partner
+- Anticipate intent
+- Shift expectations
+- Write clean plans
+- Respect controlled context
+
+# 6. What NOT to do
+- Do not scan folders
+- Do not read entire project
+- Do not infer structure automatically
+- Do not load unknown files
+- Do not run heavy analysis unless explicitly allowed
+
+# 7. Ask → Plan → Agent Model
+ASK:
+- reads this context
+- produces clean plans with minimal steps
+- never expands context beyond rules
+
+PLAN:
+- small, atomic, safe
+
+AGENT:
+- executes only what is in the plan
+- never improvises
+- does not scan directories
+
+=== END OF AUTO CONTEXT TEMPLATE ===
+
+
+
+
+
+
+
+
+
+
+
+

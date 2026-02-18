@@ -1,0 +1,26 @@
+// settings_data
+@import "settings";
+
+.outside-widgets .delete-widget-link {
+  display: none;
+}
+
+.outside-widgets .add-widget-link {
+  display: none;
+}
+
+[data-fixed-panels] .delete-widget-link {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  [style*="--is-editor:true"] .outside-widgets {
+    display: none;
+  }
+  .edit-widget-buttons .widget-name {
+    display: none !important;
+  }
+  [data-fixed-panels] [data-widget-add] {
+    display: none;
+  }
+}

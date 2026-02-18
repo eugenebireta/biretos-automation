@@ -1,0 +1,26 @@
+# Key Vault Map — единственные источники прав доступа
+
+OPENROUTER_API_KEY      -> .env (корень проекта) / .env.n8n
+OPENROUTER_REFERER      -> .env.n8n
+N8N_API_KEY             -> .env.n8n
+N8N_URL                 -> .env.n8n
+SSH_PASSWORD / SECRETS  -> config/secrets.json
+TBANK_API_KEYS          -> brand-catalog-automation/diagnostics/tbank_env_keys.txt
+SHOPWARE_CREDENTIALS    -> config/secrets.json
+
+# Правила использования
+- Перед тем как спрашивать пользователя, нужно проверить ВСЕ пути из списка.
+- Загружать файлы через стандартные механизмы (dotenv, ConvertFrom-Json, etc).
+- Если ключа нет во всех перечисленных местах — тогда можно запрашивать у пользователя, указав где уже искали.
+
+
+
+
+
+
+
+
+
+
+
+

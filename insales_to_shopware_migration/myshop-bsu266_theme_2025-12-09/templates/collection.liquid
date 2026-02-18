@@ -1,0 +1,11 @@
+{% assign filter_active = false %}
+{% assign display_filter = false %}
+{% assign collection_size = settings.collection_count | default: "12" %}
+
+{% paginate products by collection_size %}
+
+  {% for widgetDrop in widget_lists.collection-list.widgets %}
+    {% widget widgetDrop %}
+  {% endfor %}
+
+{% endpaginate %}

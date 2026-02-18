@@ -1,0 +1,1143 @@
+{
+  "updatedAt": "2025-11-30T14:58:17.522Z",
+  "createdAt": "2025-11-30T14:09:11.403Z",
+  "id": "F0kItSroUzZ9QxLP",
+  "name": "T-Bank Orders to Insales via Telegram - Biretos",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ]
+      },
+      "id": "telegram-command-trigger",
+      "name": "Telegram Command Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ],
+      "webhookId": "tbank-orders-telegram-trigger",
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "🔵 TRIGGER: Получает сообщения из Telegram\n\n📋 КОМАНДЫ:\n- /orders - показать последние 3 накладных из Т-Банка\n- Текстовые ответы (телефон, email) во время диалога\n\n⚠️ ВАЖНО: Используйте тот же Telegram Bot что и в других workflows"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-orders-command",
+              "leftValue": "={{ $json.message?.text || '' }}",
+              "rightValue": "/orders",
+              "operator": {
+                "type": "string",
+                "operation": "startsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-command-type",
+      "name": "Is /orders Command?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        460,
+        300
+      ],
+      "notes": "🔀 IF: Проверяет тип сообщения\n\n📋 ЛОГИКА:\n- Если /orders → получаем накладные из Т-Банка\n- Иначе → проверяем состояние диалога (ожидание телефона/email)"
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.TBANK_API_URL || 'https://api.tbank.ru' }}/v1/consignments",
+        "authentication": "genericCredentialType",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "3"
+            }
+          ]
+        },
+        "options": {
+          "headers": {
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "=Bearer {{ $env.TBANK_TOKEN }}"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "get-tbank-consignments",
+      "name": "Get T-Bank Consignments",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        680,
+        200
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "3Yt8OJCTjGAtwTwN",
+          "name": "TBank API"
+        }
+      },
+      "notes": "🏦 TBANK API: Получает последние 3 оплаченных накладных\n\n📋 ENDPOINT:\nGET /v1/consignments?limit=3&status=paid\n\n📋 ОЖИДАЕМЫЙ ОТВЕТ:\n{\n  \"consignments\": [\n    {\n      \"id\": \"...\",\n      \"customer\": { \"inn\": \"...\", \"name\": \"...\" },\n      \"delivery_address\": \"...\",\n      \"items\": [...]\n    }\n  ]\n}"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Парсинг накладных из Т-Банка\nconst response = $input.item.json;\nconsole.log('[TBank] Raw API response:', JSON.stringify(response, null, 2));\nconst consignments = response.consignments || response.data?.consignments || response || [];\nconst chatId = $('Telegram Command Trigger').item.json.message?.chat?.id;\n\n// Если накладных нет\nif (!Array.isArray(consignments) || consignments.length === 0) {\n  return {\n    json: {\n      chatId: chatId,\n      hasConsignments: false,\n      message: '❌ Нет накладных для обработки'\n    }\n  };\n}\n\n// Парсим каждую накладную\nconst parsedConsignments = consignments.slice(0, 3).map((c, index) => {\n  // Извлекаем данные клиента\n  const customer = c.customer || c.recipient || {};\n  const inn = customer.inn || customer.tax_id || 'Не указан';\n  const companyName = customer.name || customer.company_name || customer.company || 'Не указан';\n  \n  // Извлекаем адрес\n  const address = c.delivery_address || c.address || c.to_location?.address || 'Не указан';\n  \n  // Извлекаем товары\n  const items = c.items || c.products || c.order_lines || [];\n  const productItems = items.filter(item => {\n    const name = (item.name || item.title || '').toLowerCase();\n    return !name.includes('доставка') && !name.includes('курьер') && !name.includes('пвз');\n  });\n  \n  // Определяем тип доставки\n  const deliveryItem = items.find(item => {\n    const name = (item.name || item.title || '').toLowerCase();\n    return name.includes('доставка') || name.includes('курьер') || name.includes('пвз') || name.includes('сдэк');\n  });\n  \n  const deliveryName = deliveryItem?.name || deliveryItem?.title || '';\n  const isCourier = deliveryName.toLowerCase().includes('курьер') || \n                    deliveryName.toLowerCase().includes('до адреса') ||\n                    deliveryName.toLowerCase().includes('до двери');\n  const isPVZ = deliveryName.toLowerCase().includes('пвз') || \n                deliveryName.toLowerCase().includes('сдэк') ||\n                deliveryName.toLowerCase().includes('пункт');\n  \n  const deliveryType = isCourier ? 'courier' : (isPVZ ? 'pvz' : 'unknown');\n  const deliveryLabel = isCourier ? '🚚 Курьер' : (isPVZ ? '📦 ПВЗ СДЭК' : '❓ Не определен');\n  \n  // Форматируем товары\n  const productsText = productItems.map(p => {\n    const name = p.name || p.title || 'Товар';\n    const qty = p.quantity || p.count || 1;\n    return `${name} × ${qty} шт`;\n  }).join(', ') || 'Нет товаров';\n  \n  return {\n    index: index + 1,\n    id: c.id || c.consignment_id || `cons-${index}`,\n    inn: inn,\n    companyName: companyName,\n    address: address,\n    products: productsText,\n    productItems: productItems,\n    deliveryType: deliveryType,\n    deliveryLabel: deliveryLabel,\n    rawData: c\n  };\n});\n\n// Формируем сообщение для Telegram\nlet messageText = '📋 *Последние накладные из Т-Банка:*\\n\\n';\n\nparsedConsignments.forEach((c, idx) => {\n  messageText += `*${c.index}.* ИНН: \\`${c.inn}\\` | ${c.companyName}\\n`;\n  messageText += `   📍 ${c.address}\\n`;\n  messageText += `   🛒 ${c.products}\\n`;\n  messageText += `   ${c.deliveryLabel}\\n\\n`;\n});\n\nmessageText += '\\n_Выберите номер накладной для создания заказа:_';\n\n// Сохраняем накладные в staticData для использования после callback\nif (!$workflow.staticData) $workflow.staticData = {};\n$workflow.staticData.consignments = parsedConsignments;\n$workflow.staticData.chatId = chatId;\n\nreturn {\n  json: {\n    chatId: chatId,\n    hasConsignments: true,\n    message: messageText,\n    consignments: parsedConsignments,\n    consignmentCount: parsedConsignments.length\n  }\n};"
+      },
+      "id": "parse-consignments",
+      "name": "Parse Consignments",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        200
+      ],
+      "notes": "📝 CODE: Парсит накладные из ответа Т-Банк API\n\n📋 ИЗВЛЕКАЕТ:\n- ИНН покупателя\n- Название компании\n- Адрес доставки\n- Список товаров (исключая услуги доставки)\n- Тип доставки (курьер/ПВЗ) - по строке услуги\n\n💡 Сохраняет накладные в staticData для использования после выбора"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-has-consignments",
+              "leftValue": "={{ $json.hasConsignments }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-has-consignments",
+      "name": "Has Consignments?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        200
+      ],
+      "notes": "🔀 IF: Проверяет есть ли накладные\n\n📋 ЛОГИКА:\n- Если есть → показываем список с кнопками\n- Если нет → отправляем сообщение об ошибке"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {
+          "parse_mode": "Markdown",
+          "reply_markup": {
+            "inline_keyboard": "={{ [\n  $json.consignmentCount >= 1 ? [{ text: '1️⃣', callback_data: 'select_consignment:0' }] : [],\n  $json.consignmentCount >= 2 ? [{ text: '2️⃣', callback_data: 'select_consignment:1' }] : [],\n  $json.consignmentCount >= 3 ? [{ text: '3️⃣', callback_data: 'select_consignment:2' }] : []\n].filter(row => row.length > 0) }}"
+          }
+        }
+      },
+      "id": "send-consignments-list",
+      "name": "Send Consignments List",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1340,
+        100
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Отправляет список накладных с кнопками выбора\n\n📋 КНОПКИ:\n- 1️⃣ - выбрать первую накладную\n- 2️⃣ - выбрать вторую накладную\n- 3️⃣ - выбрать третью накладную\n\n💡 Количество кнопок зависит от количества накладных"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {}
+      },
+      "id": "send-no-consignments",
+      "name": "Send No Consignments Message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1340,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Сообщение если накладных нет"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "callback_query"
+        ]
+      },
+      "id": "telegram-callback-trigger",
+      "name": "Telegram Callback Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        100
+      ],
+      "webhookId": "tbank-orders-callback-trigger",
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "🔵 TRIGGER: Получает callback от нажатия кнопки выбора накладной\n\n📋 ФОРМАТ CALLBACK:\nselect_consignment:0 - выбрана первая накладная\nselect_consignment:1 - выбрана вторая накладная\nselect_consignment:2 - выбрана третья накладная"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Обработка callback выбора накладной\nconst callback = $input.item.json.callback_query || $input.item.json;\nconst callbackData = callback.data || '';\nconst chatId = callback.message?.chat?.id || callback.from?.id;\n\nconsole.log('[Callback] Received:', callbackData);\n\n// Парсим callback data\nconst [action, indexStr] = callbackData.split(':');\nconst selectedIndex = parseInt(indexStr, 10);\n\n// Получаем сохраненные накладные из staticData\nconst consignments = $workflow.staticData?.consignments || [];\nconst selectedConsignment = consignments[selectedIndex];\n\nif (!selectedConsignment) {\n  return {\n    json: {\n      error: true,\n      message: '❌ Накладная не найдена. Попробуйте снова с /orders',\n      chatId: chatId,\n      callbackId: callback.id\n    }\n  };\n}\n\n// Сохраняем выбранную накладную и переходим к запросу телефона\n$workflow.staticData.selectedConsignment = selectedConsignment;\n$workflow.staticData.dialogState = 'awaiting_phone';\n$workflow.staticData.chatId = chatId;\n\nconsole.log('[Callback] Selected consignment:', selectedConsignment.id);\n\nreturn {\n  json: {\n    error: false,\n    selectedConsignment: selectedConsignment,\n    chatId: chatId,\n    callbackId: callback.id,\n    nextStep: 'ask_phone'\n  }\n};"
+      },
+      "id": "process-selection-callback",
+      "name": "Process Selection Callback",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        100
+      ],
+      "notes": "📝 CODE: Обрабатывает выбор накладной\n\n📋 ФУНКЦИЯ:\n- Парсит callback data (select_consignment:N)\n- Получает выбранную накладную из staticData\n- Сохраняет состояние диалога для запроса телефона\n\n💡 После этого бот спрашивает телефон покупателя"
+    },
+    {
+      "parameters": {
+        "operation": "answerCallbackQuery",
+        "callbackQueryId": "={{ $json.callbackId }}",
+        "text": "={{ $json.error ? 'Ошибка!' : '✅ Накладная выбрана' }}",
+        "additionalFields": {}
+      },
+      "id": "answer-selection-callback",
+      "name": "Answer Selection Callback",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        100
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Отвечает на callback (убирает 'часики')"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-no-error",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-selection-success",
+      "name": "Selection Success?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        100
+      ],
+      "notes": "🔀 IF: Проверяет успешность выбора накладной"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ '✅ Выбрана накладная #' + $json.selectedConsignment.index + '\\n\\n' + '📋 ' + $json.selectedConsignment.companyName + '\\n' + '📍 ' + $json.selectedConsignment.address + '\\n\\n' + '📞 *Введите телефон покупателя:*' }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "ask-phone",
+      "name": "Ask Phone Number",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2440,
+        0
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Запрашивает телефон покупателя\n\n💡 После этого сообщения бот ожидает текстовый ответ с телефоном"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {}
+      },
+      "id": "send-selection-error",
+      "name": "Send Selection Error",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2440,
+        200
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Сообщение об ошибке выбора"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Обработка текстового ответа (телефон или email)\nconst message = $input.item.json.message;\nconst text = message?.text || '';\nconst chatId = message?.chat?.id;\n\n// Получаем состояние диалога\nconst dialogState = $workflow.staticData?.dialogState || 'idle';\nconst selectedConsignment = $workflow.staticData?.selectedConsignment;\n\nconsole.log('[Dialog] State:', dialogState, 'Text:', text);\n\n// Если нет активного диалога - игнорируем\nif (dialogState === 'idle' || !selectedConsignment) {\n  return {\n    json: {\n      ignore: true,\n      reason: 'No active dialog'\n    }\n  };\n}\n\n// Обработка телефона\nif (dialogState === 'awaiting_phone') {\n  // Валидация телефона (простая)\n  const phoneClean = text.replace(/[^0-9+]/g, '');\n  if (phoneClean.length < 10) {\n    return {\n      json: {\n        error: true,\n        message: '❌ Неверный формат телефона. Введите телефон в формате +79991234567',\n        chatId: chatId,\n        state: 'awaiting_phone'\n      }\n    };\n  }\n  \n  // Сохраняем телефон и переходим к запросу email\n  $workflow.staticData.phone = phoneClean;\n  $workflow.staticData.dialogState = 'awaiting_email';\n  \n  return {\n    json: {\n      error: false,\n      phone: phoneClean,\n      chatId: chatId,\n      state: 'awaiting_email',\n      nextStep: 'ask_email'\n    }\n  };\n}\n\n// Обработка email\nif (dialogState === 'awaiting_email') {\n  // Валидация email (простая)\n  const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n  if (!emailPattern.test(text)) {\n    return {\n      json: {\n        error: true,\n        message: '❌ Неверный формат email. Введите email в формате example@domain.com',\n        chatId: chatId,\n        state: 'awaiting_email'\n      }\n    };\n  }\n  \n  // Сохраняем email и переходим к созданию заказа\n  const phone = $workflow.staticData.phone;\n  $workflow.staticData.email = text;\n  $workflow.staticData.dialogState = 'creating_order';\n  \n  return {\n    json: {\n      error: false,\n      phone: phone,\n      email: text,\n      chatId: chatId,\n      selectedConsignment: selectedConsignment,\n      state: 'creating_order',\n      nextStep: 'create_order'\n    }\n  };\n}\n\nreturn {\n  json: {\n    ignore: true,\n    reason: 'Unknown dialog state: ' + dialogState\n  }\n};"
+      },
+      "id": "process-dialog-response",
+      "name": "Process Dialog Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        680,
+        400
+      ],
+      "notes": "📝 CODE: Обрабатывает текстовые ответы в диалоге\n\n📋 СОСТОЯНИЯ:\n- awaiting_phone → валидация телефона → ask_email\n- awaiting_email → валидация email → create_order\n\n💡 Использует staticData для хранения состояния между сообщениями"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-not-ignore",
+              "leftValue": "={{ $json.ignore }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-should-process",
+      "name": "Should Process Response?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        900,
+        400
+      ],
+      "notes": "🔀 IF: Проверяет нужно ли обрабатывать ответ"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-no-error",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-dialog-success",
+      "name": "Dialog Step Success?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        400
+      ],
+      "notes": "🔀 IF: Проверяет успешность шага диалога"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {}
+      },
+      "id": "send-dialog-error",
+      "name": "Send Dialog Error",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1340,
+        500
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Сообщение об ошибке валидации"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-ask-email",
+              "leftValue": "={{ $json.nextStep }}",
+              "rightValue": "ask_email",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-next-step",
+      "name": "Next Step?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        400
+      ],
+      "notes": "🔀 IF: Определяет следующий шаг\n\n📋 ЛОГИКА:\n- ask_email → запрашиваем email\n- create_order → создаем заказ"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ '✅ Телефон: ' + $json.phone + '\\n\\n📧 *Введите email покупателя:*' }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "ask-email",
+      "name": "Ask Email",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1560,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Запрашивает email покупателя"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Проверяем тип доставки и подготавливаем данные для создания заказа\nconst data = $input.item.json;\nconst consignment = data.selectedConsignment;\n\nconsole.log('[Create Order] Delivery type:', consignment.deliveryType);\n\n// Определяем нужно ли искать ПВЗ\nconst needPVZLookup = consignment.deliveryType === 'pvz';\n\nreturn {\n  json: {\n    ...data,\n    needPVZLookup: needPVZLookup,\n    isCourier: consignment.deliveryType === 'courier',\n    address: consignment.address,\n    products: consignment.productItems || []\n  }\n};"
+      },
+      "id": "check-delivery-type",
+      "name": "Check Delivery Type",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1560,
+        500
+      ],
+      "notes": "📝 CODE: Определяет тип доставки\n\n📋 ЛОГИКА:\n- courier → используем точный адрес из накладной\n- pvz → нужно найти ближайший ПВЗ СДЭК"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-pvz",
+              "leftValue": "={{ $json.needPVZLookup }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-need-pvz",
+      "name": "Need PVZ Lookup?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        500
+      ],
+      "notes": "🔀 IF: Проверяет нужен ли поиск ПВЗ\n\n📋 ЛОГИКА:\n- Да → геокодируем адрес и ищем ближайший ПВЗ\n- Нет → используем адрес курьерской доставки"
+    },
+    {
+      "parameters": {
+        "url": "https://nominatim.openstreetmap.org/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "={{ $json.address }}"
+            },
+            {
+              "name": "format",
+              "value": "json"
+            },
+            {
+              "name": "limit",
+              "value": "1"
+            },
+            {
+              "name": "countrycodes",
+              "value": "ru"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "geocode-address",
+      "name": "Geocode Address (OSM)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2000,
+        400
+      ],
+      "notes": "🌍 GEOCODE: Получает координаты адреса через OpenStreetMap Nominatim\n\n📋 ИСПОЛЬЗУЕТСЯ ДЛЯ:\nПоиска ближайшего ПВЗ СДЭК по координатам"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Обработка результата геокодирования\nconst geocodeResult = $input.item.json;\nconst prevData = $('Check Delivery Type').item.json;\n\nlet coordinates = null;\nif (Array.isArray(geocodeResult) && geocodeResult.length > 0) {\n  coordinates = {\n    lat: parseFloat(geocodeResult[0].lat),\n    lon: parseFloat(geocodeResult[0].lon)\n  };\n}\n\n// Извлекаем город из адреса для поиска ПВЗ\nconst address = prevData.address || '';\nconst cityMatch = address.match(/(?:г\\.?\\s*|город\\s+)([^,]+)/i);\nconst city = cityMatch ? cityMatch[1].trim() : address.split(',')[0].trim();\n\nreturn {\n  json: {\n    ...prevData,\n    coordinates: coordinates,\n    city: city,\n    geocodingSuccess: !!coordinates\n  }\n};"
+      },
+      "id": "process-geocode-result",
+      "name": "Process Geocode Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        400
+      ],
+      "notes": "📝 CODE: Обрабатывает результат геокодирования\n\n📋 ИЗВЛЕКАЕТ:\n- Координаты (lat, lon)\n- Название города для поиска ПВЗ"
+    },
+    {
+      "parameters": {
+        "url": "https://api.cdek.ru/v2/deliverypoints",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "type",
+              "value": "PVZ"
+            },
+            {
+              "name": "allowed_for_delivery",
+              "value": "true"
+            },
+            {
+              "name": "city",
+              "value": "={{ $json.city }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "get-cdek-pvz-list",
+      "name": "Get CDEK PVZ List",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2440,
+        400
+      ],
+      "notes": "🚚 CDEK API: Получает список ПВЗ в городе"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Поиск ближайшего ПВЗ\nconst pvzList = $input.item.json;\nconst prevData = $('Process Geocode Result').item.json;\nconst coordinates = prevData.coordinates;\n\nlet nearestPVZ = null;\nlet minDistance = Infinity;\n\nif (Array.isArray(pvzList) && pvzList.length > 0) {\n  // Если есть координаты - ищем ближайший\n  if (coordinates) {\n    pvzList.forEach(pvz => {\n      if (pvz.location?.latitude && pvz.location?.longitude) {\n        const pvzLat = parseFloat(pvz.location.latitude);\n        const pvzLon = parseFloat(pvz.location.longitude);\n        \n        // Формула Haversine для расчета расстояния\n        const R = 6371;\n        const dLat = (pvzLat - coordinates.lat) * Math.PI / 180;\n        const dLon = (pvzLon - coordinates.lon) * Math.PI / 180;\n        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +\n                  Math.cos(coordinates.lat * Math.PI / 180) * \n                  Math.cos(pvzLat * Math.PI / 180) *\n                  Math.sin(dLon/2) * Math.sin(dLon/2);\n        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));\n        const distance = R * c;\n        \n        if (distance < minDistance) {\n          minDistance = distance;\n          nearestPVZ = {\n            code: pvz.code,\n            name: pvz.name || 'ПВЗ СДЭК',\n            address: pvz.location?.address || pvz.address || '',\n            city: pvz.location?.city || prevData.city,\n            distance: distance.toFixed(2) + ' км'\n          };\n        }\n      }\n    });\n  }\n  \n  // Если координат нет или ПВЗ не найден - берем первый\n  if (!nearestPVZ) {\n    const pvz = pvzList[0];\n    nearestPVZ = {\n      code: pvz.code,\n      name: pvz.name || 'ПВЗ СДЭК',\n      address: pvz.location?.address || pvz.address || '',\n      city: pvz.location?.city || prevData.city,\n      distance: 'N/A'\n    };\n  }\n}\n\nreturn {\n  json: {\n    ...prevData,\n    pvz: nearestPVZ,\n    pvzFound: !!nearestPVZ,\n    deliveryAddress: nearestPVZ ? nearestPVZ.address : prevData.address\n  }\n};"
+      },
+      "id": "find-nearest-pvz",
+      "name": "Find Nearest PVZ",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2660,
+        400
+      ],
+      "notes": "📝 CODE: Находит ближайший ПВЗ СДЭК\n\n📋 АЛГОРИТМ:\n1. Если есть координаты → вычисляем расстояние до каждого ПВЗ (Haversine)\n2. Выбираем ближайший\n3. Если координат нет → берем первый ПВЗ в городе"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Подготовка данных для курьерской доставки\nconst data = $input.item.json;\n\nreturn {\n  json: {\n    ...data,\n    pvz: null,\n    pvzFound: false,\n    deliveryAddress: data.address,\n    deliveryType: 'courier'\n  }\n};"
+      },
+      "id": "prepare-courier-delivery",
+      "name": "Prepare Courier Delivery",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2000,
+        600
+      ],
+      "notes": "📝 CODE: Подготавливает данные для курьерской доставки\n\n💡 Использует точный адрес из накладной"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "merge-delivery-data",
+      "name": "Merge Delivery Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        500
+      ],
+      "notes": "🔄 MERGE: Объединяет результаты обоих путей (курьер и ПВЗ)"
+    },
+    {
+      "parameters": {
+        "url": "=https://{{ $env.INSALES_SHOP || 'bireta.myinsales.ru' }}/admin/orders.json",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {\n  \"order\": {\n    \"client\": {\n      \"name\": $json.selectedConsignment?.companyName || \"Клиент\",\n      \"email\": $json.email || \"\",\n      \"phone\": $json.phone || \"\",\n      \"inn\": $json.selectedConsignment?.inn || \"\"\n    },\n    \"delivery_address\": {\n      \"address\": $json.deliveryAddress || $json.address || \"Не указан\",\n      \"city\": $json.city || \"\"\n    },\n    \"delivery_info\": $json.pvz ? \"ПВЗ СДЭК: \" + $json.pvz.name + \", \" + $json.pvz.address : \"Курьерская доставка\",\n    \"order_lines_attributes\": ($json.products || []).map(p => ({\n      \"title\": p.name || p.title || \"Товар\",\n      \"quantity\": p.quantity || p.count || 1,\n      \"sale_price\": p.price || p.sale_price || 0\n    })),\n    \"custom_status_permalink\": \"new\",\n    \"note\": \"Создано из накладной Т-Банка #\" + ($json.selectedConsignment?.id || \"\") + \". \" + ($json.pvz ? \"ПВЗ: \" + $json.pvz.code : \"Курьер\")\n  }\n} }}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "create-insales-order",
+      "name": "Create Insales Order",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        3100,
+        500
+      ],
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "v5Z1cWZssDwp4XUB",
+          "name": "Insales API"
+        }
+      },
+      "notes": "📦 INSALES API: Создает заказ в Insales\n\n📋 ДАННЫЕ ЗАКАЗА:\n- Клиент: название, телефон, email, ИНН\n- Адрес: курьерский или ПВЗ СДЭК\n- Товары: из накладной Т-Банка\n- Примечание: номер накладной и тип доставки"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Извлечение данных созданного заказа\nconst response = $input.item.json;\nconst order = response.order || response;\nconst prevData = $('Merge Delivery Data').item.json;\n\nconst orderId = order.id || order.number || 'N/A';\nconst orderNumber = order.number || order.id || 'N/A';\n\n// Очищаем состояние диалога\n$workflow.staticData.dialogState = 'idle';\n$workflow.staticData.selectedConsignment = null;\n$workflow.staticData.phone = null;\n$workflow.staticData.email = null;\n\nreturn {\n  json: {\n    success: true,\n    orderId: orderId,\n    orderNumber: orderNumber,\n    chatId: prevData.chatId,\n    consignment: prevData.selectedConsignment,\n    deliveryType: prevData.pvz ? 'pvz' : 'courier',\n    pvz: prevData.pvz,\n    phone: prevData.phone,\n    email: prevData.email\n  }\n};"
+      },
+      "id": "extract-order-result",
+      "name": "Extract Order Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3320,
+        500
+      ],
+      "notes": "📝 CODE: Извлекает результат создания заказа и очищает состояние диалога"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ '✅ *Заказ успешно создан!*\\n\\n' + '📦 Номер заказа: `' + $json.orderNumber + '`\\n' + '🏢 Клиент: ' + $json.consignment?.companyName + '\\n' + '📞 Телефон: ' + $json.phone + '\\n' + '📧 Email: ' + $json.email + '\\n\\n' + ($json.pvz ? '📍 Доставка в ПВЗ: ' + $json.pvz.name + '\\n' + $json.pvz.address : '🚚 Курьерская доставка') }}",
+        "additionalFields": {
+          "parse_mode": "Markdown"
+        }
+      },
+      "id": "send-success-message",
+      "name": "Send Success Message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3540,
+        500
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Отправляет подтверждение о создании заказа\n\n📋 СООБЩЕНИЕ:\n- Номер заказа\n- Данные клиента\n- Тип доставки (ПВЗ или курьер)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Обработка ошибок\nconst error = $input.item.json.error || 'Unknown error';\nconst chatId = $workflow.staticData?.chatId || $env.TG_CHAT_ID;\n\n// Очищаем состояние диалога при ошибке\n$workflow.staticData.dialogState = 'idle';\n$workflow.staticData.selectedConsignment = null;\n$workflow.staticData.phone = null;\n$workflow.staticData.email = null;\n\nconsole.error('[Error Handler]', error);\n\nreturn {\n  json: {\n    error: error.toString(),\n    chatId: chatId,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "error-handler",
+      "name": "Error Handler",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3100,
+        700
+      ],
+      "notes": "⚠️ ERROR HANDLER: Обрабатывает ошибки и очищает состояние диалога"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ '❌ Ошибка при создании заказа:\\n\\n' + $json.error + '\\n\\nПопробуйте снова с /orders' }}",
+        "additionalFields": {}
+      },
+      "id": "send-error-message",
+      "name": "Send Error Message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3320,
+        700
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "UCuYoioWrr02l1gJ",
+          "name": "Telegram Bot API"
+        }
+      },
+      "notes": "📱 TELEGRAM: Сообщение об ошибке"
+    }
+  ],
+  "connections": {
+    "Telegram Command Trigger": {
+      "main": [
+        [
+          {
+            "node": "Is /orders Command?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is /orders Command?": {
+      "main": [
+        [
+          {
+            "node": "Get T-Bank Consignments",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Process Dialog Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get T-Bank Consignments": {
+      "main": [
+        [
+          {
+            "node": "Parse Consignments",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Consignments": {
+      "main": [
+        [
+          {
+            "node": "Has Consignments?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Consignments?": {
+      "main": [
+        [
+          {
+            "node": "Send Consignments List",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send No Consignments Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Callback Trigger": {
+      "main": [
+        [
+          {
+            "node": "Process Selection Callback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Selection Callback": {
+      "main": [
+        [
+          {
+            "node": "Answer Selection Callback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Answer Selection Callback": {
+      "main": [
+        [
+          {
+            "node": "Selection Success?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Selection Success?": {
+      "main": [
+        [
+          {
+            "node": "Ask Phone Number",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Selection Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Dialog Response": {
+      "main": [
+        [
+          {
+            "node": "Should Process Response?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Should Process Response?": {
+      "main": [
+        [
+          {
+            "node": "Dialog Step Success?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Dialog Step Success?": {
+      "main": [
+        [
+          {
+            "node": "Next Step?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Dialog Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Next Step?": {
+      "main": [
+        [
+          {
+            "node": "Ask Email",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Check Delivery Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Delivery Type": {
+      "main": [
+        [
+          {
+            "node": "Need PVZ Lookup?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Need PVZ Lookup?": {
+      "main": [
+        [
+          {
+            "node": "Geocode Address (OSM)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Courier Delivery",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Geocode Address (OSM)": {
+      "main": [
+        [
+          {
+            "node": "Process Geocode Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Geocode Result": {
+      "main": [
+        [
+          {
+            "node": "Get CDEK PVZ List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get CDEK PVZ List": {
+      "main": [
+        [
+          {
+            "node": "Find Nearest PVZ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find Nearest PVZ": {
+      "main": [
+        [
+          {
+            "node": "Merge Delivery Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Courier Delivery": {
+      "main": [
+        [
+          {
+            "node": "Merge Delivery Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Delivery Data": {
+      "main": [
+        [
+          {
+            "node": "Create Insales Order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Insales Order": {
+      "main": [
+        [
+          {
+            "node": "Extract Order Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Order Result": {
+      "main": [
+        [
+          {
+            "node": "Send Success Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Handler": {
+      "main": [
+        [
+          {
+            "node": "Send Error Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "9c0ead06-d249-4173-b4aa-971b27434315",
+  "versionCounter": 9,
+  "triggerCount": 2,
+  "tags": [
+    {
+      "updatedAt": "2024-11-30T00:00:00.000Z",
+      "createdAt": "2024-11-30T00:00:00.000Z",
+      "id": "tbank-orders-telegram",
+      "name": "tbank-orders-telegram"
+    }
+  ],
+  "shared": [
+    {
+      "updatedAt": "2025-11-30T14:09:11.403Z",
+      "createdAt": "2025-11-30T14:09:11.403Z",
+      "role": "workflow:owner",
+      "workflowId": "F0kItSroUzZ9QxLP",
+      "projectId": "5PLYf3urjx9ogenp",
+      "project": {
+        "updatedAt": "2025-11-30T14:23:47.477Z",
+        "createdAt": "2025-11-14T18:55:20.132Z",
+        "id": "5PLYf3urjx9ogenp",
+        "name": "Admin Biretos <info@bireta.kz>",
+        "type": "personal",
+        "icon": null,
+        "description": null
+      }
+    }
+  ]
+}

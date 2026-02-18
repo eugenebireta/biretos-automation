@@ -1,0 +1,83 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "local-socks",
+      "port": {{PROXY_SOCKS5_PORT}},
+      "protocol": "socks",
+      "settings": {
+        "udp": true
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "usa-proxy",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "{{XRAY_VPS_IP}}",
+            "port": {{XRAY_VPS_PORT}},
+            "users": [
+              {
+                "id": "{{XRAY_VLESS_UUID}}",
+                "encryption": "none",
+                "level": 0
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "domain": [
+          "chatgpt.com",
+          "*.chatgpt.com",
+          "*.openai.com"
+        ],
+        "outboundTag": "usa-proxy"
+      },
+      {
+        "type": "field",
+        "ip": [
+          "192.168.0.0/16",
+          "10.0.0.0/8",
+          "172.16.0.0/12",
+          "127.0.0.0/8",
+          "77.233.222.214",
+          "216.9.227.124"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "1.1.1.1",
+        "domains": [
+          "chatgpt.com",
+          "*.chatgpt.com",
+          "*.openai.com"
+        ]
+      },
+      "8.8.8.8"
+    ],
+    "queryStrategy": "UseIPv4"
+  }
+}

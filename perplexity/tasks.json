@@ -1,0 +1,17 @@
+[
+  {
+    "label": "📊 ZAPI Excel Enrich",
+    "type": "shell",
+    "command": "python -m scripts.enrich_zapi_excel",
+    "detail": "Обогащает ZAPI.xlsx и сохраняет ZAPI_enriched.xlsx с данными Perplexity + ReliablePhotoFinder",
+    "options": { "panel": "shared", "reveal": "always" }
+  },
+  {
+    "label": "🤖 Perplexity Lookup - Custom",
+    "type": "shell",
+    "command": "python -m scripts.lookup",
+    "detail": "Lookup model, part number, image and description via Perplexity",
+    "options": { "panel": "shared", "reveal": "always" }
+  }
+]
+

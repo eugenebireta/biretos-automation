@@ -1,0 +1,108 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🤖 Perplexity Lookup - ABB Example",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "-m",
+        "scripts.lookup",
+        "--brand",
+        "ABB",
+        "--pn",
+        "PSR45-600-70"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "Поиск товара ABB PSR45-600-70 через Perplexity API"
+    },
+    {
+      "label": "🤖 Perplexity Lookup - Custom",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "-m",
+        "scripts.lookup",
+        "--brand",
+        "${input:brand}",
+        "--pn",
+        "${input:partNumber}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "Поиск товара с указанием бренда и артикула"
+    },
+    {
+      "label": "🤖 ZAPI Excel Enrich",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "-m",
+        "scripts.enrich_zapi_excel",
+        "--input",
+        "ZAPI.xlsx",
+        "--output",
+        "ZAPI_enriched.xlsx",
+        "--pn-column",
+        "A",
+        "--start-row",
+        "2"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "Обогащает ZAPI.xlsx и сохраняет ZAPI_enriched.xlsx"
+    },
+    {
+      "label": "🤖 Generate Brand Excel",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "-m",
+        "scripts.generate_brand_excel"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": [],
+      "detail": "Интерактивно создаёт ZAPI_enriched.xlsx, автоматически подбирая товары бренда"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "brand",
+      "type": "promptString",
+      "description": "Введите бренд (ABB, Siemens, Schneider...)",
+      "default": "ABB"
+    },
+    {
+      "id": "partNumber",
+      "type": "promptString",
+      "description": "Введите артикул",
+      "default": "PSR45-600-70"
+    }
+  ]
+}
+

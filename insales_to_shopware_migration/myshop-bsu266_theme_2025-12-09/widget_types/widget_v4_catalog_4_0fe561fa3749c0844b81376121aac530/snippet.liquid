@@ -1,0 +1,270 @@
+{% include "system_collection_filter_check", display_filter: false %}
+{% include "system_bnpl-modal" %}
+
+{% if search.performed? and products.size > 0 or template == 'search' and search.results.size > 0 %}
+  {% if template == 'search' %}
+    {% assign product_arr = search.results.products %}
+  {% else %}
+    {% assign product_arr = products %}
+  {% endif %}
+  {% assign is_search = true %}
+{% else %}
+  {% assign product_arr = products %}
+{% endif %}
+{% if product_arr.size > 0 %}
+  <div class="catalog">
+    <div class="grid-list catalog-list" data-collection-infinity="{{ paginate.next.url }}">
+      {% for product in product_arr %}
+        {% assign product_variants_first = product.variants | where: "available" | first %}
+        {% assign preview_text = product.short_description | strip_html | replace: '</p', '' | replace: '</p', '' %}
+        {% if widget_settings.product-desc-limit != "all" %}
+          {% assign preview_text = preview_text | strip_html | truncatewords: widget_settings.product-desc-limit %}
+        {% endif %}
+        <form
+          action="{{ cart_url }}"
+          method="post"
+          data-product-id="{{ product.id }}"
+          class="product-preview {% if settings.product_not_available == "shown" %} is-zero-count-shown {% endif %} {% if settings.product_not_available == "preorder" %} is-zero-count-preorder {% endif %} {% if settings.product_not_available == "hidden" %} is-zero-count-hidden {% endif %} {% if product.show_variants? and product.variants.size > 1 %}is-more-variants{% endif %} {% unless product.available %}is-all-variants-not-available{% endunless %} {% if account.forbid_order_over_existing %}is-forbid-order-over-existing{% endif%} {% if product.old_price_varies? %}is-more-old-prices{% endif%}">
+          <div class="product-preview__content">
+            <div class="product-preview__area-photo">
+              <div class="product-preview__photo">
+                <div class="img-ratio img-ratio_cover">
+                  <div class="img-ratio__inner">
+                    {% assign img_title = product.title | escape %}
+                    <a href="{{ product.url }}">
+                      {% assign img_width = 500 %}
+                      {% assign img_width_mobile = 500 %}
+                      {% if widget_settings.catalog-grid-list-min-width %}
+                        {% assign img_width = widget_settings.catalog-grid-list-min-width | to_integer | times: 2 %}
+                      {% endif %}
+                      {% if widget_settings.catalog-grid-list-min-width-mobile %}
+                        {% assign img_width_mobile = widget_settings.catalog-grid-list-min-width-mobile | to_integer | times: 2 %}
+                      {% endif %}
+                      {% capture one_photo_block %}
+                        {% assign product_img = product.first_image %}
+                        <picture>
+                          <source
+                            media="(min-width:768px)"
+                            data-srcset="{{ product_img | image_url: img_width, format: 'webp', resizing_type: 'fit_width', quality: 100 }}"
+                            type="image/webp"
+                            class="lazyload">
+                          <source
+                            media="(max-width:767px)"
+                            data-srcset="{{ product_img | image_url: img_width_mobile, format: 'webp', resizing_type: 'fit_width', quality: 100 }}"
+                            type="image/webp"
+                            class="lazyload">
+                          <img
+                            data-src="{{ product_img | image_url: img_width, resizing_type: 'fit_width', quality: 100 }}"
+                            class="lazyload"
+                            alt="{{ img_title }}">
+                        </picture>
+                      {% endcapture %}
+                      {% if editor_mode? or widget_settings.switch-img-on-hover == true %}
+                        {% if product.images.size <= 1 %}
+                          {{ one_photo_block }}
+                        {% else %}
+                          {% for image in product.images limit: 2 %}
+                            <picture>
+                              <source
+                                media="(min-width:768px)"
+                                data-srcset="{{ image | image_url: img_width, format: 'webp', resizing_type: 'fit_width', quality: 100 }}"
+                                type="image/webp"
+                                class="lazyload">
+                              <source
+                                media="(max-width:767px)"
+                                data-srcset="{{ image | image_url: img_width_mobile, format: 'webp', resizing_type: 'fit_width', quality: 100 }}"
+                                type="image/webp"
+                                class="lazyload">
+                              <img
+                                data-src="{{ image | image_url: img_width, resizing_type: 'fit_width', quality: 100 }}"
+                                class="lazyload product-preview__img-{{ forloop.index }}"
+                                alt="{{ img_title }}">
+                            </picture>
+                          {% endfor %}
+                        {% endif %}
+                      {% else %}
+                        {{ one_photo_block }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </div>
+                <div class="product-preview__available">
+                  {% if product.available %}
+                    {{ messages.available }}
+                  {% else %}
+                    {{ messages.not_available }}
+                  {% endif %}
+                </div>
+                <div class="stickers">
+                  {% include 'system_stickers', sticker_class: 'sticker', sticker_property: 'label' %}
+                  <div
+                    class="sticker sticker-sale"
+                    data-product-card-sale-value
+                    data-sticker-title="sticker-sale"></div>
+                  <div class="sticker sticker-preorder" data-sticker-title="sticker-preorder">{{ messages.pre_order }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="product-preview__area-title">
+              <div class="product-preview__title">
+                <a href="{{product.url}}">{{ product.title }}</a>
+              </div>
+            </div>
+            <div class="product-preview__area-description">
+              {% if editor_mode? or widget_settings.hide-description != true %}
+                <div class="product-preview__description">
+                  {{ preview_text }}
+                </div>
+              {% endif %}
+            </div>
+            <div class="product-preview__area-bottom">
+              <div class="product-preview__price">
+                {% if product.price_varies? %}
+                  <span class="product-preview__price-label">{{ messages.from_upper }}</span>
+                  <span class="product-preview__price-cur">{{ product.price_min | money }}</span>
+                {% else %}
+                  {% if product.price < product.old_price %}
+                    <span class="product-preview__price-old">{{ product.old_price | money }}</span>
+                  {% endif %}
+                  <span class="product-preview__price-cur">{{ product.price | money }}</span>
+                {% endif %}
+              </div>
+              <div class="product-preview__controls">
+                <input
+                  type="hidden"
+                  name="quantity"
+                  value="1" />
+                <input
+                  type="hidden"
+                  name="variant_id"
+                  value="{{ product.variants.first.id }}" />
+                <div class="product-preview__controls-left">
+                  {% if settings.favorite_enabled %}
+                    <span class="button button_size-s favorites_btn" data-ui-favorites-trigger="{{ product.id }}">
+                      <span class="btn-icon icon-favorites-o"></span>
+                      <span class="btn-icon icon-favorites-f"></span>
+                    </span>
+                  {% endif %}
+                  {% if settings.compare_enabled == null or settings.compare_enabled %}
+                    {% unless product.is_bundle %}
+                      <span data-compare-trigger="{{ product.id }}" class="button product-preview__compare-btn">
+                        <span class="button__icon icon-compare"></span>
+                      </span>
+                    {% endunless %}
+                  {% endif %}
+                </div>
+                {% if product.show_variants? and product.variants.size > 1 %}
+                  <button type="button" class="button product-preview__show-modal-variants-btn js-show-modal-product">
+                    <span class="button__icon icon-cart"></span>
+                  </button>
+                  <a href="{{product.url}}" class="button product-preview__detail-select-btn">
+                    <span class="button__icon icon-eye"></span>
+                  </a>
+                {% else %}
+                  {% if product.available %}
+                    <div class="add-cart-counter" data-add-cart-counter>
+                      <button
+                        type="button"
+                        class="button add-cart-counter__btn"
+                        data-add-cart-counter-btn>
+                        <span class="add-cart-counter__btn-icon icon-cart"></span>
+                      </button>
+                      <div class="add-cart-counter__controls">
+                        <button
+                          data-add-cart-counter-plus
+                          class="button add-cart-counter__controls-btn"
+                          type="button">
+                          <span data-add-cart-counter-count class="add-cart-counter__detail-count"></span>
+                          + 1 {{ product.unit }}
+                        </button>
+                      </div>
+                    </div>
+                  {% else %}
+                    {% if account.forbid_order_over_existing %}
+                      <a href="{{product.url}}" class="button product-preview__detail-btn">
+                        <span class="button__icon icon-eye"></span>
+                      </a>
+                    {% else %}
+                      {% if settings.product_not_available == "shown" %}
+                        <div class="add-cart-counter" data-add-cart-counter>
+                          <button
+                            type="button"
+                            class="button add-cart-counter__btn"
+                            data-add-cart-counter-btn>
+                            <span class="add-cart-counter__btn-icon icon-cart"></span>
+                          </button>
+                          <div class="add-cart-counter__controls">
+                            <button
+                              data-add-cart-counter-plus
+                              class="button add-cart-counter__controls-btn"
+                              type="button">
+                              <span data-add-cart-counter-count class="add-cart-counter__detail-count"></span>
+                              +1 {{ product.unit }}
+                            </button>
+                          </div>
+                        </div>
+                      {% endif %}
+                      {% if settings.product_not_available == "preorder" %}
+                        <button
+                          data-product-card-preorder
+                          class="button product-preview__preorder-btn"
+                          type="button">
+                          <span class="button__icon icon-preorder"></span>
+                        </button>
+                      {% endif %}
+                      {% if settings.product_not_available == "hidden" %}
+                        <a href="{{product.url}}" class="button product-preview__detail-btn">
+                          <span class="button__icon icon-eye"></span>
+                        </a>
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+              </div>
+              
+              
+
+            </div>
+
+            <div class="product-preview__area-order">
+                <!--  -->
+                <button
+                        type="button"
+                        class="button add-cart-counter__btn"
+                        data-add-cart-counter-btn>
+                        <a href="/new_order" data-add-cart-counter>Оформить заказ</a>
+                      </button>
+            </div>
+            
+            {% if sber_bnpl.payment_gateway_enabled? %}
+              {% if sber_bnpl.show_at_collection == true %}
+                {% include "system_bnpl-button" with product, button_class: 'collection', button_type_show: 'collection-price-varies', button_type_hide: 'collection-price-default-hide' %}
+              {% endif %}
+            {% endif %}
+          </div>
+        </form>
+      {% endfor %}
+    </div>
+  </div>
+{% else %}
+  {% if template == 'favorite' %}
+    {% assign favorite_empty = true %}
+  {% else %}
+    <div class="empty-catalog-message">
+      {{ messages.empty_catalog }}
+    </div>
+  {% endif %}
+{% endif %}
+
+{% if template == 'favorite' %}
+  <div class="empty-catalog-message {% unless favorite_empty %}hidden{% endunless %}">
+    {{ messages.favorites_is_empty }}
+  </div>
+{% endif %}
+{% assign product_arr = null %}
+{% assign is_search = null %}
+{% assign image_title = null %}
+{% assign preview_text = null %}
+{% assign img_width = null %}
+{% assign product_img = null %}
+{% assign product_variants_first = null %}

@@ -1,0 +1,156 @@
+# Autonomous Debug Loop — Self-Healing Execution
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+## ⚠️ 0. EMERGENCY PROTOCOL — READ FIRST ON ANY ERROR ⚠️
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WHEN ANY TOOL FAILS (Timeout, Error, Exit Code != 0):
+
+1. ⛔ STOP. Do NOT retry the command.
+2. 📖 READ `ai_engineering/AI_ISSUES_LOG.md` — search for similar issues.
+3. 🔍 ANALYZE root cause using Section 3 below.
+4. 📝 LOG new issue if not found in AI_ISSUES_LOG.md (Section 5).
+4.1. Запиши запись в `AI_ISSUES_LOG.md` о срабатывании Emergency Protocol, включая тип ошибки и последнюю команду, если запись отсутствует.
+5. 🔧 FIX using max 3 attempts (Section 4).
+
+REASON: Immediate retries without analysis = repeating past mistakes.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## 1. Общие положения
+- Любой написанный код должен быть протестирован автоматически.
+- Если тестов нет — создай минимальный smoke-тест или запуск скрипта.
+- Никаких запросов к пользователю, пока не исчерпаны попытки.
+
+## 1.5 FILE SYSTEM OPERATIONS (Critical for High-Latency Links)
+
+STRICTLY FORBIDDEN:
+- Создавать или редактировать файлы через команды терминала (`echo`, `printf`, `Set-Content`, `cat <<'EOF'` и любые heredoc-конструкции).
+- Вставлять многострочный код напрямую в интерактивную оболочку.
+
+MANDATORY:
+- Использовать инструмент `write_file` для создания новых файлов.
+- Применять `apply_patch` исключительно для правок существующих файлов (не для создания с нуля).
+- Использовать терминал только для запуска команд (`python script.py`, `npm test`, чтения логов).
+
+REASON:
+Высокий RTT до США и Xray-туннели приводят к разрывам SSH при передаче больших блоков текста. `write_file` выполняет атомарную запись и устойчив к сетевым лагам.
+
+## 1.6 REMOTE EXECUTION (Upload & Execute Pattern)
+
+STRICTLY FORBIDDEN:
+- Передавать сложные команды через аргументы SSH (`ssh host "cmd1 | cmd2"`, heredoc, многострочные скрипты).
+- Полагаться на stdout удалённой команды в условиях высокого RTT.
+- Использовать SCP/SSH по доменному имени `dev.bireta.ru` (только IP 77.233.222.214).
+
+MANDATORY:
+- Создавать скрипты локально (`_scratchpad/*.sh`) через `write_file`.
+- Загружать скрипты на сервер по SCP (`scp script.sh root@IP:/tmp/`).
+- Запускать короткой командой: `ssh root@IP 'bash /tmp/script.sh'`.
+- Сохранять результаты в файлы на сервере и забирать их через SCP (не полагаться на потоковый вывод).
+- Перед каждым SSH/SCP выполнять `ssh-keyscan IP >> C:\Users\Eugene\.ssh\known_hosts`, если отпечаток отсутствует.
+
+REASON:
+Upload & Execute устраняет зависания от многострочного ввода в SSH и гарантирует надёжное выполнение команд при высоком RTT.
+
+## 1.7 CONFIG VALIDATION (Lint-before-Commit)
+
+MANDATORY:
+- После изменения любого конфигурационного файла (JSON, YAML, CONF) запускай валидатор:
+  `pwsh infrastructure/agent-tools/Lint-ConfigFiles.ps1`
+- Не разворачивай конфиг, пока валидатор не завершится успешно.
+
+REASON:
+Невалидные структуры, BOM и CRLF ломают сервисы (Xray, WireGuard) и вызывают разрывы соединений на серверах.
+
+## 1.8 FORBIDDEN SHELL COMMANDS (MANDATORY)
+
+STRICTLY FORBIDDEN for run_terminal_cmd:
+- ssh.exe (прямой запуск)
+- scp.exe (прямой запуск)
+- rsync.exe
+- xray.exe
+- wireguard.exe / wg.exe
+- systemctl
+- ssh-keygen.exe
+- ssh-keygen
+- any Start-Process launched directly from agent
+- any command that opens long-running network tunnel or daemon
+
+REASON (ssh-keygen):
+This command always requests interactive input (passphrase, overwrite confirmation),
+prints progress, and blocks STDIN/STDOUT pipes. Running it through run_terminal_cmd
+causes an immediate Cursor deadlock.
+
+ALLOWED ALTERNATIVES:
+- pwsh infrastructure/scripts/Invoke-SafeSsh.ps1 -ServerName <name> -Command "..."
+- pwsh infrastructure/scripts/Invoke-SafeScp.ps1 -ServerName <name> -Source ... -Destination ...
+- pwsh infrastructure/safe-run/Start-Xray.ps1
+- pwsh infrastructure/safe-run/Start-SSH-Tunnel.ps1
+- pwsh infrastructure/safe-run/Check-Tunnel.ps1
+
+REASON:
+All forbidden commands cause deadlocks in Cursor tool protocol due to stdin/stdout pipe binding.
+They block agent execution indefinitely. Background processes must be launched via external
+PowerShell scripts with Start-Process -WindowStyle Hidden and output redirection to log files.
+
+## 2. Стандартный цикл
+1. Выполнить задачу / написать код.
+2. Запустить соответствующий тест или скрипт.
+3. Если выполнение успешно — перейти к отчёту.
+4. Если тест/скрипт упал — сохранить stdout/stderr.
+5. Проанализировать причину (по логу, трассировке, exit code).
+6. Внести правки в код.
+7. Повторно запустить тест.
+8. Повторять до 3 попыток.
+
+## 3. Правила анализа
+- Используй вывод ошибки: ищи строки `Traceback`, `Error`, `Exception`.
+- Проверяй аргументы, пути, переменные окружения.
+- Сверяйся с `AI_ISSUES_LOG.md`, чтобы не повторять старые ошибки.
+
+## 4. Ограничение по попыткам (Max Attempts Circuit Breaker)
+
+MANDATORY:
+- Максимум 3 цикла `fix -> test` для одной и той же ошибки.
+- После каждой неудачи фиксируй краткий вывод (stdout/stderr, exit code).
+- Отслеживай счётчик попыток явно (Attempt 1/3, 2/3, 3/3).
+
+AFTER 3RD FAILED ATTEMPT:
+1. ⛔ STOP. Do NOT make 4th attempt.
+2. 📝 LOG issue to `AI_ISSUES_LOG.md`:
+   - Дата
+   - Описание проблемы
+   - Команды/код, которые пытался исправить
+   - Логи всех 3 попыток
+   - Статус: "Failed after 3 attempts"
+3. 🚨 REPORT to user:
+   - Что делал (summary всех 3 попыток)
+   - Какие логи получил (ключевые ошибки)
+   - Что мешает завершить (root cause hypothesis)
+   - Предложение: manual intervention required
+
+REASON: Бесконечные попытки исправления = зацикливание и потеря времени. 3 попытки достаточно для автоматического решения; если не помогло — нужен человек.
+
+## 5. Логирование
+- Все критические ошибки добавляй в `AI_ISSUES_LOG.md` (дата, описание, решение).
+- Если ошибка новая — предложи дополнить лог.
+
+## 6. Автоматический откат
+- Если фиксы ухудшили ситуацию — вернись к предыдущей рабочей версии (git checkout или сохранённый бэкап).
+- Не оставляй сломанный код в репозитории.
+
+## 7. Отчёт пользователю
+По завершении цикла сообщи:
+```
+Autonomous Debug Loop:
+- Attempts: N
+- Result: Success/Failed
+- Logs: краткая выжимка
+```
+
+== END AUTONOMOUS LOOP ==
+
+
+
+

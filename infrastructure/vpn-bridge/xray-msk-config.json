@@ -1,0 +1,68 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "cursor-inbound",
+      "port": 10800,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "e01f3fb1-f4b8-47c8-a032-2daaa679c816",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "tunnel-out",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      },
+      "streamSettings": {
+        "sockopt": {
+          "interface": "wg0"
+        }
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "cursor-inbound"
+        ],
+        "outboundTag": "tunnel-out"
+      }
+    ]
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "1.1.1.1",
+        "domains": [
+          "openai.com",
+          "cursor.sh",
+          "anthropic.com",
+          "googleapis.com"
+        ]
+      },
+      "8.8.8.8"
+    ]
+  }
+}

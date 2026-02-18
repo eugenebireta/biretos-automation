@@ -1,0 +1,48 @@
+
+###> shopware/core ###
+
+
+APP_SECRET=281a50ef7ff44808e9c828f86dbbe991
+INSTANCE_ID=979d83cf76f7e99966524e7a7893ffd2
+BLUE_GREEN_DEPLOYMENT=0
+
+###< shopware/core ###
+
+###> symfony/messenger ###
+# Choose one of the transports below
+# MESSENGER_TRANSPORT_DSN=amqp://guest:guest@localhost:5672/%2f/messages
+# MESSENGER_TRANSPORT_DSN=redis://localhost:6379/messages
+# doctrine://default?auto_setup=0
+###< symfony/messenger ###
+
+###> symfony/mailer ###
+# MAILER_DSN=null://null
+###< symfony/mailer ###
+
+###> symfony/lock ###
+# Choose one of the stores below
+# postgresql+advisory://db_user:db_password@localhost/db_name
+LOCK_DSN=flock
+###< symfony/lock ###
+
+###> shopware/elasticsearch ###
+OPENSEARCH_URL=http://localhost:9200
+SHOPWARE_ES_ENABLED=0
+SHOPWARE_ES_INDEXING_ENABLED=0
+SHOPWARE_ES_INDEX_PREFIX=sw
+SHOPWARE_ES_THROW_EXCEPTION=1
+###< shopware/elasticsearch ###
+
+###> shopware/storefront ###
+PROXY_URL=https://dev.bireta.ru
+SHOPWARE_HTTP_CACHE_ENABLED=1
+SHOPWARE_HTTP_DEFAULT_TTL=7200
+###< shopware/storefront ###
+APP_ENV=dev
+APP_URL=https://dev.bireta.ru
+DATABASE_URL=mysql://root:root@127.0.0.1:3306/shopware
+MAILER_DSN=smtp://127.0.0.1:1025
+TRUSTED_PROXIES=127.0.0.1,172.18.0.1
+TRUSTED_HOSTS=dev.bireta.ru
+SYMFONY_TRUSTED_PROXIES=127.0.0.1,172.18.0.1
+SYMFONY_TRUSTED_HOSTS=dev.bireta.ru

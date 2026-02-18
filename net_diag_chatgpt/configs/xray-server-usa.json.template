@@ -1,0 +1,43 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "chatgpt-inbound",
+      "port": {{XRAY_VPS_PORT}},
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "{{XRAY_VLESS_UUID}}",
+            "level": 0
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp"
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }
+    }
+  ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch"
+  },
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "8.8.8.8"
+    ],
+    "queryStrategy": "UseIPv4"
+  }
+}
