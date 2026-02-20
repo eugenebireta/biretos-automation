@@ -9,3 +9,5 @@ class ConfigValidationError(ConfigError):
         self.missing = missing or []
         self.invalid = invalid or []
         super().__init__("Configuration validation failed")
+
+# trigger iron fence ruff check

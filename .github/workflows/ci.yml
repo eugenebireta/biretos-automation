@@ -15,6 +15,8 @@ jobs:
       TZ: UTC
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -22,6 +24,116 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r .cursor/windmill-core-v1/requirements-ci.lock
+
+      - name: "Iron Fence: Tier-1 Hash Lock"
+        working-directory: .cursor/windmill-core-v1
+        run: |
+          set -o pipefail
+          TIER1_MANIFEST=".tier1-hashes.sha256"
+          if [ ! -f "$TIER1_MANIFEST" ]; then
+            echo "::error::Tier-1 manifest not found: $TIER1_MANIFEST"
+            exit 1
+          fi
+          FAILED=0
+          while IFS='  ' read -r expected_hash expected_file; do
+            [ -z "$expected_hash" ] && continue
+            if [ ! -f "$expected_file" ]; then
+              echo "::error::TIER-1 MISSING: $expected_file does not exist"
+              FAILED=1
+              continue
+            fi
+            actual_hash=$(tr -d '\r' < "$expected_file" | sha256sum | cut -d' ' -f1)
+            if [ "$actual_hash" != "$expected_hash" ]; then
+              echo "::error::TIER-1 VIOLATION: $expected_file modified (expected ${expected_hash:0:16}..., got ${actual_hash:0:16}...)"
+              FAILED=1
+            fi
+          done < "$TIER1_MANIFEST"
+          if [ "$FAILED" -ne 0 ]; then
+            exit 1
+          fi
+          echo "Tier-1 Hash Lock: all files verified."
+
+      - name: "Iron Fence: Boundary Grep Guards"
+        working-directory: .cursor/windmill-core-v1
+        run: |
+          FAILED=0
+          RECON_TABLES="reconciliation_audit_log|reconciliation_alerts|reconciliation_suppressions"
+          TIER3_DIRS="ru_worker/ side_effects/ webhook_service/ cli/ config/"
+
+          for dir in $TIER3_DIRS; do
+            [ -d "$dir" ] || continue
+            if grep -rn --include='*.py' -E "(INSERT|UPDATE|DELETE|ALTER|DROP).*(${RECON_TABLES})" "$dir"; then
+              echo "::error::BOUNDARY VIOLATION: $dir contains DML against reconciliation tables"
+              FAILED=1
+            fi
+          done
+
+          FORBIDDEN_IMPORTS="from domain\.reconciliation_service|from domain\.reconciliation_verify|from domain\.reconciliation_alerts|from domain\.structural_checks|from domain\.observability_service|from retention_policy|import reconciliation_service|import reconciliation_verify|import reconciliation_alerts|import structural_checks|import observability_service"
+          for dir in $TIER3_DIRS; do
+            [ -d "$dir" ] || continue
+            if grep -rn --include='*.py' -E "$FORBIDDEN_IMPORTS" "$dir"; then
+              echo "::error::BOUNDARY VIOLATION: $dir imports Tier-1 module"
+              FAILED=1
+            fi
+          done
+
+          TIER2_FILES="domain/payment_service.py domain/shipment_service.py domain/availability_service.py domain/document_service.py domain/fsm_guards.py domain/ports.py"
+          for f in $TIER2_FILES; do
+            [ -f "$f" ] || continue
+            if grep -n -E "from ru_worker|from side_effects|from webhook_service|from cli |import ru_worker|import side_effects|import webhook_service" "$f"; then
+              echo "::error::BOUNDARY VIOLATION: Tier-2 $f imports from Tier-3"
+              FAILED=1
+            fi
+          done
+
+          if [ "$FAILED" -ne 0 ]; then
+            exit 1
+          fi
+          echo "Boundary Grep Guards: passed."
+
+      - name: "Iron Fence: Migration DDL Guard (020+)"
+        working-directory: .cursor/windmill-core-v1
+        run: |
+          FAILED=0
+          RECON_TABLES="reconciliation_audit_log|reconciliation_alerts|reconciliation_suppressions"
+          for f in migrations/0[2-9]*.sql migrations/[1-9][0-9][0-9]*.sql; do
+            [ -f "$f" ] || continue
+            if grep -q -- '--  *CORE-CRITICAL-APPROVED:' "$f"; then
+              echo "INFO: $f has CORE-CRITICAL-APPROVED escape hatch, skipping."
+              continue
+            fi
+            if grep -iE "(ALTER|DROP|CREATE INDEX|INSERT|UPDATE|DELETE).*(${RECON_TABLES})" "$f"; then
+              echo "::error::DDL GUARD: $f touches reconciliation tables without CORE-CRITICAL-APPROVED"
+              FAILED=1
+            fi
+          done
+          if [ "$FAILED" -ne 0 ]; then
+            exit 1
+          fi
+          echo "Migration DDL Guard: passed."
+
+      - name: "Iron Fence: Ruff (warn-only)"
+        run: |
+          pip install -q ruff
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE_SHA="${{ github.event.before }}"
+          fi
+          if [ -z "$BASE_SHA" ] || [ "$BASE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            echo "No base SHA available, skipping Ruff."
+            exit 0
+          fi
+          CHANGED_RAW=$(git diff --name-only "$BASE_SHA" -- .cursor/windmill-core-v1) || { echo "::warning::git diff failed, skipping Ruff."; exit 0; }
+          CHANGED=$(echo "$CHANGED_RAW" | grep '\.py$' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No changed Python files in windmill-core-v1, skipping Ruff."
+            exit 0
+          fi
+          echo "Checking files:"
+          echo "$CHANGED"
+          echo "$CHANGED" | xargs -d '\n' ruff check --select E,W,F --output-format github || true
+        continue-on-error: true
 
       - name: Run tests
         working-directory: .cursor/windmill-core-v1
