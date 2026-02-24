@@ -1,7 +1,7 @@
 # Definition of Done — Biretos Automation
 
 Checklist for the PR author before requesting review.
-Automated boundary checks (C1-C9) are performed separately by the AI Reviewer.
+Automated boundary checks (C1-C15) are performed separately by the AI Reviewer.
 
 ## Author Checklist
 
@@ -14,3 +14,7 @@ Automated boundary checks (C1-C9) are performed separately by the AI Reviewer.
 - [ ] **7. Migrations safe.** If I added a migration in `020+`, it does not reference `reconciliation_*` tables. (Exception: `-- CORE-CRITICAL-APPROVED:` marker with documented reason.)
 - [ ] **8. Tests pass.** `pytest` green locally. No new test failures.
 - [ ] **9. CI green.** Full pipeline passes after push.
+- [ ] **10. Executability.** Any new or substantially changed Tier-3 worker/module is runnable and verifiable in isolation (entry point or test with stubbed DB/API; no full Core required).
+- [ ] **11. Verifiability.** Any new or substantially changed Tier-3 worker/module has at least one deterministic test (unit or with stubbed DB/API) covering its key logic; no reliance on live external APIs, unmocked time, or randomness.
+- [ ] **12. Explainability.** Any new or substantially changed Tier-3 worker/module emits structured log entries at the decision/action boundary: trace_id, key input identifiers/state, and outcome or decision taken (no full payload dumps, no PII).
+- [ ] **13. Observability.** Any new or substantially changed Tier-3 worker/module logs every failure in a structured way: trace_id, error_class (TRANSIENT/PERMANENT/POLICY_VIOLATION), severity (WARNING/ERROR), retriable (true/false). No silent failure — exceptions must not be swallowed without logging.
