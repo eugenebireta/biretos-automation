@@ -5,6 +5,15 @@ Canonical Tier-3 worker template.
 Compliance targets:
 - PROJECT_DNA.md Mandatory Patterns 6-9
 - docs/prompt_library/ai_reviewer.md checks C12-C15
+
+Logging contracts:
+- Decision log keys:
+  event, ts, trace_id, entity_id, operation, state, outcome, reason
+- Error log keys:
+  event, ts, trace_id, entity_id, operation, error_class, severity, retriable, error
+
+CLI contract:
+python tier3_worker_template.py --trace-id <value> [--dry-run] [--payload '<json-object>']
 """
 
 from __future__ import annotations
@@ -13,14 +22,25 @@ import argparse
 import json
 import sys
 import time
-from typing import Any, Dict, Tuple
+from enum import Enum
+from typing import Any, Dict, Optional, Sequence, Tuple
 
-TRANSIENT = "TRANSIENT"
-PERMANENT = "PERMANENT"
-POLICY_VIOLATION = "POLICY_VIOLATION"
 
-_ALLOWED_ERROR_CLASSES = {TRANSIENT, PERMANENT, POLICY_VIOLATION}
-_ALLOWED_SEVERITIES = {"WARNING", "ERROR"}
+class ErrorClass(str, Enum):
+    TRANSIENT = "TRANSIENT"
+    PERMANENT = "PERMANENT"
+    POLICY_VIOLATION = "POLICY_VIOLATION"
+
+
+class Severity(str, Enum):
+    WARNING = "WARNING"
+    ERROR = "ERROR"
+
+
+# Backward-compatible aliases for quick copy-paste usage.
+TRANSIENT = ErrorClass.TRANSIENT.value
+PERMANENT = ErrorClass.PERMANENT.value
+POLICY_VIOLATION = ErrorClass.POLICY_VIOLATION.value
 
 
 def _log(event: str, data: Dict[str, Any]) -> None:
@@ -55,24 +75,19 @@ def log_error(
     trace_id: str,
     entity_id: str,
     operation: str,
-    error_class: str,
-    severity: str,
+    error_class: ErrorClass,
+    severity: Severity,
     retriable: bool,
     error: str,
 ) -> None:
-    if error_class not in _ALLOWED_ERROR_CLASSES:
-        raise ValueError(f"Unsupported error_class: {error_class}")
-    if severity not in _ALLOWED_SEVERITIES:
-        raise ValueError(f"Unsupported severity: {severity}")
-
     _log(
         "worker_error",
         {
             "trace_id": trace_id,
             "entity_id": entity_id,
             "operation": operation,
-            "error_class": error_class,
-            "severity": severity,
+            "error_class": error_class.value,
+            "severity": severity.value,
             "retriable": retriable,
             "error": error,
         },
@@ -89,12 +104,12 @@ def _derive_idempotency_key(payload: Dict[str, Any]) -> str:
     return f"{operation}:{entity_id}:{trace_id}"
 
 
-def _classify_exception(exc: Exception) -> Tuple[str, str, bool]:
+def _classify_exception(exc: Exception) -> Tuple[ErrorClass, Severity, bool]:
     if isinstance(exc, (TimeoutError, ConnectionError)):
-        return TRANSIENT, "WARNING", True
+        return ErrorClass.TRANSIENT, Severity.WARNING, True
     if isinstance(exc, ValueError):
-        return POLICY_VIOLATION, "ERROR", False
-    return PERMANENT, "ERROR", False
+        return ErrorClass.POLICY_VIOLATION, Severity.ERROR, False
+    return ErrorClass.PERMANENT, Severity.ERROR, False
 
 
 def _domain_logic(payload: Dict[str, Any], *, dry_run: bool, idempotency_key: str) -> Dict[str, str]:
@@ -121,6 +136,9 @@ def _domain_logic(payload: Dict[str, Any], *, dry_run: bool, idempotency_key: st
 
 
 def run_worker(conn: Any, payload: Dict[str, Any], *, dry_run: bool = False) -> Dict[str, Any]:
+    if not isinstance(payload, dict):
+        raise ValueError("payload must be a dict")
+
     trace_id = str(payload.get("trace_id") or "").strip()
     if not trace_id:
         raise ValueError("trace_id is required")
@@ -164,20 +182,28 @@ def run_worker(conn: Any, payload: Dict[str, Any], *, dry_run: bool = False) -> 
         raise
 
 
-if __name__ == "__main__":
+def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Canonical Tier-3 worker template")
     parser.add_argument("--trace-id", required=True, help="Trace identifier for end-to-end correlation")
     parser.add_argument("--dry-run", action="store_true", help="Skip external side-effects and commit")
     parser.add_argument("--payload", default="{}", help="JSON object payload")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     try:
         input_payload = json.loads(args.payload)
         if not isinstance(input_payload, dict):
             raise ValueError("--payload must be a JSON object")
-        input_payload["trace_id"] = args.trace_id
+        trace_id = str(args.trace_id).strip()
+        if not trace_id:
+            raise ValueError("--trace-id must be non-empty")
+        input_payload["trace_id"] = trace_id
         output = run_worker(conn=None, payload=input_payload, dry_run=args.dry_run)
         print(json.dumps({"status": "ok", "result": output}, ensure_ascii=False))
+        return 0
     except Exception as exc:
         print(json.dumps({"status": "error", "error": str(exc)}, ensure_ascii=False), file=sys.stderr)
-        sys.exit(1)
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
