@@ -1,0 +1,31 @@
+---
+description: Tier-3 Discipline Safety Net (E/V/E/O)
+globs:
+  - .cursor/windmill-core-v1/ru_worker/**
+  - .cursor/windmill-core-v1/workers/**
+  - .cursor/windmill-core-v1/side_effects/**
+alwaysApply: false
+---
+
+# Tier-3 Discipline Safety Net
+
+Source of truth: `PROJECT_DNA.md` (Mandatory Patterns 6-9 and Review Checklist).
+Validation reference: `docs/prompt_library/ai_reviewer.md` (C12-C15).
+
+When editing Tier-3 workers/modules, enforce:
+- Pattern 6 (Executability): isolated runnable entry point (`if __name__ == '__main__'`, CLI, or isolated test with stubbed DB/API).
+- Pattern 7 (Verifiability): at least one deterministic test for key logic (no live API, no unmocked time/random).
+- Pattern 8 (Explainability): structured decision/action logging with trace_id, key input identifiers/state, and outcome/decision.
+- Pattern 9 (Observability): structured error logging with trace_id, error_class, severity, retriable; no silent failures.
+
+Also verify baseline discipline:
+- Extract and propagate `trace_id`.
+- Use deterministic `idempotency_key` for side effects.
+- Keep commits at worker boundary only (no commit inside domain operations).
+- Never log secrets, PII, or raw unredacted payloads.
+
+Do not perform out-of-scope changes in this context:
+- No edits to Tier-1/frozen files.
+- No edits to `PROJECT_DNA.md`, `docs/DEFINITION_OF_DONE.md`, or `docs/prompt_library/ai_reviewer.md`.
+- No new invariants or monitoring infrastructure additions.
+- No Master Plan changes.
