@@ -1,0 +1,24 @@
+# Tier-1 Hash Proof Post Approve
+total_entries: 19
+match_count: 19
+mismatch_count: 0
+
+MATCH    | maintenance_sweeper.py | a603100bcb86d0827aeb1272a87e4109229c893c5afbc80e51db17e421574807
+MATCH    | retention_policy.py | cefd11faad3d0eb459511fc45c4dd36f6be65220d839510779542081e1cb5f04
+MATCH    | domain/reconciliation_service.py | 12d6b44a5cc331a0cf7ba0aa3b088514c7d797ed98905b42212a9022ca85f14d
+MATCH    | domain/reconciliation_verify.py | c021d151efb3ecd873fbd58edf17925911bb55735ff43884f9cc7ad41b2e96b5
+MATCH    | domain/reconciliation_alerts.py | 966c8a19f5c23ba1a52214c9597f6c4d2e9268223c7dd60d7411a9b50b9c1926
+MATCH    | domain/structural_checks.py | 8e76de8bd1fa4919f827c24cd3c8a9c1d69975349824e8002511a0a711656e09
+MATCH    | domain/observability_service.py | 3d11d417e447edeb214fd0f34f0c97fc9275bb15b518787d29c8c20215cab6fd
+MATCH    | migrations/016_create_reconciliation_audit_log.sql | 390e5fcabfd66b468c680bc90af50efe8c1165a8753a019700979c3672471b83
+MATCH    | migrations/017_create_reconciliation_suppressions.sql | de85fe23677c29fab8d113a6607096a64be6666b9a9b579b2444366c46dbddd6
+MATCH    | migrations/018_create_reconciliation_alerts.sql | 509ab70dc86a114d3e7f7c7dc75ecffe57157ac3e6c78125d8889251cb162695
+MATCH    | migrations/019_add_retention_indexes.sql | 57e285c662abfcb88024551a754a1b3418728e02c4d7d891e0d7a0f2828f34ea
+MATCH    | docs/RETENTION_INVARIANT.md | 51c365994769a1be88be95c0b1be5f0f9fe286ad9415583c79dc7fd78b698ebe
+MATCH    | tests/validation/test_phase3_alert_emission.py | 7c79790cf37b73288d6ea159aca626c6adfe79dcaf21ad5018d2bacad3f9c62c
+MATCH    | tests/validation/test_phase3_cache_read_model_contract.py | 7caefdd44d905bff3742d1e5e6c0acc945d01cf7ff7d9024baffaeb055d1cb4b
+MATCH    | tests/validation/test_phase3_l3_structural_checks.py | 9a2043f2d0148f2b0f0525236da05f614369c4a174aec03eb6bb89c695e0aeab
+MATCH    | tests/validation/test_phase3_replay_verify.py | a54ae1717d34b813c52c133071d689afb75a8f6c2ce09442728c5da705f90b93
+MATCH    | tests/validation/test_phase3_structural_safety_contract.py | 52cdc50831ecb19bbe56a8516d1660d54a05693396a7b0192202a3f7ee037b64
+MATCH    | tests/validation/test_phase25_contract_guards.py | a2e63ed77be1f32b5b022ba85bfe6cef59bf5ffa6d6bd1d0a1bb3684db64e338
+MATCH    | tests/validation/test_phase25_replay_gate.py | fc3458a75d0c55361fe81a6982b89c111bc8792dbfabb3bc05438efb70365609

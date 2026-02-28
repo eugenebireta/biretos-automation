@@ -1,4 +1,4 @@
-﻿# =========================
+# =========================
 # Images
 # =========================
 *.jpg
@@ -27,6 +27,13 @@ venv*/
 # =========================
 *.log
 *.tmp
+
+# =========================
+# Security sanitize (Phase P0)
+# =========================
+*.env
+CREDENTIALS_FOUND*
+secrets.json
 *.bak
 /tmp/
 /cache/
@@ -40,6 +47,7 @@ venv*/
 # =========================
 # Local / Secrets
 # =========================
+.env
 insales_to_shopware_migration/config.json
 
 # =========================
@@ -56,3 +64,29 @@ n8n-workflows/
 # Installers / Executables
 # =========================
 wireguard-installer.exe
+
+# =========================
+# Repo hygiene: data/artifacts/office temp
+# =========================
+# Excel lock files
+~$*.xlsx
+
+# Input datasets and enriched files
+honeywell.xlsx
+lots.xlsx
+*_enriched*.xlsx
+
+# Reports
+report*.xlsx
+report*.pdf
+results_*.xlsx
+
+# Run artifacts
+downloads/lots/
+downloads/**/lot_*_artifact.json
+downloads/**/summary_filters_report.xlsx
+downloads/**/_metadata/
+
+# Temporary office files
+~$*
+*.tmp

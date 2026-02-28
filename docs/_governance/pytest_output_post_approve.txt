@@ -1,0 +1,69 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.8, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\cursor_project\biretos-automation\.cursor\windmill-core-v1
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-3.7.1
+collected 128 items
+
+tests\test_governance_decisions.py .......                               [  5%]
+tests\test_governance_executor.py ................                       [ 17%]
+tests\test_governance_trigger.py .......                                 [ 23%]
+tests\test_governance_workflow.py ..................                     [ 37%]
+tests\test_idempotency.py ........................                       [ 56%]
+tests\validation\test_idempotency_migration_trace_id_index.py .          [ 57%]
+tests\validation\test_phase25_contract_guards.py ...                     [ 59%]
+tests\validation\test_phase25_observability.py ..                        [ 60%]
+tests\validation\test_phase25_reconciliation.py ...                      [ 63%]
+tests\validation\test_phase25_replay_gate.py ...                         [ 65%]
+tests\validation\test_phase2_contract_guards.py ......                   [ 70%]
+tests\validation\test_phase2_document_contracts.py ...                   [ 72%]
+tests\validation\test_phase2_payment_service_runtime.py .                [ 73%]
+tests\validation\test_phase2_shipment_cache_runtime.py .                 [ 74%]
+tests\validation\test_phase2_unwrap_runtime.py .                         [ 75%]
+tests\validation\test_phase3_alert_emission.py ...                       [ 77%]
+tests\validation\test_phase3_cache_read_model_contract.py ..             [ 78%]
+tests\validation\test_phase3_l3_structural_checks.py ..                  [ 80%]
+tests\validation\test_phase3_replay_verify.py .....                      [ 84%]
+tests\validation\test_phase3_structural_safety_contract.py ..            [ 85%]
+tests\validation\test_r1_catalog_pipeline.py ...........                 [ 94%]
+tests\validation\test_shopware_spike_dry_run.py ....                     [ 97%]
+tests\validation\test_tier1_stability_guards.py ...                      [100%]
+
+============================== warnings summary ===============================
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+  C:\cursor_project\biretos-automation\.cursor\windmill-core-v1\webhook_service\main.py:258: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+  C:\Users\Eugene\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\applications.py:4547: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)
+
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+  C:\cursor_project\biretos-automation\.cursor\windmill-core-v1\webhook_service\main.py:263: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("shutdown")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 128 passed, 8 warnings in 1.00s =======================
+
+PYTEST_EXIT_CODE=0
