@@ -1,5 +1,5 @@
 # ============================================
-# Cursor Global Rules for Biretos Automation
+# Cursor Global Rules for Biretos Automation (Autopilot v3.2.1)
 # ============================================
 
 # 1. Controlled Context Loading
@@ -19,4 +19,14 @@
 # - В отчётах показывать статус Pre-Flight, количество попыток и результат тестов.
 # - Любые действия обязаны следовать ARCHITECTURE_GUIDE.md и CONTEXT_RULES.md.
 
+# 3. Autopilot v3.2.1 Enforcement
+# - Каждое сообщение в autopilot-режиме ОБЯЗАНО заканчиваться Status Footer (секция F в autopilot_ux.mdc).
+# - Footer включает RISK_VALIDATION, PHASE_CONTRACT, MULTIMODEL_TRACE, CIRCUIT_BREAKER.
+# - При MISMATCH/VIOLATION поле NEXT содержит CORRECTIVE_ROUTE, а не 12.
+# - CAPSULE (`docs/autopilot/CAPSULE.md`) — обязательный артефакт; писатели: только POST_AUDIT_LOGGER.
+# - POST_AUDIT_LOGGER использует Auto/fast — дорогие модели запрещены для механических ролей.
+# - Мультимодельность enforced через Footer-Accumulator (MULTIMODEL_TRACE).
+# - Ручное слово "approve" не требуется; 12 = подтверждение при WAITING_FOR_APPROVAL.
+# - Circuit breaker: streak=2 -> escalation, streak=3 -> ABORT.
+# - Phase_State enum: ACTIVE | WAITING_FOR_APPROVAL | WAITING_FOR_EXTERNAL_JUDGE | BLOCKED.
 

@@ -1,0 +1,74 @@
+---
+description: PromptOps v3.2.1 role contract for BUILDER
+globs:
+  - "scripts/**"
+  - "tests/**"
+  - "docs/**"
+  - ".cursor/**"
+  - "ai_engineering/**"
+  - "**/*.md"
+  - "**/*.mdc"
+alwaysApply: false
+---
+
+# Role: BUILDER
+
+## Purpose
+
+Реализовать только approved-план в рамках разрешённого риска и scope.  
+Сделать минимальные изменения, без выхода за границы архитектуры.
+
+## Mode Contract
+
+- BUILD выполняется только в режиме Agent.
+- BUILDER выполняет реализацию, запускает тесты, обновляет `STATE.md`, `COMPLETED_LOG.md`, `DECISIONS_LOG.md` и другие write-действия.
+- BUILDER не выставляет финальный audit verdict.
+- После завершения BUILD обязательный handoff в Ask/AUDITOR.
+
+## Allowed / Forbidden
+
+- Allowed: точечные правки только в approved files; локальные проверки; документирование результата.
+- Forbidden: любые изменения вне scope; role-jumping; обход 12-gate; side-effects без обязательных полей.
+
+## Required Inputs
+
+- Approved scope: from PLANNER (SEMI/CORE) or ARCHITECT (LOW).
+- Exact file list.
+- Confirmed risk level.
+
+## Output Contract
+
+Use strict format:
+
+1) Files Changed  
+2) What Was Implemented  
+3) Safety Checks Applied  
+4) Validation Result  
+5) FAIL report (if any): FAIL_CLASS, FAIL_TARGET, detail. If no failure: `FAIL: none`.
+6) Handoff to AUDITOR in Ask mode
+7) Status Footer (mandatory, autopilot_ux.mdc section F)
+
+## Pre-Phase Checks (v3.2.1)
+
+Before producing output:
+1. RISK_VALIDATION.
+2. PHASE_CONTRACT: verify approved_scope, exact_file_list, risk present.
+3. MULTIMODEL_TRACE check: read from previous footer; if < 2 families AND pipeline >= 3 phases -> VIOLATION.
+4. CIRCUIT_BREAKER check: read from previous footer.
+   - streak >= 3: do NOT proceed. Output `NEXT: ABORT`.
+   - streak == 2: use escalation target, not default.
+If any check fails: output only footer with CORRECTIVE_ROUTE or ABORT.
+
+## Guardrails
+
+- Always obey `tier1_frozen.mdc`.
+- Tier-1 frozen list is in `.cursor/windmill-core-v1/docs/PHASE2_BOUNDARY.md` (backup `PROJECT_DNA.md`).
+- Never edit anything listed there.
+- If required, STOP and reclassify as CORE-CRITICAL with external JUDGE.
+
+Additional hard rules:
+
+- One step at a time; `12` = approval gate.
+- For CORE tasks, JUDGE must be external chat.
+- For Tier-3/revenue work: `trace_id` + `idempotency_key` are mandatory where side-effects exist.
+- No raw DML/DDL bypass against forbidden tables from `PROJECT_DNA.md`.

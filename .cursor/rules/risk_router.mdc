@@ -1,0 +1,83 @@
+---
+description: PromptOps v3.2.1 Risk Router, phase gating, RISK_VALIDATION, PHASE_CONTRACT
+alwaysApply: true
+---
+
+# PromptOps Acceleration Pack v3.2.1 — Risk Router
+
+Purpose: route each task to the correct governance pipeline and enforce phase gates.
+
+Tier-1 boundary is enforced by `tier1_frozen.mdc` and must be checked before planning or build.
+
+## Risk Definitions
+
+- 🔴 CORE-CRITICAL: Tier-1 files, DB schema/migrations, FSM, Guardian, invariants, new Tier-2 atomics, governance/policy-pack changes.
+- 🟡 POLICY-MEDIUM / SEMI: Tier-3 tasks with financial side-effects, D3-D5 classes, policy parameters, margin/category mapping.
+- 🟢 LOG-LOW: logging, docs, read-only adapters/dashboards, D1-D2, non-runtime PromptOps docs/rules.
+
+## Risk → Pipeline Matrix
+
+- CORE: SCOUT → ARCHITECT → CRITIC → JUDGE (external only) → PLANNER → BUILDER → AUDITOR.
+  - No batching. All phases are separate.
+- SEMI: ARCHITECT → CRITIC → PLANNER → BUILDER → AUDITOR.
+  - Text-only consolidation allowed: Scout+Architect in one analysis block.
+  - Action phases remain separate; `12` = approval at each gate.
+- LOW: ARCHITECT → BUILDER.
+  - Text-only consolidation allowed before Builder: Scout+Architect+Planner.
+
+## Dynamic PLANNER Inclusion (v3.2.1)
+
+PLANNER is mandatory regardless of risk level when ANY condition is true:
+- `files_changed > 3` (estimated by ARCHITECT)
+- `cross_module = true` (changes span > 1 directory/module)
+- `risk_escalation` detected at any phase
+
+When PLANNER is dynamically included for LOW tasks:
+- Model: Auto/fast (not Opus)
+- Pipeline becomes: ARCHITECT → PLANNER → BUILDER
+- `12` between phases serves as approval gate
+
+## NEVER Batch These
+
+- Tier-1 frozen files and boundary changes.
+- DB schema changes, migrations, and DDL decisions.
+- Governance workflow or policy-pack modifications.
+- New side-effects/external API mutations.
+- Idempotency, multi-worker coordination, replay guarantees.
+
+## Phase Gates (v3.2.1)
+
+- One step at a time.
+- Do not merge role actions.
+- Between phases, stop with `NEXT: WAITING_FOR_APPROVAL → напиши 12 для подтверждения`.
+- `12` = implicit approval and advance.
+- Non-`12` text = correction or rejection (phase re-runs with feedback).
+- For CORE tasks, JUDGE step must run in external chat only.
+
+## RISK_VALIDATION (v3.2.1)
+
+Every phase MUST run RISK_VALIDATION at start:
+1. Compare declared risk against actual scope indicators:
+   - Tier-1 file in scope → must be CORE
+   - Migration/DDL in scope → must be CORE
+   - Financial side-effect → must be SEMI+
+   - External API mutation → must be SEMI+
+2. Result: `OK` or `MISMATCH(reason)` in footer.
+3. On MISMATCH: `12` does NOT advance; NEXT = CORRECTIVE_ROUTE to SCOUT.
+4. Risk can only escalate (LOW→SEMI→CORE), never downgrade mid-task.
+
+## PHASE_CONTRACT (v3.2.1)
+
+Every phase MUST verify required inputs at start:
+| Phase | Required Inputs |
+|---|---|
+| SCOUT | task_id, risk_level, target_scope |
+| ARCHITECT | scout_facts, risk_level, user_constraints |
+| CRITIC | architect_output, risk_level, source_files |
+| PLANNER | approved architect+critic, risk, file_list |
+| BUILDER | approved_scope (ARCHITECT for LOW; PLANNER for SEMI/CORE), exact_file_list, risk |
+| AUDITOR | builder_output, changed_files, risk, expected_pipeline |
+| POST_AUDIT_LOGGER | auditor_verdict=PASS, capsule_ref, evidence_paths |
+
+On missing input: `PHASE_CONTRACT: VIOLATION(missing: X)`.
+On VIOLATION: `12` does NOT advance; NEXT = CORRECTIVE_ROUTE to provider phase.
