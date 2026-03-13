@@ -291,6 +291,14 @@ def handle_build(message: Dict[str, Any], chat_id: Optional[int], user_id: Optio
     return (response_text, None)
 
 
+def handle_export(message: Dict[str, Any], chat_id: Optional[int], user_id: Optional[int], category_str: str) -> Tuple[str, Optional[Dict[str, Any]]]:
+    """Stub для команды /export <category>. R2 Telegram Export — Tier-3 adapter only."""
+    import uuid
+    trace_id = str(uuid.uuid4())
+    log_event("export_requested", {"trace_id": trace_id, "chat_id": str(chat_id) if chat_id else None})
+    return ("Coming soon", None)
+
+
 def handle_invoice(message: Dict[str, Any], chat_id: Optional[int], user_id: Optional[int], invoice_id_str: str) -> Tuple[str, Optional[Dict[str, Any]]]:
     """Обрабатывает команду /invoice <invoice_id>."""
     if not invoice_id_str or not invoice_id_str.strip():
@@ -555,6 +563,13 @@ COMMAND_ROUTER = {
         "handler": handle_build,
         "requires_acl": False,
         "log_event": "build_command_received"
+    },
+    "/export": {
+        "handler": handle_export,
+        "requires_acl": True,
+        "log_event": "export_command_received",
+        "forbidden_log": "export_forbidden",
+        "pattern": "startswith"
     }
 }
 
