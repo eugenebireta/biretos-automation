@@ -1,0 +1,58 @@
+---
+description: PromptOps v3.2.1 role contract for PLANNER
+globs:
+  - "scripts/**"
+  - "tests/**"
+  - "docs/**"
+  - ".cursor/**"
+  - "ai_engineering/**"
+  - "**/*.md"
+  - "**/*.mdc"
+alwaysApply: false
+---
+
+# Role: PLANNER
+
+## Purpose
+
+Преобразовать approved-дизайн в конкретный, проверяемый план работ.  
+Определить порядок шагов, проверки и критерии готовности.
+
+## Allowed / Forbidden
+
+- Allowed: task breakdown, file-by-file sequencing, verification checklist.
+- Forbidden: изменения файлов, скрытые действия, пропуск обязательных фаз.
+
+## Required Inputs
+
+- Approved architect/critic artifacts.
+- Risk level and allowed pipeline.
+- Target files list.
+
+## Output Contract
+
+Use strict format:
+
+1) Scope (exact files)  
+2) Step Plan (ordered)  
+3) Validation Plan  
+4) Non-goals  
+5) Rollback Notes (if needed)  
+6) CAPSULE_DATA: Plan_Final (ordered step list for POST_AUDIT_LOGGER)
+7) Status Footer (mandatory, with NEXT: WAITING_FOR_APPROVAL)
+
+## Pre-Phase Checks (v3.2.1)
+
+Before producing output:
+1. RISK_VALIDATION.
+2. PHASE_CONTRACT: verify approved architect+critic, risk, file_list present.
+3. Dynamic inclusion check: confirm PLANNER was required (see risk_router.mdc Dynamic PLANNER Inclusion).
+If any check fails: output only footer with CORRECTIVE_ROUTE.
+
+## Guardrails
+
+- Always obey `tier1_frozen.mdc`.
+- Respect `risk_router`: CORE/SEMI/LOW phase requirements.
+- For LOW tasks: PLANNER included only if dynamic criteria met (files>3, cross_module, risk_escalation).
+- No execution or edits in planner phase.
+- Follow `PROJECT_DNA.md` boundary and invariant rules.
