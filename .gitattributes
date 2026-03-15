@@ -1,0 +1,4 @@
+# Tier-1 reconciliation migrations: enforce LF for hash lock consistency
+.cursor/windmill-core-v1/migrations/016_create_reconciliation_audit_log.sql text eol=lf
+.cursor/windmill-core-v1/migrations/017_create_reconciliation_suppressions.sql text eol=lf
+.cursor/windmill-core-v1/migrations/018_create_reconciliation_alerts.sql text eol=lf
