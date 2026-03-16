@@ -84,6 +84,22 @@ def validate_config() -> Config:
     max_retries = _parse_int("MAX_RETRIES", raw.get("MAX_RETRIES"), 8, invalid)
     worker_count = _parse_int("WORKER_COUNT", raw.get("WORKER_COUNT"), 2, invalid)
     poll_interval = _parse_int("POLL_INTERVAL", raw.get("POLL_INTERVAL"), 5, invalid)
+    alert_poll_interval = _parse_int(
+        "ALERT_POLL_INTERVAL", raw.get("ALERT_POLL_INTERVAL"), 300, invalid
+    )
+    alert_telegram_chat_id = _parse_int(
+        "ALERT_TELEGRAM_CHAT_ID", raw.get("ALERT_TELEGRAM_CHAT_ID"), None, invalid
+    )
+    alert_chat_id_critical = _parse_int(
+        "ALERT_CHAT_ID_CRITICAL", raw.get("ALERT_CHAT_ID_CRITICAL"), None, invalid
+    )
+    alert_chat_id_warning = _parse_int(
+        "ALERT_CHAT_ID_WARNING", raw.get("ALERT_CHAT_ID_WARNING"), None, invalid
+    )
+    alert_min_severity_raw = (raw.get("ALERT_MIN_SEVERITY") or "WARNING").strip().upper()
+    if alert_min_severity_raw not in {"INFO", "WARNING", "CRITICAL"}:
+        invalid.append("ALERT_MIN_SEVERITY: expected INFO, WARNING, or CRITICAL")
+        alert_min_severity_raw = "WARNING"
     llm_timeout_seconds = _parse_int(
         "LLM_TIMEOUT_SECONDS", raw.get("LLM_TIMEOUT_SECONDS"), 30, invalid
     )
@@ -201,6 +217,11 @@ def validate_config() -> Config:
         telegram_secret_token=raw.get("TELEGRAM_SECRET_TOKEN"),
         ru_base_url=raw.get("RU_BASE_URL") or "https://n8n.biretos.ae",
         poll_interval=poll_interval,
+        alert_poll_interval=alert_poll_interval,
+        alert_telegram_chat_id=alert_telegram_chat_id,
+        alert_chat_id_critical=alert_chat_id_critical,
+        alert_chat_id_warning=alert_chat_id_warning,
+        alert_min_severity=alert_min_severity_raw,
         worker_id=raw.get("WORKER_ID") or "local-pc-worker",
         usa_llm_base_url=raw.get("USA_LLM_BASE_URL") or "https://usa-llm-gateway.example.com",
         usa_llm_api_key=raw.get("USA_LLM_API_KEY"),

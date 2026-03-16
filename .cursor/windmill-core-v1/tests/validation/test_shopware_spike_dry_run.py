@@ -64,6 +64,21 @@ class _StatefulCursor:
             self._rows = [(row["id"],)]
             return
 
+        if normalized.startswith("select shopware_media_id from shopware_media_map"):
+            product_number, media_url = params
+            media_id = self._conn.media_map.get((str(product_number), str(media_url)))
+            if not media_id:
+                self._rows = []
+                return
+            self._rows = [(media_id,)]
+            return
+
+        if normalized.startswith("insert into shopware_media_map"):
+            product_number, media_url, media_id, _position = params
+            self._conn.media_map[(str(product_number), str(media_url))] = str(media_id)
+            self._rows = []
+            return
+
         if normalized.startswith("select id, status, attempt, updated_at from shopware_operations"):
             product_number, content_hash = params
             key = (product_number, content_hash)
@@ -115,6 +130,7 @@ class _StatefulConnection:
         self.autocommit = False
         self.operations_by_key: dict[tuple[str, str], dict[str, Any]] = {}
         self.id_to_key: dict[str, tuple[str, str]] = {}
+        self.media_map: dict[tuple[str, str], str] = {}
         self.commit_calls = 0
 
     def cursor(self) -> _StatefulCursor:
@@ -356,3 +372,30 @@ def test_shopware_product_sync_marks_failed_on_api_error(monkeypatch):
     assert row["status"] == "failed"
     assert row["attempt"] == attempt_before
     assert conn.commit_calls == 0
+
+
+def test_shopware_product_sync_dry_run_persists_media_mapping(monkeypatch):
+    config_stub = _ConfigStub(shopware_enable_dry_run=True)
+    worker_module = _import_shopware_worker(config_stub, monkeypatch)
+
+    monkeypatch.setattr(worker_module.ShopwareApiClient, "_ensure_token", lambda self: None, raising=True)
+
+    def _forbid_network(*_args, **_kwargs):
+        raise AssertionError("Network call is forbidden in DRY_RUN validation")
+
+    monkeypatch.setattr("requests.Session.request", _forbid_network, raising=True)
+
+    conn = _StatefulConnection()
+    payload = _build_payload()
+    payload["cdm_product"]["media_urls"] = [
+        "https://cdn.example.local/images/sku-1.jpg",
+        "https://cdn.example.local/images/sku-2.jpg",
+    ]
+    payload["cdm_product"]["attributes"] = {"brand_origin": "EU"}
+
+    result = worker_module.execute_shopware_product_sync(payload, conn)
+
+    assert result["status"] == "confirmed"
+    assert len(conn.rows()) == 1
+    assert conn.rows()[0]["status"] == "confirmed"
+    assert len(conn.media_map) == 2

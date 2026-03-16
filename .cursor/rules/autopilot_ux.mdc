@@ -1,301 +1,208 @@
 ---
-description: Zero-Memory Autopilot UX v3.2.1 (token=12, capsule, circuit breaker, fail-routing, footer-accumulator)
+description: Zero-Memory Autopilot UX v4.0.0 (deterministic FSM, STATE-first, fail-loud)
 alwaysApply: true
 ---
 
-# Zero-Memory Autopilot UX v3.2.1
+# Zero-Memory Autopilot UX v4.0.0
 
 ## Scope and Anchors
-- Use `docs/autopilot/STATE.md` as Agent-only checkpoint state (not mandatory for Ask/Plan startup).
-- Use `docs/autopilot/CAPSULE.md` as compact single-task truth source (writer: POST_AUDIT_LOGGER only).
-- Use `EXECUTION_ROADMAP_v2_2.md` for next-task selection and sequencing.
-- Use `.cursor/rules/risk_router.mdc` for LOW/SEMI/CORE classification, RISK_VALIDATION, PHASE_CONTRACT.
-- Respect Tier-1 freeze via `.cursor/windmill-core-v1/docs/PHASE2_BOUNDARY.md`.
-- Do not duplicate roadmap/DNA content into this rule; only reference sources.
-- Reuse already loaded context inside the same task: do not re-read unless context changed, phase/task changed, external audit happened, or user explicitly requested re-read.
+- `docs/autopilot/STATE.md` is the only source of truth (SSoT) for phase and status.
+- `docs/autopilot/CAPSULE.md` stays a compact task capsule (writer: POST_AUDIT_LOGGER only).
+- `EXECUTION_ROADMAP_v2_2.md` remains task sequence source.
+- `.cursor/rules/risk_router.mdc` remains risk gate source.
+- Tier-1 freeze remains enforced via `.cursor/windmill-core-v1/docs/PHASE2_BOUNDARY.md`.
+- Chat content and previous footers are display-only context, never state authority.
 
-## A) Triggers
-1. If user message is exactly `12` (trimmed), always:
-   - Read `Phase_State` from last Status Footer in chat (primary) or STATE.md (fallback):
-     a. `WAITING_FOR_EXTERNAL_JUDGE`: do NOT advance. Remind user to paste external verdict. Footer: `NEXT: WAITING_FOR_EXTERNAL_JUDGE -> вставь вердикт судьи`.
-     b. `BLOCKED`: do NOT advance. Footer: `NEXT: ABORT -> reset circuit breaker или новый SCOUT`.
-     c. `WAITING_FOR_APPROVAL`: treat `12` as implicit approval. Advance to next phase.
-     d. Footer has `CORRECTIVE_ROUTE`: do NOT advance on normal pipeline. Re-execute corrective route from footer.
-     e. `ACTIVE` (default): execute exactly one current phase.
-   - In Agent: use `docs/autopilot/STATE.md` when available, update checkpoint and stop.
-   - In Ask/Plan: run phase in-chat (read-only), do not require or update `STATE.md` or `CAPSULE.md`.
-2. If user message contains `Автопилот`, then:
-   - In Agent: if `docs/autopilot/STATE.md` is missing/empty, initialize it (with v3.2.1 fields); if `docs/autopilot/CAPSULE.md` is missing/empty, initialize template. Otherwise continue from checkpoint.
-   - In Ask/Plan: do not initialize/write files; start/continue autopilot in-chat.
-3. If user message is non-`12` text while `Phase_State = WAITING_FOR_APPROVAL`: treat as correction/rejection. Do not advance; re-run current phase incorporating user feedback.
-4. Token `12` is numeric and layout-agnostic by definition.
-5. Missing or empty `STATE.md` is never an Ask/Plan error and must not block progress.
+## A) Triggers (STATE-first)
+1. If user message is exactly `12` (trimmed), run this protocol in strict order:
+   - STEP 0: read `docs/autopilot/STATE.md` first, before any reasoning.
+   - STEP 1: validate `schema_version == 2`; else emit `SYNC_FAILURE` and stop.
+   - STEP 2: validate `integrity_hash`; on mismatch emit `INTEGRITY_VIOLATION` and stop.
+   - STEP 3: validate `phase_owner` matches current mode/model; on mismatch emit `SYNC_FAILURE` and stop.
+   - STEP 4: validate transition against section L `ALLOWED_TRANSITIONS`; on mismatch emit `SYNC_FAILURE`.
+   - STEP 5: route by current `status`:
+     - `PENDING` -> start phase (`ACTIVE`).
+     - `WAITING_APPROVAL` -> transition to next phase `PENDING`.
+     - `WAITING_JUDGE` -> do not advance; ask user to paste external verdict.
+     - `WAITING_USER_RUN` -> do not advance; ask user to paste test output.
+     - `BLOCKED` -> do not advance; ask for `reset circuit breaker` or override.
+     - `ERROR` -> do not advance; require corrective route or override.
+2. If user message contains `Автопилот`, resume from `STATE.md`; do not depend on footer.
+3. If user message is non-`12` while `status=WAITING_APPROVAL`, treat as correction and rerun current phase.
+4. Token `12` is numeric and layout-agnostic.
+5. Missing/empty `STATE.md` in Agent mode is `SYNC_FAILURE`; in Ask/Plan mode it is `SYNC_FAILURE` too (no silent fallback).
+6. Cross-chat resume does not require pasted footer. Read `STATE.md` and continue.
+7. If user message contains explicit MODE/TASK/STAGE conflicting with `STATE.md`, emit `PROMPT_CONFLICT` and halt.
 
 ## B) Phase Discipline
 1. Execute exactly one phase per response.
-2. Never auto-advance to next phase without a new user message `12`.
-3. Before SCOUT of every new task, run `Scout-Validator (Zero-Step Check)`:
-   - Check `docs/COMPLETED_LOG.md` for a completed record of the current `task_id`.
-   - If missing in log, perform a fast read-only artifact check in code/tests against task DoD.
-   - If task is already done: skip pipeline and route directly to `POST_AUDIT_LOGGER` in Agent for formal closeout records and next-task selection.
-4. `docs/autopilot/STATE.md` updates are Agent-only checkpoints.
-5. Ask/Plan are read-only autopilot modes:
-   - Never create/update `docs/autopilot/STATE.md` or `docs/autopilot/CAPSULE.md`.
-   - Never append to `docs/DECISIONS_LOG.md` or `docs/COMPLETED_LOG.md`.
-   - Continue pipeline in-chat using current conversation context.
-6. In Agent, after each phase that requires checkpoint, update `docs/autopilot/STATE.md` fields:
-   - Active Task
-   - Risk Level
-   - Current Phase
-   - Phase_State (`ACTIVE` | `WAITING_FOR_APPROVAL` | `WAITING_FOR_EXTERNAL_JUDGE` | `BLOCKED`)
-   - Circuit_Breaker (`{fail_count, last_fail_class, same_class_streak}`)
-   - Model_Trace (synced from footer MULTIMODEL_TRACE)
-   - Next Phase
-   - Last Phase Summary (short)
-   - Planned/Changed Files (if applicable)
-   - Next Action
-   - JUDGE_VERDICT (if applicable)
-7. Checkpoint handoff: if checkpoint write is needed while current mode is Ask/Plan, request `POST_AUDIT_LOGGER` handoff to Agent in the final line.
-8. Before ARCHITECT phase, read `docs/DECISIONS_LOG.md` to check for relevant prior decisions that may constrain or inform the current architecture.
-9. BUILD phase is Agent-only:
-   - BUILDER performs implementation, test runs, and all write actions.
-   - BUILDER must not output final audit verdict.
-10. After BUILD completion, mandatory handoff to Ask-mode AUDITOR.
-11. AUDITOR phase is Ask-only and read-only:
-    - AUDITOR validates Builder artifacts, tests, and compliance.
-    - AUDITOR never edits files and never performs write actions.
-    - If validation succeeds: route to `POST_AUDIT_LOGGER` in Agent for writes.
-    - If validation fails: output FAIL_DETECTED block (section G) with FAIL_CLASS and FAIL_TARGET.
-12. `POST_AUDIT_LOGGER` is a formal Agent-only phase after AUDITOR PASS:
-    - Append to `docs/COMPLETED_LOG.md` (`date | task_id | risk | OK | summary`).
-    - Append to `docs/DECISIONS_LOG.md` only if new decisions exist.
-    - Update `docs/autopilot/CAPSULE.md` Result + evidence links sections.
-    - Update `docs/autopilot/STATE.md` to next task (phase=SCOUT, next action, short context).
-    - Reset Circuit_Breaker to `{fail_count:0, last_fail_class:null, same_class_streak:0}`.
-    - Clear CAPSULE for next task (preserve template, clear data sections).
-    - Sync final Model_Trace from footer into STATE.md.
-13. `POST_AUDIT_LOGGER` is mandatory for both:
-    - AUDITOR PASS path;
-    - Scout-Validator short-circuit for already-done tasks;
-    - ABORT delegation from Ask-mode (streak=3): sole task is writing Phase_State: BLOCKED.
-14. Plan mode is used only for PLANNER; SCOUT, ARCHITECT, CRITIC, AUDITOR remain Ask-mode by default.
-15. For any BLOCK flow, persist `JUDGE_VERDICT` marker:
-    - In Agent checkpoint: write `JUDGE_VERDICT` into `STATE.md`.
-    - In Ask mode (read-only): include `JUDGE_VERDICT` marker in response body and footer.
-16. Do not make user manually dispatch recovery steps on BLOCK:
-    - Recovery route is automatic to `ARCHITECT_V2` (Ask Opus), then wait for external verdict as required by risk.
+2. Never auto-advance without a new user action.
+3. Ask/Plan phases are read-only for filesystem writes.
+4. Agent phases (`BUILDER`, `POST_AUDIT_LOGGER`) must write `STATE.md` atomically before final output.
+5. `STATE_CHECK` tripwire is mandatory in first line of every autopilot response:
+   - `STATE_CHECK: phase={X} status={Y} seq={N}`
+6. Ask/Plan phases must emit `DEFERRED_CHECKPOINT`:
+   - `DEFERRED_CHECKPOINT: phase={X}; result={Y}; seq_expect={N}; intent_hash={sha256}`
+7. Maximum 3 consecutive deferred transitions without Agent sync.
+8. On Agent start, if deferred gap exists and checkpoint cannot be validated, emit:
+   - `DEFERRED_GAP_DETECTED` and halt for explicit resync.
+9. BUILDER test execution remains Agent-only; Ask/Plan never execute Shell.
+10. AUDITOR validates TEST_EVIDENCE only.
+11. POST_AUDIT_LOGGER performs formal writes: COMPLETED_LOG, DECISIONS_LOG (if needed), CAPSULE, STATE.
+12. BUILDER MUST (a) emit handoff line
+    `СЕЙЧАС: AUDITOR -> Переключи на Ask Gemini 3 Pro и напиши 12` (or equivalent per C.2)
+    AND (b) write STATE.md to phase=AUDITOR, status=PENDING, BEFORE finishing response.
+    If handoff line is missing, BUILDER MUST NOT advance phase; output CORRECTIVE_ROUTE
+    with reminder. For LOW: AUDITOR is NOOP pass-through (per L); same handoff applies.
 
 ## C) Instruction Line Contract
-1. The first line must be status/context only, without imperative instruction.
-2. The INSTRUCTION line (before footer) must be exactly one of:
-   a. `СЕЙЧАС: <ROLE> -> Переключи на <MODE> <MODEL> и напиши 12`
-   b. `СЕЙЧАС: <ROLE> -> Напиши 12`
-   c. `СЕЙЧАС: JUDGE -> ВНЕШНИЙ АУДИТ`
-   d. `СЕЙЧАС: WAITING_FOR_EXTERNAL_JUDGE -> вставь вердикт судьи`
-   e. `СЕЙЧАС: CORRECTIVE_ROUTE -> <route description>`
-   f. `СЕЙЧАС: ABORT -> reset circuit breaker или новый SCOUT`
-   g. `DONE`
-3. `<ROLE>/<MODE>/<MODEL>` must match routing in section E.
-4. No instruction text is allowed outside the instruction line.
-5. After the instruction line, the STATUS FOOTER (section F) is mandatory.
+1. First line is state context (`STATE_CHECK`), not instruction.
+2. One instruction line before footer only. Allowed forms:
+   - `СЕЙЧАС: <ROLE> -> Переключи на <MODE> <MODEL> и напиши 12`
+   - `СЕЙЧАС: <ROLE> -> Напиши 12`
+   - `СЕЙЧАС: JUDGE -> ВНЕШНИЙ АУДИТ`
+   - `СЕЙЧАС: WAITING_FOR_EXTERNAL_JUDGE -> вставь вердикт судьи`
+   - `СЕЙЧАС: WAITING_FOR_USER_RUN -> вставь вывод команды`
+   - `СЕЙЧАС: CORRECTIVE_ROUTE -> <route>`
+   - `СЕЙЧАС: ABORT -> reset circuit breaker или новый SCOUT`
+   - `DONE`
+3. No instruction text outside instruction line.
 
 ## D) External Audit Gate
-1. For CORE tasks, and for SEMI tasks with money or side-effects:
-   - After CRITIC and ARCHITECT v2, external audit is mandatory.
-2. Before waiting:
-   a. Generate `JUDGE PACK` in response body.
-   b. In Agent: store JUDGE PACK in `STATE.md`; set `Phase_State: WAITING_FOR_EXTERNAL_JUDGE`.
-   c. In Ask/Plan: output JUDGE PACK in response; footer reflects WAITING_FOR_EXTERNAL_JUDGE.
-3. `JUDGE PACK` format is strict:
-   1) Task + Risk (CORE/SEMI)
-   2) Architecture v2 (after critic)
-   3) Critic findings + what was fixed
-   4) Boundaries (Tier-1 untouched, migrations?, side-effects?)
-   5) Planned/Changed files (paths)
-   6) Open questions / trade-offs
-   7) Next phase recommendation
-4. While Phase_State = WAITING_FOR_EXTERNAL_JUDGE:
-   - `12` does NOT advance pipeline. Response reminds user to paste verdict.
-   - Only user pasting verdict text (containing PASS/PASS_WITH_FIXES/BLOCK) resumes flow.
-5. After user pastes verdict:
-   - Ask-phase processes verdict and outputs footer with Phase_State reset:
-     - PASS/PASS_WITH_FIXES: `NEXT: СЕЙЧАС: PLANNER -> ...` (pipeline continues)
-     - BLOCK: `NEXT: СЕЙЧАС: ARCHITECT_V2 -> ...` (automatic recovery)
-   - Persist `JUDGE_VERDICT` in footer. Next Agent-phase syncs to STATE.md.
-6. User must not manually request recovery on BLOCK; route to ARCHITECT_V2 is automatic.
+1. CORE and side-effecting SEMI tasks require external judge after CRITIC/ARCHITECT_V2.
+2. During waiting state use `status=WAITING_JUDGE`.
+3. Accepted external verdict markers:
+   - `VERDICT: PASS`
+   - `VERDICT: PASS_WITH_FIXES`
+   - `VERDICT: BLOCK`
+4. `12` alone never advances while `WAITING_JUDGE`.
 
 ## E) Model/Mode Routing
-| Role | Mode | CORE/SEMI Model | LOW Model | Family |
-|---|---|---|---|---|
-| SCOUT | Ask | Gemini 3 Pro | Auto/fast | Gemini / Auto |
-| ARCHITECT | Ask | Opus 4.6 | Opus 4.6 | Opus |
-| CRITIC | Ask | Gemini 3 Pro | *(skip)* | Gemini |
-| ARCHITECT_V2 | Ask | Opus 4.6 | *(skip)* | Opus |
-| JUDGE_WAIT | *(state)* | External | *(skip)* | External |
-| PLANNER | Plan | Opus 4.6 | Auto/fast *(if dynamic)* | Opus / Auto |
-| BUILDER | Agent | Codex High | Auto/fast | Codex / Auto |
-| AUDITOR | Ask | Gemini 3 Pro | *(skip)* | Gemini |
-| POST_AUDIT_LOGGER | Agent | **Auto/fast** | **Auto/fast** | Auto |
+| Role | Mode | CORE/SEMI Model | LOW Model |
+|---|---|---|---|
+| SCOUT | Ask | Gemini 3 Pro | Auto/fast |
+| ARCHITECT | Ask | Opus 4.6 | Opus 4.6 |
+| CRITIC | Ask | Gemini 3 Pro | *(skip)* |
+| ARCHITECT_V2 | Ask | Opus 4.6 | *(skip)* |
+| JUDGE_WAIT | External | External | *(skip)* |
+| PLANNER | Plan | Opus 4.6 | Auto/fast *(if dynamic)* |
+| BUILDER | Agent | Codex High | Auto/fast |
+| AUDITOR | Ask | Gemini 3 Pro | *(skip)* |
+| POST_AUDIT_LOGGER | Agent | Auto/fast | Auto/fast |
 
-- `STATE.md`, `CAPSULE.md`, `DECISIONS_LOG.md`, `COMPLETED_LOG.md` are write/update in Agent only.
-- If Ask/Plan phase needs checkpoint, route to `POST_AUDIT_LOGGER` in Agent.
-- Always provide explicit MODE+MODEL+`12` handoff in the instruction line.
-- Multimodel enforcement via Footer-Accumulator (see section J).
-
-## F) Status Footer Contract (v3.2.1)
-
-Every autopilot response MUST end with a status footer block after the instruction line.
+## F) Status Footer Contract (v4.0.0)
+Footer is display-only summary of `STATE.md` and no longer state authority.
 Format (strict):
 
 ```
 ---
 STAGE: <phase> | RISK: <level> | MODE: <Ask|Plan|Agent>
-MODEL: <model> | REASONING: <High|Medium|Low>
-RISK_VALIDATION: <OK | MISMATCH(reason)>
-PHASE_CONTRACT: <OK | VIOLATION(missing)>
-MULTIMODEL_TRACE: [family1, family2, ...] | CHECK: <OK | PENDING(need family Z)>
-CIRCUIT_BREAKER: <clear | streak=N class=X | ABORT>
-CAPSULE: <synced | stale | missing>
 NEXT: <instruction>
 ---
 ```
 
-Footer-Accumulator rule for MULTIMODEL_TRACE:
-- Each phase reads MULTIMODEL_TRACE from previous footer (or empty list if first phase).
-- Appends its own model_family to the list.
-- Outputs updated list.
-- Model families: {Opus, Gemini, Codex, Auto, External}.
-- CHECK: OK if >= 2 distinct families OR pipeline < 3 phases; PENDING otherwise.
+## G) FAIL Routing
+Allowed fail classes:
+- `BOUNDARY_VIOLATION`
+- `TEST_FAILURE`
+- `SYNTAX_ERROR`
+- `SCOPE_DRIFT`
+- `CONTRACT_VIOLATION`
+- `RISK_MISMATCH`
+- `MERGE_CONFLICT`
+- `INVARIANT_BREACH`
 
-Phase_State reflected in NEXT:
-- `ACTIVE`: normal handoff or `12`
-- `WAITING_FOR_APPROVAL`: `WAITING_FOR_APPROVAL -> напиши 12 для подтверждения`
-- `WAITING_FOR_EXTERNAL_JUDGE`: `WAITING_FOR_EXTERNAL_JUDGE -> вставь вердикт судьи`
-- `BLOCKED`: `ABORT -> reset circuit breaker или новый SCOUT`
-- On MISMATCH/VIOLATION: `CORRECTIVE_ROUTE: <specific route>`
-- `DONE`
-
-When NEXT is not a normal handoff, `12` does not advance pipeline (see section A).
-
-## G) FAIL Routing (v3.2.1)
-
-When any phase detects a failure, it MUST classify and route:
-
-### FAIL_CLASS set
-| Class | Description |
-|---|---|
-| BOUNDARY_VIOLATION | Tier-1/pinned API breach |
-| TEST_FAILURE | Tests fail after build |
-| SYNTAX_ERROR | Code doesn't parse |
-| SCOPE_DRIFT | Changes outside approved scope |
-| CONTRACT_VIOLATION | Phase output doesn't match Output Contract |
-| RISK_MISMATCH | Actual risk higher than declared |
-| MERGE_CONFLICT | File conflict on apply |
-| INVARIANT_BREACH | Governance/safety invariant broken |
-
-### Default routing
-| FAIL_CLASS | FAIL_TARGET | Escalation (circuit breaker streak=2) |
-|---|---|---|
-| BOUNDARY_VIOLATION | ARCHITECT | JUDGE_WAIT |
-| TEST_FAILURE | BUILDER | PLANNER |
-| SYNTAX_ERROR | BUILDER | PLANNER |
-| SCOPE_DRIFT | PLANNER | ARCHITECT |
-| CONTRACT_VIOLATION | *(same role)* | ARCHITECT |
-| RISK_MISMATCH | SCOUT | JUDGE_WAIT |
-| MERGE_CONFLICT | BUILDER | ABORT |
-| INVARIANT_BREACH | JUDGE_WAIT | ABORT |
-
-### FAIL output format (before footer)
+Output format:
 ```
 FAIL_DETECTED:
   class: <FAIL_CLASS>
   target: <FAIL_TARGET>
   detail: "<description>"
-  circuit_breaker: {fail_count: N, same_class_streak: M}
 ```
 
-## H) Circuit Breaker (v3.2.1)
+## H) Circuit Breaker
+1. On fail: increment `fail_count`.
+2. Same fail class increments `same_class_streak`; otherwise reset streak to 1.
+3. `same_class_streak=3` sets `status=BLOCKED`.
+4. `reset circuit breaker` resets counters and sets current phase to `PENDING`.
 
-State stored in `STATE.md` field `Circuit_Breaker` (Agent writes only).
-In-chat tracking: via CIRCUIT_BREAKER field in Status Footer (all modes).
+## I) CAPSULE Discipline
+1. Only POST_AUDIT_LOGGER writes `docs/autopilot/CAPSULE.md`.
+2. Max 40 lines target, compact and task-scoped.
 
-Format in STATE.md:
-`Circuit_Breaker: {fail_count: 0, last_fail_class: null, same_class_streak: 0}`
+## J) Multimodel Enforcement
+1. `model_trace` is persisted in `STATE.md`.
+2. For pipelines with >=3 phases, require >=2 distinct model families before BUILDER.
+3. MULTIMODEL is LLM-family trace only, not multimodal capability.
 
-Rules:
-1. On FAIL: increment fail_count.
-2. If class == last_fail_class: increment same_class_streak. Else: reset streak to 1.
-3. Streak thresholds:
-   - streak = 1: route to default FAIL_TARGET (section G table).
-   - streak = 2: route shifts to escalation column (section G table).
-   - streak = 3: ABORT.
-4. On ABORT (streak = 3):
-   - If current mode is Ask/Plan: output footer with `CIRCUIT_BREAKER: ABORT` and `NEXT: ABORT`. Next `12` routes to Agent POST_AUDIT_LOGGER with sole task: write `Phase_State: BLOCKED` to STATE.md and stop.
-   - If current mode is Agent: write `Phase_State: BLOCKED` directly to STATE.md and stop.
-5. Reset conditions (all reset to zeros):
-   - Any phase completes with PASS.
-   - Task changes (POST_AUDIT_LOGGER advances to next task).
-   - User explicitly types `reset circuit breaker`.
+## K) RISK_VALIDATION & PHASE_CONTRACT
+1. Validate risk at start of every phase:
+   - Tier-1 or migration/DDL scope -> CORE.
+   - Side-effects/external mutations -> SEMI+.
+2. Validate required inputs by phase.
+3. On violation: emit `SYNC_FAILURE` with corrective target.
 
-## I) CAPSULE Discipline (v3.2.1)
+## L) ALLOWED_TRANSITIONS
+State tuple = `(phase, status)`.
 
-Artifact: `docs/autopilot/CAPSULE.md`
-Max size: 40 lines. If exceeded, POST_AUDIT_LOGGER compresses before write.
+Semantically valid transitions:
+- `(SCOUT, PENDING)` -> `(SCOUT, ACTIVE)`
+- `(SCOUT, ACTIVE)` -> `(SCOUT, WAITING_APPROVAL)`
+- `(SCOUT, WAITING_APPROVAL)` -> `(ARCHITECT, PENDING)`
+- `(ARCHITECT, PENDING)` -> `(ARCHITECT, ACTIVE)`
+- `(ARCHITECT, ACTIVE)` -> `(ARCHITECT, WAITING_APPROVAL)`
+- `(ARCHITECT, WAITING_APPROVAL)` -> `(CRITIC, PENDING)`
+- `(CRITIC, PENDING)` -> `(CRITIC, ACTIVE)`
+- `(CRITIC, ACTIVE)` -> `(CRITIC, WAITING_APPROVAL)`
+- `(CRITIC, WAITING_APPROVAL)` -> `(PLANNER, PENDING)` or `(ARCHITECT_V2, PENDING)` if required
+- `(ARCHITECT_V2, WAITING_APPROVAL)` -> `(JUDGE_WAIT, WAITING_JUDGE)` when external audit required
+- `(JUDGE_WAIT, WAITING_JUDGE)` -> `(PLANNER, PENDING)` on PASS/PASS_WITH_FIXES
+- `(JUDGE_WAIT, WAITING_JUDGE)` -> `(ARCHITECT_V2, PENDING)` on BLOCK
+- `(PLANNER, WAITING_APPROVAL)` -> `(BUILDER, PENDING)`
+- `(BUILDER, PENDING)` -> `(BUILDER, ACTIVE)`
+- `(BUILDER, ACTIVE)` -> `(BUILDER, WAITING_USER_RUN)` or `(BUILDER, WAITING_APPROVAL)`
+- `(BUILDER, WAITING_USER_RUN)` -> `(BUILDER, ACTIVE)` after pasted test output
+- `(BUILDER, WAITING_APPROVAL)` -> `(AUDITOR, PENDING)`
+- `(AUDITOR, WAITING_APPROVAL)` -> `(POST_AUDIT_LOGGER, PENDING)`
+- `(POST_AUDIT_LOGGER, ACTIVE)` -> `(SCOUT, PENDING)` for next task
+- Any `(*, BLOCKED)` -> same phase `PENDING` only after explicit reset/override
 
-Writers (strict - all writes go through Agent POST_AUDIT_LOGGER):
-| Section | Data source | When |
-|---|---|---|
-| Facts | SCOUT output (declared in body) | After SCOUT, via handoff |
-| Constraints | ARCHITECT output | After ARCHITECT, via handoff |
-| Decisions | ARCHITECT_V2 output | After ARCHITECT_V2, via handoff |
-| Plan_Final | ARCHITECT (LOW) or PLANNER (SEMI/CORE) | After plan approval |
-| Result + evidence | AUDITOR verdict | After AUDITOR PASS |
+LOW pipeline note: same transitions apply. AUDITOR is NOOP pass-through (BUILDER→AUDITOR→
+POST_AUDIT_LOGGER); no separate Ask session required. BUILDER hands off to AUDITOR per L.
 
-For LOW pipeline (no PLANNER): Plan_Final = ARCHITECT's Proposed Scope + Design Decision.
-For SEMI/CORE pipeline: Plan_Final = PLANNER's Step Plan.
-CAPSULE cleared when POST_AUDIT_LOGGER advances to next task.
-No role other than POST_AUDIT_LOGGER writes to CAPSULE.md.
+## M) Manual Override Policy
+1. Override is emergency-only and explicit.
+2. Allowed override target statuses: `PENDING`, `BLOCKED`, `ERROR`.
+3. Required fields:
+   - operator reason (min 10 chars)
+   - new `transition_seq`
+   - recalculated `integrity_hash`
+   - append entry into `overrides`
+4. Silent override is forbidden.
+5. FORBIDDEN override: BUILDER→POST_AUDIT_LOGGER, or any override that skips AUDITOR
+   when current phase=BUILDER and next step in pipeline=AUDITOR. AUDITOR must execute;
+   "deferred AUDITOR PASS" is not a substitute. Recovery/sync overrides (e.g. SCOUT→
+   POST_AUDIT_LOGGER for deferred-gap resolution) remain allowed when they do not
+   bypass AUDITOR from BUILDER. For LOW: same rule (AUDITOR is NOOP pass-through).
 
-## J) Multimodel Enforcement (v3.2.1)
+## N) SYNC_FAILURE and PROMPT_CONFLICT
+When any guard fails, output one of:
 
-Rule: in pipeline >= 3 phases, MULTIMODEL_TRACE must contain >= 2 distinct families before BUILDER starts.
+```
+SYNC_FAILURE:
+  type: <STATE_CORRUPTED|OWNER_MISMATCH|SEQ_STALE|TRANSITION_INVALID>
+  expected: "<expected>"
+  actual: "<actual>"
+  resolution: "<next action>"
+```
 
-Model families: {Opus, Gemini, Codex, Auto, External}.
+```
+PROMPT_CONFLICT:
+  state_task: "<task_from_state>"
+  requested_task: "<task_from_prompt>"
+  resolution: "align prompt with STATE.md or use emergency override"
+```
 
-Mechanism - Footer-Accumulator:
-1. Each phase reads MULTIMODEL_TRACE from previous footer (first phase: `[]`).
-2. Appends its own family.
-3. Outputs updated list in footer.
-4. Agent-phases sync trace to STATE.md `Model_Trace` as backup.
-
-Enforcement:
-1. Before BUILDER: if < 2 families AND pipeline >= 3 phases -> PHASE_CONTRACT: VIOLATION.
-2. AUDITOR family must differ from BUILDER family (enforced by routing table).
-3. CRITIC family must differ from ARCHITECT family (enforced by routing table).
-For LOW (2 phases): Opus + Auto = 2 families -> OK by construction.
-
-## K) RISK_VALIDATION & PHASE_CONTRACT Enforcement (v3.2.1)
-
-Both checks run at START of every phase (before work).
-
-RISK_VALIDATION indicators:
-- Tier-1 file in scope -> must be CORE
-- Migration/DDL -> must be CORE
-- Financial side-effect -> must be SEMI+
-- External API mutation -> must be SEMI+
-- Risk only escalates, never downgrades.
-
-PHASE_CONTRACT inputs: see `risk_router.mdc` section PHASE_CONTRACT.
-BUILDER for LOW accepts `approved_scope` from ARCHITECT (no PLANNER required).
-
-Escape hatch mapping:
-| Missing | Route to |
-|---|---|
-| scout_facts | SCOUT |
-| architect_output | ARCHITECT |
-| approved_scope/plan | ARCHITECT (LOW) or PLANNER (SEMI/CORE) |
-| builder_output | BUILDER |
-| auditor_verdict | AUDITOR |
-| capsule_ref | POST_AUDIT_LOGGER (init CAPSULE) |
-
-On failure: footer shows VIOLATION + CORRECTIVE_ROUTE. `12` re-routes to corrective target.
+Fail Loud rule:
+- Continue only if all guards pass.
+- If any guard fails, halt and request corrective action.

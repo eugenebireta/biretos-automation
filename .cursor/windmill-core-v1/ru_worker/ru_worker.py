@@ -28,6 +28,7 @@ from uuid import uuid4, UUID
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from pydantic import ValidationError
 from psycopg2.pool import SimpleConnectionPool
 import requests
 
@@ -90,7 +91,11 @@ from domain.availability_service import release_reservations_for_order_atomic
 from domain.payment_service import record_payment_transaction_atomic
 
 # РРјРїРѕСЂС‚ CDEK Order Mapper
-from cdek_order_mapper import map_cdek_to_order_event, OrderEvent as CDEKOrderEvent
+from cdek_order_mapper import map_cdek_to_order_event
+
+# РРјРїРѕСЂС‚ CDM adapters
+from cdm_adapters import order_event_input_to_fsm_event
+from domain.cdm.event import OrderEventInput
 
 # РРјРїРѕСЂС‚ Side-Effect Workers
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'side_effects'))
@@ -99,6 +104,7 @@ from cdek_shipment_worker import execute_cdek_shipment
 from insales_paid_worker import execute_insales_paid_sync
 from invoice_worker import execute_invoice_create
 from side_effects.shopware_product_worker import execute_shopware_product_sync
+from shopware_order_handoff import execute_shopware_order_handoff
 
 # РќРѕРІС‹Рµ РјРѕРґСѓР»СЊРЅС‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹
 from telegram_router import route_update, extract_chat_id_from_update
@@ -1496,18 +1502,23 @@ def execute_cdek_shipment_status(
             }
         
         # РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ job (order_event)
+        occurred_at_iso = (
+            order_event.occurred_at.isoformat()
+            if hasattr(order_event.occurred_at, "isoformat")
+            else str(order_event.occurred_at)
+        )
         order_event_payload = {
             "event_id": str(order_event.event_id),
             "source": order_event.source,
             "event_type": order_event.event_type,
             "external_id": order_event.external_id,
-            "occurred_at": order_event.occurred_at,
+            "occurred_at": occurred_at_iso,
             "payload": order_event.payload,
             "order_id": str(order_event.order_id)
         }
         
         status_bucket = (
-            str(order_event.payload.get("status_date") or order_event.occurred_at or "")[:16]
+            str(order_event.payload.get("status_date") or occurred_at_iso or "")[:16]
             or "na"
         )
         status_value = str(order_event.payload.get("status") or "unknown")
@@ -1619,16 +1630,31 @@ def execute_order_event(payload: Dict[str, Any], db_conn, trace_id: Optional[str
             "error": error_entry
         }
     
-    # РџРѕРґРіРѕС‚РѕРІРєР° Event РґР»СЏ FSM v2
-    event_id = UUID(payload.get("event_id", str(uuid4())))
-    
-    event = Event(
-        event_id=event_id,
-        source=payload.get("source", "unknown"),
-        event_type=payload.get("event_type", "unknown"),
-        occurred_at=payload.get("occurred_at", datetime.utcnow().isoformat() + "Z"),
-        payload=payload.get("payload", {})
-    )
+    # РџРѕРґРіРѕС‚РѕРІРєР° Event РґР»СЏ FSM v2 (CDM validation + adapter)
+    try:
+        ev = OrderEventInput.model_validate(payload)
+        event = order_event_input_to_fsm_event(ev)
+    except ValidationError as e:
+        error_entry = {
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "error_type": "payload_validation",
+            "message": "OrderEventInput validation failed",
+            "context": {"errors": e.errors()},
+        }
+        log_entry = {
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "event": "order_event_validation_error",
+            "order_id": order_id_str,
+            "error": error_entry,
+            "trace_id": trace_id,
+        }
+        print(json.dumps(log_entry))
+        return {
+            "job_type": "order_event",
+            "status": "completed",
+            "message": "Payload validation failed (logged)",
+            "error": error_entry,
+        }
     
     # РџРѕРґРіРѕС‚РѕРІРєР° LedgerRecord РґР»СЏ FSM v2
     state_history = record["state_history"]
@@ -1806,6 +1832,8 @@ def process_job(job: Dict[str, Any], db_conn) -> Dict[str, Any]:
     elif job_type == "shopware_product_sync":
         # MAINTENANCE ONLY: legacy beta path, no feature expansion.
         return execute_shopware_product_sync(payload, db_conn)
+    elif job_type == "shopware_order_handoff":
+        return execute_shopware_order_handoff(payload, db_conn, trace_id=trace_id)
     elif job_type == "order_event":
         return execute_order_event(payload, db_conn, trace_id=trace_id)
     elif job_type == "governance_case_create":
@@ -1931,7 +1959,7 @@ def main():
                     SELECT id, job_type, payload, trace_id
                     FROM job_queue
                     WHERE status = 'pending'
-                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'order_event', 'governance_case_create', 'governance_execute')
+                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'shopware_order_handoff', 'order_event', 'governance_case_create', 'governance_execute')
                     ORDER BY created_at ASC
                     LIMIT 1
                     FOR UPDATE SKIP LOCKED
@@ -1943,7 +1971,7 @@ def main():
                     SELECT id, job_type, payload, NULL::uuid AS trace_id
                     FROM job_queue
                     WHERE status = 'pending'
-                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'order_event', 'governance_case_create', 'governance_execute')
+                      AND job_type IN ('test_job', 'rfq_v1_from_ocr', 'tbank_invoice_paid', 'telegram_update', 'telegram_command', 'cdek_shipment', 'cdek_shipment_status', 'insales_paid_sync', 'invoice_create', 'shopware_product_sync', 'shopware_order_handoff', 'order_event', 'governance_case_create', 'governance_execute')
                     ORDER BY created_at ASC
                     LIMIT 1
                     FOR UPDATE SKIP LOCKED

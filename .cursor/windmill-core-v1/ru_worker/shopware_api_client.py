@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import logging
+import os
+import uuid
 import time
 from typing import Any, Dict, Optional
+from urllib.parse import urlparse
 
 import requests
 from requests import RequestException, Session
@@ -132,6 +135,38 @@ class ShopwareApiClient:
         ]
         return self._request("POST", "/api/_action/sync", json=sync_payload)
 
+    def ensure_media_for_url(self, media_url: str) -> str:
+        media_url = (media_url or "").strip()
+        if not media_url:
+            raise ShopwareApiError("media_url must be non-empty")
+
+        if self._config.shopware_enable_dry_run:
+            return uuid.uuid5(uuid.NAMESPACE_URL, media_url).hex
+
+        media_id = uuid.uuid4().hex
+        sync_payload = [
+            {
+                "action": "upsert",
+                "entity": "media",
+                "payload": [{"id": media_id}],
+            }
+        ]
+        self._request("POST", "/api/_action/sync", json=sync_payload)
+
+        parsed = urlparse(media_url)
+        path = parsed.path or ""
+        basename = os.path.basename(path) or "remote_media"
+        file_name, extension = os.path.splitext(basename)
+        extension = (extension or ".jpg").lstrip(".").lower() or "jpg"
+        file_name = file_name or "remote_media"
+
+        upload_path = (
+            f"/api/_action/media/{media_id}/upload"
+            f"?extension={extension}&fileName={file_name}"
+        )
+        self._request("POST", upload_path, json={"url": media_url})
+        return media_id
+
     def find_product_by_number(self, product_number: str) -> Optional[str]:
         search_payload = {
             "filter": [{"field": "productNumber", "type": "equals", "value": product_number}],
@@ -147,6 +182,48 @@ class ShopwareApiClient:
                 if isinstance(product_id, str) and product_id:
                     return product_id
         return None
+
+    def find_order_by_number(self, order_number: str) -> Optional[str]:
+        search_payload = {
+            "filter": [{"field": "orderNumber", "type": "equals", "value": order_number}],
+            "limit": 1,
+            "includes": {"order": ["id"]},
+        }
+        response = self._request("POST", "/api/search/order", json=search_payload)
+        data = response.get("data")
+        if isinstance(data, list) and data:
+            first = data[0]
+            if isinstance(first, dict):
+                order_id = first.get("id")
+                if isinstance(order_id, str) and order_id:
+                    return order_id
+        return None
+
+    def sync_order_state(self, *, order_number: str, target_core_state: str) -> Dict[str, Any]:
+        if self._config.shopware_enable_dry_run:
+            self._logger.info(
+                "DRY_RUN shopware order state sync",
+                extra={"order_number": order_number, "target_core_state": target_core_state},
+            )
+            return {"dry_run": True}
+
+        order_id = self.find_order_by_number(order_number)
+        if not order_id:
+            raise ShopwareApiError(f"Order not found in Shopware: {order_number}")
+
+        sync_payload = [
+            {
+                "action": "upsert",
+                "entity": "order",
+                "payload": [
+                    {
+                        "id": order_id,
+                        "customFields": {"coreOrderState": target_core_state},
+                    }
+                ],
+            }
+        ]
+        return self._request("POST", "/api/_action/sync", json=sync_payload)
 
     def close(self) -> None:
         self._session.close()

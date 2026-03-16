@@ -45,7 +45,10 @@ Use strict format:
 3) Safety Checks Applied  
 4) Validation Result  
 5) FAIL report (if any): FAIL_CLASS, FAIL_TARGET, detail. If no failure: `FAIL: none`.
-6) Handoff to AUDITOR in Ask mode
+6) Handoff to AUDITOR in Ask mode — MANDATORY for all pipelines (CORE, SEMI, LOW).
+   Exact instruction line: `СЕЙЧАС: AUDITOR -> Переключи на Ask Gemini 3 Pro и напиши 12`.
+   STATE.md update: set phase=AUDITOR, status=PENDING. Do NOT advance to POST_AUDIT_LOGGER.
+   For LOW: AUDITOR is NOOP pass-through (per autopilot_ux L); same handoff applies.
 7) Status Footer (mandatory, autopilot_ux.mdc section F)
 
 ## Pre-Phase Checks (v3.2.1)

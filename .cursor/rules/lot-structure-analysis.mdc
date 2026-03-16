@@ -1,0 +1,30 @@
+---
+description: Methodology for AI-driven lot structure analysis using Pareto core extraction
+globs: scripts/lot_scoring/**
+alwaysApply: false
+---
+
+# Lot Structure Analysis Method
+
+1. If user asks to analyze lot structure, first run:
+   - `python -m scripts.lot_scoring.extract_lot_core --input "<enriched.xlsx>" --lots "<ids>" --top-pct 20 --max-rows 50`
+2. Use extractor output as primary evidence; do not infer business conclusions from raw score only.
+3. Determine product domain from top-core descriptions and SKU patterns (vendor-agnostic).
+4. Group top-core positions by functional domain (e.g. safety, control, networking, accessories).
+5. For each domain, assess:
+   - liquidity: high / medium / low
+   - logistics class: light / medium / heavy
+   - obsolescence risk: low / medium / high
+6. Read Pareto thresholds (50/80/90/95%) and comment on concentration quality.
+7. Use ballast metrics to highlight tail risk and expected operational drag.
+8. Use unit economics bands:
+   - Premium: > $500 per unit
+   - Mid-range: $50-$500 per unit
+   - Mass: < $50 per unit
+9. If several lots are compared, include cross-lot overlap risk (duplicate core SKU).
+10. For top-5 SKU per lot, run web checks for demand/availability and mention confidence.
+11. Output format must include:
+   - table by domain (count, value share, liquidity)
+   - red flags / green flags
+   - ranked recommendation with rationale
+12. Keep deterministic calculations in scripts; use AI for semantic grouping and interpretation only.

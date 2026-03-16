@@ -23,7 +23,17 @@
 5. **Crash-Resume:** новая сессия всегда начинает с `bash deploy.sh resume` и продолжает поллинг, пока `status` не станет `completed` или `failed`.
 6. **Acceptance:** при `completed` Cursor запускает финальный UI-тест (Telegram) и ждёт подтверждения.
 
-## 3. Ручной запуск (fallback)
+## 3. Однократная установка systemd (рекомендуется)
+
+Для автоперезапуска при падении сервисов установите systemd-юниты один раз:
+
+1. Скопируйте на сервер каталог `infrastructure/` (содержит `systemd/` и `scripts/`).
+2. На сервере выполните: `sudo bash infrastructure/scripts/install-biretos-services.sh`
+3. После этого `deploy.sh` будет использовать `systemctl restart` вместо `nohup`.
+
+Без systemd deploy.sh продолжает работать (fallback на nohup), но без автоперезапуска.
+
+## 4. Ручной запуск (fallback)
 
 1. Подключитесь к серверу: `ssh root@216.9.227.124` (пароль `HuPtNj39`, если нет ключа).
 2. Перейдите в каталог модуля:
@@ -40,7 +50,7 @@ tail -n 20 deploy.log  # подробнее, если нужно
 
 Если при `poll`/`resume` видите `"status": "failed"`, изучите `deploy.log`, восстановитесь из бэкапа (см. ниже) и повторите `bash deploy.sh start`.
 
-## 4. Проверки после деплоя
+## 5. Проверки после деплоя
 
 ### ru_worker (`/opt/biretos/windmill-core-v1/ru_worker`)
 - Процесс: `pgrep -f 'ru_worker.py'`
@@ -55,7 +65,7 @@ tail -n 20 deploy.log  # подробнее, если нужно
 - Логи: `tail -n 50 webhook_service.log`
 - Telegram-бизнес-флоу должен продолжать отдавать ответы из webhook (Cursor напомнит в Acceptance).
 
-## 5. Откат
+## 6. Откат
 
 Оба скрипта создают бэкап каталога `<module>_backup_<timestamp>` рядом с рабочей папкой.
 
@@ -68,7 +78,7 @@ cd ru_worker && nohup python3 ru_worker.py > ru_worker.log 2>&1 &
 
 Для webhook_service замените имена на `webhook_service`.
 
-## 6. Частые проблемы
+## 7. Частые проблемы
 
 | Симптом | Действие |
 | --- | --- |
@@ -77,7 +87,7 @@ cd ru_worker && nohup python3 ru_worker.py > ru_worker.log 2>&1 &
 | Подключение к PostgreSQL | Проверяйте `echo $POSTGRES_HOST/$POSTGRES_PORT/...` на сервере, обновляйте `.env`, перезапускайте контракт. |
 | ru_worker не стартует | Выполните `python3 ru_worker.py` вручную, соберите stacktrace, исправьте код и перезапустите контракт. |
 
-## 7. Резюме
+## 8. Резюме
 
 - Любой деплой → `bash deploy.sh start` → `poll/resume` до конца.
 - Никаких длинных SSH-сессий; вся диагностика через status/log.

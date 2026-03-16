@@ -1,9 +1,9 @@
 ---
-description: PromptOps v3.2.1 Risk Router, phase gating, RISK_VALIDATION, PHASE_CONTRACT
+description: PromptOps v3.2.2 Risk Router, phase gating, RISK_VALIDATION, PHASE_CONTRACT
 alwaysApply: true
 ---
 
-# PromptOps Acceleration Pack v3.2.1 — Risk Router
+# PromptOps Acceleration Pack v3.2.2 — Risk Router
 
 Purpose: route each task to the correct governance pipeline and enforce phase gates.
 
@@ -20,12 +20,12 @@ Tier-1 boundary is enforced by `tier1_frozen.mdc` and must be checked before pla
 - CORE: SCOUT → ARCHITECT → CRITIC → JUDGE (external only) → PLANNER → BUILDER → AUDITOR.
   - No batching. All phases are separate.
 - SEMI: ARCHITECT → CRITIC → PLANNER → BUILDER → AUDITOR.
-  - Text-only consolidation allowed: Scout+Architect in one analysis block.
+  - SCOUT is optional for SEMI (recon-only, not a governance step); may be consolidated with ARCHITECT in one analysis block.
   - Action phases remain separate; `12` = approval at each gate.
 - LOW: ARCHITECT → BUILDER.
   - Text-only consolidation allowed before Builder: Scout+Architect+Planner.
 
-## Dynamic PLANNER Inclusion (v3.2.1)
+## Dynamic PLANNER Inclusion (v3.2.2)
 
 PLANNER is mandatory regardless of risk level when ANY condition is true:
 - `files_changed > 3` (estimated by ARCHITECT)
@@ -45,7 +45,19 @@ When PLANNER is dynamically included for LOW tasks:
 - New side-effects/external API mutations.
 - Idempotency, multi-worker coordination, replay guarantees.
 
-## Phase Gates (v3.2.1)
+## Forbidden Tools (v3.2.2)
+
+Image/visual generation tools are DISABLED in this workspace (mocked, always error).
+Do not call: GenerateImage, GenerateDiagram, or any tool that produces image files.
+If the user asks for a diagram, use Mermaid in a markdown code block — never a tool.
+
+MULTIMODEL_TRACE tracks which LLM model families (Opus, Gemini, Codex, Auto, External)
+participated in the pipeline. It is NOT related to multimodal capabilities.
+The agent has NO multimodal output capabilities in this workspace. Text and code only.
+
+On attempted image tool call: drop the call, continue with code/text, log nothing.
+
+## Phase Gates (v3.2.2)
 
 - One step at a time.
 - Do not merge role actions.
@@ -54,7 +66,7 @@ When PLANNER is dynamically included for LOW tasks:
 - Non-`12` text = correction or rejection (phase re-runs with feedback).
 - For CORE tasks, JUDGE step must run in external chat only.
 
-## RISK_VALIDATION (v3.2.1)
+## RISK_VALIDATION (v3.2.2)
 
 Every phase MUST run RISK_VALIDATION at start:
 1. Compare declared risk against actual scope indicators:
@@ -66,7 +78,7 @@ Every phase MUST run RISK_VALIDATION at start:
 3. On MISMATCH: `12` does NOT advance; NEXT = CORRECTIVE_ROUTE to SCOUT.
 4. Risk can only escalate (LOW→SEMI→CORE), never downgrade mid-task.
 
-## PHASE_CONTRACT (v3.2.1)
+## PHASE_CONTRACT (v3.2.2)
 
 Every phase MUST verify required inputs at start:
 | Phase | Required Inputs |

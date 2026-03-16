@@ -14,6 +14,11 @@ CRITICAL_ENV = (
 DEFAULT_ALLOWED_USER_IDS: Tuple[int, ...] = (123456789, 987654321, 186497598)
 
 ENV_NAMES = (
+    "ALERT_CHAT_ID_CRITICAL",
+    "ALERT_CHAT_ID_WARNING",
+    "ALERT_MIN_SEVERITY",
+    "ALERT_POLL_INTERVAL",
+    "ALERT_TELEGRAM_CHAT_ID",
     "ALLOWED_USER_IDS",
     "ACTION_MODE",
     "CDEK_API_BASE",
@@ -158,6 +163,11 @@ class Config:
     telegram_secret_token: Optional[str]
     ru_base_url: Optional[str]
     poll_interval: Optional[int]
+    alert_poll_interval: Optional[int]
+    alert_telegram_chat_id: Optional[int]
+    alert_chat_id_critical: Optional[int]
+    alert_chat_id_warning: Optional[int]
+    alert_min_severity: str
     worker_id: Optional[str]
     usa_llm_base_url: Optional[str]
     usa_llm_api_key: Optional[str]

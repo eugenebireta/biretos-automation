@@ -1,4 +1,4 @@
-﻿# РЎС‚Р°С‚СѓСЃ РґРµРїР»РѕСЏ Telegram Р±РѕС‚Р°
+# РЎС‚Р°С‚СѓСЃ РґРµРїР»РѕСЏ Telegram Р±РѕС‚Р°
 
 **Р”Р°С‚Р°:** 2026-01-06  
 **РЎРµСЂРІРµСЂ:** 216.9.227.124 (biretos.ae)
@@ -40,6 +40,14 @@
 - вњ… nginx reverse proxy РЅР°СЃС‚СЂРѕРµРЅ
 - вњ… SSL СЃРµСЂС‚РёС„РёРєР°С‚ РІР°Р»РёРґРµРЅ
 - вњ… Webhook endpoint РґРѕСЃС‚СѓРїРµРЅ: `https://biretos.ae/webhook/telegram`
+
+## systemd (рекомендуется для стабильности)
+
+При установке systemd-сервисов `biretos-ru-worker` и `biretos-webhook`:
+- Автоперезапуск при падении (`Restart=always`)
+- `deploy.sh` автоматически использует `systemctl restart` при наличии systemd
+- Однократная установка: скопировать `infrastructure/systemd/*.service` и `infrastructure/scripts/install-biretos-services.sh` на сервер, затем `sudo bash install-biretos-services.sh`
+- Проверка: `systemctl status biretos-ru-worker` и `systemctl status biretos-webhook`
 
 ## Р§С‚Рѕ РЅСѓР¶РЅРѕ РґР»СЏ РїРѕР»РЅРѕР№ СЂР°Р±РѕС‚С‹
 
@@ -97,9 +105,12 @@ curl "https://api.telegram.org/bot<РќРћР’Р«Р™_РўРћРљР•Рќ>
 ## РљРѕРјР°РЅРґС‹ РґР»СЏ РїРµСЂРµР·Р°РїСѓСЃРєР° (РїРѕСЃР»Рµ РѕР±РЅРѕРІР»РµРЅРёСЏ .env)
 
 ```bash
-# РќР° СЃРµСЂРІРµСЂРµ
+# РќР° СЃРµСЂРІРµСЂРµ (deploy.sh сам выберет systemctl или nohup)
 cd /opt/biretos/windmill-core-v1/ru_worker && bash deploy.sh start
 cd /opt/biretos/windmill-core-v1/webhook_service && bash deploy.sh start
+
+# Либо при установленном systemd:
+systemctl restart biretos-ru-worker biretos-webhook
 ```
 
 ## Р”РёР°РіРЅРѕСЃС‚РёРєР°

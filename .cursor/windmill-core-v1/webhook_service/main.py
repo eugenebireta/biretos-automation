@@ -7,6 +7,7 @@ Webhook / Queue Service
 """
 
 import hashlib
+import hmac
 import json
 import os
 from datetime import datetime
@@ -253,6 +254,95 @@ def _is_valid_tbank_token(request: Request) -> bool:
         bool(candidate) and candidate == expected_token
         for candidate in (header_token, bearer_token)
     )
+
+
+def _shopware_secret_for_instance(instance: str) -> str:
+    if instance == "int":
+        return (os.getenv("SHOPWARE_WEBHOOK_SECRET_INT") or "").strip()
+    return (os.getenv("SHOPWARE_WEBHOOK_SECRET_RU") or "").strip()
+
+
+def _is_valid_shopware_signature(instance: str, raw_body: bytes, received_signature: Optional[str]) -> bool:
+    secret = _shopware_secret_for_instance(instance)
+    if not secret:
+        return False
+    if not received_signature:
+        return False
+    signature = received_signature.strip()
+    if signature.startswith("sha256="):
+        signature = signature.split("=", 1)[1]
+    expected = hmac.new(secret.encode("utf-8"), raw_body, hashlib.sha256).hexdigest()
+    return hmac.compare_digest(signature, expected)
+
+
+def _extract_shopware_event_id(headers: Dict[str, str], body: Dict[str, Any], event_type: str) -> str:
+    header_event_id = (
+        headers.get("x-shopware-webhook-id")
+        or headers.get("x-shopware-event-id")
+        or headers.get("x-event-id")
+    )
+    if header_event_id:
+        return str(header_event_id).strip()
+    payload_event_id = body.get("eventId") or body.get("event_id") or body.get("id")
+    if payload_event_id:
+        return str(payload_event_id).strip()
+    body_hash = hashlib.sha256(json.dumps(body, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
+    return f"sw:{event_type}:{body_hash}"
+
+
+def _insert_shopware_inbound_event(
+    conn,
+    *,
+    instance: str,
+    event_id: str,
+    event_type: str,
+    payload: Dict[str, Any],
+    idempotency_key: str,
+    trace_id: str,
+) -> Dict[str, Any]:
+    cursor = conn.cursor()
+    try:
+        cursor.execute(
+            """
+            INSERT INTO shopware_inbound_events (
+                instance, event_id, event_type, payload,
+                idempotency_key, trace_id, processing_status
+            )
+            VALUES (%s, %s, %s, %s::jsonb, %s, %s::uuid, 'queued')
+            ON CONFLICT (event_id) DO NOTHING
+            RETURNING id
+            """,
+            (
+                instance,
+                event_id,
+                event_type,
+                json.dumps(payload, ensure_ascii=False),
+                idempotency_key,
+                trace_id,
+            ),
+        )
+        row = cursor.fetchone()
+        if row:
+            return {"created": True, "event_row_id": str(row[0])}
+        cursor.execute(
+            """
+            SELECT id, processing_status
+            FROM shopware_inbound_events
+            WHERE event_id = %s
+            LIMIT 1
+            """,
+            (event_id,),
+        )
+        existing = cursor.fetchone()
+        if not existing:
+            raise HTTPException(status_code=500, detail="Shopware idempotency conflict but event not found")
+        return {
+            "created": False,
+            "event_row_id": str(existing[0]),
+            "existing_status": existing[1],
+        }
+    finally:
+        cursor.close()
 
 
 @app.on_event("startup")
@@ -626,6 +716,126 @@ async def tbank_invoice_paid_webhook(request: Request):
     finally:
         if cursor:
             cursor.close()
+        if conn:
+            return_db_connection(conn)
+
+
+@app.post("/webhook/shopware/{instance}/order")
+async def shopware_order_webhook(instance: str, request: Request):
+    """
+    Shopware Webhook Gateway (Phase C):
+    - validates HMAC signature
+    - writes inbound event with idempotency
+    - enqueues shopware_order_handoff job
+    """
+    instance = (instance or "").strip().lower()
+    if instance not in {"ru", "int"}:
+        raise HTTPException(status_code=404, detail="Unknown Shopware instance")
+
+    raw_body = await request.body()
+    signature = request.headers.get("X-Shopware-Signature") or request.headers.get("X-Shopware-Webhook-Signature")
+    if not _is_valid_shopware_signature(instance, raw_body, signature):
+        return JSONResponse(
+            status_code=403,
+            content={"ok": False, "message": "Forbidden"},
+        )
+
+    try:
+        body = json.loads(raw_body)
+    except Exception:
+        return JSONResponse(status_code=200, content={"ok": True, "message": "Ignored invalid JSON"})
+    if not isinstance(body, dict):
+        return JSONResponse(status_code=200, content={"ok": True, "message": "Ignored invalid payload"})
+
+    headers_lc = {k.lower(): v for k, v in request.headers.items()}
+    event_type = (
+        headers_lc.get("x-shopware-event-name")
+        or body.get("eventType")
+        or body.get("event_type")
+        or "checkout.order.placed"
+    )
+    event_type = str(event_type)
+    event_id = _extract_shopware_event_id(headers_lc, body, event_type)
+    trace_id = str(uuid4())
+
+    order_payload = body.get("order")
+    if not isinstance(order_payload, dict):
+        order_payload = body.get("payload")
+    if isinstance(order_payload, dict) and isinstance(order_payload.get("order"), dict):
+        order_payload = order_payload["order"]
+    if not isinstance(order_payload, dict):
+        order_payload = {}
+
+    amount_total = order_payload.get("amountTotal")
+    if amount_total is None:
+        amount_total = body.get("amountTotal")
+    try:
+        total_minor = int(round(float(amount_total) * 100)) if amount_total is not None else 0
+    except Exception:
+        total_minor = 0
+
+    normalized = {
+        "instance": instance,
+        "event_type": event_type,
+        "shopware_event_id": event_id,
+        "shopware_order_id": order_payload.get("id") or body.get("orderId"),
+        "order_number": order_payload.get("orderNumber") or body.get("orderNumber") or body.get("externalId"),
+        "order_state": order_payload.get("state"),
+        "payment_state": order_payload.get("paymentState"),
+        "delivery_state": order_payload.get("deliveryState"),
+        "currency": order_payload.get("currencyCode") or body.get("currencyCode") or "RUB",
+        "total_minor": total_minor,
+        "customer": order_payload.get("orderCustomer") if isinstance(order_payload.get("orderCustomer"), dict) else {},
+        "delivery": order_payload.get("deliveries") if isinstance(order_payload.get("deliveries"), list) else [],
+        "raw_payload": body,
+    }
+
+    conn = None
+    try:
+        conn = get_db_connection()
+        inbound_key = f"shopware-event:{instance}:{event_id}"
+        inbound_result = _insert_shopware_inbound_event(
+            conn,
+            instance=instance,
+            event_id=event_id,
+            event_type=event_type,
+            payload=normalized,
+            idempotency_key=inbound_key,
+            trace_id=trace_id,
+        )
+        job_result = _insert_job_with_idempotency(
+            conn=conn,
+            job_type="shopware_order_handoff",
+            payload=normalized,
+            idempotency_key=f"shopware-handoff:{instance}:{event_id}",
+            trace_id=trace_id,
+        )
+        return JSONResponse(
+            status_code=200,
+            content={
+                "ok": True,
+                "event_id": event_id,
+                "inbound_created": inbound_result.get("created", False),
+                "job_id": job_result["job_id"],
+                "job_created": job_result["created"],
+                "trace_id": job_result["trace_id"],
+            },
+        )
+    except Exception as e:
+        if conn:
+            conn.rollback()
+        log_entry = {
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "error_type": "database",
+            "message": f"Shopware webhook enqueue error: {str(e)}",
+            "context": {"instance": instance, "event_id": event_id},
+        }
+        print(json.dumps(log_entry))
+        return JSONResponse(
+            status_code=200,
+            content={"ok": True, "message": "Webhook accepted"},
+        )
+    finally:
         if conn:
             return_db_connection(conn)
 

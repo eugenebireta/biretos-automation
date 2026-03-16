@@ -8,27 +8,16 @@ CDEK Order Mapper
 - Если order не найден → возвращает None
 - Никакой FSM
 - Никаких side-effects
-- Чистая функция: cdek_event → OrderEvent | None
+- Чистая функция: cdek_event → OrderEventInput | None
 """
 
-from dataclasses import dataclass
 from typing import Dict, Any, Optional
 from uuid import UUID
 
-
-@dataclass
-class OrderEvent:
-    """Canonical order event для FSM"""
-    event_id: UUID
-    source: str  # "cdek"
-    event_type: str  # order-related event type
-    external_id: str
-    occurred_at: str  # ISO8601
-    payload: Dict[str, Any]  # order-related payload
-    order_id: UUID  # привязанный order_id
+from domain.cdm.event import OrderEventInput
 
 
-def map_cdek_to_order_event(cdek_event: Dict[str, Any], event_id: UUID, db_conn) -> Optional[OrderEvent]:
+def map_cdek_to_order_event(cdek_event: Dict[str, Any], event_id: UUID, db_conn) -> Optional[OrderEventInput]:
     """
     Маппит CDEK event в OrderEvent (если применимо).
     
@@ -45,7 +34,7 @@ def map_cdek_to_order_event(cdek_event: Dict[str, Any], event_id: UUID, db_conn)
         db_conn: PostgreSQL connection для lookup order_ledger
     
     Returns:
-        OrderEvent если удалось найти order по cdek_uuid, иначе None
+        OrderEventInput если удалось найти order по cdek_uuid, иначе None
     """
     payload = cdek_event.get("payload", {})
     external_id = cdek_event.get("external_id")
@@ -95,8 +84,8 @@ def map_cdek_to_order_event(cdek_event: Dict[str, Any], event_id: UUID, db_conn)
     
     order_id = result[0]
     
-    # Создаем OrderEvent
-    return OrderEvent(
+    # Создаем OrderEventInput
+    return OrderEventInput(
         event_id=event_id,
         source="cdek",
         event_type="cdek_status_update",

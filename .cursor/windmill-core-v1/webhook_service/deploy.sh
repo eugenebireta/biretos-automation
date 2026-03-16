@@ -88,8 +88,12 @@ do_restart() {
     CURRENT_STEP="restart"
     write_status "running" "$CURRENT_STEP" "null" "$$"
     log "[4/5] Перезапуск webhook_service…"
-    pkill -f 'python.*main.py.*webhook_service' || true
-    (nohup python3 main.py > webhook_service.log 2>&1 &) >/dev/null 2>&1
+    if systemctl is-enabled biretos-webhook.service &>/dev/null; then
+        systemctl restart biretos-webhook.service
+    else
+        pkill -f 'python.*main.py.*webhook_service' || true
+        (nohup python3 main.py > webhook_service.log 2>&1 &) >/dev/null 2>&1
+    fi
     sleep 3
 }
 

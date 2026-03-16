@@ -1,0 +1,17 @@
+---
+description: Tier-1 Frozen Boundary (single source)
+alwaysApply: true
+---
+
+# Tier-1 Frozen Boundary
+
+Canonical list source:
+
+- Primary: `.cursor/windmill-core-v1/docs/PHASE2_BOUNDARY.md`
+- Backup: `PROJECT_DNA.md`
+
+Rule:
+
+- NEVER EDIT Tier-1 frozen files listed in the canonical source.
+- If the task touches any Tier-1 frozen file, STOP immediately.
+- Reclassify risk as CORE-CRITICAL and require external JUDGE before implementation.

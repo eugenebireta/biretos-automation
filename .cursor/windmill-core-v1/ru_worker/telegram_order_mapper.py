@@ -7,27 +7,16 @@ Telegram Order Mapper
 - Если невозможно однозначно определить order_id → возвращает None
 - Никакой FSM
 - Никаких side-effects
-- Чистая функция: telegram_event → OrderEvent | None
+- Чистая функция: telegram_event → OrderEventInput | None
 """
 
-from dataclasses import dataclass
 from typing import Dict, Any, Optional
 from uuid import UUID
 
-
-@dataclass
-class OrderEvent:
-    """Canonical order event для FSM"""
-    event_id: UUID
-    source: str  # "telegram"
-    event_type: str  # order-related event type
-    external_id: str
-    occurred_at: str  # ISO8601
-    payload: Dict[str, Any]  # order-related payload
-    order_id: UUID  # привязанный order_id
+from domain.cdm.event import OrderEventInput
 
 
-def map_telegram_to_order_event(telegram_event: Dict[str, Any], event_id: UUID) -> Optional[OrderEvent]:
+def map_telegram_to_order_event(telegram_event: Dict[str, Any], event_id: UUID) -> Optional[OrderEventInput]:
     """
     Маппит Telegram event в OrderEvent (если применимо).
     
@@ -43,7 +32,7 @@ def map_telegram_to_order_event(telegram_event: Dict[str, Any], event_id: UUID) 
         event_id: UUID для нового order event
     
     Returns:
-        OrderEvent если удалось определить order_id, иначе None
+        OrderEventInput если удалось определить order_id, иначе None
     """
     payload = telegram_event.get("payload", {})
     external_id = telegram_event.get("external_id")
@@ -56,7 +45,7 @@ def map_telegram_to_order_event(telegram_event: Dict[str, Any], event_id: UUID) 
     order_id = _extract_order_id_from_callback_data(payload)
     if order_id:
         # Найден order_id в callback_data
-        return OrderEvent(
+        return OrderEventInput(
             event_id=event_id,
             source="telegram",
             event_type="telegram_callback_order",

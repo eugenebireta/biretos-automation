@@ -209,6 +209,39 @@ def approve_case(
         cursor.close()
 
 
+def approve_case_with_correction(
+    db_conn,
+    *,
+    case_id: str,
+    approved_by: str,
+    corrections_content,
+) -> Dict[str, Any]:
+    """
+    Transition: open/assigned -> approved (with corrections recorded in control_decisions by caller).
+
+    No commit/rollback here; caller owns transaction boundaries.
+    """
+    if not isinstance(corrections_content, list) or not corrections_content:
+        raise ValueError("corrections_content must be a non-empty list")
+
+    cursor = db_conn.cursor()
+    try:
+        cursor.execute(
+            """
+            UPDATE review_cases
+            SET status = 'approved',
+                resolved_by = %s,
+                updated_at = NOW()
+            WHERE id = %s::uuid
+              AND status IN ('open', 'assigned')
+            """,
+            (approved_by, case_id),
+        )
+        return {"updated": bool(getattr(cursor, "rowcount", 0))}
+    finally:
+        cursor.close()
+
+
 def claim_for_execution(
     db_conn,
     *,
