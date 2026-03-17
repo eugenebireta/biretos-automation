@@ -1,0 +1,17 @@
+{
+  "input": {
+    "capital_core_unknown_set": "audits\\capital_core_unknown_set.json",
+    "capital_core_used": "audits\\llm_audit_input_core_robust.json",
+    "quarantine_candidates": "data\\quarantine\\quarantine_candidates.json"
+  },
+  "output": {
+    "auto_validated_candidates": "data\\quarantine\\auto_validated_candidates.json"
+  },
+  "summary": {
+    "total_tier1": 20,
+    "auto_validated_count": 0,
+    "rejected_count": 20,
+    "avg_confidence": 0.0,
+    "top_usd_validated": []
+  }
+}

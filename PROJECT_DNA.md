@@ -138,4 +138,12 @@ Stack: - Python 3.11 - PostgreSQL - Windmill job orchestration - FastAPI
 
 ------------------------------------------------------------------------
 
+## 12. Workflow Compression (Owner-Approved)
+
+Claude Code допущен как combined executor для ролей
+SCOUT/ARCHITECT/PLANNER/BUILDER только в рамках Migration Policy.
+CRITIC, AUDITOR, JUDGE остаются внешними и раздельными.
+Это owner-approved temporary compression, а не отмена INV-GOV.
+Для CORE допускается только Strict Mode до явной отдельной отмены владельцем.
+
 END OF DNA

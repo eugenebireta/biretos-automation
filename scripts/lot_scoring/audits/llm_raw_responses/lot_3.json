@@ -1,0 +1,27 @@
+{
+  "batches": [
+    {
+      "lot_id": "3",
+      "batch_label": "1/1",
+      "rows_count": 3,
+      "model": "gpt-4o-mini",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "request_body": {
+        "model": "gpt-4o-mini",
+        "temperature": 0,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an industrial catalog auditor. Classify each row into one of these categories only: gas_safety, fire_safety, hvac_components, industrial_sensors, valves_actuators, it_hardware, packaging_materials, construction_supplies, toxic_fake, unknown. Return strict JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"task\": \"Reclassify each row with same taxonomy only.\", \"rules\": {\"valid_categories\": [\"construction_supplies\", \"fire_safety\", \"gas_safety\", \"hvac_components\", \"industrial_sensors\", \"it_hardware\", \"packaging_materials\", \"toxic_fake\", \"unknown\", \"valves_actuators\"], \"output_format\": \"JSON array only\", \"required_fields\": [\"slice_rank\", \"sku_code\", \"llm_category\", \"llm_brand\", \"confidence\", \"reason\"], \"confidence_range\": \"0..1\", \"keep_reason_short\": true}, \"rows\": [{\"slice_rank\": 1, \"sku_code\": \"C6097A4210B\", \"qty\": 154.2, \"effective_usd\": 1884754.666667, \"category_engine\": \"gas_safety\", \"brand_engine\": \"unknown\", \"raw_text\": \"GAS PRESS SW 1/4» 2.5-50MB PG11 20PCS, модель/артикул C6097A4210B, кол-во 20\", \"full_row_text\": \"GAS PRESS SW 1/4» 2.5-50MB PG11 20PCS, модель/артикул C6097A4210B, кол-во 20 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 2, \"sku_code\": \"8680I505RHSGH\", \"qty\": 154.2, \"effective_usd\": 482296.410256, \"category_engine\": \"it_hardware\", \"brand_engine\": \"unknown\", \"raw_text\": \"8680I MINI MOB RH GLOVE W/HA, 10PCS/PAK, модель/артикул 8680I505RHSGH, кол-во 1\", \"full_row_text\": \"8680I MINI MOB RH GLOVE W/HA, 10PCS/PAK, модель/артикул 8680I505RHSGH, кол-во 1 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 3, \"sku_code\": \"I22605\", \"qty\": 154.2, \"effective_usd\": 454838.615385, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"PB-LBL-050-B-76/190-4, модель/артикул I22605, кол-во 2880\", \"full_row_text\": \"PB-LBL-050-B-76/190-4, модель/артикул I22605, кол-во 2880 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}]}"
+          }
+        ]
+      },
+      "response_body": "{\n  \"id\": \"chatcmpl-DCWEsQYhceSDvMxjZ3SZG10jTMAlw\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771876234,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n[\\n    {\\n        \\\"slice_rank\\\": 1,\\n        \\\"sku_code\\\": \\\"C6097A4210B\\\",\\n        \\\"llm_category\\\": \\\"gas_safety\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 1.0,\\n        \\\"reason\\\": \\\"Category matches gas safety.\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 2,\\n        \\\"sku_code\\\": \\\"8680I505RHSGH\\\",\\n        \\\"llm_category\\\": \\\"it_hardware\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 1.0,\\n        \\\"reason\\\": \\\"Category matches IT hardware.\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 3,\\n        \\\"sku_code\\\": \\\"I22605\\\",\\n        \\\"llm_category\\\": \\\"unknown\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.5,\\n        \\\"reason\\\": \\\"Category is not identifiable.\\\"\\n    }\\n]\\n```\",\n        \"refusal\": null,\n        \"annotations\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 681,\n    \"completion_tokens\": 195,\n    \"total_tokens\": 876,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  },\n  \"service_tier\": \"default\",\n  \"system_fingerprint\": \"fp_373a14eb6f\"\n}\n",
+      "error": null
+    }
+  ]
+}

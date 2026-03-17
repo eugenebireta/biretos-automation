@@ -1,0 +1,119 @@
+{
+  "config": {
+    "model": "gpt-4o-mini",
+    "base_url": "https://api.openai.com/v1",
+    "temperature": 0,
+    "timeout_seconds": 45,
+    "max_tokens": 256,
+    "max_retries": 2,
+    "retry_delays_seconds": [
+      2,
+      4
+    ],
+    "confidence_threshold": 0.6,
+    "max_pn": 80,
+    "valid_categories": [
+      "construction_supplies",
+      "fire_safety",
+      "gas_safety",
+      "hvac_components",
+      "industrial_sensors",
+      "it_hardware",
+      "packaging_materials",
+      "toxic_fake",
+      "unknown",
+      "valves_actuators"
+    ],
+    "classifiable_categories": [
+      "construction_supplies",
+      "fire_safety",
+      "gas_safety",
+      "hvac_components",
+      "industrial_sensors",
+      "it_hardware",
+      "packaging_materials",
+      "toxic_fake",
+      "valves_actuators"
+    ]
+  },
+  "input": {
+    "capital_core_set": "audits\\llm_audit_input_core_robust.json",
+    "unknown_aggregate": "audits\\llm_audit_input.json"
+  },
+  "summary": {
+    "total_pn_processed": 80,
+    "auto_validated_count": 10,
+    "rejected_count": 70,
+    "llm_error_count": 0,
+    "avg_confidence": 0.135
+  },
+  "category_distribution": {
+    "construction_supplies": 1,
+    "hvac_components": 3,
+    "industrial_sensors": 5,
+    "unknown": 68,
+    "valves_actuators": 3
+  },
+  "top_validated_by_usd": [
+    {
+      "pn": "04200A1015",
+      "usd": 243863.666667,
+      "proposed_category": "hvac_components",
+      "confidence": 0.9
+    },
+    {
+      "pn": "2455R99130401",
+      "usd": 92865.48718,
+      "proposed_category": "hvac_components",
+      "confidence": 0.9
+    },
+    {
+      "pn": "VR425AF10031000",
+      "usd": 76438.935899,
+      "proposed_category": "valves_actuators",
+      "confidence": 0.9
+    },
+    {
+      "pn": "TS4697000",
+      "usd": 70292.346154,
+      "proposed_category": "construction_supplies",
+      "confidence": 0.9
+    },
+    {
+      "pn": "MCXV0000Y00",
+      "usd": 67157.868845,
+      "proposed_category": "industrial_sensors",
+      "confidence": 0.9
+    },
+    {
+      "pn": "RA100Z",
+      "usd": 66108.910257,
+      "proposed_category": "industrial_sensors",
+      "confidence": 0.9
+    },
+    {
+      "pn": "2106B2310",
+      "usd": 65025.115385,
+      "proposed_category": "industrial_sensors",
+      "confidence": 0.9
+    },
+    {
+      "pn": "C06XJEM336",
+      "usd": 56264.961539,
+      "proposed_category": "hvac_components",
+      "confidence": 0.9
+    },
+    {
+      "pn": "MTL4523L",
+      "usd": 47384.615384,
+      "proposed_category": "valves_actuators",
+      "confidence": 0.9
+    },
+    {
+      "pn": "ML6421A3013",
+      "usd": 40741.461538,
+      "proposed_category": "valves_actuators",
+      "confidence": 0.9
+    }
+  ]
+}

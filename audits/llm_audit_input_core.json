@@ -1,0 +1,42 @@
+{
+  "source_file": "honeywell.xlsx",
+  "selection_rule": {
+    "max_sku": 200,
+    "coverage_target": 0.7,
+    "stop_condition": "top_200_or_70pct_unknown_usd_whichever_comes_first"
+  },
+  "summary": {
+    "selected_sku_count": 3,
+    "total_unknown_usd": 128328513.279629,
+    "selected_unknown_usd": 96242618.046083,
+    "coverage_ratio": 0.749971,
+    "coverage_pct": 74.9971,
+    "total_unique_unknown_sku": 2162
+  },
+  "items": [
+    {
+      "sku_code": "WDU4ZR",
+      "brand": "unknown",
+      "raw_text": "Маркировка клеммы Wdu4/Zr, мод./арт. 1609900000, кол. 6000",
+      "total_effective_usd": 58249511.54208,
+      "line_count": 1,
+      "lot_count": 1
+    },
+    {
+      "sku_code": "SF12IV2",
+      "brand": "unknown",
+      "raw_text": "Маркировка кабеля Sf1/2I-V2, мод./арт. 1918630000, кол. 2800",
+      "total_effective_usd": 27439799.775258,
+      "line_count": 1,
+      "lot_count": 1
+    },
+    {
+      "sku_code": "WDU4",
+      "brand": "unknown",
+      "raw_text": "Клемма WDU4 BL, модель/артикул 1020180000, кол-во 100",
+      "total_effective_usd": 10553306.728745,
+      "line_count": 1,
+      "lot_count": 1
+    }
+  ]
+}

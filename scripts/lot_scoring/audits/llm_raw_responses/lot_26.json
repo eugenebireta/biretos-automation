@@ -1,0 +1,27 @@
+{
+  "batches": [
+    {
+      "lot_id": "26",
+      "batch_label": "1/1",
+      "rows_count": 2,
+      "model": "gpt-4o-mini",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "request_body": {
+        "model": "gpt-4o-mini",
+        "temperature": 0,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an industrial catalog auditor. Classify each row into one of these categories only: gas_safety, fire_safety, hvac_components, industrial_sensors, valves_actuators, it_hardware, packaging_materials, construction_supplies, toxic_fake, unknown. Return strict JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"task\": \"Reclassify each row with same taxonomy only.\", \"rules\": {\"valid_categories\": [\"construction_supplies\", \"fire_safety\", \"gas_safety\", \"hvac_components\", \"industrial_sensors\", \"it_hardware\", \"packaging_materials\", \"toxic_fake\", \"unknown\", \"valves_actuators\"], \"output_format\": \"JSON array only\", \"required_fields\": [\"slice_rank\", \"sku_code\", \"llm_category\", \"llm_brand\", \"confidence\", \"reason\"], \"confidence_range\": \"0..1\", \"keep_reason_short\": true}, \"rows\": [{\"slice_rank\": 1, \"sku_code\": \"1470G\", \"qty\": 10500.0, \"effective_usd\": 726562.682331, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"Этикетка, предназначена для маркировки готовой продукции — сканеров Voyager 1470G, модель/артикул 50152077-011, кол-во 46576\", \"full_row_text\": \"Этикетка, предназначена для маркировки готовой продукции — сканеров Voyager 1470G, модель/артикул 50152077-011, кол-во 46576 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 2, \"sku_code\": \"470G1472G\", \"qty\": 2400.0, \"effective_usd\": 502104.142012, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"Элемент корпуса сканера 470g/1472g, модель/артикул 50159783-001, кол-во 2400\", \"full_row_text\": \"Элемент корпуса сканера 470g/1472g, модель/артикул 50159783-001, кол-во 2400 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}]}"
+          }
+        ]
+      },
+      "response_body": "{\n  \"id\": \"chatcmpl-DCWFjLvkWHiqECtb5swBGI7LPCUpJ\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771876287,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n[\\n    {\\n        \\\"slice_rank\\\": 1,\\n        \\\"sku_code\\\": \\\"1470G\\\",\\n        \\\"llm_category\\\": \\\"packaging_materials\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.8,\\n        \\\"reason\\\": \\\"Label for product marking\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 2,\\n        \\\"sku_code\\\": \\\"470G1472G\\\",\\n        \\\"llm_category\\\": \\\"packaging_materials\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.8,\\n        \\\"reason\\\": \\\"Scanner housing component\\\"\\n    }\\n]\\n```\",\n        \"refusal\": null,\n        \"annotations\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 521,\n    \"completion_tokens\": 131,\n    \"total_tokens\": 652,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  },\n  \"service_tier\": \"default\",\n  \"system_fingerprint\": \"fp_373a14eb6f\"\n}\n",
+      "error": null
+    }
+  ]
+}

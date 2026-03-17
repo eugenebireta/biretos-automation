@@ -1,0 +1,17 @@
+[Unit]
+Description=Biretos RU Worker (job queue processor)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/biretos/windmill-core-v1/ru_worker
+EnvironmentFile=/opt/biretos/windmill-core-v1/.env
+ExecStart=/usr/bin/python3 ru_worker.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/biretos/windmill-core-v1/ru_worker/ru_worker.log
+StandardError=append:/opt/biretos/windmill-core-v1/ru_worker/ru_worker.log
+
+[Install]
+WantedBy=multi-user.target

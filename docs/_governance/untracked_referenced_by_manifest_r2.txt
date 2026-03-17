@@ -1,0 +1,14 @@
+.cursor/windmill-core-v1/retention_policy.py
+.cursor/windmill-core-v1/domain/reconciliation_verify.py
+.cursor/windmill-core-v1/domain/reconciliation_alerts.py
+.cursor/windmill-core-v1/domain/structural_checks.py
+.cursor/windmill-core-v1/migrations/016_create_reconciliation_audit_log.sql
+.cursor/windmill-core-v1/migrations/017_create_reconciliation_suppressions.sql
+.cursor/windmill-core-v1/migrations/018_create_reconciliation_alerts.sql
+.cursor/windmill-core-v1/migrations/019_add_retention_indexes.sql
+.cursor/windmill-core-v1/docs/RETENTION_INVARIANT.md
+.cursor/windmill-core-v1/tests/validation/test_phase3_alert_emission.py
+.cursor/windmill-core-v1/tests/validation/test_phase3_cache_read_model_contract.py
+.cursor/windmill-core-v1/tests/validation/test_phase3_l3_structural_checks.py
+.cursor/windmill-core-v1/tests/validation/test_phase3_replay_verify.py
+.cursor/windmill-core-v1/tests/validation/test_phase3_structural_safety_contract.py

@@ -1,0 +1,27 @@
+{
+  "batches": [
+    {
+      "lot_id": "14",
+      "batch_label": "1/1",
+      "rows_count": 2,
+      "model": "gpt-4o-mini",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "request_body": {
+        "model": "gpt-4o-mini",
+        "temperature": 0,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an industrial catalog auditor. Classify each row into one of these categories only: gas_safety, fire_safety, hvac_components, industrial_sensors, valves_actuators, it_hardware, packaging_materials, construction_supplies, toxic_fake, unknown. Return strict JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"task\": \"Reclassify each row with same taxonomy only.\", \"rules\": {\"valid_categories\": [\"construction_supplies\", \"fire_safety\", \"gas_safety\", \"hvac_components\", \"industrial_sensors\", \"it_hardware\", \"packaging_materials\", \"toxic_fake\", \"unknown\", \"valves_actuators\"], \"output_format\": \"JSON array only\", \"required_fields\": [\"slice_rank\", \"sku_code\", \"llm_category\", \"llm_brand\", \"confidence\", \"reason\"], \"confidence_range\": \"0..1\", \"keep_reason_short\": true}, \"rows\": [{\"slice_rank\": 1, \"sku_code\": \"FTAC30016DIFSLIMG3S\", \"qty\": 53.0, \"effective_usd\": 1501793.054482, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"FTA-C300-16DI-F-SLIM-G3-S, модель/артикул 7508001858, кол-во 53\", \"full_row_text\": \"FTA-C300-16DI-F-SLIM-G3-S, модель/артикул 7508001858, кол-во 53 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 2, \"sku_code\": \"FTAC30016DIFSLIMG3S\", \"qty\": 30.0, \"effective_usd\": 850071.540273, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"FTA-C300-16DI-F-SLIM-G3-S, модель/артикул 7508001857, кол-во 30\", \"full_row_text\": \"FTA-C300-16DI-F-SLIM-G3-S, модель/артикул 7508001857, кол-во 30 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}]}"
+          }
+        ]
+      },
+      "response_body": "{\n  \"id\": \"chatcmpl-DCWFfrRYJwBK3mNzyVmSFmsUDUhAE\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771876283,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n[\\n    {\\n        \\\"slice_rank\\\": 1,\\n        \\\"sku_code\\\": \\\"FTAC30016DIFSLIMG3S\\\",\\n        \\\"llm_category\\\": \\\"unknown\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.0,\\n        \\\"reason\\\": \\\"Insufficient information\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 2,\\n        \\\"sku_code\\\": \\\"FTAC30016DIFSLIMG3S\\\",\\n        \\\"llm_category\\\": \\\"unknown\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.0,\\n        \\\"reason\\\": \\\"Insufficient information\\\"\\n    }\\n]\\n```\",\n        \"refusal\": null,\n        \"annotations\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 506,\n    \"completion_tokens\": 136,\n    \"total_tokens\": 642,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  },\n  \"service_tier\": \"default\",\n  \"system_fingerprint\": \"fp_373a14eb6f\"\n}\n",
+      "error": null
+    }
+  ]
+}

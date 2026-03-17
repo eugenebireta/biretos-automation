@@ -1,0 +1,485 @@
+﻿diff --git a/.cursor/windmill-core-v1/maintenance_sweeper.py b/.cursor/windmill-core-v1/maintenance_sweeper.py
+index 33f240f..afa7976 100644
+--- a/.cursor/windmill-core-v1/maintenance_sweeper.py
++++ b/.cursor/windmill-core-v1/maintenance_sweeper.py
+@@ -1,16 +1,20 @@
+ from __future__ import annotations
+ 
++import json
+ import os
+ import time
+ from datetime import datetime, timezone
+-from typing import Dict, Iterable, List
++from typing import Dict, Iterable, List, Optional
+ from uuid import UUID, uuid4
+ 
+ from psycopg2.pool import SimpleConnectionPool
+ 
+ from config import get_config
+ from domain import observability_service as observability
++from domain import reconciliation_alerts as alerts
+ from domain import reconciliation_service as reconciliation
++from domain import structural_checks
++from retention_policy import run_retention_cleanup
+ from side_effects.adapters.cdek_adapter import CDEKShipmentAdapter
+ from side_effects.adapters.tbank_adapter import TBankInvoiceAdapter
+ from ru_worker.lib_integrations import log_event
+@@ -18,6 +22,19 @@ from ru_worker.lib_integrations import log_event
+ 
+ TERMINAL_STATES = ("completed", "cancelled", "failed")
+ 
++RC_AUDIT_META = {
++    "phase25_rc1_reconcile_payment_cache": ("RC-1", "L1", "order"),
++    "phase25_rc2_reconcile_shipment_cache": ("RC-2", "L1", "order"),
++    "phase25_rc3_rebuild_stock_snapshot": ("RC-3", "L1", "stock"),
++    "phase25_rc4_expire_reservations": ("RC-4", "L2", "reservation"),
++    "phase25_rc4b_escalate_reservation_deficit": ("RC-4b", "L2", "order_line_item"),
++    "phase25_rc5_reconcile_document_key": ("RC-5", "L1", "order"),
++    "phase25_rc6_resolve_pending_payment": ("RC-6", "L2", "payment_transaction"),
++    "phase25_rc7_sync_shipment_status": ("RC-7", "L2", "shipment"),
++}
++
++_CYCLE_COUNT = 0
++
+ 
+ def _env_int(name: str, default: int) -> int:
+     raw = os.getenv(name)
+@@ -58,21 +75,246 @@ def _log_verdict(verdict: Dict[str, object]) -> None:
+     log_event("phase25_invariant_verdict", verdict)
+ 
+ 
+-def _run_rc(conn, *, event_name: str, fn, kwargs: Dict[str, object]) -> Dict[str, object]:
++def _derive_entity_id(event_name: str, kwargs: Dict[str, object]) -> str:
++    if event_name == "phase25_rc4b_escalate_reservation_deficit":
++        order_id = kwargs.get("order_id")
++        line_item_id = kwargs.get("line_item_id")
++        if order_id is not None and line_item_id is not None:
++            return f"{order_id}:{line_item_id}"
++        return "unknown"
++
++    if event_name == "phase25_rc3_rebuild_stock_snapshot":
++        product_id = kwargs.get("product_id")
++        warehouse_code = kwargs.get("warehouse_code")
++        if product_id is not None and warehouse_code is not None:
++            return f"{product_id}:{warehouse_code}"
++        return "unknown"
++
++    for key in ("order_id", "shipment_id", "payment_transaction_id"):
++        value = kwargs.get(key)
++        if value is not None:
++            return str(value)
++
++    return "unknown"
++
++
++def _log_audit_intent(
++    audit_conn,
++    *,
++    sweep_trace_id: str,
++    rc_code: str,
++    layer: str,
++    entity_type: str,
++    entity_id: str,
++    ic_verdict_before: Optional[Dict[str, object]] = None,
++) -> Optional[str]:
++    cursor = audit_conn.cursor()
++    try:
++        cursor.execute(
++            """
++            INSERT INTO reconciliation_audit_log (
++                sweep_trace_id, rc_code, layer, entity_type, entity_id,
++                phase, ic_verdict_before, action_result, outcome, error_detail
++            )
++            VALUES (
++                %s::uuid, %s, %s, %s, %s,
++                'INTENT', %s::jsonb, NULL, 'pending', NULL
++            )
++            RETURNING id
++            """,
++            (
++                str(sweep_trace_id),
++                str(rc_code),
++                str(layer),
++                str(entity_type),
++                str(entity_id),
++                json.dumps(ic_verdict_before, ensure_ascii=False) if ic_verdict_before is not None else None,
++            ),
++        )
++        row = cursor.fetchone()
++        return str(row[0]) if row else None
++    except Exception as exc:
++        log_event(
++            "phase25_audit_intent_error",
++            {
++                "error": str(exc),
++                "trace_id": str(sweep_trace_id),
++                "rc": str(rc_code),
++                "entity_type": str(entity_type),
++                "entity_id": str(entity_id),
++            },
++        )
++        return None
++    finally:
++        cursor.close()
++
++
++def _log_audit_outcome(
++    audit_conn,
++    *,
++    audit_row_id: str,
++    outcome: str,
++    action_result: Optional[Dict[str, object]] = None,
++    error_detail: Optional[str] = None,
++) -> None:
++    cursor = audit_conn.cursor()
++    try:
++        cursor.execute(
++            """
++            UPDATE reconciliation_audit_log
++            SET phase = 'OUTCOME',
++                outcome = %s,
++                action_result = %s::jsonb,
++                error_detail = %s
++            WHERE id = %s::uuid
++            """,
++            (
++                str(outcome),
++                json.dumps(action_result, ensure_ascii=False) if action_result is not None else None,
++                error_detail,
++                str(audit_row_id),
++            ),
++        )
++    except Exception as exc:
++        log_event(
++            "phase25_audit_outcome_error",
++            {
++                "error": str(exc),
++                "audit_row_id": str(audit_row_id),
++                "outcome": str(outcome),
++            },
++        )
++    finally:
++        cursor.close()
++
++
++def _sweep_orphaned_intents(audit_conn) -> None:
++    cursor = audit_conn.cursor()
++    try:
++        cursor.execute(
++            """
++            UPDATE reconciliation_audit_log
++            SET phase = 'OUTCOME',
++                outcome = 'crash'
++            WHERE phase = 'INTENT'
++              AND outcome = 'pending'
++              AND created_at < (NOW() - INTERVAL '5 minutes')
++            """,
++        )
++    except Exception as exc:
++        log_event("phase25_audit_orphan_sweep_error", {"error": str(exc)})
++    finally:
++        cursor.close()
++
++
++def _run_rc(
++    conn,
++    *,
++    event_name: str,
++    fn,
++    kwargs: Dict[str, object],
++    audit_conn=None,
++    sweep_trace_id: Optional[str] = None,
++    ic_verdict: Optional[Dict[str, object]] = None,
++) -> Dict[str, object]:
++    audit_row_id: Optional[str] = None
++    if audit_conn is not None and sweep_trace_id is not None:
++        meta = RC_AUDIT_META.get(event_name)
++        if meta is not None:
++            rc_code, layer, entity_type = meta
++            entity_id = _derive_entity_id(event_name, kwargs)
++            audit_row_id = _log_audit_intent(
++                audit_conn,
++                sweep_trace_id=str(sweep_trace_id),
++                rc_code=str(rc_code),
++                layer=str(layer),
++                entity_type=str(entity_type),
++                entity_id=str(entity_id),
++                ic_verdict_before=ic_verdict,
++            )
++
+     try:
+         result = fn(conn, **kwargs)
+         if hasattr(conn, "commit"):
+             conn.commit()
++
++        if audit_conn is not None and audit_row_id is not None:
++            action = result.get("action") if isinstance(result, dict) else None
++            outcome = "noop" if action in {"noop", "duplicate"} else "success"
++            _log_audit_outcome(
++                audit_conn,
++                audit_row_id=str(audit_row_id),
++                outcome=outcome,
++                action_result=result if isinstance(result, dict) else None,
++                error_detail=None,
++            )
++
+         log_event(event_name, {"result": result, "trace_id": kwargs.get("trace_id")})
+         return {"ok": True, "result": result}
+     except Exception as exc:
+         if hasattr(conn, "rollback"):
+             conn.rollback()
++
++        if audit_conn is not None and audit_row_id is not None:
++            _log_audit_outcome(
++                audit_conn,
++                audit_row_id=str(audit_row_id),
++                outcome="rollback",
++                action_result=None,
++                error_detail=str(exc),
++            )
++
+         payload = {"error": str(exc), "trace_id": kwargs.get("trace_id"), "rc": event_name}
+         log_event("phase25_reconciliation_error", payload)
+         return {"ok": False, "error": str(exc)}
+ 
+ 
++def _run_l3_checks(check_conn, *, sweep_trace_id: str, trace_id: str) -> None:
++    results = [
++        structural_checks.check_stock_ledger_non_negative(check_conn, trace_id=trace_id),
++        structural_checks.check_reservations_for_terminal_orders(check_conn, trace_id=trace_id),
++    ]
++
++    for res in results:
++        check_code = str(res.get("check_code") or "L3-UNKNOWN")
++        severity = str(res.get("severity") or "MEDIUM")
++        verdict = str(res.get("verdict") or "UNKNOWN")
++        problems = res.get("problems") if isinstance(res.get("problems"), list) else []
++
++        if verdict != "FAIL":
++            continue
++
++        total = len(problems)
++        if total > 10:
++            sample = problems[:10]
++            try:
++                alerts.emit_batch_alert(
++                    check_conn,
++                    sweep_trace_id=sweep_trace_id,
++                    check_code=check_code,
++                    severity=severity,
++                    sample=sample,
++                    total_count=total,
++                )
++            except Exception as exc:
++                log_event("phase25_l3_alert_error", {"error": str(exc), "trace_id": trace_id, "check_code": check_code})
++            continue
++
++        for p in problems:
++            try:
++                alerts.emit_alert(
++                    check_conn,
++                    sweep_trace_id=sweep_trace_id,
++                    check_code=check_code,
++                    entity_type=str(p.get("entity_type") or "unknown"),
++                    entity_id=str(p.get("entity_id") or "unknown"),
++                    severity=severity,
++                    verdict_snapshot={"check_code": check_code, "problem": p},
++                )
++            except Exception as exc:
++                log_event("phase25_l3_alert_error", {"error": str(exc), "trace_id": trace_id, "check_code": check_code})
++
++
+ def _scan_active_orders(conn, *, limit: int) -> List[UUID]:
+     rows = _run_select(
+         conn,
+@@ -142,6 +384,9 @@ def _process_order(
+     order_id: UUID,
+     trace_id: str,
+     cdek_adapter: CDEKShipmentAdapter,
++    audit_conn=None,
++    sweep_trace_id: Optional[str] = None,
++    rc4b_budget: Optional[Dict[str, int]] = None,
+ ) -> None:
+     verdicts = observability.collect_order_invariant_verdicts(
+         conn,
+@@ -164,6 +409,30 @@ def _process_order(
+         )
+         _log_verdict(verdict)
+ 
++        if verdict.get("verdict") == "FAIL":
++            limit = int((rc4b_budget or {}).get("limit", 0))
++            used = int((rc4b_budget or {}).get("used", 0))
++            if limit > 0 and used >= limit:
++                continue
++
++            rc4b = _run_rc(
++                conn,
++                event_name="phase25_rc4b_escalate_reservation_deficit",
++                fn=reconciliation.escalate_reservation_deficit,
++                kwargs={
++                    "order_id": order_id,
++                    "line_item_id": line_item_id,
++                    "ic_verdict": verdict,
++                    "trace_id": trace_id,
++                },
++                audit_conn=audit_conn,
++                sweep_trace_id=sweep_trace_id,
++                ic_verdict=verdict,
++            )
++            if rc4b_budget is not None and rc4b.get("ok") and isinstance(rc4b.get("result"), dict):
++                if rc4b["result"].get("action") == "escalated":
++                    rc4b_budget["used"] = int(rc4b_budget.get("used", 0)) + 1
++
+     for verdict in verdicts:
+         if verdict.get("check_name") == "IC-1" and verdict.get("verdict") == "FAIL":
+             _run_rc(
+@@ -171,6 +440,9 @@ def _process_order(
+                 event_name="phase25_rc1_reconcile_payment_cache",
+                 fn=reconciliation.reconcile_payment_cache,
+                 kwargs={"order_id": order_id, "trace_id": trace_id},
++                audit_conn=audit_conn,
++                sweep_trace_id=sweep_trace_id,
++                ic_verdict=verdict,
+             )
+         elif verdict.get("check_name") == "IC-2" and verdict.get("verdict") == "FAIL":
+             _run_rc(
+@@ -178,6 +450,9 @@ def _process_order(
+                 event_name="phase25_rc2_reconcile_shipment_cache",
+                 fn=reconciliation.reconcile_shipment_cache,
+                 kwargs={"order_id": order_id, "trace_id": trace_id},
++                audit_conn=audit_conn,
++                sweep_trace_id=sweep_trace_id,
++                ic_verdict=verdict,
+             )
+         elif verdict.get("check_name") == "IC-5" and verdict.get("verdict") == "FAIL":
+             _run_rc(
+@@ -185,6 +460,9 @@ def _process_order(
+                 event_name="phase25_rc5_reconcile_document_key",
+                 fn=reconciliation.reconcile_document_key,
+                 kwargs={"order_id": order_id, "trace_id": trace_id},
++                audit_conn=audit_conn,
++                sweep_trace_id=sweep_trace_id,
++                ic_verdict=verdict,
+             )
+         elif verdict.get("check_name") == "IC-7" and verdict.get("verdict") == "STALE":
+             for shipment_id in _scan_active_shipments(
+@@ -201,6 +479,9 @@ def _process_order(
+                         "adapter": cdek_adapter,
+                         "trace_id": trace_id,
+                     },
++                    audit_conn=audit_conn,
++                    sweep_trace_id=sweep_trace_id,
++                    ic_verdict=verdict,
+                 )
+ 
+ 
+@@ -210,12 +491,44 @@ def _run_cycle(
+     tbank_adapter: TBankInvoiceAdapter,
+     cdek_adapter: CDEKShipmentAdapter,
+ ) -> None:
++    global _CYCLE_COUNT
++    _CYCLE_COUNT += 1
+     conn = pool.getconn()
++    audit_conn = None
+     try:
+         conn.autocommit = False
+         trace_id = str(uuid4())
+         now_ts = datetime.now(timezone.utc)
+ 
++        try:
++            audit_conn = pool.getconn()
++            audit_conn.autocommit = True
++        except Exception as exc:
++            log_event("phase25_audit_conn_error", {"error": str(exc), "trace_id": trace_id})
++            audit_conn = None
++
++        if audit_conn is not None:
++            _sweep_orphaned_intents(audit_conn)
++
++        # Expire active suppressions with elapsed snooze TTL.
++        try:
++            expiry_conn = audit_conn if audit_conn is not None else conn
++            cur = expiry_conn.cursor()
++            try:
++                cur.execute(
++                    """
++                    UPDATE reconciliation_suppressions
++                    SET suppression_state = 'expired'
++                    WHERE suppression_state = 'active'
++                      AND expires_at IS NOT NULL
++                      AND expires_at < NOW()
++                    """
++                )
++            finally:
++                cur.close()
++        except Exception as exc:
++            log_event("phase25_suppression_expiry_error", {"error": str(exc), "trace_id": trace_id})
++
+         ic8 = observability.check_zombie_reservations(conn, trace_id=trace_id, now_ts=now_ts)
+         _log_verdict(ic8)
+         ic9 = observability.check_orphan_payment_transactions(conn, trace_id=trace_id, now_ts=now_ts)
+@@ -230,6 +543,9 @@ def _run_cycle(
+                 "batch_limit": _env_int("MAINTENANCE_RC4_BATCH_LIMIT", 100),
+                 "now": now_ts,
+             },
++            audit_conn=audit_conn,
++            sweep_trace_id=trace_id,
++            ic_verdict=ic8,
+         )
+ 
+         if ic9.get("verdict") == "STALE":
+@@ -246,15 +562,25 @@ def _run_cycle(
+                         "adapter": tbank_adapter,
+                         "trace_id": trace_id,
+                     },
++                    audit_conn=audit_conn,
++                    sweep_trace_id=trace_id,
++                    ic_verdict=ic9,
+                 )
+ 
+         active_order_limit = _env_int("MAINTENANCE_ACTIVE_ORDER_LIMIT", 100)
++        rc4b_budget = {
++            "limit": _env_int("MAINTENANCE_RC4B_CASE_LIMIT", 5),
++            "used": 0,
++        }
+         for order_id in _scan_active_orders(conn, limit=active_order_limit):
+             _process_order(
+                 conn,
+                 order_id=order_id,
+                 trace_id=trace_id,
+                 cdek_adapter=cdek_adapter,
++                audit_conn=audit_conn,
++                sweep_trace_id=trace_id,
++                rc4b_budget=rc4b_budget,
+             )
+ 
+         stock_target_limit = _env_int("MAINTENANCE_STOCK_CHECK_LIMIT", 100)
+@@ -276,8 +602,28 @@ def _run_cycle(
+                         "warehouse_code": warehouse_code,
+                         "trace_id": trace_id,
+                     },
++                    audit_conn=audit_conn,
++                    sweep_trace_id=trace_id,
++                    ic_verdict=verdict,
+                 )
++
++        every_n = _env_int("MAINTENANCE_L3_EVERY_NTH_CYCLE", 10)
++        if every_n > 0 and (_CYCLE_COUNT % every_n) == 0:
++            check_conn = audit_conn if audit_conn is not None else conn
++            _run_l3_checks(check_conn, sweep_trace_id=trace_id, trace_id=trace_id)
++            if check_conn is conn and hasattr(conn, "commit"):
++                conn.commit()
++
++        retention_every_n = _env_int("RETENTION_EVERY_NTH_CYCLE", 50)
++        if retention_every_n > 0 and (_CYCLE_COUNT % retention_every_n) == 0:
++            if audit_conn is not None:
++                try:
++                    run_retention_cleanup(audit_conn, trace_id=trace_id)
++                except Exception as exc:
++                    log_event("retention_cleanup_error", {"error": str(exc), "trace_id": trace_id})
+     finally:
++        if audit_conn is not None:
++            pool.putconn(audit_conn)
+         pool.putconn(conn)
+ 
+ 

@@ -1,0 +1,71 @@
+{
+  "input_file": "audits\\llm_audit_input.json",
+  "thresholds": {
+    "line_p99_9": 10553306.728745,
+    "line_p99_5": 463922.769231,
+    "pn_total_p99": 280717.948718,
+    "outlier_rule": "outlier_line OR outlier_pn",
+    "outlier_line_definition": "effective_line_usd > P99.9",
+    "outlier_pn_definition": "total_usd_pn > P99"
+  },
+  "counts": {
+    "total_unknown_pn": 2162,
+    "outlier_pn": 21,
+    "outlier_by_line": 2,
+    "outlier_by_pn_total": 21,
+    "core_robust_pn": 157
+  },
+  "usd": {
+    "total_unknown_usd": 128328513.279629,
+    "clean_unknown_usd_total": 13020451.17314,
+    "core_clean_unknown_usd": 9117929.413451,
+    "core_coverage_ratio": 0.700278,
+    "core_coverage_pct": 70.0278
+  },
+  "artifacts": {
+    "outliers_csv": "audits\\unknown_outliers_for_review.csv",
+    "core_json": "audits\\llm_audit_input_core_robust.json"
+  },
+  "top10_core_robust": [
+    {
+      "pn": "MS7820118",
+      "usd": 280717.948718
+    },
+    {
+      "pn": "EDA511B663SQGRK",
+      "usd": 265989.269231
+    },
+    {
+      "pn": "04200A1015",
+      "usd": 243863.666667
+    },
+    {
+      "pn": "1450G",
+      "usd": 225734.045352
+    },
+    {
+      "pn": "CCPUIO31",
+      "usd": 215238.628207
+    },
+    {
+      "pn": "EDA51K0B931SQGRK",
+      "usd": 210968.307692
+    },
+    {
+      "pn": "1470G1472G",
+      "usd": 201249.021155
+    },
+    {
+      "pn": "PW7K1R2",
+      "usd": 196692.948717
+    },
+    {
+      "pn": "FTAPKS16DODCFJ6S",
+      "usd": 196201.462182
+    },
+    {
+      "pn": "240DIN",
+      "usd": 192773.166667
+    }
+  ]
+}

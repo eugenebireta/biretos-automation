@@ -1,0 +1,65 @@
+{
+  "formula": {
+    "q_category_weight": 0.25,
+    "q_ticket_weight": 0.25,
+    "q_density_weight": 0.2,
+    "unknown_component_weight": 0.15,
+    "concentration_component_weight": 0.15,
+    "capital_core_threshold": "independent_per_lot"
+  },
+  "lot_count": 33,
+  "checks": {
+    "order_invariance": true,
+    "single_lot_invariance": true
+  },
+  "max_abs_diff": {
+    "order_invariance": 0.0,
+    "single_lot_invariance": 0.0
+  },
+  "changed_lots": {
+    "order_invariance": [],
+    "single_lot_invariance": []
+  },
+  "sample": [
+    {
+      "lot_id": "1",
+      "abs_score_100": 79.972403
+    },
+    {
+      "lot_id": "2",
+      "abs_score_100": 81.254197
+    },
+    {
+      "lot_id": "3",
+      "abs_score_100": 84.750585
+    },
+    {
+      "lot_id": "4",
+      "abs_score_100": 77.83401
+    },
+    {
+      "lot_id": "5",
+      "abs_score_100": 73.45476
+    },
+    {
+      "lot_id": "6",
+      "abs_score_100": 81.426875
+    },
+    {
+      "lot_id": "7",
+      "abs_score_100": 78.681519
+    },
+    {
+      "lot_id": "8",
+      "abs_score_100": 73.520853
+    },
+    {
+      "lot_id": "9",
+      "abs_score_100": 83.353604
+    },
+    {
+      "lot_id": "10",
+      "abs_score_100": 87.740973
+    }
+  ]
+}

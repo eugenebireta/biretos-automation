@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "deny": [
+      "write:.cursor/windmill-core-v1/domain/reconciliation_*",
+      "write:.cursor/windmill-core-v1/domain/structural_checks*",
+      "write:.cursor/windmill-core-v1/domain/observability_service*",
+      "write:.cursor/windmill-core-v1/migrations/01[6-9]*",
+      "write:.cursor/windmill-core-v1/tests/validation/*",
+      "write:.cursor/windmill-core-v1/docs/RETENTION_INVARIANT.md",
+      "read:.env",
+      "read:**/secrets/**"
+    ],
+    "ask": [
+      "write:.cursor/windmill-core-v1/migrations/*",
+      "bash:rm *",
+      "bash:git push*",
+      "bash:git merge*"
+    ]
+  }
+}
