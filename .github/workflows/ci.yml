@@ -139,11 +139,12 @@ jobs:
         working-directory: .cursor/windmill-core-v1
         run: pytest
 
-      - name: "Phase 3: RC-2 / RC-5 / RC-6 / RC-7 reconciliation tests"
+      - name: "Phase 3: RC-2 / RC-3 / RC-5 / RC-6 / RC-7 reconciliation tests"
         working-directory: .cursor/windmill-core-v1
         run: |
           pytest \
             tests/validation/test_phase3_rc2_shipment_cache.py \
+            tests/validation/test_phase3_rc3_stock_snapshot.py \
             tests/validation/test_phase3_rc5_document_key.py \
             tests/validation/test_phase3_rc6_pending_payment.py \
             tests/validation/test_phase3_rc7_shipment_sync.py \
