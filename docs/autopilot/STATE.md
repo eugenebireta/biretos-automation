@@ -1,20 +1,20 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 24
-transition_ts: "2026-03-18T00:00:00Z"
+transition_seq: 25
+transition_ts: "2026-03-20T00:00:00Z"
 
 ## Current
-active_task: "5.1 Pydantic models для CDM v2 + TaskIntent"
-task_id: "5.1"
-phase: BUILDER
-status: ACTIVE
+active_task: "5.2 Validation на 3 границах"
+task_id: "5.2"
+phase: SCOUT
+status: PENDING
 phase_owner: "Agent/Sonnet"
 risk_level: CORE
 pipeline: [SCOUT, ARCHITECT, CRITIC, ARCHITECT_V2, JUDGE_WAIT, PLANNER, BUILDER, AUDITOR, POST_AUDIT_LOGGER]
 
 ## Integrity
-integrity_hash: "sha256:b5d396f51d90c9b92641a730276f26e2f35fc106cc4bb29c3547ab0c34c34306"
+integrity_hash: "sha256:109ff4c8586586a0895d5138cd5dc60efeb3db8bac43a9160fe423effe23fde7"
 
 ## Evidence
 last_phase_output_hash: null
@@ -37,16 +37,6 @@ judge_pack_hash: null
 
 ## History Tail (last 5 transitions, FIFO)
 history:
-  - seq: 19
-    phase: POST_AUDIT_LOGGER
-    status: PENDING
-    ts: "2026-03-03T09:02:38Z"
-    actor: "Agent/Codex"
-  - seq: 20
-    phase: POST_AUDIT_LOGGER
-    status: ACTIVE
-    ts: "2026-03-03T09:05:35Z"
-    actor: "Agent/Codex"
   - seq: 21
     phase: SCOUT
     status: PENDING
@@ -62,6 +52,29 @@ history:
     status: PENDING
     ts: "2026-03-03T09:33:23Z"
     actor: "Agent/Codex"
+  - seq: 24
+    phase: BUILDER
+    status: ACTIVE
+    ts: "2026-03-18T00:00:00Z"
+    actor: "migration-reset"
+    note: "PC migration gap: state reset to BUILDER/ACTIVE; code already committed at ee54864"
+  - seq: 25
+    phase: SCOUT
+    status: PENDING
+    ts: "2026-03-20T00:00:00Z"
+    actor: "Agent/Sonnet"
+    note: "Task 5.1 closeout: AUDITOR PASS + POST_AUDIT_LOGGER complete; CAPSULE.md filled; advancing to Task 5.2"
+
+## Task 5.1 Closeout (2026-03-20)
+task_5_1_status: CLOSED
+task_5_1_commit: "ee54864e2e5eeafe8d502d8e48b64d19676613ae"
+task_5_1_branch: "feat/task-5.1"
+task_5_1_changed_files:
+  - ".cursor/windmill-core-v1/domain/cdm_models.py"
+  - ".cursor/windmill-core-v1/tests/test_cdm_models.py"
+task_5_1_test_evidence: "6/6 PASS (test_cdm_models.py); 124/124 PASS (full suite)"
+task_5_1_auditor_verdict: PASS
+task_5_1_capsule: "docs/autopilot/CAPSULE.md"
 
 ## R2_PREP_STATUS (2026-03-18)
 A_DONE:
@@ -101,3 +114,9 @@ overrides:
     to: "POST_AUDIT_LOGGER/ACTIVE"
     actor: "Agent/Codex"
     reason: "Apply deferred AUDITOR PASS for Task 5.1 and execute mandatory POST_AUDIT_LOGGER transition."
+  - seq: 24
+    ts: "2026-03-18T00:00:00Z"
+    from: "POST_AUDIT_LOGGER/ACTIVE"
+    to: "BUILDER/ACTIVE"
+    actor: "migration-reset"
+    reason: "PC migration gap: state reset to reflect resume point; CAPSULE.md was empty, evidence fields null. Closed out properly at seq 25 (2026-03-20)."

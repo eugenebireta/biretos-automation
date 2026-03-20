@@ -1,4 +1,25 @@
 ---
+DATE: 2026-03-20
+TITLE: Task 5.1 — TaskIntent + ActionSnapshot Pydantic v2 Models (CLOSEOUT)
+RISK_LEVEL: CORE
+SCOPE:
+  - .cursor/windmill-core-v1/domain/cdm_models.py (NEW, Tier-2)
+  - .cursor/windmill-core-v1/tests/test_cdm_models.py (NEW, 6 tests)
+BRANCH: feat/task-5.1
+COMMIT: ee54864e2e5eeafe8d502d8e48b64d19676613ae
+SUMMARY:
+  Added Pydantic v2 BaseModel definitions for TaskIntent and ActionSnapshot
+  (domain/cdm_models.py). TaskIntent enforces trace_id min_length=1 (Fail Loud).
+  ActionSnapshot enforces Literal[1] schema_version and Literal["cdek_shipment"]
+  leaf_worker_type (Fail Loud). 6 deterministic unit tests, no DB, no live API.
+  No Tier-1 frozen files touched. No pinned API signatures changed.
+  Full suite: 124/124 PASS. Prerequisite for Task 5.2 (Validation на 3 границах).
+AUDITOR_VERDICT: PASS
+TEST_EVIDENCE: 6/6 PASS (test_cdm_models.py); 124/124 PASS (full suite)
+NOTES:
+  Bookkeeping recovered after PC migration gap (STATE.md was BUILDER/ACTIVE with
+  null evidence; CAPSULE.md was empty). Closed out at seq 25. Task 5.2 SCOUT open.
+---
 DATE: 2026-03-13
 TITLE: R2 Naming Alignment + Write-Prep (NOT MERGED)
 RISK_LEVEL: LOW
