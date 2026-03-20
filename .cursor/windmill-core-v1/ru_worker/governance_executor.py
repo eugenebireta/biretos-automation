@@ -2,7 +2,11 @@ from __future__ import annotations
 
 from typing import Any, Dict, Optional
 
+from pydantic import ValidationError
+
 from config import get_config
+from domain.cdm_models import ActionSnapshot
+from domain.guardian import GuardianVeto, guard_action_snapshot
 from idempotency import acquire_action_lock, complete_action, compute_request_hash
 from lib_integrations import execute_cdek_shipment, log_event
 
@@ -111,28 +115,50 @@ def _execute_live(case_id: str, db_conn, *, trace_id: Optional[str]) -> Dict[str
         db_conn.commit()
         return {"status": "error", "reason": "invalid_snapshot_type", "case_id": case_id}
 
-    if int(action_snapshot.get("schema_version", -1)) != EXPECTED_SCHEMA_VERSION:
+    # ── B3 (Task 5.2): replace manual checks with ActionSnapshot Pydantic model ─
+    try:
+        _snapshot = ActionSnapshot.model_validate(action_snapshot)
+    except ValidationError as _exc:
+        # 5.3: structured validation-error log at decision boundary
+        log_event(
+            "validation_error",
+            {
+                "boundary": "governance_executor",
+                "error_class": "POLICY_VIOLATION",
+                "severity": "ERROR",
+                "retriable": False,
+                "case_id": case_id,
+                "detail": str(_exc),
+            },
+        )
         governance_workflow.resolve_case(db_conn, case_id=case_id, status="cancelled", resolved_by="governance_executor")
         db_conn.commit()
-        return {"status": "error", "reason": "invalid_schema_version", "case_id": case_id}
+        return {"status": "error", "reason": "invalid_action_snapshot", "case_id": case_id}
 
-    leaf_worker_type = action_snapshot.get("leaf_worker_type")
-    if leaf_worker_type not in SUPPORTED_LEAF_WORKERS:
+    # ── B3 (Task 5.4): Guardian invariant check ────────────────────────────────
+    try:
+        guard_action_snapshot(_snapshot)
+    except GuardianVeto as _veto:
+        log_event(
+            "guardian_veto",
+            {
+                "boundary": "governance_executor",
+                "error_class": "POLICY_VIOLATION",
+                "severity": "ERROR",
+                "retriable": False,
+                "invariant": _veto.invariant,
+                "reason": _veto.reason,
+                "case_id": case_id,
+            },
+        )
         governance_workflow.resolve_case(db_conn, case_id=case_id, status="cancelled", resolved_by="governance_executor")
         db_conn.commit()
-        return {"status": "error", "reason": "unsupported_leaf_worker", "case_id": case_id}
+        return {"status": "error", "reason": "guardian_veto", "invariant": _veto.invariant, "case_id": case_id}
+    # ─────────────────────────────────────────────────────────────────────────
 
-    leaf_payload_raw = action_snapshot.get("leaf_payload")
-    if not isinstance(leaf_payload_raw, dict) or not leaf_payload_raw:
-        governance_workflow.resolve_case(db_conn, case_id=case_id, status="cancelled", resolved_by="governance_executor")
-        db_conn.commit()
-        return {"status": "error", "reason": "missing_leaf_payload", "case_id": case_id}
-
-    external_idempotency_key = action_snapshot.get("external_idempotency_key")
-    if not external_idempotency_key:
-        governance_workflow.resolve_case(db_conn, case_id=case_id, status="cancelled", resolved_by="governance_executor")
-        db_conn.commit()
-        return {"status": "error", "reason": "missing_external_idempotency_key", "case_id": case_id}
+    leaf_worker_type = _snapshot.leaf_worker_type
+    leaf_payload_raw = _snapshot.leaf_payload
+    external_idempotency_key = _snapshot.external_idempotency_key
 
     # Step 3: Acquire idempotency lock.
     idempotency_key = f"gov_exec:{case_id}"
