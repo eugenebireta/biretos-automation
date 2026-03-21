@@ -5,8 +5,20 @@ Pure unit tests: no DB, no external API, no live dependencies.
 All tests are deterministic.
 """
 
+import sys
+from pathlib import Path
+
 import pytest
 from pydantic import ValidationError
+
+
+def _ensure_import_paths() -> None:
+    root = Path(__file__).resolve().parents[1]
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
+
+
+_ensure_import_paths()
 
 from domain.cdm_models import ActionSnapshot, TaskIntent
 
