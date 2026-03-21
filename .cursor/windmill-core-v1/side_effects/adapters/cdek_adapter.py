@@ -11,6 +11,8 @@ from domain.ports import (
     ShipmentPort,
     ShipmentTrackingStatusRequest,
     ShipmentTrackingStatusResponse,
+    WaybillRequest,
+    WaybillResponse,
 )
 
 
@@ -81,5 +83,49 @@ class CDEKShipmentAdapter(ShipmentPort):
             carrier_external_id=carrier_external_id,
             carrier_status=carrier_status,
             raw_response=body if isinstance(body, dict) else {"response": body},
+        )
+
+    def get_waybill(self, request: WaybillRequest) -> WaybillResponse:
+        """
+        Phase 6.6 — Download CDEK waybill (barcode sticker) as PDF.
+
+        CDEK v2 API: GET /v2/orders/{uuid}/barcode
+        Returns PDF bytes. dry_run returns stub bytes.
+        """
+        carrier_external_id = request.carrier_external_id
+
+        if self._dry_run:
+            stub_bytes = b"%PDF-1.4 DRY-RUN-WAYBILL"
+            return WaybillResponse(
+                carrier_external_id=carrier_external_id,
+                pdf_bytes=stub_bytes,
+                raw_response={"dry_run": True, "carrier_external_id": carrier_external_id},
+            )
+
+        if not self._token:
+            raise RuntimeError("CDEK_API_TOKEN is not set")
+
+        base = self._api_url.rstrip("/").rsplit("/orders", 1)[0]
+        url = f"{base}/orders/{carrier_external_id}/barcode"
+        headers = {
+            "Authorization": f"Bearer {self._token}",
+            "Accept": "application/pdf",
+        }
+        if request.trace_id:
+            headers["X-Trace-Id"] = request.trace_id
+
+        response = httpx.get(url, headers=headers, timeout=30.0)
+        response.raise_for_status()
+
+        content_type = response.headers.get("content-type", "")
+        if "pdf" not in content_type and len(response.content) < 4:
+            raise RuntimeError(
+                f"CDEK waybill response is not a PDF: content-type={content_type!r}"
+            )
+
+        return WaybillResponse(
+            carrier_external_id=carrier_external_id,
+            pdf_bytes=response.content,
+            raw_response={"content_type": content_type, "size_bytes": len(response.content)},
         )
 

@@ -80,6 +80,11 @@ ENV_NAMES = (
     "TBANK_API_URL",
     "TBANK_INVOICE_STATUS_PATH",
     "TBANK_INVOICES_LIST_PATH",
+    "BACKOFFICE_RATE_LIMIT_LOW_PER_HOUR",
+    "BACKOFFICE_RATE_LIMIT_MEDIUM_PER_HOUR",
+    "EDO_API_KEY",
+    "EDO_API_URL",
+    "EDO_PROVIDER",
     "TELEGRAM_ALERT_CHAT_ID",
     "TELEGRAM_BOT_TOKEN",
     "TELEGRAM_SECRET_TOKEN",
@@ -158,6 +163,11 @@ class Config:
     n8n_timeout_seconds: Optional[float]
     telegram_secret_token: Optional[str]
     telegram_alert_chat_id: Optional[int]
+    edo_provider: Optional[str]
+    edo_api_url: Optional[str]
+    edo_api_key: Optional[str]
+    backoffice_rate_limit_low_per_hour: Optional[int]
+    backoffice_rate_limit_medium_per_hour: Optional[int]
     ru_base_url: Optional[str]
     poll_interval: Optional[int]
     worker_id: Optional[str]

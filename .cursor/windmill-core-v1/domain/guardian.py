@@ -14,9 +14,12 @@ Usage:
 """
 from __future__ import annotations
 
-from typing import FrozenSet
+from typing import TYPE_CHECKING, FrozenSet
 
 from .cdm_models import ActionSnapshot, TaskIntent
+
+if TYPE_CHECKING:
+    from .backoffice_rate_limiter import RateLimitResult
 
 # ---------------------------------------------------------------------------
 # Whitelists
@@ -32,6 +35,10 @@ ALLOWED_ACTION_TYPES: FrozenSet[str] = frozenset(
         "auto_ship_all_paid",
         "governance_execute",
         "governance_case_create",
+        # Phase 6 — Backoffice Task Engine
+        "check_payment",
+        "get_tracking",
+        "get_waybill",
     }
 )
 
@@ -68,6 +75,25 @@ def guard_task_intent(intent: TaskIntent) -> None:
         raise GuardianVeto(
             reason=f"action_type '{intent.action_type}' is not in ALLOWED_ACTION_TYPES",
             invariant="INV-ACTION-WHITELIST",
+        )
+
+
+def guard_backoffice_rate_limit(rate_result: "RateLimitResult") -> None:
+    """
+    Raises GuardianVeto(INV-RATE) when an employee has exceeded their
+    per-hour rate limit for a given intent type.
+
+    Called by backoffice_router AFTER check_rate_limit().
+    """
+    if not rate_result.allowed:
+        raise GuardianVeto(
+            reason=(
+                f"rate limit exceeded for employee '{rate_result.employee_id}' "
+                f"on intent '{rate_result.intent_type}': "
+                f"{rate_result.current_count}/{rate_result.limit} "
+                f"calls in the last hour (risk={rate_result.risk_level})"
+            ),
+            invariant="INV-RATE",
         )
 
 

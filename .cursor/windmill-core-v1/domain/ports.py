@@ -67,11 +67,71 @@ class ShipmentTrackingStatusResponse:
     raw_response: Dict[str, Any]
 
 
+@dataclass(frozen=True)
+class WaybillRequest:
+    carrier_external_id: str
+    trace_id: Optional[str] = None
+
+
+@dataclass(frozen=True)
+class WaybillResponse:
+    carrier_external_id: str
+    pdf_bytes: bytes
+    raw_response: Dict[str, Any]
+
+
 class ShipmentPort(Protocol):
     def create_shipment(self, request: ShipmentCreateRequest) -> ShipmentCreateResponse:
         ...
 
     def get_tracking_status(self, request: ShipmentTrackingStatusRequest) -> ShipmentTrackingStatusResponse:
+        ...
+
+    def get_waybill(self, request: WaybillRequest) -> WaybillResponse:
+        ...
+
+
+# ---------------------------------------------------------------------------
+# EDO (Electronic Document Operator) port — Phase 6.5
+# Scaffold only. Adapters: Сберкорус, СБИС. Live wiring deferred.
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class EDOSendRequest:
+    document_type: str          # invoice | waybill | act
+    recipient_inn: str
+    document_id: str            # internal document reference
+    payload: Dict[str, Any]
+    trace_id: Optional[str] = None
+
+
+@dataclass(frozen=True)
+class EDOSendResponse:
+    edo_document_id: str
+    provider: str               # sberkorus | sbis | kontur
+    raw_response: Dict[str, Any]
+
+
+@dataclass(frozen=True)
+class EDOStatusRequest:
+    edo_document_id: str
+    provider: str
+    trace_id: Optional[str] = None
+
+
+@dataclass(frozen=True)
+class EDOStatusResponse:
+    edo_document_id: str
+    provider: str
+    provider_status: str
+    raw_response: Dict[str, Any]
+
+
+class EDOPort(Protocol):
+    def send_document(self, request: EDOSendRequest) -> EDOSendResponse:
+        ...
+
+    def get_document_status(self, request: EDOStatusRequest) -> EDOStatusResponse:
         ...
 
 

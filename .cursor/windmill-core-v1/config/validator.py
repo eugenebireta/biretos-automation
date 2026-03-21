@@ -202,6 +202,21 @@ def validate_config() -> Config:
         telegram_alert_chat_id=_parse_int(
             "TELEGRAM_ALERT_CHAT_ID", raw.get("TELEGRAM_ALERT_CHAT_ID"), None, invalid
         ),
+        edo_provider=raw.get("EDO_PROVIDER"),
+        edo_api_url=raw.get("EDO_API_URL"),
+        edo_api_key=raw.get("EDO_API_KEY"),
+        backoffice_rate_limit_low_per_hour=_parse_int(
+            "BACKOFFICE_RATE_LIMIT_LOW_PER_HOUR",
+            raw.get("BACKOFFICE_RATE_LIMIT_LOW_PER_HOUR"),
+            None,
+            invalid,
+        ),
+        backoffice_rate_limit_medium_per_hour=_parse_int(
+            "BACKOFFICE_RATE_LIMIT_MEDIUM_PER_HOUR",
+            raw.get("BACKOFFICE_RATE_LIMIT_MEDIUM_PER_HOUR"),
+            None,
+            invalid,
+        ),
         ru_base_url=raw.get("RU_BASE_URL") or "https://n8n.biretos.ae",
         poll_interval=poll_interval,
         worker_id=raw.get("WORKER_ID") or "local-pc-worker",

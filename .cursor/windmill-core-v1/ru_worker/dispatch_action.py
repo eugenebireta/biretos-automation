@@ -680,6 +680,23 @@ def _dispatch_real(
             )
             return {"status": "error", "action_type": action_type, "error": str(e)}
 
+    # Phase 6 — Backoffice Task Engine
+    if action_type in {"check_payment", "get_tracking", "get_waybill"}:
+        try:
+            from backoffice_router import route_backoffice_intent
+        except ImportError:
+            from ru_worker.backoffice_router import route_backoffice_intent  # type: ignore
+
+        backoffice_payload = {
+            "trace_id": trace_id or metadata.get("trace_id") or "",
+            "intent_type": action_type,
+            "employee_id": str(metadata.get("employee_id") or metadata.get("user_id") or "unknown"),
+            "employee_role": str(metadata.get("employee_role") or "operator"),
+            "payload": payload,
+            "metadata": metadata,
+        }
+        return route_backoffice_intent(backoffice_payload, db_conn)
+
     # Блокировка для всех прочих action_type
     log_event("action_real_blocked", {"action_type": action_type, "mode": mode, "source": source})
     return {"status": "blocked", "action_type": action_type, "message": "REAL mode not implemented"}
