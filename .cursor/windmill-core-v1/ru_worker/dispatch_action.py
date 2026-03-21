@@ -697,6 +697,35 @@ def _dispatch_real(
         }
         return route_backoffice_intent(backoffice_payload, db_conn)
 
+    # Phase 7 — AI Executive Assistant NLU
+    if action_type == "nlu_parse":
+        try:
+            from assistant_router import route_assistant_intent
+        except ImportError:
+            from ru_worker.assistant_router import route_assistant_intent  # type: ignore
+
+        nlu_payload = {
+            "trace_id": trace_id or metadata.get("trace_id") or "",
+            "employee_id": str(metadata.get("employee_id") or metadata.get("user_id") or "unknown"),
+            "employee_role": str(metadata.get("employee_role") or "operator"),
+            "text": payload.get("text") or "",
+        }
+        return route_assistant_intent(nlu_payload, db_conn)
+
+    if action_type == "nlu_confirm":
+        try:
+            from assistant_router import confirm_nlu_intent
+        except ImportError:
+            from ru_worker.assistant_router import confirm_nlu_intent  # type: ignore
+
+        confirm_payload = {
+            "trace_id": trace_id or metadata.get("trace_id") or "",
+            "confirmation_id": payload.get("confirmation_id") or "",
+            "employee_id": str(metadata.get("employee_id") or metadata.get("user_id") or "unknown"),
+            "employee_role": str(metadata.get("employee_role") or "operator"),
+        }
+        return confirm_nlu_intent(confirm_payload, db_conn)
+
     # Блокировка для всех прочих action_type
     log_event("action_real_blocked", {"action_type": action_type, "mode": mode, "source": source})
     return {"status": "blocked", "action_type": action_type, "message": "REAL mode not implemented"}
