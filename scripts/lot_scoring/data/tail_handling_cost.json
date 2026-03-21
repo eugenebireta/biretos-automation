@@ -1,0 +1,41 @@
+{
+  "electrical_components": {
+    "per_sku_handling_usd": 5.0,
+    "comment": "Small boxed electrical parts"
+  },
+  "industrial_sensors": {
+    "per_sku_handling_usd": 7.0,
+    "comment": "Calibration and handling overhead"
+  },
+  "hvac_components": {
+    "per_sku_handling_usd": 8.0,
+    "comment": "Bulky mixed-condition components"
+  },
+  "gas_safety": {
+    "per_sku_handling_usd": 6.0,
+    "comment": "Moderate handling cost"
+  },
+  "fire_safety": {
+    "per_sku_handling_usd": 7.0,
+    "comment": "Mixed packaging and compliance checks"
+  },
+  "packaging_materials": {
+    "per_sku_handling_usd": 10.0,
+    "comment": "Low resale value, high handling burden"
+  },
+  "construction_supplies": {
+    "per_sku_handling_usd": 12.0,
+    "comment": "Heavy/awkward storage profile"
+  },
+  "unknown": {
+    "per_sku_handling_usd": 10.0,
+    "comment": "Unknown category, uses default handling cost"
+  },
+  "toxic_fake": {
+    "per_sku_handling_usd": 25.0,
+    "comment": "Sorting, identification, disposal cost for counterfeit/IT items"
+  },
+  "_default": {
+    "per_sku_handling_usd": 10.0
+  }
+}

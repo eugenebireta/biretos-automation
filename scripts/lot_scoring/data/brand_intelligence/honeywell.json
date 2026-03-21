@@ -1,0 +1,84 @@
+{
+  "schema_version": "brand_intelligence_v1",
+  "brand": "honeywell",
+  "metadata": {
+    "author": "system",
+    "created_at": "2026-02-24T00:00:00Z",
+    "description": "Honeywell brand intelligence profile"
+  },
+  "tuning_params": {
+    "alpha_freshness_impact": 0.65,
+    "cps_floor": 0.35,
+    "reject_abs_usd_ceil": 50000.0,
+    "legacy_combinator_mode": "max"
+  },
+  "verticals": {
+    "hard_industrial": {
+      "tier": "core",
+      "purity_weight": 1.0,
+      "obsolescence_score": 0.25,
+      "freshness_score": 0.8,
+      "reject": false
+    },
+    "process_instrumentation": {
+      "tier": "core",
+      "purity_weight": 0.85,
+      "obsolescence_score": 0.35,
+      "freshness_score": 0.7,
+      "reject": false
+    },
+    "system_electronics": {
+      "tier": "secondary",
+      "purity_weight": 0.6,
+      "obsolescence_score": 0.5,
+      "freshness_score": 0.55,
+      "reject": false
+    },
+    "toxic_waste": {
+      "tier": "reject",
+      "purity_weight": 0.0,
+      "obsolescence_score": 1.0,
+      "freshness_score": 0.0,
+      "reject": true
+    },
+    "unknown_honeywell": {
+      "tier": "unknown",
+      "purity_weight": 0.2,
+      "obsolescence_score": 0.5,
+      "reject": false,
+      "freshness_score_by_value": {
+        "high_threshold_usd": 500.0,
+        "high": 0.4,
+        "low": 0.2
+      }
+    }
+  },
+  "category_mapping": {
+    "keywords": {
+      "temperature transmitter": "process_instrumentation",
+      "safety relay": "hard_industrial",
+      "controller module": "system_electronics",
+      "obsolete panel": "toxic_waste"
+    },
+    "fallback_vertical": "unknown_honeywell"
+  },
+  "legacy_patterns": [
+    {
+      "pattern": "^ML[12].*",
+      "pattern_type": "regex",
+      "penalty": 0.4,
+      "reason": "Legacy ML generation"
+    },
+    {
+      "pattern": "900H",
+      "pattern_type": "substring",
+      "penalty": 0.25,
+      "reason": "Legacy HC900 line"
+    }
+  ],
+  "classification_precedence": [
+    "legacy_patterns",
+    "category_mapping.keywords",
+    "fallback_vertical"
+  ]
+}

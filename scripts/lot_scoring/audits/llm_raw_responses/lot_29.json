@@ -1,0 +1,27 @@
+{
+  "batches": [
+    {
+      "lot_id": "29",
+      "batch_label": "1/1",
+      "rows_count": 2,
+      "model": "gpt-4o-mini",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "request_body": {
+        "model": "gpt-4o-mini",
+        "temperature": 0,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an industrial catalog auditor. Classify each row into one of these categories only: gas_safety, fire_safety, hvac_components, industrial_sensors, valves_actuators, it_hardware, packaging_materials, construction_supplies, toxic_fake, unknown. Return strict JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"task\": \"Reclassify each row with same taxonomy only.\", \"rules\": {\"valid_categories\": [\"construction_supplies\", \"fire_safety\", \"gas_safety\", \"hvac_components\", \"industrial_sensors\", \"it_hardware\", \"packaging_materials\", \"toxic_fake\", \"unknown\", \"valves_actuators\"], \"output_format\": \"JSON array only\", \"required_fields\": [\"slice_rank\", \"sku_code\", \"llm_category\", \"llm_brand\", \"confidence\", \"reason\"], \"confidence_range\": \"0..1\", \"keep_reason_short\": true}, \"rows\": [{\"slice_rank\": 1, \"sku_code\": \"MCXV0000Y00\", \"qty\": 372.0, \"effective_usd\": 129444.182437, \"category_engine\": \"gas_safety\", \"brand_engine\": \"unknown\", \"raw_text\": \"Многокомпонентный портативный газовый детектор MICROCLIP XL желтый, модель/артикул MCXV0000-Y-00, кол-во 372\", \"full_row_text\": \"Многокомпонентный портативный газовый детектор MICROCLIP XL желтый, модель/артикул MCXV0000-Y-00, кол-во 372 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 2, \"sku_code\": \"S080045000\", \"qty\": 14000.0, \"effective_usd\": 74248.112456, \"category_engine\": \"fire_safety\", \"brand_engine\": \"unknown\", \"raw_text\": \"Сетчатый экран пожарного извещателя ECO 1000, модель/артикул S08-0045-000, кол-во 14000\", \"full_row_text\": \"Сетчатый экран пожарного извещателя ECO 1000, модель/артикул S08-0045-000, кол-во 14000 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}]}"
+          }
+        ]
+      },
+      "response_body": "{\n  \"id\": \"chatcmpl-DCWFE1mACN0FOIYFGsDgPM4sQJH8x\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771876256,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n[\\n    {\\n        \\\"slice_rank\\\": 1,\\n        \\\"sku_code\\\": \\\"MCXV0000Y00\\\",\\n        \\\"llm_category\\\": \\\"gas_safety\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 1.0,\\n        \\\"reason\\\": \\\"Correct classification\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 2,\\n        \\\"sku_code\\\": \\\"S080045000\\\",\\n        \\\"llm_category\\\": \\\"fire_safety\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 1.0,\\n        \\\"reason\\\": \\\"Correct classification\\\"\\n    }\\n]\\n```\",\n        \"refusal\": null,\n        \"annotations\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 522,\n    \"completion_tokens\": 128,\n    \"total_tokens\": 650,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  },\n  \"service_tier\": \"default\",\n  \"system_fingerprint\": \"fp_728a61cbb8\"\n}\n",
+      "error": null
+    }
+  ]
+}

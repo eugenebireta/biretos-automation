@@ -1,0 +1,124 @@
+{
+  "baseline": {
+    "lot_count": 33,
+    "total_effective_usd": 247310436.728125,
+    "unknown_usd": 128328513.279629,
+    "unknown_exposure": 0.518896
+  },
+  "new": {
+    "lot_count": 33,
+    "total_effective_usd": 247310436.728125,
+    "unknown_usd": 125495950.47875,
+    "unknown_exposure": 0.507443
+  },
+  "delta": {
+    "delta_usd": -2832562.800879,
+    "delta_exposure": -0.011453
+  },
+  "top_contributors": [
+    {
+      "series_prefix": "EDA51",
+      "delta_usd": 1185848.988222,
+      "matched_lines": 52,
+      "sample_sku": "EDA51"
+    },
+    {
+      "series_prefix": "EDA5",
+      "delta_usd": 852989.503065,
+      "matched_lines": 28,
+      "sample_sku": "EDA50"
+    },
+    {
+      "series_prefix": "FX8083",
+      "delta_usd": 315415.024476,
+      "matched_lines": 53,
+      "sample_sku": "FX808313"
+    },
+    {
+      "series_prefix": "EDA",
+      "delta_usd": 270278.348466,
+      "matched_lines": 40,
+      "sample_sku": "EDA400BC33QGRK"
+    },
+    {
+      "series_prefix": "CN80",
+      "delta_usd": 101163.361111,
+      "matched_lines": 43,
+      "sample_sku": "CN80"
+    },
+    {
+      "series_prefix": "FX808",
+      "delta_usd": 55956.935897,
+      "matched_lines": 19,
+      "sample_sku": "FX808431"
+    },
+    {
+      "series_prefix": "R21065",
+      "delta_usd": 23517.705128,
+      "matched_lines": 80,
+      "sample_sku": "R2106500X0"
+    },
+    {
+      "series_prefix": "R210",
+      "delta_usd": 13926.679487,
+      "matched_lines": 38,
+      "sample_sku": "R210611004"
+    },
+    {
+      "series_prefix": "P221",
+      "delta_usd": 13466.255027,
+      "matched_lines": 47,
+      "sample_sku": "P2210F"
+    }
+  ],
+  "top_contributors_pn": [
+    {
+      "pn": "EDA50K0C121NGRR",
+      "delta_usd": 817581.551282
+    },
+    {
+      "pn": "EDA51",
+      "delta_usd": 391988.350496
+    },
+    {
+      "pn": "EDA511B663SQGRK",
+      "delta_usd": 265989.269231
+    },
+    {
+      "pn": "EDA51K0B931SQGRK",
+      "delta_usd": 210968.307692
+    },
+    {
+      "pn": "EDA51KHB2",
+      "delta_usd": 119011.538462
+    },
+    {
+      "pn": "EDA61KHB2",
+      "delta_usd": 115951.512821
+    },
+    {
+      "pn": "FX808392",
+      "delta_usd": 103445.346154
+    },
+    {
+      "pn": "FX808363",
+      "delta_usd": 88142.538462
+    },
+    {
+      "pn": "EDA51K1B931SQGRK",
+      "delta_usd": 76356.923077
+    },
+    {
+      "pn": "EDA511B633SQGRR",
+      "delta_usd": 74894.538462
+    }
+  ],
+  "anti_regression": {
+    "pass": true,
+    "changed_lots": []
+  },
+  "notes": {
+    "overlay_mode": "unknown_exposure_only",
+    "overlay_description": "Candidate series are applied as virtual unknown->known coverage for impact estimation without persisting taxonomy changes."
+  }
+}

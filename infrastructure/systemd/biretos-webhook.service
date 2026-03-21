@@ -1,0 +1,17 @@
+[Unit]
+Description=Biretos Webhook Service (Telegram, job queue)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/biretos/windmill-core-v1/webhook_service
+EnvironmentFile=/opt/biretos/windmill-core-v1/.env
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/biretos/windmill-core-v1/webhook_service/webhook_service.log
+StandardError=append:/opt/biretos/windmill-core-v1/webhook_service/webhook_service.log
+
+[Install]
+WantedBy=multi-user.target

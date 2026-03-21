@@ -1,0 +1,122 @@
+{
+  "config": {
+    "model": "gpt-4o",
+    "base_url": "https://api.openai.com/v1",
+    "temperature": 0,
+    "timeout_seconds": 45,
+    "max_tokens": 256,
+    "max_retries": 2,
+    "retry_delays_seconds": [
+      2,
+      4
+    ],
+    "confidence_threshold": 0.6,
+    "max_pn": 300,
+    "valid_categories": [
+      "construction_supplies",
+      "fire_safety",
+      "gas_safety",
+      "hvac_components",
+      "industrial_sensors",
+      "it_hardware",
+      "packaging_materials",
+      "toxic_fake",
+      "unknown",
+      "valves_actuators"
+    ],
+    "classifiable_categories": [
+      "construction_supplies",
+      "fire_safety",
+      "gas_safety",
+      "hvac_components",
+      "industrial_sensors",
+      "it_hardware",
+      "packaging_materials",
+      "toxic_fake",
+      "valves_actuators"
+    ]
+  },
+  "input": {
+    "capital_core_set": "audits\\llm_audit_input_core_robust.json",
+    "unknown_aggregate": "audits\\llm_audit_input.json"
+  },
+  "summary": {
+    "total_pn_processed": 157,
+    "auto_validated_count": 104,
+    "rejected_count": 53,
+    "llm_error_count": 0,
+    "avg_confidence": 0.634395
+  },
+  "category_distribution": {
+    "construction_supplies": 6,
+    "fire_safety": 6,
+    "gas_safety": 2,
+    "hvac_components": 6,
+    "industrial_sensors": 19,
+    "it_hardware": 63,
+    "unknown": 51,
+    "valves_actuators": 4
+  },
+  "top_validated_by_usd": [
+    {
+      "pn": "MS7820118",
+      "usd": 280717.948718,
+      "proposed_category": "it_hardware",
+      "confidence": 0.9
+    },
+    {
+      "pn": "EDA511B663SQGRK",
+      "usd": 265989.269231,
+      "proposed_category": "it_hardware",
+      "confidence": 0.9
+    },
+    {
+      "pn": "04200A1015",
+      "usd": 243863.666667,
+      "proposed_category": "hvac_components",
+      "confidence": 0.8
+    },
+    {
+      "pn": "1450G",
+      "usd": 225734.045352,
+      "proposed_category": "it_hardware",
+      "confidence": 0.8
+    },
+    {
+      "pn": "EDA51K0B931SQGRK",
+      "usd": 210968.307692,
+      "proposed_category": "it_hardware",
+      "confidence": 0.8
+    },
+    {
+      "pn": "1470G1472G",
+      "usd": 201249.021155,
+      "proposed_category": "it_hardware",
+      "confidence": 0.8
+    },
+    {
+      "pn": "PW7K1R2",
+      "usd": 196692.948717,
+      "proposed_category": "it_hardware",
+      "confidence": 0.8
+    },
+    {
+      "pn": "MCX30000Y00",
+      "usd": 130007.333333,
+      "proposed_category": "gas_safety",
+      "confidence": 0.9
+    },
+    {
+      "pn": "EDA51KHB2",
+      "usd": 119011.538462,
+      "proposed_category": "it_hardware",
+      "confidence": 0.8
+    },
+    {
+      "pn": "EDA61KHB2",
+      "usd": 115951.512821,
+      "proposed_category": "it_hardware",
+      "confidence": 0.9
+    }
+  ]
+}

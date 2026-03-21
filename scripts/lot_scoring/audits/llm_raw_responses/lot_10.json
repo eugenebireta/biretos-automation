@@ -1,0 +1,27 @@
+{
+  "batches": [
+    {
+      "lot_id": "10",
+      "batch_label": "1/1",
+      "rows_count": 2,
+      "model": "gpt-4o-mini",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "request_body": {
+        "model": "gpt-4o-mini",
+        "temperature": 0,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an industrial catalog auditor. Classify each row into one of these categories only: gas_safety, fire_safety, hvac_components, industrial_sensors, valves_actuators, it_hardware, packaging_materials, construction_supplies, toxic_fake, unknown. Return strict JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"task\": \"Reclassify each row with same taxonomy only.\", \"rules\": {\"valid_categories\": [\"construction_supplies\", \"fire_safety\", \"gas_safety\", \"hvac_components\", \"industrial_sensors\", \"it_hardware\", \"packaging_materials\", \"toxic_fake\", \"unknown\", \"valves_actuators\"], \"output_format\": \"JSON array only\", \"required_fields\": [\"slice_rank\", \"sku_code\", \"llm_category\", \"llm_brand\", \"confidence\", \"reason\"], \"confidence_range\": \"0..1\", \"keep_reason_short\": true}, \"rows\": [{\"slice_rank\": 1, \"sku_code\": \"CCPCF901\", \"qty\": 600.0, \"effective_usd\": 1716185.525641, \"category_engine\": \"fire_safety\", \"brand_engine\": \"unknown\", \"raw_text\": \"Control Firewall Module, 8Port+1uplink, модель/артикул CC-PCF901, кол-во 1\", \"full_row_text\": \"Control Firewall Module, 8Port+1uplink, модель/артикул CC-PCF901, кол-во 1 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 2, \"sku_code\": \"CPOPC400\", \"qty\": 400.0, \"effective_usd\": 1439589.74359, \"category_engine\": \"hvac_components\", \"brand_engine\": \"unknown\", \"raw_text\": \"Контроллер свободно программируемый CPO-PC400 plant ctrl, модель/артикул CPO-PC400, кол-во 31\", \"full_row_text\": \"Контроллер свободно программируемый CPO-PC400 plant ctrl, модель/артикул CPO-PC400, кол-во 31 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}]}"
+          }
+        ]
+      },
+      "response_body": "{\n  \"id\": \"chatcmpl-DCWEo4A64yoIYvL0lAMLpxllaoKjh\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771876230,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n[\\n    {\\n        \\\"slice_rank\\\": 1,\\n        \\\"sku_code\\\": \\\"CCPCF901\\\",\\n        \\\"llm_category\\\": \\\"unknown\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.5,\\n        \\\"reason\\\": \\\"Category mismatch\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 2,\\n        \\\"sku_code\\\": \\\"CPOPC400\\\",\\n        \\\"llm_category\\\": \\\"hvac_components\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 1.0,\\n        \\\"reason\\\": \\\"Correct category\\\"\\n    }\\n]\\n```\",\n        \"refusal\": null,\n        \"annotations\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 493,\n    \"completion_tokens\": 124,\n    \"total_tokens\": 617,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  },\n  \"service_tier\": \"default\",\n  \"system_fingerprint\": \"fp_373a14eb6f\"\n}\n",
+      "error": null
+    }
+  ]
+}

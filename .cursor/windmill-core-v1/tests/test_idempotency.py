@@ -250,8 +250,11 @@ def test_t8_hash_is_sha256_shape():
 
 
 def test_t9_real_without_db_conn_raises():
+    # trace_id required by B1 (Task 5.2); pass it so we reach the RuntimeError
     with pytest.raises(RuntimeError):
-        dispatch_action_module.dispatch_action(_guarded_ship_action("INV-100"), mode="REAL", db_conn=None)
+        dispatch_action_module.dispatch_action(
+            _guarded_ship_action("INV-100"), mode="REAL", db_conn=None, trace_id="t-t9"
+        )
 
 
 def test_t9b_idempotency_ttl_default_used_when_env_missing_or_invalid(monkeypatch):
@@ -465,7 +468,8 @@ def test_t20_auto_ship_all_paid_fan_out(monkeypatch):
 
 def test_t21_dry_run_real_actions_work_without_db():
     action = _guarded_ship_action("INV-DRY")
-    result = dispatch_action_module.dispatch_action(action, mode="DRY_RUN", db_conn=None, trace_id=None)
+    # trace_id required by B1 (Task 5.2)
+    result = dispatch_action_module.dispatch_action(action, mode="DRY_RUN", db_conn=None, trace_id="t-dry")
     assert result["status"] == "success"
     assert result["dry_run"] is True
 

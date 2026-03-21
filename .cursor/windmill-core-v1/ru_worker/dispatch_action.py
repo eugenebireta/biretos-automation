@@ -9,6 +9,8 @@ import os
 import time
 from typing import Any, Dict, Optional
 
+from pydantic import ValidationError
+
 from config import get_config
 from commercial_sanity_gate import evaluate_commercial_sanity
 from lib_integrations import (
@@ -24,6 +26,13 @@ from policy_hash import (
     parse_expected_tax_rates,
     upsert_config_snapshot,
 )
+
+try:
+    from domain.cdm_models import TaskIntent
+    from domain.guardian import GuardianVeto, guard_task_intent
+except ImportError:
+    from .domain.cdm_models import TaskIntent  # type: ignore
+    from .domain.guardian import GuardianVeto, guard_task_intent  # type: ignore
 
 try:
     from idempotency import (
@@ -695,6 +704,59 @@ def dispatch_action(
     Returns:
         dict: Результат выполнения (в DRY_RUN - только логирование)
     """
+    # ── B1 (Task 5.2): validate inbound action as TaskIntent ──────────────────
+    # Merge best available trace_id into validation input so the model can
+    # enforce non-empty trace_id even when it is supplied as a kwarg.
+    _trace = (
+        trace_id
+        or (action.get("metadata") or {}).get("trace_id")
+        or action.get("trace_id")
+    )
+    _validation_input: Dict[str, Any] = dict(action)
+    if _trace and "trace_id" not in _validation_input:
+        _validation_input["trace_id"] = _trace
+    try:
+        _intent = TaskIntent.model_validate(_validation_input)
+    except ValidationError as _exc:
+        # 5.3: structured validation-error log at decision boundary
+        log_event(
+            "validation_error",
+            {
+                "boundary": "dispatch_action",
+                "error_class": "POLICY_VIOLATION",
+                "severity": "ERROR",
+                "retriable": False,
+                "detail": str(_exc),
+            },
+        )
+        return {
+            "status": "error",
+            "error": "invalid_task_intent",
+            "error_class": "POLICY_VIOLATION",
+        }
+    # ── B1 (Task 5.4): Guardian invariant check ───────────────────────────────
+    try:
+        guard_task_intent(_intent)
+    except GuardianVeto as _veto:
+        log_event(
+            "guardian_veto",
+            {
+                "boundary": "dispatch_action",
+                "error_class": "POLICY_VIOLATION",
+                "severity": "ERROR",
+                "retriable": False,
+                "invariant": _veto.invariant,
+                "reason": _veto.reason,
+            },
+        )
+        return {
+            "status": "error",
+            "error": "guardian_veto",
+            "error_class": "POLICY_VIOLATION",
+            "reason": _veto.reason,
+        }
+    # ─────────────────────────────────────────────────────────────────────────
+
     if mode is None:
         mode = ACTION_MODE
     if execution_mode is None:

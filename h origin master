@@ -1,0 +1,47 @@
+warning: in the working copy of '.cursor/rules/autopilot_ux.mdc', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/rules/risk_router.mdc', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/rules/roles/05_builder.mdc', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/DEPLOYMENT_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/DEPLOY_INSTRUCTIONS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/config/schema.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/config/validator.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/ru_worker/cdek_order_mapper.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/ru_worker/deploy.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/ru_worker/governance_workflow.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/ru_worker/ru_worker.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/ru_worker/shopware_api_client.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/ru_worker/shopware_payload_builder.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/ru_worker/telegram_order_mapper.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/side_effects/shopware_product_worker.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/tests/validation/test_shopware_spike_dry_run.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/webhook_service/deploy.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursor/windmill-core-v1/webhook_service/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.cursorrules', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'PROJECT_DNA.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ai_engineering/agent_behavior_rules.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/autopilot/CAPSULE.md', LF will be replaced by CRLF the next time Git touches it
+ .cursor/rules/autopilot_ux.mdc                     | 441 [32m++++++++[m[31m-------------[m
+ .cursor/rules/risk_router.mdc                      |  26 [32m+[m[31m-[m
+ .cursor/rules/roles/05_builder.mdc                 |   5 [32m+[m[31m-[m
+ .cursor/windmill-core-v1/DEPLOYMENT_STATUS.md      |  15 [32m+[m[31m-[m
+ .cursor/windmill-core-v1/DEPLOY_INSTRUCTIONS.md    |  20 [32m+[m[31m-[m
+ .cursor/windmill-core-v1/config/schema.py          |  10 [32m+[m
+ .cursor/windmill-core-v1/config/validator.py       |  21 [32m+[m
+ .../ru_worker/cdek_order_mapper.py                 |  23 [32m+[m[31m-[m
+ .cursor/windmill-core-v1/ru_worker/deploy.sh       |   8 [32m+[m[31m-[m
+ .../ru_worker/governance_workflow.py               |  33 [32m++[m
+ .cursor/windmill-core-v1/ru_worker/ru_worker.py    |  58 [32m++[m[31m-[m
+ .../ru_worker/shopware_api_client.py               |  77 [32m++++[m
+ .../ru_worker/shopware_payload_builder.py          |  17 [32m+[m[31m-[m
+ .../ru_worker/telegram_order_mapper.py             |  21 [32m+[m[31m-[m
+ .../side_effects/shopware_product_worker.py        | 156 [32m+++++++[m[31m-[m
+ .../validation/test_shopware_spike_dry_run.py      |  43 [32m++[m
+ .cursor/windmill-core-v1/webhook_service/deploy.sh |   8 [32m+[m[31m-[m
+ .cursor/windmill-core-v1/webhook_service/main.py   | 210 [32m++++++++++[m
+ .cursorrules                                       |  51 [32m++[m[31m-[m
+ .gitignore                                         |  13 [32m+[m
+ PROJECT_DNA.md                                     | 316 [32m+++++++++[m[31m------[m
+ ai_engineering/agent_behavior_rules.txt            |  42 [32m+[m[31m-[m
+ docs/autopilot/CAPSULE.md                          |   4 [32m+[m[31m-[m
+ 23 files changed, 1126 insertions(+), 492 deletions(-)

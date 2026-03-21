@@ -1,0 +1,188 @@
+﻿diff --git a/.cursor/windmill-core-v1/domain/reconciliation_service.py b/.cursor/windmill-core-v1/domain/reconciliation_service.py
+index a385406..2ed7f0f 100644
+--- a/.cursor/windmill-core-v1/domain/reconciliation_service.py
++++ b/.cursor/windmill-core-v1/domain/reconciliation_service.py
+@@ -281,6 +281,183 @@ def reconcile_document_key(
+         cursor.close()
+ 
+ 
++def escalate_reservation_deficit(
++    db_conn,
++    *,
++    order_id: UUID,
++    line_item_id: UUID,
++    ic_verdict: Dict[str, Any],
++    trace_id: Optional[str],
++) -> Dict[str, Any]:
++    """
++    RC-4b (v2): Reservation deficit escalation with suppression + open-case dedupe.
++
++    Contract:
++      - No stock ledger writes.
++      - No FSM transitions.
++      - Only updates allowed: order_line_items.line_status (pending->reserved correction).
++      - Case creation via governance_workflow.create_review_case (non-ledger table).
++    """
++    _ensure_tx_connection(db_conn)
++
++    entity_type = "order_line_item"
++    entity_id = f"{order_id}:{line_item_id}"
++
++    cursor = db_conn.cursor()
++    try:
++        # 1) Suppression check (active + not expired).
++        cursor.execute(
++            """
++            SELECT 1
++            FROM reconciliation_suppressions
++            WHERE entity_type = %s
++              AND entity_id = %s
++              AND check_code = 'IC-4'
++              AND suppression_state = 'active'
++              AND (expires_at IS NULL OR expires_at > NOW())
++            LIMIT 1
++            """,
++            (entity_type, entity_id),
++        )
++        if cursor.fetchone():
++            return {"action": "suppressed", "order_id": str(order_id), "line_item_id": str(line_item_id), "trace_id": trace_id}
++
++        # 2) Lock line item and recompute deficit inside the same tx.
++        cursor.execute(
++            """
++            SELECT quantity, line_status
++            FROM order_line_items
++            WHERE id = %s
++              AND order_id = %s
++            LIMIT 1
++            FOR UPDATE
++            """,
++            (str(line_item_id), str(order_id)),
++        )
++        row = cursor.fetchone()
++        if not row:
++            return {
++                "action": "noop",
++                "reason": "line_item_not_found",
++                "order_id": str(order_id),
++                "line_item_id": str(line_item_id),
++                "trace_id": trace_id,
++            }
++        line_quantity = int(row[0] or 0)
++        line_status = str(row[1] or "pending")
++
++        cursor.execute(
++            """
++            SELECT COALESCE(SUM(quantity), 0)
++            FROM reservations
++            WHERE order_id = %s
++              AND line_item_id = %s
++              AND status = 'active'
++            """,
++            (str(order_id), str(line_item_id)),
++        )
++        active_reserved = int(cursor.fetchone()[0])
++
++        # If reserves are sufficient but line_status is stale, correct it.
++        if line_status == "pending" and active_reserved >= line_quantity:
++            cursor.execute(
++                """
++                UPDATE order_line_items
++                SET line_status = 'reserved',
++                    updated_at = NOW()
++                WHERE id = %s
++                  AND order_id = %s
++                """,
++                (str(line_item_id), str(order_id)),
++            )
++            return {
++                "action": "line_status_corrected",
++                "order_id": str(order_id),
++                "line_item_id": str(line_item_id),
++                "trace_id": trace_id,
++            }
++
++        # If deficit disappeared due to race/live processing, do nothing.
++        if active_reserved >= line_quantity:
++            return {
++                "action": "noop",
++                "reason": "deficit_resolved",
++                "order_id": str(order_id),
++                "line_item_id": str(line_item_id),
++                "line_status": line_status,
++                "line_quantity": line_quantity,
++                "active_reserved": active_reserved,
++                "trace_id": trace_id,
++            }
++
++        # 3) Open case dedupe (one active case per order+gate_name).
++        cursor.execute(
++            """
++            SELECT 1
++            FROM review_cases
++            WHERE order_id = %s::uuid
++              AND gate_name = 'rc4b_reservation_deficit'
++              AND status IN ('open', 'assigned', 'approved', 'executing')
++            LIMIT 1
++            """,
++            (str(order_id),),
++        )
++        if cursor.fetchone():
++            return {
++                "action": "noop",
++                "reason": "case_pending",
++                "order_id": str(order_id),
++                "line_item_id": str(line_item_id),
++                "trace_id": trace_id,
++            }
++
++        # 4) Escalate via governance review_case (requires trace_id).
++        if trace_id is None or str(trace_id).strip() == "":
++            return {
++                "action": "noop",
++                "reason": "trace_id_required_for_escalation",
++                "order_id": str(order_id),
++                "line_item_id": str(line_item_id),
++                "trace_id": trace_id,
++            }
++
++        # Local import to avoid adding runtime coupling at module import time.
++        from ru_worker import governance_workflow  # type: ignore
++
++        action_snapshot = {
++            "schema_version": 1,
++            "rc_code": "RC-4b",
++            "check_code": "IC-4",
++            "order_id": str(order_id),
++            "line_item_id": str(line_item_id),
++            "line_status": line_status,
++            "line_quantity": line_quantity,
++            "active_reserved": active_reserved,
++            "ic_verdict": ic_verdict,
++        }
++        result = governance_workflow.create_review_case(
++            db_conn,
++            trace_id=str(trace_id),
++            order_id=str(order_id),
++            gate_name="rc4b_reservation_deficit",
++            original_verdict="NEEDS_HUMAN",
++            original_decision_seq=1,
++            policy_hash="rc4b_reservation_deficit:v1",
++            action_snapshot=action_snapshot,
++            resume_context=None,
++            sla_deadline_at=None,
++        )
++        return {
++            "action": "escalated",
++            "order_id": str(order_id),
++            "line_item_id": str(line_item_id),
++            "case_id": result.get("case_id"),
++            "trace_id": trace_id,
++        }
++    finally:
++        cursor.close()
++
++
+ def _expire_one_reservation_atomic(
+     db_conn,
+     *,

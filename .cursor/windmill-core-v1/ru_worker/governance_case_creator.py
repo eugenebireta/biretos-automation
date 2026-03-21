@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import json
 from typing import Any, Dict, Optional
 
+from pydantic import ValidationError
+
 from config import get_config
+from domain.cdm_models import ActionSnapshot
 
 import governance_workflow
 
@@ -47,6 +51,28 @@ def execute_governance_case_create(
     action_snapshot = payload.get("action_snapshot")
     if not isinstance(action_snapshot, dict):
         raise ValueError("action_snapshot must be a dict for governance_case_create")
+    # ── B2 (Task 5.2): validate action_snapshot schema BEFORE writing to DB ───
+    try:
+        ActionSnapshot.model_validate(action_snapshot)
+    except ValidationError as _exc:
+        # 5.3: structured validation-error log at decision boundary
+        print(
+            json.dumps(
+                {
+                    "event": "validation_error",
+                    "boundary": "governance_case_creator",
+                    "error_class": "POLICY_VIOLATION",
+                    "severity": "ERROR",
+                    "retriable": False,
+                    "detail": str(_exc),
+                }
+            ),
+            flush=True,
+        )
+        raise ValueError(
+            f"action_snapshot schema violation (Task 5.2): {_exc}"
+        ) from _exc
+    # ─────────────────────────────────────────────────────────────────────────
 
     result = governance_workflow.create_review_case(
         db_conn,

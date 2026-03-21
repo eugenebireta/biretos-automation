@@ -1,0 +1,56 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git branch*)",
+      "Bash(git show*)",
+      "Bash(git ls-files*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git checkout*)",
+      "Bash(git switch*)",
+      "Bash(ls *)",
+      "Bash(dir *)",
+      "Bash(cat *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(echo *)",
+      "Bash(python *)",
+      "Bash(pytest *)",
+      "Bash(cd *)",
+      "Bash(sort*)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(touch *)",
+      "Bash(wc *)",
+      "Bash(tail *)"
+    ],
+    "ask": [
+      "Bash(git push*)",
+      "Bash(git merge*)",
+      "Bash(git rebase*)",
+      "Bash(git reset*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/price-checker/.env)",
+      "Write(.cursor/windmill-core-v1/domain/reconciliation_*)",
+      "Write(.cursor/windmill-core-v1/domain/structural_checks*)",
+      "Write(.cursor/windmill-core-v1/domain/observability_service*)",
+      "Write(.cursor/windmill-core-v1/migrations/016*)",
+      "Write(.cursor/windmill-core-v1/migrations/017*)",
+      "Write(.cursor/windmill-core-v1/migrations/018*)",
+      "Write(.cursor/windmill-core-v1/migrations/019*)",
+      "Write(.cursor/windmill-core-v1/tests/validation/*)",
+      "Write(.cursor/windmill-core-v1/docs/RETENTION_INVARIANT.md)",
+      "Bash(rm *)",
+      "Bash(del *)"
+    ]
+  }
+}

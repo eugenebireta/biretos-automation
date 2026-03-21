@@ -370,7 +370,12 @@ def test_case_creator_creates_case(monkeypatch):
             "original_verdict": "NEEDS_HUMAN",
             "original_decision_seq": 5,
             "policy_hash": "ph",
-            "action_snapshot": {"x": 1},
+            "action_snapshot": {
+                "schema_version": 1,
+                "leaf_worker_type": "cdek_shipment",
+                "leaf_payload": {"order_id": "INV-001"},
+                "external_idempotency_key": "gov_exec:test-abc",
+            },
             "resume_context": {"y": 2},
         },
         conn,

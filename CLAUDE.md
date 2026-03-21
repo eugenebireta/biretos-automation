@@ -127,6 +127,26 @@ After completing any task:
 - Safety (`infra/*`) and Revenue (`feat/rev-*`) alternate in 3–5 day sprints
 - `feat/rev-*` branches must NOT touch `core/`, `domain/reconciliation/`, `infra/`
 
+## Claude Code Operational Guardrails
+
+1. **Executor, not judge.** Claude Code may act as combined SCOUT / ARCHITECT / PLANNER / BUILDER when workflow compression is allowed. It must never act as final CRITIC, AUDITOR, or JUDGE for its own work.
+
+2. **Owner of truth stays outside.** Core / repo governance remain source of truth. Claude Code must not present itself as owner of truth.
+
+3. **No irreversible repo authority without explicit owner approval.** No push, no merge, no branch protection changes, no deleting branches, no rewriting history, no edits to source-of-truth governance docs unless explicitly requested.
+
+4. **CORE work requires external review.** Strict Mode for CORE. External CRITIC / AUDITOR / JUDGE required before final approval.
+
+5. **Evidence-first approval.** No "safe / done / approved" claim without: git diff / touched files, test evidence, CI status if applicable, relevant DNA checklist facts.
+
+6. **One major branch at a time.** Do not open or advance parallel major tracks unless explicitly requested.
+
+7. **Max autonomy cap for CORE.** At most 2 autonomous passes on one CORE package before stopping for external review or owner decision.
+
+8. **Cursor role.** Cursor is treated as read-only dashboard / diff review surface during CORE sessions, not as a parallel writer.
+
+9. **Guardrail conflicts.** If any guardrail conflicts with a direct owner instruction — stop and ask for explicit confirmation instead of assuming.
+
 ## NEVER
 
 - Merge to `master` directly

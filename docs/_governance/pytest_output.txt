@@ -1,0 +1,174 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.8, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\Eugene\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+rootdir: C:\cursor_project\biretos-automation\.cursor\windmill-core-v1
+configfile: pytest.ini
+plugins: anyio-3.7.1
+collecting ... collected 128 items
+
+tests/test_governance_decisions.py::test_record_human_approve_inserts_correctly PASSED [  0%]
+tests/test_governance_decisions.py::test_decision_seq_increments_with_mixed_gates PASSED [  1%]
+tests/test_governance_decisions.py::test_decision_seq_increments_for_same_gate PASSED [  2%]
+tests/test_governance_decisions.py::test_trace_id_none_raises PASSED     [  3%]
+tests/test_governance_decisions.py::test_replay_mode_raises PASSED       [  3%]
+tests/test_governance_decisions.py::test_corrections_content_in_decision_context PASSED [  4%]
+tests/test_governance_decisions.py::test_override_ref_in_decision_context PASSED [  5%]
+tests/test_governance_executor.py::test_executor_happy_path PASSED       [  6%]
+tests/test_governance_executor.py::test_executor_replay_verified PASSED  [  7%]
+tests/test_governance_executor.py::test_executor_replay_divergence_executing PASSED [  7%]
+tests/test_governance_executor.py::test_executor_replay_divergence_approved PASSED [  8%]
+tests/test_governance_executor.py::test_executor_replay_divergence_cancelled PASSED [  9%]
+tests/test_governance_executor.py::test_executor_claim_race_loses PASSED [ 10%]
+tests/test_governance_executor.py::test_executor_resume_no_idempotency_row PASSED [ 10%]
+tests/test_governance_executor.py::test_executor_resume_sweeper_failed_lock PASSED [ 11%]
+tests/test_governance_executor.py::test_executor_genuine_failure_no_retry PASSED [ 12%]
+tests/test_governance_executor.py::test_executor_duplicate_succeeded PASSED [ 13%]
+tests/test_governance_executor.py::test_executor_duplicate_processing PASSED [ 14%]
+tests/test_governance_executor.py::test_executor_leaf_failure_marks_cancelled PASSED [ 14%]
+tests/test_governance_executor.py::test_executor_snapshot_validation_failure PASSED [ 15%]
+tests/test_governance_executor.py::test_executor_external_key_injected PASSED [ 16%]
+tests/test_governance_executor.py::test_executor_cdek_409_treated_as_success PASSED [ 17%]
+tests/test_governance_executor.py::test_executor_step3b_retry_limit PASSED [ 17%]
+tests/test_governance_trigger.py::test_trigger_happy_path PASSED         [ 18%]
+tests/test_governance_trigger.py::test_trigger_snapshot_has_required_fields PASSED [ 19%]
+tests/test_governance_trigger.py::test_trigger_external_key_is_uuid PASSED [ 20%]
+tests/test_governance_trigger.py::test_trigger_unsupported_action_type PASSED [ 21%]
+tests/test_governance_trigger.py::test_trigger_resolution_failure_tbank PASSED [ 21%]
+tests/test_governance_trigger.py::test_trigger_resolution_failure_mapping PASSED [ 22%]
+tests/test_governance_trigger.py::test_trigger_idempotent_enqueue_key_format PASSED [ 23%]
+tests/test_governance_workflow.py::test_create_review_case_inserts_correctly PASSED [ 24%]
+tests/test_governance_workflow.py::test_create_review_case_idempotent PASSED [ 25%]
+tests/test_governance_workflow.py::test_create_review_case_idempotency_key_format PASSED [ 25%]
+tests/test_governance_workflow.py::test_assign_case PASSED               [ 26%]
+tests/test_governance_workflow.py::test_resolve_case PASSED              [ 27%]
+tests/test_governance_workflow.py::test_case_creator_replay_skips PASSED [ 28%]
+tests/test_governance_workflow.py::test_case_creator_creates_case PASSED [ 28%]
+tests/test_governance_workflow.py::test_resolve_order_id_excluded PASSED [ 29%]
+tests/test_governance_workflow.py::test_approve_case_from_open PASSED    [ 30%]
+tests/test_governance_workflow.py::test_approve_case_from_assigned PASSED [ 31%]
+tests/test_governance_workflow.py::test_approve_case_already_approved PASSED [ 32%]
+tests/test_governance_workflow.py::test_claim_for_execution_success PASSED [ 32%]
+tests/test_governance_workflow.py::test_claim_for_execution_not_approved PASSED [ 33%]
+tests/test_governance_workflow.py::test_claim_concurrent_race PASSED     [ 34%]
+tests/test_governance_workflow.py::test_mark_executed_from_executing PASSED [ 35%]
+tests/test_governance_workflow.py::test_mark_executed_wrong_status PASSED [ 35%]
+tests/test_governance_workflow.py::test_read_case_for_resume_executing PASSED [ 36%]
+tests/test_governance_workflow.py::test_resolve_case_from_executing PASSED [ 37%]
+tests/test_idempotency.py::test_t1_generate_key_ship_paid PASSED         [ 38%]
+tests/test_idempotency.py::test_t2_generate_key_ship_paid_missing_invoice PASSED [ 39%]
+tests/test_idempotency.py::test_t3_read_only_action_has_no_key PASSED    [ 39%]
+tests/test_idempotency.py::test_t4_auto_ship_all_paid_has_no_key PASSED  [ 40%]
+tests/test_idempotency.py::test_t5_tbank_payment_key_coarse_is_supported PASSED [ 41%]
+tests/test_idempotency.py::test_t6_hash_stable_for_same_payload PASSED   [ 42%]
+tests/test_idempotency.py::test_t7_hash_excludes_non_business_fields PASSED [ 42%]
+tests/test_idempotency.py::test_t8_hash_is_sha256_shape PASSED           [ 43%]
+tests/test_idempotency.py::test_t9_real_without_db_conn_raises PASSED    [ 44%]
+tests/test_idempotency.py::test_t9b_idempotency_ttl_default_used_when_env_missing_or_invalid PASSED [ 45%]
+tests/test_idempotency.py::test_t9c_idempotency_ttl_env_override_used PASSED [ 46%]
+tests/test_idempotency.py::test_t10_acquire_new_lock PASSED              [ 46%]
+tests/test_idempotency.py::test_t11_duplicate_succeeded_returns_cached_result PASSED [ 47%]
+tests/test_idempotency.py::test_t12_duplicate_processing_detected PASSED [ 48%]
+tests/test_idempotency.py::test_t13_stale_takeover PASSED                [ 49%]
+tests/test_idempotency.py::test_t14_complete_with_correct_token PASSED   [ 50%]
+tests/test_idempotency.py::test_t15_complete_with_wrong_token_rejected PASSED [ 50%]
+tests/test_idempotency.py::test_t16_complete_after_sweeper_rejected PASSED [ 51%]
+tests/test_idempotency.py::test_t17_sweeper_marks_expired_as_failed PASSED [ 52%]
+tests/test_idempotency.py::test_t18_sweeper_is_idempotent PASSED         [ 53%]
+tests/test_idempotency.py::test_t19_double_ship_paid_single_side_effect PASSED [ 53%]
+tests/test_idempotency.py::test_t20_auto_ship_all_paid_fan_out PASSED    [ 54%]
+tests/test_idempotency.py::test_t21_dry_run_real_actions_work_without_db PASSED [ 55%]
+tests/test_idempotency.py::test_t22_dry_run_does_not_write_idempotency_rows PASSED [ 56%]
+tests/validation/test_idempotency_migration_trace_id_index.py::test_action_idempotency_trace_id_index_migration_exists_and_mentions_index PASSED [ 57%]
+tests/validation/test_phase25_contract_guards.py::test_observability_service_is_read_only PASSED [ 57%]
+tests/validation/test_phase25_contract_guards.py::test_rc3_lock_order_for_update_before_ledger_sum PASSED [ 58%]
+tests/validation/test_phase25_contract_guards.py::test_maintenance_sweeper_does_not_import_ru_worker_runtime_module PASSED [ 59%]
+tests/validation/test_phase25_observability.py::test_ic1_payment_cache_integrity_pass_and_fail PASSED [ 60%]
+tests/validation/test_phase25_observability.py::test_health_classifier_priority PASSED [ 60%]
+tests/validation/test_phase25_reconciliation.py::test_rc1_reconcile_payment_cache_is_idempotent PASSED [ 61%]
+tests/validation/test_phase25_reconciliation.py::test_rc4_allocated_line_guard_prevents_release PASSED [ 62%]
+tests/validation/test_phase25_reconciliation.py::test_rc4_prevents_double_release_via_idempotency_key PASSED [ 63%]
+tests/validation/test_phase25_replay_gate.py::test_replay_gate_pre_rebuild_inconsistent PASSED [ 64%]
+tests/validation/test_phase25_replay_gate.py::test_replay_gate_deterministic_rebuild PASSED [ 64%]
+tests/validation/test_phase25_replay_gate.py::test_replay_gate_rebuild_is_idempotent PASSED [ 65%]
+tests/validation/test_phase2_contract_guards.py::test_availability_service_enforces_row_lock_and_atomic_snapshot_mutation PASSED [ 66%]
+tests/validation/test_phase2_contract_guards.py::test_payment_service_keeps_insert_and_cache_recompute_in_single_service_path PASSED [ 67%]
+tests/validation/test_phase2_contract_guards.py::test_shipment_cache_semantics_latest_non_cancelled PASSED [ 67%]
+tests/validation/test_phase2_contract_guards.py::test_unwrap_flow_exists_in_cancel_transition PASSED [ 68%]
+tests/validation/test_phase2_contract_guards.py::test_invoice_worker_uses_content_hash_document_contract_not_total_amount_key PASSED [ 69%]
+tests/validation/test_phase2_contract_guards.py::test_fsm_contains_phase2_partial_states PASSED [ 70%]
+tests/validation/test_phase2_document_contracts.py::test_document_generation_key_is_deterministic_for_equivalent_content PASSED [ 71%]
+tests/validation/test_phase2_document_contracts.py::test_document_generation_key_changes_when_business_content_changes PASSED [ 71%]
+tests/validation/test_phase2_document_contracts.py::test_reservation_chunk_keys_are_event_scoped_and_replay_safe PASSED [ 72%]
+tests/validation/test_phase2_payment_service_runtime.py::test_payment_transaction_update_is_atomic_service_step_without_commit_side_effect PASSED [ 73%]
+tests/validation/test_phase2_shipment_cache_runtime.py::test_recompute_order_cdek_cache_uses_latest_non_cancelled PASSED [ 74%]
+tests/validation/test_phase2_unwrap_runtime.py::test_cancel_shipment_triggers_unpack_allocated_to_reserved PASSED [ 75%]
+tests/validation/test_phase3_alert_emission.py::test_emit_alert_created_then_duplicate PASSED [ 75%]
+tests/validation/test_phase3_alert_emission.py::test_emit_batch_alert_uses_unique_key PASSED [ 76%]
+tests/validation/test_phase3_alert_emission.py::test_ack_alert_updates_state PASSED [ 77%]
+tests/validation/test_phase3_cache_read_model_contract.py::test_cache_read_model_only_contract PASSED [ 78%]
+tests/validation/test_phase3_cache_read_model_contract.py::test_detector_catches_synthetic_violation_strings PASSED [ 78%]
+tests/validation/test_phase3_l3_structural_checks.py::test_check_stock_ledger_non_negative_pass_and_fail PASSED [ 79%]
+tests/validation/test_phase3_l3_structural_checks.py::test_check_reservations_for_terminal_orders_pass_and_fail PASSED [ 80%]
+tests/validation/test_phase3_replay_verify.py::test_verify_module_is_read_only_by_static_scan PASSED [ 81%]
+tests/validation/test_phase3_replay_verify.py::test_verify_payment_cache_match_and_divergence PASSED [ 82%]
+tests/validation/test_phase3_replay_verify.py::test_verify_shipment_cache_match_and_divergence PASSED [ 82%]
+tests/validation/test_phase3_replay_verify.py::test_verify_document_key_match_and_divergence PASSED [ 83%]
+tests/validation/test_phase3_replay_verify.py::test_verify_stock_snapshot_match_and_divergence PASSED [ 84%]
+tests/validation/test_phase3_structural_safety_contract.py::test_structural_safety_contract_static_scan PASSED [ 85%]
+tests/validation/test_phase3_structural_safety_contract.py::test_structural_safety_detector_catches_synthetic_forbidden_insert PASSED [ 85%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_01_happy_path_3_rows PASSED [ 86%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_02_parse_stage_single_commit PASSED [ 87%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_03_sync_stage_commit_per_row PASSED [ 88%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_04_photo_failure_non_blocking PASSED [ 89%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_05_idempotency_done_skip PASSED [ 89%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_05b_idempotency_failed_skip PASSED [ 90%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_06_publisher_error_row_failed PASSED [ 91%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_07_parse_error_job_failed PASSED [ 92%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_08_missing_trace_id PASSED [ 92%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_09_empty_rows_rejected PASSED [ 93%]
+tests/validation/test_r1_catalog_pipeline.py::test_r1_10_no_reconciliation_imports PASSED [ 94%]
+tests/validation/test_shopware_spike_dry_run.py::test_shopware_product_sync_dry_run_creates_operation_and_confirms PASSED [ 95%]
+tests/validation/test_shopware_spike_dry_run.py::test_shopware_product_sync_second_run_is_skip_and_no_upsert PASSED [ 96%]
+tests/validation/test_shopware_spike_dry_run.py::test_shopware_product_sync_stale_pending_takeover PASSED [ 96%]
+tests/validation/test_shopware_spike_dry_run.py::test_shopware_product_sync_marks_failed_on_api_error PASSED [ 97%]
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed PASSED [ 98%]
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset PASSED [ 99%]
+tests/validation/test_tier1_stability_guards.py::test_sweeper_uses_safe_interval_parameterization PASSED [100%]
+
+============================== warnings summary ===============================
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+  C:\cursor_project\biretos-automation\.cursor\windmill-core-v1\webhook_service\main.py:258: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+  C:\Users\Eugene\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\applications.py:4547: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)
+
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fail_closed
+tests/validation/test_tier1_stability_guards.py::test_webhook_auth_fails_when_secrets_unset
+  C:\cursor_project\biretos-automation\.cursor\windmill-core-v1\webhook_service\main.py:263: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("shutdown")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 128 passed, 8 warnings in 0.82s =======================
+
+PYTEST_EXIT_CODE=0

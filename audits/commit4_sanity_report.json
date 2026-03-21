@@ -1,0 +1,266 @@
+{
+  "status": "PASS",
+  "scenario_A": {
+    "run": {
+      "cmd": "C:\\Users\\Eugene\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m scripts.lot_scoring.run_full_ranking_v341 --input honeywell.xlsx --output-dir downloads",
+      "exit_code": 0,
+      "stdout_tail": "20 | 735588.77 | 5.66 | 0.40\n33 | 92681268.99 | 4.93 | 0.40\n22 | 1158128.91 | 4.93 | 0.80\n31 | 11803093.07 | 3.97 | 0.40\n5 | 19067848.83 | 3.73 | 0.40\n\nTOP-5 (lot_id | score_10 | confidence | total_effective_usd)\n10 | 7.85 | 0.40 | 4082956.10\n3 | 7.59 | 0.80 | 3679024.83\n25 | 7.28 | 0.80 | 556850.75\n6 | 7.26 | 0.80 | 1256211.65\n29 | 7.24 | 0.80 | 295176.53\nLot 14: position=7, score_10=7.05, confidence=0.60\nLot 16: position=8, score_10=7.05, confidence=0.80\n\nSaved full results to: downloads\\results_full_v341.xlsx\nSaved ranked results to: downloads\\results_ranked_v341.xlsx\nSaved PN liquidity JSON to: downloads\\audits\\pn_liquidity.json\nSaved PN liquidity CSV to: downloads\\audits\\pn_liquidity.csv\nSaved unknown intelligence to: downloads\\audits\\unknown_intelligence.csv\nSaved abs score validation to: downloads\\audits\\abs_score_validation.json\nSaved refs manifest to: downloads\\audits\\refs_manifest.json\nSaved ranked content hash to: downloads\\audits\\results_ranked_v341.content.sha256\nSaved full content hash to: downloads\\audits\\results_full_v341.content.sha256\nSaved baseline snapshot to: downloads\\audits\\baseline_v35.json",
+      "stderr_tail": ""
+    },
+    "checks": {
+      "baseline_exists": true,
+      "delta_absent": true,
+      "unknown_intelligence_exists": true
+    },
+    "state": {
+      "baseline_exists": true,
+      "delta_exists": false,
+      "unknown_intelligence_exists": true,
+      "results_full_exists": true,
+      "results_ranked_exists": true,
+      "hashes": {
+        "baseline_v35_json": "e5b582aa7d76b642dcbd115fb44877cbef97e43cccaa7dc4b68ed86573c009e2",
+        "delta_from_baseline_csv": "",
+        "unknown_intelligence_csv": "b8c4cc56a0123f70d3f9788394d61c35db0b9ccb0e3b5c82e710f28764e0d246",
+        "results_full_v341_xlsx": "2f8396425079e2a76b93965fce1cb0d0f6aabaf8738466e3224aaa5e693d60c4",
+        "results_ranked_v341_xlsx": "b3e8b04de287b7a719c06dbe828ea2ab545219361db476d9322b870d0fec07e6"
+      },
+      "mtimes": {
+        "baseline_v35_json": 1771942680.9182851,
+        "delta_from_baseline_csv": null,
+        "unknown_intelligence_csv": 1771942680.9162374,
+        "results_full_v341_xlsx": 1771942680.9572232,
+        "results_ranked_v341_xlsx": 1771942680.9704459
+      },
+      "content_hashes": {
+        "ranked_content_sha": "e87d55d132a88eb5ab2c89334c48f86c5b955338c515a12a6ccfc11d5d7ee523",
+        "full_content_sha": "d551dcadbe6f8d1427040f1c1834c06ae73d3cd31cfeea894f18a9b3ce51e317"
+      }
+    }
+  },
+  "scenario_B": {
+    "run": {
+      "cmd": "C:\\Users\\Eugene\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m scripts.lot_scoring.run_full_ranking_v341 --input honeywell.xlsx --output-dir downloads",
+      "exit_code": 0,
+      "stdout_tail": "33 | 92681268.99 | 4.93 | 0.40\n22 | 1158128.91 | 4.93 | 0.80\n31 | 11803093.07 | 3.97 | 0.40\n5 | 19067848.83 | 3.73 | 0.40\n\nTOP-5 (lot_id | score_10 | confidence | total_effective_usd)\n10 | 7.85 | 0.40 | 4082956.10\n3 | 7.59 | 0.80 | 3679024.83\n25 | 7.28 | 0.80 | 556850.75\n6 | 7.26 | 0.80 | 1256211.65\n29 | 7.24 | 0.80 | 295176.53\nLot 14: position=7, score_10=7.05, confidence=0.60\nLot 16: position=8, score_10=7.05, confidence=0.80\n\nSaved full results to: downloads\\results_full_v341.xlsx\nSaved ranked results to: downloads\\results_ranked_v341.xlsx\nSaved PN liquidity JSON to: downloads\\audits\\pn_liquidity.json\nSaved PN liquidity CSV to: downloads\\audits\\pn_liquidity.csv\nSaved unknown intelligence to: downloads\\audits\\unknown_intelligence.csv\nSaved abs score validation to: downloads\\audits\\abs_score_validation.json\nSaved refs manifest to: downloads\\audits\\refs_manifest.json\nSaved ranked content hash to: downloads\\audits\\results_ranked_v341.content.sha256\nSaved full content hash to: downloads\\audits\\results_full_v341.content.sha256\nSaved baseline snapshot to: downloads\\audits\\baseline_v35.json\nSaved baseline delta to: downloads\\audits\\delta_from_baseline.csv",
+      "stderr_tail": ""
+    },
+    "checks": {
+      "delta_exists": true,
+      "all_delta_zero": true,
+      "baseline_hash_unchanged_vs_A": true,
+      "unknown_hash_unchanged_vs_A": true
+    },
+    "state": {
+      "baseline_exists": true,
+      "delta_exists": true,
+      "unknown_intelligence_exists": true,
+      "results_full_exists": true,
+      "results_ranked_exists": true,
+      "hashes": {
+        "baseline_v35_json": "e5b582aa7d76b642dcbd115fb44877cbef97e43cccaa7dc4b68ed86573c009e2",
+        "delta_from_baseline_csv": "5d0bd79474697246af3e2ae734fe5d7d8ce4ced0966497988ba219e746a7549f",
+        "unknown_intelligence_csv": "b8c4cc56a0123f70d3f9788394d61c35db0b9ccb0e3b5c82e710f28764e0d246",
+        "results_full_v341_xlsx": "0eab41c1b23fdc1af0772ea0089b34bf26d90e5e54114ec3a47a0246501f9617",
+        "results_ranked_v341_xlsx": "d695f76d96d0f9340aa4f60a25f562c51d9509dc784adeb8ee5ba33b4b8f1103"
+      },
+      "mtimes": {
+        "baseline_v35_json": 1771942680.9182851,
+        "delta_from_baseline_csv": 1771942691.7112143,
+        "unknown_intelligence_csv": 1771942691.7081764,
+        "results_full_v341_xlsx": 1771942691.750616,
+        "results_ranked_v341_xlsx": 1771942691.7671876
+      },
+      "content_hashes": {
+        "ranked_content_sha": "e87d55d132a88eb5ab2c89334c48f86c5b955338c515a12a6ccfc11d5d7ee523",
+        "full_content_sha": "d551dcadbe6f8d1427040f1c1834c06ae73d3cd31cfeea894f18a9b3ce51e317"
+      }
+    }
+  },
+  "scenario_C": {
+    "run": {
+      "cmd": "C:\\Users\\Eugene\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m scripts.lot_scoring.run_full_ranking_v341 --input honeywell.xlsx --output-dir downloads --save-baseline",
+      "exit_code": 0,
+      "stdout_tail": "20 | 735588.77 | 5.66 | 0.40\n33 | 92681268.99 | 4.93 | 0.40\n22 | 1158128.91 | 4.93 | 0.80\n31 | 11803093.07 | 3.97 | 0.40\n5 | 19067848.83 | 3.73 | 0.40\n\nTOP-5 (lot_id | score_10 | confidence | total_effective_usd)\n10 | 7.85 | 0.40 | 4082956.10\n3 | 7.59 | 0.80 | 3679024.83\n25 | 7.28 | 0.80 | 556850.75\n6 | 7.26 | 0.80 | 1256211.65\n29 | 7.24 | 0.80 | 295176.53\nLot 14: position=7, score_10=7.05, confidence=0.60\nLot 16: position=8, score_10=7.05, confidence=0.80\n\nSaved full results to: downloads\\results_full_v341.xlsx\nSaved ranked results to: downloads\\results_ranked_v341.xlsx\nSaved PN liquidity JSON to: downloads\\audits\\pn_liquidity.json\nSaved PN liquidity CSV to: downloads\\audits\\pn_liquidity.csv\nSaved unknown intelligence to: downloads\\audits\\unknown_intelligence.csv\nSaved abs score validation to: downloads\\audits\\abs_score_validation.json\nSaved refs manifest to: downloads\\audits\\refs_manifest.json\nSaved ranked content hash to: downloads\\audits\\results_ranked_v341.content.sha256\nSaved full content hash to: downloads\\audits\\results_full_v341.content.sha256\nSaved baseline snapshot to: downloads\\audits\\baseline_v35.json",
+      "stderr_tail": ""
+    },
+    "checks": {
+      "baseline_mtime_changed_vs_B": true,
+      "delta_not_recreated_hash_same_vs_B": true,
+      "delta_not_recreated_mtime_same_vs_B": true,
+      "baseline_content_identical_vs_B": true
+    },
+    "state": {
+      "baseline_exists": true,
+      "delta_exists": true,
+      "unknown_intelligence_exists": true,
+      "results_full_exists": true,
+      "results_ranked_exists": true,
+      "hashes": {
+        "baseline_v35_json": "e5b582aa7d76b642dcbd115fb44877cbef97e43cccaa7dc4b68ed86573c009e2",
+        "delta_from_baseline_csv": "5d0bd79474697246af3e2ae734fe5d7d8ce4ced0966497988ba219e746a7549f",
+        "unknown_intelligence_csv": "b8c4cc56a0123f70d3f9788394d61c35db0b9ccb0e3b5c82e710f28764e0d246",
+        "results_full_v341_xlsx": "0d1b9d5e1280c71c5369c35c03d7da01f2b5a5f08943b510caf51d930e852aa6",
+        "results_ranked_v341_xlsx": "22f07f34a6efa9f060121415d6e2a11970a0d1953aed21d2a6e727a89a33ceb9"
+      },
+      "mtimes": {
+        "baseline_v35_json": 1771942703.4691603,
+        "delta_from_baseline_csv": 1771942691.7112143,
+        "unknown_intelligence_csv": 1771942703.4666028,
+        "results_full_v341_xlsx": 1771942703.4905734,
+        "results_ranked_v341_xlsx": 1771942703.5091498
+      },
+      "content_hashes": {
+        "ranked_content_sha": "e87d55d132a88eb5ab2c89334c48f86c5b955338c515a12a6ccfc11d5d7ee523",
+        "full_content_sha": "d551dcadbe6f8d1427040f1c1834c06ae73d3cd31cfeea894f18a9b3ce51e317"
+      }
+    }
+  },
+  "scenario_D": {
+    "run": {
+      "cmd": "C:\\Users\\Eugene\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m scripts.lot_scoring.run_full_ranking_v341 --input honeywell.xlsx --output-dir downloads",
+      "exit_code": 0,
+      "stdout_tail": "33 | 92681268.99 | 4.93 | 0.40\n22 | 1158128.91 | 4.93 | 0.80\n31 | 11803093.07 | 3.97 | 0.40\n5 | 19067848.83 | 3.73 | 0.40\n\nTOP-5 (lot_id | score_10 | confidence | total_effective_usd)\n10 | 7.85 | 0.40 | 4082956.10\n3 | 7.59 | 0.80 | 3679024.83\n25 | 7.28 | 0.80 | 556850.75\n6 | 7.26 | 0.80 | 1256211.65\n29 | 7.24 | 0.80 | 295176.53\nLot 14: position=7, score_10=7.05, confidence=0.60\nLot 16: position=8, score_10=7.05, confidence=0.80\n\nSaved full results to: downloads\\results_full_v341.xlsx\nSaved ranked results to: downloads\\results_ranked_v341.xlsx\nSaved PN liquidity JSON to: downloads\\audits\\pn_liquidity.json\nSaved PN liquidity CSV to: downloads\\audits\\pn_liquidity.csv\nSaved unknown intelligence to: downloads\\audits\\unknown_intelligence.csv\nSaved abs score validation to: downloads\\audits\\abs_score_validation.json\nSaved refs manifest to: downloads\\audits\\refs_manifest.json\nSaved ranked content hash to: downloads\\audits\\results_ranked_v341.content.sha256\nSaved full content hash to: downloads\\audits\\results_full_v341.content.sha256\nSaved baseline snapshot to: downloads\\audits\\baseline_v35.json\nSaved baseline delta to: downloads\\audits\\delta_from_baseline.csv",
+      "stderr_tail": ""
+    },
+    "checks": {
+      "delta_exists": true,
+      "delta_recreated_mtime_gt_C": true,
+      "all_delta_zero": true
+    },
+    "state": {
+      "baseline_exists": true,
+      "delta_exists": true,
+      "unknown_intelligence_exists": true,
+      "results_full_exists": true,
+      "results_ranked_exists": true,
+      "hashes": {
+        "baseline_v35_json": "e5b582aa7d76b642dcbd115fb44877cbef97e43cccaa7dc4b68ed86573c009e2",
+        "delta_from_baseline_csv": "5d0bd79474697246af3e2ae734fe5d7d8ce4ced0966497988ba219e746a7549f",
+        "unknown_intelligence_csv": "b8c4cc56a0123f70d3f9788394d61c35db0b9ccb0e3b5c82e710f28764e0d246",
+        "results_full_v341_xlsx": "4168224b8bf08bdd79ff05f9ec5e1efb867024a3148d03ab31dae397d4d91e08",
+        "results_ranked_v341_xlsx": "d080fbf40e3e3779bb2784531c4dc334f5ac198f2988de884f2f4084afa7959f"
+      },
+      "mtimes": {
+        "baseline_v35_json": 1771942703.4691603,
+        "delta_from_baseline_csv": 1771942717.308612,
+        "unknown_intelligence_csv": 1771942717.3050997,
+        "results_full_v341_xlsx": 1771942717.3442173,
+        "results_ranked_v341_xlsx": 1771942717.3572602
+      },
+      "content_hashes": {
+        "ranked_content_sha": "e87d55d132a88eb5ab2c89334c48f86c5b955338c515a12a6ccfc11d5d7ee523",
+        "full_content_sha": "d551dcadbe6f8d1427040f1c1834c06ae73d3cd31cfeea894f18a9b3ce51e317"
+      }
+    }
+  },
+  "determinism_check": {
+    "unknown_intelligence_identical": true,
+    "baseline_identical": true,
+    "delta_identical": true,
+    "excel_content_identical": true,
+    "ranked_content_sha_identical": true,
+    "full_content_sha_identical": true,
+    "content_sha_identical": true,
+    "content_sha_values": {
+      "scenario_A": {
+        "ranked": "e87d55d132a88eb5ab2c89334c48f86c5b955338c515a12a6ccfc11d5d7ee523",
+        "full": "d551dcadbe6f8d1427040f1c1834c06ae73d3cd31cfeea894f18a9b3ce51e317"
+      },
+      "scenario_D": {
+        "ranked": "e87d55d132a88eb5ab2c89334c48f86c5b955338c515a12a6ccfc11d5d7ee523",
+        "full": "d551dcadbe6f8d1427040f1c1834c06ae73d3cd31cfeea894f18a9b3ce51e317"
+      }
+    },
+    "excel_content_comparison": {
+      "results_full_v341": {
+        "shape_equal": true,
+        "columns_equal": true,
+        "numeric_columns": [
+          "rank",
+          "score_10",
+          "confidence_score",
+          "final_score",
+          "base_score",
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "M_hustle",
+          "M_concentration",
+          "M_tail",
+          "core_ratio",
+          "total_effective_usd",
+          "hhi",
+          "unknown_exposure",
+          "unknown_exposure_usd",
+          "abs_score_100",
+          "core_count",
+          "tail_count",
+          "flags",
+          "AQ_v4",
+          "FAS_v4",
+          "M_Lifecycle",
+          "M_Unknown",
+          "KS_liquidity",
+          "KS_obsolescence",
+          "Combined_Risk_v4",
+          "obs_weighted",
+          "lot_avg_pn_liquidity"
+        ],
+        "string_columns": [
+          "lot_id",
+          "short_reason",
+          "red_flags",
+          "top_minus",
+          "Top_Loss_Reasons",
+          "Investor_Summary",
+          "Zone_v4",
+          "loss_attribution_json",
+          "is_hvl",
+          "governance_flags"
+        ],
+        "numeric_mismatch_columns": [],
+        "string_mismatch_columns": []
+      },
+      "results_ranked_v341": {
+        "shape_equal": true,
+        "columns_equal": true,
+        "numeric_columns": [
+          "rank",
+          "score_10",
+          "abs_score_100",
+          "confidence_score",
+          "final_score",
+          "core_ratio",
+          "total_effective_usd",
+          "hhi",
+          "FAS_v4",
+          "AQ_v4"
+        ],
+        "string_columns": [
+          "lot_id",
+          "short_reason",
+          "red_flags",
+          "Top_Loss_Reasons",
+          "Zone_v4",
+          "is_hvl"
+        ],
+        "numeric_mismatch_columns": [],
+        "string_mismatch_columns": []
+      }
+    }
+  },
+  "frozen_core_modified": false,
+  "frozen_core_hashes_before": {
+    "scripts\\lot_scoring\\pipeline\\score.py": "a35b535f8a51f0a20cc6c13dcea4422c9daec29a770fb7638a734f8d7101b5c3",
+    "scripts\\lot_scoring\\cdm.py": "506cb0727dd1cf3fc0cd49331a0c25b2cec5d7dc7458787e94bd98c53f1a6225",
+    "scripts\\lot_scoring\\category_engine.py": "863faec48d906d2e9ed88f0c219741389c2955348fa39772dbaf67cb2d35a3b9"
+  },
+  "frozen_core_hashes_after": {
+    "scripts\\lot_scoring\\pipeline\\score.py": "a35b535f8a51f0a20cc6c13dcea4422c9daec29a770fb7638a734f8d7101b5c3",
+    "scripts\\lot_scoring\\cdm.py": "506cb0727dd1cf3fc0cd49331a0c25b2cec5d7dc7458787e94bd98c53f1a6225",
+    "scripts\\lot_scoring\\category_engine.py": "863faec48d906d2e9ed88f0c219741389c2955348fa39772dbaf67cb2d35a3b9"
+  },
+  "failures": []
+}

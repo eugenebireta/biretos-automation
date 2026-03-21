@@ -1,0 +1,21 @@
+# Index Snapshot BEFORE Hygiene
+
+## git diff --cached --name-status
+
+```text
+D	.cursor/windmill-core-v1/CREDENTIALS_FOUND.md
+D	.env
+D	perplexity/ZAPI_enriched.xlsx
+D	perplexity/ZAPI_enriched_test.xlsx
+D	price-checker/.env
+```
+
+## git diff --cached --name-only
+
+```text
+.cursor/windmill-core-v1/CREDENTIALS_FOUND.md
+.env
+perplexity/ZAPI_enriched.xlsx
+perplexity/ZAPI_enriched_test.xlsx
+price-checker/.env
+```

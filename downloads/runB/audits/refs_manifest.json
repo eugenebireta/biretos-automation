@@ -1,0 +1,34 @@
+{
+  "schema_version": "v4.1",
+  "run_timestamp": "2026-02-24T14:30:32.947801+00:00",
+  "etl_usd_rate": 78.0,
+  "governance_config_version": "v4.1.0",
+  "hvl_threshold_usd": 500.0,
+  "taxonomy_version": "v4.0-s1.0",
+  "refs": {
+    "category_obsolescence": {
+      "path": "data/category_obsolescence.json",
+      "sha256": "8f2e8fe1142f3d47dda45b4a6d773f31e60e3e657e4af3444513c5ab86967fc6",
+      "entry_count": 11
+    },
+    "brand_score": {
+      "path": "data/brand_score.json",
+      "sha256": "191441d8536c58b5179a80ca8e643bd8288bdad9c6aead4ff66abe29987bf62b",
+      "entry_count": 11
+    },
+    "category_liquidity": {
+      "path": "data/category_liquidity.json",
+      "sha256": "d613455a2ba94a8d205d6244f857d334423ea2a824267bd5853d6284e9ec77d8",
+      "entry_count": 11
+    },
+    "category_volume_proxy": {
+      "path": "data/category_volume_proxy.json",
+      "sha256": "ce634ccf1afa166cf64719f963319ca83675037c4719b3c31991aa8ef83efcf3",
+      "entry_count": 11
+    },
+    "taxonomy_version": {
+      "path": "data/taxonomy_version.json",
+      "sha256": "a2b82da08f20cdfea4e6621f1464fb02ea1d4d31da7d1be183c77d9aeb041b19"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "batches": [
+    {
+      "lot_id": "30",
+      "batch_label": "1/1",
+      "rows_count": 4,
+      "model": "gpt-4o-mini",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "request_body": {
+        "model": "gpt-4o-mini",
+        "temperature": 0,
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are an industrial catalog auditor. Classify each row into one of these categories only: gas_safety, fire_safety, hvac_components, industrial_sensors, valves_actuators, it_hardware, packaging_materials, construction_supplies, toxic_fake, unknown. Return strict JSON only."
+          },
+          {
+            "role": "user",
+            "content": "{\"task\": \"Reclassify each row with same taxonomy only.\", \"rules\": {\"valid_categories\": [\"construction_supplies\", \"fire_safety\", \"gas_safety\", \"hvac_components\", \"industrial_sensors\", \"it_hardware\", \"packaging_materials\", \"toxic_fake\", \"unknown\", \"valves_actuators\"], \"output_format\": \"JSON array only\", \"required_fields\": [\"slice_rank\", \"sku_code\", \"llm_category\", \"llm_brand\", \"confidence\", \"reason\"], \"confidence_range\": \"0..1\", \"keep_reason_short\": true}, \"rows\": [{\"slice_rank\": 1, \"sku_code\": \"M200EEOLR\", \"qty\": 11530.0, \"effective_usd\": 412200.845212, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"Устройство оконечное M200E-EOL-R, модель/артикул Р87-0473-100, кол-во 11530\", \"full_row_text\": \"Устройство оконечное M200E-EOL-R, модель/артикул Р87-0473-100, кол-во 11530 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 2, \"sku_code\": \"TC806ES1012\", \"qty\": 850.0, \"effective_usd\": 71884.721756, \"category_engine\": \"fire_safety\", \"brand_engine\": \"unknown\", \"raw_text\": \"Дымовой оптико-электронный извещатель Ип212-133, модель/артикул TC806ES1012, кол-во 850\", \"full_row_text\": \"Дымовой оптико-электронный извещатель Ип212-133, модель/артикул TC806ES1012, кол-во 850 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 3, \"sku_code\": \"50147862003R\", \"qty\": 1470.0, \"effective_usd\": 60761.965412, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"Основная печатная плата сканера штрих кодов серии 1470., модель/артикул 50147862-003-R, кол-во 121\", \"full_row_text\": \"Основная печатная плата сканера штрих кодов серии 1470., модель/артикул 50147862-003-R, кол-во 121 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}, {\"slice_rank\": 4, \"sku_code\": \"C06XJEM336\", \"qty\": 57000.0, \"effective_usd\": 56014.370932, \"category_engine\": \"unknown\", \"brand_engine\": \"unknown\", \"raw_text\": \"Конденсатор, 35 В, ЗЗМКФ, модель/артикул C06-XJEM-336, кол-во 57000\", \"full_row_text\": \"Конденсатор, 35 В, ЗЗМКФ, модель/артикул C06-XJEM-336, кол-во 57000 | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan | nan\"}]}"
+          }
+        ]
+      },
+      "response_body": "{\n  \"id\": \"chatcmpl-DCWIS2xvdEb2zeJ0oDa74exdcMWHE\",\n  \"object\": \"chat.completion\",\n  \"created\": 1771876456,\n  \"model\": \"gpt-4o-mini-2024-07-18\",\n  \"choices\": [\n    {\n      \"index\": 0,\n      \"message\": {\n        \"role\": \"assistant\",\n        \"content\": \"```json\\n[\\n    {\\n        \\\"slice_rank\\\": 1,\\n        \\\"sku_code\\\": \\\"M200EEOLR\\\",\\n        \\\"llm_category\\\": \\\"unknown\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.5,\\n        \\\"reason\\\": \\\"Insufficient information\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 2,\\n        \\\"sku_code\\\": \\\"TC806ES1012\\\",\\n        \\\"llm_category\\\": \\\"fire_safety\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.9,\\n        \\\"reason\\\": \\\"Smoke detector\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 3,\\n        \\\"sku_code\\\": \\\"50147862003R\\\",\\n        \\\"llm_category\\\": \\\"unknown\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.5,\\n        \\\"reason\\\": \\\"Insufficient information\\\"\\n    },\\n    {\\n        \\\"slice_rank\\\": 4,\\n        \\\"sku_code\\\": \\\"C06XJEM336\\\",\\n        \\\"llm_category\\\": \\\"hvac_components\\\",\\n        \\\"llm_brand\\\": \\\"unknown\\\",\\n        \\\"confidence\\\": 0.7,\\n        \\\"reason\\\": \\\"Capacitor for HVAC systems\\\"\\n    }\\n]\\n```\",\n        \"refusal\": null,\n        \"annotations\": []\n      },\n      \"logprobs\": null,\n      \"finish_reason\": \"stop\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": 829,\n    \"completion_tokens\": 253,\n    \"total_tokens\": 1082,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  },\n  \"service_tier\": \"default\",\n  \"system_fingerprint\": \"fp_373a14eb6f\"\n}\n",
+      "error": null
+    }
+  ]
+}
