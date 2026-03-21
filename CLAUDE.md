@@ -152,11 +152,14 @@ After completing any task:
 After completing any task:
 1. Commit changes with descriptive message
 2. Push to current branch
-3. Create PR via "gh pr create" without merging
-4. Show PR number and diff --stat + pytest result
-5. STOP. Do not merge. Owner merges via "gh pr merge <number> --merge --admin" in PowerShell.
+3. Create PR via "gh pr create"
+4. Enable auto-merge via "gh pr merge --auto --merge"
+5. Show PR number, diff --stat, and pytest result
+6. STOP. PR will merge automatically when CI passes.
 
-This is the full cycle. Do all steps 1-4 automatically without asking.
+For 🔴 CORE tasks: do steps 1-3 only. Do NOT enable auto-merge. Wait for external CRITIC/AUDITOR/JUDGE review. Owner enables merge after review.
+
+This is the full cycle. Do all steps automatically without asking.
 
 ## NEVER
 
