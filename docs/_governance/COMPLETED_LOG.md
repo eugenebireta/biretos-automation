@@ -1,4 +1,39 @@
 ---
+DATE: 2026-03-22
+TITLE: Phase 7 — AI Executive Assistant NLU (Pass 2 complete, PR open)
+RISK_LEVEL: CORE
+SCOPE:
+  - migrations/029_assistant_nlu.sql (NEW)
+  - domain/nlu_models.py (NEW)
+  - domain/assistant_models.py (NEW)
+  - domain/intent_parser.py (NEW)
+  - domain/prompt_injection_guard.py (NEW)
+  - domain/guardian.py (MODIFIED — guard_nlu_confirmation + whitelist)
+  - config/schema.py (MODIFIED — 7 NLU env vars)
+  - config/validator.py (MODIFIED — NLU parsing)
+  - ru_worker/nlu_confirmation_store.py (NEW)
+  - ru_worker/nlu_shadow_log.py (NEW)
+  - ru_worker/nlu_sla_tracker.py (NEW)
+  - ru_worker/assistant_router.py (NEW)
+  - ru_worker/telegram_router.py (MODIFIED — free-text + nlu callbacks)
+  - ru_worker/dispatch_action.py (MODIFIED — nlu_parse/nlu_confirm routing)
+  - tests/test_intent_parser.py (NEW, 21 tests)
+  - tests/test_prompt_injection_guard.py (NEW, 15 tests)
+  - tests/test_nlu_confirmation_store.py (NEW, 9 tests)
+  - tests/test_nlu_sla_tracker.py (NEW, 7 tests)
+  - tests/test_assistant_router.py (NEW, 8 tests)
+BRANCH: feat/task-7
+COMMIT: df21f3d
+PR: https://github.com/eugenebireta/biretos-automation/pull/9
+TESTS: 321 passed, 0 failed
+SUMMARY: >
+  Full Phase 7 implementation: regex-only NLU for 4 intents with
+  INV-MBC mandatory button confirmation, graceful degradation L0/L1/L2,
+  shadow mode (manual exit), prompt injection guard, SLA tracking,
+  5-minute confirmation TTL with atomic consume.
+  Awaiting CRITIC/AUDITOR/JUDGE. NO auto-merge.
+STATUS: PR_OPEN — awaiting external review
+---
 DATE: 2026-03-20
 TITLE: Task 5.1 — TaskIntent + ActionSnapshot Pydantic v2 Models (CLOSEOUT)
 RISK_LEVEL: CORE
