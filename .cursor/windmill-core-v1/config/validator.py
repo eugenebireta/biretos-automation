@@ -143,6 +143,21 @@ def validate_config() -> Config:
         False,
     )
 
+    # Phase 7 — NLU
+    nlu_enabled = _parse_bool(raw.get("NLU_ENABLED"), False) or False
+    nlu_degradation_level = _parse_int(
+        "NLU_DEGRADATION_LEVEL", raw.get("NLU_DEGRADATION_LEVEL"), 2, invalid
+    ) or 2
+    nlu_confidence_threshold = _parse_float(
+        "NLU_CONFIDENCE_THRESHOLD", raw.get("NLU_CONFIDENCE_THRESHOLD"), 0.80, invalid
+    )
+    nlu_shadow_mode = _parse_bool(raw.get("NLU_SHADOW_MODE"), True) or True
+    nlu_max_input_bytes = _parse_int(
+        "NLU_MAX_INPUT_BYTES", raw.get("NLU_MAX_INPUT_BYTES"), 1024, invalid
+    ) or 1024
+    nlu_model_version = raw.get("NLU_MODEL_VERSION") or "regex-v1"
+    nlu_prompt_version = raw.get("NLU_PROMPT_VERSION") or "v1.0"
+
     if invalid:
         raise ConfigValidationError(missing=missing, invalid=sorted(invalid))
 
@@ -245,6 +260,13 @@ def validate_config() -> Config:
         replay_cdek_api_token=raw.get("REPLAY_CDEK_API_TOKEN") or "",
         replay_insales_api_user=raw.get("REPLAY_INSALES_API_USER") or "",
         replay_insales_api_password=raw.get("REPLAY_INSALES_API_PASSWORD") or "",
+        nlu_enabled=nlu_enabled,
+        nlu_degradation_level=nlu_degradation_level,
+        nlu_confidence_threshold=nlu_confidence_threshold if nlu_confidence_threshold is not None else 0.80,
+        nlu_shadow_mode=nlu_shadow_mode,
+        nlu_max_input_bytes=nlu_max_input_bytes,
+        nlu_model_version=nlu_model_version,
+        nlu_prompt_version=nlu_prompt_version,
     )
 
 

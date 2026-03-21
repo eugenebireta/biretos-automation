@@ -118,14 +118,14 @@ def handle_callback_query(callback_query: Dict[str, Any], chat_id: Optional[int]
     # Обработка ship_paid callback
     if callback_data.startswith("ship_paid:"):
         invoice_id = callback_data[len("ship_paid:"):].strip()
-        
+
         if not invoice_id:
             log_event("callback_query_error", {
                 "error": "Empty invoice_id in ship_paid callback",
                 "callback_data": callback_data
             })
             return None
-        
+
         action = {
             "action_type": "ship_paid",
             "payload": {
@@ -139,14 +139,57 @@ def handle_callback_query(callback_query: Dict[str, Any], chat_id: Optional[int]
                 "timestamp": time.time()
             }
         }
-        
+
         log_event("callback_query_action_formed", {
             "action_type": action["action_type"],
             "invoice_id": invoice_id
         })
-        
+
         return action
-    
+
+    # Phase 7 — NLU confirm callback  nlu_confirm:<confirmation_id>
+    if callback_data.startswith("nlu_confirm:"):
+        import uuid as _uuid
+        confirmation_id = callback_data[len("nlu_confirm:"):].strip()
+        if not confirmation_id:
+            log_event("nlu_confirm_error", {"error": "empty confirmation_id"})
+            return None
+        trace_id = str(_uuid.uuid4())
+        action = {
+            "action_type": "nlu_confirm",
+            "payload": {
+                "confirmation_id": confirmation_id,
+            },
+            "source": "callback:nlu_confirm",
+            "metadata": {
+                "chat_id": chat_id,
+                "user_id": user_id,
+                "employee_id": str(user_id) if user_id else "unknown",
+                "employee_role": "operator",
+                "callback_query_id": callback_query_id,
+                "trace_id": trace_id,
+                "timestamp": time.time(),
+            },
+        }
+        log_event("nlu_confirm_action_formed", {
+            "confirmation_id": confirmation_id,
+            "trace_id": trace_id,
+        })
+        return action
+
+    # Phase 7 — NLU cancel callback  nlu_cancel:<confirmation_id>
+    if callback_data.startswith("nlu_cancel:"):
+        confirmation_id = callback_data[len("nlu_cancel:"):].strip()
+        log_event("nlu_cancel_received", {"confirmation_id": confirmation_id})
+        # No action needed — confirmation will expire via TTL.
+        # Return a no-op action so the router knows it was handled.
+        return {
+            "action_type": "__nlu_cancel_ack__",
+            "payload": {"confirmation_id": confirmation_id},
+            "source": "callback:nlu_cancel",
+            "metadata": {"chat_id": chat_id, "user_id": user_id},
+        }
+
     # Неизвестный callback_data
     log_event("callback_query_unknown", {
         "callback_data": callback_data
@@ -209,12 +252,35 @@ def route_update(update: Dict[str, Any]) -> Tuple[Optional[str], Optional[Dict[s
     debug_log("D", "telegram_router.py:193", "Extracted command text", {"update_id": update_id, "text": text[:50], "user_id": user_id, "chat_id": chat_id})
     # #endregion
     
-    if not text or not text.startswith("/"):
-        log_event("router_no_command", {
-            "update_id": update_id,
-            "text": text[:50] if text else None
-        })
+    if not text:
+        log_event("router_no_text", {"update_id": update_id})
         return (None, None)
+
+    # Phase 7 — free-text → NLU parse (non-slash messages from ACL'd users)
+    if not text.startswith("/"):
+        if not check_acl(user_id):
+            log_event("router_acl_denied", {"user_id": user_id, "update_id": update_id})
+            return ("ERR: FORBIDDEN", None)
+        import uuid as _uuid
+        trace_id = str(_uuid.uuid4())
+        action = {
+            "action_type": "nlu_parse",
+            "payload": {"text": text},
+            "source": "message:free_text",
+            "metadata": {
+                "chat_id": chat_id,
+                "user_id": user_id,
+                "employee_id": str(user_id) if user_id else "unknown",
+                "employee_role": "operator",
+                "trace_id": trace_id,
+                "timestamp": time.time(),
+            },
+        }
+        log_event("router_nlu_parse_action_formed", {
+            "trace_id": trace_id,
+            "text_len": len(text),
+        })
+        return (None, action)
     
     # Используем полный route_command (ACL проверка внутри для команд с requires_acl: True)
     result = route_command(text, message, chat_id, user_id)
