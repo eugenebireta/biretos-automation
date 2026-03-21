@@ -80,6 +80,7 @@ ENV_NAMES = (
     "TBANK_API_URL",
     "TBANK_INVOICE_STATUS_PATH",
     "TBANK_INVOICES_LIST_PATH",
+    "TELEGRAM_ALERT_CHAT_ID",
     "TELEGRAM_BOT_TOKEN",
     "TELEGRAM_SECRET_TOKEN",
     "TELEGRAM_WEBHOOK_SECRET",
@@ -156,6 +157,7 @@ class Config:
     worker_count: Optional[int]
     n8n_timeout_seconds: Optional[float]
     telegram_secret_token: Optional[str]
+    telegram_alert_chat_id: Optional[int]
     ru_base_url: Optional[str]
     poll_interval: Optional[int]
     worker_id: Optional[str]

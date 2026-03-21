@@ -199,6 +199,9 @@ def validate_config() -> Config:
         worker_count=worker_count,
         n8n_timeout_seconds=n8n_timeout_seconds,
         telegram_secret_token=raw.get("TELEGRAM_SECRET_TOKEN"),
+        telegram_alert_chat_id=_parse_int(
+            "TELEGRAM_ALERT_CHAT_ID", raw.get("TELEGRAM_ALERT_CHAT_ID"), None, invalid
+        ),
         ru_base_url=raw.get("RU_BASE_URL") or "https://n8n.biretos.ae",
         poll_interval=poll_interval,
         worker_id=raw.get("WORKER_ID") or "local-pc-worker",

@@ -147,6 +147,17 @@ After completing any task:
 
 9. **Guardrail conflicts.** If any guardrail conflicts with a direct owner instruction — stop and ask for explicit confirmation instead of assuming.
 
+## WORKFLOW RULE
+
+After completing any task:
+1. Commit changes with descriptive message
+2. Push to current branch
+3. Create PR via "gh pr create" without merging
+4. Show PR number and diff --stat + pytest result
+5. STOP. Do not merge. Owner merges via "gh pr merge <number> --merge --admin" in PowerShell.
+
+This is the full cycle. Do all steps 1-4 automatically without asking.
+
 ## NEVER
 
 - Merge to `master` directly
@@ -160,3 +171,5 @@ After completing any task:
 - Change risk classification of a task without owner approval
 - Ignore `docs/claude/MIGRATION_POLICY_v1_0.md`
 - Ignore `docs/autopilot/STATE.md`
+- Give owner manual git commands (`git add`, `git commit`, `git push`) — Claude Code does this autonomously
+- Use `git add -A` — only add specific files that were changed by the task
