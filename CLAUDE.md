@@ -157,7 +157,7 @@ After completing any task:
 5. Show PR number, diff --stat, and pytest result
 6. STOP. PR will merge automatically when CI passes.
 
-For 🔴 CORE tasks: do steps 1-3 only. Do NOT enable auto-merge. Wait for external CRITIC/AUDITOR/JUDGE review. Owner enables merge after review.
+For 🔴 CORE tasks: do steps 1-3 only. Do NOT enable auto-merge until owner confirms that external CRITIC/AUDITOR/JUDGE review is complete. When owner says "review passed" — enable auto-merge via "gh pr merge --auto --merge".
 
 This is the full cycle. Do all steps automatically without asking.
 
