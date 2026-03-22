@@ -1,20 +1,29 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 27
+transition_seq: 28
 transition_ts: "2026-03-22T00:00:00Z"
 
 ## Current
-active_task: "7 — AI Executive Assistant NLU"
-task_id: "7"
-phase: BUILDER
-status: PR_OPEN
-phase_owner: "Agent/Sonnet"
+active_task: "8 — Stability Gate (эксплуатация)"
+task_id: "8"
+phase: MONITOR
+status: ACTIVE
+phase_owner: "Owner/Maksim"
 risk_level: CORE
-pipeline: [SCOUT, ARCHITECT, PLANNER, BUILDER, AUDITOR, POST_AUDIT_LOGGER]
-pr_url: "https://github.com/eugenebireta/biretos-automation/pull/9"
-pr_branch: "feat/task-7"
-awaiting: "External CRITIC / AUDITOR / JUDGE review before merge"
+pipeline: [MONITOR, WEEKLY_REVIEW, STABILITY_GATE]
+pr_url: null
+pr_branch: null
+awaiting: "≥30 closed cycles, 0 corruption, Shadow Mode exit (≥50 req, ≥90% match)"
+
+## Task 7 Closeout
+task_7_status: MERGED
+task_7_pr: "https://github.com/eugenebireta/biretos-automation/pull/9"
+task_7_branch: "feat/task-7"
+task_7_commit: "df21f3d"
+task_7_merged_ts: "2026-03-22T18:38:49Z"
+task_7_ci: "SUCCESS (321 tests)"
+task_7_judge_verdict: "PASS (owner confirmed)"
 
 ## Integrity
 integrity_hash: "sha256:109ff4c8586586a0895d5138cd5dc60efeb3db8bac43a9160fe423effe23fde7"
@@ -79,6 +88,12 @@ history:
     ts: "2026-03-22T00:00:00Z"
     actor: "Agent/Sonnet"
     note: "Governance doc closeout: docs/ reorg (DNA merge v2.1, MASTER_PLAN/ROADMAP moved, _archive), MIGRATION_POLICY NLU checks added. 4 commits pushed to feat/task-7. PR #9 still awaiting external review."
+  - seq: 28
+    phase: MONITOR
+    status: ACTIVE
+    ts: "2026-03-22T00:00:00Z"
+    actor: "Agent/Sonnet"
+    note: "Task 7 MERGED (PR #9, CI SUCCESS, judge PASS). Advancing to Этап 8 — Stability Gate."
 
 ## Task 5.1 Closeout (2026-03-20)
 task_5_1_status: CLOSED
