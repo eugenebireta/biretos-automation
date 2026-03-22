@@ -5,24 +5,24 @@
 Post-Core Freeze. Tier-3 Revenue development active.
 
 Read these files before ANY code change:
-1. `PROJECT_DNA_v2_0.md`
-2. `MASTER_PLAN_v1_9_0.md`
-3. `EXECUTION_ROADMAP_v2_3.md`
+1. `docs/PROJECT_DNA.md`
+2. `docs/MASTER_PLAN_v1_9_1.md`
+3. `docs/EXECUTION_ROADMAP_v2_3.md`
 4. `docs/claude/MIGRATION_POLICY_v1_0.md`
 5. `docs/autopilot/STATE.md`
 
 Source of truth priority:
-`PROJECT_DNA_v2_0.md` → `MASTER_PLAN_v1_9_0.md` → `EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`
+`docs/PROJECT_DNA.md` → `docs/MASTER_PLAN_v1_9_1.md` → `docs/EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`
 
 ## FROZEN FILES (19) — NEVER TOUCH
 
-See `PROJECT_DNA_v2_0.md` §3 for full list.
+See `docs/PROJECT_DNA.md` §3 for full list.
 Any change = architectural violation.
 If you are unsure whether a file is frozen — check §3 first.
 
 ## PINNED API — NEVER CHANGE SIGNATURES
 
-See `PROJECT_DNA_v2_0.md` §4. These function signatures are immutable:
+See `docs/PROJECT_DNA.md` §4. These function signatures are immutable:
 
 - `_derive_payment_status()`
 - `_extract_order_total_minor()`
@@ -37,7 +37,7 @@ You may NOT change names, arguments, or return types.
 
 ## ABSOLUTE PROHIBITIONS
 
-See `PROJECT_DNA_v2_0.md` §5 + §5b. Summary:
+See `docs/PROJECT_DNA.md` §5 + §5b. Summary:
 
 Tier-3 code CANNOT:
 - `INSERT/UPDATE/DELETE` on `reconciliation_audit_log`, `reconciliation_alerts`, `reconciliation_suppressions`
@@ -106,7 +106,7 @@ See `docs/claude/MIGRATION_POLICY_v1_0.md`.
 Key rule:
 - `LOW/SEMI` may use relaxed execution
 - `CORE` must always use Strict Mode
-- Workflow compression is allowed only as defined in `PROJECT_DNA_v2_0.md` §12 and `MIGRATION_POLICY_v1_0.md`
+- Workflow compression is allowed only as defined in `docs/PROJECT_DNA.md` §12 and `MIGRATION_POLICY_v1_0.md`
 - `CRITIC`, `AUDITOR`, `JUDGE` remain external and separate
 
 ## AUTOPILOT PROTOCOL
@@ -164,7 +164,7 @@ This is the full cycle. Do all steps automatically without asking.
 ## NEVER
 
 - Merge to `master` directly
-- Modify Tier-1 files (see `PROJECT_DNA_v2_0.md` §3)
+- Modify Tier-1 files (see `docs/PROJECT_DNA.md` §3)
 - `ALTER/DROP` `reconciliation_*` tables
 - Import from `domain.reconciliation_*`
 - DML on Core business tables from Tier-3
