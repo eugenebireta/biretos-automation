@@ -1,7 +1,7 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 26
+transition_seq: 27
 transition_ts: "2026-03-22T00:00:00Z"
 
 ## Current
@@ -73,6 +73,12 @@ history:
     ts: "2026-03-22T00:00:00Z"
     actor: "Agent/Sonnet"
     note: "Phase 7 Pass 2 complete: 19 files, 321 tests pass. PR #9 open. Awaiting CRITIC/AUDITOR/JUDGE."
+  - seq: 27
+    phase: POST_AUDIT_LOGGER
+    status: PR_OPEN
+    ts: "2026-03-22T00:00:00Z"
+    actor: "Agent/Sonnet"
+    note: "Governance doc closeout: docs/ reorg (DNA merge v2.1, MASTER_PLAN/ROADMAP moved, _archive), MIGRATION_POLICY NLU checks added. 4 commits pushed to feat/task-7. PR #9 still awaiting external review."
 
 ## Task 5.1 Closeout (2026-03-20)
 task_5_1_status: CLOSED

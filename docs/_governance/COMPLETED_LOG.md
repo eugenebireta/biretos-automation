@@ -1,5 +1,27 @@
 ---
 DATE: 2026-03-22
+TITLE: Governance Doc Closeout — DNA v2.1 + docs/ reorg + MIGRATION_POLICY NLU checks
+RISK_LEVEL: LOW
+SCOPE:
+  - docs/PROJECT_DNA.md (MERGED from PROJECT_DNA_v2_0.md + PROJECT_DNA.md — v2.1, §1b, §6 R4, §7 items 6-9, §10 4 new checklist items)
+  - docs/MASTER_PLAN_v1_9_1.md (MOVED from root, TD header fix v1.9.0→v1.9.1)
+  - docs/EXECUTION_ROADMAP_v2_3.md (MOVED from root)
+  - _archive/ (6 old docs from "old md/": ROADMAP v1.0/v2.0/v2.3-old, MASTER_PLAN v1.4.3/v1.7.2/v1_9_0)
+  - CLAUDE.md (all doc path references updated)
+  - docs/claude/MIGRATION_POLICY_v1_0.md (CRITIC items 6-9, AUDITOR items 8-10 added)
+  - PROJECT_DNA.md, PROJECT_DNA_v2_0.md (DELETED from root)
+BRANCH: feat/task-7
+COMMITS: 52372fc, a5a9767, 20bbbab, ba15982
+SUMMARY: >
+  Documentation governance session: merged two DNA files into docs/PROJECT_DNA.md v2.1
+  (added §1b hierarchy, R4 Anchor Buyer Liquidation scope, §7 patterns 6-9, §10 4 new
+  checklist items). Moved MASTER_PLAN and ROADMAP to docs/. Archived 6 old versions.
+  Updated CLAUDE.md paths. Added NLU-specific CRITIC/AUDITOR review checks to
+  MIGRATION_POLICY (INV-MBC, shadow isolation, no nested FSM, NLU wrapper check,
+  degradation safety). PR #9 still open, awaiting external CRITIC/AUDITOR/JUDGE.
+STATUS: CLOSED (doc tasks complete; PR #9 remains open for code review)
+---
+DATE: 2026-03-22
 TITLE: Phase 7 — AI Executive Assistant NLU (Pass 2 complete, PR open)
 RISK_LEVEL: CORE
 SCOPE:
