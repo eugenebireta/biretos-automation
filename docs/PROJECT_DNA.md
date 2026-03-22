@@ -1,6 +1,6 @@
 # PROJECT DNA — Biretos Automation
-## Версия: 2.0 (Post-Core Freeze)
-## Дата: 2026-02-20
+## Версия: 2.1 (Post-Core Freeze)
+## Дата: 2026-03-22
 
 Это единственный источник правил для AI-агентов.
 Если правило есть здесь — оно действует.
@@ -159,6 +159,7 @@ Revenue-воркеры (Catalog, Telegram Export, Lot Analyzer) — это Tier-
 | Catalog Pipeline | `stg_catalog_imports` | InSales API, Shopware API |
 | Telegram Export | `export_logs` | Telegram Bot API, S3 |
 | Lot Analyzer | `lot_scoring` (отдельная схема) | Price Checker read-only |
+| Anchor Buyer Liquidation | `rev_buyer_registry`, `rev_liquidation_offers`, `rev_liquidation_kpi` | Telegram Bot API (offers) |
 
 ---
 
