@@ -189,6 +189,10 @@ PLAN/ARCHITECTURE от Claude Code: [вставить результат Pass 1]
 3. Missing invariants
 4. Hidden coupling
 5. Overengineering
+6. (зарезервировано)
+7. (зарезервировано)
+8. NLU wrapper check — AI слои остаются обёрткой над TaskIntent, без собственной mutation path или second FSM
+9. Degradation safety — Level 1/2 не повышает права и не обходит INV-MBC
 
 VERDICT: OK / FIX / STOP
 WHY: 1-3 причины
@@ -212,6 +216,9 @@ DIFF от Claude Code: [вставить git diff]
 5. trace_id + idempotency_key присутствуют (§6)
 6. Нет ли silent error swallowing (§7)
 7. Diff соответствует заявленному плану
+8. INV-MBC proof — без button confirmation mutation path недостижим
+9. Shadow isolation — shadow_mode не пишет в production decision path
+10. Нет nested FSM / decision engine в нарушение DNA §5b
 
 VERDICT: OK / FIX / STOP
 WHY: 1-3 причины
