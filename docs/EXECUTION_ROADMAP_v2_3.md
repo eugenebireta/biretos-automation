@@ -89,9 +89,12 @@ PARALLELIZATION POLICY
      PR #2 merged). Revenue Gate закрыт — активация запрещена.
   ❌ R3 — Lot Analyzer: не начат.
 
+  ✔ Этап 7 — AI Executive Assistant NLU: MERGED (PR #9, 321 тест,
+     CI SUCCESS, judge PASS — 2026-03-22).
+
   🔵 АКТИВНО СЕЙЧАС:
-  Этап 7 — AI Executive Assistant NLU: PR #9 открыт,
-  321 тест проходит, ожидает внешнего CRITIC/AUDITOR/JUDGE.
+  Этап 8 — Stability Gate: эксплуатация, мониторинг 19 критериев.
+  Owner работает через бота, данные копятся.
 
   Примечание: работа продвинулась вперёд (Этапы 6→7) пока
   Этапы 1–4 формально ещё не закрыты. Это технический долг
@@ -237,7 +240,7 @@ M3a/M3b/M3c — статус не подтверждён.
 
 ЭТАП 7 — AI EXECUTIVE ASSISTANT                 🔴 CORE CRITICAL
 Срок: 2-3 недели
-Статус: 🔵 АКТИВНО — PR #9 открыт, 321 тест, ожидает CRITIC/AUDITOR/JUDGE
+Статус: ✔ MERGED — PR #9, 321 тест, CI SUCCESS, judge PASS (2026-03-22)
 
   7.1 Intent Parser (NLU) → TaskIntent
   7.2 Hybrid UI (Full NLU → Assisted → Button-only)
