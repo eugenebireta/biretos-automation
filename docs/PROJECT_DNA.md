@@ -18,6 +18,18 @@ Stack: Python 3.11 / PostgreSQL / Windmill / FastAPI / Raw SQL / Idempotency-fir
 
 ---
 
+## 1b. Иерархия документов
+
+При конфликте между документами:
+1. PROJECT_DNA.md — правила для AI-агентов (этот файл)
+2. docs/MASTER_PLAN_v1_9_1.md — стратегия, принципы, инварианты
+3. docs/EXECUTION_ROADMAP_v2_3.md — операционный план, текущие статусы
+
+Перед началом работы над любой задачей — прочитай EXECUTION_ROADMAP
+для определения текущего этапа и следующей задачи.
+
+---
+
 ## 2. Three-Tier Architecture
 
 | Tier | Назначение | Правило |
