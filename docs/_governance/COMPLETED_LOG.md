@@ -1,4 +1,61 @@
 ---
+DATE: 2026-03-22
+TITLE: Governance Doc Closeout — DNA v2.1 + docs/ reorg + MIGRATION_POLICY NLU checks
+RISK_LEVEL: LOW
+SCOPE:
+  - docs/PROJECT_DNA.md (MERGED from PROJECT_DNA_v2_0.md + PROJECT_DNA.md — v2.1, §1b, §6 R4, §7 items 6-9, §10 4 new checklist items)
+  - docs/MASTER_PLAN_v1_9_1.md (MOVED from root, TD header fix v1.9.0→v1.9.1)
+  - docs/EXECUTION_ROADMAP_v2_3.md (MOVED from root)
+  - _archive/ (6 old docs from "old md/": ROADMAP v1.0/v2.0/v2.3-old, MASTER_PLAN v1.4.3/v1.7.2/v1_9_0)
+  - CLAUDE.md (all doc path references updated)
+  - docs/claude/MIGRATION_POLICY_v1_0.md (CRITIC items 6-9, AUDITOR items 8-10 added)
+  - PROJECT_DNA.md, PROJECT_DNA_v2_0.md (DELETED from root)
+BRANCH: feat/task-7
+COMMITS: 52372fc, a5a9767, 20bbbab, ba15982
+SUMMARY: >
+  Documentation governance session: merged two DNA files into docs/PROJECT_DNA.md v2.1
+  (added §1b hierarchy, R4 Anchor Buyer Liquidation scope, §7 patterns 6-9, §10 4 new
+  checklist items). Moved MASTER_PLAN and ROADMAP to docs/. Archived 6 old versions.
+  Updated CLAUDE.md paths. Added NLU-specific CRITIC/AUDITOR review checks to
+  MIGRATION_POLICY (INV-MBC, shadow isolation, no nested FSM, NLU wrapper check,
+  degradation safety). PR #9 still open, awaiting external CRITIC/AUDITOR/JUDGE.
+STATUS: CLOSED (doc tasks complete; PR #9 remains open for code review)
+---
+DATE: 2026-03-22
+TITLE: Phase 7 — AI Executive Assistant NLU (Pass 2 complete, PR open)
+RISK_LEVEL: CORE
+SCOPE:
+  - migrations/029_assistant_nlu.sql (NEW)
+  - domain/nlu_models.py (NEW)
+  - domain/assistant_models.py (NEW)
+  - domain/intent_parser.py (NEW)
+  - domain/prompt_injection_guard.py (NEW)
+  - domain/guardian.py (MODIFIED — guard_nlu_confirmation + whitelist)
+  - config/schema.py (MODIFIED — 7 NLU env vars)
+  - config/validator.py (MODIFIED — NLU parsing)
+  - ru_worker/nlu_confirmation_store.py (NEW)
+  - ru_worker/nlu_shadow_log.py (NEW)
+  - ru_worker/nlu_sla_tracker.py (NEW)
+  - ru_worker/assistant_router.py (NEW)
+  - ru_worker/telegram_router.py (MODIFIED — free-text + nlu callbacks)
+  - ru_worker/dispatch_action.py (MODIFIED — nlu_parse/nlu_confirm routing)
+  - tests/test_intent_parser.py (NEW, 21 tests)
+  - tests/test_prompt_injection_guard.py (NEW, 15 tests)
+  - tests/test_nlu_confirmation_store.py (NEW, 9 tests)
+  - tests/test_nlu_sla_tracker.py (NEW, 7 tests)
+  - tests/test_assistant_router.py (NEW, 8 tests)
+BRANCH: feat/task-7
+COMMIT: df21f3d
+PR: https://github.com/eugenebireta/biretos-automation/pull/9
+TESTS: 321 passed, 0 failed
+SUMMARY: >
+  Full Phase 7 implementation: regex-only NLU for 4 intents with
+  INV-MBC mandatory button confirmation, graceful degradation L0/L1/L2,
+  shadow mode (manual exit), prompt injection guard, SLA tracking,
+  5-minute confirmation TTL with atomic consume.
+  Awaiting CRITIC/AUDITOR/JUDGE. NO auto-merge.
+STATUS: PR_OPEN — awaiting external review
+---
 DATE: 2026-03-20
 TITLE: Task 5.1 — TaskIntent + ActionSnapshot Pydantic v2 Models (CLOSEOUT)
 RISK_LEVEL: CORE

@@ -82,6 +82,14 @@ ENV_NAMES = (
     "TBANK_INVOICES_LIST_PATH",
     "BACKOFFICE_RATE_LIMIT_LOW_PER_HOUR",
     "BACKOFFICE_RATE_LIMIT_MEDIUM_PER_HOUR",
+    # Phase 7 — NLU
+    "NLU_ENABLED",
+    "NLU_DEGRADATION_LEVEL",
+    "NLU_CONFIDENCE_THRESHOLD",
+    "NLU_SHADOW_MODE",
+    "NLU_MAX_INPUT_BYTES",
+    "NLU_MODEL_VERSION",
+    "NLU_PROMPT_VERSION",
     "EDO_API_KEY",
     "EDO_API_URL",
     "EDO_PROVIDER",
@@ -178,6 +186,15 @@ class Config:
     cdek_api_token: Optional[str]
     test_invoice_id: Optional[str]
     telegram_webhook_url: Optional[str]
+    # Phase 7 — NLU config
+    nlu_enabled: bool = False
+    nlu_degradation_level: int = 2
+    nlu_confidence_threshold: float = 0.80
+    nlu_shadow_mode: bool = True
+    nlu_max_input_bytes: int = 1024
+    nlu_model_version: str = "regex-v1"
+    nlu_prompt_version: str = "v1.0"
+
     shopware_url: str = ""
     shopware_client_id: str = ""
     shopware_client_secret: str = ""

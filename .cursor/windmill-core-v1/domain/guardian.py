@@ -20,6 +20,7 @@ from .cdm_models import ActionSnapshot, TaskIntent
 
 if TYPE_CHECKING:
     from .backoffice_rate_limiter import RateLimitResult
+    from .assistant_models import ConfirmationPending
 
 # ---------------------------------------------------------------------------
 # Whitelists
@@ -39,6 +40,9 @@ ALLOWED_ACTION_TYPES: FrozenSet[str] = frozenset(
         "check_payment",
         "get_tracking",
         "get_waybill",
+        # Phase 7 — AI Executive Assistant NLU
+        "nlu_parse",
+        "nlu_confirm",
     }
 )
 
@@ -94,6 +98,26 @@ def guard_backoffice_rate_limit(rate_result: "RateLimitResult") -> None:
                 f"calls in the last hour (risk={rate_result.risk_level})"
             ),
             invariant="INV-RATE",
+        )
+
+
+def guard_nlu_confirmation(pending: "ConfirmationPending") -> None:
+    """
+    Raises GuardianVeto(INV-MBC) if the confirmation row does not represent
+    a valid, employee-originated intent.
+
+    Called by confirm_nlu_intent() AFTER atomic consume from DB.
+    This is the last hardcoded check before backoffice execution.
+    """
+    if not pending.parsed_intent_type:
+        raise GuardianVeto(
+            reason="nlu confirmation has empty intent_type — INV-MBC",
+            invariant="INV-MBC",
+        )
+    if not pending.employee_id:
+        raise GuardianVeto(
+            reason="nlu confirmation has empty employee_id — INV-MBC",
+            invariant="INV-MBC",
         )
 
 
