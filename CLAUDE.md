@@ -53,6 +53,13 @@ Tier-3 code CANNOT:
 - Linear FSM only, max 5 states
 - No nested FSM, no branching states, no custom retry orchestrators
 
+## NLU TABLES (Phase 7)
+
+`nlu_pending_confirmations` and `nlu_sla_log` do NOT use `rev_*` prefix.
+These are Core Backoffice infrastructure tables (AI Assistant layer),
+not Revenue Tier-3 tables. They are owned by the Governance/Backoffice
+domain, not by Revenue workers.
+
 ## EVERY NEW TIER-3 MODULE MUST HAVE
 
 1. `trace_id` from payload
