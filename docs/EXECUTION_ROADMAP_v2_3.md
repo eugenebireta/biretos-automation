@@ -726,7 +726,7 @@ Prerequisite: СНГ стабилен ≥ 3 месяца, profit model validated
   2. Revenue треки открываются после стабильного Iron Fence
      и чередуются с Platform по 3-5 дней.
   3. Нельзя перескакивать платформенные этапы.
-  4. Новые идеи → Claude классифицирует → ставит в нужный этап.
+  4. Новые идеи → сначала docs/IDEA_INBOX.md → triage → approve → patch в authoritative document.
   5. Master Plan (v1.9.2) — конституция.
      PROJECT_DNA.md — правила для AI-агентов.
   6. Этот Roadmap — единственный источник "что делать дальше".
