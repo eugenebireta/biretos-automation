@@ -6,13 +6,13 @@ Post-Core Freeze. Tier-3 Revenue development active.
 
 Read these files before ANY code change:
 1. `docs/PROJECT_DNA.md`
-2. `docs/MASTER_PLAN_v1_9_1.md`
+2. `docs/MASTER_PLAN_v1_9_2.md`
 3. `docs/EXECUTION_ROADMAP_v2_3.md`
 4. `docs/claude/MIGRATION_POLICY_v1_0.md`
 5. `docs/autopilot/STATE.md`
 
 Source of truth priority:
-`docs/PROJECT_DNA.md` → `docs/MASTER_PLAN_v1_9_1.md` → `docs/EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`
+`docs/PROJECT_DNA.md` → `docs/MASTER_PLAN_v1_9_2.md` → `docs/EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`
 
 ## FROZEN FILES (19) — NEVER TOUCH
 

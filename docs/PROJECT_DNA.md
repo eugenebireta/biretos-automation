@@ -1,6 +1,6 @@
 # PROJECT DNA — Biretos Automation
-## Версия: 2.1 (Post-Core Freeze)
-## Дата: 2026-03-22
+## Версия: 2.2 (Post-Core Freeze)
+## Дата: 2026-03-23
 
 Это единственный источник правил для AI-агентов.
 Если правило есть здесь — оно действует.
@@ -22,7 +22,7 @@ Stack: Python 3.11 / PostgreSQL / Windmill / FastAPI / Raw SQL / Idempotency-fir
 
 При конфликте между документами:
 1. PROJECT_DNA.md — правила для AI-агентов (этот файл)
-2. docs/MASTER_PLAN_v1_9_1.md — стратегия, принципы, инварианты
+2. docs/MASTER_PLAN_v1_9_2.md — стратегия, принципы, инварианты
 3. docs/EXECUTION_ROADMAP_v2_3.md — операционный план, текущие статусы
 
 Перед началом работы над любой задачей — прочитай EXECUTION_ROADMAP
@@ -206,6 +206,9 @@ Naming convention:
 - Reconciliation is read-only verification logic
 - Retention never affects business correctness
 - Revenue = Adapter, not second Core
+- AI Executor = governed assistant, not trusted operator
+- Execution Risk Classes (LOW/SEMI/CORE) определяют допуск (см. CLAUDE.md)
+- Tracked guards must be versioned in repo, not only in .git/hooks
 
 ---
 
@@ -253,4 +256,4 @@ CRITIC, AUDITOR, JUDGE остаются внешними и раздельным
 Для 🔴 CORE допускается только Strict Mode до явной отдельной отмены владельцем.
 
 
-END OF DNA v2.0
+END OF DNA v2.2

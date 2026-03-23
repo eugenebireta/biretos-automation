@@ -89,12 +89,9 @@ PARALLELIZATION POLICY
      PR #2 merged). Revenue Gate закрыт — активация запрещена.
   ❌ R3 — Lot Analyzer: не начат.
 
-  ✔ Этап 7 — AI Executive Assistant NLU: MERGED (PR #9, 321 тест,
-     CI SUCCESS, judge PASS — 2026-03-22).
-
   🔵 АКТИВНО СЕЙЧАС:
-  Этап 8 — Stability Gate: эксплуатация, мониторинг 19 критериев.
-  Owner работает через бота, данные копятся.
+  Этап 7 — AI Executive Assistant NLU: PR #9 открыт,
+  321 тест проходит, ожидает внешнего CRITIC/AUDITOR/JUDGE.
 
   Примечание: работа продвинулась вперёд (Этапы 6→7) пока
   Этапы 1–4 формально ещё не закрыты. Это технический долг
@@ -240,7 +237,7 @@ M3a/M3b/M3c — статус не подтверждён.
 
 ЭТАП 7 — AI EXECUTIVE ASSISTANT                 🔴 CORE CRITICAL
 Срок: 2-3 недели
-Статус: ✔ MERGED — PR #9, 321 тест, CI SUCCESS, judge PASS (2026-03-22)
+Статус: 🔵 АКТИВНО — PR #9 открыт, 321 тест, ожидает CRITIC/AUDITOR/JUDGE
 
   7.1 Intent Parser (NLU) → TaskIntent
   7.2 Hybrid UI (Full NLU → Assisted → Button-only)
@@ -730,7 +727,7 @@ Prerequisite: СНГ стабилен ≥ 3 месяца, profit model validated
      и чередуются с Platform по 3-5 дней.
   3. Нельзя перескакивать платформенные этапы.
   4. Новые идеи → Claude классифицирует → ставит в нужный этап.
-  5. Master Plan (v1.9.1) — конституция.
+  5. Master Plan (v1.9.2) — конституция.
      PROJECT_DNA.md — правила для AI-агентов.
   6. Этот Roadmap — единственный источник "что делать дальше".
   7. Pipeline (🔴/🟡/🟢) = уровень риска = градация INV-GOV.
