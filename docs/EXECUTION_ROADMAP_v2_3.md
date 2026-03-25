@@ -62,7 +62,7 @@ PARALLELIZATION POLICY
 
 
 ═══════════════════════════════════════════════════════
-ТЕКУЩАЯ ПОЗИЦИЯ (обновлено 2026-03-22)
+ТЕКУЩАЯ ПОЗИЦИЯ (обновлено 2026-03-25)
 ═══════════════════════════════════════════════════════
 
   Завершено ранее:
@@ -75,10 +75,14 @@ PARALLELIZATION POLICY
   ✔ Git repo synced
   ✔ Core Freeze зафиксирован (117 тестов, PHASE2_BOUNDARY.md)
   ✔ Этап 2.5 закрыт (PROJECT_DNA v2.0, ai_reviewer, DoD)
+  ✔ Этап 6 — Backoffice Task Engine: DONE (PR #7, 2026-03-21)
+  ✔ Этап 7 — AI Executive Assistant NLU: DONE (PR #9, JUDGE PASS, 2026-03-22)
 
   Текущий статус этапов:
   🔄 Этап 1 — Governance Executor: В РАЗРАБОТКЕ (не закрыт формально)
-  🔄 Этап 2 — CI настроен (pytest при push). Branch protection — не сделана.
+  🔄 Этап 2 — CI настроен (pytest при push). Branch protection — частично
+     настроена, но не соответствует целевому состоянию
+     (CI required; PR reviews not required; direct push not blocked).
   ❌ Этап 3 — Reconciliation: не начат (заблокирован Этапами 1-2)
   ❌ Этап 4 — Alerting: не начат (заблокирован Этапом 3)
   🔄 Этап 5 — Pydantic: 5.1 ЗАКРЫТ (TaskIntent + ActionSnapshot,
@@ -87,11 +91,14 @@ PARALLELIZATION POLICY
      M3a/M3b/M3c — статус не подтверждён.
   🟡 R2 — Telegram Export: scaffold готов (миграция 027, /export stub,
      PR #2 merged). Revenue Gate закрыт — активация запрещена.
+  🔵 R1 — Mass Catalog Pipeline: de facto active dev track, code merged to master
+     (PR #12, PR #16); owner-authorized по факту, но формальное открытие
+     Revenue Gate в документах не зафиксировано.
   ❌ R3 — Lot Analyzer: не начат.
 
   🔵 АКТИВНО СЕЙЧАС:
-  Этап 7 — AI Executive Assistant NLU: PR #9 открыт,
-  321 тест проходит, ожидает внешнего CRITIC/AUDITOR/JUDGE.
+  Этап 8 — Stability Gate: MONITOR phase (источник: STATE.md seq 28).
+  Awaiting: ≥30 closed cycles, Shadow Mode exit (≥50 req, ≥90% match).
 
   Примечание: работа продвинулась вперёд (Этапы 6→7) пока
   Этапы 1–4 формально ещё не закрыты. Это технический долг
