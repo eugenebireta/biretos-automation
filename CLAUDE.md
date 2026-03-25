@@ -6,13 +6,13 @@ Post-Core Freeze. Tier-3 Revenue development active.
 
 Read these files before ANY code change:
 1. `docs/PROJECT_DNA.md`
-2. `docs/MASTER_PLAN_v1_9_1.md`
+2. `docs/MASTER_PLAN_v1_9_2.md`
 3. `docs/EXECUTION_ROADMAP_v2_3.md`
 4. `docs/claude/MIGRATION_POLICY_v1_0.md`
 5. `docs/autopilot/STATE.md`
 
 Source of truth priority:
-`docs/PROJECT_DNA.md` → `docs/MASTER_PLAN_v1_9_1.md` → `docs/EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`
+`docs/PROJECT_DNA.md` → `docs/MASTER_PLAN_v1_9_2.md` → `docs/EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`
 
 ## FROZEN FILES (19) — NEVER TOUCH
 
@@ -52,6 +52,13 @@ Tier-3 code CANNOT:
 - Read Core only through read-only views
 - Linear FSM only, max 5 states
 - No nested FSM, no branching states, no custom retry orchestrators
+
+## NLU TABLES (Phase 7)
+
+`nlu_pending_confirmations` and `nlu_sla_log` do NOT use `rev_*` prefix.
+These are Core Backoffice infrastructure tables (AI Assistant layer),
+not Revenue Tier-3 tables. They are owned by the Governance/Backoffice
+domain, not by Revenue workers.
 
 ## EVERY NEW TIER-3 MODULE MUST HAVE
 
