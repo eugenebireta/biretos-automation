@@ -40,9 +40,10 @@ _scripts_dir = Path(__file__).resolve().parent
 if str(_scripts_dir) not in _sys.path:
     _sys.path.insert(0, str(_scripts_dir))
 
-from pn_match import confirm_pn_body, match_pn, is_numeric_pn  # noqa: E402
+from pn_match import confirm_pn_body, match_pn, is_numeric_pn, check_brand_cooccurrence  # noqa: E402
 from trust import get_source_trust, get_source_tier             # noqa: E402
 from fx import convert_to_rub, fx_meta                         # noqa: E402
+from pn_variants import generate_variants                       # noqa: E402
 from export_pipeline import (                                   # noqa: E402
     build_evidence_bundle,
     write_evidence_bundles,
@@ -77,10 +78,43 @@ SHADOW_LOG_DIR      = ROOT / "shadow_log"
 EVIDENCE_DIR        = DOWNLOADS / "evidence"
 EXPORT_DIR          = DOWNLOADS / "export"
 
+CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
+
 PHOTOS_DIR.mkdir(exist_ok=True)
 SHADOW_LOG_DIR.mkdir(exist_ok=True)
 EVIDENCE_DIR.mkdir(exist_ok=True)
 EXPORT_DIR.mkdir(exist_ok=True)
+
+
+# ── Checkpoint / resume helpers ─────────────────────────────────────────────
+
+def load_checkpoint() -> dict:
+    """Load checkpoint state: {pn → bundle} for already-processed SKUs."""
+    if CHECKPOINT_FILE.exists():
+        try:
+            return json.loads(CHECKPOINT_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def save_checkpoint(checkpoint: dict) -> None:
+    """Persist checkpoint to disk. Called after each SKU completes."""
+    try:
+        CHECKPOINT_FILE.write_text(
+            json.dumps(checkpoint, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+    except Exception as e:
+        log.warning(f"checkpoint save failed: {e}")
+
+
+def clear_checkpoint() -> None:
+    """Remove checkpoint file at end of successful full run."""
+    try:
+        if CHECKPOINT_FILE.exists():
+            CHECKPOINT_FILE.unlink()
+    except Exception:
+        pass
 load_dotenv(DOWNLOADS / ".env")
 
 serpapi_key = os.environ["SERPAPI_KEY"]
@@ -1024,8 +1058,9 @@ def run(
     gpt_cache      = json.loads(GPT_CACHE.read_text(encoding="utf-8")) if GPT_CACHE.exists() else {}
     artifact_cache = json.loads(ARTIFACT_CACHE_FILE.read_text(encoding="utf-8")) if ARTIFACT_CACHE_FILE.exists() else {}
     phash_cache: dict[str, list[str]] = {}  # phash → [pn1, pn2, ...]
+    checkpoint     = load_checkpoint()
 
-    keep = reject = no_photo = 0
+    keep = reject = no_photo = skipped_checkpoint = 0
     all_results = []
     evidence_bundles: list[dict] = []
     run_ts = datetime.datetime.utcnow().isoformat() + "Z"
@@ -1035,6 +1070,26 @@ def run(
         name              = row["Название товара или услуги"].strip()
         our_price         = row["Цена продажи"].strip()
         expected_category = row.get("Параметр: Тип товара", "").strip() if "Параметр: Тип товара" in row else ""
+
+        # ── Checkpoint resume: skip already-processed PNs ─────────────────────
+        if pn in checkpoint:
+            bundle = checkpoint[pn]
+            evidence_bundles.append(bundle)
+            v_cached = bundle.get("photo", {}).get("verdict", "NO_PHOTO")
+            if v_cached == "KEEP":
+                keep += 1
+            elif v_cached == "NO_PHOTO":
+                no_photo += 1
+            else:
+                reject += 1
+            skipped_checkpoint += 1
+            print(f"[{i+1}/{len(df)}] {pn} — CHECKPOINT (skip)")
+            continue
+
+        # ── PN variants generation ─────────────────────────────────────────────
+        pn_var = generate_variants(pn)
+        if pn_var.is_short:
+            log.warning(f"  SHORT PN ({len(pn)} chars) — high collision risk: {pn}")
 
         print(f"\n[{i+1}/{len(df)}] {pn} — {name[:50]}")
 
@@ -1060,8 +1115,12 @@ def run(
                 datasheet_result={"datasheet_status": "skipped"},
                 run_ts=run_ts,
                 our_price_raw=our_price,
+                pn_variants=pn_var.variants,
+                expected_category=expected_category,
             )
             evidence_bundles.append(_no_photo_bundle)
+            checkpoint[pn] = _no_photo_bundle
+            save_checkpoint(checkpoint)
             all_results.append({
                 "pn": pn, "name": name, "verdict": "NO_PHOTO",
                 "our_price": our_price, "price_status": "no_price_found",
@@ -1141,11 +1200,16 @@ def run(
             from datasheet_pipeline import find_datasheet
             ds_result = find_datasheet(pn, BRAND, serpapi_key)
 
+        # ── Brand co-occurrence check ──────────────────────────────────────────
+        page_text_for_cooc = dl.get("description") or ""
+        brand_cooc = check_brand_cooccurrence(BRAND, page_text_for_cooc)
+
         # ── Evidence bundle ─────────────────────────────────────────────────────
         _dl_with_flags = {
             **dl,
             "phash": ph,
             "stock_photo_flag": stock_flag,
+            "brand_cooccurrence": brand_cooc,
         }
         bundle = build_evidence_bundle(
             pn=pn, name=name, brand=BRAND,
@@ -1155,8 +1219,12 @@ def run(
             datasheet_result=ds_result,
             run_ts=run_ts,
             our_price_raw=our_price,
+            pn_variants=pn_var.variants,
+            expected_category=expected_category,
         )
         evidence_bundles.append(bundle)
+        checkpoint[pn] = bundle
+        save_checkpoint(checkpoint)
 
         verdicts[pn] = {
             **v,
@@ -1203,7 +1271,7 @@ def run(
         })
 
     print(f"\n{'='*55}")
-    print(f"KEEP: {keep}  REJECT: {reject}  NO_PHOTO: {no_photo}")
+    print(f"KEEP: {keep}  REJECT: {reject}  NO_PHOTO: {no_photo}  CHECKPOINT_SKIP: {skipped_checkpoint}")
 
     # ── Export ──────────────────────────────────────────────────────────────────
     if export and evidence_bundles:
@@ -1231,6 +1299,11 @@ def run(
         print(f"InSales CSV → {insales_path} ({exported_count} rows)")
         print(f"Audit      → {audit_path}")
         print(f"Evidence   → {EVIDENCE_DIR} ({len(evidence_bundles)} bundles)")
+
+    # Clear checkpoint only on full (unlimited) successful run
+    if not limit and export:
+        clear_checkpoint()
+        log.info("checkpoint cleared after full run")
 
     if show_results:
         print("\n" + "=" * 55)
