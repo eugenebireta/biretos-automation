@@ -135,6 +135,10 @@ A handoff is valid only if it is reconciled with current `git` state and, when o
 This boundary is an owner-approved provisional extension for coordination clarity.
 It is not yet a historical repo fact.
 
+When canonical documents enable `R1` batch packaging, execution packaging is
+defined by `docs/policies/R1_PHASE_A_BATCH_EXECUTION_STANDARD_v1_0.md`.
+This contract remains tool-neutral and does not replace that standard.
+
 Phase A is an enrichment feeder.
 Phase A does not own publish policy.
 

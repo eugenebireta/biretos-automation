@@ -9,8 +9,9 @@ Read first:
 5. GitHub current state
 6. `docs/EXECUTION_ROADMAP_v2_3.md`
 7. `docs/_governance/AI_EXECUTION_CONTRACT_v1.md`
-8. `docs/autopilot/HANDOFF_STATE.json`
-9. `docs/handoffs/SWITCH_RUNBOOK_v1.md`
+8. `docs/policies/R1_PHASE_A_BATCH_EXECUTION_STANDARD_v1_0.md` (for `R1` / `Phase A`)
+9. `docs/autopilot/HANDOFF_STATE.json`
+10. `docs/handoffs/SWITCH_RUNBOOK_v1.md`
 
 Execution-state rules:
 
@@ -30,6 +31,9 @@ Execution role rules:
 - For CORE work, Codex is read-only / proposal-only until the full external pipeline is complete.
 - Switch only at a valid clean stop-point.
 - If `git` and `HANDOFF_STATE.json` disagree, trust `git`, discard the handoff summary as authority, and reconstruct it.
+- For `R1` / `Phase A` / Revenue Tier-3 / `SEMI` work, execute in batch-only mode.
+- Do not widen scope between gates without reopening the batch.
+- `R1` batch execution does not authorize multi-agent runtime.
 
 Before continuing work, read:
 - `docs/_governance/AI_EXECUTION_CONTRACT_v1.md`

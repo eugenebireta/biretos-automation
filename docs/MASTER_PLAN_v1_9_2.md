@@ -60,6 +60,8 @@ v1.9.0 → v1.9.1:
     B2B Naming Templates
 v1.9.1 → v1.9.2:
   - GOVERNED AI EXECUTION LAYER — принципы допуска AI-исполнителей
+  - R1 BATCH EXECUTION CONTRACT — пакетное исполнение вместо микро-пинг-понга
+  - LOCAL AI REVIEW FABRIC — shadow review layer, не runtime swarm
   - TD-044..TD-047: migration/security backlog
 
 ═══════════════════════════════════════════════════════
@@ -650,7 +652,7 @@ POST-CORE ACCELERATION LADDER (v1.7.3)
 
   RUNG 1 — ЭТАП 2.5: Context Cortex ✔ ЗАКРЫТ
   RUNG 2 — ЭТАП 5.5: Iron Fence
-  RUNG 3 — ЭТАП 8.1: Local AI Reviewer
+  RUNG 3 — ЭТАП 8.1: Local AI Review Fabric
   RUNG 4 — после 3+ автоматизаций: Chaos / Replay Regression
 
 
@@ -719,6 +721,13 @@ GOVERNED AI EXECUTION LAYER (НОВОЕ в v1.9.2)
   CORE: proposal-only + Strict Mode (см. MIGRATION_POLICY).
   AI provides acceleration, not sovereignty.
   Human > AI. Core > convenience. Reversible > fast.
+  Для `R1` / `Phase A` автономность усиливается через execution contract,
+  а не через новый runtime swarm.
+  Режим по умолчанию: bounded batch execution + evidence pack + gate-based escalation.
+  Batch без evidence pack недействителен.
+  Owner должен видеть в основном gate/exception, а не микро-пинг-понг.
+  Этап 8.1 = local review fabric / shadow gate / disagreement logging,
+  а не перехват суверенного управления у owner.
   Детали: docs/claude/MIGRATION_POLICY_v1_0.md
 
 
