@@ -23,9 +23,86 @@ from __future__ import annotations
 import csv
 import json
 import re
+import sys
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
+
+# Import confidence module if available
+_scripts_dir = os.path.dirname(__file__)
+if _scripts_dir not in sys.path:
+    sys.path.insert(0, _scripts_dir)
+
+try:
+    from confidence import (
+        compute_pn_confidence,
+        compute_image_confidence,
+        compute_price_confidence,
+        compute_card_confidence,
+        confidence_label,
+    )
+    _CONFIDENCE_AVAILABLE = True
+except ImportError:
+    _CONFIDENCE_AVAILABLE = False
+
+
+# ── H-lite: deterministic title assembly (no AI) ────────────────────────────────
+
+def assemble_title_lite(
+    pn: str,
+    brand: str,
+    raw_title: str,
+    subbrand: str = "",
+    category: str = "",
+    specs: Optional[dict] = None,
+) -> str:
+    """Assemble a B2B product title deterministically from available evidence.
+
+    Formula: [тип товара] [бренд/подбренд] [PN] [1-2 ключевых признака]
+
+    Rules:
+      - Never invents data — only uses provided fields.
+      - If no structured info: falls back to brand + PN.
+      - raw_title is used as fallback, not primary source (may be messy).
+      - Language: preserves original terms as-is (RU/EN mixed OK for B2B).
+      - Max length: 150 chars (InSales limit).
+    """
+    parts: list[str] = []
+
+    # 1. Category / product type (if short and clean)
+    if category and len(category) <= 40 and category.lower() not in ("unknown", ""):
+        parts.append(category.strip())
+
+    # 2. Brand / subbrand
+    brand_part = subbrand.strip() if subbrand else brand.strip()
+    if brand_part:
+        parts.append(brand_part)
+
+    # 3. PN (always present)
+    if pn:
+        parts.append(pn.strip())
+
+    # 4. Key feature from specs (max 1-2 values, short ones only)
+    if specs:
+        feature_keys = (
+            "Model:", "Product Line:", "Technology:", "Color:",
+            "Напряжение:", "Ток:", "Мощность:", "Тип:",
+        )
+        added = 0
+        for key in feature_keys:
+            val = specs.get(key, "").strip()
+            if val and len(val) <= 30 and added < 2:
+                parts.append(val)
+                added += 1
+
+    if parts:
+        title = " ".join(parts)
+    else:
+        # Fallback: use raw_title stripped of extra whitespace
+        title = " ".join(raw_title.split()) if raw_title else f"{brand} {pn}"
+
+    return title[:150]
 
 
 # ── Filename normalization ───────────────────────────────────────────────────────
@@ -99,10 +176,15 @@ def build_evidence_bundle(
     datasheet_result: dict,
     run_ts: str,
     our_price_raw: str = "",
+    pn_variants: Optional[list] = None,
+    subbrand: str = "",
+    expected_category: str = "",
 ) -> dict:
     """Build full per-SKU evidence bundle.
 
     All source data is preserved as-is. FX conversion result is additive.
+    Computes overall_card_confidence via confidence.py when available.
+    Assembles assembled_title via H-lite title formula.
     """
     photo_verdict = vision_verdict.get("verdict", "NO_PHOTO")
     price_status = price_result.get("price_status", "no_price_found")
@@ -118,16 +200,83 @@ def build_evidence_bundle(
 
     canon_fn = canonical_photo_filename(brand, pn, sha1) if sha1 else None
 
+    # H-lite: deterministic title assembly
+    assembled_title = assemble_title_lite(
+        pn=pn,
+        brand=brand,
+        raw_title=name,
+        subbrand=subbrand,
+        category=expected_category,
+        specs=photo_result.get("specs"),
+    )
+
+    # Confidence computation
+    confidence_block: dict = {}
+    if _CONFIDENCE_AVAILABLE:
+        source_tier = price_result.get("source_tier", "unknown")
+        pn_loc = photo_result.get("pn_match_location", "")
+        pn_conf_raw = photo_result.get("pn_match_confidence", 0)
+        pn_conf_norm = pn_conf_raw / 100.0 if pn_conf_raw > 1 else pn_conf_raw
+
+        pn_c = compute_pn_confidence(
+            location=pn_loc,
+            is_numeric=bool(photo_result.get("pn_match_is_numeric", False)),
+            source_tier=source_tier,
+            brand_cooccurrence=bool(photo_result.get("brand_cooccurrence", True)),
+            brand_mismatch=bool(price_result.get("brand_mismatch")),
+            category_mismatch=bool(price_result.get("category_mismatch")),
+            suffix_conflict=bool(price_result.get("suffix_conflict")),
+        )
+        img_c = compute_image_confidence(
+            source_tier=photo_result.get("source_trust_tier", source_tier),
+            pn_match_confidence=pn_conf_norm,
+            is_banner=(photo_verdict == "REJECT" and "баннер" in vision_verdict.get("reason", "").lower()),
+            is_stock_photo=bool(photo_result.get("stock_photo_flag")),
+            is_tiny=(photo_result.get("width", 999) < 150 or photo_result.get("height", 999) < 150),
+            jsonld_image=bool(photo_result.get("mpn_confirmed")),
+            brand_mismatch=bool(price_result.get("brand_mismatch")),
+            category_mismatch=bool(price_result.get("category_mismatch")),
+        )
+        price_c = compute_price_confidence(
+            source_tier=source_tier,
+            pn_match_confidence=pn_conf_norm,
+            price_status=price_status,
+            unit_basis=price_result.get("offer_unit_basis", "unknown"),
+            brand_mismatch=bool(price_result.get("brand_mismatch")),
+            category_mismatch=bool(price_result.get("category_mismatch")),
+        )
+        cc = compute_card_confidence(
+            pn_confidence=pn_c,
+            image_confidence=img_c,
+            price_confidence=price_c,
+            price_status=price_status,
+            photo_verdict=photo_verdict,
+        )
+        confidence_block = {
+            "pn_confidence": cc.pn_confidence,
+            "image_confidence": cc.image_confidence,
+            "price_confidence": cc.price_confidence,
+            "overall": cc.overall,
+            "overall_label": confidence_label(cc.overall),
+            "publishability": cc.publishability,
+            "notes": cc.notes,
+        }
+
     return {
-        "schema_version": "1.1",
+        "schema_version": "1.2",
         "generated_at": run_ts,
         "pn": pn,
+        "pn_variants": pn_variants or [],
         "brand": brand,
+        "subbrand": subbrand,
         "name": name,
+        "assembled_title": assembled_title,
         "our_price_raw": our_price_raw,
+        "expected_category": expected_category,
 
         "card_status": card_status,
         "review_reasons": review_reasons,
+        "confidence": confidence_block,
 
         "photo": {
             "verdict": photo_verdict,
@@ -164,6 +313,10 @@ def build_evidence_bundle(
             "category_mismatch": bool(price_result.get("category_mismatch")),
             "page_product_class": price_result.get("page_product_class", ""),
             "brand_mismatch": bool(price_result.get("brand_mismatch")),
+            "price_median_clean": price_result.get("price_median_clean"),
+            "price_min_clean": price_result.get("price_min_clean"),
+            "price_max_clean": price_result.get("price_max_clean"),
+            "price_sample_size": price_result.get("price_sample_size", 1),
         },
 
         "datasheet": datasheet_result,
@@ -176,7 +329,9 @@ def build_evidence_bundle(
         "trace": {
             "pn_match_location": photo_result.get("pn_match_location", ""),
             "pn_match_confidence": photo_result.get("pn_match_confidence", 0),
+            "pn_match_is_numeric": bool(photo_result.get("pn_match_is_numeric", False)),
             "numeric_pn_guard_triggered": bool(photo_result.get("numeric_pn_guard_triggered")),
+            "brand_cooccurrence": bool(photo_result.get("brand_cooccurrence", True)),
             "jsonld_hit": bool(photo_result.get("mpn_confirmed")),
             "source_trust_weight": photo_result.get("source_trust_weight"),
         },
@@ -232,9 +387,12 @@ def write_insales_export(
         price_val = price.get("rub_price") or price.get("price_per_unit")
         price_currency = "RUB" if price.get("rub_price") else (price.get("currency") or "")
 
+        # Use assembled_title (H-lite) when available, fallback to raw name
+        title_for_export = b.get("assembled_title") or b["name"]
+
         row: dict = {
             "Артикул":            b["pn"],
-            "Название":           b["name"],
+            "Название":           title_for_export,
             "Бренд":              b["brand"],
             "Изображение":        photo_url,
             "Цена":               str(price_val) if price_val else "",

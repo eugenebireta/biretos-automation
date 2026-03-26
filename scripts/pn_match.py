@@ -219,3 +219,25 @@ def match_pn(pn: str, text: str, html: str = "") -> PNMatchResult:
             result.numeric_guard_triggered = True
 
     return result
+
+
+# ── Brand co-occurrence check ────────────────────────────────────────────────
+
+def check_brand_cooccurrence(brand: str, text: str, subbrand: str = "") -> bool:
+    """Return True if brand (or subbrand) name appears anywhere in the page text.
+
+    Used to reduce false positives on pages where the numeric PN matches
+    but the product belongs to a completely different manufacturer.
+
+    Case-insensitive. Checks brand, common aliases, and subbrand if provided.
+
+    Examples:
+        brand="Honeywell", subbrand="Esser" → checks "honeywell", "esser"
+        brand="Honeywell", subbrand=""      → checks "honeywell"
+    """
+    text_lower = text.lower()
+    candidates = [brand.lower()] if brand else []
+    if subbrand:
+        candidates.append(subbrand.lower())
+
+    return any(c in text_lower for c in candidates if c)

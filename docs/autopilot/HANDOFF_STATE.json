@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": "2026-03-26T15:53:48Z",
+  "task_id": "AI-GOV-V1_1A-REVIEW-001",
+  "owner_tool": "codex",
+  "branch": "feat/rev-r1-catalog",
+  "risk_class": "SEMI",
+  "role": "builder-only",
+  "scope": [
+    "materialize approved v1.1a dual-tool coordination pack",
+    "limit changes to the 4 approved coordination artifacts",
+    "stop after local materialization and owner-facing handoff snapshot"
+  ],
+  "out_of_scope": [
+    "code implementation",
+    "hooks or automation",
+    "CI changes",
+    "R1 execution",
+    "Tier-1 or pinned API changes"
+  ],
+  "touched_files": [
+    "AI_ENTRYPOINT.md",
+    "docs/_governance/AI_EXECUTION_CONTRACT_v1.md",
+    "docs/autopilot/HANDOFF_STATE.json",
+    "docs/handoffs/SWITCH_RUNBOOK_v1.md"
+  ],
+  "checks_passed": [
+    "approved v1.1a wording materialized into the 4 scoped files only",
+    "HANDOFF_STATE updated to reflect post-materialization local state",
+    "no hooks, CI, business logic, or R1 execution changes were introduced",
+    "scope remained limited to the approved provisional coordination layer"
+  ],
+  "checks_not_run": [
+    "no commit created",
+    "no PR opened",
+    "no post-materialization external review performed",
+    "no CI enforcement work",
+    "no code-path execution"
+  ],
+  "stop_point": "materialization complete, waiting for owner review and commit decision",
+  "residual_risk": [
+    "the 4 coordination files are still local and uncommitted",
+    "existing dirty tree outside the scoped changes remains unchanged",
+    "dual-tool mode remains a provisional extension, not repo canon"
+  ],
+  "next_expected_role": "owner_review",
+  "blockers": [
+    "owner approval before commit"
+  ]
+}
