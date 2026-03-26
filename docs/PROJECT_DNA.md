@@ -1,6 +1,6 @@
 # PROJECT DNA — Biretos Automation
-## Версия: 2.2 (Post-Core Freeze)
-## Дата: 2026-03-23
+## Версия: 2.3 (Post-Core Freeze)
+## Дата: 2026-03-26
 
 Это единственный источник правил для AI-агентов.
 Если правило есть здесь — оно действует.
@@ -197,6 +197,26 @@ Naming convention:
 
 ---
 
+## 8b. Batch Execution Contract (R1 / Revenue Tier-3 default)
+
+Для `R1` / `Phase A` / Revenue Tier-3 / `SEMI-CRITICAL` работ
+режим исполнения по умолчанию — bounded batch execution, а не
+микро-диалог с постоянным возвратом за следующей мелкой командой.
+
+- Один batch = один логический change-set
+- Один batch = один risk class
+- Один batch = один узкий outcome
+- Один batch = максимум одна policy surface
+- Любое изменение файла вне согласованного scope делает batch недействительным
+- Batch без evidence pack недействителен
+- Эскалация к owner допустима только через явные gate
+- Для `R1` этот контракт НЕ разрешает multi-agent runtime
+
+Операционные детали живут в policy / entrypoint документах.
+Эта секция — authoritative anchor для AI.
+
+---
+
 ## 9. Architectural Principles
 
 - Idempotency First
@@ -225,6 +245,11 @@ Naming convention:
 - [ ] Revenue таблицы используют схему rev.* или префикс stg_*/rev_*/lot_*?
 - [ ] Revenue READ из Core идёт только через read-only views (не прямые SELECT)?
 - [ ] Revenue job_state линейный, не более 5 состояний, без вложенных FSM?
+- [ ] Для R1/Revenue batch граница scope объявлена явно и остаётся узкой?
+- [ ] Нет ли changed files вне declared scope / policy surface?
+- [ ] Есть ли evidence pack с semantic diff, raw logs, verification command и deferred list?
+- [ ] Зависимость от out-of-scope items явно отражена как Yes/No?
+- [ ] Для R1/Revenue явно подтверждены trace_id, idempotency_key, job_state, auditability и отсутствие hidden mutation / second Core drift?
 - [ ] Новый Tier-3 модуль/воркер запускаем изолированно (точка входа или тест со stub-зависимостями)?
 - [ ] Новый Tier-3 модуль/воркер имеет детерминированный тест (без live API, без немоканного времени/случайности)?
 - [ ] Новый Tier-3 модуль/воркер логирует на границе действия trace_id, ключевые входы и исход/решение (без полного payload/PII)?
@@ -256,4 +281,4 @@ CRITIC, AUDITOR, JUDGE остаются внешними и раздельным
 Для 🔴 CORE допускается только Strict Mode до явной отдельной отмены владельцем.
 
 
-END OF DNA v2.2
+END OF DNA v2.3

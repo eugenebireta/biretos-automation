@@ -116,6 +116,21 @@ Key rule:
 - Workflow compression is allowed only as defined in `docs/PROJECT_DNA.md` §12 and `MIGRATION_POLICY_v1_0.md`
 - `CRITIC`, `AUDITOR`, `JUDGE` remain external and separate
 
+## R1 / PHASE A BATCH EXECUTION
+
+For `R1` / `Phase A` / Revenue Tier-3 / `SEMI` work, default execution mode is
+bounded batch execution under
+`docs/policies/R1_PHASE_A_BATCH_EXECUTION_STANDARD_v1_0.md`.
+
+- One logical change-set per batch
+- One risk class per batch
+- One narrow outcome per batch
+- One policy surface maximum per batch
+- No out-of-scope files
+- No multi-agent runtime
+- No substantial return without evidence pack
+- If scope breaks or evidence pack is incomplete, self-reject and reopen the batch
+
 ## AUTOPILOT PROTOCOL
 
 After completing any task:

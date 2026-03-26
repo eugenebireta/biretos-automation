@@ -1,6 +1,7 @@
 BIRETOS AUTOMATION
 EXECUTION ROADMAP v2.3
-(обновлено 2026-03-22: v1.9.1 — Catalog Pipeline Principles, R1 hardening,
+(обновлено 2026-03-26: v1.9.2 — R1 Batch Execution Contract,
+8.1 review fabric, Catalog Pipeline Principles, R1 hardening,
 Gold SKU Engine, R4, Content Gen, Marketplace Adapt, Observability,
 Rollback Matrix, Aged Stock, TD-026..TD-043)
 
@@ -280,8 +281,11 @@ M3a/M3b/M3c — статус не подтверждён.
     ИЛИ продолжить к Этапу 8.1.
 
 
-ЭТАП 8.1 — LOCAL AI SETUP                      🟡 SEMI-CRITICAL  ← РАСШИРЕН v1.9.0
+ЭТАП 8.1 — LOCAL AI SETUP / REVIEW FABRIC      🟡 SEMI-CRITICAL  ← РАСШИРЕН
 Срок: 1-2 недели
+
+  Назначение: shadow review layer и disagreement logging.
+  Это не runtime swarm и не live autonomy without review.
 
   8.1.1 2x RTX 3090 setup (Ollama / vLLM)
   8.1.2 6 AI ролей deployed (Extractor→Guardian)
@@ -292,6 +296,18 @@ M3a/M3b/M3c — статус не подтверждён.
     Structured JSONL: cloud responses + prompts (redacted),
     human corrections, reviewer verdicts. Retention 1 год.
     Eval base для quality comparison и будущего distillation.
+  8.1.7 Batch Contract Enforcement
+    Локальный reviewer проверяет scope boundary, evidence pack,
+    semantic diff и verification path до wider run.
+  8.1.8 Exception-only Owner Escalation
+    Owner вовлекается по gate / exception, а не по каждому микро-шагу.
+  8.1.9 Reviewer Disagreement Logging
+    Несогласия reviewer'ов сохраняются как отдельный артефакт
+    для последующего анализа regressions / distillation.
+  8.1.10 Local Reviewer as Shadow Gate
+    Local reviewer = дополнительный shadow gate, не authority owner.
+  8.1.11 No live autonomy without shadow pass
+    Wider run / live side-effects не расширяются без shadow pass.
 
   MVP: минимальный setup, не "чёрная дыра" настройки.
 
@@ -331,6 +347,8 @@ REVENUE TRACKS (чередуются с Platform начиная с Этапа 5.
 R1 — MASS CATALOG PIPELINE (PN-first industrial MVP)  🟡 SEMI-CRITICAL  ← HARDENED v1.9.1
 MVP срок: 3-7 дней
 Scope v1: Brand-scoped (один бренд за batch). PN-first. No fuzzy/ML. Safe subset only.
+Execution mode: bounded batch execution contract. One narrow change-set per batch.
+Evidence pack is mandatory. Out-of-scope touch = reject / reopen.
 
   R1.0 Start Gate                                              ← НОВОЕ v1.9.1
     CI green, branch protection ok, Iron Fence stable.
@@ -682,7 +700,7 @@ Prerequisite: СНГ стабилен ≥ 3 месяца, profit model validated
     Этап 6:   Backoffice Task Engine  🔴 → (работа ушла вперёд к 7)
     Этап 7:   AI Executive Assistant  🔴 🔵 АКТИВНО: PR #9
     Этап 8:   Stability Gate          🔴 ❌ не начат
-    Этап 8.1: Local AI Setup (+8.1.6) 🟡 ❌ не начат                  ← EXPANDED
+    Этап 8.1: Local AI Review Fabric (+8.1.6-8.1.11) 🟡 ❌ не начат   ← EXPANDED
     Этап SS-1: DataSheet Foundation   🟡 ❌ не начат
     ── STOP RULE v1: можно заморозить ──
 
