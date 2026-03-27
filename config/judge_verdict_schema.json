@@ -1,0 +1,76 @@
+{
+  "schema_version": "judge_verdict_schema_v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "verdict",
+    "scope_summary",
+    "checks_summary",
+    "main_risk",
+    "merge",
+    "required_fixes",
+    "manual_external_judge_required",
+    "evidence_pack_complete",
+    "unresolved_critical_risk",
+    "rationale_short"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "judge_verdict_schema_v1"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "APPROVE",
+        "FIX",
+        "BLOCK"
+      ]
+    },
+    "scope_summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "checks_summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "main_risk": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "merge": {
+      "type": "string",
+      "enum": [
+        "YES",
+        "NO"
+      ]
+    },
+    "required_fixes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240
+      }
+    },
+    "manual_external_judge_required": {
+      "type": "boolean"
+    },
+    "evidence_pack_complete": {
+      "type": "boolean"
+    },
+    "unresolved_critical_risk": {
+      "type": "boolean"
+    },
+    "rationale_short": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,317 @@
+{
+  "schema_version": "shadow_logging_record_schema_v0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_kind",
+    "record_id",
+    "trajectory_id",
+    "parent_id",
+    "timestamp",
+    "role",
+    "task_type",
+    "risk",
+    "provider",
+    "model",
+    "input_ref",
+    "output_ref",
+    "evidence_ref",
+    "verdict_ref",
+    "final_outcome_label",
+    "trajectory_quality_label",
+    "redaction_status",
+    "linkage_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "shadow_logging_record_schema_v0"
+    },
+    "record_kind": {
+      "type": "string",
+      "enum": [
+        "task",
+        "executor_run",
+        "evidence_pack",
+        "continuity_artifact",
+        "judge_verdict",
+        "human_verdict",
+        "final_outcome",
+        "status_event",
+        "correction"
+      ]
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "trajectory_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "parent_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 200
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "executor",
+        "judge",
+        "reviewer",
+        "auditor",
+        "recon",
+        "human_owner",
+        "system"
+      ]
+    },
+    "task_type": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "risk": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "SEMI",
+        "CORE",
+        "UNKNOWN"
+      ]
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "input_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "output_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "verdict_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 500
+    },
+    "final_outcome_label": {
+      "type": "string",
+      "enum": [
+        "accepted_outcome",
+        "rejected_outcome",
+        "superseded_outcome",
+        "needs_human_review"
+      ]
+    },
+    "trajectory_quality_label": {
+      "type": "string",
+      "enum": [
+        "good_trajectory",
+        "bad_trajectory",
+        "blocked_trajectory",
+        "inconclusive_trajectory"
+      ]
+    },
+    "redaction_status": {
+      "type": "string",
+      "enum": [
+        "not_required",
+        "redacted_inline",
+        "ref_only",
+        "contains_secret_blocked",
+        "contains_sensitive_blocked"
+      ]
+    },
+    "linkage_ids": {
+      "type": "object",
+      "required": [
+        "task_id",
+        "request_id",
+        "run_id",
+        "attempt_id",
+        "evidence_pack_id",
+        "continuity_id",
+        "judge_verdict_id",
+        "human_verdict_id",
+        "outcome_id",
+        "correction_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "request_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "run_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "attempt_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "evidence_pack_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "continuity_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "judge_verdict_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "human_verdict_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "outcome_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        },
+        "correction_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 200
+        }
+      },
+      "additionalProperties": false
+    },
+    "run_status": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "STARTED",
+        "RUNNING",
+        "COMPLETED",
+        "FAILED_EXIT",
+        "FAILED_TIMEOUT",
+        "FAILED_IDLE",
+        "RETRYING",
+        "ABORTED_MAX_RETRIES",
+        "STALLED",
+        "UNKNOWN",
+        null
+      ]
+    },
+    "attempt_index": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "retry_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "correction_type": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "human_correction",
+        "owner_override",
+        "rework",
+        "retry",
+        "supersede",
+        null
+      ]
+    },
+    "authoritative_label_source": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "human_owner",
+        "authoritative_system_record",
+        "none",
+        null
+      ]
+    },
+    "auxiliary_trace": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "maxLength": 1000
+    }
+  },
+  "additionalProperties": false
+}
