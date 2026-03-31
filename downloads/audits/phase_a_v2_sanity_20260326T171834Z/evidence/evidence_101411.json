@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "101411",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Датчик температуры D 20.572.51.70",
+  "assembled_title": "Датчик Honeywell 101411",
+  "our_price_raw": "6201,83",
+  "expected_category": "Датчик",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "no_photo_and_no_price"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_101411",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_101411"
+        ],
+        "evidence_ids": [
+          "ev_title_101411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_101411"
+        ],
+        "evidence_ids": [
+          "ev_image_101411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_101411"
+        ],
+        "evidence_ids": [
+          "ev_price_101411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_101411"
+        ],
+        "evidence_ids": [
+          "ev_pdf_101411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_101411"
+      ],
+      "evidence_ids": [
+        "ev_title_101411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_101411"
+      ],
+      "evidence_ids": [
+        "ev_image_101411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_101411"
+      ],
+      "evidence_ids": [
+        "ev_price_101411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_101411"
+      ],
+      "evidence_ids": [
+        "ev_pdf_101411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "на фото рамка/накладка, а не датчик температуры",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\101411.jpg",
+    "sha1": "932d15c127b05779ae13843138eee6d92dd9f5a7",
+    "canonical_filename": "HONEYWELL_101411_932d15c1.jpg",
+    "public_url": null,
+    "width": 566,
+    "height": 566,
+    "size_kb": 10,
+    "source": "google:https://kirishi.aelektro.ru/catalog/ramki/2-postovye/ramka-2-posta-honeywell-aur",
+    "phash": "e49a9bc999646c33",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://img.growin.de/media/wysiwyg/pdf/growin_Katalog_EN.pdf",
+    "pdf_source_tier": "industrial",
+    "pdf_title": "Since 1995 | 4000 items | 6000 m² warehouse",
+    "pdf_specs": {
+      "EENN 22001144/15": "2014/15 Catalog",
+      "the latest discoveries on the market": "Do you have any more questions? Do you wish to know some-",
+      "quote for your needs": "Whether you are a beginner or a You can call us from Mon. - Fri. from 10:00 - 18:00.",
+      "with everything your heart desires": "From single products",
+      "Tel": "+ 49 30 20 8980-800",
+      "solution for you": "Fax: + 49 30 20 8980-819",
+      "attractive special offers in our webshop": "And if you like, we",
+      "can update you regularly by post or newsletter": "Or simply go online",
+      "Everything is easy to find and browse through": "alongside growers and dealers. Every day we work flat out",
+      "Online-Shop": "www.growin.de",
+      "erhältlich": "Our wholesale outlet Wallenroder Str. 7-9 | 13435 Berlin is open",
+      "from Mon": "- Fri. from 10:30 - 18:30 and on Sat. from 10:30 - 16:00.",
+      "completo a colori nella tua lingua": "Our retail shop Kaiserin-Augusta-Allee 29 | 10553 Berlin is open",
+      "catálogo a todo color": "Si vous parlez français, nous fournissons un",
+      "catalogue en couleur en français": "Index",
+      "grow in AG | Wallenroder Str": "7-9 | 13435 Berlin | T +49 30 20 8980-800 | F +49 30 20 8980-819 | mail@growin.de | www.growin.de"
+    },
+    "pdf_text_excerpt": "Since 1995 | 4000 items | 6000 m² warehouse The exTpheert es xinp eLritgsh itnin Lgig |h Ateinrgat |i oVne n| tFielarttiiolinse |r Fs e| rPtlialinset rAs c| cPelassnotr Aiecscessories EENN 22001144/15  2014/15 Catalog grow in AG You are looking at the latest edition of the Growshop catalog from grow in AG! This provides an up-to-date and comprehensive overview of our entire Growshop range. How can we help? Here you will find everything from established classics to the latest discoveries on the market. Do you have any more questions? Do you wish to know some- We are delighted to be able to prov",
+    "num_pages": 208,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "content": {
+    "specs": {
+      "Артикул:": "P101411",
+      "Бренд:": "PEHA",
+      "Цвет:": "Серебристый",
+      "Страна производитель:": "Германия",
+      "Материал:": "Закаленное стекло",
+      "Монтажная коробка:": "68",
+      "Степень защиты:": "IP20",
+      "Способ монтажа:": "Скрытый",
+      "Тип товара:": "Рамка 2 поста",
+      "Ценовая принадлежность:": "Премиум",
+      "Оттенок:": "Алюминий",
+      "Размер:": "85*156мм",
+      "Количество постов:": "2",
+      "Ориентация:": "Горизонтальная/вертикальная",
+      "Коллекция:": "AURA GLAS",
+      "Стиль:": "Современный"
+    },
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

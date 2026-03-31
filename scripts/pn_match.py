@@ -151,6 +151,39 @@ def confirm_pn_structured(pn: str, html: str) -> tuple[bool, str]:
     return False, ""
 
 
+def extract_structured_pn_flags(pn: str, html: str) -> dict[str, object]:
+    """Return explicit structured exact-PN flags for downstream evidence bundles.
+
+    Only authoritative structured contexts are considered. Body/free-text matches,
+    search hints, and fuzzy expansions are intentionally excluded.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    exact_jsonld_pn_match = _jsonld_pn_match(pn, soup)
+    exact_title_pn_match = _title_pn_match(pn, soup)
+    exact_h1_pn_match = _h1_pn_match(pn, soup)
+    exact_product_context_pn_match = _product_context_match(pn, soup)
+
+    structured_pn_match_location = ""
+    for location, matched in (
+        ("jsonld", exact_jsonld_pn_match),
+        ("title", exact_title_pn_match),
+        ("h1", exact_h1_pn_match),
+        ("product_context", exact_product_context_pn_match),
+    ):
+        if matched:
+            structured_pn_match_location = location
+            break
+
+    return {
+        "exact_jsonld_pn_match": exact_jsonld_pn_match,
+        "exact_title_pn_match": exact_title_pn_match,
+        "exact_h1_pn_match": exact_h1_pn_match,
+        "exact_product_context_pn_match": exact_product_context_pn_match,
+        "exact_structured_pn_match": bool(structured_pn_match_location),
+        "structured_pn_match_location": structured_pn_match_location,
+    }
+
+
 # ── Full result ─────────────────────────────────────────────────────────────────
 
 class PNMatchResult:

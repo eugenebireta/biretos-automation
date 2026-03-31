@@ -1,20 +1,36 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 28
-transition_ts: "2026-03-22T00:00:00Z"
+transition_seq: 32
+transition_ts: "2026-03-31T08:30:00Z"
 
 ## Current
-active_task: "8 — Stability Gate (эксплуатация)"
-task_id: "8"
-phase: MONITOR
+active_task: "R1 Enrichment - Disposition Gap Closure"
+task_id: "R1-disposition-gap-closure-next"
+phase: SCOUT
 status: ACTIVE
 phase_owner: "Owner/Maksim"
-risk_level: CORE
-pipeline: [MONITOR, WEEKLY_REVIEW, STABILITY_GATE]
+risk_level: SEMI
+pipeline: [SCOUT, BUILDER, AUDITOR]
 pr_url: null
 pr_branch: null
-awaiting: "≥30 closed cycles, 0 corruption, Shadow Mode exit (≥50 req, ≥90% match)"
+now:
+  - step: "1. Proof Batch Closeout"
+    actions:
+      - "Disposition gap closure proven on SKU 1006186, 1011994, 104011, and 1012541"
+      - "Blocked no-price family fully closed; proof batch complete with 368 tests pass"
+      - "Completed NOW track recorded; active task advances to the NEXT implementation queue"
+    exit: "NEXT track activated for bounded post-proof work"
+next:
+  - "N1: Provider adapter seam (wrap call_gpt() in interface)"
+  - "N2: Evidence schema hardening (negative evidence, price_date, price/photo split)"
+  - "N3: Price-only scout pilot (20-30 SKU, one brand)"
+TODO later: "Execute N2 after N1 seam lands; run N3 only after hardened evidence schema is in place"
+todo_later_items:
+  - "Provider adapter seam (обернуть call_gpt() в interface)"
+  - "Evidence schema hardening adds negative evidence, price_date, and price/photo split"
+  - "Price-only scout pilot (20-30 SKU, один бренд, success gates определены заранее)"
+awaiting: "execution start on N1 provider adapter seam, then sequential handoff to N2 schema hardening and N3 scout pilot"
 
 ## Task 7 Closeout
 task_7_status: MERGED
@@ -26,7 +42,7 @@ task_7_ci: "SUCCESS (321 tests)"
 task_7_judge_verdict: "MERGE_APPROVED (JUDGE verdict 2026-03-23)"
 
 ## Integrity
-integrity_hash: "sha256:109ff4c8586586a0895d5138cd5dc60efeb3db8bac43a9160fe423effe23fde7"
+integrity_hash: "sha256:56dd95531768d5fc54f435ed1d02320403957f247e22b182584c2cb14719674d"
 
 ## Evidence
 last_phase_output_hash: null
@@ -94,6 +110,30 @@ history:
     ts: "2026-03-22T00:00:00Z"
     actor: "Agent/Sonnet"
     note: "Task 7 MERGED (PR #9, CI SUCCESS, judge PASS). Advancing to Этап 8 — Stability Gate."
+  - seq: 29
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T00:00:00Z"
+    actor: "Owner/Codex"
+    note: "R1 Enrichment re-scoped to disposition gap closure: owner re-scope, route hardening, bounded proof batch."
+  - seq: 30
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T05:25:35Z"
+    actor: "Owner/Codex"
+    note: "1006186 proven closed on CAP-09B; live residual narrowed to 1012541 only."
+  - seq: 31
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T07:37:32Z"
+    actor: "Owner/Codex"
+    note: "1012541 proven closed on CAP-09B; remaining_no_price_family_count=0 and remaining_ambiguous_tail_count=0. Awaiting next bounded R1 work item."
+  - seq: 32
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T08:30:00Z"
+    actor: "Owner/Codex"
+    note: "Proof batch closed on 1006186, 1011994, 104011, and 1012541 with 368 tests pass. NEXT queue set to N1 provider adapter seam, N2 evidence schema hardening, and N3 price-only scout pilot."
 
 ## Task 5.1 Closeout (2026-03-20)
 task_5_1_status: CLOSED

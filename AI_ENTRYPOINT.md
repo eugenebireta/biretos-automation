@@ -35,6 +35,13 @@ Execution role rules:
 - Do not widen scope between gates without reopening the batch.
 - `R1` batch execution does not authorize multi-agent runtime.
 
+Verification reminder:
+
+- Before changing code, define how correctness will be verified.
+- Prefer baseline -> change -> re-check.
+- Do not return from a substantial `R1` batch without an evidence pack.
+- If scope boundary breaks or evidence is incomplete, self-reject and reopen as a new batch.
+
 Before continuing work, read:
 - `docs/_governance/AI_EXECUTION_CONTRACT_v1.md`
 - `docs/handoffs/SWITCH_RUNBOOK_v1.md`

@@ -14,6 +14,7 @@
 | `возвраты/` | Объединяет несколько Excel-отчётов о возвратах в один файл, убирает дубли | `.xlsx`-файлы из папки `csv/` (строки начиная с 6-й, шаблон имени `returns_report_*.xlsx`) | `Возвраты_Объединенные_Очищенные.xlsx` | Этап 17 — Returns & Claims (17.1 Customer Returns) | Паттерн glob + merge + dedup; шаблон для batch-обработки Excel-отчётов |
 | `СДЭК api/` | Мост InSales ↔ CDEK: забирает заказы в статусе «готов к отправке», геолоцирует адрес клиента, находит ближайший ПВЗ CDEK, создаёт отправление, записывает трек-номер обратно в InSales | `.env` с кредами (`INSALES_DOMAIN/ID/PASS`, `CDEK_CLIENT_ID/SECRET`); заказы InSales REST API | `last_orders.json` (список созданных отправлений CDEK); трек-номер в кастомном поле заказа InSales | Этап 3.1 (CDEK shipment, RC-2) + Этап 6.6 (CDEK adapter extension) + Этап 16.7 (CDEK/DHL adapter) | OAuth2-клиент CDEK v2, haversine-поиск ближайшего ПВЗ, InSales REST клиент, геокодирование через Nominatim |
 | `данные из инвойса/` | Извлекает строки товаров (наименование, количество, цена) из PDF товарных накладных методом table-extraction | PDF-файлы из `input/new/` (формат «Товарная накладная», столбцы [1]/[6]/[10]) | `output/invoice_report.xlsx` (колонки: Наименование, Количество, Цена) | Этап 13.3 — Operational Excellence (интеграция invoice/procurement flows) + Этап 16 (Procurement) | pdfplumber table-extraction, фильтрация мусорных строк (headers/footers) по ключевым словам, text-clean regex для переносов |
+| `ozon/` | Создаёт задачу отчёта Ozon Seller API по FBO/FBS отправлениям, поллит статус, возвращает ссылку на скачивание | `OZON_CLIENT_ID`, `OZON_API_KEY` из env | download URL отчёта | IDEA-20260325-005 → кандидат на новый Revenue Tier-3 Этап (после Этапа 8) | OAuth через заголовки Client-Id/Api-Key, polling pattern для async report tasks |
 
 ---
 
@@ -46,6 +47,16 @@
 
 ---
 
+### `ozon/`
+- **Скрипты:** `ozon_reports.py`
+- **API:** Ozon Seller API v1 (`/v1/report/postings/create`, `/v1/report/info`)
+- **Библиотеки:** `requests`
+- **Особенности:** Async report pattern — создаёт задачу, поллит до `success`, возвращает ссылку. Поддерживает `report_type`: `ALL` / `FBO` / `FBS`.
+- **Источник:** найден при аудите старого ПК 2026-03-25 (`\\home-pc\c\FBS FBO sell\ozon_reports.py`). Оригинал имел захардкоженные CLIENT_ID/API_KEY — очищено, теперь через env.
+- **⚠️ Безопасность:** оригинальный файл на старом ПК содержит открытые API-ключи Ozon — не копировать напрямую.
+
+---
+
 ## Приоритет миграции
 
 | Приоритет | Папка | Причина |
@@ -53,4 +64,5 @@
 | 🔴 Высокий | `СДЭК api/` | Уже используется в продакшне; есть незащищённые креды; нужен трекинг в Core |
 | 🔴 Высокий | `данные из инвойса/` | Блокирует Этап 16 (Procurement); ручной процесс |
 | 🟡 Средний | `возвраты/` | Нужен для Этапа 17; сейчас полностью ручной |
+| 🟡 Средний | `ozon/` | Нужен для IDEA-20260325-005 (Ozon FBO/FBS воркер); пока INBOX |
 | 🟢 Низкий | `wordstat/` | Аналитика, не критичный путь; можно мигрировать в Этап 18 |

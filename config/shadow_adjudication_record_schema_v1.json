@@ -1,0 +1,23 @@
+{
+  "schema_version": "shadow_adjudication_record_schema_v1",
+  "required": [
+    "schema_version",
+    "run_id",
+    "trace_id",
+    "pn_primary",
+    "deterministic_result",
+    "verifier_result",
+    "disagreement_categories",
+    "contradiction_categories",
+    "blocker_categories",
+    "recommendation_category",
+    "recommended_next_action",
+    "review_priority",
+    "source_artifact_refs"
+  ],
+  "properties": {
+    "review_priority": {
+      "enum": ["P1", "P2", "P3", "P4"]
+    }
+  }
+}

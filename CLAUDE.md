@@ -1,5 +1,11 @@
 # CLAUDE.md — Biretos Automation
 
+## VERIFICATION REMINDER
+
+Before changing code, define the verification path first.
+Prefer baseline -> change -> re-check.
+If no automated checks exist, state the validation gap explicitly.
+
 ## IDENTITY
 
 Post-Core Freeze. Tier-3 Revenue development active.

@@ -21,7 +21,7 @@ from __future__ import annotations
 
 import base64, datetime, hashlib, json, logging, os, re, sys, time
 from pathlib import Path
-from typing import Optional
+from typing import Any, Callable, Optional, Protocol
 from urllib.parse import urlparse
 
 import imagehash
@@ -40,7 +40,7 @@ _scripts_dir = Path(__file__).resolve().parent
 if str(_scripts_dir) not in _sys.path:
     _sys.path.insert(0, str(_scripts_dir))
 
-from pn_match import confirm_pn_body, match_pn, is_numeric_pn, check_brand_cooccurrence  # noqa: E402
+from pn_match import confirm_pn_body, match_pn, is_numeric_pn, check_brand_cooccurrence, extract_structured_pn_flags  # noqa: E402
 from trust import get_source_trust, get_source_tier             # noqa: E402
 from fx import convert_to_rub, fx_meta                         # noqa: E402
 from pn_variants import generate_variants                       # noqa: E402
@@ -49,6 +49,43 @@ from export_pipeline import (                                   # noqa: E402
     write_evidence_bundles,
     write_insales_export,
     write_audit_report,
+)
+from deterministic_false_positive_controls import (             # noqa: E402
+    apply_numeric_keep_guard,
+    tighten_public_price_result,
+)
+from price_evidence_cache import (                             # noqa: E402
+    CURRENT_PRICE_POLICY_VERSION,
+    select_cached_price_fallback,
+)
+from no_price_coverage import (                                # noqa: E402
+    choose_better_no_price_candidate,
+    materialize_no_price_coverage,
+)
+from price_lineage import (                                     # noqa: E402
+    choose_better_price_lineage_candidate,
+    materialize_pre_llm_price_lineage,
+)
+from price_source_replacement import (                          # noqa: E402
+    choose_better_replacement_candidate,
+    materialize_source_replacement_surface,
+)
+from price_source_surface_stability import (                    # noqa: E402
+    materialize_source_surface_stability,
+    select_prior_admissible_surface_candidate,
+    should_reuse_prior_admissible_surface,
+)
+from catalog_shadow_runtime import (                            # noqa: E402
+    allow_external_source_attempt,
+    allow_external_source_candidate,
+    allow_next_sku,
+    check_wallclock_budget,
+    get_shadow_runtime_summary,
+    record_completed_sku,
+    record_skipped_due_to_budget,
+    record_source_failure,
+    record_source_success,
+    shadow_runtime_active,
 )
 
 
@@ -74,9 +111,12 @@ VERDICT_FILE   = DOWNLOADS / "photo_verdict.json"
 DATA_FILE      = DOWNLOADS / "product_data.json"
 GPT_CACHE           = DOWNLOADS / "_gpt_cache.json"
 ARTIFACT_CACHE_FILE = DOWNLOADS / "artifact_verdict_cache.json"
+PRICE_EVIDENCE_CACHE_FILE = DOWNLOADS / "price_evidence_cache.json"
+PRICE_SOURCE_SURFACE_CACHE_FILE = DOWNLOADS / "price_source_surface_cache.json"
 SHADOW_LOG_DIR      = ROOT / "shadow_log"
 EVIDENCE_DIR        = DOWNLOADS / "evidence"
 EXPORT_DIR          = DOWNLOADS / "export"
+LAST_RUN_META: dict = {}
 
 CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
 
@@ -117,8 +157,8 @@ def clear_checkpoint() -> None:
         pass
 load_dotenv(DOWNLOADS / ".env")
 
-serpapi_key = os.environ["SERPAPI_KEY"]
-client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+serpapi_key = str(os.getenv("SERPAPI_KEY", "")).strip()
+client = None
 
 
 # ── Константы ──────────────────────────────────────────────────────────────────
@@ -129,6 +169,61 @@ MIN_DIM               = 150
 PRICE_LLM_MODEL       = "gpt-4o-mini"
 VISION_MODEL          = "gpt-5.4-mini"
 STOCK_PHOTO_THRESHOLD = 5  # phash у N+ SKU → stock_photo_flag
+
+
+class ChatCompletionAdapter(Protocol):
+    """Minimal chat-completion contract for provider-safe injection."""
+
+    def complete(self, *, model: str, messages: list[dict], **api_kwargs: Any) -> str:
+        ...
+
+
+def get_openai_client() -> OpenAI:
+    """Resolve the OpenAI client lazily so import-time does not require API keys."""
+    global client
+    if client is not None:
+        return client
+    api_key = str(os.getenv("OPENAI_API_KEY", "")).strip()
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not configured")
+    client = OpenAI(api_key=api_key)
+    return client
+
+
+class OpenAIChatCompletionsAdapter:
+    """Default provider adapter backed by OpenAI chat completions."""
+
+    def __init__(self, client_loader: Callable[[], Any] | None = None):
+        self._client_loader = client_loader or get_openai_client
+
+    def complete(self, *, model: str, messages: list[dict], **api_kwargs: Any) -> str:
+        response = self._client_loader().chat.completions.create(
+            model=model,
+            messages=messages,
+            **api_kwargs,
+        )
+        return response.choices[0].message.content or ""
+
+
+chat_completion_adapter: ChatCompletionAdapter = OpenAIChatCompletionsAdapter()
+
+
+def set_chat_completion_adapter(adapter: ChatCompletionAdapter) -> None:
+    global chat_completion_adapter
+    chat_completion_adapter = adapter
+
+
+def reset_chat_completion_adapter() -> None:
+    global chat_completion_adapter
+    chat_completion_adapter = OpenAIChatCompletionsAdapter()
+
+
+def get_serpapi_key() -> str:
+    """Resolve SerpAPI key lazily so local deterministic work can run without it."""
+    key = str(serpapi_key or os.getenv("SERPAPI_KEY", "")).strip()
+    if not key:
+        raise RuntimeError("SERPAPI_KEY is not configured")
+    return key
 
 # ── Шаблоны поисковых запросов (Google Dorks) ──────────────────────────────────
 Q_GOOGLE_ORGANIC = 'intitle:"{pn}" "{brand}"'
@@ -322,6 +417,7 @@ def call_gpt(
     model: str = PRICE_LLM_MODEL,
     source_url: str = None,
     source_type: str = None,
+    adapter: ChatCompletionAdapter | None = None,
     **api_kwargs,
 ) -> str:
     """Единая обёртка над client.chat.completions.create.
@@ -329,10 +425,11 @@ def call_gpt(
     Вызывает OpenAI API, автоматически пишет запись в shadow_log.
     Возвращает content строку ответа. При ошибке API — пробрасывает исключение.
     """
-    response = client.chat.completions.create(
-        model=model, messages=messages, **api_kwargs
+    content = (adapter or chat_completion_adapter).complete(
+        model=model,
+        messages=messages,
+        **api_kwargs,
     )
-    content = response.choices[0].message.content or ""
 
     # Пробуем распарсить JSON для поля response_parsed в логе
     parse_success = False
@@ -577,6 +674,12 @@ def parse_product_page(url: str, pn: str = "") -> dict:
         "mpn_confirmed": False,
         "jsonld_price": None,
         "jsonld_currency": None,
+        "exact_jsonld_pn_match": False,
+        "exact_title_pn_match": False,
+        "exact_h1_pn_match": False,
+        "exact_product_context_pn_match": False,
+        "exact_structured_pn_match": False,
+        "structured_pn_match_location": "",
     }
     try:
         r = requests.get(url, headers=BROWSER_HEADERS, timeout=12)
@@ -584,6 +687,8 @@ def parse_product_page(url: str, pn: str = "") -> dict:
             return result
         html = r.text
         soup = BeautifulSoup(html, "html.parser")
+        if pn:
+            result.update(extract_structured_pn_flags(pn, html))
 
         # 1. JSON-LD (самый надёжный источник)
         if pn:
@@ -707,7 +812,7 @@ def step1_find_and_download(pn: str, ru_name: str, artifact_cache: dict) -> dict
     for attempt in web_attempts:
         engine = attempt["engine"]
         try:
-            params = {**attempt, "api_key": serpapi_key}
+            params = {**attempt, "api_key": get_serpapi_key()}
             results = GoogleSearch(params).get_dict().get("organic_results", [])
             time.sleep(DELAY)
             for res in results:
@@ -715,6 +820,8 @@ def step1_find_and_download(pn: str, ru_name: str, artifact_cache: dict) -> dict
                 if not page_url:
                     continue
                 if any(d in page_url for d in SKIP_PAGE_DOMAINS):
+                    continue
+                if not allow_external_source_candidate(page_url):
                     continue
                 parsed = parse_product_page(page_url, pn=pn)
                 img_url = parsed.get("image_url")
@@ -735,6 +842,12 @@ def step1_find_and_download(pn: str, ru_name: str, artifact_cache: dict) -> dict
                     "specs": parsed.get("specs", {}),
                     "description": parsed.get("description"),
                     "sha1": sha1,
+                    "exact_jsonld_pn_match": bool(parsed.get("exact_jsonld_pn_match")),
+                    "exact_title_pn_match": bool(parsed.get("exact_title_pn_match")),
+                    "exact_h1_pn_match": bool(parsed.get("exact_h1_pn_match")),
+                    "exact_product_context_pn_match": bool(parsed.get("exact_product_context_pn_match")),
+                    "exact_structured_pn_match": bool(parsed.get("exact_structured_pn_match")),
+                    "structured_pn_match_location": parsed.get("structured_pn_match_location", ""),
                 }
         except Exception as e:
             log.warning(f"step1 {engine} error: {e}")
@@ -743,7 +856,7 @@ def step1_find_and_download(pn: str, ru_name: str, artifact_cache: dict) -> dict
     try:
         params = {
             "engine": "google_images", "q": queries["google_images"],
-            "num": 10, "safe": "active", "api_key": serpapi_key,
+            "num": 10, "safe": "active", "api_key": get_serpapi_key(),
         }
         imgs = GoogleSearch(params).get_dict().get("images_results", [])
         time.sleep(DELAY)
@@ -804,16 +917,20 @@ def step2_us_price(pn: str, ru_name: str) -> list[dict]:
             "num": 5, "gl": "ru", "hl": "ru",
         },
     ]
+    if shadow_runtime_active():
+        search_attempts = [attempt for attempt in search_attempts if attempt["label"] != "google_ru_b2b"]
 
     for attempt in search_attempts:
         label = attempt.pop("label")
         try:
-            params = {**attempt, "api_key": serpapi_key}
+            params = {**attempt, "api_key": get_serpapi_key()}
             results = GoogleSearch(params).get_dict().get("organic_results", [])
             time.sleep(DELAY)
             for res in results:
                 url = res.get("link", "")
                 if not url or any(d in url for d in SKIP_PAGE_DOMAINS):
+                    continue
+                if not allow_external_source_candidate(url):
                     continue
                 trust = get_source_trust(url)
                 source_type = (
@@ -845,6 +962,9 @@ def step2b_extract_from_pages(
     pn: str,
     brand: str,
     expected_category: str = "",
+    *,
+    price_cache_payload: dict | None = None,
+    source_surface_cache_payload: dict | None = None,
 ) -> dict:
     """Обходит страницы кандидатов, извлекает цену через Trafilatura + GPT.
 
@@ -861,44 +981,130 @@ def step2b_extract_from_pages(
     empty: dict = {
         "price_usd": None, "currency": None, "source_url": None,
         "source_type": None, "source_tier": None,
+        "source_engine": "",
         "price_status": "no_price_found",
         "price_confidence": 0, "stock_status": "unknown",
         "offer_unit_basis": "unknown", "offer_qty": None,
         "lead_time_detected": False, "suffix_conflict": False,
         "category_mismatch": False, "page_product_class": "",
         "brand_mismatch": False,
+        "quote_cta_url": None,
         "rub_price": None, "fx_rate_used": None, "fx_provider": None,
+        "pn_exact_confirmed": False,
+        "page_context_clean": True,
+        "public_price_rejection_reasons": [],
+        "cache_fallback_used": False,
+        "cache_fallback_reason": "",
+        "cache_schema_version": "",
+        "cache_policy_version": "",
+        "cache_source_run_id": "",
+        "cache_bundle_ref": "",
+        "transient_failure_detected": False,
+        "transient_failure_codes": [],
     }
 
     best: dict = {}           # только валидные кандидаты (mismatch=False)
     best_confidence = 0
+    best_no_price: dict | None = None
+    best_observed_candidate: dict | None = None
+    best_lineage_candidate: dict | None = None
+    best_admissible_replacement_candidate: dict | None = None
     best_mismatch: dict = {}  # mismatch-кандидаты — fallback, не publishable
     best_mismatch_confidence = 0
+    transient_failure_codes: set[str] = set()
+
+    def _apply_surface_stability(price_result: dict) -> dict:
+        return materialize_source_surface_stability(
+            price_result,
+            pn=pn,
+            surface_cache_payload=source_surface_cache_payload,
+            observed_candidate=best_observed_candidate,
+        )
+
+    def _resolve_replacement_candidate(price_result: dict[str, Any]) -> dict[str, Any] | None:
+        if best_admissible_replacement_candidate is not None:
+            return best_admissible_replacement_candidate
+        if price_result.get("price_status") not in {"no_price_found", "hidden_price"}:
+            return None
+        if not should_reuse_prior_admissible_surface(
+            price_result,
+            transient_failure_detected=bool(transient_failure_codes),
+        ):
+            return None
+        return select_prior_admissible_surface_candidate(
+            pn=pn,
+            current_price_result=price_result,
+            surface_cache_payload=source_surface_cache_payload,
+            expected_policy_version=CURRENT_PRICE_POLICY_VERSION,
+        )
 
     for cand in candidates[:6]:  # не более 6 страниц
         url = cand["url"]
         source_type = cand["source_type"]
+        if check_wallclock_budget():
+            break
+        allowed, reason = allow_external_source_attempt(pn, url)
+        if not allowed:
+            if reason == "weak_marketplace_disabled" or reason.startswith("max_external_source_attempts_per_sku_reached"):
+                continue
+            break
 
         # Быстрый pre-filter: PN в snippet (word boundary)
         snippet_text = cand.get("snippet", "") + " " + cand.get("title", "")
         if snippet_text.strip() and not confirm_pn_exact(pn, snippet_text):
             log.debug(f"  skip snippet-nomatch: {url[:70]}")
             continue
+        if best_observed_candidate is None:
+            best_observed_candidate = dict(cand)
 
         try:
             r = requests.get(url, headers=BROWSER_HEADERS, timeout=12)
+            trust = get_source_trust(url)
+            pre_llm_candidate = materialize_pre_llm_price_lineage(
+                pn=pn,
+                price_result={
+                    "price_status": "no_price_found",
+                    "source_url": url,
+                    "source_type": source_type,
+                    "source_tier": trust["tier"],
+                    "source_engine": cand.get("engine", ""),
+                    "quote_cta_url": cand.get("quote_cta_url"),
+                },
+                html=r.text,
+                source_url=url,
+                source_type=source_type,
+                source_tier=trust["tier"],
+                source_engine=cand.get("engine", ""),
+                content_type=r.headers.get("Content-Type", ""),
+                status_code=r.status_code,
+            )
+            best_lineage_candidate = choose_better_price_lineage_candidate(
+                best_lineage_candidate,
+                pre_llm_candidate,
+            )
+            if (
+                pre_llm_candidate.get("price_source_exact_product_lineage_confirmed")
+                and pre_llm_candidate.get("price_source_tier") in {"official", "authorized", "industrial"}
+            ):
+                best_admissible_replacement_candidate = choose_better_replacement_candidate(
+                    best_admissible_replacement_candidate,
+                    pre_llm_candidate,
+                )
             if r.status_code != 200:
+                record_source_failure(url, timed_out=False, channel="external_source")
                 continue
 
             # Trafilatura: HTML → чистый текст
             clean_text = trafilatura.extract(r.text, include_tables=True) or ""
             if not clean_text:
                 log.debug(f"  trafilatura empty: {url[:70]}")
+                record_source_failure(url, timed_out=False, channel="external_source")
                 continue
 
             # Word boundary check на полном тексте страницы
             if not confirm_pn_exact(pn, clean_text):
                 log.debug(f"  skip page-nomatch: {url[:70]}")
+                record_source_failure(url, timed_out=False, channel="external_source")
                 continue
 
             # GPT extraction через call_gpt (shadow_log автоматически)
@@ -930,10 +1136,12 @@ def step2b_extract_from_pages(
                 parsed = json.loads(clean_raw)
             except Exception:
                 log.warning(f"  price JSON parse failed: {url[:70]}")
+                record_source_failure(url, timed_out=False, channel="external_source")
                 continue
 
             if not parsed.get("pn_exact_confirmed"):
                 log.debug(f"  LLM: pn_exact_confirmed=false: {url[:70]}")
+                record_source_failure(url, timed_out=False, channel="external_source")
                 continue
 
             category_mismatch = bool(parsed.get("category_mismatch"))
@@ -947,7 +1155,6 @@ def step2b_extract_from_pages(
             rub_price = convert_to_rub(raw_price, raw_currency)
             _fx = fx_meta(raw_currency)
 
-            trust = get_source_trust(url)
             candidate = {
                 "price_usd": raw_price,
                 "currency": raw_currency,
@@ -957,6 +1164,7 @@ def step2b_extract_from_pages(
                 "source_url": url,
                 "source_type": source_type,
                 "source_tier": trust["tier"],
+                "source_engine": cand.get("engine", ""),
                 "source_weight": trust.get("weight", 0.4),
                 "price_status": parsed.get("price_status", "no_price_found"),
                 "price_confidence": confidence,
@@ -964,11 +1172,24 @@ def step2b_extract_from_pages(
                 "offer_unit_basis": parsed.get("offer_unit_basis", "unknown"),
                 "offer_qty": parsed.get("offer_qty"),
                 "lead_time_detected": bool(parsed.get("lead_time_detected")),
+                "quote_cta_url": parsed.get("quote_cta_url"),
                 "suffix_conflict": bool(parsed.get("suffix_conflict")),
                 "category_mismatch": category_mismatch,
                 "page_product_class": page_product_class,
                 "brand_mismatch": False,  # reserved — future brand guard
+                "pn_exact_confirmed": bool(parsed.get("pn_exact_confirmed")),
             }
+            candidate = materialize_pre_llm_price_lineage(
+                pn=pn,
+                price_result=tighten_public_price_result(candidate),
+                html=r.text,
+                source_url=url,
+                source_type=source_type,
+                source_tier=trust["tier"],
+                source_engine=cand.get("engine", ""),
+                content_type=r.headers.get("Content-Type", ""),
+                status_code=r.status_code,
+            )
 
             if category_mismatch:
                 # Баг B fix: mismatch-кандидат не участвует в основном выборе.
@@ -981,6 +1202,7 @@ def step2b_extract_from_pages(
                     best_mismatch_confidence = confidence
                     best_mismatch = {**candidate, "price_status": "category_mismatch_only"}
             else:
+                record_source_success()
                 log.info(
                     f"  price candidate [{parsed.get('price_status')}] "
                     f"conf={confidence} {url[:60]}"
@@ -988,19 +1210,119 @@ def step2b_extract_from_pages(
                 if confidence > best_confidence:
                     best_confidence = confidence
                     best = candidate
+                if candidate.get("price_status") in {"hidden_price", "no_price_found"}:
+                    best_no_price = choose_better_no_price_candidate(best_no_price, candidate)
 
         except Exception as e:
+            error_text = str(e).lower()
+            timed_out = "timeout" in error_text or "timed out" in error_text
+            if "insufficient_quota" in error_text or ("429" in error_text and "quota" in error_text):
+                transient_failure_codes.add("openai_quota")
+            elif "rate limit" in error_text or "rate_limit" in error_text:
+                transient_failure_codes.add("openai_rate_limit")
+            elif timed_out:
+                transient_failure_codes.add("openai_timeout")
+            elif any(token in error_text for token in ("temporary", "temporarily", "502", "503", "504", "connection reset")):
+                transient_failure_codes.add("openai_temporary_failure")
+            record_source_failure(url, timed_out=timed_out, channel="external_source")
             log.warning(f"  step2b error {url[:70]}: {e}")
 
     # Возвращаем только валидного best; mismatch-fallback только если совсем ничего нет
     if best:
+        best = _apply_surface_stability(best)
+        best = materialize_source_replacement_surface(
+            best,
+            admissible_replacement_candidate=_resolve_replacement_candidate(best),
+        )
+        best.setdefault("cache_fallback_used", False)
+        best.setdefault("cache_fallback_reason", "")
+        best.setdefault("cache_schema_version", "")
+        best.setdefault("cache_policy_version", "")
+        best.setdefault("cache_source_run_id", "")
+        best.setdefault("cache_bundle_ref", "")
+        best["transient_failure_detected"] = bool(transient_failure_codes)
+        best["transient_failure_codes"] = sorted(transient_failure_codes)
         return best
     if best_mismatch:
         log.warning(
             f"  step2b: только mismatch-кандидаты найдены, возвращаем с price_status=category_mismatch_only"
         )
+        best_mismatch = _apply_surface_stability(best_mismatch)
+        best_mismatch = materialize_source_replacement_surface(
+            best_mismatch,
+            admissible_replacement_candidate=_resolve_replacement_candidate(best_mismatch),
+        )
+        best_mismatch.setdefault("cache_fallback_used", False)
+        best_mismatch.setdefault("cache_fallback_reason", "")
+        best_mismatch.setdefault("cache_schema_version", "")
+        best_mismatch.setdefault("cache_policy_version", "")
+        best_mismatch.setdefault("cache_source_run_id", "")
+        best_mismatch.setdefault("cache_bundle_ref", "")
+        best_mismatch["transient_failure_detected"] = bool(transient_failure_codes)
+        best_mismatch["transient_failure_codes"] = sorted(transient_failure_codes)
         return best_mismatch
-    return empty
+
+    if best_no_price:
+        best_no_price = _apply_surface_stability(best_no_price)
+        best_no_price = materialize_source_replacement_surface(
+            best_no_price,
+            admissible_replacement_candidate=_resolve_replacement_candidate(best_no_price),
+        )
+        best_no_price.setdefault("cache_fallback_used", False)
+        best_no_price.setdefault("cache_fallback_reason", "")
+        best_no_price.setdefault("cache_schema_version", "")
+        best_no_price.setdefault("cache_policy_version", "")
+        best_no_price.setdefault("cache_source_run_id", "")
+        best_no_price.setdefault("cache_bundle_ref", "")
+        best_no_price["transient_failure_detected"] = bool(transient_failure_codes)
+        best_no_price["transient_failure_codes"] = sorted(transient_failure_codes)
+        return best_no_price
+
+    if shadow_runtime_active() and transient_failure_codes:
+        cached = select_cached_price_fallback(
+            pn=pn,
+            candidates=candidates,
+            cache_payload=price_cache_payload,
+            failure_codes=sorted(transient_failure_codes),
+            expected_policy_version=CURRENT_PRICE_POLICY_VERSION,
+        )
+        if cached:
+            log.warning(
+                "  step2b cache fallback reused admissible price evidence "
+                f"for {pn} from {cached.get('cache_source_run_id', '')}"
+            )
+            cached = materialize_no_price_coverage(cached)
+            cached = _apply_surface_stability(cached)
+            cached = materialize_source_replacement_surface(
+                cached,
+                admissible_replacement_candidate=_resolve_replacement_candidate(cached),
+            )
+            cached["transient_failure_detected"] = True
+            cached["transient_failure_codes"] = sorted(transient_failure_codes)
+            return cached
+
+    fallback = {**empty, **dict(best_lineage_candidate or {})}
+    if not fallback:
+        fallback = materialize_no_price_coverage(empty, observed_candidate=best_observed_candidate)
+    fallback = _apply_surface_stability(fallback)
+    fallback = materialize_source_replacement_surface(
+        fallback,
+        admissible_replacement_candidate=_resolve_replacement_candidate(fallback),
+    )
+    fallback.setdefault("price_source_seen", bool(best_observed_candidate))
+    fallback.setdefault("price_source_url", (best_observed_candidate or {}).get("url", ""))
+    fallback.setdefault("price_source_type", (best_observed_candidate or {}).get("source_type", ""))
+    fallback.setdefault("price_source_tier", (best_observed_candidate or {}).get("source_tier", ""))
+    fallback.setdefault("price_source_engine", (best_observed_candidate or {}).get("engine", ""))
+    fallback.setdefault("cache_fallback_used", False)
+    fallback.setdefault("cache_fallback_reason", "")
+    fallback.setdefault("cache_schema_version", "")
+    fallback.setdefault("cache_policy_version", "")
+    fallback.setdefault("cache_source_run_id", "")
+    fallback.setdefault("cache_bundle_ref", "")
+    fallback["transient_failure_detected"] = bool(transient_failure_codes)
+    fallback["transient_failure_codes"] = sorted(transient_failure_codes)
+    return fallback
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1057,13 +1379,23 @@ def run(
     data           = json.loads(DATA_FILE.read_text(encoding="utf-8")) if DATA_FILE.exists() else {}
     gpt_cache      = json.loads(GPT_CACHE.read_text(encoding="utf-8")) if GPT_CACHE.exists() else {}
     artifact_cache = json.loads(ARTIFACT_CACHE_FILE.read_text(encoding="utf-8")) if ARTIFACT_CACHE_FILE.exists() else {}
+    price_evidence_cache = (
+        json.loads(PRICE_EVIDENCE_CACHE_FILE.read_text(encoding="utf-8"))
+        if PRICE_EVIDENCE_CACHE_FILE.exists() else {}
+    )
+    source_surface_cache = (
+        json.loads(PRICE_SOURCE_SURFACE_CACHE_FILE.read_text(encoding="utf-8"))
+        if PRICE_SOURCE_SURFACE_CACHE_FILE.exists() else {}
+    )
     phash_cache: dict[str, list[str]] = {}  # phash → [pn1, pn2, ...]
     checkpoint     = load_checkpoint()
 
+    global LAST_RUN_META
     keep = reject = no_photo = skipped_checkpoint = 0
     all_results = []
     evidence_bundles: list[dict] = []
     run_ts = datetime.datetime.utcnow().isoformat() + "Z"
+    early_stop_reason = ""
 
     for i, (_, row) in enumerate(df.iterrows()):
         pn                = row["Параметр: Партномер"].strip()
@@ -1085,6 +1417,16 @@ def run(
             skipped_checkpoint += 1
             print(f"[{i+1}/{len(df)}] {pn} — CHECKPOINT (skip)")
             continue
+
+        allowed, reason = allow_next_sku(pn)
+        if not allowed:
+            early_stop_reason = reason
+            print(f"[{i+1}/{len(df)}] {pn} — EARLY_STOP ({reason})")
+            for j in range(i + 1, len(df)):
+                remaining_pn = df.iloc[j]["Параметр: Партномер"].strip()
+                if remaining_pn != pn:
+                    record_skipped_due_to_budget(remaining_pn, reason)
+            break
 
         # ── PN variants generation ─────────────────────────────────────────────
         pn_var = generate_variants(pn)
@@ -1121,10 +1463,17 @@ def run(
             evidence_bundles.append(_no_photo_bundle)
             checkpoint[pn] = _no_photo_bundle
             save_checkpoint(checkpoint)
+            record_completed_sku(pn)
             all_results.append({
                 "pn": pn, "name": name, "verdict": "NO_PHOTO",
                 "our_price": our_price, "price_status": "no_price_found",
             })
+            if check_wallclock_budget():
+                early_stop_reason = get_shadow_runtime_summary().get("reason_for_early_stop", "")
+                for j in range(i + 1, len(df)):
+                    remaining_pn = df.iloc[j]["Параметр: Партномер"].strip()
+                    record_skipped_due_to_budget(remaining_pn, early_stop_reason or "wallclock_budget_reached")
+                break
             continue
 
         # Perceptual hash dedupe
@@ -1141,11 +1490,21 @@ def run(
         candidates = step2_us_price(pn, name)
 
         # ── Шаг 2b: извлечение цены ────────────────────────────────────────────
-        price_info = step2b_extract_from_pages(candidates, pn, BRAND, expected_category)
+        price_info = tighten_public_price_result(
+            step2b_extract_from_pages(
+                candidates,
+                pn,
+                BRAND,
+                expected_category,
+                price_cache_payload=price_evidence_cache,
+                source_surface_cache_payload=source_surface_cache,
+            )
+        )
         if price_info["price_usd"]:
+            fallback_mark = " [cache_fallback]" if price_info.get("cache_fallback_used") else ""
             print(
                 f"  Цена: {price_info['currency']} {price_info['price_usd']:,.2f} "
-                f"[{price_info['price_status']}] ({price_info['source_url'][:55]})"
+                f"[{price_info['price_status']}] ({price_info['source_url'][:55]}){fallback_mark}"
             )
         else:
             print(f"  Цена: {price_info['price_status']}")
@@ -1193,6 +1552,15 @@ def run(
                     json.dumps(artifact_cache, ensure_ascii=False, indent=2), encoding="utf-8"
                 )
             print(f"  Вердикт: {v['verdict']} — {v['reason']}")
+
+        v = apply_numeric_keep_guard(
+            pn=pn,
+            photo_result=dl,
+            vision_verdict=v,
+            price_result=price_info,
+        )
+        if v.get("numeric_keep_guard_applied"):
+            print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
 
         # ── Datasheet (optional) ────────────────────────────────────────────────
         ds_result: dict = {"datasheet_status": "skipped"}
@@ -1245,6 +1613,22 @@ def run(
             "suffix_conflict": price_info["suffix_conflict"],
             "category_mismatch": price_info["category_mismatch"],
             "page_product_class": price_info["page_product_class"],
+            "price_source_seen": bool(price_info.get("price_source_seen")),
+            "price_source_url": price_info.get("price_source_url"),
+            "price_source_tier": price_info.get("price_source_tier"),
+            "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
+            "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
+            "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
+            "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
+            "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
+            "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
+            "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),
+            "price_source_replacement_tier": price_info.get("price_source_replacement_tier", ""),
+            "price_reviewable_no_price_candidate": bool(price_info.get("price_reviewable_no_price_candidate")),
+            "price_no_price_reason_code": price_info.get("price_no_price_reason_code", ""),
+            "cache_fallback_used": bool(price_info.get("cache_fallback_used")),
+            "cache_source_run_id": price_info.get("cache_source_run_id"),
+            "transient_failure_codes": price_info.get("transient_failure_codes", []),
         }
         VERDICT_FILE.write_text(json.dumps(verdicts, ensure_ascii=False, indent=2), encoding="utf-8")
         DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -1254,6 +1638,7 @@ def run(
         else:
             reject += 1
 
+        record_completed_sku(pn)
         all_results.append({
             "pn": pn, "name": name, "verdict": v["verdict"],
             "photo": f"{dl['width']}x{dl['height']}px {dl['size_kb']}KB",
@@ -1268,7 +1653,24 @@ def run(
             "suffix_conflict": price_info["suffix_conflict"],
             "category_mismatch": price_info["category_mismatch"],
             "page_product_class": price_info["page_product_class"],
+            "price_source_seen": bool(price_info.get("price_source_seen")),
+            "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
+            "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
+            "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
+            "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
+            "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
+            "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
+            "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),
+            "price_source_replacement_tier": price_info.get("price_source_replacement_tier", ""),
+            "price_reviewable_no_price_candidate": bool(price_info.get("price_reviewable_no_price_candidate")),
+            "price_no_price_reason_code": price_info.get("price_no_price_reason_code", ""),
         })
+        if check_wallclock_budget():
+            early_stop_reason = get_shadow_runtime_summary().get("reason_for_early_stop", "")
+            for j in range(i + 1, len(df)):
+                remaining_pn = df.iloc[j]["Параметр: Партномер"].strip()
+                record_skipped_due_to_budget(remaining_pn, early_stop_reason or "wallclock_budget_reached")
+            break
 
     print(f"\n{'='*55}")
     print(f"KEEP: {keep}  REJECT: {reject}  NO_PHOTO: {no_photo}  CHECKPOINT_SKIP: {skipped_checkpoint}")
@@ -1300,8 +1702,18 @@ def run(
         print(f"Audit      → {audit_path}")
         print(f"Evidence   → {EVIDENCE_DIR} ({len(evidence_bundles)} bundles)")
 
+    shadow_summary = get_shadow_runtime_summary()
+    LAST_RUN_META = {
+        "run_ts": run_ts,
+        "limit": limit,
+        "processed_results": len(all_results),
+        "evidence_bundles": len(evidence_bundles),
+        "early_stop_reason": early_stop_reason or shadow_summary.get("reason_for_early_stop", ""),
+        "shadow_runtime_summary": shadow_summary,
+    }
+
     # Clear checkpoint only on full (unlimited) successful run
-    if not limit and export:
+    if not limit and export and not shadow_summary.get("early_stop"):
         clear_checkpoint()
         log.info("checkpoint cleared after full run")
 

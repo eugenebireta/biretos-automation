@@ -46,6 +46,14 @@ try:
 except ImportError:
     _CONFIDENCE_AVAILABLE = False
 
+from card_status import assign_card_status_legacy, build_decision_record_v2_from_legacy_inputs
+from catalog_verifier import build_verifier_shadow_record
+from deterministic_false_positive_controls import (
+    apply_numeric_keep_guard,
+    tighten_public_price_result,
+)
+from no_price_coverage import materialize_no_price_coverage
+
 
 # ── H-lite: deterministic title assembly (no AI) ────────────────────────────────
 
@@ -122,10 +130,6 @@ def canonical_photo_filename(brand: str, pn: str, sha1: str, ext: str = "jpg") -
 
 # ── Card status ──────────────────────────────────────────────────────────────────
 
-_PUBLISHABLE_PRICE = {"public_price", "rfq_only"}
-_BLOCKING_PRICE = {"category_mismatch_only", "brand_mismatch_only"}
-
-
 def assign_card_status(
     photo_verdict: str,
     price_status: str,
@@ -133,38 +137,127 @@ def assign_card_status(
     brand_mismatch: bool = False,
     stock_photo_flag: bool = False,
 ) -> tuple[str, list[str]]:
-    """Assign AUTO_PUBLISH / REVIEW_REQUIRED / DRAFT_ONLY.
-
-    Returns (status, review_reasons[]).
-    """
-    reasons: list[str] = []
-
-    has_good_photo = photo_verdict == "KEEP"
-    has_valid_price = price_status in _PUBLISHABLE_PRICE
-    has_blocking_mismatch = category_mismatch or brand_mismatch
-    has_price_at_all = price_status not in ("no_price_found", "")
-
-    if stock_photo_flag:
-        reasons.append("stock_photo_flag")
-    if category_mismatch:
-        reasons.append("category_mismatch")
-    if brand_mismatch:
-        reasons.append("brand_mismatch")
-
-    if has_good_photo and has_valid_price and not has_blocking_mismatch:
-        return "AUTO_PUBLISH", reasons
-
-    if has_good_photo or (has_valid_price and not has_blocking_mismatch):
-        if has_blocking_mismatch:
-            reasons.append("mismatch_blocks_publish")
-        return "REVIEW_REQUIRED", reasons
-
-    reasons.append("no_photo_and_no_price" if not has_good_photo and not has_price_at_all
-                   else "photo_rejected_or_missing")
-    return "DRAFT_ONLY", reasons
+    """Compatibility wrapper around the current legacy export rules."""
+    return assign_card_status_legacy(
+        photo_verdict=photo_verdict,
+        price_status=price_status,
+        category_mismatch=category_mismatch,
+        brand_mismatch=brand_mismatch,
+        stock_photo_flag=stock_photo_flag,
+    )
 
 
 # ── Evidence bundle ──────────────────────────────────────────────────────────────
+def _negative_marker(marker_class: str, code: str, source_field: str) -> dict:
+    return {
+        "class": marker_class,
+        "code": code,
+        "source_field": source_field,
+    }
+
+
+def _append_negative_marker(bucket: list[dict], marker_class: str, code: str, source_field: str) -> None:
+    marker = _negative_marker(marker_class, code, source_field)
+    if marker not in bucket:
+        bucket.append(marker)
+
+
+def build_negative_evidence_block(
+    *,
+    photo_result: dict,
+    vision_verdict: dict,
+    price_result: dict,
+) -> dict:
+    """Materialize explicit negative evidence markers from deterministic fields."""
+    negative = {
+        "photo": [],
+        "price": [],
+        "identity": [],
+    }
+
+    if bool(photo_result.get("stock_photo_flag")):
+        _append_negative_marker(
+            negative["photo"],
+            "stock_photo",
+            "stock_photo_flag",
+            "photo.stock_photo_flag",
+        )
+
+    for reason_code in vision_verdict.get("numeric_keep_guard_reasons", []) or []:
+        if reason_code:
+            _append_negative_marker(
+                negative["photo"],
+                "numeric_keep_guard",
+                str(reason_code),
+                "photo.numeric_keep_guard_reasons",
+            )
+
+    for reason_code in price_result.get("public_price_rejection_reasons", []) or []:
+        if reason_code:
+            _append_negative_marker(
+                negative["price"],
+                "public_price_rejection",
+                str(reason_code),
+                "price.public_price_rejection_reasons",
+            )
+
+    no_price_reason = str(price_result.get("price_no_price_reason_code", "") or "").strip()
+    if no_price_reason:
+        _append_negative_marker(
+            negative["price"],
+            "no_price_reason",
+            no_price_reason,
+            "price.price_no_price_reason_code",
+        )
+
+    if bool(price_result.get("price_source_surface_conflict_detected")):
+        surface_conflict_reason = str(
+            price_result.get("price_source_surface_conflict_reason_code", "") or ""
+        ).strip() or "source_surface_conflict_detected"
+        _append_negative_marker(
+            negative["price"],
+            "source_surface_conflict",
+            surface_conflict_reason,
+            "price.price_source_surface_conflict_reason_code",
+        )
+
+    if bool(price_result.get("price_source_terminal_weak_lineage")):
+        replacement_reason = str(
+            price_result.get("price_source_replacement_reason_code", "") or ""
+        ).strip() or "terminal_weak_lineage"
+        _append_negative_marker(
+            negative["price"],
+            "terminal_weak_lineage",
+            replacement_reason,
+            "price.price_source_replacement_reason_code",
+        )
+
+    if bool(price_result.get("category_mismatch")):
+        _append_negative_marker(
+            negative["identity"],
+            "identity_mismatch",
+            "category_mismatch",
+            "price.category_mismatch",
+        )
+
+    if bool(price_result.get("brand_mismatch")):
+        _append_negative_marker(
+            negative["identity"],
+            "identity_mismatch",
+            "brand_mismatch",
+            "price.brand_mismatch",
+        )
+
+    if bool(price_result.get("suffix_conflict")):
+        _append_negative_marker(
+            negative["identity"],
+            "suffix_conflict",
+            "suffix_conflict",
+            "price.suffix_conflict",
+        )
+
+    return negative
+
 
 def build_evidence_bundle(
     pn: str,
@@ -186,15 +279,24 @@ def build_evidence_bundle(
     Computes overall_card_confidence via confidence.py when available.
     Assembles assembled_title via H-lite title formula.
     """
-    photo_verdict = vision_verdict.get("verdict", "NO_PHOTO")
-    price_status = price_result.get("price_status", "no_price_found")
+    guarded_price_result = materialize_no_price_coverage(
+        tighten_public_price_result(price_result)
+    )
+    guarded_vision_verdict = apply_numeric_keep_guard(
+        pn=pn,
+        photo_result=photo_result,
+        vision_verdict=vision_verdict,
+        price_result=guarded_price_result,
+    )
+    photo_verdict = guarded_vision_verdict.get("verdict", "NO_PHOTO")
+    price_status = guarded_price_result.get("price_status", "no_price_found")
     sha1 = photo_result.get("sha1", "")
 
     card_status, review_reasons = assign_card_status(
         photo_verdict=photo_verdict,
         price_status=price_status,
-        category_mismatch=bool(price_result.get("category_mismatch")),
-        brand_mismatch=bool(price_result.get("brand_mismatch")),
+        category_mismatch=bool(guarded_price_result.get("category_mismatch")),
+        brand_mismatch=bool(guarded_price_result.get("brand_mismatch")),
         stock_photo_flag=bool(photo_result.get("stock_photo_flag")),
     )
 
@@ -208,6 +310,23 @@ def build_evidence_bundle(
         subbrand=subbrand,
         category=expected_category,
         specs=photo_result.get("specs"),
+    )
+    decision_record_v2 = build_decision_record_v2_from_legacy_inputs(
+        pn=pn,
+        name=name,
+        assembled_title=assembled_title,
+        photo_result={
+            **photo_result,
+            "numeric_keep_guard_applied": bool(guarded_vision_verdict.get("numeric_keep_guard_applied")),
+        },
+        vision_verdict=guarded_vision_verdict,
+        price_result=guarded_price_result,
+        datasheet_result=datasheet_result,
+    )
+    negative_evidence = build_negative_evidence_block(
+        photo_result=photo_result,
+        vision_verdict=guarded_vision_verdict,
+        price_result=guarded_price_result,
     )
 
     # Confidence computation
@@ -242,8 +361,8 @@ def build_evidence_bundle(
             pn_match_confidence=pn_conf_norm,
             price_status=price_status,
             unit_basis=price_result.get("offer_unit_basis", "unknown"),
-            brand_mismatch=bool(price_result.get("brand_mismatch")),
-            category_mismatch=bool(price_result.get("category_mismatch")),
+            brand_mismatch=bool(guarded_price_result.get("brand_mismatch")),
+            category_mismatch=bool(guarded_price_result.get("category_mismatch")),
         )
         cc = compute_card_confidence(
             pn_confidence=pn_c,
@@ -262,7 +381,7 @@ def build_evidence_bundle(
             "notes": cc.notes,
         }
 
-    return {
+    bundle = {
         "schema_version": "1.2",
         "generated_at": run_ts,
         "pn": pn,
@@ -276,11 +395,19 @@ def build_evidence_bundle(
 
         "card_status": card_status,
         "review_reasons": review_reasons,
+        "policy_decision_v2": decision_record_v2,
+        "field_statuses_v2": {
+            "title_status": decision_record_v2["title_status"],
+            "image_status": decision_record_v2["image_status"],
+            "price_status": decision_record_v2["price_status"],
+            "pdf_status": decision_record_v2["pdf_status"],
+        },
+        "review_reasons_v2": decision_record_v2["review_reasons"],
         "confidence": confidence_block,
 
         "photo": {
             "verdict": photo_verdict,
-            "verdict_reason": vision_verdict.get("reason", ""),
+            "verdict_reason": guarded_vision_verdict.get("reason", ""),
             "path": photo_result.get("path", ""),
             "sha1": sha1,
             "canonical_filename": canon_fn,
@@ -292,34 +419,105 @@ def build_evidence_bundle(
             "phash": photo_result.get("phash", ""),
             "stock_photo_flag": bool(photo_result.get("stock_photo_flag")),
             "mpn_confirmed_via_jsonld": bool(photo_result.get("mpn_confirmed")),
+            "numeric_keep_guard_applied": bool(guarded_vision_verdict.get("numeric_keep_guard_applied")),
+            "numeric_keep_guard_reasons": list(guarded_vision_verdict.get("numeric_keep_guard_reasons", [])),
         },
 
         "price": {
             "price_status": price_status,
-            "price_per_unit": price_result.get("price_usd"),
-            "currency": price_result.get("currency"),
-            "rub_price": price_result.get("rub_price"),
-            "fx_rate_used": price_result.get("fx_rate_used"),
-            "fx_provider": price_result.get("fx_provider"),
-            "price_confidence": price_result.get("price_confidence", 0),
-            "source_url": price_result.get("source_url"),
-            "source_type": price_result.get("source_type"),
-            "source_tier": price_result.get("source_tier"),
-            "stock_status": price_result.get("stock_status", "unknown"),
-            "offer_unit_basis": price_result.get("offer_unit_basis", "unknown"),
-            "offer_qty": price_result.get("offer_qty"),
-            "lead_time_detected": bool(price_result.get("lead_time_detected")),
-            "suffix_conflict": bool(price_result.get("suffix_conflict")),
-            "category_mismatch": bool(price_result.get("category_mismatch")),
-            "page_product_class": price_result.get("page_product_class", ""),
-            "brand_mismatch": bool(price_result.get("brand_mismatch")),
-            "price_median_clean": price_result.get("price_median_clean"),
-            "price_min_clean": price_result.get("price_min_clean"),
-            "price_max_clean": price_result.get("price_max_clean"),
-            "price_sample_size": price_result.get("price_sample_size", 1),
+            "price_per_unit": guarded_price_result.get("price_usd"),
+            "currency": guarded_price_result.get("currency"),
+            "rub_price": guarded_price_result.get("rub_price"),
+            "fx_rate_used": guarded_price_result.get("fx_rate_used"),
+            "fx_provider": guarded_price_result.get("fx_provider"),
+            "price_confidence": guarded_price_result.get("price_confidence", 0),
+            "source_url": guarded_price_result.get("source_url"),
+            "source_type": guarded_price_result.get("source_type"),
+            "source_tier": guarded_price_result.get("source_tier"),
+            "source_engine": guarded_price_result.get("source_engine", ""),
+            "stock_status": guarded_price_result.get("stock_status", "unknown"),
+            "offer_unit_basis": guarded_price_result.get("offer_unit_basis", "unknown"),
+            "offer_qty": guarded_price_result.get("offer_qty"),
+            "lead_time_detected": bool(guarded_price_result.get("lead_time_detected")),
+            "quote_cta_url": guarded_price_result.get("quote_cta_url"),
+            "suffix_conflict": bool(guarded_price_result.get("suffix_conflict")),
+            "category_mismatch": bool(guarded_price_result.get("category_mismatch")),
+            "page_product_class": guarded_price_result.get("page_product_class", ""),
+            "brand_mismatch": bool(guarded_price_result.get("brand_mismatch")),
+            "price_median_clean": guarded_price_result.get("price_median_clean"),
+            "price_min_clean": guarded_price_result.get("price_min_clean"),
+            "price_max_clean": guarded_price_result.get("price_max_clean"),
+            "price_sample_size": guarded_price_result.get("price_sample_size", 1),
+            "pn_exact_confirmed": bool(guarded_price_result.get("pn_exact_confirmed")),
+            "page_context_clean": bool(guarded_price_result.get("page_context_clean", True)),
+            "price_source_seen": bool(guarded_price_result.get("price_source_seen")),
+            "price_source_url": guarded_price_result.get("price_source_url"),
+            "price_source_domain": guarded_price_result.get("price_source_domain", ""),
+            "price_source_type": guarded_price_result.get("price_source_type", ""),
+            "price_source_tier": guarded_price_result.get("price_source_tier", ""),
+            "price_source_engine": guarded_price_result.get("price_source_engine", ""),
+            "price_source_lineage_confirmed": bool(guarded_price_result.get("price_source_lineage_confirmed")),
+            "price_source_exact_title_pn_match": bool(guarded_price_result.get("price_source_exact_title_pn_match")),
+            "price_source_exact_h1_pn_match": bool(guarded_price_result.get("price_source_exact_h1_pn_match")),
+            "price_source_exact_jsonld_pn_match": bool(guarded_price_result.get("price_source_exact_jsonld_pn_match")),
+            "price_source_exact_product_context_match": bool(guarded_price_result.get("price_source_exact_product_context_match")),
+            "price_source_structured_match_location": guarded_price_result.get("price_source_structured_match_location", ""),
+            "price_source_clean_product_page": bool(guarded_price_result.get("price_source_clean_product_page")),
+            "price_source_exact_product_lineage_confirmed": bool(guarded_price_result.get("price_source_exact_product_lineage_confirmed")),
+            "price_source_lineage_reason_code": guarded_price_result.get("price_source_lineage_reason_code", ""),
+            "price_lineage_schema_version": guarded_price_result.get("price_lineage_schema_version", ""),
+            "price_source_replacement_candidate_found": bool(guarded_price_result.get("price_source_replacement_candidate_found")),
+            "price_source_replacement_url": guarded_price_result.get("price_source_replacement_url", ""),
+            "price_source_replacement_domain": guarded_price_result.get("price_source_replacement_domain", ""),
+            "price_source_replacement_tier": guarded_price_result.get("price_source_replacement_tier", ""),
+            "price_source_replacement_engine": guarded_price_result.get("price_source_replacement_engine", ""),
+            "price_source_replacement_exact_lineage_confirmed": bool(guarded_price_result.get("price_source_replacement_exact_lineage_confirmed")),
+            "price_source_replacement_match_location": guarded_price_result.get("price_source_replacement_match_location", ""),
+            "price_source_admissible_replacement_confirmed": bool(guarded_price_result.get("price_source_admissible_replacement_confirmed")),
+            "price_source_terminal_weak_lineage": bool(guarded_price_result.get("price_source_terminal_weak_lineage")),
+            "price_source_replacement_reason_code": guarded_price_result.get("price_source_replacement_reason_code", ""),
+            "price_source_replacement_schema_version": guarded_price_result.get("price_source_replacement_schema_version", ""),
+            "price_source_surface_stable": bool(guarded_price_result.get("price_source_surface_stable")),
+            "price_source_surface_seen_current_run": bool(guarded_price_result.get("price_source_surface_seen_current_run")),
+            "price_source_surface_preserved_from_prior_run": bool(guarded_price_result.get("price_source_surface_preserved_from_prior_run")),
+            "price_source_surface_drop_detected": bool(guarded_price_result.get("price_source_surface_drop_detected")),
+            "price_source_surface_conflict_detected": bool(guarded_price_result.get("price_source_surface_conflict_detected")),
+            "price_source_surface_preservation_reason_code": guarded_price_result.get("price_source_surface_preservation_reason_code", ""),
+            "price_source_surface_drop_reason_code": guarded_price_result.get("price_source_surface_drop_reason_code", ""),
+            "price_source_surface_conflict_reason_code": guarded_price_result.get("price_source_surface_conflict_reason_code", ""),
+            "price_source_surface_preserved_source_run_id": guarded_price_result.get("price_source_surface_preserved_source_run_id", ""),
+            "price_source_surface_preserved_bundle_ref": guarded_price_result.get("price_source_surface_preserved_bundle_ref", ""),
+            "price_source_surface_stability_schema_version": guarded_price_result.get("price_source_surface_stability_schema_version", ""),
+            "price_exact_product_page": bool(guarded_price_result.get("price_exact_product_page")),
+            "price_page_context_clean": bool(guarded_price_result.get("price_page_context_clean", True)),
+            "price_quote_required": bool(guarded_price_result.get("price_quote_required")),
+            "price_rfq_only": bool(guarded_price_result.get("price_rfq_only")),
+            "price_no_price_reason_code": guarded_price_result.get("price_no_price_reason_code", ""),
+            "price_reviewable_no_price_candidate": bool(guarded_price_result.get("price_reviewable_no_price_candidate")),
+            "price_source_observed_only": bool(guarded_price_result.get("price_source_observed_only")),
+            "no_price_coverage_schema_version": guarded_price_result.get("no_price_coverage_schema_version", ""),
+            "public_price_rejection_reasons": list(guarded_price_result.get("public_price_rejection_reasons", [])),
+            "cache_fallback_used": bool(guarded_price_result.get("cache_fallback_used")),
+            "cache_fallback_reason": guarded_price_result.get("cache_fallback_reason", ""),
+            "cache_schema_version": guarded_price_result.get("cache_schema_version", ""),
+            "cache_policy_version": guarded_price_result.get("cache_policy_version", ""),
+            "cache_source_run_id": guarded_price_result.get("cache_source_run_id", ""),
+            "cache_bundle_ref": guarded_price_result.get("cache_bundle_ref", ""),
+            "transient_failure_detected": bool(guarded_price_result.get("transient_failure_detected")),
+            "transient_failure_codes": list(guarded_price_result.get("transient_failure_codes", [])),
         },
 
         "datasheet": datasheet_result,
+
+        "structured_identity": {
+            "exact_jsonld_pn_match": bool(photo_result.get("exact_jsonld_pn_match")),
+            "exact_title_pn_match": bool(photo_result.get("exact_title_pn_match")),
+            "exact_h1_pn_match": bool(photo_result.get("exact_h1_pn_match")),
+            "exact_product_context_pn_match": bool(photo_result.get("exact_product_context_pn_match")),
+            "exact_structured_pn_match": bool(photo_result.get("exact_structured_pn_match")),
+            "structured_pn_match_location": photo_result.get("structured_pn_match_location", ""),
+        },
+        "negative_evidence": negative_evidence,
 
         "content": {
             "specs": photo_result.get("specs") or {},
@@ -334,8 +532,68 @@ def build_evidence_bundle(
             "brand_cooccurrence": bool(photo_result.get("brand_cooccurrence", True)),
             "jsonld_hit": bool(photo_result.get("mpn_confirmed")),
             "source_trust_weight": photo_result.get("source_trust_weight"),
+            "structured_pn_match_location": photo_result.get("structured_pn_match_location", ""),
+            "exact_structured_pn_match": bool(photo_result.get("exact_structured_pn_match")),
+            "exact_jsonld_pn_match": bool(photo_result.get("exact_jsonld_pn_match")),
+            "exact_title_pn_match": bool(photo_result.get("exact_title_pn_match")),
+            "exact_h1_pn_match": bool(photo_result.get("exact_h1_pn_match")),
+            "exact_product_context_pn_match": bool(photo_result.get("exact_product_context_pn_match")),
+            "price_source_seen": bool(guarded_price_result.get("price_source_seen")),
+            "price_source_lineage_confirmed": bool(guarded_price_result.get("price_source_lineage_confirmed")),
+            "price_source_exact_product_lineage_confirmed": bool(guarded_price_result.get("price_source_exact_product_lineage_confirmed")),
+            "price_source_lineage_reason_code": guarded_price_result.get("price_source_lineage_reason_code", ""),
+            "price_source_admissible_replacement_confirmed": bool(guarded_price_result.get("price_source_admissible_replacement_confirmed")),
+            "price_source_terminal_weak_lineage": bool(guarded_price_result.get("price_source_terminal_weak_lineage")),
+            "price_source_replacement_reason_code": guarded_price_result.get("price_source_replacement_reason_code", ""),
+            "price_source_surface_stable": bool(guarded_price_result.get("price_source_surface_stable")),
+            "price_source_surface_preserved_from_prior_run": bool(guarded_price_result.get("price_source_surface_preserved_from_prior_run")),
+            "price_source_surface_drop_detected": bool(guarded_price_result.get("price_source_surface_drop_detected")),
+            "price_source_surface_conflict_detected": bool(guarded_price_result.get("price_source_surface_conflict_detected")),
+            "price_source_surface_preservation_reason_code": guarded_price_result.get("price_source_surface_preservation_reason_code", ""),
+            "price_source_surface_drop_reason_code": guarded_price_result.get("price_source_surface_drop_reason_code", ""),
+            "price_source_surface_conflict_reason_code": guarded_price_result.get("price_source_surface_conflict_reason_code", ""),
+            "price_exact_product_page": bool(guarded_price_result.get("price_exact_product_page")),
+            "price_reviewable_no_price_candidate": bool(guarded_price_result.get("price_reviewable_no_price_candidate")),
+            "price_no_price_reason_code": guarded_price_result.get("price_no_price_reason_code", ""),
         },
     }
+    try:
+        bundle["verifier_shadow"] = build_verifier_shadow_record(bundle)
+    except Exception as exc:  # noqa: BLE001
+        bundle["verifier_shadow"] = {
+            "schema_version": "catalog_verifier_shadow_record_v1",
+            "policy_version": "catalog_verifier_policy_v1",
+            "mode": "shadow",
+            "feature_enabled": False,
+            "trace_id": f"catalog_verifier:{pn}:{run_ts}",
+            "idempotency_key": "",
+            "router": {
+                "should_route": False,
+                "trigger_codes": [],
+                "deterministic_card_status": decision_record_v2["card_status"],
+                "deterministic_identity_level": decision_record_v2["identity_level"],
+            },
+            "decision_merger": {
+                "final_decision_source": "deterministic_policy",
+                "decision_effect": "none",
+                "allow_auto_publish_unlock": False,
+                "allow_verifier_override": False,
+                "owner_approval_required_for_influence": True,
+                "effective_card_status": decision_record_v2["card_status"],
+            },
+            "packet": None,
+            "response": None,
+            "usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "reasoning_tokens": 0,
+                "estimated_cost_usd": 0.0,
+            },
+            "call_state": "shadow_error",
+            "error": str(exc),
+            "openai_request_id": "",
+        }
+    return bundle
 
 
 # ── Write helpers ────────────────────────────────────────────────────────────────

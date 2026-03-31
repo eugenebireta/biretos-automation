@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "schema_version": "candidate_sidecar_schema_v1",
+  "title": "Candidate Sidecar Row",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_manifest_id",
+    "bundle_ref",
+    "decision_ref",
+    "pn_primary",
+    "candidate_id",
+    "field_type",
+    "source_role",
+    "publishable_candidate"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "run_manifest_id": {
+      "type": "string"
+    },
+    "bundle_ref": {
+      "type": "string"
+    },
+    "decision_ref": {
+      "type": "string"
+    },
+    "pn_primary": {
+      "type": "string",
+      "description": "Canonical identity-anchor key for the sidecar row."
+    },
+    "pn": {
+      "type": "string",
+      "description": "Legacy alias of pn_primary for compatibility during migration."
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "field_type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "price",
+        "pdf",
+        "title",
+        "description"
+      ]
+    },
+    "source_role": {
+      "type": "string"
+    },
+    "publishable_candidate": {
+      "type": "boolean"
+    },
+    "rejection_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "source_domain": {
+      "type": "string"
+    },
+    "dedupe_key": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

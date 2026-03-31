@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T19:14:05.092523Z",
+  "pn": "129464N/U",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Миниатюрная трубка Honeywell Mini Peeper 129464N/U",
+  "assembled_title": "Трубка Honeywell 129464N/U",
+  "our_price_raw": "1997,60",
+  "expected_category": "Трубка",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "category_mismatch",
+    "mismatch_blocks_publish"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_129464N/U",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_129464N/U"
+        ],
+        "evidence_ids": [
+          "ev_title_129464N/U"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "CRITICAL_MISMATCH",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_price_129464N/U"
+        ],
+        "evidence_ids": [
+          "ev_price_129464N/U"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_129464N/U"
+        ],
+        "evidence_ids": [
+          "ev_image_129464N/U"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_129464N/U"
+        ],
+        "evidence_ids": [
+          "ev_price_129464N/U"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_129464N/U"
+        ],
+        "evidence_ids": [
+          "ev_pdf_129464N/U"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-10"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_129464N/U"
+      ],
+      "evidence_ids": [
+        "ev_title_129464N/U"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "CRITICAL_MISMATCH",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_price_129464N/U"
+      ],
+      "evidence_ids": [
+        "ev_price_129464N/U"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_129464N/U"
+      ],
+      "evidence_ids": [
+        "ev_image_129464N/U"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_129464N/U"
+      ],
+      "evidence_ids": [
+        "ev_price_129464N/U"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_129464N/U"
+      ],
+      "evidence_ids": [
+        "ev_pdf_129464N/U"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.1,
+    "overall": 0.02,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "На изображении видна миниатюрная трубка Honeywell/Beckett 129464N, товар угадывается",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\129464N_U.jpg",
+    "sha1": "bfe962be5ec36e10525be9051297042645ceeacc",
+    "canonical_filename": "HONEYWELL_129464N_U_bfe962be.jpg",
+    "public_url": null,
+    "width": 1032,
+    "height": 806,
+    "size_kb": 117,
+    "source": "cached",
+    "phash": "a68d8f238d99278d",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "category_mismatch_only",
+    "price_per_unit": 567.8,
+    "currency": "USD",
+    "rub_price": 49966.4,
+    "fx_rate_used": 88.0,
+    "fx_provider": "stub",
+    "price_confidence": 100,
+    "source_url": "https://www.ulcontrols.com/shop/burner-and-combustion-controls/honeywell-burner-and-combustion-controls/flame-sensors/honeywell-129464n-u-uv-power-tube-40-to-250f-for-c7035-c7061/",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "stock_status": "unknown",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": true,
+    "page_product_class": "Flame Sensors",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://www.honeywell.com.cn/content/dam/honcn/documents/thermal-solutions/callidus-environmental-combustion-technology/Combustion%20Catalog%20-%20ENG.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "Honeywell Thermal Solutions",
+    "pdf_specs": {
+      "reliably": "How do you differentiate genuine Honeywell remanufactured",
+      "body designators removed": "A rebuilder will often put his own label on",
+      "and the controls for burner and boiler equipment": "Among the most control can be difficult to identify. The only way to be sure you have",
+      "was originally purchased, it met the U.L": "standard in effect at the time. number (e.g., S/N8906Q018R).",
+      "controls": "There are potential safety concerns regarding controls",
+      "repaired by an independent rebuilder": "1. The controls purchased from independent rebuilders may utilize",
+      "specifications required for safety": "2. Honeywell remanufactured controls were upgraded to the latest",
+      "code revisions and engineering specifications": "Independently rebuilt",
+      "controls typically are not": "3. Honeywell new and remanufactured Flame Safeguard controls",
+      "are U.L": "Listed or Component Recognized. Independently rebuilt",
+      "controls are not": "Do not be misled by rebuilders who do not remove",
+      "the original U.L": "or other listing identification when they “repair” the",
+      "control": "4. Since rebuilt controls are not approved by a nationally recognized",
+      "many states and municipalities": "Therefore, equipment with rebuilt",
+      "controls does not meet code in these locations": "This could leave you",
+      "supervise the safe operation of a boiler": "Therefore, safety is involved.",
+      "Flame Safeguard controls": "For replacement purposes, Honeywell for verification and to discuss your options.",
+      "program": "Independent Rebuilders, however, frequently continue to",
+      "your Honeywell sales representative": "repair these controls.",
+      "The products in this catalog are protected by U.S": "and foreign patents. Illustrations and product descriptions published in this catalog are not",
+      "with the product, or contact Honeywell directly": "In keeping with its policy of continued improvement, Honeywell reserves the right to change or",
+      "Product Selection Matrix": "1 Industrial Flame Monitoring",
+      "Signal Processors": "140",
+      "All-in-One Viewing Head and Processor": "143",
+      "Microprocessor Burner Controls": "50",
+      "Viewing Heads": "144",
+      "GHE Igniter System": "146",
+      "SOLA Controllers": "51",
+      "Flame Tools": "147",
+      "ControLinks Fuel Air Control System": "55",
+      "IFM Accessories": "148",
+      "Network Interface Communications": "59",
+      "Fiberoptic System": "153",
+      "Flame Amplifiers": "60",
+      "Flame Rods and Flame Rod Holders": "62 Training Materials"
+    },
+    "pdf_text_excerpt": "Honeywell Thermal Solutions COMBUSTION CATALOG 2019 Buying Rebuilts? Proceed with CAUTION We would like to address a subject that is a concern to all of us— Although we no longer remanufacture Flame Safeguard controls, there safety—specifically burner and boiler safety controls. are many Honeywell remanufactured controls still operating safely and reliably. How do you differentiate genuine Honeywell remanufactured As an industry leader in the manufacture of Flame Safeguard controls, controls from independent rebuilt controls? How do you recognize Honeywell feels obligated to inform you of the",
+    "num_pages": 176,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  }
+}

@@ -52,6 +52,14 @@ By default:
 Tool swap never downgrades governance.
 If a required role is external, it remains external regardless of which builder tool is active.
 
+## Verification Rule
+
+- before changing code, define the relevant verification checks
+- when current behavior matters, capture a baseline first
+- after changes, rerun the same checks
+- do not treat the task as complete while relevant checks are failing
+- if automated checks do not exist, explicitly state the validation gap and what manual evidence was used
+
 ## Risk Rules
 
 ### LOW

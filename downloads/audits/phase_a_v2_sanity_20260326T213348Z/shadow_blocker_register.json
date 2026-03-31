@@ -1,0 +1,92 @@
+{
+  "schema_version": "shadow_blocker_register_v1",
+  "run_id": "phase_a_v2_sanity_20260326T213348Z",
+  "strongest_blocker": {
+    "category": "still_blocked_for_broader_run",
+    "severity": "CRITICAL",
+    "fixable_in_scope": false,
+    "why": "False public-price signals remain in the sanity slice."
+  },
+  "blocker_counts": {
+    "contradiction_in_evidence": 4,
+    "cost_visibility_problem": 8,
+    "deterministic_vs_verifier_disagreement": 8,
+    "policy_too_strict_candidate": 8,
+    "runtime_budget_problem": 9,
+    "source_quality_problem": 2,
+    "upstream_missing_signal": 9
+  },
+  "blocker_examples": [
+    {
+      "pn_primary": "00020211",
+      "review_priority": "P1",
+      "blocker_categories": [
+        "contradiction_in_evidence",
+        "cost_visibility_problem",
+        "deterministic_vs_verifier_disagreement",
+        "policy_too_strict_candidate",
+        "runtime_budget_problem",
+        "source_quality_problem",
+        "upstream_missing_signal"
+      ],
+      "recommended_next_action": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates."
+    },
+    {
+      "pn_primary": "027913.10",
+      "review_priority": "P1",
+      "blocker_categories": [
+        "contradiction_in_evidence",
+        "cost_visibility_problem",
+        "deterministic_vs_verifier_disagreement",
+        "policy_too_strict_candidate",
+        "runtime_budget_problem",
+        "source_quality_problem",
+        "upstream_missing_signal"
+      ],
+      "recommended_next_action": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates."
+    },
+    {
+      "pn_primary": "033588.17",
+      "review_priority": "P1",
+      "blocker_categories": [
+        "contradiction_in_evidence",
+        "cost_visibility_problem",
+        "deterministic_vs_verifier_disagreement",
+        "policy_too_strict_candidate",
+        "runtime_budget_problem",
+        "upstream_missing_signal"
+      ],
+      "recommended_next_action": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates."
+    },
+    {
+      "pn_primary": "1000106",
+      "review_priority": "P1",
+      "blocker_categories": [
+        "contradiction_in_evidence",
+        "cost_visibility_problem",
+        "deterministic_vs_verifier_disagreement",
+        "policy_too_strict_candidate",
+        "runtime_budget_problem",
+        "upstream_missing_signal"
+      ],
+      "recommended_next_action": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates."
+    },
+    {
+      "pn_primary": "010130.10",
+      "review_priority": "P1",
+      "blocker_categories": [
+        "cost_visibility_problem",
+        "deterministic_vs_verifier_disagreement",
+        "policy_too_strict_candidate",
+        "runtime_budget_problem",
+        "upstream_missing_signal"
+      ],
+      "recommended_next_action": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates."
+    }
+  ],
+  "broader_run_blocking_issues": [
+    "False public-price signals remain in the sanity slice.",
+    "Numeric/dotted PN KEEP outcomes still require tighter false-positive controls.",
+    "DRAFT_ONLY share is still high for a broader controlled run."
+  ]
+}

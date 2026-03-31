@@ -1,0 +1,80 @@
+{
+  "schema_version": "catalog_verifier_policy_v1",
+  "policy_version": "catalog_verifier_policy_v1",
+  "shadow_mode_default": true,
+  "primary_model_target": "gpt-5.4",
+  "responses_api_required": true,
+  "feature_flags": {
+    "enabled_env": "CATALOG_VERIFIER_ENABLED",
+    "mode_env": "CATALOG_VERIFIER_MODE",
+    "shadow_only": true
+  },
+  "runtime_defaults": {
+    "model": "gpt-5.4",
+    "reasoning_effort": "high",
+    "allowed_reasoning_efforts": [
+      "medium",
+      "high"
+    ],
+    "timeout_seconds": 45,
+    "max_retries": 2,
+    "store": false,
+    "temperature": 0,
+    "input_cost_per_1m": 2.5,
+    "cached_input_cost_per_1m": 0.25,
+    "output_cost_per_1m": 15.0
+  },
+  "routing_triggers": [
+    {
+      "code": "IDENTITY_NOT_STRONG",
+      "description": "Route when deterministic identity is not strong."
+    },
+    {
+      "code": "PRICE_REVIEW_REQUIRED",
+      "description": "Route when price status is REVIEW_REQUIRED."
+    },
+    {
+      "code": "PDF_REVIEW_REQUIRED",
+      "description": "Route when pdf status is REVIEW_REQUIRED."
+    },
+    {
+      "code": "FAMILY_PHOTO_ONLY",
+      "description": "Route family-photo-only cases."
+    },
+    {
+      "code": "CRITICAL_POLICY_CONFLICT",
+      "description": "Route critical policy conflicts and manual-policy-exception buckets."
+    },
+    {
+      "code": "AMBIGUOUS_EXACTNESS",
+      "description": "Route ambiguous exactness patterns like IMAGE_UNKNOWN or PDF_NOT_EXACT_CONFIRMED."
+    },
+    {
+      "code": "PREPUBLISH_HIGH_VALUE",
+      "description": "Optional explicit high-value pre-publish verification flag."
+    },
+    {
+      "code": "BATCH_AUDIT_SAMPLE",
+      "description": "Optional batch audit sample flag."
+    }
+  ],
+  "decision_merger": {
+    "default_mode": "shadow",
+    "final_decision_source": "deterministic_policy",
+    "allow_verifier_override_in_shadow_mode": false,
+    "allow_verifier_downgrade_without_owner_approval": false,
+    "allow_auto_publish_unlock": false,
+    "allowed_influences": [
+      "audit_log_only",
+      "recommend_review_bucket"
+    ],
+    "owner_approval_required_for_decision_influence": true
+  },
+  "allowed_verdict_family": [
+    "CONFIRM_REVIEW",
+    "CONFIRM_DRAFT",
+    "CONFIRM_AUTOPUBLISH_ELIGIBLE",
+    "ESCALATE_OWNER",
+    "INSUFFICIENT_EVIDENCE"
+  ]
+}

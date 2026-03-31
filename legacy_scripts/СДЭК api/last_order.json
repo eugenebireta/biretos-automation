@@ -1,0 +1,61 @@
+{
+  "entity": {
+    "uuid": "8ec682c8-0aae-4275-bbd4-9751cdfc1c26",
+    "number": "1036757321",
+    "tariff_code": 136,
+    "shipment_point": "CHEL172",
+    "recipient": {
+      "company": "ИП Бирета",
+      "name": "Евгений",
+      "tin": "744715563839",
+      "email": "test@example.com",
+      "phones": [
+        {
+          "number": "+79222381976"
+        }
+      ]
+    },
+    "to_location": {
+      "address": "Россия, г Челябинск, Челябинская обл."
+    },
+    "packages": [
+      {
+        "number": "1",
+        "weight": 100,
+        "length": 70,
+        "width": 60,
+        "height": 30,
+        "items": [
+          {
+            "name": "Коробка гидравлическая АНТ-370",
+            "ware_key": "500939154",
+            "payment": {
+              "value": 0
+            },
+            "weight": 100,
+            "amount": 1,
+            "cost": 105000
+          }
+        ]
+      }
+    ],
+    "statuses": [
+      {
+        "code": "ACCEPTED",
+        "name": "Принят",
+        "date_time": "2025-09-17T10:59:19+0000",
+        "city": "Офис СДЭК",
+        "deleted": false
+      }
+    ]
+  },
+  "requests": [
+    {
+      "request_uuid": "8f546720-9fd6-4350-8571-7c4ce66d3318",
+      "type": "CREATE",
+      "date_time": "2025-09-17T10:59:19+0000",
+      "state": "ACCEPTED"
+    }
+  ],
+  "related_entities": []
+}

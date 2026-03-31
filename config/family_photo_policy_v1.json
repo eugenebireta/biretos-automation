@@ -1,0 +1,26 @@
+{
+  "schema_version": "family_photo_policy_v1",
+  "policy_version": "family_photo_policy_v1",
+  "default_policy": "deny_by_default",
+  "allowlist_ref": "family_photo_whitelist.json",
+  "classification": {
+    "exact_photo": [
+      "pn_in_url",
+      "jsonld_image_and_pn_in_title"
+    ],
+    "family_photo": [
+      "page_is_family",
+      "series_photo_with_allowlist_only"
+    ],
+    "unknown": [
+      "jsonld_image_without_title_confirmation",
+      "insufficient_exact_signals"
+    ]
+  },
+  "publish_rules": {
+    "exact_photo": "can participate in AUTO_PUBLISH",
+    "family_photo": "never AUTO_PUBLISH in Phase A; REVIEW_REQUIRED only if allowlist permits",
+    "unknown": "REVIEW_REQUIRED",
+    "none": "INSUFFICIENT"
+  }
+}
