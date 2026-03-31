@@ -259,6 +259,137 @@ def build_negative_evidence_block(
     return negative
 
 
+_RUN_ID_TS_RE = re.compile(r"(\d{8}T\d{6}Z)")
+
+
+def _run_id_to_iso8601(run_id: str) -> str:
+    match = _RUN_ID_TS_RE.search(str(run_id or "").strip())
+    if not match:
+        return ""
+    raw = match.group(1)
+    return (
+        f"{raw[0:4]}-{raw[4:6]}-{raw[6:8]}"
+        f"T{raw[9:11]}:{raw[11:13]}:{raw[13:15]}Z"
+    )
+
+
+def _has_price_surface_signal(price_result: dict) -> bool:
+    return any(
+        (
+            str(price_result.get("price_status", "") or "").strip() not in {"", "no_price_found"},
+            bool(price_result.get("source_url")),
+            bool(price_result.get("quote_cta_url")),
+            bool(price_result.get("price_source_seen")),
+            bool(price_result.get("price_source_url")),
+            bool(price_result.get("cache_fallback_used")),
+            bool(price_result.get("price_source_surface_preserved_from_prior_run")),
+        )
+    )
+
+
+def infer_price_observation_surface(price_result: dict, run_ts: str) -> dict:
+    explicit = str(price_result.get("price_observed_at", "") or "").strip()
+    if explicit:
+        return {
+            "price_observed_at": explicit,
+            "price_observed_date": explicit[:10],
+            "price_observation_origin": "explicit_field",
+        }
+
+    if bool(price_result.get("cache_fallback_used")):
+        observed_at = _run_id_to_iso8601(price_result.get("cache_source_run_id", ""))
+        return {
+            "price_observed_at": observed_at,
+            "price_observed_date": observed_at[:10] if observed_at else "",
+            "price_observation_origin": "cache_fallback",
+        }
+
+    if bool(price_result.get("price_source_surface_preserved_from_prior_run")):
+        observed_at = _run_id_to_iso8601(
+            price_result.get("price_source_surface_preserved_source_run_id", "")
+        )
+        return {
+            "price_observed_at": observed_at,
+            "price_observed_date": observed_at[:10] if observed_at else "",
+            "price_observation_origin": "preserved_surface",
+        }
+
+    if _has_price_surface_signal(price_result):
+        observed_at = str(run_ts or "").strip()
+        return {
+            "price_observed_at": observed_at,
+            "price_observed_date": observed_at[:10] if observed_at else "",
+            "price_observation_origin": "current_run",
+        }
+
+    return {
+        "price_observed_at": "",
+        "price_observed_date": "",
+        "price_observation_origin": "",
+    }
+
+
+def _extract_url_from_source_ref(value: str) -> str:
+    raw = str(value or "").strip()
+    if raw.startswith(("http://", "https://")):
+        return raw
+    if ":" not in raw:
+        return ""
+    _, candidate = raw.split(":", 1)
+    candidate = candidate.strip()
+    if candidate.startswith(("http://", "https://")):
+        return candidate
+    return ""
+
+
+def _infer_photo_origin_kind(source_ref: str) -> str:
+    raw = str(source_ref or "").strip()
+    if not raw:
+        return ""
+    if raw == "cached":
+        return "cache"
+    if raw == "not_found":
+        return "missing"
+    if raw.startswith("jsonld:"):
+        return "jsonld_page"
+    if raw.startswith("img:"):
+        return "image_search"
+    if raw.startswith(("google:", "yandex:")):
+        return "search_result_page"
+    if raw.startswith(("http://", "https://")):
+        return "page_url"
+    return "opaque_ref"
+
+
+def build_evidence_paths_block(
+    *,
+    photo_result: dict,
+    price_result: dict,
+    raw_price_result: dict,
+    canonical_photo_filename: str | None,
+) -> dict:
+    """Materialize explicit photo-vs-price evidence refs without changing legacy fields."""
+    photo_source_ref = str(photo_result.get("source", "") or "")
+    return {
+        "photo": {
+            "local_artifact_path": photo_result.get("path", ""),
+            "canonical_filename": canonical_photo_filename or "",
+            "public_url": None,
+            "origin_ref": photo_source_ref,
+            "origin_page_url": _extract_url_from_source_ref(photo_source_ref),
+            "origin_kind": _infer_photo_origin_kind(photo_source_ref),
+        },
+        "price": {
+            "observed_page_url": raw_price_result.get("source_url") or price_result.get("source_url") or "",
+            "quote_cta_url": raw_price_result.get("quote_cta_url") or price_result.get("quote_cta_url") or "",
+            "lineage_source_url": raw_price_result.get("price_source_url") or price_result.get("price_source_url") or "",
+            "replacement_url": raw_price_result.get("price_source_replacement_url") or price_result.get("price_source_replacement_url") or "",
+            "cache_bundle_ref": raw_price_result.get("cache_bundle_ref") or price_result.get("cache_bundle_ref") or "",
+            "preserved_surface_bundle_ref": raw_price_result.get("price_source_surface_preserved_bundle_ref") or price_result.get("price_source_surface_preserved_bundle_ref") or "",
+        },
+    }
+
+
 def build_evidence_bundle(
     pn: str,
     name: str,
@@ -327,6 +458,13 @@ def build_evidence_bundle(
         photo_result=photo_result,
         vision_verdict=guarded_vision_verdict,
         price_result=guarded_price_result,
+    )
+    price_observation = infer_price_observation_surface(guarded_price_result, run_ts)
+    evidence_paths = build_evidence_paths_block(
+        photo_result=photo_result,
+        price_result=guarded_price_result,
+        raw_price_result=price_result,
+        canonical_photo_filename=canon_fn,
     )
 
     # Confidence computation
@@ -404,6 +542,7 @@ def build_evidence_bundle(
         },
         "review_reasons_v2": decision_record_v2["review_reasons"],
         "confidence": confidence_block,
+        "evidence_paths": evidence_paths,
 
         "photo": {
             "verdict": photo_verdict,
@@ -431,6 +570,10 @@ def build_evidence_bundle(
             "fx_rate_used": guarded_price_result.get("fx_rate_used"),
             "fx_provider": guarded_price_result.get("fx_provider"),
             "price_confidence": guarded_price_result.get("price_confidence", 0),
+            "price_observed_at": price_observation["price_observed_at"],
+            "price_observed_date": price_observation["price_observed_date"],
+            "price_date": price_observation["price_observed_date"],
+            "price_observation_origin": price_observation["price_observation_origin"],
             "source_url": guarded_price_result.get("source_url"),
             "source_type": guarded_price_result.get("source_type"),
             "source_tier": guarded_price_result.get("source_tier"),
@@ -552,6 +695,10 @@ def build_evidence_bundle(
             "price_source_surface_preservation_reason_code": guarded_price_result.get("price_source_surface_preservation_reason_code", ""),
             "price_source_surface_drop_reason_code": guarded_price_result.get("price_source_surface_drop_reason_code", ""),
             "price_source_surface_conflict_reason_code": guarded_price_result.get("price_source_surface_conflict_reason_code", ""),
+            "price_observed_at": price_observation["price_observed_at"],
+            "price_observed_date": price_observation["price_observed_date"],
+            "price_date": price_observation["price_observed_date"],
+            "price_observation_origin": price_observation["price_observation_origin"],
             "price_exact_product_page": bool(guarded_price_result.get("price_exact_product_page")),
             "price_reviewable_no_price_candidate": bool(guarded_price_result.get("price_reviewable_no_price_candidate")),
             "price_no_price_reason_code": guarded_price_result.get("price_no_price_reason_code", ""),

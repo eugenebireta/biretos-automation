@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 32
-transition_ts: "2026-03-31T08:30:00Z"
+transition_seq: 33
+transition_ts: "2026-03-31T10:15:00Z"
 
 ## Current
-active_task: "R1 Enrichment - Disposition Gap Closure"
-task_id: "R1-disposition-gap-closure-next"
+active_task: "R1 Enrichment - Price-Only Scout Pilot"
+task_id: "R1-price-only-scout-pilot"
 phase: SCOUT
 status: ACTIVE
 phase_owner: "Owner/Maksim"
@@ -15,22 +15,20 @@ pipeline: [SCOUT, BUILDER, AUDITOR]
 pr_url: null
 pr_branch: null
 now:
-  - step: "1. Proof Batch Closeout"
+  - step: "1. N1/N2 Closeout"
     actions:
-      - "Disposition gap closure proven on SKU 1006186, 1011994, 104011, and 1012541"
-      - "Blocked no-price family fully closed; proof batch complete with 368 tests pass"
-      - "Completed NOW track recorded; active task advances to the NEXT implementation queue"
-    exit: "NEXT track activated for bounded post-proof work"
+      - "Provider adapter seam landed: call_gpt() and search provider now run behind injectable adapters"
+      - "Evidence schema hardening landed: negative_evidence, explicit price_date alias, and split evidence_paths for photo vs price"
+      - "Targeted provider-runtime and evidence-bundle regression suite passes without API tokens"
+    exit: "N3 scout pilot is the remaining bounded next work item"
 next:
-  - "N1: Provider adapter seam (wrap call_gpt() in interface)"
-  - "N2: Evidence schema hardening (negative evidence, price_date, price/photo split)"
   - "N3: Price-only scout pilot (20-30 SKU, one brand)"
-TODO later: "Execute N2 after N1 seam lands; run N3 only after hardened evidence schema is in place"
+TODO later: "Run N3 with explicit success gates; hold broader provider expansion and TTL work until scout pilot evidence is in hand"
 todo_later_items:
-  - "Provider adapter seam (обернуть call_gpt() в interface)"
-  - "Evidence schema hardening adds negative evidence, price_date, and price/photo split"
-  - "Price-only scout pilot (20-30 SKU, один бренд, success gates определены заранее)"
-awaiting: "execution start on N1 provider adapter seam, then sequential handoff to N2 schema hardening and N3 scout pilot"
+  - "Price-only scout pilot stays bounded to one brand and 20-30 SKU with explicit success gates"
+  - "Provider expansion beyond the current adapters stays parked until the pilot proves the seam is sufficient"
+  - "TTL decay and further evidence lifecycle policy remain follow-up work after the pilot"
+awaiting: "execution start on N3 price-only scout pilot"
 
 ## Task 7 Closeout
 task_7_status: MERGED
@@ -42,7 +40,7 @@ task_7_ci: "SUCCESS (321 tests)"
 task_7_judge_verdict: "MERGE_APPROVED (JUDGE verdict 2026-03-23)"
 
 ## Integrity
-integrity_hash: "sha256:56dd95531768d5fc54f435ed1d02320403957f247e22b182584c2cb14719674d"
+integrity_hash: "sha256:17f632e5e0f091768ac0306cb3bed09209a0849c98eec50c36e4968964bed527"
 
 ## Evidence
 last_phase_output_hash: null
@@ -134,6 +132,12 @@ history:
     ts: "2026-03-31T08:30:00Z"
     actor: "Owner/Codex"
     note: "Proof batch closed on 1006186, 1011994, 104011, and 1012541 with 368 tests pass. NEXT queue set to N1 provider adapter seam, N2 evidence schema hardening, and N3 price-only scout pilot."
+  - seq: 33
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T10:15:00Z"
+    actor: "Owner/Codex"
+    note: "N1 provider adapter seam and N2 evidence schema hardening confirmed in code: injectable chat/search adapters, negative_evidence, explicit price_date alias, and split evidence_paths. Advancing to N3 price-only scout pilot."
 
 ## Task 5.1 Closeout (2026-03-20)
 task_5_1_status: CLOSED

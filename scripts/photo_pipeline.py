@@ -178,6 +178,13 @@ class ChatCompletionAdapter(Protocol):
         ...
 
 
+class SearchProviderAdapter(Protocol):
+    """Minimal search-provider contract for SerpAPI-safe injection."""
+
+    def search(self, *, params: dict[str, Any]) -> dict[str, Any]:
+        ...
+
+
 def get_openai_client() -> OpenAI:
     """Resolve the OpenAI client lazily so import-time does not require API keys."""
     global client
@@ -205,7 +212,21 @@ class OpenAIChatCompletionsAdapter:
         return response.choices[0].message.content or ""
 
 
+class SerpAPISearchAdapter:
+    """Default search adapter backed by SerpAPI GoogleSearch."""
+
+    def __init__(self, search_factory: Callable[[dict[str, Any]], Any] | None = None):
+        self._search_factory = search_factory
+
+    def search(self, *, params: dict[str, Any]) -> dict[str, Any]:
+        search_factory = self._search_factory or GoogleSearch
+        resolved_params = dict(params)
+        resolved_params["api_key"] = resolved_params.get("api_key") or get_serpapi_key()
+        return search_factory(resolved_params).get_dict()
+
+
 chat_completion_adapter: ChatCompletionAdapter = OpenAIChatCompletionsAdapter()
+search_provider_adapter: SearchProviderAdapter = SerpAPISearchAdapter()
 
 
 def set_chat_completion_adapter(adapter: ChatCompletionAdapter) -> None:
@@ -218,12 +239,31 @@ def reset_chat_completion_adapter() -> None:
     chat_completion_adapter = OpenAIChatCompletionsAdapter()
 
 
+def set_search_provider_adapter(adapter: SearchProviderAdapter) -> None:
+    global search_provider_adapter
+    search_provider_adapter = adapter
+
+
+def reset_search_provider_adapter() -> None:
+    global search_provider_adapter
+    search_provider_adapter = SerpAPISearchAdapter()
+
+
 def get_serpapi_key() -> str:
     """Resolve SerpAPI key lazily so local deterministic work can run without it."""
     key = str(serpapi_key or os.getenv("SERPAPI_KEY", "")).strip()
     if not key:
         raise RuntimeError("SERPAPI_KEY is not configured")
     return key
+
+
+def run_search_query(
+    params: dict[str, Any],
+    *,
+    adapter: SearchProviderAdapter | None = None,
+) -> dict[str, Any]:
+    """Execute a search-provider request with runtime-only SerpAPI key resolution."""
+    return (adapter or search_provider_adapter).search(params=dict(params))
 
 # ── Шаблоны поисковых запросов (Google Dorks) ──────────────────────────────────
 Q_GOOGLE_ORGANIC = 'intitle:"{pn}" "{brand}"'
@@ -812,8 +852,7 @@ def step1_find_and_download(pn: str, ru_name: str, artifact_cache: dict) -> dict
     for attempt in web_attempts:
         engine = attempt["engine"]
         try:
-            params = {**attempt, "api_key": get_serpapi_key()}
-            results = GoogleSearch(params).get_dict().get("organic_results", [])
+            results = run_search_query(attempt).get("organic_results", [])
             time.sleep(DELAY)
             for res in results:
                 page_url = res.get("link", "")
@@ -854,11 +893,10 @@ def step1_find_and_download(pn: str, ru_name: str, artifact_cache: dict) -> dict
 
     # Fallback: Google Images
     try:
-        params = {
+        imgs = run_search_query({
             "engine": "google_images", "q": queries["google_images"],
             "num": 10, "safe": "active", "api_key": get_serpapi_key(),
-        }
-        imgs = GoogleSearch(params).get_dict().get("images_results", [])
+        }).get("images_results", [])
         time.sleep(DELAY)
         for img in imgs:
             orig = img.get("original", "")
@@ -923,8 +961,7 @@ def step2_us_price(pn: str, ru_name: str) -> list[dict]:
     for attempt in search_attempts:
         label = attempt.pop("label")
         try:
-            params = {**attempt, "api_key": get_serpapi_key()}
-            results = GoogleSearch(params).get_dict().get("organic_results", [])
+            results = run_search_query(attempt).get("organic_results", [])
             time.sleep(DELAY)
             for res in results:
                 url = res.get("link", "")
@@ -1566,7 +1603,7 @@ def run(
         ds_result: dict = {"datasheet_status": "skipped"}
         if datasheets:
             from datasheet_pipeline import find_datasheet
-            ds_result = find_datasheet(pn, BRAND, serpapi_key)
+            ds_result = find_datasheet(pn, BRAND, get_serpapi_key())
 
         # ── Brand co-occurrence check ──────────────────────────────────────────
         page_text_for_cooc = dl.get("description") or ""

@@ -54,6 +54,52 @@ class TestExportBundleV2:
         assert bundle["structured_identity"]["exact_structured_pn_match"] is False
         assert bundle["verifier_shadow"]["schema_version"] == "catalog_verifier_shadow_record_v1"
         assert bundle["verifier_shadow"]["decision_merger"]["decision_effect"] == "none"
+        assert bundle["price"]["price_observed_at"] == "2026-03-26T00:00:00Z"
+        assert bundle["price"]["price_observed_date"] == "2026-03-26"
+        assert bundle["price"]["price_date"] == "2026-03-26"
+        assert bundle["price"]["price_observation_origin"] == "current_run"
+        assert bundle["evidence_paths"]["photo"]["local_artifact_path"] == "downloads/photos/00020211.jpg"
+        assert bundle["evidence_paths"]["price"]["observed_page_url"] == "https://example.com/price"
+
+    def test_bundle_materializes_split_photo_and_price_evidence_paths(self):
+        bundle = build_evidence_bundle(
+            pn="00020211",
+            name="Temperature Sensor",
+            brand="Honeywell",
+            photo_result={
+                "path": "downloads/photos/00020211.jpg",
+                "sha1": "abc12345def67890",
+                "source": "jsonld:https://example.com/product/00020211",
+            },
+            vision_verdict={"verdict": "KEEP", "reason": "ok"},
+            price_result={
+                "price_status": "no_price_found",
+                "source_url": "https://example.com/offer/00020211",
+                "quote_cta_url": "https://example.com/quote/00020211",
+                "price_source_url": "https://example.com/product/00020211",
+                "price_source_replacement_url": "https://official.example.com/product/00020211",
+                "cache_bundle_ref": "evidence_00020211.json",
+                "price_source_surface_preserved_bundle_ref": "evidence_00020211_prior.json",
+            },
+            datasheet_result={},
+            run_ts="2026-03-26T00:00:00Z",
+        )
+        assert bundle["evidence_paths"]["photo"] == {
+            "local_artifact_path": "downloads/photos/00020211.jpg",
+            "canonical_filename": "HONEYWELL_00020211_abc12345.jpg",
+            "public_url": None,
+            "origin_ref": "jsonld:https://example.com/product/00020211",
+            "origin_page_url": "https://example.com/product/00020211",
+            "origin_kind": "jsonld_page",
+        }
+        assert bundle["evidence_paths"]["price"] == {
+            "observed_page_url": "https://example.com/offer/00020211",
+            "quote_cta_url": "https://example.com/quote/00020211",
+            "lineage_source_url": "https://example.com/product/00020211",
+            "replacement_url": "https://official.example.com/product/00020211",
+            "cache_bundle_ref": "evidence_00020211.json",
+            "preserved_surface_bundle_ref": "evidence_00020211_prior.json",
+        }
 
     def test_bundle_uses_safe_pdf_identity_expansion(self):
         bundle = build_evidence_bundle(
@@ -247,6 +293,10 @@ class TestExportBundleV2:
         assert bundle["price"]["cache_source_run_id"] == "phase_a_v2_sanity_20260326T222242Z"
         assert bundle["price"]["cache_schema_version"] == "price_evidence_cache_v1"
         assert bundle["price"]["transient_failure_codes"] == ["openai_quota"]
+        assert bundle["price"]["price_observed_at"] == "2026-03-26T22:22:42Z"
+        assert bundle["price"]["price_observed_date"] == "2026-03-26"
+        assert bundle["price"]["price_date"] == "2026-03-26"
+        assert bundle["price"]["price_observation_origin"] == "cache_fallback"
 
     def test_bundle_keeps_numeric_guarded_cache_price_case_as_draft(self):
         bundle = build_evidence_bundle(
@@ -749,6 +799,10 @@ class TestExportBundleV2:
         assert bundle["price"]["price_source_surface_preserved_from_prior_run"] is True
         assert bundle["price"]["price_source_surface_drop_detected"] is True
         assert bundle["price"]["price_source_surface_preserved_source_run_id"] == "phase_a_v2_sanity_20260327T083642Z"
+        assert bundle["price"]["price_observed_at"] == "2026-03-27T08:36:42Z"
+        assert bundle["price"]["price_observed_date"] == "2026-03-27"
+        assert bundle["price"]["price_date"] == "2026-03-27"
+        assert bundle["price"]["price_observation_origin"] == "preserved_surface"
         assert bundle["trace"]["price_source_surface_preserved_from_prior_run"] is True
         assert bundle["trace"]["price_source_surface_preservation_reason_code"] == "preserved_compatible_prior_surface"
 
@@ -855,3 +909,35 @@ class TestExportBundleV2:
             "code": "source_seen_no_exact_page",
             "source_field": "price.price_no_price_reason_code",
         } in bundle["negative_evidence"]["price"]
+
+    def test_bundle_leaves_price_observation_blank_without_price_surface(self):
+        bundle = build_evidence_bundle(
+            pn="00020211",
+            name="Sensor",
+            brand="Honeywell",
+            photo_result={},
+            vision_verdict={"verdict": "REJECT", "reason": "banner"},
+            price_result={"price_status": "no_price_found"},
+            datasheet_result={},
+            run_ts="2026-03-31T00:00:00Z",
+        )
+        assert bundle["price"]["price_observed_at"] == ""
+        assert bundle["price"]["price_observed_date"] == ""
+        assert bundle["price"]["price_date"] == ""
+        assert bundle["price"]["price_observation_origin"] == ""
+        assert bundle["evidence_paths"]["photo"] == {
+            "local_artifact_path": "",
+            "canonical_filename": "",
+            "public_url": None,
+            "origin_ref": "",
+            "origin_page_url": "",
+            "origin_kind": "",
+        }
+        assert bundle["evidence_paths"]["price"] == {
+            "observed_page_url": "",
+            "quote_cta_url": "",
+            "lineage_source_url": "",
+            "replacement_url": "",
+            "cache_bundle_ref": "",
+            "preserved_surface_bundle_ref": "",
+        }
