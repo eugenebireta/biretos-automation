@@ -1,0 +1,35 @@
+{
+  "schema_version": "price_only_scout_pilot_summary_v1",
+  "requested_limit": 20,
+  "selected_rows_count": 15,
+  "processed_rows_count": 15,
+  "prior_run_count": 27,
+  "price_status_counts": {
+    "no_price_found": 15
+  },
+  "rows_with_price_signal": 0,
+  "exact_product_lineage_confirmed_count": 15,
+  "surface_conflict_count": 0,
+  "cache_fallback_used_count": 0,
+  "transient_failure_row_count": 14,
+  "success_gates": {
+    "requested_limit_satisfied": {
+      "passed": false,
+      "expected": 20,
+      "observed": 15
+    },
+    "every_selected_row_processed": {
+      "passed": true,
+      "expected": 15,
+      "observed": 15
+    },
+    "zero_surface_conflicts": {
+      "passed": true,
+      "expected": 0,
+      "observed": 0
+    }
+  },
+  "batch_root": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\price_only_scout_pilot_20260331T194918Z",
+  "results_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\price_only_scout_pilot_20260331T194918Z\\price_only_results.jsonl",
+  "selected_rows_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\price_only_scout_pilot_20260331T194918Z\\selected_rows.jsonl"
+}
