@@ -81,14 +81,18 @@ def _load_secrets() -> dict[str, str]:
 # Runner factories
 # ---------------------------------------------------------------------------
 
-def _make_mock_runner(runs_dir: Path = Path("runs"), experience_dir: Path = Path(".")):
+def _make_mock_runner(
+    runs_dir: Path = Path("runs"),
+    experience_dir: Path = Path("."),
+    proposal_text: str | None = None,
+):
     """Mock runner for dry-run / run commands (Phase 1 compat)."""
     from .providers.mock_builder import MockBuilder
     from .providers.mock_auditor import make_approve_auditor
     from .review_runner import ReviewRunner
 
     return ReviewRunner(
-        builder=MockBuilder(),
+        builder=MockBuilder(proposal_text=proposal_text),
         auditors=[
             make_approve_auditor("mock_openai"),
             make_approve_auditor("mock_anthropic"),
@@ -98,7 +102,11 @@ def _make_mock_runner(runs_dir: Path = Path("runs"), experience_dir: Path = Path
     )
 
 
-def _make_live_runner(runs_dir: Path = Path("runs"), experience_dir: Path = Path(".")):
+def _make_live_runner(
+    runs_dir: Path = Path("runs"),
+    experience_dir: Path = Path("."),
+    proposal_text: str | None = None,
+):
     """
     Live runner with real OpenAI + Anthropic auditors.
     Secrets loaded from .env.auditors — NOT from os.environ.
@@ -122,7 +130,7 @@ def _make_live_runner(runs_dir: Path = Path("runs"), experience_dir: Path = Path
     anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6-20250514")
 
     return ReviewRunner(
-        builder=MockBuilder(),
+        builder=MockBuilder(proposal_text=proposal_text),
         auditors=[
             OpenAIAuditor(model=openai_model, api_key=secrets["OPENAI_API_KEY"]),
             AnthropicAuditor(model=anthropic_model, api_key=secrets["ANTHROPIC_API_KEY"]),
@@ -137,21 +145,64 @@ def _make_live_runner(runs_dir: Path = Path("runs"), experience_dir: Path = Path
 # Command implementations
 # ---------------------------------------------------------------------------
 
-async def _run_task(args, live: bool = False):
+def _load_task_from_args(args):
+    """Builds TaskPack from CLI args or --task-file JSON."""
     from .hard_shell.contracts import RiskLevel, TaskPack
 
-    task = TaskPack(
-        title=args.title,
-        description=args.description or "",
-        roadmap_stage=args.stage,
-        why_now=args.why_now,
-        risk=RiskLevel(args.risk),
-        depends_on=args.depends_on or [],
-        keywords=args.keywords or [],
-        affected_files=args.files or [],
+    # Load from task file if provided
+    if getattr(args, "task_file", None):
+        task_path = Path(args.task_file)
+        if not task_path.exists():
+            print(f"ERROR: task file not found: {task_path}")
+            sys.exit(1)
+        task_data = json.loads(task_path.read_text(encoding="utf-8"))
+    else:
+        # Validate required args when no task file
+        missing = [f for f, v in [("--title", args.title), ("--stage", args.stage), ("--why-now", args.why_now), ("--risk", args.risk)] if not v]
+        if missing:
+            print(f"ERROR: required args missing: {missing} (or use --task-file)")
+            sys.exit(1)
+        task_data = {
+            "title": args.title,
+            "description": getattr(args, "description", "") or "",
+            "roadmap_stage": args.stage,
+            "why_now": args.why_now,
+            "risk": args.risk,
+            "depends_on": getattr(args, "depends_on", None) or [],
+            "keywords": getattr(args, "keywords", None) or [],
+            "affected_files": getattr(args, "files", None) or [],
+            "declared_surface": [],
+        }
+
+    return TaskPack(
+        title=task_data["title"],
+        description=task_data.get("description", ""),
+        roadmap_stage=task_data["stage"] if "stage" in task_data else task_data["roadmap_stage"],
+        why_now=task_data["why_now"],
+        risk=RiskLevel(task_data["risk"]),
+        depends_on=task_data.get("depends_on", []),
+        keywords=task_data.get("keywords", []),
+        affected_files=task_data.get("affected_files", []),
+        declared_surface=task_data.get("declared_surface", []),
     )
 
-    runner = _make_live_runner() if live else _make_mock_runner()
+
+async def _run_task(args, live: bool = False):
+    task = _load_task_from_args(args)
+
+    # Optional custom proposal text (--proposal-file)
+    proposal_text = None
+    if getattr(args, "proposal_file", None):
+        proposal_path = Path(args.proposal_file)
+        if not proposal_path.exists():
+            print(f"ERROR: proposal file not found: {proposal_path}")
+            sys.exit(1)
+        proposal_text = proposal_path.read_text(encoding="utf-8")
+
+    if live:
+        runner = _make_live_runner(proposal_text=proposal_text)
+    else:
+        runner = _make_mock_runner(proposal_text=proposal_text)
     run = await runner.execute(task)
 
     print(f"\n{'='*60}")
@@ -166,7 +217,14 @@ async def _run_task(args, live: bool = False):
 
     summary_path = Path("runs") / run.run_id / "owner_summary.md"
     if summary_path.exists():
-        print(summary_path.read_text(encoding="utf-8"))
+        try:
+            print(summary_path.read_text(encoding="utf-8"))
+        except UnicodeEncodeError:
+            # Windows terminal can't display some Unicode — write to file instead
+            import re
+            text = summary_path.read_text(encoding="utf-8")
+            text_ascii = text.encode("ascii", errors="replace").decode("ascii")
+            print(text_ascii)
 
     return run
 
@@ -384,6 +442,10 @@ def main():
     # live (live auditors)
     live_parser = subparsers.add_parser("live", help="Single task with live API auditors")
     _add_task_args(live_parser)
+    live_parser.add_argument(
+        "--proposal-file", dest="proposal_file", default=None,
+        help="Path to .md file with real proposal text (replaces MockBuilder generic text)",
+    )
 
     # pilot
     subparsers.add_parser(
@@ -420,10 +482,14 @@ def main():
 
 
 def _add_task_args(p):
-    p.add_argument("--title", required=True)
-    p.add_argument("--stage", required=True, help="Roadmap stage (e.g. R1, 5.5)")
-    p.add_argument("--why-now", required=True, dest="why_now")
-    p.add_argument("--risk", required=True, choices=["low", "semi", "core"])
+    p.add_argument(
+        "--task-file", dest="task_file", default=None,
+        help="Path to task JSON file (tasks/*.json). If provided, overrides --title/--stage/--risk/--why-now.",
+    )
+    p.add_argument("--title", default=None)
+    p.add_argument("--stage", default=None, help="Roadmap stage (e.g. R1, 5.5)")
+    p.add_argument("--why-now", default=None, dest="why_now")
+    p.add_argument("--risk", default=None, choices=["low", "semi", "core"])
     p.add_argument("--description", default="")
     p.add_argument("--depends-on", nargs="*", dest="depends_on")
     p.add_argument("--keywords", nargs="*")
