@@ -1,28 +1,33 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 43
-transition_ts: "2026-04-02T12:00:00Z"
+transition_seq: 45
+transition_ts: "2026-04-02T18:00:00Z"
 
 ## Current
-active_task: "R1 Enrichment - Enrichment Scout Batches"
-task_id: "R1-enrichment-scout-batches"
+active_task: "browser_vision_scout — second-pass price scout for 403/401/498-blocked sites"
+task_id: "bvs-second-pass-scout"
 phase: BUILDER
-status: ACTIVE
-phase_owner: "Owner/Maksim"
+status: PR_OPEN
+phase_owner: "Owner/Eugene"
 risk_level: SEMI
-pipeline: [BUILDER, AUDITOR]
-pr_url: "https://github.com/eugenebireta/biretos-automation/pull/18"
+pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 now:
-  - step: "All pre-enrichment packs committed and pushed; gate open for enrichment scout batches"
+  - step: "browser_vision_scout.py implemented and tested"
     actions:
-      - "Pack B committed (1fcf5e7): photo_status contract, naming_resolver, _mirror_bundle_card_outcome, 71 tests PASS"
-      - "Pack C committed (fd7d032): price_manual_scout.py, run_price_only_scout_pilot.py, photo_scene_manual_scout.py + 10 tests PASS + 4 pilot audit directories + scout_cache manifests/seeds"
-      - "Pack F committed (aa502f6): docs/memory experience JSONL files (30 enrichment + 17 engineering rules), naming_families JSON, policies, howto — Codex knowledge persisted to git"
-      - "Pack E committed (b8eae7e): CLAUDE.md liveness override section"
-      - "All commits pushed to feat/rev-r1-catalog (HEAD=b8eae7e)"
-      - "Pack D: .cursor/rules/autopilot_ux.mdc and risk_router.mdc (alwaysApply change) still deferred pending owner audit of autopilot_trigger.mdc"
+      - "scripts/browser_vision_scout.py: 490 lines — BrowserFetcher (Playwright), VisionExtractor (Claude Vision API), auto-escalation Sonnet→Opus, cookie banner helper, first-pass manifest filter, full manifest schema compatibility"
+      - "tests/enrichment/test_browser_vision_scout.py: 23/23 PASS — all 5 required scenarios covered plus unit tests for parser, reason codes, screenshot saving, escalation logic"
+      - "NOT Anthropic Computer Use tool — Playwright + Messages API image input only"
+      - "playwright 1.57.0 already installed; anthropic package required: pip install anthropic"
+      - "No Tier-1 frozen files touched; no pinned API signatures changed"
+
+## Previous (seq 44 — Governed AI Execution System Phase 1)
+prev_active_task: "Governed AI Execution System — Phase 1 complete, PR #18 auto-merge enabled"
+prev_task_id: "auditor-system-phase1"
+prev_phase: AUDITOR
+prev_status: PR_OPEN
+prev_exit: "Phase 1 auditor_system thin vertical slice: 14/14 tests pass, PR #18 auto-merge enabled."
 
 ## Previous (seq 42 — Pack A Cleanup Gate)
 prev_active_task: "R1 Enrichment - Pack A Cleanup Gate"
