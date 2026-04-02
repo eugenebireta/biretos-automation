@@ -1,28 +1,39 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 42
-transition_ts: "2026-04-02T00:00:00Z"
+transition_seq: 43
+transition_ts: "2026-04-02T12:00:00Z"
 
 ## Current
-active_task: "R1 Enrichment - Pack A Cleanup Gate"
-task_id: "R1-pack-a-cleanup-gate"
+active_task: "R1 Enrichment - Enrichment Scout Batches"
+task_id: "R1-enrichment-scout-batches"
 phase: BUILDER
 status: ACTIVE
 phase_owner: "Owner/Maksim"
 risk_level: SEMI
 pipeline: [BUILDER, AUDITOR]
-pr_url: null
-pr_branch: null
+pr_url: "https://github.com/eugenebireta/biretos-automation/pull/18"
+pr_branch: "feat/rev-r1-catalog"
 now:
-  - step: "Pack A cleanup gate — commit isolated scripts, holdout 6 SKU, defer Pack B"
+  - step: "All pre-enrichment packs committed and pushed; gate open for enrichment scout batches"
     actions:
-      - "RECON/HANDOFF audit completed by Claude Code on 2026-04-02: confirmed NOT SAFE TO CONTINUE without cleanup gate; three owner decisions recorded (Q1/Q2/Q3)"
-      - "6 AUTO_PUBLISH SKU downgraded to REVIEW_REQUIRED holdout (LEGACY_AUTO_PUBLISH_HOLDOUT): evidence_033588.17, evidence_1000106, evidence_1006186, evidence_1006187, evidence_1012539, evidence_1061200000; insales_export.csv updated to match; AUTO_PUBLISH=0, REVIEW_REQUIRED=15 in canonical evidence"
-      - "Pack A scope committed: new scripts (catalog_seed, local_catalog_refresh, build_catalog_followup_queues, photo_enhance_local, photo_quarantine_stale) + 10 tests (10/10 PASS) + canonical evidence data + scout_cache photo artifacts"
-      - "Pack B deferred: scripts/card_status.py, scripts/export_pipeline.py, scripts/photo_pipeline.py, scripts/naming_resolver.py, tests/enrichment/test_export_phase_a_v2.py, tests/enrichment/test_card_status.py — remain dirty, require separate batch with STATE entry"
-      - "Pack D deferred: .cursor/rules/autopilot_ux.mdc and risk_router.mdc alwaysApply change NOT approved; separate audit of autopilot_trigger.mdc required before accepting"
-    exit: "Pack A cleanly committed on feat/rev-r1-catalog. 6 SKU in holdout. No AUTO_PUBLISH in current 25-SKU canonical slice. Pack B and Pack D gates explicitly open."
+      - "Pack B committed (1fcf5e7): photo_status contract, naming_resolver, _mirror_bundle_card_outcome, 71 tests PASS"
+      - "Pack C committed (fd7d032): price_manual_scout.py, run_price_only_scout_pilot.py, photo_scene_manual_scout.py + 10 tests PASS + 4 pilot audit directories + scout_cache manifests/seeds"
+      - "Pack F committed (aa502f6): docs/memory experience JSONL files (30 enrichment + 17 engineering rules), naming_families JSON, policies, howto — Codex knowledge persisted to git"
+      - "Pack E committed (b8eae7e): CLAUDE.md liveness override section"
+      - "All commits pushed to feat/rev-r1-catalog (HEAD=b8eae7e)"
+      - "Pack D: .cursor/rules/autopilot_ux.mdc and risk_router.mdc (alwaysApply change) still deferred pending owner audit of autopilot_trigger.mdc"
+
+## Previous (seq 42 — Pack A Cleanup Gate)
+prev_active_task: "R1 Enrichment - Pack A Cleanup Gate"
+prev_task_id: "R1-pack-a-cleanup-gate"
+prev_phase: BUILDER
+prev_status: COMPLETED
+prev_actions:
+  - "RECON/HANDOFF audit completed 2026-04-02: three owner decisions recorded (Q1/Q2/Q3)"
+  - "6 AUTO_PUBLISH SKU downgraded to REVIEW_REQUIRED (LEGACY_AUTO_PUBLISH_HOLDOUT): evidence_033588.17, evidence_1000106, evidence_1006186, evidence_1006187, evidence_1012539, evidence_1061200000"
+  - "Pack A committed (6bbfbb2 + ee8dff3): catalog_seed, local_catalog_refresh, build_catalog_followup_queues, photo_enhance_local, photo_quarantine_stale + all artifacts"
+prev_exit: "Pack A cleanly committed. 6 SKU holdout in place. AUTO_PUBLISH=0 in canonical 25-SKU slice."
 
 ## Previous (seq 41 — Local Catalog Refresh Overlay)
 prev_active_task: "R1 Enrichment - Local Catalog Refresh Overlay"
