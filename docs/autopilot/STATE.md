@@ -1,26 +1,33 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 44
-transition_ts: "2026-04-02T16:50:00Z"
+transition_seq: 45
+transition_ts: "2026-04-02T18:00:00Z"
 
 ## Current
-active_task: "Governed AI Execution System — Phase 1 complete, PR #18 auto-merge enabled"
-task_id: "auditor-system-phase1"
-phase: AUDITOR
+active_task: "browser_vision_scout — second-pass price scout for 403/401/498-blocked sites"
+task_id: "bvs-second-pass-scout"
+phase: BUILDER
 status: PR_OPEN
 phase_owner: "Owner/Eugene"
 risk_level: SEMI
-pipeline: [BUILDER, AUDITOR]
-pr_url: "https://github.com/eugenebireta/biretos-automation/pull/18"
+pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 now:
-  - step: "Phase 1 hard_shell thin vertical slice complete; auto-merge enabled on PR #18"
+  - step: "browser_vision_scout.py implemented and tested"
     actions:
-      - "auditor_system/ committed (3bfe336): 21 files — contracts, context_assembler, model_selector, quality_gate, approval_router, experience_sink, run_store, mock providers, review_runner, cli, 14 tests"
-      - "14/14 Phase 1 tests passing: full cycle, model selection, escalation, quality gate, approval routing, experience sink, surface mismatch detection"
-      - "Requires pyyaml (pip install pyyaml) — not in requirements.txt yet (Phase 2 task)"
-      - "Phase 2 stubs present: openai_auditor.py + anthropic_auditor.py (NotImplementedError)"
+      - "scripts/browser_vision_scout.py: 490 lines — BrowserFetcher (Playwright), VisionExtractor (Claude Vision API), auto-escalation Sonnet→Opus, cookie banner helper, first-pass manifest filter, full manifest schema compatibility"
+      - "tests/enrichment/test_browser_vision_scout.py: 23/23 PASS — all 5 required scenarios covered plus unit tests for parser, reason codes, screenshot saving, escalation logic"
+      - "NOT Anthropic Computer Use tool — Playwright + Messages API image input only"
+      - "playwright 1.57.0 already installed; anthropic package required: pip install anthropic"
+      - "No Tier-1 frozen files touched; no pinned API signatures changed"
+
+## Previous (seq 44 — Governed AI Execution System Phase 1)
+prev_active_task: "Governed AI Execution System — Phase 1 complete, PR #18 auto-merge enabled"
+prev_task_id: "auditor-system-phase1"
+prev_phase: AUDITOR
+prev_status: PR_OPEN
+prev_exit: "Phase 1 auditor_system thin vertical slice: 14/14 tests pass, PR #18 auto-merge enabled."
 
 ## Previous (seq 42 — Pack A Cleanup Gate)
 prev_active_task: "R1 Enrichment - Pack A Cleanup Gate"

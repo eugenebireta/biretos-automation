@@ -1,5 +1,19 @@
 ---
 DATE: 2026-04-02
+TITLE: browser_vision_scout — second-pass price scout (Playwright + Claude Vision)
+RISK_LEVEL: SEMI
+SCOPE:
+  - scripts/browser_vision_scout.py (NEW — BrowserFetcher, VisionExtractor, auto-escalation, CLI)
+  - tests/enrichment/test_browser_vision_scout.py (NEW — 23 deterministic tests)
+TEST_EVIDENCE: 23/23 PASS
+NEXT_RISK: SEMI
+NOTES: |
+  Additive fallback for 403/401/498-blocked and JS-rendered URLs.
+  NOT Anthropic Computer Use tool — Playwright + Messages API Vision only.
+  Requires: pip install anthropic (playwright already installed).
+  No CAPTCHA bypass — blocked UI classified as cu_vision_blocked_page + review_required.
+---
+DATE: 2026-04-02
 TITLE: Governed AI Execution System — Phase 1 hard_shell thin vertical slice
 RISK_LEVEL: SEMI
 SCOPE:

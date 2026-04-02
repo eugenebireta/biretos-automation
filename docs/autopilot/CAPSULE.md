@@ -1,5 +1,50 @@
 # Task Capsule
 
+Task_ID: bvs-second-pass-scout
+Risk: SEMI
+Date: 2026-04-02
+Branch: feat/rev-r1-catalog
+
+## What was built
+
+browser_vision_scout.py — second-pass price scout for bot-blocked (403/401/498) and
+JS-rendered (200/no-lineage) product URLs.
+
+NOT Anthropic Computer Use tool. Uses Playwright (real Chromium/Edge) + Claude
+Messages API image input (Vision) for price extraction and PN lineage confirmation.
+
+Components:
+- BrowserFetcher: Playwright context manager, auto browser channel (msedge→chrome→bundled),
+  headless default, cookie banner helper (benign only), no CAPTCHA bypass
+- VisionExtractor: Claude Vision API, auto-escalation Sonnet→Opus on low confidence,
+  structured JSON extraction (price, currency, pn_confirmed, stock_status, page_class)
+- materialize_bvs_record(): same manifest schema as price_manual_scout.py + additive fields
+- load_first_pass_candidates(): filter by http_status {401,403,498} OR 200/no-lineage
+- Full CLI: --seed, --manifest, --first-pass-manifest, --headed, --browser-channel,
+  --vision-model, --no-escalation, --save-all-screenshots
+
+Tests: 23/23 PASS (deterministic, mock Playwright + mock Anthropic)
+
+## Dependencies
+- playwright 1.57.0 — already installed
+- anthropic — requires: pip install anthropic
+
+## Files changed
+- scripts/browser_vision_scout.py (NEW, 490 lines)
+- tests/enrichment/test_browser_vision_scout.py (NEW, 280 lines)
+- docs/autopilot/STATE.md (updated)
+- docs/autopilot/CAPSULE.md (this file)
+- docs/_governance/COMPLETED_LOG.md (appended)
+
+## Governance
+- Tier-1 frozen files: CLEAN
+- Pinned API signatures: CLEAN
+- price_manual_scout.py: NOT MODIFIED
+
+---
+
+# Previous Capsule
+
 Task_ID: auditor-system-phase1
 Risk: SEMI
 Date: 2026-04-02
