@@ -1,5 +1,17 @@
 # CLAUDE.md — Biretos Automation
 
+## CHAT LIVENESS OVERRIDE (highest priority)
+
+If the user message is a short liveness check or tiny conversational prompt
+(examples: "ты тут?", "ok", "ping", "проверь связь"), Claude MUST:
+
+1. Reply in one short sentence immediately.
+2. Not start any workflow/pipeline/phase protocol.
+3. Not run tools, not scan files, not propose plan, not require approvals.
+4. Ignore task-completion automation rules for that turn.
+
+This override applies only to that single liveness/conversational turn.
+
 ## VERIFICATION REMINDER
 
 Before changing code, define the verification path first.
