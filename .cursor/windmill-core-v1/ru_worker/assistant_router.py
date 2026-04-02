@@ -225,6 +225,20 @@ def route_assistant_intent(
         parsed=parsed,
     )
 
+    # Always shadow-log successful parses for Stability Gate analytics (8.3)
+    write_nlu_shadow_entry(
+        db_conn,
+        trace_id=trace_id,
+        employee_id=employee_id,
+        raw_text_hash=parsed.raw_text_hash,
+        intent_type=parsed.intent_type,
+        entities=dict(parsed.entities),
+        confidence=parsed.confidence,
+        model_version=parsed.model_version,
+        prompt_version=parsed.prompt_version,
+        parse_duration_ms=parse_ms,
+    )
+
     _write_sla(
         db_conn, trace_id, employee_id, parsed.intent_type, config,
         parse_duration_ms=parse_ms,
