@@ -1,0 +1,13 @@
+{
+  "note": "Recommended candidates for price validation slice v2. Selected for higher probability of admissible source: all are international PPE (Leightning/Titan/GasAlert) or industrial safety SKU with known distributor coverage.",
+  "rationale": "Leightning series (1011994, 1015021, 1012541) all appear on honeywellstore.com, rs-online, cromwell, earplugstore. GasAlert accessories (129625-L3) and aspirators (121679-L3) appear on industrial safety distributors. Avoid PEHA BMS sensors (10xxxx) — no distributor pages found in v1 search.",
+  "candidates": [
+    {"part_number": "1011994", "product_name": "Наушники EARMUFF LEIGHTNING L1N", "reason": "honeywellstore.com exact page confirmed in v1 search; earplugstore.com also found. High probability public_price."},
+    {"part_number": "1015021", "product_name": "Наушники EARMUFF L1H HV Hi-Vis", "reason": "Leightning series — same distributor set as 1011994 and 1012539 (already priced in pilot)."},
+    {"part_number": "1012541", "product_name": "Наушники EARMUFF-LEIGHTNING L3H EU", "reason": "EU helmet-mount variant. Honeywell support confirms PN. cromwell.co.uk or rs-online likely carry it."},
+    {"part_number": "121679-L3", "product_name": "Ручной аспиратор Honeywell 121679-L3", "reason": "Industrial safety product, L3-suffix likely means size/kit variant. Grainger, RS, or MSA-adjacent distributors likely."},
+    {"part_number": "129625-L3", "product_name": "Набор для подключения GasAlert Series", "reason": "Gas detector accessories have strong distributor coverage on RS, Grainger, direct Honeywell pages."}
+  ],
+  "skip_for_v2": ["00020211", "101411", "104011", "105411", "109411", "106511", "125711", "127411"],
+  "skip_reason": "PEHA BMS sensors and thermostatic valves — no international distributor pages found; require specialist HVAC/BMS catalog lookup outside current scout scope."
+}
