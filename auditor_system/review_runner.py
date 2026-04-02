@@ -23,15 +23,22 @@ from .hard_shell.approval_router import ApprovalRouter
 from .hard_shell.context_assembler import ContextAssembler
 from .hard_shell.contracts import (
     ApprovalRoute,
+    ErrorClass,
     ModelName,
     ProtocolRun,
     RiskLevel,
     TaskPack,
 )
 from .hard_shell.experience_sink import ExperienceSink
+from .hard_shell.fallback_handler import (
+    AuditorFailureError,
+    FallbackAction,
+    FallbackHandler,
+)
 from .hard_shell.model_selector import ModelSelector
 from .hard_shell.quality_gate import QualityGate
 from .hard_shell.run_store import RunStore
+from .hard_shell.schema_validator import SchemaViolationError
 from .providers.base import AuditorProvider, BuilderProvider
 
 logger = logging.getLogger(__name__)
@@ -62,6 +69,74 @@ class ReviewRunner:
         self.model_selector = ModelSelector(model_config_path)
         self.quality_gate = QualityGate()
         self.approval_router = ApprovalRouter()
+        self.fallback_handler = FallbackHandler()
+
+    async def _gather_safe(
+        self,
+        coros: list,
+        task: TaskPack,
+        stage: str,
+    ) -> list:
+        """
+        Runs auditor coroutines with return_exceptions=True.
+        Applies FallbackHandler on individual failures (SPEC §7).
+
+        Returns: list of valid AuditVerdict
+        Raises:  AuditorFailureError for CORE failures or unrecoverable SEMI failures
+        """
+        from typing import cast
+
+        results = await asyncio.gather(*coros, return_exceptions=True)
+        auditor_ids = [a.auditor_id for a in self.auditors]
+
+        verdicts = []
+        errors: list[tuple[str, Exception]] = []
+
+        for auditor_id, result in zip(auditor_ids, results):
+            if isinstance(result, Exception):
+                errors.append((auditor_id, result))
+                logger.error(
+                    "review_runner: auditor_error "
+                    "stage=%s auditor=%s error_class=TRANSIENT severity=ERROR retriable=true "
+                    "error=%s",
+                    stage, auditor_id, result,
+                )
+            else:
+                verdicts.append(result)
+
+        if not errors:
+            return verdicts
+
+        # Apply FallbackHandler for each failure
+        for failed_id, exc in errors:
+            other_result = verdicts[0] if verdicts else None
+            action = self.fallback_handler.handle(
+                task.risk, failed_id, other_result, stage
+            )
+
+            if action == FallbackAction.STOP_OWNER_ALERT:
+                raise AuditorFailureError(failed_id, stage, str(exc))
+
+            if action in (
+                FallbackAction.RETRY_THEN_BLOCK,
+                FallbackAction.RETRY_THEN_ONE_AUDITOR,
+            ):
+                # Phase 2 pilot: no retry infrastructure yet
+                if not verdicts:
+                    raise AuditorFailureError(
+                        failed_id, stage,
+                        f"Both auditors failed, no retry infrastructure: {exc}"
+                    )
+                # Fall through: use what we have
+
+            # CONTINUE_ONE_AUDITOR* or fallthrough → log and continue with verdicts
+            logger.warning(
+                "review_runner: continuing with %d/%d auditor(s) "
+                "after failure action=%s stage=%s",
+                len(verdicts), len(self.auditors), action.value, stage,
+            )
+
+        return verdicts
 
     async def execute(
         self,
@@ -77,6 +152,41 @@ class ReviewRunner:
             "review_runner: START run_id=%s trace_id=%s task=%s risk=%s",
             run.run_id, run.trace_id, task.title, task.risk.value,
         )
+
+        try:
+            return await self._execute_inner(run, task, owner_model_override)
+        except AuditorFailureError as exc:
+            run.error_class = ErrorClass.TRANSIENT
+            run.error_message = str(exc)
+            run.approval_route = ApprovalRoute.BLOCKED
+            run.mark_finished()
+            self.run_store.save_manifest(run)
+            logger.error(
+                "review_runner: BLOCKED due to auditor failure "
+                "run_id=%s auditor=%s stage=%s error_class=TRANSIENT severity=ERROR retriable=false",
+                run.run_id, exc.failed_auditor, exc.stage,
+            )
+            raise
+        except SchemaViolationError as exc:
+            run.error_class = ErrorClass.SCHEMA_VIOLATION
+            run.error_message = str(exc)
+            run.approval_route = ApprovalRoute.BLOCKED
+            run.mark_finished()
+            self.run_store.save_manifest(run)
+            logger.error(
+                "review_runner: BLOCKED due to schema violation "
+                "run_id=%s auditor=%s error_class=SCHEMA_VIOLATION severity=ERROR retriable=false",
+                run.run_id, exc.auditor_id,
+            )
+            raise
+
+    async def _execute_inner(
+        self,
+        run: ProtocolRun,
+        task: TaskPack,
+        owner_model_override: str | None,
+    ) -> ProtocolRun:
+        """Inner execution — separated so execute() can catch and handle errors."""
 
         # --- Шаг 1: Surface classification ---
         surface = self.context_assembler.classify(task)
@@ -106,7 +216,7 @@ class ReviewRunner:
             auditor.critique(run.proposal, task, context)
             for auditor in self.auditors
         ]
-        critiques = await asyncio.gather(*critique_tasks)
+        critiques = await self._gather_safe(critique_tasks, task, stage="critique")
         run.critiques = list(critiques)
         for i, verdict in enumerate(run.critiques, start=1):
             self.run_store.save_critique(run, verdict, i)
@@ -126,7 +236,7 @@ class ReviewRunner:
             auditor.final_audit(run.revised_proposal, task, context)
             for auditor in self.auditors
         ]
-        final_verdicts = await asyncio.gather(*final_tasks)
+        final_verdicts = await self._gather_safe(final_tasks, task, stage="final_audit")
         run.final_verdicts = list(final_verdicts)
         for i, verdict in enumerate(run.final_verdicts, start=1):
             self.run_store.save_final_verdict(run, verdict, i)
@@ -155,16 +265,18 @@ class ReviewRunner:
                 )
                 # Повторяем proposal → critique → revision → final с Opus
                 run.proposal = await self.builder.propose(task, context)
-                critiques_opus = await asyncio.gather(*[
-                    a.critique(run.proposal, task, context) for a in self.auditors
-                ])
+                critiques_opus = await self._gather_safe(
+                    [a.critique(run.proposal, task, context) for a in self.auditors],
+                    task, stage="critique_escalation",
+                )
                 run.critiques = list(critiques_opus)
                 run.revised_proposal = await self.builder.revise(
                     task, run.proposal, run.critiques, context
                 )
-                final_opus = await asyncio.gather(*[
-                    a.final_audit(run.revised_proposal, task, context) for a in self.auditors
-                ])
+                final_opus = await self._gather_safe(
+                    [a.final_audit(run.revised_proposal, task, context) for a in self.auditors],
+                    task, stage="final_audit_escalation",
+                )
                 run.final_verdicts = list(final_opus)
                 gate = self.quality_gate.check(run.final_verdicts)
                 run.quality_gate = gate

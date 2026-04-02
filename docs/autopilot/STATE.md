@@ -1,31 +1,34 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 46
-transition_ts: "2026-04-02T20:30:00Z"
+transition_seq: 47
+transition_ts: "2026-04-03T00:02:00Z"
 
 ## Current
-active_task: "browser_vision_scout — second-pass price scout for 403/401/498-blocked sites"
-task_id: "bvs-second-pass-scout"
+active_task: "auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)"
+task_id: "auditor-system-phase2"
 phase: BUILDER
-status: LIVE_VALIDATION_PENDING
+status: PR_OPEN
 phase_owner: "Owner/Eugene"
 risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
-pr_number: 22
-pr_merged: true
-pr_merged_note: "PREMATURE MERGE — auto-merge fired before owner approval. Owner decision 2026-04-02: no revert, leave as is. Task NOT considered complete until live validation."
 now:
-  - step: "browser_vision_scout.py implemented and tested — LIVE VALIDATION PENDING"
+  - step: "Phase 2 complete — live auditors + pilot gate"
     actions:
-      - "scripts/browser_vision_scout.py: 490 lines — BrowserFetcher (Playwright), VisionExtractor (Claude Vision API), auto-escalation Sonnet→Opus, cookie banner helper, first-pass manifest filter, full manifest schema compatibility"
-      - "tests/enrichment/test_browser_vision_scout.py: 23/23 PASS — all 5 required scenarios covered plus unit tests for parser, reason codes, screenshot saving, escalation logic"
-      - "NOT Anthropic Computer Use tool — Playwright + Messages API image input only"
-      - "playwright 1.57.0 already installed; anthropic package required: pip install anthropic"
-      - "No Tier-1 frozen files touched; no pinned API signatures changed"
-      - "GOVERNANCE NOTE: PR #22 merged prematurely via auto-merge without owner approval (SEMI violation). No revert per owner decision. Status remains LIVE_VALIDATION_PENDING until live dry-run on vseinstrumenti.ru / lemanapro.ru produces evidence bundle."
-awaiting: "live dry-run on priority URLs (1015021, 1012541) to produce evidence-grade output before task can be marked COMPLETED"
+      - "schema_validator.py: SchemaViolationError + validate_and_parse (SPEC §19.3)"
+      - "fallback_handler.py: FallbackHandler risk-aware (SPEC §7)"
+      - "openai_auditor.py: live Responses API + Structured Outputs"
+      - "anthropic_auditor.py: live Messages API (claude-sonnet-4-6)"
+      - "review_runner.py: _gather_safe + FallbackHandler wired"
+      - "run_store.py: load_run_for_verdict"
+      - "cli.py: verdict + pilot + live commands"
+      - "38/38 tests PASS"
+      - "Pilot: LOW=auto_pass, SEMI=batch_approval (Anthropic live), CORE=BLOCKED (correct)"
+      - "2 DPO records in experience_log/2026-04.jsonl"
+      - "Secrets isolated to auditor_system/config/.env.auditors"
+known_gap: "OpenAI key insufficient_quota — Responses API unavailable. CORE pilot needs funded key."
+awaiting: "OpenAI key with credits for CORE pilot completion"
 
 ## Previous (seq 44 — Governed AI Execution System Phase 1)
 prev_active_task: "Governed AI Execution System — Phase 1 complete, PR #18 auto-merge enabled"
