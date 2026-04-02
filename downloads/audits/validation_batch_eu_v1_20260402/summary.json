@@ -1,0 +1,90 @@
+{
+  "batch_id": "validation_batch_eu_v1_20260402",
+  "ts": "2026-04-02T18:00:00Z",
+  "actor": "Agent/ClaudeCode-Sonnet4.6",
+  "purpose": "EU price slice — verify whether prosafco.be / uvex-safety.com cover the systematic EU helmet-adapter PPE gap (1012541 and similar)",
+
+  "target_skus": ["1012541", "1015021"],
+  "reference_sku": "1011993",
+
+  "eu_source_search_results": [
+    {
+      "domain": "prosafco.be",
+      "searched": true,
+      "found_target_PN": false,
+      "found_related": "1034491 Impact Pro earmuff confirmed on prosafco.be",
+      "access": "timeout (WebFetch)",
+      "verdict": "prosafco.be carries Honeywell PPE but 1012541/1015021 not indexed by search. Access timeout blocks script validation."
+    },
+    {
+      "domain": "uvex-safety.com",
+      "searched": true,
+      "found_target_PN": false,
+      "found_related": "uvex K2H / K3 helmet earmuffs — uvex brand, not Honeywell/Howard Leight",
+      "access": "not attempted",
+      "verdict": "uvex-safety.com sells uvex-brand hearing protection, NOT Howard Leight / Honeywell PPE. Wrong domain for this product family."
+    },
+    {
+      "domain": "safety5000.com",
+      "searched": false,
+      "found_target_PN": true,
+      "found_related": "Exact 1012541 product page confirmed in search result",
+      "access": "ECONNREFUSED",
+      "verdict": "safety5000.com has exact 1012541 page but site unreachable from current machine. New domain not in registry — add as EU candidate."
+    },
+    {
+      "domain": "laropadetrabajo.com",
+      "searched": false,
+      "found_target_PN": true,
+      "found_related": "Exact 1015021 product page; €29.15 + IVA confirmed in search snippet",
+      "access": "SSL timeout in script; WebFetch also timeout",
+      "verdict": "Spanish workwear distributor. Price confirmed via snippet. Script cannot verify lineage — same pattern as workwear.co.uk. Add to registry as 'snippet_confirmed_script_blocked'."
+    },
+    {
+      "domain": "tnasafety.com",
+      "searched": false,
+      "found_target_PN": false,
+      "found_related": "1011993 US L3H variant — $33.95 USD, WebFetch confirmed",
+      "access": "accessible via WebFetch, accessible via script",
+      "verdict": "US safety distributor. Covers US L3H variant (1011993). EU variant 1012541 not on this site."
+    }
+  ],
+
+  "script_results": {
+    "seeds_run": 1,
+    "results": [
+      {
+        "part_number": "1011993",
+        "note": "US L3H reference only — not in price followup queue",
+        "price_status": "ambiguous_offer",
+        "price_per_unit": 33.95,
+        "currency": "USD",
+        "rub_price": 2987.6,
+        "source_tier": "unknown",
+        "lineage_confirmed": true,
+        "lineage_reason_code": "structured_exact_product_page_weak_tier",
+        "surface_stable": false,
+        "review_required": true,
+        "fx_normalization_status": "normalized",
+        "note_on_tier": "tnasafety.com not in trust.py — classified as unknown → ambiguous_offer despite lineage=True. If added to industrial tier in trust.py, result would upgrade to public_price."
+      }
+    ]
+  },
+
+  "new_domains_for_registry": [
+    {"domain": "safety5000.com", "scope": ["price","photo"], "trust_tier_candidate": "industrial", "eu_ppp_coverage": true, "access_notes": "ECONNREFUSED from machine. Exact 1012541 page confirmed by search. Try with different network or user-agent.", "priority": "high"},
+    {"domain": "laropadetrabajo.com", "scope": ["price"], "trust_tier_candidate": "weak", "eu_ppp_coverage": true, "access_notes": "SSL timeout in script and WebFetch. Price €29.15+IVA confirmed in search snippet for 1015021. Same access pattern as workwear.co.uk.", "priority": "medium"},
+    {"domain": "tnasafety.com", "scope": ["price","photo"], "trust_tier_candidate": "industrial", "eu_ppp_coverage": false, "access_notes": "Accessible via script and WebFetch. 1011993 $33.95 confirmed. Good US PPE coverage.", "priority": "medium"}
+  ],
+
+  "eu_gap_verdict": {
+    "prosafco_be": "carries Honeywell PPE but not 1012541/1015021 — wrong domain for Leightning series",
+    "uvex_safety_com": "wrong domain entirely — uvex-brand products, not Howard Leight/Honeywell PPE",
+    "gap_status": "EU gap NOT closed by originally proposed domains. Real EU coverage found at safety5000.com (UK/EU) and laropadetrabajo.com (ES) — both inaccessible via script.",
+    "finding": "EU-variant PPE coverage exists but on smaller/regional distributors with bot-protection. The gap is access-pattern gap, not source-nonexistence gap."
+  },
+
+  "fx_notes": "No new FX edge cases. USD→RUB normalized cleanly (rub_price=2987.6 for $33.95). EUR price for 1015021 (€29.15) not processed through script — would be EUR→RUB path, no fx_gap expected.",
+
+  "updated_rule_implication": "ENRICHMENT-EU-VARIANT-SYSTEMATIC-SOURCE-GAP-001 should be updated: EU distributors DO exist (safety5000.com, laropadetrabajo.com) but are blocked by bot-protection at script level. Gap = access-pattern gap, not source-nonexistence gap. Proposed EU candidates (prosafco.be, uvex-safety.com) are wrong domain for Howard Leight product family."
+}
