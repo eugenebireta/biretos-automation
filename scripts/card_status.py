@@ -72,6 +72,7 @@ _VALID_REASON_CODES = set(_ENUMS["reason_code"])
 _VALID_BUCKETS = set(_ENUMS["review_bucket"])
 _VALID_IDENTITY = set(_ENUMS["identity_level"])
 _VALID_SEVERITY = set(_ENUMS["severity"])
+_VALID_PHOTO_STATUS = {"exact_evidence", "family_evidence", "placeholder", "rejected"}
 
 
 @dataclass(frozen=True)
@@ -305,6 +306,30 @@ def card_status_calculator(
     )
 
 
+def normalize_photo_status(value: str) -> str:
+    norm = (value or "").strip().lower()
+    if norm not in _VALID_PHOTO_STATUS:
+        raise ValueError(f"Unsupported photo_status: {value}")
+    return norm
+
+
+def derive_photo_contract_fields(photo_status: str) -> dict[str, Any]:
+    status = normalize_photo_status(photo_status)
+    role_map = {
+        "exact_evidence": "exact",
+        "family_evidence": "family_supporting",
+        "placeholder": "merch_only",
+        "rejected": "none",
+    }
+    is_temporary = status == "placeholder"
+    return {
+        "photo_status": status,
+        "photo_evidence_role": role_map[status],
+        "photo_is_temporary": is_temporary,
+        "replacement_required": is_temporary,
+    }
+
+
 def build_decision_record_v2_from_legacy_inputs(
     pn: str,
     name: str,
@@ -315,13 +340,14 @@ def build_decision_record_v2_from_legacy_inputs(
     datasheet_result: dict,
 ) -> dict:
     """Compatibility adapter that creates a v2 decision snapshot from legacy data."""
+    photo_status = derive_photo_status_from_legacy_inputs(photo_result, vision_verdict)
     title_signal = {
         "derived_title": assembled_title or name,
         "candidate_ids": [f"cand_title_{pn}"],
         "evidence_ids": [f"ev_title_{pn}"],
     }
     image_signal = {
-        "photo_type": _infer_legacy_photo_type(photo_result, vision_verdict),
+        "photo_status": photo_status,
         "family_photo_allowed": bool(photo_result.get("family_photo_allowed", False)),
         "numeric_keep_guard_applied": bool(photo_result.get("numeric_keep_guard_applied", False)),
         "candidate_ids": [f"cand_image_{pn}"],
@@ -417,7 +443,7 @@ def _compute_title_status(signal: dict) -> str:
 def _compute_image_status(signal: dict) -> str:
     if signal.get("field_status"):
         return _normalize_field_status(signal["field_status"])
-    photo_type = _normalize_photo_type(signal.get("photo_type", "unknown"))
+    photo_type = _effective_photo_type(signal)
     if photo_type == "exact":
         return "ACCEPTED"
     if photo_type == "family":
@@ -524,7 +550,7 @@ def _build_review_reasons(
     if title_status == "INSUFFICIENT":
         add("NO_TITLE_EVIDENCE", "title", "INFO", title_signal)
 
-    image_type = _normalize_photo_type(image_signal.get("photo_type", "unknown"))
+    image_type = _effective_photo_type(image_signal)
     if image_type == "family":
         if image_signal.get("family_photo_allowed"):
             add("FAMILY_PHOTO_POLICY_REVIEW", "image", "WARNING", image_signal)
@@ -626,7 +652,7 @@ def _match_weak_identity_review_route(
     if image_signal.get("numeric_keep_guard_applied", False):
         return None
 
-    photo_type = _normalize_photo_type(image_signal.get("photo_type", "unknown"))
+    photo_type = _effective_photo_type(image_signal)
     if photo_type == "family" or image_signal.get("family_photo_allowed"):
         return None
 
@@ -662,7 +688,7 @@ def _match_admissible_source_conflict_no_price_route(
     if not _is_admissible_source_conflict_no_price_case(price_signal):
         return None
 
-    photo_type = _normalize_photo_type(image_signal.get("photo_type", "unknown"))
+    photo_type = _effective_photo_type(image_signal)
     if photo_type == "family" or image_signal.get("family_photo_allowed"):
         return None
 
@@ -698,7 +724,7 @@ def _match_admissible_source_exact_lineage_no_price_route(
     if not _is_admissible_source_exact_lineage_no_price_case(price_signal):
         return None
 
-    photo_type = _normalize_photo_type(image_signal.get("photo_type", "unknown"))
+    photo_type = _effective_photo_type(image_signal)
     if photo_type == "family" or image_signal.get("family_photo_allowed"):
         return None
 
@@ -741,7 +767,7 @@ def _match_numeric_guard_review_route(
     if not image_signal.get("numeric_keep_guard_applied", False):
         return None
 
-    photo_type = _normalize_photo_type(image_signal.get("photo_type", "unknown"))
+    photo_type = _effective_photo_type(image_signal)
     if photo_type == "family" or image_signal.get("family_photo_allowed"):
         return None
 
@@ -783,7 +809,7 @@ def _match_terminal_weak_no_price_route(
     if price_signal.get("reviewable_no_price_candidate", False):
         return None
 
-    photo_type = _normalize_photo_type(image_signal.get("photo_type", "unknown"))
+    photo_type = _effective_photo_type(image_signal)
     if photo_type == "family" or image_signal.get("family_photo_allowed"):
         return None
 
@@ -827,6 +853,19 @@ def _normalize_photo_type(value: str) -> str:
     return norm
 
 
+def _effective_photo_type(signal: dict) -> str:
+    raw_status = signal.get("photo_status")
+    if raw_status:
+        status = normalize_photo_status(str(raw_status))
+        return {
+            "exact_evidence": "exact",
+            "family_evidence": "family",
+            "placeholder": "none",
+            "rejected": "none",
+        }[status]
+    return _normalize_photo_type(signal.get("photo_type", "unknown"))
+
+
 def _normalize_price_status(value: str) -> str:
     norm = (value or "").strip().lower()
     aliases = {
@@ -865,7 +904,7 @@ def _normalize_field_status(value: str) -> str:
 def _image_state_from_status(signal: dict, status: str) -> str:
     if status == "ACCEPTED":
         return "exact"
-    photo_type = _normalize_photo_type(signal.get("photo_type", "unknown"))
+    photo_type = _effective_photo_type(signal)
     if photo_type == "family":
         return "family"
     if status == "INSUFFICIENT":
@@ -943,6 +982,23 @@ def _infer_legacy_photo_type(photo_result: dict, vision_verdict: dict) -> str:
     if photo_result.get("mpn_confirmed") or photo_result.get("pn_match_location") in _STRUCTURED_CONTEXTS:
         return "exact"
     return "unknown"
+
+
+def derive_photo_status_from_legacy_inputs(photo_result: dict | None, vision_verdict: dict | None) -> str:
+    photo_result = dict(photo_result or {})
+    vision_verdict = dict(vision_verdict or {})
+
+    if photo_result.get("photo_status"):
+        return normalize_photo_status(str(photo_result["photo_status"]))
+
+    legacy_type = _infer_legacy_photo_type(photo_result, vision_verdict)
+    if legacy_type == "exact":
+        return "exact_evidence"
+    if legacy_type == "family":
+        return "family_evidence"
+    if vision_verdict.get("verdict") == "KEEP":
+        return "placeholder"
+    return "rejected"
 
 
 def _legacy_exact_price_confirmed(price_result: dict) -> bool:

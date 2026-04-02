@@ -168,6 +168,38 @@ class TestCardStatusCalculator:
         assert family_reason.evidence_ids == ["ev_image_1"]
         assert family_reason.bucket == "FAMILY_PHOTO_REVIEW"
 
+    def test_photo_status_is_canonical_over_legacy_photo_type(self):
+        decision = card_status_calculator(
+            identity_level="strong",
+            title_signal={
+                "derived_title": "Honeywell placeholder image case",
+                "candidate_ids": ["cand_title_1"],
+                "evidence_ids": ["ev_title_1"],
+            },
+            image_signal={
+                "photo_status": "placeholder",
+                "photo_type": "exact",
+                "candidate_ids": ["cand_image_1"],
+                "evidence_ids": ["ev_image_1"],
+            },
+            price_signal={
+                "price_status": "public_price",
+                "source_role": "authorized_distributor",
+                "exact_pn_confirmed": True,
+                "exact_product_page": True,
+                "page_context_clean": True,
+                "candidate_ids": ["cand_price_1"],
+                "evidence_ids": ["ev_price_1"],
+            },
+            pdf_signal={
+                "datasheet_status": "missing",
+                "candidate_ids": ["cand_pdf_1"],
+                "evidence_ids": ["ev_pdf_1"],
+            },
+        )
+        assert decision.image_status == "INSUFFICIENT"
+        assert decision.card_status == "REVIEW_REQUIRED"
+
     def test_weak_identity_forces_draft(self):
         decision = card_status_calculator(
             identity_level="weak",

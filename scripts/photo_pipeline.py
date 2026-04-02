@@ -22,7 +22,7 @@ from __future__ import annotations
 import base64, datetime, hashlib, json, logging, os, re, sys, time
 from pathlib import Path
 from typing import Any, Callable, Optional, Protocol
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 
 import imagehash
 import pandas as pd
@@ -62,6 +62,7 @@ from no_price_coverage import (                                # noqa: E402
     choose_better_no_price_candidate,
     materialize_no_price_coverage,
 )
+from catalog_seed import build_content_seed_from_row           # noqa: E402
 from price_lineage import (                                     # noqa: E402
     choose_better_price_lineage_candidate,
     materialize_pre_llm_price_lineage,
@@ -340,6 +341,20 @@ US_PRICE_DOMAINS  = [
 SKIP_DOMAINS      = {"serpapi.com", "google.com", "gstatic.com"}
 SKIP_EXTS         = {".svg", ".gif", ".ico"}
 SKIP_PAGE_DOMAINS = {"avito.ru", "youla.ru", "drom.ru", "irr.ru"}
+NON_PRODUCT_IMAGE_TOKENS = {
+    "banner",
+    "logo",
+    "icon",
+    "flag",
+    "footer",
+    "social",
+    "payment",
+    "rollleft",
+    "rollright",
+    "qrcode",
+    "qr-code",
+    "sprite",
+}
 
 BROWSER_HEADERS = {
     "User-Agent": (
@@ -692,6 +707,109 @@ def get_size(path: Path) -> tuple[int, int]:
         return (0, 0)
 
 
+def absolutize_url(raw_url: str, page_url: str) -> str:
+    """Resolve a candidate asset URL against the page URL."""
+    return urljoin(page_url, (raw_url or "").strip())
+
+
+def _safe_int(raw_value: Any) -> int:
+    try:
+        return int(str(raw_value).strip())
+    except (TypeError, ValueError):
+        return 0
+
+
+def _parse_srcset(srcset: str) -> list[str]:
+    candidates: list[str] = []
+    for chunk in str(srcset or "").split(","):
+        url = chunk.strip().split(" ")[0].strip()
+        if url:
+            candidates.append(url)
+    return candidates
+
+
+def _contains_exact_pn(pn: str, text: str) -> bool:
+    return bool(pn and text and confirm_pn_exact(pn, text))
+
+
+def _is_probable_non_product_image(url: str, alt: str = "", title: str = "") -> bool:
+    hay = " ".join((url or "", alt or "", title or "")).lower()
+    return any(token in hay for token in NON_PRODUCT_IMAGE_TOKENS)
+
+
+def _score_image_candidate(
+    *,
+    url: str,
+    pn: str,
+    alt: str = "",
+    title: str = "",
+    width: int = 0,
+    height: int = 0,
+    source_hint: str = "",
+) -> int:
+    if not url or is_bad_url(url) or _is_probable_non_product_image(url, alt, title):
+        return -1000
+
+    score = 0
+    hay = " ".join((url, alt, title, source_hint)).lower()
+
+    if source_hint == "jsonld":
+        score += 70
+    elif source_hint in {"itemprop", "product:image", "og:image"}:
+        score += 35
+
+    if _contains_exact_pn(pn, alt) or _contains_exact_pn(pn, title) or _contains_exact_pn(pn, url):
+        score += 90
+
+    if alt or title:
+        score += 15
+
+    if any(token in hay for token in ("product", "catalog/product", "/artikel/", "big.jpg", "/file/big.", "gallery")):
+        score += 15
+
+    if any(token in hay for token in ("brand/", "siteimages/", "/icons/", "payment/", "footer")):
+        score -= 40
+
+    max_dim = max(width, height)
+    if max_dim >= MIN_DIM:
+        score += 20
+    elif max_dim >= 96:
+        score += 8
+    elif max_dim and max_dim < 48:
+        score -= 20
+
+    return score
+
+
+def _add_image_candidate(
+    bucket: list[dict[str, Any]],
+    *,
+    raw_url: str,
+    page_url: str,
+    pn: str,
+    source_hint: str,
+    alt: str = "",
+    title: str = "",
+    width: int = 0,
+    height: int = 0,
+) -> None:
+    resolved_url = absolutize_url(raw_url, page_url)
+    if not resolved_url:
+        return
+    score = _score_image_candidate(
+        url=resolved_url,
+        pn=pn,
+        alt=alt,
+        title=title,
+        width=width,
+        height=height,
+        source_hint=source_hint,
+    )
+    if score <= -1000:
+        return
+    bucket.append({"url": resolved_url, "score": score, "source_hint": source_hint})
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # Парсинг страницы товара (JSON-LD first)
 # ══════════════════════════════════════════════════════════════════════════════
@@ -727,50 +845,96 @@ def parse_product_page(url: str, pn: str = "") -> dict:
             return result
         html = r.text
         soup = BeautifulSoup(html, "html.parser")
+        image_candidates: list[dict[str, Any]] = []
         if pn:
             result.update(extract_structured_pn_flags(pn, html))
 
         # 1. JSON-LD (самый надёжный источник)
         if pn:
             jsonld = extract_jsonld_image(html, pn)
-            if jsonld and jsonld.get("image_url") and not is_bad_url(jsonld["image_url"]):
-                result["image_url"] = jsonld["image_url"]
+            if jsonld and jsonld.get("image_url"):
+                _add_image_candidate(
+                    image_candidates,
+                    raw_url=jsonld["image_url"],
+                    page_url=url,
+                    pn=pn,
+                    source_hint="jsonld",
+                )
                 result["mpn_confirmed"] = jsonld["mpn_confirmed"]
                 result["jsonld_price"] = jsonld.get("price")
                 result["jsonld_currency"] = jsonld.get("currency")
 
         # 2. itemprop="image"
-        if not result["image_url"]:
-            tag = soup.find("img", itemprop="image")
-            if tag:
-                src = tag.get("src") or tag.get("data-src") or ""
-                if src.startswith("/"):
-                    src = f"{urlparse(url).scheme}://{urlparse(url).netloc}{src}"
-                if src and not is_bad_url(src):
-                    result["image_url"] = src
+        tag = soup.find("img", itemprop="image")
+        if tag:
+            for raw_url in [
+                tag.get("src"),
+                tag.get("data-src"),
+                tag.get("data-original"),
+                tag.get("data-image"),
+                tag.get("data-zoom-image"),
+                *(_parse_srcset(tag.get("data-srcset", ""))),
+            ]:
+                _add_image_candidate(
+                    image_candidates,
+                    raw_url=raw_url or "",
+                    page_url=url,
+                    pn=pn,
+                    source_hint="itemprop",
+                    alt=tag.get("alt", ""),
+                    title=tag.get("title", ""),
+                    width=_safe_int(tag.get("width")),
+                    height=_safe_int(tag.get("height")),
+                )
 
         # 3. product:image
-        if not result["image_url"]:
-            tag = soup.find("meta", property="product:image")
-            if tag and tag.get("content"):
-                result["image_url"] = tag["content"]
+        tag = soup.find("meta", property="product:image")
+        if tag and tag.get("content"):
+            _add_image_candidate(
+                image_candidates,
+                raw_url=tag["content"],
+                page_url=url,
+                pn=pn,
+                source_hint="product:image",
+            )
 
         # 4. og:image
-        if not result["image_url"]:
-            tag = soup.find("meta", property="og:image")
-            if tag and tag.get("content"):
-                result["image_url"] = tag["content"]
+        tag = soup.find("meta", property="og:image")
+        if tag and tag.get("content"):
+            _add_image_candidate(
+                image_candidates,
+                raw_url=tag["content"],
+                page_url=url,
+                pn=pn,
+                source_hint="og:image",
+            )
 
         # 5. Первая подходящая <img>
-        if not result["image_url"]:
-            for img in soup.find_all("img"):
-                src = img.get("src") or img.get("data-src") or ""
-                if src.startswith("/"):
-                    src = f"{urlparse(url).scheme}://{urlparse(url).netloc}{src}"
-                w = int(img.get("width") or 0)
-                if not is_bad_url(src) and (w >= MIN_DIM or not w):
-                    result["image_url"] = src
-                    break
+        for img in soup.find_all("img"):
+            raw_urls = [
+                img.get("src"),
+                img.get("data-src"),
+                img.get("data-original"),
+                img.get("data-image"),
+                img.get("data-zoom-image"),
+                *(_parse_srcset(img.get("data-srcset", ""))),
+            ]
+            for raw_url in raw_urls:
+                _add_image_candidate(
+                    image_candidates,
+                    raw_url=raw_url or "",
+                    page_url=url,
+                    pn=pn,
+                    source_hint="img",
+                    alt=img.get("alt", ""),
+                    title=img.get("title", ""),
+                    width=_safe_int(img.get("width")),
+                    height=_safe_int(img.get("height")),
+                )
+
+        if image_candidates:
+            best = max(image_candidates, key=lambda item: item["score"])
+            result["image_url"] = best["url"]
 
         # Описание
         for attr, prop in [("property", "og:description"), ("name", "description")]:
@@ -1441,6 +1605,8 @@ def run(
         expected_category = row.get("Параметр: Тип товара", "").strip() if "Параметр: Тип товара" in row else ""
 
         # ── Checkpoint resume: skip already-processed PNs ─────────────────────
+        content_seed      = build_content_seed_from_row(row)
+
         if pn in checkpoint:
             bundle = checkpoint[pn]
             evidence_bundles.append(bundle)
@@ -1496,7 +1662,22 @@ def run(
                 our_price_raw=our_price,
                 pn_variants=pn_var.variants,
                 expected_category=expected_category,
+                content_seed=content_seed,
             )
+            _no_photo_content = _no_photo_bundle.get("content", {})
+            data[pn] = {
+                "specs": {},
+                "description": _no_photo_content.get("description"),
+                "description_source": _no_photo_content.get("description_source", ""),
+                "site_placement": _no_photo_content.get("site_placement", ""),
+                "product_type": _no_photo_content.get("product_type", ""),
+                "seed_name": _no_photo_content.get("seed_name", ""),
+                "price_usd": None,
+                "price_source": None,
+                "price_status": "no_price_found",
+            }
+            VERDICT_FILE.write_text(json.dumps(verdicts, ensure_ascii=False, indent=2), encoding="utf-8")
+            DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
             evidence_bundles.append(_no_photo_bundle)
             checkpoint[pn] = _no_photo_bundle
             save_checkpoint(checkpoint)
@@ -1504,6 +1685,7 @@ def run(
             all_results.append({
                 "pn": pn, "name": name, "verdict": "NO_PHOTO",
                 "our_price": our_price, "price_status": "no_price_found",
+                "description": (_no_photo_content.get("description") or "")[:200],
             })
             if check_wallclock_budget():
                 early_stop_reason = get_shadow_runtime_summary().get("reason_for_early_stop", "")
@@ -1626,10 +1808,12 @@ def run(
             our_price_raw=our_price,
             pn_variants=pn_var.variants,
             expected_category=expected_category,
+            content_seed=content_seed,
         )
         evidence_bundles.append(bundle)
         checkpoint[pn] = bundle
         save_checkpoint(checkpoint)
+        bundle_content = bundle.get("content", {})
 
         verdicts[pn] = {
             **v,
@@ -1640,7 +1824,11 @@ def run(
         }
         data[pn] = {
             "specs": dl.get("specs", {}),
-            "description": dl.get("description"),
+            "description": bundle_content.get("description"),
+            "description_source": bundle_content.get("description_source", ""),
+            "site_placement": bundle_content.get("site_placement", ""),
+            "product_type": bundle_content.get("product_type", ""),
+            "seed_name": bundle_content.get("seed_name", ""),
             "price_usd": price_info["price_usd"],
             "price_source": price_info["source_url"],
             "price_status": price_info["price_status"],
@@ -1683,7 +1871,7 @@ def run(
             "price_usd": price_info["price_usd"],
             "price_status": price_info["price_status"],
             "price_source": price_info["source_url"],
-            "description": (dl.get("description") or "")[:200],
+            "description": (bundle_content.get("description") or "")[:200],
             "specs": dl.get("specs", {}),
             "photo_source": dl["source"][:80],
             "stock_photo_flag": stock_flag,

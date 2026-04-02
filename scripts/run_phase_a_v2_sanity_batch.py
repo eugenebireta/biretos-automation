@@ -333,21 +333,22 @@ def build_status_distributions(
     first_stdout: str,
     resume_stdout: str,
 ) -> dict[str, Any]:
-    legacy_bundle = Counter(bundle["card_status"] for bundle in bundles)
-    v2_bundle = Counter(bundle["policy_decision_v2"]["card_status"] for bundle in bundles)
+    bundle_counter = Counter(bundle["card_status"] for bundle in bundles)
+    decision_counter = Counter(bundle["policy_decision_v2"]["card_status"] for bundle in bundles)
     legacy_first_stdout = _parse_legacy_export_summary(first_stdout)
     legacy_resume_stdout = _parse_legacy_export_summary(resume_stdout)
     return {
-        "authoritative_v2_source": "policy_decision_v2.card_status",
-        "legacy_source": "bundle.card_status and legacy export stdout",
-        "legacy_bundle_distribution": dict(sorted(legacy_bundle.items())),
+        "authoritative_source": "bundle.card_status",
+        "decision_record_source": "policy_decision_v2.card_status",
+        "legacy_stdout_source": "legacy export stdout summary",
+        "bundle_distribution": dict(sorted(bundle_counter.items())),
         "legacy_first_stdout_distribution": legacy_first_stdout,
         "legacy_resume_stdout_distribution": legacy_resume_stdout,
-        "v2_authoritative_distribution": dict(sorted(v2_bundle.items())),
+        "decision_record_distribution": dict(sorted(decision_counter.items())),
         "consistency_checks": {
-            "legacy_bundle_matches_first_stdout": dict(sorted(legacy_bundle.items())) == legacy_first_stdout,
-            "legacy_bundle_matches_resume_stdout": dict(sorted(legacy_bundle.items())) == legacy_resume_stdout,
-            "legacy_matches_v2": dict(sorted(legacy_bundle.items())) == dict(sorted(v2_bundle.items())),
+            "bundle_matches_first_stdout": dict(sorted(bundle_counter.items())) == legacy_first_stdout,
+            "bundle_matches_resume_stdout": dict(sorted(bundle_counter.items())) == legacy_resume_stdout,
+            "bundle_matches_decision_record": dict(sorted(bundle_counter.items())) == dict(sorted(decision_counter.items())),
         },
     }
 
@@ -786,13 +787,14 @@ def build_dual_status_examples(bundles: list[dict[str, Any]], limit: int = 10) -
         examples.append(
             {
                 "pn_primary": bundle["pn"],
-                "legacy_card_status": bundle["card_status"],
-                "v2_card_status": decision["card_status"],
+                "bundle_card_status": bundle["card_status"],
+                "decision_card_status": decision["card_status"],
+                "bundle_mirrors_decision": bundle["card_status"] == decision["card_status"],
                 "title_status": decision["title_status"],
                 "image_status": decision["image_status"],
                 "price_status": decision["price_status"],
                 "pdf_status": decision["pdf_status"],
-                "v2_status_source_path": f"evidence_{_slugify(bundle['pn'])}.json::policy_decision_v2.card_status",
+                "decision_status_source_path": f"evidence_{_slugify(bundle['pn'])}.json::policy_decision_v2.card_status",
                 "review_reasons": decision["review_reasons"],
             }
         )

@@ -46,12 +46,18 @@ try:
 except ImportError:
     _CONFIDENCE_AVAILABLE = False
 
-from card_status import assign_card_status_legacy, build_decision_record_v2_from_legacy_inputs
+from card_status import (
+    assign_card_status_legacy,
+    build_decision_record_v2_from_legacy_inputs,
+    derive_photo_contract_fields,
+    derive_photo_status_from_legacy_inputs,
+)
 from catalog_verifier import build_verifier_shadow_record
 from deterministic_false_positive_controls import (
     apply_numeric_keep_guard,
     tighten_public_price_result,
 )
+from naming_resolver import resolve_title_or_fallback
 from no_price_coverage import materialize_no_price_coverage
 
 
@@ -110,7 +116,15 @@ def assemble_title_lite(
         # Fallback: use raw_title stripped of extra whitespace
         title = " ".join(raw_title.split()) if raw_title else f"{brand} {pn}"
 
-    return title[:150]
+    resolved_title, _ = resolve_title_or_fallback(
+        part_number=pn,
+        raw_title=raw_title,
+        brand=brand,
+        subbrand=subbrand,
+        specs=specs,
+        fallback_title=title,
+    )
+    return resolved_title[:150]
 
 
 # ── Filename normalization ───────────────────────────────────────────────────────
@@ -136,15 +150,31 @@ def assign_card_status(
     category_mismatch: bool = False,
     brand_mismatch: bool = False,
     stock_photo_flag: bool = False,
+    photo_status: str = "",
 ) -> tuple[str, list[str]]:
-    """Compatibility wrapper around the current legacy export rules."""
+    """Compatibility helper for legacy callers/tests around export rules."""
+    effective_photo_verdict = photo_verdict
+    effective_stock_photo_flag = stock_photo_flag
+    if photo_status and photo_status != "exact_evidence":
+        effective_photo_verdict = "NO_PHOTO"
+        effective_stock_photo_flag = photo_status == "family_evidence"
     return assign_card_status_legacy(
-        photo_verdict=photo_verdict,
+        photo_verdict=effective_photo_verdict,
         price_status=price_status,
         category_mismatch=category_mismatch,
         brand_mismatch=brand_mismatch,
-        stock_photo_flag=stock_photo_flag,
+        stock_photo_flag=effective_stock_photo_flag,
     )
+
+
+def _mirror_bundle_card_outcome(decision_record_v2: dict) -> tuple[str, list[str]]:
+    """Mirror the authoritative v2 card decision onto legacy bundle fields."""
+    review_reason_codes: list[str] = []
+    for reason in decision_record_v2.get("review_reasons", []) or []:
+        code = str(reason.get("reason_code", "")).strip()
+        if code and code not in review_reason_codes:
+            review_reason_codes.append(code)
+    return str(decision_record_v2["card_status"]), review_reason_codes
 
 
 # ── Evidence bundle ──────────────────────────────────────────────────────────────
@@ -403,6 +433,7 @@ def build_evidence_bundle(
     pn_variants: Optional[list] = None,
     subbrand: str = "",
     expected_category: str = "",
+    content_seed: Optional[dict] = None,
 ) -> dict:
     """Build full per-SKU evidence bundle.
 
@@ -421,15 +452,9 @@ def build_evidence_bundle(
     )
     photo_verdict = guarded_vision_verdict.get("verdict", "NO_PHOTO")
     price_status = guarded_price_result.get("price_status", "no_price_found")
+    photo_status = derive_photo_status_from_legacy_inputs(photo_result, guarded_vision_verdict)
+    photo_contract = derive_photo_contract_fields(photo_status)
     sha1 = photo_result.get("sha1", "")
-
-    card_status, review_reasons = assign_card_status(
-        photo_verdict=photo_verdict,
-        price_status=price_status,
-        category_mismatch=bool(guarded_price_result.get("category_mismatch")),
-        brand_mismatch=bool(guarded_price_result.get("brand_mismatch")),
-        stock_photo_flag=bool(photo_result.get("stock_photo_flag")),
-    )
 
     canon_fn = canonical_photo_filename(brand, pn, sha1) if sha1 else None
 
@@ -448,12 +473,14 @@ def build_evidence_bundle(
         assembled_title=assembled_title,
         photo_result={
             **photo_result,
+            "photo_status": photo_status,
             "numeric_keep_guard_applied": bool(guarded_vision_verdict.get("numeric_keep_guard_applied")),
         },
         vision_verdict=guarded_vision_verdict,
         price_result=guarded_price_result,
         datasheet_result=datasheet_result,
     )
+    card_status, review_reasons = _mirror_bundle_card_outcome(decision_record_v2)
     negative_evidence = build_negative_evidence_block(
         photo_result=photo_result,
         vision_verdict=guarded_vision_verdict,
@@ -466,6 +493,14 @@ def build_evidence_bundle(
         raw_price_result=price_result,
         canonical_photo_filename=canon_fn,
     )
+    content_seed = content_seed or {}
+    seeded_description = str(content_seed.get("description", "") or "").strip()
+    content_description = seeded_description or photo_result.get("description")
+    content_description_source = str(content_seed.get("description_source", "") or "").strip()
+    if not content_description_source and seeded_description:
+        content_description_source = "content_seed"
+    if not content_description_source and photo_result.get("description"):
+        content_description_source = "photo_page_meta"
 
     # Confidence computation
     confidence_block: dict = {}
@@ -547,6 +582,7 @@ def build_evidence_bundle(
         "photo": {
             "verdict": photo_verdict,
             "verdict_reason": guarded_vision_verdict.get("reason", ""),
+            **photo_contract,
             "path": photo_result.get("path", ""),
             "sha1": sha1,
             "canonical_filename": canon_fn,
@@ -664,7 +700,11 @@ def build_evidence_bundle(
 
         "content": {
             "specs": photo_result.get("specs") or {},
-            "description": photo_result.get("description"),
+            "description": content_description,
+            "description_source": content_description_source,
+            "site_placement": str(content_seed.get("site_placement", "") or "").strip(),
+            "product_type": str(content_seed.get("product_type", "") or "").strip(),
+            "seed_name": str(content_seed.get("seed_name", "") or "").strip(),
         },
 
         "trace": {
@@ -757,7 +797,8 @@ def write_evidence_bundles(bundles: list[dict], evidence_dir: Path) -> None:
 _BASE_FIELDS = [
     "Артикул", "Название", "Бренд", "Изображение",
     "Цена", "Валюта", "Статус цены", "Статус наличия",
-    "Описание", "Статус карточки", "Причины проверки",
+    "Описание", "Источник описания", "Размещение на сайте", "Тип товара",
+    "Статус изображения", "Статус карточки", "Причины проверки",
 ]
 
 
@@ -779,13 +820,21 @@ def write_insales_export(
             continue
 
         photo = b.get("photo", {})
+        merchandising = b.get("merchandising", {})
+        content = b.get("content", {})
         price = b.get("price", {})
 
         # Photo URL
         photo_url = ""
-        if photo.get("canonical_filename") and base_photo_url:
+        if merchandising.get("image_local_path"):
+            photo_url = f"[LOCAL:{merchandising['image_local_path']}]"
+        elif photo.get("canonical_filename") and base_photo_url:
             photo_url = f"{base_photo_url.rstrip('/')}/{photo['canonical_filename']}"
-        elif photo.get("path"):
+        elif (
+            photo.get("path")
+            and str(photo.get("verdict", "") or "").strip().upper() != "REJECT"
+            and str(photo.get("photo_status", "") or "").strip().lower() != "rejected"
+        ):
             photo_url = f"[LOCAL:{photo['path']}]"
 
         # Price — RUB if converted, else original
@@ -804,13 +853,17 @@ def write_insales_export(
             "Валюта":             price_currency,
             "Статус цены":        price.get("price_status", ""),
             "Статус наличия":     price.get("stock_status", ""),
-            "Описание":           (b.get("content", {}).get("description") or "")[:500],
+            "Описание":           (content.get("description") or "")[:500],
+            "Источник описания":  content.get("description_source", ""),
+            "Размещение на сайте": content.get("site_placement", ""),
+            "Тип товара":         content.get("product_type", ""),
+            "Статус изображения": merchandising.get("image_status") or photo.get("photo_status", ""),
             "Статус карточки":    b["card_status"],
             "Причины проверки":   "; ".join(b.get("review_reasons", [])),
         }
 
         # Specs as additional columns
-        for k, v in (b.get("content", {}).get("specs") or {}).items():
+        for k, v in (content.get("specs") or {}).items():
             col_name = f"Характеристика: {k}"
             row[col_name] = str(v)[:200]
 

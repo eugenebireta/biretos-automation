@@ -1,12 +1,14 @@
-"""Tests for additive v2 decision materialization in export bundles."""
+﻿"""Tests for additive v2 decision materialization in export bundles."""
+import csv
 import sys
 import os
+from pathlib import Path
 
 _scripts = os.path.join(os.path.dirname(__file__), "..", "..", "scripts")
 if _scripts not in sys.path:
     sys.path.insert(0, _scripts)
 
-from export_pipeline import build_evidence_bundle
+from export_pipeline import build_evidence_bundle, write_insales_export
 
 
 class TestExportBundleV2:
@@ -60,6 +62,51 @@ class TestExportBundleV2:
         assert bundle["price"]["price_observation_origin"] == "current_run"
         assert bundle["evidence_paths"]["photo"]["local_artifact_path"] == "downloads/photos/00020211.jpg"
         assert bundle["evidence_paths"]["price"]["observed_page_url"] == "https://example.com/price"
+        assert bundle["card_status"] == decision["card_status"]
+        assert bundle["review_reasons"] == [
+            reason["reason_code"] for reason in decision["review_reasons"]
+        ]
+        assert bundle["photo"]["photo_status"] == "exact_evidence"
+        assert bundle["photo"]["photo_evidence_role"] == "exact"
+        assert bundle["photo"]["photo_is_temporary"] is False
+        assert bundle["photo"]["replacement_required"] is False
+
+    def test_bundle_materializes_placeholder_photo_contract_and_blocks_auto_publish(self):
+        bundle = build_evidence_bundle(
+            pn="00020211",
+            name="Temperature Sensor",
+            brand="Honeywell",
+            photo_result={
+                "path": "downloads/photos/00020211_placeholder.jpg",
+                "sha1": "abc12345def67890",
+                "width": 400,
+                "height": 400,
+                "size_kb": 42,
+                "source": "https://example.com/image",
+                "photo_status": "placeholder",
+                "photo_type": "exact",
+            },
+            vision_verdict={"verdict": "KEEP", "reason": "usable placeholder"},
+            price_result={
+                "price_status": "public_price",
+                "source_tier": "authorized",
+                "source_url": "https://example.com/price",
+                "stock_status": "in_stock",
+                "offer_unit_basis": "piece",
+                "offer_qty": 1,
+            },
+            datasheet_result={},
+            run_ts="2026-03-26T00:00:00Z",
+        )
+        assert bundle["photo"]["photo_status"] == "placeholder"
+        assert bundle["photo"]["photo_evidence_role"] == "merch_only"
+        assert bundle["photo"]["photo_is_temporary"] is True
+        assert bundle["photo"]["replacement_required"] is True
+        assert bundle["card_status"] == "REVIEW_REQUIRED"
+        assert bundle["card_status"] == bundle["policy_decision_v2"]["card_status"]
+        assert bundle["review_reasons"] == [
+            reason["reason_code"] for reason in bundle["policy_decision_v2"]["review_reasons"]
+        ]
 
     def test_bundle_materializes_split_photo_and_price_evidence_paths(self):
         bundle = build_evidence_bundle(
@@ -100,6 +147,19 @@ class TestExportBundleV2:
             "cache_bundle_ref": "evidence_00020211.json",
             "preserved_surface_bundle_ref": "evidence_00020211_prior.json",
         }
+
+    def test_bundle_uses_peha_family_naming_override(self):
+        bundle = build_evidence_bundle(
+            pn="189791",
+            name="D 20.673.244.192",
+            brand="PEHA",
+            photo_result={},
+            vision_verdict={"verdict": "NO_PHOTO", "reason": "missing"},
+            price_result={"price_status": "no_price_found"},
+            datasheet_result={},
+            run_ts="2026-03-31T00:00:00Z",
+        )
+        assert bundle["assembled_title"] == "Рамка 3-постовая PEHA NOVA, 189791"
 
     def test_bundle_uses_safe_pdf_identity_expansion(self):
         bundle = build_evidence_bundle(
@@ -218,7 +278,8 @@ class TestExportBundleV2:
             run_ts="2026-03-26T00:00:00Z",
         )
         assert bundle["price"]["price_status"] == "ambiguous_offer"
-        assert bundle["card_status"] == "REVIEW_REQUIRED"
+        assert bundle["card_status"] == "DRAFT_ONLY"
+        assert bundle["card_status"] == bundle["policy_decision_v2"]["card_status"]
         assert "source_tier_not_admissible" in bundle["price"]["public_price_rejection_reasons"]
 
     def test_bundle_rejects_numeric_keep_without_structured_identity(self):
@@ -941,3 +1002,27 @@ class TestExportBundleV2:
             "cache_bundle_ref": "",
             "preserved_surface_bundle_ref": "",
         }
+
+    def test_export_does_not_fallback_to_raw_rejected_photo(self, tmp_path: Path):
+        bundle = build_evidence_bundle(
+            pn="010130.10",
+            name="Module",
+            brand="Honeywell",
+            photo_result={
+                "path": r"D:\BIRETOS\projects\biretos-automation\downloads\photos\010130.10.jpg",
+                "photo_status": "rejected",
+            },
+            vision_verdict={"verdict": "REJECT", "reason": "wrong image"},
+            price_result={"price_status": "public_price", "price_usd": 225.0, "currency": "EUR"},
+            datasheet_result={},
+            run_ts="2026-03-31T00:00:00Z",
+        )
+        bundle["card_status"] = "REVIEW_REQUIRED"
+        out_path = tmp_path / "insales_export.csv"
+
+        exported = write_insales_export([bundle], out_path)
+
+        assert exported == 1
+        rows = list(csv.DictReader(out_path.open(encoding="utf-8-sig")))
+        assert rows[0]["Изображение"] == ""
+
