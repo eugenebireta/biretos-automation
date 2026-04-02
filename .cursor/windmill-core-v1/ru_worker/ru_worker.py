@@ -413,15 +413,58 @@ def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tupl
             error = result.get("error", "Unknown error")
             return (f"вќЊ РћС€РёР±РєР°: {error}", None)
 
-    if status == "success":
-        return ("вњ… Р’С‹РїРѕР»РЅРµРЅРѕ", None)
-    elif status == "error":
-        error = result.get("error", "Unknown error")
-        return (f"вќЊ РћС€РёР±РєР°: {error}", None)
-    elif status == "duplicate":
-        return ("в„№пёЏ Р”РµР№СЃС‚РІРёРµ СѓР¶Рµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ", None)
+    if action_type == “nlu_parse”:
+        if status == “needs_confirmation”:
+            intent_label = result.get(“intent_label”, result.get(“intent_type”, “запрос”))
+            entities = result.get(“entities”, {})
+            entity_text = “”
+            if entities:
+                entity_text = “\n” + “, “.join(f”{k}: {v}” for k, v in entities.items())
+            return (
+                f”Понял: {intent_label}{entity_text}\nПодтвердить?”,
+                result.get(“reply_markup”),
+            )
+        if status == “fallback”:
+            return (“Не понял запрос. Попробуйте перефразировать или /help”, None)
+        if status in (“shadow”, “button_only”):
+            return (“Не понял. Попробуйте команды: /help”, None)
+        if status == “error”:
+            error = result.get(“error”, “неизвестная ошибка”)
+            return (f”❌ Ошибка: {error[:200]}”, None)
+        return (None, None)
+
+    if action_type == “nlu_confirm”:
+        if status == “not_implemented”:
+            return (“Эта функция в разработке.”, None)
+        if status == “forbidden”:
+            return (“❌ Недостаточно прав”, None)
+        if status == “success”:
+            intent_type = result.get(“intent_type”, “”)
+            if intent_type == “check_payment”:
+                pid = result.get(“provider_document_id”, “N/A”)
+                pstatus = result.get(“provider_status”, “unknown”)
+                emoji = “✅” if pstatus == “paid” else “⏳”
+                return (f”{emoji} Счёт {pid}: {pstatus}”, None)
+            if intent_type == “get_tracking”:
+                cid = result.get(“carrier_external_id”, “N/A”)
+                cstatus = result.get(“carrier_status”, “unknown”)
+                return (f”📦 Трекинг {cid}: {cstatus}”, None)
+            if intent_type == “get_waybill”:
+                size = result.get(“pdf_size_bytes”, 0)
+                return (f”📄 Накладная готова ({size} байт)”, None)
+            return (“✅ Выполнено”, None)
+        error = result.get(“error”, “неизвестная ошибка”)
+        return (f”❌ {error[:200]}”, None)
+
+    if status == “success”:
+        return (“✅ Выполнено”, None)
+    elif status == “error”:
+        error = result.get(“error”, “Unknown error”)
+        return (f”❌ Ошибка: {error}”, None)
+    elif status == “duplicate”:
+        return (“ℹ️ Действие уже выполняется”, None)
     else:
-        return (f"в„№пёЏ РЎС‚Р°С‚СѓСЃ: {status}", None)
+        return (f”ℹ️ Статус: {status}”, None)
 
 
 def handle_router_action(action: Dict[str, Any], db_conn) -> Dict[str, Any]:

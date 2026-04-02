@@ -1,8 +1,8 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 47
-transition_ts: "2026-04-03T00:02:00Z"
+transition_seq: 48
+transition_ts: "2026-04-02T22:12:08Z"
 
 ## Current
 active_task: "auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)"
@@ -239,6 +239,13 @@ history:
     actor: "Agent/ClaudeCode"
     note: "Pack A cleanup gate: RECON/HANDOFF audit completed, 6 AUTO_PUBLISH SKU downgraded to REVIEW_REQUIRED holdout (owner Q1 decision), Pack A new scripts committed (10/10 tests pass), Pack B and Pack D deferred as separate gates."
 
+  - seq: 48
+    ts: "2026-04-02T22:12:08Z"
+    actor: review_runner
+    action: "verdict_approved"
+    detail: "Stage 8.1 — approved via auditor_system"
+    run_id: "run_9b2fc417617f"
+
 ## Task 5.1 Closeout (2026-03-20)
 task_5_1_status: CLOSED
 task_5_1_commit: "ee54864e2e5eeafe8d502d8e48b64d19676613ae"
@@ -294,3 +301,8 @@ overrides:
     to: "BUILDER/ACTIVE"
     actor: "migration-reset"
     reason: "PC migration gap: state reset to reflect resume point; CAPSULE.md was empty, evidence fields null. Closed out properly at seq 25 (2026-03-20)."
+
+## Task 8.1 Closeout (via auditor_system)
+task_8_1_status: CLOSED
+task_8_1_closed_at: "2026-04-02T22:12:08Z"
+task_8_1_run_id: "run_9b2fc417617f"

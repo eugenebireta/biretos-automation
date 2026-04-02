@@ -25,3 +25,5 @@ Format: Date | Task ID | Risk | Summary
 2026-03-03 | Task 5.1 | CORE | Implemented CDM v2 runtime contracts: added Pydantic models under `domain/cdm`, moved FSM conversion into Tier-3 `ru_worker/cdm_adapters.py`, integrated mapper/worker validation boundaries, and added deterministic `tests/test_cdm_models.py` coverage
 2026-03-13 | R2-docs | LOW | PROJECT_DNA.md synced to authoritative DNA v2.0; R2 naming alignment: PROJECT_DNA, MASTER_PLAN_v1_8_0, EXECUTION_ROADMAP_v2_2, docs/howto/R2_EXPORT_PREP — all use rev_export_logs
 2026-03-13 | R2-prep | LOW | R2 write-prep DONE on feat/rev-r2-export: migration 027, schema test, /export stub (Coming soon). NOT MERGED — merge blocked until Revenue gate open
+
+2026-04-02 | 8.1 | SEMI | Wire NLU intent parser to execute_telegram_update — approved via auditor_system (run_9b2fc417617f)

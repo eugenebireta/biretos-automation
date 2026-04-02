@@ -63,10 +63,10 @@ def _load_nlu_config() -> NLUConfig:
             return default
 
     return NLUConfig(
-        nlu_enabled=_bool("NLU_ENABLED", False),
-        degradation_level=_int("NLU_DEGRADATION_LEVEL", 2),
+        nlu_enabled=_bool("NLU_ENABLED", True),
+        degradation_level=_int("NLU_DEGRADATION_LEVEL", 0),
         confidence_threshold=_float("NLU_CONFIDENCE_THRESHOLD", 0.80),
-        shadow_mode=_bool("NLU_SHADOW_MODE", True),
+        shadow_mode=_bool("NLU_SHADOW_MODE", False),
         model_version=os.environ.get("NLU_MODEL_VERSION", "regex-v1"),
         prompt_version=os.environ.get("NLU_PROMPT_VERSION", "v1.0"),
         max_input_bytes=_int("NLU_MAX_INPUT_BYTES", 1024),
