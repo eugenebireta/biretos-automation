@@ -1,0 +1,330 @@
+{
+  "family": "peha_nova",
+  "brand_final": "PEHA",
+  "series": "NOVA",
+  "family_matchers": [
+    {
+      "match_regex": "D\\s+20\\.67[1-5]",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.486",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(530|534)",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(540|545)\\.(022|192|702)",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.610\\.(022|192|702)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.607.*FTR",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.410\\.(022|192|702)\\s+BM",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        "PEHA NOVA",
+        "peha-nova"
+      ],
+      "match_fields": [
+        "source_name",
+        "raw_title",
+        "subbrand",
+        "spec_values"
+      ],
+      "basis": "explicit"
+    }
+  ],
+  "series_patterns": [
+    {
+      "match_regex": "D\\s+20\\.67[1-5]",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "NOVA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.486",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "NOVA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(530|534)",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "NOVA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(540|545)\\.(022|192|702)",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "NOVA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.610\\.(022|192|702)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "NOVA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.607.*FTR",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "NOVA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.410\\.(022|192|702)\\s+BM",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "NOVA",
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        "PEHA NOVA",
+        "peha-nova"
+      ],
+      "match_fields": [
+        "source_name",
+        "raw_title",
+        "spec_values"
+      ],
+      "series": "NOVA",
+      "basis": "explicit"
+    }
+  ],
+  "product_type_rules": [
+    {
+      "match_regex": "D\\s+20\\.67[1-5]",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "frame",
+      "type_ru": "Рамка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.410\\.(022|192|702)\\s+BM",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "decorative_element",
+      "type_ru": "Центральная накладка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.607.*FTR",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "decorative_element",
+      "type_ru": "Центральная накладка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(530|534)",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "rocker",
+      "type_ru": "Клавиша",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(540|545)\\.(022|192|702)",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "rocker",
+      "type_ru": "Клавиша",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.486",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "insert",
+      "type_ru": "Вставка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.610\\.(022|192|702)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "insert",
+      "type_ru": "Вставка",
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        " TV",
+        "TV ",
+        "UAE",
+        "USB",
+        "TAE",
+        "KEY",
+        "RADIO",
+        "MP3",
+        " LS",
+        " AT"
+      ],
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "insert",
+      "type_ru": "Вставка",
+      "basis": "token"
+    },
+    {
+      "match_any": [
+        "wippe",
+        "wipschakelaar",
+        "koliska",
+        "выключатель",
+        "клавиш"
+      ],
+      "match_fields": [
+        "source_name",
+        "raw_title",
+        "spec_values"
+      ],
+      "canonical_type": "rocker",
+      "type_ru": "Клавиша",
+      "basis": "explicit"
+    },
+    {
+      "match_any": [
+        "socket",
+        "steckdose",
+        "uticnica",
+        "розетка"
+      ],
+      "match_fields": [
+        "source_name",
+        "raw_title",
+        "spec_values"
+      ],
+      "canonical_type": "socket",
+      "type_ru": "Розетка",
+      "basis": "explicit"
+    },
+    {
+      "match_any": [
+        "zentralplatte",
+        "central plate"
+      ],
+      "match_fields": [
+        "source_name",
+        "raw_title",
+        "spec_values"
+      ],
+      "canonical_type": "decorative_element",
+      "type_ru": "Центральная накладка",
+      "basis": "explicit"
+    }
+  ],
+  "attribute_rules": {
+    "gang_count": [
+      {
+        "match_regex": "D\\s+20\\.671",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 1,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.672",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 2,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.673",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 3,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.674",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 4,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.675",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 5,
+        "basis": "series_frame_mapping"
+      }
+    ]
+  },
+  "forbidden_generic_titles": [
+    "Электроустановочный модуль"
+  ],
+  "title_templates": {
+    "frame_with_gang_count": "{type_ru} {gang_count}-постовая {brand} {series}, {part_number}",
+    "frame": "{type_ru} {brand} {series}, {part_number}",
+    "insert": "{type_ru} {brand} {series}, {part_number}",
+    "rocker": "{type_ru} {brand} {series}, {part_number}",
+    "socket": "{type_ru} {brand} {series}, {part_number}",
+    "decorative_element": "{type_ru} {brand} {series}, {part_number}"
+  },
+  "review_if_missing": [
+    "canonical_product_type"
+  ]
+}

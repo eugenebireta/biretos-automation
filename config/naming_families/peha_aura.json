@@ -1,0 +1,293 @@
+{
+  "family": "peha_aura",
+  "brand_final": "PEHA",
+  "series": "AURA",
+  "family_matchers": [
+    {
+      "match_regex": "D\\s+20\\.(571|572|573|574|575)",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.6511\\.(02|21|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.610\\.(02|21|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.485",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(244|245|540|542|544|545|640|645)\\.(02|21|64|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.810.*HR",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        "AURA",
+        "AURA GLAS"
+      ],
+      "match_fields": [
+        "source_name",
+        "raw_title",
+        "spec_values"
+      ],
+      "basis": "explicit"
+    }
+  ],
+  "series_patterns": [
+    {
+      "match_regex": "D\\s+20\\.(571|572|573|574|575)",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "AURA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.6511\\.(02|21|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "AURA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.610\\.(02|21|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "AURA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.485",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "AURA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(244|245|540|542|544|545|640|645)\\.(02|21|64|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "AURA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.810.*HR",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "AURA",
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        "AURA",
+        "AURA GLAS"
+      ],
+      "match_fields": [
+        "raw_title",
+        "spec_values"
+      ],
+      "series": "AURA",
+      "basis": "explicit"
+    }
+  ],
+  "product_type_rules": [
+    {
+      "match_regex": "D\\s+20\\.(571|572|573|574|575)",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "frame",
+      "type_ru": "Рамка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.6511\\.(02|21|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "socket",
+      "type_ru": "Розетка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.(244|245|540|542|544|545|640|645)\\.(02|21|64|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "rocker",
+      "type_ru": "Клавиша",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.810.*HR",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "decorative_element",
+      "type_ru": "Центральная накладка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.485",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "insert",
+      "type_ru": "Вставка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+20\\.610\\.(02|21|70)\\b",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "insert",
+      "type_ru": "Вставка",
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        "Рамка",
+        "рамка",
+        "Rahmen",
+        "ramcek"
+      ],
+      "match_fields": [
+        "raw_title",
+        "spec_values"
+      ],
+      "canonical_type": "frame",
+      "type_ru": "Рамка",
+      "basis": "explicit"
+    }
+  ],
+  "attribute_rules": {
+    "gang_count": [
+      {
+        "match_regex": "D\\s+20\\.571",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 1,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.572",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 2,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.573",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 3,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.574",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 4,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+20\\.575",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 5,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "spec_key": "Количество постов:",
+        "match_fields": [
+          "specs"
+        ],
+        "basis": "spec"
+      }
+    ],
+    "color": [
+      {
+        "spec_key": "Цвет:",
+        "match_fields": [
+          "specs"
+        ],
+        "basis": "spec"
+      },
+      {
+        "spec_key": "Оттенок:",
+        "match_fields": [
+          "specs"
+        ],
+        "basis": "spec"
+      }
+    ],
+    "material": [
+      {
+        "spec_key": "Материал:",
+        "match_fields": [
+          "specs"
+        ],
+        "basis": "spec"
+      }
+    ],
+    "orientation": [
+      {
+        "spec_key": "Ориентация:",
+        "match_fields": [
+          "specs"
+        ],
+        "basis": "spec"
+      }
+    ]
+  },
+  "forbidden_generic_titles": [
+    "Электроустановочный модуль"
+  ],
+  "title_templates": {
+    "frame_with_gang_count": "{type_ru} {gang_count}-постовая {brand} {series}, {part_number}",
+    "frame": "{type_ru} {brand} {series}, {part_number}",
+    "rocker": "{type_ru} {brand} {series}, {part_number}",
+    "socket": "{type_ru} {brand} {series}, {part_number}",
+    "insert": "{type_ru} {brand} {series}, {part_number}",
+    "decorative_element": "{type_ru} {brand} {series}, {part_number}"
+  },
+  "review_if_missing": [
+    "canonical_product_type"
+  ]
+}

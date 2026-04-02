@@ -1,0 +1,103 @@
+{
+  "family": "peha_compacta",
+  "brand_final": "PEHA",
+  "series": "COMPACTA",
+  "family_matchers": [
+    {
+      "match_regex": "D\\s+77[1-9]\\.",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+701\\s+DO\\s+F$",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "explicit"
+    },
+    {
+      "match_any": [
+        "COMPACTA"
+      ],
+      "match_fields": [
+        "raw_title",
+        "spec_values"
+      ],
+      "basis": "explicit"
+    }
+  ],
+  "series_patterns": [
+    {
+      "match_regex": "D\\s+77[1-9]\\.",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "COMPACTA",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+701\\s+DO\\s+F$",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "COMPACTA",
+      "basis": "explicit"
+    },
+    {
+      "match_any": [
+        "COMPACTA"
+      ],
+      "match_fields": [
+        "raw_title",
+        "spec_values"
+      ],
+      "series": "COMPACTA",
+      "basis": "explicit"
+    }
+  ],
+  "product_type_rules": [
+    {
+      "match_regex": "D\\s+771\\.",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "frame",
+      "type_ru": "Рамка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+701\\s+DO\\s+F$",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "device_box",
+      "type_ru": "Монтажная коробка",
+      "basis": "explicit"
+    }
+  ],
+  "attribute_rules": {
+    "gang_count": [
+      {
+        "match_regex": "D\\s+771\\.",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 1,
+        "basis": "series_frame_mapping"
+      }
+    ]
+  },
+  "forbidden_generic_titles": [
+    "Электроустановочный модуль"
+  ],
+  "title_templates": {
+    "frame_with_gang_count": "{type_ru} {gang_count}-постовая {brand} {series}, {part_number}",
+    "frame": "{type_ru} {brand} {series}, {part_number}",
+    "device_box": "{type_ru} {brand} {series}, {part_number}"
+  },
+  "review_if_missing": [
+    "canonical_product_type"
+  ]
+}
