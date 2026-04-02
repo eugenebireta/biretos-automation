@@ -1,0 +1,81 @@
+{
+  "batch_id": "ru_slice_v2_20260402",
+  "ts": "2026-04-02T21:00:00Z",
+  "actor": "Agent/ClaudeCode-Sonnet4.6",
+  "purpose": "RU price slice v2 — rerun with individual product page URLs (upgrade from category URL v1)",
+
+  "trigger": "Owner: lineage=False in v1 because category URL. Require exact product pages for lineage=True.",
+
+  "url_discovery": {
+    "method": "WebFetch on Honeywell category page + individual URL extraction",
+    "1015021_url": "https://www.vseinstrumenti.ru/product/signalnye-protivoshumnye-naushniki-honeywell-lajtning-haj-viz-l1hhv-s-krepleniyami-na-kasku-1015021-2126028/",
+    "1012541_url": "https://www.vseinstrumenti.ru/product/protivoshumnye-naushniki-honeywell-lajtning-l3n-s-krepleniyami-iz-stalnoj-provoloki-na-kasku-1012541-2151517/",
+    "pn_in_slug": true,
+    "price_confirmed_via_webfetch": true,
+    "1015021_price_webfetch": "4314 RUB — matches v1 exactly",
+    "1012541_price_webfetch": "5356 RUB — matches v1 exactly",
+    "stock_status_webfetch": "out_of_stock (последняя цена) — both"
+  },
+
+  "script_results": [
+    {
+      "part_number": "1015021",
+      "price_status": "ambiguous_offer",
+      "price_per_unit": 4314.0,
+      "currency": "RUB",
+      "rub_price": 4314.0,
+      "http_status": 403,
+      "lineage_confirmed": false,
+      "lineage_reason_code": "access_denied_or_non_html",
+      "lineage_basis_v2": "url_slug_contains_pn_403_blocked",
+      "surface_stable": false,
+      "review_required": true,
+      "url_type": "individual_product_page",
+      "note": "Individual product URL used — PN 1015021 in slug. Script blocked (403). Lineage=False is BOT-PROTECTION ONLY, not URL quality gap. WebFetch confirms price and PN independently."
+    },
+    {
+      "part_number": "1012541",
+      "price_status": "ambiguous_offer",
+      "price_per_unit": 5356.0,
+      "currency": "RUB",
+      "rub_price": 5356.0,
+      "http_status": 403,
+      "lineage_confirmed": false,
+      "lineage_reason_code": "access_denied_or_non_html",
+      "lineage_basis_v2": "url_slug_contains_pn_403_blocked",
+      "surface_stable": false,
+      "review_required": true,
+      "url_type": "individual_product_page",
+      "note": "Individual product URL used — PN 1012541 in slug. Script blocked (403). Lineage=False is BOT-PROTECTION ONLY. WebFetch confirms price 5356 RUB."
+    }
+  ],
+
+  "v1_vs_v2_delta": {
+    "url_quality": "UPGRADED: category page → individual product page",
+    "pn_in_url": "v1=False, v2=True (embedded in slug)",
+    "price_values": "UNCHANGED: 4314 / 5356 RUB (consistent across both fetches)",
+    "lineage_result": "UNCHANGED: False in both (reason changed: v1=PN not matched on category, v2=403 bot-block)",
+    "lineage_reason_upgraded": true,
+    "price_status": "UNCHANGED: ambiguous_offer (lineage=False required for public_price)",
+    "confidence_basis": "UPGRADED: WebFetch on individual product page with PN in slug"
+  },
+
+  "path_to_public_price": {
+    "blocked_by": "vseinstrumenti.ru 403 on requests.py (consistent across category and product URLs)",
+    "webfetch_works": true,
+    "options": [
+      "1. Manual browser verification by owner → owner-confirmed lineage → can override to public_price",
+      "2. Add vseinstrumenti.ru to trust.py as ru_b2b tier (changes tier weight, NOT lineage)",
+      "3. Bot-bypass (NOT ALLOWED per policy)"
+    ],
+    "recommended_escalation": "Manual browser: owner opens both URLs, confirms PN and price visible → approves public_price classification for both"
+  },
+
+  "verdict": {
+    "url_gap": "CLOSED — individual product URLs found and verified",
+    "price_gap": "CLOSED — prices confirmed via WebFetch on product pages (4314 / 5356 RUB)",
+    "lineage_gap": "REMAINS — script 403 is the only blocker. Not a URL or price gap.",
+    "classification": "ambiguous_offer (lineage=False). Upgrade to public_price requires owner manual browser approval OR trust.py addition (tier only, not lineage).",
+    "confidence_level": "HIGH — two independent WebFetch confirmations (v1 category, v2 product page) with identical prices"
+  }
+}
