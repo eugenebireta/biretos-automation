@@ -1,0 +1,57 @@
+{
+  "batch_id": "eu_slice_v2_20260402",
+  "ts": "2026-04-02T19:30:00Z",
+  "actor": "Agent/ClaudeCode-Sonnet4.6",
+  "purpose": "EU price slice v2 — safety5000.com + laropadetrabajo.com as primary, no bot-bypass, honest price classification",
+
+  "target_skus": ["1012541", "1015021"],
+
+  "access_results": [
+    {"domain": "safety5000.com",      "method": "WebFetch", "result": "ECONNREFUSED",       "attempt": 2},
+    {"domain": "laropadetrabajo.com", "method": "WebFetch", "result": "SSL timeout",         "attempt": 2},
+    {"domain": "amazon.co.uk",        "method": "WebFetch", "result": "503/500",             "attempt": 1},
+    {"domain": "amazon.co.uk",        "method": "WebSearch","result": "ASIN B00A2ROV4W for 1012541 confirmed, no price in snippet"}
+  ],
+
+  "sku_results": [
+    {
+      "part_number": "1012541",
+      "product_name": "Наушники EARMUFF-LEIGHTNING L3H EU",
+      "price_class": "no_price_in_snippet",
+      "price_per_unit": null,
+      "currency": null,
+      "source_evidence": "Amazon.co.uk ASIN B00A2ROV4W confirmed by search. safety5000.com exact product page confirmed. No price visible in any snippet.",
+      "lineage_confirmed": false,
+      "review_required": true,
+      "note": "EU product existence confirmed (Amazon.co.uk + safety5000.com), price not extractable from any accessible source in this slice. Manual browser required."
+    },
+    {
+      "part_number": "1015021",
+      "product_name": "Наушники EARMUFF-LEIGHTNG L1H HV Hi-Vis",
+      "price_class": "reference_price",
+      "price_per_unit": 29.15,
+      "currency": "EUR",
+      "price_note": "ex-VAT (IVA not included); Spanish VAT 21% → gross ~€35.27",
+      "source": "laropadetrabajo.com",
+      "source_evidence": "Price €29.15+IVA confirmed in search snippet. Page inaccessible to script (SSL timeout). No script lineage.",
+      "lineage_confirmed": false,
+      "review_required": true,
+      "note": "reference_price: price confirmed in search snippet only, not script-lineage-confirmed. Cannot be used as public_price without manual browser verification of page and price."
+    }
+  ],
+
+  "price_classification_applied": {
+    "public_price": "price confirmed by script with lineage=True and accessible page",
+    "reference_price": "price confirmed in search snippet but page inaccessible to script — valid as reference floor, NOT for pipeline as active offer",
+    "ambiguous_offer": "price accessible but tier=unknown or surface conflict",
+    "no_price_in_snippet": "product confirmed but no price visible in search results",
+    "no_source_found": "no product page found at all"
+  },
+
+  "verdict": {
+    "safety5000_com": "still ECONNREFUSED — confirmed persistent access-pattern block, not transient",
+    "laropadetrabajo_com": "still SSL timeout — confirmed persistent access-pattern block",
+    "gap_status": "EU access-pattern gap confirmed stable across 2 independent attempts on 2 separate sessions",
+    "recommendation": "escalate 1015021 €29.15 and 1012541 Amazon confirmation to owner for manual browser verification; do not retry script-access"
+  }
+}
