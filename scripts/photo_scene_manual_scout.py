@@ -186,7 +186,7 @@ def main() -> None:
         print(
             f"{row['part_number']}: ok={row['download_ok']} role={row['source_role']} "
             f"tier={row['source_tier']} status={row['photo_status_target']} "
-            f"url={row['resolved_asset_url'][:100]}"
+            f"url={str(row['resolved_asset_url'] or '')[:100]}"
         )
 
 
