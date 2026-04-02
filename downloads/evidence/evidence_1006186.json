@@ -1,12 +1,110 @@
 {
-  "schema_version": "1.1",
-  "generated_at": "2026-03-25T11:19:19.096228Z",
+  "schema_version": "1.2",
+  "generated_at": "2026-03-31T21:56:14.286583Z",
   "pn": "1006186",
+  "pn_variants": [],
   "brand": "Honeywell",
+  "subbrand": "",
   "name": "Беруши 303L FOAMPLUG",
+  "assembled_title": "Беруши Honeywell 1006186",
   "our_price_raw": "1920,61",
-  "card_status": "AUTO_PUBLISH",
-  "review_reasons": [],
+  "expected_category": "Беруши",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "LEGACY_AUTO_PUBLISH_HOLDOUT"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_1006186",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "ACCEPTED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1006186"
+        ],
+        "evidence_ids": [
+          "ev_image_1006186"
+        ],
+        "policy_rule_id": "CAP-05",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_1006186"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1006186"
+        ],
+        "policy_rule_id": "CAP-05",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-05"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "ACCEPTED",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1006186"
+      ],
+      "evidence_ids": [
+        "ev_image_1006186"
+      ],
+      "policy_rule_id": "CAP-05",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_1006186"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1006186"
+      ],
+      "policy_rule_id": "CAP-05",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
   "photo": {
     "verdict": "KEEP",
     "verdict_reason": "На изображении видны беруши, товар соответствует описанию.",
@@ -20,7 +118,11 @@
     "source": "cached",
     "phash": "bb4ee1b09c159752",
     "stock_photo_flag": false,
-    "mpn_confirmed_via_jsonld": false
+    "mpn_confirmed_via_jsonld": false,
+    "photo_status": "exact_evidence",
+    "photo_evidence_role": "exact",
+    "photo_is_temporary": false,
+    "replacement_required": false
   },
   "price": {
     "price_status": "public_price",
@@ -40,20 +142,212 @@
     "suffix_conflict": false,
     "category_mismatch": false,
     "page_product_class": "Беруши",
-    "brand_mismatch": false
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
   },
   "datasheet": {
-    "datasheet_status": "skipped"
+    "datasheet_status": "found",
+    "pdf_url": "https://docs.rs-online.com/2f8c/A700000011191469.pdf",
+    "pdf_source_tier": "authorized",
+    "pdf_title": "HL400™-AM",
+    "pdf_specs": {
+      "ADDED PROTECTION": "AROUND THE CLOCK.",
+      "odors caused by mold, mildew and bacteria": "This product does not",
+      "PART NO": "DESCRIPTION CASE QTY",
+      "United Kingdom Phone": "+34 91 676 45 21",
+      "Phone": "+46 (0) 424480433",
+      "Email": "info-nordic.hsp@honeywell.com © 2022 Honeywell International Inc.",
+      "1H – 1831 Diegem Phone": "00800 33 44 28 03",
+      "7332 BP Apeldoorn, Nederland Email": "is.ppe.techsupport.europe@honeywell.com",
+      "Tel": "+31 (0) 20 5656 988 Self-Service Portal: https://sps-support."
+    },
+    "pdf_text_excerpt": "HL400™-AM ANTIMICROBIAL- PROTECTED DISPENSER ADDED PROTECTION. AROUND THE CLOCK. Maintaining clean workspaces is important for every business. Introducing Honeywell’s HL400-AM earplug dispenser – with built in antimicrobial properties to protect the dispenser against stains, discoloration and odors caused by mold, mildew and bacteria. This product does not protect users or others against disease-causing organisms. Enjoy cleaner surfaces from a dispenser with enhanced cleanliness. FEATURES AND BENEFITS BUILT-IN EASY TO INSTALL, YOUR CHOICE OF ANTIMICROBIAL USE AND REFILL HEARING PROTECTION PROT",
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
   },
   "content": {
     "specs": {},
-    "description": null
+    "description": "Беруши 303L из пеноматериала обеспечивают надежную защиту слуха. Они мягкие и удобные, что позволяет использовать их в течение длительного времени без дискомфорта.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Средства индивидуальной защиты",
+    "product_type": "Беруши",
+    "seed_name": "Беруши 303L FOAMPLUG"
   },
   "trace": {
     "pn_match_location": "",
     "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
     "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
     "jsonld_hit": false,
-    "source_trust_weight": null
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": true,
+    "trace_id": "catalog_verifier:1006186:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:1006186:6f66d0c02bb3ecd20957b506",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "REVIEW_REQUIRED",
+      "deterministic_identity_level": "strong"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "REVIEW_REQUIRED"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:1006186:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:1006186:6f66d0c02bb3ecd20957b506",
+      "pn_primary": "1006186",
+      "normalized_title": "Беруши Honeywell 1006186",
+      "card_status": "REVIEW_REQUIRED",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "REVIEW_REQUIRED",
+        "price_status": "ACCEPTED",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_1006186"
+          ],
+          "evidence_ids": [
+            "ev_image_1006186"
+          ],
+          "policy_rule_id": "CAP-05",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_1006186"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1006186"
+          ],
+          "policy_rule_id": "CAP-05",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "authorized",
+        "pdf_source_tier": "authorized",
+        "image_source_tier": "authorized"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "authorized"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "public_price",
+        "source_tier": "authorized",
+        "page_product_class": "Беруши",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "failed",
+    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
+    "openai_request_id": ""
+  },
+  "merchandising": {
+    "image_local_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos_enhanced\\1006186__catalog_placeholder_v1__c8aff4f0.jpg",
+    "image_status": "placeholder",
+    "image_kind": "placeholder_enhanced",
+    "image_temporary": true,
+    "replacement_required": true,
+    "lineage_preserved": true,
+    "source_manifest_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
+    "source_photo_verdict": "KEEP",
+    "cleanup_recommended": false,
+    "policy_reason_code": ""
+  },
+  "refresh_trace": {
+    "refresh_mode": "local_catalog_refresh_v1",
+    "content_seed_applied": true,
+    "content_seed_source": "insales_import_seed",
+    "photo_verdict_cache_applied": true,
+    "photo_verdict_value": "KEEP",
+    "merchandising_attached": true,
+    "merchandising_image_status": "placeholder",
+    "card_status_source": "base_bundle_preserved",
+    "policy_card_status_historical": "REVIEW_REQUIRED",
+    "policy_card_status_mismatch": true,
+    "holdout_applied": true,
+    "holdout_reason": "AUTO_PUBLISH_V2_MISMATCH_OWNER_DECISION_20260402",
+    "holdout_previous_card_status": "AUTO_PUBLISH"
   }
 }
