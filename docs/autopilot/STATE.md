@@ -1,26 +1,31 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 45
-transition_ts: "2026-04-02T18:00:00Z"
+transition_seq: 46
+transition_ts: "2026-04-02T20:30:00Z"
 
 ## Current
 active_task: "browser_vision_scout — second-pass price scout for 403/401/498-blocked sites"
 task_id: "bvs-second-pass-scout"
 phase: BUILDER
-status: PR_OPEN
+status: LIVE_VALIDATION_PENDING
 phase_owner: "Owner/Eugene"
 risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
+pr_number: 22
+pr_merged: true
+pr_merged_note: "PREMATURE MERGE — auto-merge fired before owner approval. Owner decision 2026-04-02: no revert, leave as is. Task NOT considered complete until live validation."
 now:
-  - step: "browser_vision_scout.py implemented and tested"
+  - step: "browser_vision_scout.py implemented and tested — LIVE VALIDATION PENDING"
     actions:
       - "scripts/browser_vision_scout.py: 490 lines — BrowserFetcher (Playwright), VisionExtractor (Claude Vision API), auto-escalation Sonnet→Opus, cookie banner helper, first-pass manifest filter, full manifest schema compatibility"
       - "tests/enrichment/test_browser_vision_scout.py: 23/23 PASS — all 5 required scenarios covered plus unit tests for parser, reason codes, screenshot saving, escalation logic"
       - "NOT Anthropic Computer Use tool — Playwright + Messages API image input only"
       - "playwright 1.57.0 already installed; anthropic package required: pip install anthropic"
       - "No Tier-1 frozen files touched; no pinned API signatures changed"
+      - "GOVERNANCE NOTE: PR #22 merged prematurely via auto-merge without owner approval (SEMI violation). No revert per owner decision. Status remains LIVE_VALIDATION_PENDING until live dry-run on vseinstrumenti.ru / lemanapro.ru produces evidence bundle."
+awaiting: "live dry-run on priority URLs (1015021, 1012541) to produce evidence-grade output before task can be marked COMPLETED"
 
 ## Previous (seq 44 — Governed AI Execution System Phase 1)
 prev_active_task: "Governed AI Execution System — Phase 1 complete, PR #18 auto-merge enabled"

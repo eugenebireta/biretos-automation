@@ -4,6 +4,9 @@ Task_ID: bvs-second-pass-scout
 Risk: SEMI
 Date: 2026-04-02
 Branch: feat/rev-r1-catalog
+Status: LIVE_VALIDATION_PENDING — NOT COMPLETED
+Governance note: PR #22 merged prematurely (auto-merge without owner approval).
+Owner decision 2026-04-02: no revert. Task not closed until live evidence produced.
 
 ## What was built
 
