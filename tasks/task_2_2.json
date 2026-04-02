@@ -1,0 +1,11 @@
+{
+  "title": "Branch protection na master",
+  "stage": "2.2",
+  "risk": "low",
+  "why_now": "CI uzhe nastroyen (2.1 done), branch protection - sleduyushchiy shag po Roadmap",
+  "depends_on": ["2.1"],
+  "declared_surface": [],
+  "keywords": [],
+  "affected_files": [],
+  "description": "Sozdat GitHub Actions workflow ili dokumentaciyu dlya nastroyki branch protection rules na master: require PR review, require CI pass (pytest), no direct push to master. NE primenyat nastroyki - tolko sgenerirovat kod/instrukciyu."
+}
