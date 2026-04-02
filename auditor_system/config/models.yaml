@@ -7,7 +7,7 @@ builder:
   # НЕ использовать 1M context по умолчанию (extra usage)
 
 auditors:
-  openai: "gpt-4o"              # OpenAI Responses API + Structured Outputs
+  openai: "gpt-4o"                        # OpenAI Responses API + Structured Outputs
   anthropic: "claude-sonnet-4-6" # Anthropic Messages API — API billing
   # Внимание: auditor (API) ≠ builder (подписка). Разные окружения.
 

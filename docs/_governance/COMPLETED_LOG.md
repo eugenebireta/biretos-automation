@@ -1,4 +1,32 @@
 ---
+DATE: 2026-04-03
+TITLE: auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)
+RISK_LEVEL: SEMI
+STATUS: COMPLETED
+SCOPE:
+  - auditor_system/hard_shell/schema_validator.py (NEW)
+  - auditor_system/hard_shell/fallback_handler.py (NEW)
+  - auditor_system/hard_shell/run_store.py (MODIFIED — load_run_for_verdict)
+  - auditor_system/providers/openai_auditor.py (REPLACED — live Responses API)
+  - auditor_system/providers/anthropic_auditor.py (REPLACED — live Messages API)
+  - auditor_system/review_runner.py (MODIFIED — FallbackHandler + _gather_safe)
+  - auditor_system/cli.py (REPLACED — verdict + pilot + live runner commands)
+  - auditor_system/config/models.yaml (MODIFIED — anthropic: claude-sonnet-4-6)
+  - auditor_system/config/.env.auditors (NEW — isolated secrets, gitignored)
+  - auditor_system/requirements.txt (NEW)
+  - auditor_system/tests/test_phase2.py (NEW — 24 deterministic tests)
+  - .gitignore (MODIFIED — add .env.auditors)
+  - .env root (CLEARED — ANTHROPIC_API_KEY removed)
+TEST_EVIDENCE: 38/38 PASS (14 Phase1 + 24 Phase2)
+PILOT_GATE:
+  LOW  | run_3adda4a0816c | auto_pass        | Anthropic: approve   | owner: approved
+  SEMI | run_42cce6d15df3 | batch_approval   | Anthropic: concerns  | owner: approved
+  CORE | run_8175dc532f3d | BLOCKED          | OpenAI quota → STOP_OWNER_ALERT (correct)
+KNOWN_GAP: OpenAI key has insufficient_quota → Responses API unavailable. FallbackHandler correct.
+DPO_RECORDS: 2 written to experience_log/2026-04.jsonl
+NEXT_RISK: SEMI
+
+---
 DATE: 2026-04-02
 TITLE: browser_vision_scout — second-pass price scout (Playwright + Claude Vision)
 RISK_LEVEL: SEMI

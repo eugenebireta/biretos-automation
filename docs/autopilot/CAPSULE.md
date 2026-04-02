@@ -1,5 +1,71 @@
 # Task Capsule
 
+Task_ID: auditor-system-phase2
+Risk: SEMI
+Date: 2026-04-03
+Branch: feat/rev-r1-catalog
+
+## What was built
+
+auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4).
+
+New modules:
+- `hard_shell/schema_validator.py` — SchemaViolationError + validate_and_parse (SPEC §19.3)
+- `hard_shell/fallback_handler.py` — FallbackHandler: risk-aware (SPEC §7)
+- `providers/openai_auditor.py` — live Responses API + Structured Outputs
+- `providers/anthropic_auditor.py` — live Messages API (claude-sonnet-4-6)
+- `auditor_system/requirements.txt`
+- `auditor_system/config/.env.auditors` — isolated secrets (gitignored)
+
+Modified:
+- `review_runner.py` — _gather_safe + FallbackHandler
+- `run_store.py` — load_run_for_verdict
+- `cli.py` — verdict + pilot + live commands
+- `config/models.yaml` — anthropic: claude-sonnet-4-6
+- `.gitignore` + `.env` root cleared
+
+## Tests
+
+38/38 PASS (14 Phase1 regression + 24 Phase2 new)
+
+## Pilot Gate
+
+| Task | Risk | Route | Note |
+|------|------|-------|------|
+| Branch protection | LOW | auto_pass | Anthropic approve; OpenAI quota→CONTINUE_ONE |
+| Iron Fence M3a | SEMI | batch_approval | Anthropic concerns; OpenAI quota→CONTINUE_BATCH |
+| Pydantic Validation | CORE | BLOCKED | OpenAI quota→STOP_OWNER_ALERT (correct) |
+
+Owner verdicts: LOW=approved, SEMI=approved.
+DPO records: 2 in experience_log/2026-04.jsonl.
+
+## Known gap
+OpenAI key has insufficient_quota. CORE pilot needs funded key.
+FallbackHandler correctly BLOCKED CORE on one auditor failure.
+
+## Files changed
+- auditor_system/hard_shell/schema_validator.py (NEW)
+- auditor_system/hard_shell/fallback_handler.py (NEW)
+- auditor_system/hard_shell/run_store.py (MODIFIED)
+- auditor_system/providers/openai_auditor.py (REPLACED)
+- auditor_system/providers/anthropic_auditor.py (REPLACED)
+- auditor_system/review_runner.py (MODIFIED)
+- auditor_system/cli.py (REPLACED)
+- auditor_system/config/models.yaml (MODIFIED)
+- auditor_system/config/.env.auditors (NEW — gitignored)
+- auditor_system/requirements.txt (NEW)
+- auditor_system/tests/test_phase2.py (NEW)
+- .gitignore (MODIFIED)
+- .env root (CLEARED)
+
+## Governance
+- Tier-1 frozen files: CLEAN
+- Pinned API signatures: CLEAN
+
+---
+
+# Previous Capsule
+
 Task_ID: bvs-second-pass-scout
 Risk: SEMI
 Date: 2026-04-02

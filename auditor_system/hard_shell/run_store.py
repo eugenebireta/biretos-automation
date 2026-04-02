@@ -177,3 +177,138 @@ class RunStore:
 
     def list_runs(self) -> list[str]:
         return sorted(p.name for p in self.base_dir.iterdir() if p.is_dir())
+
+    def save_owner_verdict(self, run_id: str, verdict: str, notes: str = "") -> Path:
+        """Writes owner_verdict.json to run dir (for CLI verdict command)."""
+        return self._write_json(run_id, "owner_verdict.json", {
+            "owner_verdict": verdict,
+            "owner_notes": notes,
+        })
+
+    def load_run_for_verdict(self, run_id: str) -> "ProtocolRun":
+        """
+        Reconstructs a ProtocolRun from disk artifacts for the CLI verdict command.
+        Loads: manifest, task_pack, critiques, final_verdicts, surface, quality_gate.
+        Does NOT load proposal text (not needed for ExperienceSink).
+        """
+        from datetime import datetime, timezone
+        from .contracts import (
+            AuditIssue, AuditVerdict, AuditVerdictValue,
+            ApprovalRoute, EffortLevel,
+            IssueSeverity, ModelName, ProtocolRun, QualityGateResult,
+            RiskLevel, SurfaceClassification, TaskPack,
+        )
+
+        run_dir = self.base_dir / run_id
+        if not run_dir.exists():
+            raise FileNotFoundError(f"Run dir not found: {run_dir}")
+
+        # Load manifest
+        manifest = json.loads((run_dir / "run_manifest.json").read_text(encoding="utf-8"))
+
+        # Load task_pack
+        task_data = json.loads((run_dir / "task_pack.json").read_text(encoding="utf-8"))
+        task = TaskPack(
+            task_id=task_data["task_id"],
+            title=task_data["title"],
+            description=task_data.get("description", ""),
+            roadmap_stage=task_data["roadmap_stage"],
+            why_now=task_data["why_now"],
+            risk=RiskLevel(task_data["risk"]),
+            depends_on=task_data.get("depends_on", []),
+            blocks=task_data.get("blocks", []),
+            declared_surface=task_data.get("declared_surface", []),
+            affected_files=task_data.get("affected_files", []),
+            keywords=task_data.get("keywords", []),
+        )
+
+        def _load_verdict(filename: str) -> AuditVerdict | None:
+            p = run_dir / filename
+            if not p.exists():
+                return None
+            d = json.loads(p.read_text(encoding="utf-8"))
+            issues = [
+                AuditIssue(
+                    severity=IssueSeverity(i["severity"]),
+                    area=i["area"],
+                    description=i["description"],
+                    line_ref=i.get("line_ref", ""),
+                )
+                for i in d.get("issues", [])
+            ]
+            return AuditVerdict(
+                auditor_id=d["auditor_id"],
+                verdict=AuditVerdictValue(d["verdict"]),
+                summary=d["summary"],
+                issues=issues,
+                schema_valid=d.get("schema_valid", True),
+            )
+
+        critiques = [
+            v for v in [
+                _load_verdict("auditor_1_critique.json"),
+                _load_verdict("auditor_2_critique.json"),
+            ]
+            if v is not None
+        ]
+        final_verdicts = [
+            v for v in [
+                _load_verdict("auditor_1_final.json"),
+                _load_verdict("auditor_2_final.json"),
+            ]
+            if v is not None
+        ]
+
+        # Load surface from manifest
+        surface = SurfaceClassification(
+            classified_surface=set(manifest.get("effective_surface", [])),
+            declared_surface=set(task_data.get("declared_surface", [])),
+        )
+
+        # Load quality gate
+        qg_path = run_dir / "quality_gate_result.json"
+        quality_gate = None
+        if qg_path.exists():
+            qg_data = json.loads(qg_path.read_text(encoding="utf-8"))
+            quality_gate = QualityGateResult(
+                passed=qg_data["passed"],
+                reason=qg_data["reason"],
+                escalation_needed=qg_data.get("escalation_needed", False),
+            )
+
+        # Load proposal texts
+        proposal_path = run_dir / "builder_proposal.md"
+        proposal = proposal_path.read_text(encoding="utf-8") if proposal_path.exists() else ""
+        revised_path = run_dir / "revised_proposal.md"
+        revised_proposal = revised_path.read_text(encoding="utf-8") if revised_path.exists() else ""
+
+        run = ProtocolRun(
+            run_id=manifest["run_id"],
+            trace_id=manifest["trace_id"],
+            task=task,
+            model_used=ModelName(manifest.get("model_used", "sonnet")),
+            effort=EffortLevel(manifest.get("effort", "medium")),
+            escalated=manifest.get("escalated", False),
+            escalation_reason=manifest.get("escalation_reason", ""),
+            surface=surface,
+            proposal=proposal,
+            critiques=critiques,
+            revised_proposal=revised_proposal,
+            final_verdicts=final_verdicts,
+            quality_gate=quality_gate,
+            approval_route=ApprovalRoute(manifest["approval_route"]) if manifest.get("approval_route") else None,
+            cost_usd=manifest.get("cost_usd", 0.0),
+        )
+        if manifest.get("started_at"):
+            run.started_at = datetime.fromisoformat(manifest["started_at"])
+        if manifest.get("finished_at"):
+            run.finished_at = datetime.fromisoformat(manifest["finished_at"])
+
+        # Load existing owner verdict if already set
+        verdict_path = run_dir / "owner_verdict.json"
+        if verdict_path.exists():
+            vd = json.loads(verdict_path.read_text(encoding="utf-8"))
+            run.owner_verdict = vd.get("owner_verdict")
+            run.owner_notes = vd.get("owner_notes", "")
+
+        return run
