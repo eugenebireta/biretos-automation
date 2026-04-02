@@ -1,7 +1,8 @@
 # Governed Execution & Migration Safety — Handoff Context
 
-**Version:** 2.0
+**Version:** 2.1
 **Created:** 2026-03-24
+**Updated:** 2026-03-25
 **Status:** READY FOR AI CONSUMPTION
 **Risk class of this document:** LOW (documentation only, no code changes)
 
@@ -83,7 +84,7 @@ Do not describe TD-045 as implemented or functional — it does not exist yet.
 
 ## 4. Current State vs Target State
 
-### 4.1 CURRENT STATE (as of 2026-03-24)
+### 4.1 CURRENT STATE (as of 2026-03-25)
 
 | Component | Status | Note |
 |-----------|--------|------|
@@ -95,10 +96,11 @@ Do not describe TD-045 as implemented or functional — it does not exist yet.
 | Hash Lock — Tier-1 files (Этап 5.5.1) | ✅ Active | SHA-256, CRLF-safe |
 | Boundary Grep guard (Этап 5.5) | 🔄 Status not confirmed | M3b/M3c не подтверждены |
 | DDL Guard (Этап 5.5) | 🔄 Status not confirmed | M3c не подтверждён |
-| **Branch protection on master (Этап 2.2)** | ❌ **NOT DONE** | Explicit in Roadmap state |
+| **Branch protection on master (Этап 2.2)** | ⚠️ **PARTIAL** | CI required; PR reviews not required; direct push not blocked. Not yet target state. |
 | SEMI Approval Artifact (TD-045) | ❌ NOT IMPLEMENTED | Planned after CORE-APPROVED |
 | OS-level process isolation | ❌ NOT implemented | See §5 |
-| Active implementation task | Этап 7 — AI Executive Assistant NLU (PR #9 open, awaiting external CRITIC / AUDITOR / JUDGE review) | No new code; Этап 8 not yet started |
+| Этап 7 — AI Executive Assistant NLU | ✅ DONE | PR #9 merged 2026-03-22, JUDGE PASS (321 tests) |
+| Active implementation task | Этап 8 — Stability Gate, MONITOR phase | STATE.md seq 28. Awaiting ≥30 closed cycles + Shadow Mode exit |
 
 ### 4.2 TARGET STATE
 
@@ -127,8 +129,8 @@ for Claude Code) is a **required** element of the full guarded execution contour
 
 **Current posture:**
 Working without OS-level isolation. This is an **accepted known risk** for the current
-review / documentation / pre-next-sprint period (Этап 7 external review pending;
-no active SEMI/CORE implementation tasks running).
+Этап 8 MONITOR period (no active SEMI/CORE implementation tasks running;
+monitoring-only phase with no new code changes).
 
 **Trigger for resolution:** Before the next active SEMI or CORE implementation sprint begins.
 
@@ -195,7 +197,8 @@ No code changes required — this is a GitHub repository settings action (owner)
 
 | Activity | Reason |
 |---------|--------|
-| Этап 7 external review (CRITIC / AUDITOR / JUDGE) | Active task, no new code — awaiting review of PR #9 |
+| Этап 8 Stability Gate — MONITOR phase | Active task; monitoring only, no new code |
+| R1 Mass Catalog Pipeline — continued dev | De facto active track; Tier-3 only, no Core touch |
 | LOW task execution | Guardrails L1-L4 active, low blast radius |
 | Documentation hardening (proposals, handoffs, IDEA_INBOX) | No Core touch |
 | TD-044 Portable Guard Validation — research/prep phase | Documentation only |
@@ -263,4 +266,4 @@ OS-level isolation implemented; next CORE sprint begins.
 
 ---
 
-*End of GOVERNED_EXECUTION_MIGRATION_CONTEXT v2*
+*End of GOVERNED_EXECUTION_MIGRATION_CONTEXT v2.1*

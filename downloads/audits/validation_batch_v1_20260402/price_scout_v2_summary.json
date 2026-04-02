@@ -1,0 +1,96 @@
+{
+  "batch_id": "price_scout_v2_20260402",
+  "ts": "2026-04-02T14:00:00Z",
+  "actor": "Agent/ClaudeCode-Sonnet4.6",
+  "purpose": "Price validation slice v2 — 5 PPE SKU with higher expected admissible source coverage",
+
+  "slice": ["1011994", "1015021", "1012541", "121679-L3", "129625-L3"],
+
+  "scout_findings": [
+    {
+      "part_number": "1011994",
+      "product_name": "Наушники EARMUFF LEIGHTNING L1N",
+      "source_found": true,
+      "page_url": "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm",
+      "source_tier": "official",
+      "price_status": "public_price",
+      "price_per_unit": 9.95,
+      "currency": "USD",
+      "rub_price": 875.6,
+      "fx_normalization_status": "normalized",
+      "fx_gap": false,
+      "lineage_confirmed": true,
+      "lineage_reason_code": "structured_exact_product_page",
+      "surface_stable": true,
+      "surface_conflict": false,
+      "review_required": false,
+      "stock_status": "discontinued",
+      "note": "Product discontinued but last-known public price visible. honeywellstore.com classified as official tier. Price signal valid as floor/reference. USD→RUB normalized cleanly."
+    },
+    {
+      "part_number": "1015021",
+      "product_name": "Наушники EARMUFF-LEIGHTNG L1H HV Hi-Vis",
+      "source_found": false,
+      "scout_notes": "lsgindustrial.com (price $36.14 in search snippet) returned 404. indiamart.com found (India market, not admissible for RUB pipeline). fischerbell.com Singapore — admissibility unclear. No confirmed accessible EU/US price page.",
+      "outcome": "no_source_found"
+    },
+    {
+      "part_number": "1012541",
+      "product_name": "Наушники EARMUFF-LEIGHTNING L3H EU",
+      "source_found": false,
+      "scout_notes": "Honeywell support article confirms PN is EU helmet-adapter variant (adapters 3711/3712/3721). US variant 1011993 found on multiple US distributors, but EU-specific 1012541 has no standalone price page. hazmasters.com returned 404.",
+      "outcome": "eu_variant_no_price_page"
+    },
+    {
+      "part_number": "121679-L3",
+      "product_name": "Ручной аспиратор Honeywell 121679-L3",
+      "source_found": false,
+      "scout_notes": "PN 121679-L3 does not match BW/GasAlert aspirator PN patterns (MC-AS01, D4-AS01, B86MCAS01). Likely a regional or variant catalog number not indexed by standard distributors. Requires specialist BW Technologies/Honeywell Analytics distributor lookup.",
+      "outcome": "pn_not_matched"
+    },
+    {
+      "part_number": "129625-L3",
+      "product_name": "Набор для подключения GasAlert Series",
+      "source_found": false,
+      "scout_notes": "GasAlert connectivity kits found at instrumart.com and pksafety.com but under different PN patterns (GA-USB1-IR, MC-CK-DL). 129625-L3 specific PN not matched. Instrumart has related kits — manual lookup with PN required.",
+      "outcome": "pn_not_matched"
+    }
+  ],
+
+  "script_results": {
+    "seeds_loaded": 1,
+    "manifested": 1,
+    "results": [
+      {
+        "part_number": "1011994",
+        "price_status": "public_price",
+        "price_per_unit": 9.95,
+        "currency": "USD",
+        "rub_price": 875.6,
+        "source_tier": "official",
+        "lineage_confirmed": true,
+        "surface_stable": true,
+        "review_required": false,
+        "fx_normalization_status": "normalized",
+        "fx_gap": false
+      }
+    ]
+  },
+
+  "edge_cases": {
+    "fx_locale": "No new FX edge cases. USD normalized cleanly. No TWD or exotic-currency exposure in this slice.",
+    "discontinued_price": "1011994 is DISCONTINUED on honeywellstore.com. Script classified it as public_price with tier=official and review_required=False. This is correct: the price is a valid reference signal even if inactive stock. No special handling needed in pipeline.",
+    "eu_variant_gap": "1012541 EU variant is a systematic gap: EU helmet adapters ship as separate regional SKU with no standalone distributor page. Needs specialist Honeywell PPE EU distributor (e.g. uvex-safety.com, protectaplugs.co.uk) in future slice."
+  },
+
+  "verdict": {
+    "public_price": 1,
+    "ambiguous_offer": 0,
+    "no_price_found": 0,
+    "no_source_found": 4,
+    "lineage_confirmed": 1,
+    "lineage_not_confirmed": 0,
+    "new_fx_edge_cases": "none",
+    "new_locale_edge_cases": "eu_variant_systematic_gap (1012541)"
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260331T035551Z_1006186_residual",
+  "created_at": "2026-03-31T03:56:05Z",
+  "manifest_summary": {
+    "batch_size": 1,
+    "selection_mode": "single_residual_exact_case",
+    "coverage_by_case_type": {
+      "numeric": 1
+    },
+    "coverage_gaps": [
+      "No expected PDF-friendly SKU in the selected subset.",
+      "No suffix-case PN in the selected subset.",
+      "No family/subbrand pattern surfaced in names.",
+      "Cross-pollination-positive cases are not guaranteed by this supplier slice.",
+      "Brand diversity is limited: supplier input is Honeywell-only."
+    ]
+  },
+  "produced_artifacts": [
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\batch_manifest.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\sanity_audit_report.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\candidate_sidecar.jsonl",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\run_first_stdout.log",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\run_resume_stdout.log",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\checkpoint.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\price_evidence_cache.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\price_source_surface_cache.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\evidence\\evidence_1006186.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\export\\audit_report.json"
+  ],
+  "metrics": {
+    "batch_size": 1,
+    "false_keep_numeric_pn": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "Numeric/dotted/leading-zero PN cases with photo verdict KEEP but non-AUTO_PUBLISH card outcome."
+    },
+    "false_public_price_count": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "Bundles with raw public_price but non-ACCEPTED v2 price field status."
+    },
+    "safe_cache_fallback_reuse_count": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "SKUs where transient deterministic price extraction failure reused prior admissible exact-product price evidence from bounded-run cache."
+    },
+    "explicit_no_price_coverage_count": {
+      "count": 1,
+      "pn_list": [
+        "1006186"
+      ],
+      "definition": "No-price/hidden-price bundles where deterministic upstream source or page lineage was still materialized explicitly."
+    },
+    "exact_product_lineage_confirmed_count": {
+      "count": 1,
+      "pn_list": [
+        "1006186"
+      ],
+      "definition": "No-price/source-seen bundles where pre-LLM exact-product lineage was confirmed deterministically from structured page evidence."
+    },
+    "admissible_source_replacement_confirmed_count": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "Weak exact-lineage no-price bundles where a higher-tier admissible exact-product replacement source was confirmed deterministically."
+    },
+    "terminal_weak_lineage_count": {
+      "count": 1,
+      "pn_list": [
+        "1006186"
+      ],
+      "definition": "Weak exact-lineage no-price bundles with no admissible replacement confirmed in the bounded candidate surface."
+    },
+    "source_surface_preserved_count": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "Bundles where compatible no-price source surface was preserved explicitly from a prior bounded run because the current run dropped it."
+    },
+    "source_surface_drop_detected_count": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "Bundles where current-run no-price source surface dropped relative to compatible prior bounded evidence."
+    },
+    "source_surface_conflict_count": {
+      "count": 1,
+      "pn_list": [
+        "1006186"
+      ],
+      "definition": "Bundles where current-run no-price source surface conflicts with compatible prior bounded evidence and was not preserved silently."
+    },
+    "reviewable_no_price_candidate_count": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "No-price exact-product pages with clean admissible lineage that may be considered for future deterministic review-routing."
+    },
+    "remaining_no_price_family_count": {
+      "count": 1,
+      "pn_list": [
+        "1006186"
+      ],
+      "definition": "DRAFT_ONLY bundles still blocked by terminal or generic no-price evidence failure on the authoritative v2 path."
+    },
+    "remaining_ambiguous_tail_count": {
+      "count": 0,
+      "pn_list": [],
+      "definition": "DRAFT_ONLY no-price bundles that are neither terminal weak lineage nor reviewable no-price candidates after the current deterministic classification pass."
+    },
+    "photo_keep_rate": 0.0,
+    "usable_price_rate": 0.0,
+    "review_required_rate": 0.0,
+    "no_price_found_rate": 1.0,
+    "category_mismatch_count": 0,
+    "cross_pollination_count": 0,
+    "checkpoint_resume_ok": true,
+    "exact_photo_precision": null,
+    "exact_price_precision": null,
+    "identity_conflict_rate": 1.0,
+    "family_photo_used_rate": 0.0,
+    "field_status_failure_rate": 0.75,
+    "card_status_distribution": {
+      "DRAFT_ONLY": 1
+    },
+    "field_status_distribution": {
+      "title": {
+        "ACCEPTED": 1
+      },
+      "image": {
+        "INSUFFICIENT": 1
+      },
+      "price": {
+        "INSUFFICIENT": 1
+      },
+      "pdf": {
+        "INSUFFICIENT": 1
+      }
+    },
+    "review_bucket_distribution": {
+      "IDENTITY_CONFLICT": 1,
+      "MISSING_MINIMUM_EVIDENCE": 2,
+      "PDF_CONFLICT": 1
+    },
+    "top_failure_modes": [
+      [
+        "IDENTITY_WEAK",
+        1
+      ],
+      [
+        "NO_IMAGE_EVIDENCE",
+        1
+      ],
+      [
+        "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+        1
+      ],
+      [
+        "NO_PDF_EVIDENCE",
+        1
+      ]
+    ],
+    "top_ambiguous_cases": [
+      {
+        "pn_primary": "1006186",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      }
+    ],
+    "critical_policy_surprises": []
+  },
+  "status_distributions": {
+    "authoritative_v2_source": "policy_decision_v2.card_status",
+    "legacy_source": "bundle.card_status and legacy export stdout",
+    "legacy_bundle_distribution": {
+      "DRAFT_ONLY": 1
+    },
+    "legacy_first_stdout_distribution": {
+      "AUTO_PUBLISH": 0,
+      "REVIEW_REQUIRED": 0,
+      "DRAFT_ONLY": 1
+    },
+    "legacy_resume_stdout_distribution": {
+      "AUTO_PUBLISH": 0,
+      "REVIEW_REQUIRED": 0,
+      "DRAFT_ONLY": 1
+    },
+    "v2_authoritative_distribution": {
+      "DRAFT_ONLY": 1
+    },
+    "consistency_checks": {
+      "legacy_bundle_matches_first_stdout": false,
+      "legacy_bundle_matches_resume_stdout": false,
+      "legacy_matches_v2": true
+    }
+  },
+  "example_sku_outcomes": [
+    {
+      "pn_primary": "1006186",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1006186"
+          ],
+          "evidence_ids": [
+            "ev_title_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1006186"
+          ],
+          "evidence_ids": [
+            "ev_image_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_1006186"
+          ],
+          "evidence_ids": [
+            "ev_price_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1006186"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09T; identity=weak; image=INSUFFICIENT; price=INSUFFICIENT; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,NO_IMAGE_EVIDENCE,TERMINAL_WEAK_NO_PRICE_LINEAGE,NO_PDF_EVIDENCE"
+    }
+  ],
+  "dual_status_examples": [
+    {
+      "pn_primary": "1006186",
+      "legacy_card_status": "DRAFT_ONLY",
+      "v2_card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "v2_status_source_path": "evidence_1006186.json::policy_decision_v2.card_status",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1006186"
+          ],
+          "evidence_ids": [
+            "ev_title_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1006186"
+          ],
+          "evidence_ids": [
+            "ev_image_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_1006186"
+          ],
+          "evidence_ids": [
+            "ev_price_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1006186"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1006186"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ]
+    }
+  ],
+  "resume_evidence": {
+    "checkpoint_entries": 1,
+    "resume_skip_count": 1,
+    "checkpoint_resume_ok": true,
+    "resume_skipped_due_to_early_stop": false
+  },
+  "shadow_run_summary": {
+    "first_run": {
+      "profile_name": "sanity_shadow_v1",
+      "active": true,
+      "completed_skus": [
+        "1006186"
+      ],
+      "skipped_due_to_budget": [],
+      "timed_out_sources": [],
+      "verifier_calls_used": 0,
+      "responses_calls": 0,
+      "chat_completions_calls_verifier": 0,
+      "timeout_count": 0,
+      "per_source_failure_summary": {
+        "sps-support.honeywell.com": 2,
+        "export.rsdelivers.com": 1
+      },
+      "reason_for_early_stop": "",
+      "early_stop": false,
+      "total_wall_clock_sec": 13.531,
+      "avg_verifier_latency_sec": 0.0,
+      "max_verifier_latency_sec": 0.0,
+      "limits": {
+        "MAX_SHADOW_SKUS": 15,
+        "MAX_VERIFIER_CALLS_PER_RUN": 8,
+        "MAX_VERIFIER_CALLS_PER_SKU": 1,
+        "MAX_RUN_WALLCLOCK_SEC": 480,
+        "MAX_CONSECUTIVE_TIMEOUTS": 3,
+        "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+        "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+      },
+      "responses_only_verifier": true,
+      "run_manifest_id": "phase_a_v2_sanity_20260331T035551Z_1006186_residual",
+      "planned_skus": 1
+    },
+    "resume_run": {
+      "profile_name": "sanity_shadow_v1",
+      "active": true,
+      "completed_skus": [],
+      "skipped_due_to_budget": [],
+      "timed_out_sources": [],
+      "verifier_calls_used": 0,
+      "responses_calls": 0,
+      "chat_completions_calls_verifier": 0,
+      "timeout_count": 0,
+      "per_source_failure_summary": {},
+      "reason_for_early_stop": "",
+      "early_stop": false,
+      "total_wall_clock_sec": 0.016,
+      "avg_verifier_latency_sec": 0.0,
+      "max_verifier_latency_sec": 0.0,
+      "limits": {
+        "MAX_SHADOW_SKUS": 15,
+        "MAX_VERIFIER_CALLS_PER_RUN": 8,
+        "MAX_VERIFIER_CALLS_PER_SKU": 1,
+        "MAX_RUN_WALLCLOCK_SEC": 480,
+        "MAX_CONSECUTIVE_TIMEOUTS": 3,
+        "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+        "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+      },
+      "responses_only_verifier": true,
+      "run_manifest_id": "phase_a_v2_sanity_20260331T035551Z_1006186_residual:resume",
+      "planned_skus": 1
+    }
+  },
+  "run_logs": {
+    "first_run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\run_first_stdout.log",
+    "resume_run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\run_resume_stdout.log",
+    "first_run_tail": [
+      "",
+      "[1/1] 1006186 — Беруши 303L FOAMPLUG",
+      "  Фото: 1200x744px 117KB (cached)",
+      "  Источник: cached",
+      "  Цена: no_price_found",
+      "  Вердикт: KEEP (artifact_cache sha1=c8aff4f0) — На изображении видны беруши, товар соответствует описанию.",
+      "  deterministic_keep_guard: missing_exact_structured_context",
+      "",
+      "=======================================================",
+      "KEEP: 0  REJECT: 1  NO_PHOTO: 0  CHECKPOINT_SKIP: 0",
+      "",
+      "=======================================================",
+      "EXPORT: AUTO_PUBLISH=0  REVIEW_REQUIRED=0  DRAFT_ONLY=1",
+      "InSales CSV → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\export\\insales_export.csv (0 rows)",
+      "Audit      → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\export\\audit_report.json",
+      "Evidence   → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\evidence (1 bundles)"
+    ],
+    "resume_run_tail": [
+      "[1/1] 1006186 — CHECKPOINT (skip)",
+      "",
+      "=======================================================",
+      "KEEP: 0  REJECT: 1  NO_PHOTO: 0  CHECKPOINT_SKIP: 1",
+      "",
+      "=======================================================",
+      "EXPORT: AUTO_PUBLISH=0  REVIEW_REQUIRED=0  DRAFT_ONLY=1",
+      "InSales CSV → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\export\\insales_export.csv (0 rows)",
+      "Audit      → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\export\\audit_report.json",
+      "Evidence   → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260331T035551Z_1006186_residual\\evidence (1 bundles)"
+    ]
+  },
+  "explicit_false_positives": {
+    "false_keep_numeric_pn": [],
+    "false_public_price": []
+  },
+  "critical_policy_surprises": [],
+  "broader_controlled_run_assessment": {
+    "ready": "NO",
+    "blocking_issues": [
+      "DRAFT_ONLY share is still high for a broader controlled run."
+    ],
+    "non_blocking_issues": [
+      "PDF coverage remains incomplete and needs better datasheet hit-rate before scaling.",
+      "Missing-evidence review load is still material."
+    ]
+  }
+}

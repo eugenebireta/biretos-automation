@@ -1,0 +1,229 @@
+{
+  "schema_version": "source_role_field_matrix_v1",
+  "matrix_version": "source_role_field_matrix_v1",
+  "notes": [
+    "raw_input and search_seed are never admissible as identity proof",
+    "search expansion hints are not identity proof",
+    "explicit conditions are mandatory for non-manufacturer roles"
+  ],
+  "fields": {
+    "identity": {
+      "manufacturer_proof": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "proof_context in [jsonld,title,h1,product_context]",
+          "page_context_clean=true"
+        ]
+      },
+      "official_pdf_proof": {
+        "admissible": true,
+        "conditions": [
+          "pdf_exact_pn_confirmed=true",
+          "pdf_family_classification=exact"
+        ]
+      },
+      "authorized_distributor": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "proof_context in [jsonld,title,h1,product_context]",
+          "page_context_clean=true",
+          "cross_pollination=false",
+          "negative_identity=false"
+        ]
+      },
+      "industrial_distributor": {
+        "admissible": false,
+        "conditions": [
+          "never admissible for identity in Phase A without later policy promotion"
+        ]
+      },
+      "organic_discovery": {
+        "admissible": false,
+        "conditions": [
+          "never admissible for identity proof"
+        ]
+      },
+      "raw_input": {
+        "admissible": false,
+        "conditions": [
+          "never admissible for identity proof"
+        ]
+      }
+    },
+    "title": {
+      "manufacturer_proof": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true or title is deterministically assembled from accepted evidence"
+        ]
+      },
+      "official_pdf_proof": {
+        "admissible": true,
+        "conditions": [
+          "title extracted from exact-PN-confirmed official PDF"
+        ]
+      },
+      "authorized_distributor": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "page_context_clean=true"
+        ]
+      },
+      "industrial_distributor": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "page_context_clean=true",
+          "cross_pollination=false"
+        ]
+      },
+      "organic_discovery": {
+        "admissible": false,
+        "conditions": [
+          "can seed review only, not accepted title evidence"
+        ]
+      },
+      "raw_input": {
+        "admissible": false,
+        "conditions": [
+          "can seed deterministic title assembly only, not title proof"
+        ]
+      }
+    },
+    "image": {
+      "manufacturer_proof": {
+        "admissible": true,
+        "conditions": [
+          "image classified exact or family under family_photo_policy_v1"
+        ]
+      },
+      "official_pdf_proof": {
+        "admissible": true,
+        "conditions": [
+          "image extracted from official PDF",
+          "pdf_exact_pn_confirmed=true"
+        ]
+      },
+      "authorized_distributor": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "page_context_clean=true",
+          "cross_pollination=false",
+          "image classification resolved by policy"
+        ]
+      },
+      "industrial_distributor": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "page_context_clean=true",
+          "cross_pollination=false",
+          "image classification resolved by policy"
+        ]
+      },
+      "organic_discovery": {
+        "admissible": false,
+        "conditions": [
+          "can seed review only, not accepted image evidence"
+        ]
+      },
+      "raw_input": {
+        "admissible": false,
+        "conditions": [
+          "never image evidence"
+        ]
+      }
+    },
+    "price": {
+      "manufacturer_proof": {
+        "admissible": true,
+        "conditions": [
+          "public price explicitly present",
+          "exact_pn_confirmed=true",
+          "exact_product_page=true"
+        ]
+      },
+      "official_pdf_proof": {
+        "admissible": false,
+        "conditions": [
+          "PDF alone is not accepted price evidence in Phase A"
+        ]
+      },
+      "authorized_distributor": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "exact_product_page=true",
+          "page_context_clean=true",
+          "price_status in [public_price,rfq_only]"
+        ]
+      },
+      "industrial_distributor": {
+        "admissible": true,
+        "conditions": [
+          "exact_pn_confirmed=true",
+          "exact_product_page=true",
+          "page_context_clean=true",
+          "cross_pollination=false",
+          "price_status in [public_price,rfq_only]"
+        ]
+      },
+      "organic_discovery": {
+        "admissible": false,
+        "conditions": [
+          "can seed review only, not accepted price evidence"
+        ]
+      },
+      "raw_input": {
+        "admissible": false,
+        "conditions": [
+          "never accepted price evidence"
+        ]
+      }
+    },
+    "pdf": {
+      "manufacturer_proof": {
+        "admissible": true,
+        "conditions": [
+          "pdf_exact_pn_confirmed=true"
+        ]
+      },
+      "official_pdf_proof": {
+        "admissible": true,
+        "conditions": [
+          "pdf_exact_pn_confirmed=true"
+        ]
+      },
+      "authorized_distributor": {
+        "admissible": true,
+        "conditions": [
+          "pdf_exact_pn_confirmed=true",
+          "source_asset_same_as_page=true",
+          "page_context_clean=true"
+        ]
+      },
+      "industrial_distributor": {
+        "admissible": false,
+        "conditions": [
+          "not accepted PDF evidence in Phase A"
+        ]
+      },
+      "organic_discovery": {
+        "admissible": false,
+        "conditions": [
+          "not accepted PDF evidence in Phase A"
+        ]
+      },
+      "raw_input": {
+        "admissible": false,
+        "conditions": [
+          "never accepted PDF evidence"
+        ]
+      }
+    }
+  }
+}

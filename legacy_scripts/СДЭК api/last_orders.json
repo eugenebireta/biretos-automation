@@ -1,0 +1,1725 @@
+[
+  {
+    "order": {
+      "fields_values": [],
+      "order_lines": [
+        {
+          "id": 853006233,
+          "order_id": 1039523417,
+          "sale_price": 2100.0,
+          "full_sale_price": 2100.0,
+          "total_price": 2100.0,
+          "full_total_price": 2100.0,
+          "discounts_amount": 0.0,
+          "quantity": 1,
+          "reserved_quantity": 1,
+          "weight": "0.456",
+          "dimensions": "23.1x32.1x18.7",
+          "variant_id": 505558877,
+          "product_id": 291119139,
+          "sku": "505558877",
+          "barcode": "67183265",
+          "title": "Трансформатор тока ABB CTA/80 2CSG111110R1141",
+          "unit": "pce",
+          "comment": null,
+          "updated_at": "2025-09-18T17:04:03.000+05:00",
+          "created_at": "2025-09-18T17:04:03.000+05:00",
+          "bundle_id": null,
+          "vat": -1,
+          "fiscal_product_type": 1,
+          "requires_marking": null,
+          "marking_codes": null,
+          "accessory_lines": [],
+          "external_variant_id": null
+        },
+        {
+          "id": 853006225,
+          "order_id": 1039523417,
+          "sale_price": 2200.0,
+          "full_sale_price": 2200.0,
+          "total_price": 2200.0,
+          "full_total_price": 2200.0,
+          "discounts_amount": 0.0,
+          "quantity": 1,
+          "reserved_quantity": 1,
+          "weight": "0.05",
+          "dimensions": "5x5x1",
+          "variant_id": 1814397713,
+          "product_id": 1556618297,
+          "sku": "1556618297",
+          "barcode": null,
+          "title": "Уплотнение S9413-131",
+          "unit": "pce",
+          "comment": null,
+          "updated_at": "2025-09-18T17:04:03.000+05:00",
+          "created_at": "2025-09-18T17:04:03.000+05:00",
+          "bundle_id": null,
+          "vat": -1,
+          "fiscal_product_type": 1,
+          "requires_marking": null,
+          "marking_codes": null,
+          "accessory_lines": [],
+          "external_variant_id": null
+        }
+      ],
+      "order_changes": [
+        {
+          "id": 7224444249,
+          "created_at": "2025-09-18T17:04:33.650+05:00",
+          "action": "fulfillment_status_changed",
+          "value_was": "new",
+          "value_is": "approved",
+          "full_description": "Статус заказа изменен с 'Новый' на 'Согласован' пользователем Максим",
+          "user_name": "Максим"
+        },
+        {
+          "id": 7224444233,
+          "created_at": "2025-09-18T17:04:33.640+05:00",
+          "action": "custom_status_changed",
+          "value_was": "Новый",
+          "value_is": "Готов к отправке",
+          "full_description": "Статус заказа изменен с 'Новый' на 'Готов к отправке' пользователем Максим",
+          "user_name": "Максим"
+        },
+        {
+          "id": 7224437217,
+          "created_at": "2025-09-18T17:04:04.015+05:00",
+          "action": "order_created",
+          "value_was": null,
+          "value_is": null,
+          "full_description": "Заказ создан пользователем Максим",
+          "user_name": "Максим"
+        }
+      ],
+      "discount": null,
+      "shipping_address": {
+        "id": 263334297,
+        "fields_values": [],
+        "name": "Евгений Бирета",
+        "surname": null,
+        "middlename": null,
+        "phone": "89222381976",
+        "formatted_phone": "8(922)238-19-76",
+        "full_name": "Евгений Бирета",
+        "full_locality_name": "г Челябинск, Челябинская обл.",
+        "full_delivery_address": "Россия, г Челябинск, Челябинская обл.",
+        "address_for_gis": "Россия, г Челябинск, Челябинская обл.",
+        "location_valid": true,
+        "recipient_fields": [
+          {
+            "id": 21838401,
+            "destiny": 5,
+            "position": 2,
+            "office_title": "Контактное лицо (ФИО)",
+            "for_buyer": true,
+            "obligatory": true,
+            "active": true,
+            "system_name": "name",
+            "created_at": "2022-08-01T17:15:52.907+05:00",
+            "updated_at": "2025-09-18T13:40:35.801+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": null,
+            "example": "",
+            "type": "Field::ObligatoryTextField"
+          },
+          {
+            "id": 19862626,
+            "destiny": 6,
+            "position": 2,
+            "office_title": "Телефон",
+            "for_buyer": true,
+            "obligatory": true,
+            "active": true,
+            "system_name": "phone",
+            "created_at": "2022-02-18T03:44:45.433+05:00",
+            "updated_at": "2025-09-18T13:36:26.965+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": "Телефон",
+            "example": "",
+            "type": "Field::Phone"
+          }
+        ],
+        "backoffice_fields": [
+          {
+            "id": 19862619,
+            "destiny": 1,
+            "position": 1,
+            "office_title": "Страна",
+            "for_buyer": true,
+            "obligatory": false,
+            "active": true,
+            "system_name": "country",
+            "created_at": "2022-02-18T03:44:45.365+05:00",
+            "updated_at": "2022-08-01T16:30:57.113+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": null,
+            "example": null,
+            "type": "Field::Country"
+          },
+          {
+            "id": 19862620,
+            "destiny": 1,
+            "position": 2,
+            "office_title": "Населенный пункт",
+            "for_buyer": true,
+            "obligatory": true,
+            "active": true,
+            "system_name": "full_locality_name",
+            "created_at": "2022-02-18T03:44:45.376+05:00",
+            "updated_at": "2022-12-14T15:17:05.927+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": null,
+            "example": null,
+            "type": "Field::Locality"
+          },
+          {
+            "id": 19862623,
+            "destiny": 1,
+            "position": 3,
+            "office_title": "Почтовый индекс",
+            "for_buyer": true,
+            "obligatory": false,
+            "active": true,
+            "system_name": "zip",
+            "created_at": "2022-02-18T03:44:45.403+05:00",
+            "updated_at": "2022-02-18T03:44:45.403+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": null,
+            "example": "",
+            "type": "Field::SystemTextField"
+          },
+          {
+            "id": 19862634,
+            "destiny": 1,
+            "position": 7,
+            "office_title": "Улица",
+            "for_buyer": true,
+            "obligatory": true,
+            "active": true,
+            "system_name": "street",
+            "created_at": "2022-02-18T03:44:45.506+05:00",
+            "updated_at": "2022-02-18T03:44:45.506+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": null,
+            "example": null,
+            "type": "Field::SystemTextField"
+          },
+          {
+            "id": 19862638,
+            "destiny": 1,
+            "position": 8,
+            "office_title": "Дом",
+            "for_buyer": true,
+            "obligatory": true,
+            "active": true,
+            "system_name": "house",
+            "created_at": "2022-02-18T03:44:45.542+05:00",
+            "updated_at": "2022-02-18T03:44:45.542+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": null,
+            "example": null,
+            "type": "Field::SystemTextField"
+          },
+          {
+            "id": 19862640,
+            "destiny": 1,
+            "position": 9,
+            "office_title": "Квартира",
+            "for_buyer": true,
+            "obligatory": false,
+            "active": true,
+            "system_name": "flat",
+            "created_at": "2022-02-18T03:44:45.566+05:00",
+            "updated_at": "2022-02-18T03:44:45.566+05:00",
+            "show_in_result": true,
+            "show_in_checkout": true,
+            "is_indexed": null,
+            "hide_in_backoffice": null,
+            "handle": null,
+            "placeholder": null,
+            "title": null,
+            "example": null,
+            "type": "Field::SystemTextField"
+          }
+        ],
+        "no_delivery": false,
+        "kladr_autodetected_address": "454000, Россия, обл Челябинская, г Челябинск",
+        "country_options": [
+          {
+            "code": "AU",
+            "title": "Австралия",
+            "selected": false
+          },
+          {
+            "code": "AT",
+            "title": "Австрия",
+            "selected": false
+          },
+          {
+            "code": "AZ",
+            "title": "Азербайджан",
+            "selected": false
+          },
+          {
+            "code": "AL",
+            "title": "Албания",
+            "selected": false
+          },
+          {
+            "code": "DZ",
+            "title": "Алжир",
+            "selected": false
+          },
+          {
+            "code": "AS",
+            "title": "Американское Самоа",
+            "selected": false
+          },
+          {
+            "code": "AI",
+            "title": "Ангилья",
+            "selected": false
+          },
+          {
+            "code": "AO",
+            "title": "Ангола",
+            "selected": false
+          },
+          {
+            "code": "AD",
+            "title": "Андорра",
+            "selected": false
+          },
+          {
+            "code": "AQ",
+            "title": "Антарктида",
+            "selected": false
+          },
+          {
+            "code": "AG",
+            "title": "Антигуа и Барбуда",
+            "selected": false
+          },
+          {
+            "code": "AR",
+            "title": "Аргентина",
+            "selected": false
+          },
+          {
+            "code": "AM",
+            "title": "Армения",
+            "selected": false
+          },
+          {
+            "code": "AW",
+            "title": "Аруба",
+            "selected": false
+          },
+          {
+            "code": "AF",
+            "title": "Афганистан",
+            "selected": false
+          },
+          {
+            "code": "BS",
+            "title": "Багамы",
+            "selected": false
+          },
+          {
+            "code": "BD",
+            "title": "Бангладеш",
+            "selected": false
+          },
+          {
+            "code": "BB",
+            "title": "Барбадос",
+            "selected": false
+          },
+          {
+            "code": "BH",
+            "title": "Бахрейн",
+            "selected": false
+          },
+          {
+            "code": "BY",
+            "title": "Беларусь",
+            "selected": false
+          },
+          {
+            "code": "BZ",
+            "title": "Белиз",
+            "selected": false
+          },
+          {
+            "code": "BE",
+            "title": "Бельгия",
+            "selected": false
+          },
+          {
+            "code": "BJ",
+            "title": "Бенин",
+            "selected": false
+          },
+          {
+            "code": "BM",
+            "title": "Бермудские острова",
+            "selected": false
+          },
+          {
+            "code": "BG",
+            "title": "Болгария",
+            "selected": false
+          },
+          {
+            "code": "BO",
+            "title": "Боливия",
+            "selected": false
+          },
+          {
+            "code": "BA",
+            "title": "Босния и Герцеговина",
+            "selected": false
+          },
+          {
+            "code": "BW",
+            "title": "Ботсвана",
+            "selected": false
+          },
+          {
+            "code": "BR",
+            "title": "Бразилия",
+            "selected": false
+          },
+          {
+            "code": "IO",
+            "title": "Британская территория в Индийском океане",
+            "selected": false
+          },
+          {
+            "code": "BN",
+            "title": "Бруней-Даруссалам",
+            "selected": false
+          },
+          {
+            "code": "BF",
+            "title": "Буркина-Фасо",
+            "selected": false
+          },
+          {
+            "code": "BI",
+            "title": "Бурунди",
+            "selected": false
+          },
+          {
+            "code": "BT",
+            "title": "Бутан",
+            "selected": false
+          },
+          {
+            "code": "VU",
+            "title": "Вануату",
+            "selected": false
+          },
+          {
+            "code": "GB",
+            "title": "Великобритания",
+            "selected": false
+          },
+          {
+            "code": "HU",
+            "title": "Венгрия",
+            "selected": false
+          },
+          {
+            "code": "VE",
+            "title": "Венесуэла",
+            "selected": false
+          },
+          {
+            "code": "VG",
+            "title": "Виргинские острова, Британские",
+            "selected": false
+          },
+          {
+            "code": "VI",
+            "title": "Виргинские острова, США",
+            "selected": false
+          },
+          {
+            "code": "VN",
+            "title": "Вьетнам",
+            "selected": false
+          },
+          {
+            "code": "GA",
+            "title": "Габон",
+            "selected": false
+          },
+          {
+            "code": "HT",
+            "title": "Гаити",
+            "selected": false
+          },
+          {
+            "code": "GY",
+            "title": "Гайана",
+            "selected": false
+          },
+          {
+            "code": "GM",
+            "title": "Гамбия",
+            "selected": false
+          },
+          {
+            "code": "GH",
+            "title": "Гана",
+            "selected": false
+          },
+          {
+            "code": "GP",
+            "title": "Гваделупа",
+            "selected": false
+          },
+          {
+            "code": "GT",
+            "title": "Гватемала",
+            "selected": false
+          },
+          {
+            "code": "GN",
+            "title": "Гвинея",
+            "selected": false
+          },
+          {
+            "code": "GW",
+            "title": "Гвинея-Бисау",
+            "selected": false
+          },
+          {
+            "code": "DE",
+            "title": "Германия",
+            "selected": false
+          },
+          {
+            "code": "GG",
+            "title": "Гернси",
+            "selected": false
+          },
+          {
+            "code": "GI",
+            "title": "Гибралтар (Великобритания)",
+            "selected": false
+          },
+          {
+            "code": "HN",
+            "title": "Гондурас",
+            "selected": false
+          },
+          {
+            "code": "HK",
+            "title": "Гонконг",
+            "selected": false
+          },
+          {
+            "code": "GD",
+            "title": "Гренада",
+            "selected": false
+          },
+          {
+            "code": "GL",
+            "title": "Гренландия",
+            "selected": false
+          },
+          {
+            "code": "GR",
+            "title": "Греция",
+            "selected": false
+          },
+          {
+            "code": "GE",
+            "title": "Грузия",
+            "selected": false
+          },
+          {
+            "code": "GU",
+            "title": "Гуам",
+            "selected": false
+          },
+          {
+            "code": "DK",
+            "title": "Дания",
+            "selected": false
+          },
+          {
+            "code": "JE",
+            "title": "Джерси",
+            "selected": false
+          },
+          {
+            "code": "DJ",
+            "title": "Джибути",
+            "selected": false
+          },
+          {
+            "code": "DM",
+            "title": "Доминика",
+            "selected": false
+          },
+          {
+            "code": "DO",
+            "title": "Доминиканская Республика",
+            "selected": false
+          },
+          {
+            "code": "EG",
+            "title": "Египет",
+            "selected": false
+          },
+          {
+            "code": "ZM",
+            "title": "Замбия",
+            "selected": false
+          },
+          {
+            "code": "EH",
+            "title": "Западная Сахара",
+            "selected": false
+          },
+          {
+            "code": "ZW",
+            "title": "Зимбабве",
+            "selected": false
+          },
+          {
+            "code": "IL",
+            "title": "Израиль",
+            "selected": false
+          },
+          {
+            "code": "IN",
+            "title": "Индия",
+            "selected": false
+          },
+          {
+            "code": "ID",
+            "title": "Индонезия",
+            "selected": false
+          },
+          {
+            "code": "JO",
+            "title": "Иордания",
+            "selected": false
+          },
+          {
+            "code": "IQ",
+            "title": "Ирак",
+            "selected": false
+          },
+          {
+            "code": "IR",
+            "title": "Иран, Исламская Республика",
+            "selected": false
+          },
+          {
+            "code": "IE",
+            "title": "Ирландия",
+            "selected": false
+          },
+          {
+            "code": "IS",
+            "title": "Исландия",
+            "selected": false
+          },
+          {
+            "code": "ES",
+            "title": "Испания",
+            "selected": false
+          },
+          {
+            "code": "IT",
+            "title": "Италия",
+            "selected": false
+          },
+          {
+            "code": "YE",
+            "title": "Йемен",
+            "selected": false
+          },
+          {
+            "code": "CV",
+            "title": "Кабо-Верде",
+            "selected": false
+          },
+          {
+            "code": "KZ",
+            "title": "Казахстан",
+            "selected": false
+          },
+          {
+            "code": "KH",
+            "title": "Камбоджа",
+            "selected": false
+          },
+          {
+            "code": "CM",
+            "title": "Камерун",
+            "selected": false
+          },
+          {
+            "code": "CA",
+            "title": "Канада",
+            "selected": false
+          },
+          {
+            "code": "QA",
+            "title": "Катар",
+            "selected": false
+          },
+          {
+            "code": "KE",
+            "title": "Кения",
+            "selected": false
+          },
+          {
+            "code": "CY",
+            "title": "Кипр",
+            "selected": false
+          },
+          {
+            "code": "KG",
+            "title": "Киргизия",
+            "selected": false
+          },
+          {
+            "code": "KI",
+            "title": "Кирибати",
+            "selected": false
+          },
+          {
+            "code": "CN",
+            "title": "Китай",
+            "selected": false
+          },
+          {
+            "code": "CC",
+            "title": "Кокосовые (Килинг) острова",
+            "selected": false
+          },
+          {
+            "code": "CO",
+            "title": "Колумбия",
+            "selected": false
+          },
+          {
+            "code": "KM",
+            "title": "Коморы",
+            "selected": false
+          },
+          {
+            "code": "CG",
+            "title": "Конго",
+            "selected": false
+          },
+          {
+            "code": "CD",
+            "title": "Конго, Демократическая Республика",
+            "selected": false
+          },
+          {
+            "code": "CR",
+            "title": "Коста-Рика",
+            "selected": false
+          },
+          {
+            "code": "CI",
+            "title": "Кот д'Ивуар",
+            "selected": false
+          },
+          {
+            "code": "CU",
+            "title": "Куба",
+            "selected": false
+          },
+          {
+            "code": "KW",
+            "title": "Кувейт",
+            "selected": false
+          },
+          {
+            "code": "LA",
+            "title": "Лаос",
+            "selected": false
+          },
+          {
+            "code": "LV",
+            "title": "Латвия",
+            "selected": false
+          },
+          {
+            "code": "LS",
+            "title": "Лесото",
+            "selected": false
+          },
+          {
+            "code": "LR",
+            "title": "Либерия",
+            "selected": false
+          },
+          {
+            "code": "LB",
+            "title": "Ливан",
+            "selected": false
+          },
+          {
+            "code": "LY",
+            "title": "Ливийская Арабская Джамахирия",
+            "selected": false
+          },
+          {
+            "code": "LT",
+            "title": "Литва",
+            "selected": false
+          },
+          {
+            "code": "LI",
+            "title": "Лихтенштейн",
+            "selected": false
+          },
+          {
+            "code": "LU",
+            "title": "Люксембург",
+            "selected": false
+          },
+          {
+            "code": "MU",
+            "title": "Маврикий",
+            "selected": false
+          },
+          {
+            "code": "MR",
+            "title": "Мавритания",
+            "selected": false
+          },
+          {
+            "code": "MG",
+            "title": "Мадагаскар",
+            "selected": false
+          },
+          {
+            "code": "YT",
+            "title": "Майотта",
+            "selected": false
+          },
+          {
+            "code": "MO",
+            "title": "Макао",
+            "selected": false
+          },
+          {
+            "code": "MW",
+            "title": "Малави",
+            "selected": false
+          },
+          {
+            "code": "MY",
+            "title": "Малайзия",
+            "selected": false
+          },
+          {
+            "code": "ML",
+            "title": "Мали",
+            "selected": false
+          },
+          {
+            "code": "UM",
+            "title": "Малые Тихоокеанские отдаленные острова Соединенных Штатов",
+            "selected": false
+          },
+          {
+            "code": "MV",
+            "title": "Мальдивы",
+            "selected": false
+          },
+          {
+            "code": "MT",
+            "title": "Мальта",
+            "selected": false
+          },
+          {
+            "code": "MA",
+            "title": "Марокко",
+            "selected": false
+          },
+          {
+            "code": "MQ",
+            "title": "Мартиника",
+            "selected": false
+          },
+          {
+            "code": "MH",
+            "title": "Маршалловы острова",
+            "selected": false
+          },
+          {
+            "code": "MX",
+            "title": "Мексика",
+            "selected": false
+          },
+          {
+            "code": "FM",
+            "title": "Микронезия, Федеративные Штаты",
+            "selected": false
+          },
+          {
+            "code": "MZ",
+            "title": "Мозамбик",
+            "selected": false
+          },
+          {
+            "code": "MD",
+            "title": "Молдова, Республика",
+            "selected": false
+          },
+          {
+            "code": "MC",
+            "title": "Монако",
+            "selected": false
+          },
+          {
+            "code": "MN",
+            "title": "Монголия",
+            "selected": false
+          },
+          {
+            "code": "MS",
+            "title": "Монтсеррат",
+            "selected": false
+          },
+          {
+            "code": "MM",
+            "title": "Мьянма",
+            "selected": false
+          },
+          {
+            "code": "NA",
+            "title": "Намибия",
+            "selected": false
+          },
+          {
+            "code": "NR",
+            "title": "Науру",
+            "selected": false
+          },
+          {
+            "code": "NP",
+            "title": "Непал",
+            "selected": false
+          },
+          {
+            "code": "NE",
+            "title": "Нигер",
+            "selected": false
+          },
+          {
+            "code": "NG",
+            "title": "Нигерия",
+            "selected": false
+          },
+          {
+            "code": "AN",
+            "title": "Нидерландские Антилы",
+            "selected": false
+          },
+          {
+            "code": "NL",
+            "title": "Нидерланды",
+            "selected": false
+          },
+          {
+            "code": "NI",
+            "title": "Никарагуа",
+            "selected": false
+          },
+          {
+            "code": "NU",
+            "title": "Ниуэ",
+            "selected": false
+          },
+          {
+            "code": "NZ",
+            "title": "Новая Зеландия",
+            "selected": false
+          },
+          {
+            "code": "NC",
+            "title": "Новая Каледония",
+            "selected": false
+          },
+          {
+            "code": "NO",
+            "title": "Норвегия",
+            "selected": false
+          },
+          {
+            "code": "AE",
+            "title": "Объединенные Арабские Эмираты",
+            "selected": false
+          },
+          {
+            "code": "OM",
+            "title": "Оман",
+            "selected": false
+          },
+          {
+            "code": "BV",
+            "title": "Остров Буве",
+            "selected": false
+          },
+          {
+            "code": "IM",
+            "title": "Остров Мэн",
+            "selected": false
+          },
+          {
+            "code": "NF",
+            "title": "Остров Норфолк",
+            "selected": false
+          },
+          {
+            "code": "CX",
+            "title": "Остров Рождества",
+            "selected": false
+          },
+          {
+            "code": "HM",
+            "title": "Остров Херд и острова Макдональд",
+            "selected": false
+          },
+          {
+            "code": "KY",
+            "title": "Острова Кайман",
+            "selected": false
+          },
+          {
+            "code": "CK",
+            "title": "Острова Кука",
+            "selected": false
+          },
+          {
+            "code": "TC",
+            "title": "Острова Теркс и Кайкос",
+            "selected": false
+          },
+          {
+            "code": "PK",
+            "title": "Пакистан",
+            "selected": false
+          },
+          {
+            "code": "PW",
+            "title": "Палау",
+            "selected": false
+          },
+          {
+            "code": "PS",
+            "title": "Палестинская территория, оккупированная",
+            "selected": false
+          },
+          {
+            "code": "PA",
+            "title": "Панама",
+            "selected": false
+          },
+          {
+            "code": "VA",
+            "title": "Папский Престол (Государство — город Ватикан)",
+            "selected": false
+          },
+          {
+            "code": "PG",
+            "title": "Папуа-Новая Гвинея",
+            "selected": false
+          },
+          {
+            "code": "PY",
+            "title": "Парагвай",
+            "selected": false
+          },
+          {
+            "code": "PE",
+            "title": "Перу",
+            "selected": false
+          },
+          {
+            "code": "PN",
+            "title": "Питкерн",
+            "selected": false
+          },
+          {
+            "code": "PL",
+            "title": "Польша",
+            "selected": false
+          },
+          {
+            "code": "PT",
+            "title": "Португалия",
+            "selected": false
+          },
+          {
+            "code": "PR",
+            "title": "Пуэрто-Рико",
+            "selected": false
+          },
+          {
+            "code": "MK",
+            "title": "Республика Македония",
+            "selected": false
+          },
+          {
+            "code": "RE",
+            "title": "Реюньон",
+            "selected": false
+          },
+          {
+            "code": "RU",
+            "title": "Россия",
+            "selected": true
+          },
+          {
+            "code": "RW",
+            "title": "Руанда",
+            "selected": false
+          },
+          {
+            "code": "RO",
+            "title": "Румыния",
+            "selected": false
+          },
+          {
+            "code": "WS",
+            "title": "Самоа",
+            "selected": false
+          },
+          {
+            "code": "SM",
+            "title": "Сан-Марино",
+            "selected": false
+          },
+          {
+            "code": "ST",
+            "title": "Сан-Томе и Принсипи",
+            "selected": false
+          },
+          {
+            "code": "SA",
+            "title": "Саудовская Аравия",
+            "selected": false
+          },
+          {
+            "code": "SZ",
+            "title": "Свазиленд",
+            "selected": false
+          },
+          {
+            "code": "SH",
+            "title": "Святая Елена",
+            "selected": false
+          },
+          {
+            "code": "KP",
+            "title": "Северная Корея",
+            "selected": false
+          },
+          {
+            "code": "MP",
+            "title": "Северные Марианские острова",
+            "selected": false
+          },
+          {
+            "code": "SC",
+            "title": "Сейшелы",
+            "selected": false
+          },
+          {
+            "code": "PM",
+            "title": "Сен-Пьер и Микелон",
+            "selected": false
+          },
+          {
+            "code": "SN",
+            "title": "Сенегал",
+            "selected": false
+          },
+          {
+            "code": "VC",
+            "title": "Сент-Винсент и Гренадины",
+            "selected": false
+          },
+          {
+            "code": "KN",
+            "title": "Сент-Китс и Невис",
+            "selected": false
+          },
+          {
+            "code": "LC",
+            "title": "Сент-Люсия",
+            "selected": false
+          },
+          {
+            "code": "RS",
+            "title": "Сербия",
+            "selected": false
+          },
+          {
+            "code": "SG",
+            "title": "Сингапур",
+            "selected": false
+          },
+          {
+            "code": "SY",
+            "title": "Сирийская Арабская Республика",
+            "selected": false
+          },
+          {
+            "code": "SK",
+            "title": "Словакия",
+            "selected": false
+          },
+          {
+            "code": "SI",
+            "title": "Словения",
+            "selected": false
+          },
+          {
+            "code": "US",
+            "title": "Соединенные Штаты",
+            "selected": false
+          },
+          {
+            "code": "SB",
+            "title": "Соломоновы острова",
+            "selected": false
+          },
+          {
+            "code": "SO",
+            "title": "Сомали",
+            "selected": false
+          },
+          {
+            "code": "SD",
+            "title": "Судан",
+            "selected": false
+          },
+          {
+            "code": "SR",
+            "title": "Суринам",
+            "selected": false
+          },
+          {
+            "code": "SL",
+            "title": "Сьерра-Леоне",
+            "selected": false
+          },
+          {
+            "code": "TJ",
+            "title": "Таджикистан",
+            "selected": false
+          },
+          {
+            "code": "TH",
+            "title": "Таиланд",
+            "selected": false
+          },
+          {
+            "code": "TW",
+            "title": "Тайвань (Китай)",
+            "selected": false
+          },
+          {
+            "code": "TZ",
+            "title": "Танзания, Объединенная Республика",
+            "selected": false
+          },
+          {
+            "code": "TL",
+            "title": "Тимор-Лесте",
+            "selected": false
+          },
+          {
+            "code": "TG",
+            "title": "Того",
+            "selected": false
+          },
+          {
+            "code": "TK",
+            "title": "Токелау",
+            "selected": false
+          },
+          {
+            "code": "TO",
+            "title": "Тонга",
+            "selected": false
+          },
+          {
+            "code": "TT",
+            "title": "Тринидад и Тобаго",
+            "selected": false
+          },
+          {
+            "code": "TV",
+            "title": "Тувалу",
+            "selected": false
+          },
+          {
+            "code": "TN",
+            "title": "Тунис",
+            "selected": false
+          },
+          {
+            "code": "TM",
+            "title": "Туркмения",
+            "selected": false
+          },
+          {
+            "code": "TR",
+            "title": "Турция",
+            "selected": false
+          },
+          {
+            "code": "UG",
+            "title": "Уганда",
+            "selected": false
+          },
+          {
+            "code": "UZ",
+            "title": "Узбекистан",
+            "selected": false
+          },
+          {
+            "code": "UA",
+            "title": "Украина",
+            "selected": false
+          },
+          {
+            "code": "WF",
+            "title": "Уоллис и Футуна",
+            "selected": false
+          },
+          {
+            "code": "UY",
+            "title": "Уругвай",
+            "selected": false
+          },
+          {
+            "code": "FO",
+            "title": "Фарерские острова",
+            "selected": false
+          },
+          {
+            "code": "FJ",
+            "title": "Фиджи",
+            "selected": false
+          },
+          {
+            "code": "PH",
+            "title": "Филиппины",
+            "selected": false
+          },
+          {
+            "code": "FI",
+            "title": "Финляндия",
+            "selected": false
+          },
+          {
+            "code": "FK",
+            "title": "Фолклендские острова (Мальвинские)",
+            "selected": false
+          },
+          {
+            "code": "FR",
+            "title": "Франция",
+            "selected": false
+          },
+          {
+            "code": "GF",
+            "title": "Французская Гвиана",
+            "selected": false
+          },
+          {
+            "code": "PF",
+            "title": "Французская Полинезия",
+            "selected": false
+          },
+          {
+            "code": "TF",
+            "title": "Французские Южные территории",
+            "selected": false
+          },
+          {
+            "code": "HR",
+            "title": "Хорватия",
+            "selected": false
+          },
+          {
+            "code": "CF",
+            "title": "Центрально-Африканская Республика",
+            "selected": false
+          },
+          {
+            "code": "TD",
+            "title": "Чад",
+            "selected": false
+          },
+          {
+            "code": "ME",
+            "title": "Черногория",
+            "selected": false
+          },
+          {
+            "code": "CZ",
+            "title": "Чешская Республика",
+            "selected": false
+          },
+          {
+            "code": "CL",
+            "title": "Чили",
+            "selected": false
+          },
+          {
+            "code": "CH",
+            "title": "Швейцария",
+            "selected": false
+          },
+          {
+            "code": "SE",
+            "title": "Швеция",
+            "selected": false
+          },
+          {
+            "code": "SJ",
+            "title": "Шпицберген и Ян Майен",
+            "selected": false
+          },
+          {
+            "code": "LK",
+            "title": "Шри-Ланка",
+            "selected": false
+          },
+          {
+            "code": "EC",
+            "title": "Эквадор",
+            "selected": false
+          },
+          {
+            "code": "GQ",
+            "title": "Экваториальная Гвинея",
+            "selected": false
+          },
+          {
+            "code": "AX",
+            "title": "Эландские острова",
+            "selected": false
+          },
+          {
+            "code": "SV",
+            "title": "Эль-Сальвадор",
+            "selected": false
+          },
+          {
+            "code": "ER",
+            "title": "Эритрея",
+            "selected": false
+          },
+          {
+            "code": "EE",
+            "title": "Эстония",
+            "selected": false
+          },
+          {
+            "code": "ET",
+            "title": "Эфиопия",
+            "selected": false
+          },
+          {
+            "code": "GS",
+            "title": "Южная Джорджия и Южные Сандвичевы острова",
+            "selected": false
+          },
+          {
+            "code": "KR",
+            "title": "Южная Корея",
+            "selected": false
+          },
+          {
+            "code": "ZA",
+            "title": "Южно-Африканская Республика",
+            "selected": false
+          },
+          {
+            "code": "JM",
+            "title": "Ямайка",
+            "selected": false
+          },
+          {
+            "code": "JP",
+            "title": "Япония",
+            "selected": false
+          }
+        ],
+        "address": null,
+        "country": "RU",
+        "state": "обл Челябинская",
+        "city": "Челябинск",
+        "zip": null,
+        "street": null,
+        "house": null,
+        "flat": null,
+        "entrance": null,
+        "doorphone": null,
+        "floor": null,
+        "comment": null,
+        "kladr_json": {
+          "code": "7400000100000",
+          "country": "RU",
+          "state": "Челябинская",
+          "state_type": "обл",
+          "area": null,
+          "area_type": null,
+          "city": "Челябинск",
+          "city_type": "г",
+          "settlement": null,
+          "settlement_type": null,
+          "street": null,
+          "street_type": null,
+          "latitude": "55.156337757630716",
+          "longitude": "61.36782449999998",
+          "zip": "454000",
+          "result": "г Челябинск, Челябинская обл.",
+          "last_level": "Челябинск",
+          "last_level_type": "г",
+          "region_zip": "454000",
+          "is_kladr": true
+        },
+        "location": {
+          "kladr_code": "7400000100000",
+          "zip": null,
+          "kladr_zip": "454000",
+          "region_zip": "454000",
+          "country": "RU",
+          "state": "Челябинская",
+          "state_type": "обл",
+          "area": null,
+          "area_type": null,
+          "city": "Челябинск",
+          "city_type": "г",
+          "settlement": null,
+          "settlement_type": null,
+          "address": "",
+          "street": null,
+          "street_type": null,
+          "house": null,
+          "flat": null,
+          "is_kladr": true,
+          "latitude": "55.156337757630716",
+          "longitude": "61.36782449999998",
+          "autodetected": null
+        }
+      },
+      "client": {
+        "id": 137051433,
+        "email": "proinmatter@mail.ru",
+        "name": "Евгений Бирета",
+        "phone": "89222381976",
+        "created_at": "2025-09-18T17:04:03.000+05:00",
+        "updated_at": "2025-09-18T17:04:03.000+05:00",
+        "comment": null,
+        "registered": null,
+        "subscribe": true,
+        "client_group_id": null,
+        "bonus_points": 0,
+        "type": "Client::Juridical",
+        "juridical_address": null,
+        "inn": null,
+        "kpp": null,
+        "ogrn": null,
+        "okpo": null,
+        "bik": null,
+        "bank_name": null,
+        "correspondent_account": null,
+        "settlement_account": null,
+        "consent_to_personal_data": null,
+        "o_auth_provider": null,
+        "messenger_subscription": true,
+        "external_id": null,
+        "contact_name": null,
+        "progressive_discount": null,
+        "group_discount": null,
+        "ip_addr": "176.226.157.104",
+        "fields_values": [
+          {
+            "id": 385838681,
+            "field_id": 107688641,
+            "value": "ИП Бирета",
+            "created_at": "2025-09-18T17:04:03.456+05:00",
+            "updated_at": "2025-09-18T17:04:03.456+05:00",
+            "type": "Текст",
+            "name": "Юридическое лицо",
+            "handle": "urlico"
+          },
+          {
+            "id": 385838689,
+            "field_id": 107688825,
+            "value": "744715563839",
+            "created_at": "2025-09-18T17:04:03.480+05:00",
+            "updated_at": "2025-09-18T17:04:03.480+05:00",
+            "type": "Текст",
+            "name": "ИНН",
+            "handle": "inn"
+          },
+          {
+            "id": 385838697,
+            "field_id": 107689033,
+            "value": "г. Челябинск, ул. Российская, д.262, кв.90",
+            "created_at": "2025-09-18T17:04:03.504+05:00",
+            "updated_at": "2025-09-18T17:04:03.504+05:00",
+            "type": "Многострочный текст",
+            "name": "Адрес доставки",
+            "handle": "address"
+          }
+        ]
+      },
+      "discounts": [],
+      "total_price": 4300.0,
+      "items_price": 4300.0,
+      "id": 1039523417,
+      "key": "1e76d57b4e09e864898890fe331a04d8",
+      "number": 4548,
+      "comment": "",
+      "archived": false,
+      "delivery_title": "Другой транспортной компанией",
+      "delivery_description": "Другой транспортной компанией (Подходит, если желаете сами оплатить услуги транспортной компании. Либо другие ньюансы)",
+      "delivery_price": 0.0,
+      "full_delivery_price": 0.0,
+      "payment_description": "<p>Для юрлиц</p>",
+      "payment_title": "Оплата для юрлиц через расчетный счет",
+      "first_referer": "https://checkout.insales.ru/checkout",
+      "first_current_location": "/close_editor?_authorize=true&domain=ru&path=%2Fproduct%2Frazyom-rema-80-a-150-vdc-unicarrires-fa15d-108605-atlet%3Flang%3Dru",
+      "first_query": null,
+      "first_source_domain": "checkout.insales.ru",
+      "first_source": "Сайты",
+      "referer": "https://checkout.insales.ru/",
+      "current_location": "/cart_items?domain=ru",
+      "query": null,
+      "source_domain": "checkout.insales.ru",
+      "source": "Сайты",
+      "fulfillment_status": "approved",
+      "custom_status": {
+        "permalink": "gotov-k-otpravke",
+        "title": "Готов к отправке"
+      },
+      "delivered_at": null,
+      "accepted_at": "2025-09-18T17:04:32.000+05:00",
+      "created_at": "2025-09-18T17:04:03.000+05:00",
+      "updated_at": "2025-09-18T17:04:32.000+05:00",
+      "financial_status": "pending",
+      "delivery_date": null,
+      "delivery_from_hour": null,
+      "delivery_from_minutes": null,
+      "delivery_to_hour": null,
+      "delivery_to_minutes": null,
+      "delivery_time": "",
+      "paid_at": null,
+      "delivery_variant_id": 4823074,
+      "payment_gateway_id": 2758770,
+      "margin": "0.0",
+      "margin_amount": "0.0",
+      "client_transaction_id": null,
+      "currency_code": "RUR",
+      "cookies": {},
+      "account_id": 1162962,
+      "manager_comment": null,
+      "locale": "ru",
+      "delivery_info": {
+        "delivery_variant_id": 4823074,
+        "tariff_id": null,
+        "title": null,
+        "description": null,
+        "price": "0.0",
+        "shipping_company": null,
+        "shipping_company_handle": null,
+        "delivery_interval": {
+          "min_days": null,
+          "max_days": null,
+          "description": ""
+        },
+        "errors": [],
+        "warnings": [],
+        "outlet": {
+          "id": null,
+          "external_id": null,
+          "latitude": null,
+          "longitude": null,
+          "type": null,
+          "title": null,
+          "description": null,
+          "address": null,
+          "payment_method": [],
+          "source_id": null
+        },
+        "not_available": null
+      },
+      "responsible_user_id": null,
+      "total_profit": "4300.0",
+      "warehouse_id": 4122433
+    },
+    "cdek": {
+      "entity": {
+        "uuid": "99e818c8-8724-4c83-ac79-9b0a116b7d9d"
+      },
+      "requests": [
+        {
+          "request_uuid": "2627edde-8ee4-4903-b271-a9c30bbdc801",
+          "type": "CREATE",
+          "date_time": "2025-09-18T13:17:22+0000",
+          "state": "ACCEPTED"
+        }
+      ],
+      "related_entities": []
+    }
+  }
+]

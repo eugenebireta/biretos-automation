@@ -1,0 +1,36 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260331T051441Z_1006186_admissible_repro",
+  "created_at": "2026-03-31T05:14:41Z",
+  "source_input": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\honeywell_insales_import.csv",
+  "selection_mode": "single_sku_residual_1006186_admissible_surface_repro",
+  "batch_size": 1,
+  "sku_rows": [
+    {
+      "row_number": 1,
+      "pn_primary": "1006186",
+      "name": "Беруши 303L FOAMPLUG",
+      "expected_category": "Беруши",
+      "our_price_raw": "1920,61",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Single-SKU bounded rerun for residual admissible source-surface reproducibility closure."
+    }
+  ],
+  "coverage_by_case_type": {
+    "numeric": 1
+  },
+  "coverage_gaps": [
+    "Single-SKU proof batch; not intended for broader coverage."
+  ],
+  "execution_profile": "sanity_shadow_v1",
+  "execution_limits": {
+    "MAX_SHADOW_SKUS": 15,
+    "MAX_VERIFIER_CALLS_PER_RUN": 8,
+    "MAX_VERIFIER_CALLS_PER_SKU": 1,
+    "MAX_RUN_WALLCLOCK_SEC": 480,
+    "MAX_CONSECUTIVE_TIMEOUTS": 3,
+    "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+    "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+  }
+}

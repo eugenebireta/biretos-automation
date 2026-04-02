@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "125711",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Термостатический вентиль Honeywell D 20.610.21 TV",
+  "assembled_title": "Вентиль Honeywell 125711",
+  "our_price_raw": "714,10",
+  "expected_category": "Вентиль",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "no_photo_and_no_price"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_125711",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_125711"
+        ],
+        "evidence_ids": [
+          "ev_title_125711"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_125711"
+        ],
+        "evidence_ids": [
+          "ev_image_125711"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_125711"
+        ],
+        "evidence_ids": [
+          "ev_price_125711"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_125711"
+        ],
+        "evidence_ids": [
+          "ev_pdf_125711"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_125711"
+      ],
+      "evidence_ids": [
+        "ev_title_125711"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_125711"
+      ],
+      "evidence_ids": [
+        "ev_image_125711"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_125711"
+      ],
+      "evidence_ids": [
+        "ev_price_125711"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_125711"
+      ],
+      "evidence_ids": [
+        "ev_pdf_125711"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "на фото не термостатический вентиль, а лицевая панель/накладка с отверстиями",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\125711.jpg",
+    "sha1": "fcd28b78c7569cc74e840546605f03f9e54684c0",
+    "canonical_filename": "HONEYWELL_125711_fcd28b78.jpg",
+    "public_url": null,
+    "width": 702,
+    "height": 159,
+    "size_kb": 13,
+    "source": "google:https://www.conradelektronik.dk/da/p/peha-by-honeywell-125711-afdaekning-afdaekn",
+    "phash": "b0c71f385a87e07a",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "not_found",
+    "pdf_url": null,
+    "pdf_source_tier": null,
+    "pdf_title": null,
+    "pdf_specs": {},
+    "pdf_text_excerpt": null,
+    "num_pages": 0,
+    "parse_method": null,
+    "pn_confirmed_in_pdf": false
+  },
+  "content": {
+    "specs": {},
+    "description": "Top PEHA by Honeywell udvalg ✅ Hurtig & Gratis levering muligt fra 59,50 € ➥ Køb billigt online nu: PEHA by Honeywell Afdækning Afdækning 125711 1 stk"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

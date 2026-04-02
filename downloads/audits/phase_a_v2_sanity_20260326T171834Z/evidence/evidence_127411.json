@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "127411",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Термостатический вентиль Honeywell D 20.6511.21",
+  "assembled_title": "Вентиль Honeywell 127411",
+  "our_price_raw": "919,27",
+  "expected_category": "Вентиль",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "no_photo_and_no_price"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_127411",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_127411"
+        ],
+        "evidence_ids": [
+          "ev_title_127411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_127411"
+        ],
+        "evidence_ids": [
+          "ev_image_127411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_127411"
+        ],
+        "evidence_ids": [
+          "ev_price_127411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_127411"
+        ],
+        "evidence_ids": [
+          "ev_pdf_127411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_127411"
+      ],
+      "evidence_ids": [
+        "ev_title_127411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_127411"
+      ],
+      "evidence_ids": [
+        "ev_image_127411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_127411"
+      ],
+      "evidence_ids": [
+        "ev_price_127411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_127411"
+      ],
+      "evidence_ids": [
+        "ev_pdf_127411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "на фото розетка, а не термостатический вентиль Honeywell",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\127411.jpg",
+    "sha1": "d2f51af87f8e4135752c17b9844a0b8369857a7c",
+    "canonical_filename": "HONEYWELL_127411_d2f51af8.jpg",
+    "public_url": null,
+    "width": 370,
+    "height": 370,
+    "size_kb": 13,
+    "source": "google:https://bigshop.lv/ru/led-lampa-elegante-801-127411",
+    "phash": "cb162da992d5d4c9",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "http://vprit.ru/nomer2/vestnik2.pdf",
+    "pdf_source_tier": "ru_b2b",
+    "pdf_title": "Тел.факс - Вестник промышленности и торговли",
+    "pdf_specs": {
+      "Тел.факс": "(495) 637-6175 , (909) 940-4910",
+      "w w w": "t r a s s n a b . r u"
+    },
+    "pdf_text_excerpt": "Тел.факс: (495) 637-6175 , (909) 940-4910 w w w . t r a s s n a b . r u (cid:132)(cid:153)(cid:156)(cid:168)(cid:169)(cid:164)(cid:159)(cid:161)(cid:1) (cid:166)(cid:167)(cid:165)(cid:163)(cid:178)(cid:175)(cid:162)(cid:156)(cid:164)(cid:164)(cid:165)(cid:168)(cid:169)(cid:159)(cid:1) (cid:159)(cid:1)(cid:169)(cid:165)(cid:167)(cid:154)(cid:165)(cid:153)(cid:162)(cid:159)(cid:147) (cid:159)(cid:196)(cid:203)(cid:197)(cid:199)(cid:195)(cid:183)(cid:205)(cid:191)(cid:197)(cid:196)(cid:196)(cid:197)(cid:134)(cid:183)(cid:196)(cid:183)(cid:194)(cid:191)(cid:201)(cid:191)(cid:206)(cid:188)(cid:200",
+    "num_pages": 49,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

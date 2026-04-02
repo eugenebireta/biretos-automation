@@ -1,0 +1,44 @@
+{
+  "batch_id": "1015021_search_20260402",
+  "ts": "2026-04-02T23:00:00Z",
+  "actor": "Agent/ClaudeCode-Sonnet4.6",
+  "sku": "1015021",
+  "product": "Honeywell Leightning L1HHV Hi-Viz — сигнальные наушники на каску",
+  "objective": "Find script-accessible RU source with public_price + lineage=True (same method as 1012541)",
+
+  "domains_searched": 18,
+  "domains_with_product_confirmed": [
+    {"domain": "vseinstrumenti.ru",     "access": "403",     "price": "4314 RUB OoS",    "lineage": "False", "method": "WebFetch product page"},
+    {"domain": "bionic.spb.ru",         "access": "200",     "price": "rfq_only",         "lineage": "PN confirmed", "method": "script + WebFetch"},
+    {"domain": "lemanapro.ru",          "access": "401",     "price": "unknown",          "lineage": "URL known, blocked"},
+    {"domain": "ekaterinburg.lemanapro.ru", "access": "401", "price": "unknown",          "lineage": "blocked"}
+  ],
+  "domains_checked_not_found": [
+    "uralsiz.ru", "rusglavsnab.ru", "gwardex.ru", "technoavia.ru",
+    "vostok.spb.ru", "kovkapro.com", "sizproject.ru", "wht.ru",
+    "biggame.ru", "av-tactical.ru", "yunimag.ru", "tdrrk.ru", "honeywellrussia.ru"
+  ],
+
+  "verdict": "no_public_price_script_accessible",
+
+  "best_available_signal": {
+    "type": "reference_price",
+    "value_rub": 4314,
+    "source": "vseinstrumenti.ru",
+    "confirmation": "WebFetch on exact product page with PN in URL slug (v2 run). OoS — 'последняя цена'.",
+    "lineage": "False (403 script-block — not URL quality gap)",
+    "price_status_applicable": "reference_price"
+  },
+
+  "why_1015021_is_harder_than_1012541": {
+    "1012541_found_at": "uralsiz.ru — Ekaterinburg PPE distributor, IN STOCK, 2608 RUB, script HTTP 200, lineage=True",
+    "1015021_difference": "L1HHV Hi-Viz is a specialized Hi-Visibility variant (fluorescent yellow cups, reflective tape) — narrower industrial use case. 1012541 is the standard L3H used in construction. Hi-Viz models typically have smaller distribution channels.",
+    "distribution_gap": "Hi-Viz safety models tend to go to large industrial clients via B2B, not retail shelf. Russian retail shelf carries standard (L3H, L1H, L2) more than Hi-Viz variants."
+  },
+
+  "next_steps": {
+    "computer_use_priority": "lemanapro.ru — exact product URL known, 401 auth gate. Computer Use would resolve this immediately.",
+    "manual_browser": "vseinstrumenti.ru product page confirmed. Owner can verify price in browser → manual_verified_reference_price.",
+    "script_path": "No RU script-accessible source found. Expand search to non-RU markets (EU/UAE) if needed — but that's out of current bounded scope."
+  }
+}

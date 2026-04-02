@@ -1,0 +1,54 @@
+{
+  "source_run_id": "phase_a_v2_sanity_20260326T222242Z",
+  "replayed_with_current_code_at": "2026-03-27",
+  "distribution": {
+    "DRAFT_ONLY": 7,
+    "REVIEW_REQUIRED": 2
+  },
+  "changed_cases": [
+    {
+      "pn_primary": "010130.10",
+      "old_status": "DRAFT_ONLY",
+      "new_status": "REVIEW_REQUIRED",
+      "old_policy_rule_id": "CAP-09",
+      "new_policy_rule_id": "CAP-08W",
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "price_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "numeric_keep_guard_applied": false,
+      "price_public_rejection_reasons": []
+    },
+    {
+      "pn_primary": "027913.10",
+      "old_status": "DRAFT_ONLY",
+      "new_status": "REVIEW_REQUIRED",
+      "old_policy_rule_id": "CAP-09",
+      "new_policy_rule_id": "CAP-08W",
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "price_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "numeric_keep_guard_applied": false,
+      "price_public_rejection_reasons": []
+    }
+  ]
+}

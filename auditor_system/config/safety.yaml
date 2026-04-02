@@ -1,0 +1,38 @@
+# config/safety.yaml — лимиты и пороги безопасности
+# Pilot mode (conservative). После пилота — см. POST_PILOT_AUTONOMY.md
+
+# WIP limits (pilot: строгие)
+wip_limit: 3              # общий лимит задач без owner approve (pilot)
+wip_limit_by_risk:
+  low: 3
+  semi: 2
+  core: 1
+
+# Batch limits
+max_batch_size: 7
+max_queue_total: 15
+
+# Rework budget
+max_rework_backlog: 5
+
+# Cost budgets (USD)
+cost_budget_per_task_usd: 5.0
+cost_budget_per_task_core_usd: 15.0
+cost_budget_per_batch_usd: 30.0
+
+# Owner notifications
+owner_notification_limit_per_day: 3
+
+# Auto-merge (выключено до Level 2 — POST_PILOT_AUTONOMY.md)
+auto_merge_low: false
+auto_merge_after_batch_ok: false
+auto_task_queue: false
+
+# Stale branch threshold (days)
+stale_branch_days: 7
+
+# Auto-pass sampling (1 из N auto-pass задач → ручная очередь)
+auto_pass_sample_n: 5
+
+# Document freshness warning (days)
+doc_freshness_warn_days: 30

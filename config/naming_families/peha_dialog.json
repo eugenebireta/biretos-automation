@@ -1,0 +1,151 @@
+{
+  "family": "peha_dialog",
+  "brand_final": "PEHA",
+  "series": "DIALOG",
+  "family_matchers": [
+    {
+      "match_regex": "D\\s+95\\.(24|54|57|61|65|81)",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        "DIALOG"
+      ],
+      "match_fields": [
+        "source_name",
+        "raw_title",
+        "spec_values"
+      ],
+      "basis": "explicit"
+    }
+  ],
+  "series_patterns": [
+    {
+      "match_regex": "D\\s+95\\.(24|54|57|61|65|81)",
+      "match_fields": [
+        "source_name"
+      ],
+      "series": "DIALOG",
+      "basis": "cluster"
+    },
+    {
+      "match_any": [
+        "DIALOG"
+      ],
+      "match_fields": [
+        "raw_title",
+        "spec_values"
+      ],
+      "series": "DIALOG",
+      "basis": "explicit"
+    }
+  ],
+  "product_type_rules": [
+    {
+      "match_regex": "D\\s+95\\.(571|572|573|574|575)",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "frame",
+      "type_ru": "Рамка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+95\\.6511",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "socket",
+      "type_ru": "Розетка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+95\\.610",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "insert",
+      "type_ru": "Вставка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+95\\.810.*HR",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "decorative_element",
+      "type_ru": "Центральная накладка",
+      "basis": "cluster"
+    },
+    {
+      "match_regex": "D\\s+95\\.(244|540)",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "rocker",
+      "type_ru": "Клавиша",
+      "basis": "cluster"
+    }
+  ],
+  "attribute_rules": {
+    "gang_count": [
+      {
+        "match_regex": "D\\s+95\\.571",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 1,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+95\\.572",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 2,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+95\\.573",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 3,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+95\\.574",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 4,
+        "basis": "series_frame_mapping"
+      },
+      {
+        "match_regex": "D\\s+95\\.575",
+        "match_fields": [
+          "source_name"
+        ],
+        "value": 5,
+        "basis": "series_frame_mapping"
+      }
+    ]
+  },
+  "forbidden_generic_titles": [
+    "Электроустановочный модуль"
+  ],
+  "title_templates": {
+    "frame_with_gang_count": "{type_ru} {gang_count}-постовая {brand} {series}, {part_number}",
+    "frame": "{type_ru} {brand} {series}, {part_number}",
+    "socket": "{type_ru} {brand} {series}, {part_number}",
+    "insert": "{type_ru} {brand} {series}, {part_number}",
+    "decorative_element": "{type_ru} {brand} {series}, {part_number}",
+    "rocker": "{type_ru} {brand} {series}, {part_number}"
+  },
+  "review_if_missing": [
+    "canonical_product_type"
+  ]
+}

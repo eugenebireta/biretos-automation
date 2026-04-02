@@ -1,0 +1,11 @@
+{
+  "denied_by_default": true,
+  "allowed_series": [
+    {
+      "brand": "Esser",
+      "series_pattern": "IQ8.*",
+      "reason": "identical enclosure across IQ8 series — visual difference is internal only"
+    }
+  ],
+  "notes": "Расширяется только вручную, по конкретным сериям. Если серия не в списке — family_photo запрещено для AUTO_PUBLISH. Источник: входной CSV (колонка family_photo_ok) или этот whitelist (приоритет: whitelist > CSV > false)."
+}

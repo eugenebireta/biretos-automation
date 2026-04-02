@@ -1,0 +1,419 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-31T21:49:59.897016Z",
+  "pn": "129625-L3",
+  "pn_variants": [
+    "129625.L3",
+    "129625L3"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3",
+  "assembled_title": "Набор Honeywell 129625-L3",
+  "our_price_raw": "55352,00",
+  "expected_category": "Набор",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_129625-L3",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_129625-L3"
+        ],
+        "evidence_ids": [
+          "ev_title_129625-L3"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_129625-L3"
+        ],
+        "evidence_ids": [
+          "ev_image_129625-L3"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_129625-L3"
+        ],
+        "evidence_ids": [
+          "ev_price_129625-L3"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_129625-L3"
+        ],
+        "evidence_ids": [
+          "ev_pdf_129625-L3"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_129625-L3"
+      ],
+      "evidence_ids": [
+        "ev_title_129625-L3"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_129625-L3"
+      ],
+      "evidence_ids": [
+        "ev_image_129625-L3"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_129625-L3"
+      ],
+      "evidence_ids": [
+        "ev_price_129625-L3"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_129625-L3"
+      ],
+      "evidence_ids": [
+        "ev_pdf_129625-L3"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "На фото виден аксессуар Honeywell IR Link, товар угадывается",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\129625-L3.jpg",
+    "sha1": "8f0394a32fc5f87f30487127ff7cd47f5031e10e",
+    "canonical_filename": "HONEYWELL_129625-L3_8f0394a3.jpg",
+    "public_url": null,
+    "width": 1000,
+    "height": 1000,
+    "size_kb": 18,
+    "source": "cached",
+    "phash": "b0cecf638c3870d6",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "photo_status": "exact_evidence",
+    "photo_evidence_role": "exact",
+    "photo_is_temporary": false,
+    "replacement_required": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "not_found",
+    "pdf_url": null,
+    "pdf_source_tier": null,
+    "pdf_title": null,
+    "pdf_specs": {},
+    "pdf_text_excerpt": null,
+    "num_pages": 0,
+    "parse_method": null,
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": "Набор для подключения используется с газоанализаторами серии GasAlert для передачи данных и управления устройством. Обеспечивает надежное соединение и простоту в использовании.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Набор",
+    "seed_name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": true,
+    "trace_id": "catalog_verifier:129625-L3:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:129625-L3:031c91cf65480d7645792b8f",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:129625-L3:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:129625-L3:031c91cf65480d7645792b8f",
+      "pn_primary": "129625-L3",
+      "normalized_title": "Набор Honeywell 129625-L3",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "REVIEW_REQUIRED",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_129625-L3"
+          ],
+          "evidence_ids": [
+            "ev_title_129625-L3"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_129625-L3"
+          ],
+          "evidence_ids": [
+            "ev_image_129625-L3"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_129625-L3"
+          ],
+          "evidence_ids": [
+            "ev_price_129625-L3"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_129625-L3"
+          ],
+          "evidence_ids": [
+            "ev_pdf_129625-L3"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "",
+        "pdf_source_tier": "",
+        "image_source_tier": ""
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "not_found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": null
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": null,
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "failed",
+    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
+    "openai_request_id": ""
+  },
+  "merchandising": {
+    "image_local_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos_enhanced\\129625-L3__catalog_placeholder_v1__8f0394a3.jpg",
+    "image_status": "placeholder",
+    "image_kind": "placeholder_enhanced",
+    "image_temporary": true,
+    "replacement_required": true,
+    "lineage_preserved": true,
+    "source_manifest_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
+    "source_photo_verdict": "KEEP",
+    "cleanup_recommended": false,
+    "policy_reason_code": ""
+  },
+  "refresh_trace": {
+    "refresh_mode": "local_catalog_refresh_v1",
+    "content_seed_applied": true,
+    "content_seed_source": "insales_import_seed",
+    "photo_verdict_cache_applied": true,
+    "photo_verdict_value": "KEEP",
+    "merchandising_attached": true,
+    "merchandising_image_status": "placeholder"
+  }
+}

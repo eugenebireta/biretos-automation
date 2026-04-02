@@ -61,6 +61,9 @@ DOMAIN_TRUST: dict[str, dict] = {
     "directindustry.com":         {"tier": "industrial",  "weight": 0.68},
     "globalspec.com":             {"tier": "industrial",  "weight": 0.65},
 
+    # ── Russian industrial PPE distributors ────────────────────────────────────
+    "uralsiz.ru":                 {"tier": "industrial",  "weight": 0.70},  # ТД УРАЛСИЗ — Ekaterinburg PPE, script-accessible, lineage=True confirmed
+
     # ── Russian B2B ─────────────────────────────────────────────────────────────
     "armosystems.ru":             {"tier": "ru_b2b",      "weight": 0.75},
     "elreg.ru":                   {"tier": "ru_b2b",      "weight": 0.72},

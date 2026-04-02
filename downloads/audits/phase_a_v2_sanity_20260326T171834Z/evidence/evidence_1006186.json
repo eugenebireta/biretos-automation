@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "1006186",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Беруши 303L FOAMPLUG",
+  "assembled_title": "Беруши Honeywell 1006186",
+  "our_price_raw": "1920,61",
+  "expected_category": "Беруши",
+  "card_status": "AUTO_PUBLISH",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_1006186",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "ACCEPTED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1006186"
+        ],
+        "evidence_ids": [
+          "ev_title_1006186"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1006186"
+        ],
+        "evidence_ids": [
+          "ev_image_1006186"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_1006186"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1006186"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "ACCEPTED",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1006186"
+      ],
+      "evidence_ids": [
+        "ev_title_1006186"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1006186"
+      ],
+      "evidence_ids": [
+        "ev_image_1006186"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_1006186"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1006186"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "На изображении видны беруши, товар соответствует описанию.",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1006186.jpg",
+    "sha1": "c8aff4f091abfb2160158df9c12cd367505b60d8",
+    "canonical_filename": "HONEYWELL_1006186_c8aff4f0.jpg",
+    "public_url": null,
+    "width": 1200,
+    "height": 744,
+    "size_kb": 117,
+    "source": "cached",
+    "phash": "bb4ee1b09c159752",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "public_price",
+    "price_per_unit": 0.237,
+    "currency": "EUR",
+    "rub_price": 22.52,
+    "fx_rate_used": 95.0,
+    "fx_provider": "stub",
+    "price_confidence": 95,
+    "source_url": "https://nl.rs-online.com/web/p/ear-plugs/1040922",
+    "source_type": "authorized_distributor",
+    "source_tier": "authorized",
+    "stock_status": "in_stock",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Ear Plugs",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://docs.rs-online.com/2f8c/A700000011191469.pdf",
+    "pdf_source_tier": "authorized",
+    "pdf_title": "HL400™-AM",
+    "pdf_specs": {
+      "ADDED PROTECTION": "AROUND THE CLOCK.",
+      "odors caused by mold, mildew and bacteria": "This product does not",
+      "PART NO": "DESCRIPTION CASE QTY",
+      "United Kingdom Phone": "+34 91 676 45 21",
+      "Phone": "+46 (0) 424480433",
+      "Email": "info-nordic.hsp@honeywell.com © 2022 Honeywell International Inc.",
+      "1H – 1831 Diegem Phone": "00800 33 44 28 03",
+      "7332 BP Apeldoorn, Nederland Email": "is.ppe.techsupport.europe@honeywell.com",
+      "Tel": "+31 (0) 20 5656 988 Self-Service Portal: https://sps-support."
+    },
+    "pdf_text_excerpt": "HL400™-AM ANTIMICROBIAL- PROTECTED DISPENSER ADDED PROTECTION. AROUND THE CLOCK. Maintaining clean workspaces is important for every business. Introducing Honeywell’s HL400-AM earplug dispenser – with built in antimicrobial properties to protect the dispenser against stains, discoloration and odors caused by mold, mildew and bacteria. This product does not protect users or others against disease-causing organisms. Enjoy cleaner surfaces from a dispenser with enhanced cleanliness. FEATURES AND BENEFITS BUILT-IN EASY TO INSTALL, YOUR CHOICE OF ANTIMICROBIAL USE AND REFILL HEARING PROTECTION PROT",
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

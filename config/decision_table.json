@@ -1,0 +1,110 @@
+[
+  {
+    "id": "DT-01",
+    "identity_strength": "strong",
+    "photo_type": "exact",
+    "price_status": "public_price",
+    "mismatch": "none",
+    "result": "AUTO_PUBLISH",
+    "reason": "strong_identity + exact_photo + public_price → AUTO_PUBLISH"
+  },
+  {
+    "id": "DT-02",
+    "identity_strength": "strong",
+    "photo_type": "exact",
+    "price_status": "rfq_only",
+    "mismatch": "none",
+    "result": "AUTO_PUBLISH",
+    "reason": "strong_identity + exact_photo + rfq_only → AUTO_PUBLISH (B2B valid)"
+  },
+  {
+    "id": "DT-03",
+    "identity_strength": "strong",
+    "photo_type": "exact",
+    "price_status": "no_price",
+    "mismatch": "none",
+    "result": "REVIEW_REQUIRED",
+    "reason": "strong_identity + exact_photo but no price → REVIEW_REQUIRED"
+  },
+  {
+    "id": "DT-04",
+    "identity_strength": "strong",
+    "photo_type": "family",
+    "price_status": "public_price",
+    "mismatch": "none",
+    "result": "REVIEW_REQUIRED",
+    "reason": "strong_identity + family_photo → REVIEW_REQUIRED (family photo not auto-approved)"
+  },
+  {
+    "id": "DT-05",
+    "identity_strength": "strong",
+    "photo_type": "family",
+    "price_status": "rfq_only",
+    "mismatch": "none",
+    "result": "REVIEW_REQUIRED",
+    "reason": "strong_identity + family_photo + rfq_only → REVIEW_REQUIRED"
+  },
+  {
+    "id": "DT-06",
+    "identity_strength": "strong",
+    "photo_type": "unknown",
+    "price_status": "any",
+    "mismatch": "none",
+    "result": "REVIEW_REQUIRED",
+    "reason": "strong_identity + unknown photo tier → REVIEW_REQUIRED (conservative)"
+  },
+  {
+    "id": "DT-07",
+    "identity_strength": "strong",
+    "photo_type": "none",
+    "price_status": "public_price",
+    "mismatch": "none",
+    "result": "REVIEW_REQUIRED",
+    "reason": "strong_identity + no photo + price → REVIEW_REQUIRED"
+  },
+  {
+    "id": "DT-08",
+    "identity_strength": "strong",
+    "photo_type": "none",
+    "price_status": "no_price",
+    "mismatch": "none",
+    "result": "DRAFT_ONLY",
+    "reason": "strong_identity + no photo + no price → DRAFT_ONLY"
+  },
+  {
+    "id": "DT-09",
+    "identity_strength": "medium",
+    "photo_type": "exact",
+    "price_status": "public_price",
+    "mismatch": "none",
+    "result": "REVIEW_REQUIRED",
+    "reason": "medium_identity + exact_photo + price → REVIEW_REQUIRED (identity not strong enough for auto)"
+  },
+  {
+    "id": "DT-10",
+    "identity_strength": "medium",
+    "photo_type": "any",
+    "price_status": "any",
+    "mismatch": "none",
+    "result": "REVIEW_REQUIRED",
+    "reason": "medium_identity + any → REVIEW_REQUIRED"
+  },
+  {
+    "id": "DT-11",
+    "identity_strength": "weak",
+    "photo_type": "any",
+    "price_status": "any",
+    "mismatch": "none",
+    "result": "DRAFT_ONLY",
+    "reason": "weak_identity → DRAFT_ONLY regardless of photo/price"
+  },
+  {
+    "id": "DT-12",
+    "identity_strength": "any",
+    "photo_type": "any",
+    "price_status": "any",
+    "mismatch": "any_critical",
+    "result": "DRAFT_ONLY",
+    "reason": "any critical mismatch → DRAFT_ONLY (overrides all other signals)"
+  }
+]

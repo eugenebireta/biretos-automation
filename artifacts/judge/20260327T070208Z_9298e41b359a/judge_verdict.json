@@ -1,0 +1,15 @@
+{
+  "schema_version": "judge_verdict_schema_v1",
+  "verdict": "BLOCK",
+  "scope_summary": "smoke core path",
+  "checks_summary": "Evidence pack assembled, but CORE final gate stays manual external judge only.",
+  "main_risk": "CORE work is not eligible for API-judge final approval in this MVP.",
+  "merge": "NO",
+  "required_fixes": [
+    "Use manual external judge path for CORE."
+  ],
+  "manual_external_judge_required": true,
+  "evidence_pack_complete": false,
+  "unresolved_critical_risk": true,
+  "rationale_short": "CORE remains outside automatic judge approval scope."
+}

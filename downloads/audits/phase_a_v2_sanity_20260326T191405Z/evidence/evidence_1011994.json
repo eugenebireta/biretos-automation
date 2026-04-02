@@ -1,0 +1,247 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T19:14:05.092523Z",
+  "pn": "1011994",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
+  "assembled_title": "Наушники Honeywell 1011994",
+  "our_price_raw": "1741,63",
+  "expected_category": "Наушники",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_1011994",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1011994"
+        ],
+        "evidence_ids": [
+          "ev_title_1011994"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1011994"
+        ],
+        "evidence_ids": [
+          "ev_image_1011994"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1011994"
+        ],
+        "evidence_ids": [
+          "ev_price_1011994"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1011994"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1011994"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1011994"
+      ],
+      "evidence_ids": [
+        "ev_title_1011994"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1011994"
+      ],
+      "evidence_ids": [
+        "ev_image_1011994"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_1011994"
+      ],
+      "evidence_ids": [
+        "ev_price_1011994"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_1011994"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1011994"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "на изображении противошумные наушники Honeywell Howard Leight L1N",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011994.jpg",
+    "sha1": "b86fa0e78c289f2b1b4a68a96d5c1b9d38c57861",
+    "canonical_filename": "HONEYWELL_1011994_b86fa0e7.jpg",
+    "public_url": null,
+    "width": 1000,
+    "height": 1000,
+    "size_kb": 86,
+    "source": "cached",
+    "phash": "e6c68c6199cc9b9c",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://img1.wsimg.com/blobby/go/1bba95ac-afe4-41e6-9e06-4c7107bb4c1f/KDO%20List%20of%20Item%20PPE%20Honeywell-compressed.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "KDO Honeywell - Eye and Face Catalogue 2",
+    "pdf_specs": {
+      "WORK ENVIRONMENTS": "Product Catalogue",
+      "industry applications": "KDO Honeywell - Eye and Face Catalogue 4",
+      "Lic SMK 02209/1 packaging requirements": "Lic SMK 02209/2",
+      "standards for reference": "protection guidelines A workplace eye and face safety program",
+      "risks of injury to the eyes and or face": "authority for details on AS/NZS 1337.4:2004 Personal Eye",
+      "your facility": "adjustment work on lasers and laser cutting, metal casting, road work, coal",
+      "AS/NZS IEC 60825 Safe use of laser to name a few": "These hazards can come",
+      "environment": "Correct storage and cleaning",
+      "protectors": "Using the correct protective"
+    },
+    "pdf_text_excerpt": "KDO Honeywell - Eye and Face Catalogue 2 KDO Honeywell - Dual Layer Face Cover 46 KDO Honeywell - H910 Plus KN95 TDS 54 KDO Honeywell - H910P N95 TDS 57 KDO Honeywell Hearing Protection 61 KDO Honeywell - Hand Protection Gloves Full Catalog 77 KDO Honeywell - DEXPURE 803-88 Exam Nitrile Glove 129 KDO MILLER - Fall Protection Catalog 130 KDO MILLER - Turbo Edge Brochure by Honeywell 233 KDO MILLER TITAN - Body Harness and Lanyard Brochure by Honeywell 241 KDO TITAN - Body Harness Brochure by Honeywell 245 KDO Salisbury - Industrial Catalog by Honeywell 249 KDO Cheetah PPE Brochure 357 KDO KINGS",
+    "num_pages": 375,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  }
+}

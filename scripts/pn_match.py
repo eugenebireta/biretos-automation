@@ -151,6 +151,39 @@ def confirm_pn_structured(pn: str, html: str) -> tuple[bool, str]:
     return False, ""
 
 
+def extract_structured_pn_flags(pn: str, html: str) -> dict[str, object]:
+    """Return explicit structured exact-PN flags for downstream evidence bundles.
+
+    Only authoritative structured contexts are considered. Body/free-text matches,
+    search hints, and fuzzy expansions are intentionally excluded.
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    exact_jsonld_pn_match = _jsonld_pn_match(pn, soup)
+    exact_title_pn_match = _title_pn_match(pn, soup)
+    exact_h1_pn_match = _h1_pn_match(pn, soup)
+    exact_product_context_pn_match = _product_context_match(pn, soup)
+
+    structured_pn_match_location = ""
+    for location, matched in (
+        ("jsonld", exact_jsonld_pn_match),
+        ("title", exact_title_pn_match),
+        ("h1", exact_h1_pn_match),
+        ("product_context", exact_product_context_pn_match),
+    ):
+        if matched:
+            structured_pn_match_location = location
+            break
+
+    return {
+        "exact_jsonld_pn_match": exact_jsonld_pn_match,
+        "exact_title_pn_match": exact_title_pn_match,
+        "exact_h1_pn_match": exact_h1_pn_match,
+        "exact_product_context_pn_match": exact_product_context_pn_match,
+        "exact_structured_pn_match": bool(structured_pn_match_location),
+        "structured_pn_match_location": structured_pn_match_location,
+    }
+
+
 # ── Full result ─────────────────────────────────────────────────────────────────
 
 class PNMatchResult:
@@ -219,3 +252,25 @@ def match_pn(pn: str, text: str, html: str = "") -> PNMatchResult:
             result.numeric_guard_triggered = True
 
     return result
+
+
+# ── Brand co-occurrence check ────────────────────────────────────────────────
+
+def check_brand_cooccurrence(brand: str, text: str, subbrand: str = "") -> bool:
+    """Return True if brand (or subbrand) name appears anywhere in the page text.
+
+    Used to reduce false positives on pages where the numeric PN matches
+    but the product belongs to a completely different manufacturer.
+
+    Case-insensitive. Checks brand, common aliases, and subbrand if provided.
+
+    Examples:
+        brand="Honeywell", subbrand="Esser" → checks "honeywell", "esser"
+        brand="Honeywell", subbrand=""      → checks "honeywell"
+    """
+    text_lower = text.lower()
+    candidates = [brand.lower()] if brand else []
+    if subbrand:
+        candidates.append(subbrand.lower())
+
+    return any(c in text_lower for c in candidates if c)

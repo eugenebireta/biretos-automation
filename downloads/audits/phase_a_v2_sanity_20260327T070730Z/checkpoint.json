@@ -1,0 +1,3566 @@
+{
+  "00020211": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "00020211",
+    "pn_variants": [
+      "0020211",
+      "020211",
+      "20211"
+    ],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Датчик температуры D 20.672.022 T",
+    "assembled_title": "Датчик Honeywell 00020211",
+    "our_price_raw": "0,00",
+    "expected_category": "Датчик",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      "no_photo_and_no_price"
+    ],
+    "policy_decision_v2": {
+      "decision_id": "dec_00020211",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "DRAFT_ONLY",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_00020211"
+          ],
+          "evidence_ids": [
+            "ev_title_00020211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_00020211"
+          ],
+          "evidence_ids": [
+            "ev_image_00020211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_00020211"
+          ],
+          "evidence_ids": [
+            "ev_price_00020211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_00020211"
+          ],
+          "evidence_ids": [
+            "ev_pdf_00020211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-09"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_00020211"
+        ],
+        "evidence_ids": [
+          "ev_title_00020211"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_00020211"
+        ],
+        "evidence_ids": [
+          "ev_image_00020211"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_00020211"
+        ],
+        "evidence_ids": [
+          "ev_price_00020211"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_00020211"
+        ],
+        "evidence_ids": [
+          "ev_pdf_00020211"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.05,
+      "price_confidence": 0.0,
+      "overall": 0.015,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image",
+        "no_price_data"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "баннер/шапка сайта 519x56px",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\00020211.jpg",
+      "sha1": "b5288d6e2e9902f8d6941c5f0a8e783f22d783b3",
+      "canonical_filename": "HONEYWELL_00020211_b5288d6e.jpg",
+      "public_url": null,
+      "width": 149,
+      "height": 220,
+      "size_kb": 8,
+      "source": "cached",
+      "phash": "af8bb03cd0cfc231",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": false,
+      "numeric_keep_guard_reasons": []
+    },
+    "price": {
+      "price_status": "no_price_found",
+      "price_per_unit": null,
+      "currency": null,
+      "rub_price": null,
+      "fx_rate_used": null,
+      "fx_provider": null,
+      "price_confidence": 0,
+      "source_url": null,
+      "source_type": null,
+      "source_tier": null,
+      "stock_status": "unknown",
+      "offer_unit_basis": "unknown",
+      "offer_qty": null,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": false,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": false,
+      "cache_fallback_reason": "",
+      "cache_schema_version": "",
+      "cache_policy_version": "",
+      "cache_source_run_id": "",
+      "cache_bundle_ref": "",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "not_found",
+      "pdf_url": null,
+      "pdf_source_tier": null,
+      "pdf_title": null,
+      "pdf_specs": {},
+      "pdf_text_excerpt": null,
+      "num_pages": 0,
+      "parse_method": null,
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:00020211:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:00020211:609d64a3464a440365077317",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "DRAFT_ONLY",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "DRAFT_ONLY"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:00020211:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:00020211:609d64a3464a440365077317",
+        "pn_primary": "00020211",
+        "normalized_title": "Датчик Honeywell 00020211",
+        "card_status": "DRAFT_ONLY",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "INSUFFICIENT",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_00020211"
+            ],
+            "evidence_ids": [
+              "ev_title_00020211"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_00020211"
+            ],
+            "evidence_ids": [
+              "ev_image_00020211"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PRICE_EVIDENCE",
+            "field": "price",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_price_00020211"
+            ],
+            "evidence_ids": [
+              "ev_price_00020211"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_00020211"
+            ],
+            "evidence_ids": [
+              "ev_pdf_00020211"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "",
+          "pdf_source_tier": "",
+          "image_source_tier": ""
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "not_found",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": null
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "no_price_found",
+          "source_tier": null,
+          "page_product_class": "",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "010130.10": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "010130.10",
+    "pn_variants": [
+      "10130.10",
+      "010130-10",
+      "01013010"
+    ],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
+    "assembled_title": "Модуль Honeywell 010130.10",
+    "our_price_raw": "13288,04",
+    "expected_category": "Модуль",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [],
+    "policy_decision_v2": {
+      "decision_id": "dec_010130.10",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "REVIEW_REQUIRED",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_title_010130.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_image_010130.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_pdf_010130.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-08W"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_010130.10"
+        ],
+        "evidence_ids": [
+          "ev_title_010130.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_010130.10"
+        ],
+        "evidence_ids": [
+          "ev_image_010130.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_010130.10"
+        ],
+        "evidence_ids": [
+          "ev_pdf_010130.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.05,
+      "price_confidence": 0.0,
+      "overall": 0.015,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "баннер/шапка сайта 420x65px",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\010130.10.jpg",
+      "sha1": "752088d9f0c5ac8a6824814586bc48068ea7666d",
+      "canonical_filename": "HONEYWELL_010130_10_752088d9.jpg",
+      "public_url": null,
+      "width": 1280,
+      "height": 720,
+      "size_kb": 130,
+      "source": "cached",
+      "phash": "ad3dc2fc0ee2e206",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": false,
+      "numeric_keep_guard_reasons": []
+    },
+    "price": {
+      "price_status": "public_price",
+      "price_per_unit": 225.0,
+      "currency": "EUR",
+      "rub_price": 21375.0,
+      "fx_rate_used": 95.0,
+      "fx_provider": "stub",
+      "price_confidence": 90,
+      "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73660-4mg-2a-modul-bus-2-bus-1-ap-01013010",
+      "source_type": "other",
+      "source_tier": "authorized",
+      "stock_status": "in_stock",
+      "offer_unit_basis": "piece",
+      "offer_qty": 1,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "Модуль",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": true,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": true,
+      "cache_fallback_reason": "openai_quota",
+      "cache_schema_version": "price_evidence_cache_v1",
+      "cache_policy_version": "catalog_evidence_policy_v1",
+      "cache_source_run_id": "phase_a_v2_sanity_20260327T070131Z",
+      "cache_bundle_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260327T070131Z\\evidence\\evidence_010130.10.json",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "no_pn_confirm",
+      "pdf_url": "https://adiglobal.cz/iiWWW/cz/Produkty110.nsf/wp/katalogy/$file/Honeywell_Security_Solutions_2024_en.pdf",
+      "pdf_source_tier": "authorized",
+      "pdf_title": "SECURITY",
+      "pdf_specs": {
+        "but also more complex": "No matter whether in offices, industrial plants, banks, museums, public build-",
+        "tion, decentralized locations": "Customized alarm management",
+        "networked with each other": "This not only enables considerable cost savings, but also valuable synergies.",
+        "WINMAG plus is modular and easily scalable": "This ensures that this software can not only be easily and",
+        "interface": "Last but not least, the new licensing model of WINMAG plus offers tailor-made solutions, as",
+        "carried out in a more cost-effective manner": "Whether global or local - everything under safe supervision everywhere",
+        "easily realized through the integrated workflows": "With version V7.0, using WINMAG plus in Microsoft",
+        "IT investments": "Installations for clients are completely eliminated. This also reduces maintenance costs.",
+        "Hardware- and software requirements": "Communication Server:",
+        "Client": "- Intel I5 / AMD equivalent or higher",
+        "Common": "- RAID-1 System recommended",
+        "licenses please use the WINMAG plus order form": "6 www.security.honeywell.de"
+      },
+      "pdf_text_excerpt": "SECURITY 1 SOLUTIONS 2 2024 3 4 Intrusion, Access Control, Management Systems 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 Further information www.security.honeywell.de Honeywell Building Technologies Novar GmbH Johannes-Mauthe-Straße 14 72458 Albstadt Germany HBT-EN-DACH-EN-June2024 www.honeywell.com © 2024 Honeywell International Inc. Table of contents Management Systems 1 MB-Secure 2 Power Supplies 3 Remote data transmission 4 Radio product line / MB radio system 5 Display and operating units 6 Connection modules BUS-2/BUS-1, BUS-2, BUS-1 7 Switching devices 8 Readers / ID Carriers 9 Motion detec",
+      "num_pages": 254,
+      "parse_method": "pdfplumber",
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:010130.10:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:010130.10:42a751d554b8bbd94bd95da7",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "REVIEW_REQUIRED",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "REVIEW_REQUIRED"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:010130.10:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:010130.10:42a751d554b8bbd94bd95da7",
+        "pn_primary": "010130.10",
+        "normalized_title": "Модуль Honeywell 010130.10",
+        "card_status": "REVIEW_REQUIRED",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "ACCEPTED",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_010130.10"
+            ],
+            "evidence_ids": [
+              "ev_title_010130.10"
+            ],
+            "policy_rule_id": "CAP-08W",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_010130.10"
+            ],
+            "evidence_ids": [
+              "ev_image_010130.10"
+            ],
+            "policy_rule_id": "CAP-08W",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_010130.10"
+            ],
+            "evidence_ids": [
+              "ev_pdf_010130.10"
+            ],
+            "policy_rule_id": "CAP-08W",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "authorized",
+          "pdf_source_tier": "authorized",
+          "image_source_tier": "authorized"
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "no_pn_confirm",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": "authorized"
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "public_price",
+          "source_tier": "authorized",
+          "page_product_class": "Модуль",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "027913.10": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "027913.10",
+    "pn_variants": [
+      "27913.10",
+      "027913-10",
+      "02791310"
+    ],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Считыватель карт luminAXS mifareD RS485",
+    "assembled_title": "Считыватель Honeywell 027913.10",
+    "our_price_raw": "34276,71",
+    "expected_category": "Считыватель",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [],
+    "policy_decision_v2": {
+      "decision_id": "dec_027913.10",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "REVIEW_REQUIRED",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_title_027913.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_image_027913.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_pdf_027913.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-08W"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_027913.10"
+        ],
+        "evidence_ids": [
+          "ev_title_027913.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_027913.10"
+        ],
+        "evidence_ids": [
+          "ev_image_027913.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_027913.10"
+        ],
+        "evidence_ids": [
+          "ev_pdf_027913.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.0,
+      "price_confidence": 0.0,
+      "overall": 0.0,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "на изображении не считыватель карт, а сантехнический клапан/фильтр",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\027913.10.jpg",
+      "sha1": "4904fb75cfc24b2681ed203e60d3401a76280e5b",
+      "canonical_filename": "HONEYWELL_027913_10_4904fb75.jpg",
+      "public_url": null,
+      "width": 3682,
+      "height": 3726,
+      "size_kb": 284,
+      "source": "cached",
+      "phash": "a434ea916e17ca6b",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": false,
+      "numeric_keep_guard_reasons": []
+    },
+    "price": {
+      "price_status": "rfq_only",
+      "price_per_unit": 467.0,
+      "currency": "EUR",
+      "rub_price": 44365.0,
+      "fx_rate_used": 95.0,
+      "fx_provider": "stub",
+      "price_confidence": 80,
+      "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73676-luminaxs-mifared-readerrs485-c-d-w-wo-kb-02791310",
+      "source_type": "other",
+      "source_tier": "authorized",
+      "stock_status": "rfq",
+      "offer_unit_basis": "piece",
+      "offer_qty": 1,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "Считыватель",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": true,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": true,
+      "cache_fallback_reason": "openai_quota",
+      "cache_schema_version": "price_evidence_cache_v1",
+      "cache_policy_version": "catalog_evidence_policy_v1",
+      "cache_source_run_id": "phase_a_v2_sanity_20260327T070131Z",
+      "cache_bundle_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260327T070131Z\\evidence\\evidence_027913.10.json",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "no_pn_confirm",
+      "pdf_url": "https://adiglobal.cz/iiWWW/cz/Produkty110.nsf/wp/katalogy/$file/Honeywell_Security_Solutions_2024_en.pdf",
+      "pdf_source_tier": "authorized",
+      "pdf_title": "SECURITY",
+      "pdf_specs": {
+        "but also more complex": "No matter whether in offices, industrial plants, banks, museums, public build-",
+        "tion, decentralized locations": "Customized alarm management",
+        "networked with each other": "This not only enables considerable cost savings, but also valuable synergies.",
+        "WINMAG plus is modular and easily scalable": "This ensures that this software can not only be easily and",
+        "interface": "Last but not least, the new licensing model of WINMAG plus offers tailor-made solutions, as",
+        "carried out in a more cost-effective manner": "Whether global or local - everything under safe supervision everywhere",
+        "easily realized through the integrated workflows": "With version V7.0, using WINMAG plus in Microsoft",
+        "IT investments": "Installations for clients are completely eliminated. This also reduces maintenance costs.",
+        "Hardware- and software requirements": "Communication Server:",
+        "Client": "- Intel I5 / AMD equivalent or higher",
+        "Common": "- RAID-1 System recommended",
+        "licenses please use the WINMAG plus order form": "6 www.security.honeywell.de"
+      },
+      "pdf_text_excerpt": "SECURITY 1 SOLUTIONS 2 2024 3 4 Intrusion, Access Control, Management Systems 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 Further information www.security.honeywell.de Honeywell Building Technologies Novar GmbH Johannes-Mauthe-Straße 14 72458 Albstadt Germany HBT-EN-DACH-EN-June2024 www.honeywell.com © 2024 Honeywell International Inc. Table of contents Management Systems 1 MB-Secure 2 Power Supplies 3 Remote data transmission 4 Radio product line / MB radio system 5 Display and operating units 6 Connection modules BUS-2/BUS-1, BUS-2, BUS-1 7 Switching devices 8 Readers / ID Carriers 9 Motion detec",
+      "num_pages": 254,
+      "parse_method": "pdfplumber",
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:027913.10:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:027913.10:2e7c7684a47f145b7a02d900",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "REVIEW_REQUIRED",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "REVIEW_REQUIRED"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:027913.10:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:027913.10:2e7c7684a47f145b7a02d900",
+        "pn_primary": "027913.10",
+        "normalized_title": "Считыватель Honeywell 027913.10",
+        "card_status": "REVIEW_REQUIRED",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "ACCEPTED",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_027913.10"
+            ],
+            "evidence_ids": [
+              "ev_title_027913.10"
+            ],
+            "policy_rule_id": "CAP-08W",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_027913.10"
+            ],
+            "evidence_ids": [
+              "ev_image_027913.10"
+            ],
+            "policy_rule_id": "CAP-08W",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_027913.10"
+            ],
+            "evidence_ids": [
+              "ev_pdf_027913.10"
+            ],
+            "policy_rule_id": "CAP-08W",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "authorized",
+          "pdf_source_tier": "authorized",
+          "image_source_tier": "authorized"
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "no_pn_confirm",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": "authorized"
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "rfq_only",
+          "source_tier": "authorized",
+          "page_product_class": "Считыватель",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "033588.17": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "033588.17",
+    "pn_variants": [
+      "33588.17",
+      "033588-17",
+      "03358817"
+    ],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Шарнирное соединение для настенного монтажа",
+    "assembled_title": "Соединение Honeywell 033588.17",
+    "our_price_raw": "3025,82",
+    "expected_category": "Соединение",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [],
+    "policy_decision_v2": {
+      "decision_id": "dec_033588.17",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "REVIEW_REQUIRED",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_title_033588.17"
+          ],
+          "policy_rule_id": "CAP-08N",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_image_033588.17"
+          ],
+          "policy_rule_id": "CAP-08N",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_pdf_033588.17"
+          ],
+          "policy_rule_id": "CAP-08N",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-08N"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_033588.17"
+        ],
+        "evidence_ids": [
+          "ev_title_033588.17"
+        ],
+        "policy_rule_id": "CAP-08N",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_033588.17"
+        ],
+        "evidence_ids": [
+          "ev_image_033588.17"
+        ],
+        "policy_rule_id": "CAP-08N",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_033588.17"
+        ],
+        "evidence_ids": [
+          "ev_pdf_033588.17"
+        ],
+        "policy_rule_id": "CAP-08N",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.0,
+      "price_confidence": 0.0,
+      "overall": 0.0,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "deterministic numeric/dotted PN guard: missing_exact_structured_context",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\033588.17.jpg",
+      "sha1": "1fba507eb89270fb673483cfd9e1bf30a985a923",
+      "canonical_filename": "HONEYWELL_033588_17_1fba507e.jpg",
+      "public_url": null,
+      "width": 750,
+      "height": 422,
+      "size_kb": 22,
+      "source": "cached",
+      "phash": "e9ca96b4853d9629",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": true,
+      "numeric_keep_guard_reasons": [
+        "missing_exact_structured_context"
+      ]
+    },
+    "price": {
+      "price_status": "rfq_only",
+      "price_per_unit": 33.0,
+      "currency": "EUR",
+      "rub_price": 3135.0,
+      "fx_rate_used": 95.0,
+      "fx_provider": "stub",
+      "price_confidence": 80,
+      "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=54106-kugelgelenk-viewguard-scm-03358817",
+      "source_type": "other",
+      "source_tier": "authorized",
+      "stock_status": "rfq",
+      "offer_unit_basis": "piece",
+      "offer_qty": 1,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "Соединение",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": true,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": true,
+      "cache_fallback_reason": "openai_quota",
+      "cache_schema_version": "price_evidence_cache_v1",
+      "cache_policy_version": "catalog_evidence_policy_v1",
+      "cache_source_run_id": "phase_a_v2_sanity_20260327T070131Z",
+      "cache_bundle_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260327T070131Z\\evidence\\evidence_033588.17.json",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "no_pn_confirm",
+      "pdf_url": "https://adiglobal.cz/iiWWW/cz/Produkty110.nsf/wp/katalogy/$file/Honeywell_Security_Solutions_2024_en.pdf",
+      "pdf_source_tier": "authorized",
+      "pdf_title": "SECURITY",
+      "pdf_specs": {
+        "but also more complex": "No matter whether in offices, industrial plants, banks, museums, public build-",
+        "tion, decentralized locations": "Customized alarm management",
+        "networked with each other": "This not only enables considerable cost savings, but also valuable synergies.",
+        "WINMAG plus is modular and easily scalable": "This ensures that this software can not only be easily and",
+        "interface": "Last but not least, the new licensing model of WINMAG plus offers tailor-made solutions, as",
+        "carried out in a more cost-effective manner": "Whether global or local - everything under safe supervision everywhere",
+        "easily realized through the integrated workflows": "With version V7.0, using WINMAG plus in Microsoft",
+        "IT investments": "Installations for clients are completely eliminated. This also reduces maintenance costs.",
+        "Hardware- and software requirements": "Communication Server:",
+        "Client": "- Intel I5 / AMD equivalent or higher",
+        "Common": "- RAID-1 System recommended",
+        "licenses please use the WINMAG plus order form": "6 www.security.honeywell.de"
+      },
+      "pdf_text_excerpt": "SECURITY 1 SOLUTIONS 2 2024 3 4 Intrusion, Access Control, Management Systems 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 Further information www.security.honeywell.de Honeywell Building Technologies Novar GmbH Johannes-Mauthe-Straße 14 72458 Albstadt Germany HBT-EN-DACH-EN-June2024 www.honeywell.com © 2024 Honeywell International Inc. Table of contents Management Systems 1 MB-Secure 2 Power Supplies 3 Remote data transmission 4 Radio product line / MB radio system 5 Display and operating units 6 Connection modules BUS-2/BUS-1, BUS-2, BUS-1 7 Switching devices 8 Readers / ID Carriers 9 Motion detec",
+      "num_pages": 254,
+      "parse_method": "pdfplumber",
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:033588.17:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:033588.17:3df5fb9fa0abdc3a714d8751",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "REVIEW_REQUIRED",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "REVIEW_REQUIRED"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:033588.17:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:033588.17:3df5fb9fa0abdc3a714d8751",
+        "pn_primary": "033588.17",
+        "normalized_title": "Соединение Honeywell 033588.17",
+        "card_status": "REVIEW_REQUIRED",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "ACCEPTED",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_033588.17"
+            ],
+            "evidence_ids": [
+              "ev_title_033588.17"
+            ],
+            "policy_rule_id": "CAP-08N",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_033588.17"
+            ],
+            "evidence_ids": [
+              "ev_image_033588.17"
+            ],
+            "policy_rule_id": "CAP-08N",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_033588.17"
+            ],
+            "evidence_ids": [
+              "ev_pdf_033588.17"
+            ],
+            "policy_rule_id": "CAP-08N",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "authorized",
+          "pdf_source_tier": "authorized",
+          "image_source_tier": "authorized"
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "no_pn_confirm",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": "authorized"
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "rfq_only",
+          "source_tier": "authorized",
+          "page_product_class": "Соединение",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "1000106": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "1000106",
+    "pn_variants": [],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Беруши 304L CORDED EARPLUG",
+    "assembled_title": "Беруши Honeywell 1000106",
+    "our_price_raw": "13095,00",
+    "expected_category": "Беруши",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [],
+    "policy_decision_v2": {
+      "decision_id": "dec_1000106",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "REVIEW_REQUIRED",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1000106"
+          ],
+          "evidence_ids": [
+            "ev_title_1000106"
+          ],
+          "policy_rule_id": "CAP-08N",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1000106"
+          ],
+          "evidence_ids": [
+            "ev_image_1000106"
+          ],
+          "policy_rule_id": "CAP-08N",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1000106"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1000106"
+          ],
+          "policy_rule_id": "CAP-08N",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-08N"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1000106"
+        ],
+        "evidence_ids": [
+          "ev_title_1000106"
+        ],
+        "policy_rule_id": "CAP-08N",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_1000106"
+        ],
+        "evidence_ids": [
+          "ev_image_1000106"
+        ],
+        "policy_rule_id": "CAP-08N",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1000106"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1000106"
+        ],
+        "policy_rule_id": "CAP-08N",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.0,
+      "price_confidence": 0.0,
+      "overall": 0.0,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "deterministic numeric/dotted PN guard: missing_exact_structured_context",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1000106.jpg",
+      "sha1": "9c3a73ee043def273ab4c891c98bce28fdb2cbe4",
+      "canonical_filename": "HONEYWELL_1000106_9c3a73ee.jpg",
+      "public_url": null,
+      "width": 344,
+      "height": 426,
+      "size_kb": 43,
+      "source": "cached",
+      "phash": "bd2dc0f0b0b2c3cb",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": true,
+      "numeric_keep_guard_reasons": [
+        "missing_exact_structured_context"
+      ]
+    },
+    "price": {
+      "price_status": "public_price",
+      "price_per_unit": 68.25,
+      "currency": "AED",
+      "rub_price": 1638.0,
+      "fx_rate_used": 24.0,
+      "fx_provider": "stub",
+      "price_confidence": 90,
+      "source_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+      "source_type": "other",
+      "source_tier": "industrial",
+      "stock_status": "out_of_stock",
+      "offer_unit_basis": "piece",
+      "offer_qty": 1,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "Беруши",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": true,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": true,
+      "cache_fallback_reason": "openai_quota",
+      "cache_schema_version": "price_evidence_cache_v1",
+      "cache_policy_version": "catalog_evidence_policy_v1",
+      "cache_source_run_id": "phase_a_v2_sanity_20260327T070131Z",
+      "cache_bundle_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260327T070131Z\\evidence\\evidence_1000106.json",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "no_pn_confirm",
+      "pdf_url": "https://o2sensor.ru/pdf/envitec_o2.pdf",
+      "pdf_source_tier": "ru_b2b",
+      "pdf_title": "General Specifications",
+      "pdf_specs": {
+        "Measurement Range": "0-100% oxygen",
+        "Use the advantages": "00M102-1:3,5mm Mono Jack",
+        "Linearity Error": "Cross < 0,5 % vol. 02 in 100% N2, applied 5 minutes",
+        "Interference": "< 3 % relative (cid:63) Meet EN ISO 21647",
+        "< 0.5 % vol": "02 response to: (cid:63) Designed and manufactured",
+        "80% N20 balance N2": "2000 and",
+        "Influence of Humidity": "0.03 % rel. per % RH at 25<C",
+        "Influence of Pressure": "proportional to change in oxygen partial",
+        "Influence of Mechanical Shock": "0 to 50°C (cid:73) Excellent signal stability",
+        "Operating Temperature": "0 to 50-0",
+        "Temperature Compensation": "built-in NTC compensation",
+        "Compensation (steady state)": "relative error",
+        "Operating Humidity": "Long 0-99 % RH non-condensing",
+        "Output Drift": "typically < -15 % relative over lifetime",
+        "Storage Temperature": "-20 to +50 <C",
+        "Recommended Storage": "+510+15-0",
+        "Recommended Load": "Warm- >10 kOhms",
+        "Warm-UpTime": "Weight: lOkOhms",
+        "Warranty Period": "approximately 28 grams",
+        "ambient air": "Electrical Interface: 14 to 20 mV, load 300 Ohms",
+        "Accuracy and Repeatability": "< 1 % vol. 02 when calibrated at 100 %",
+        "Linearity error": "< 3 % relative",
+        "Response time": "Zero < 5sec. to 90 % of final value",
+        "Offset Voltage": "< 100/vV in 100 % nitrogen applied for 5",
+        "< 200 MV in 100% nitrogen": "2000 and EN ISO 13485:",
+        "Cross Interference": "Meets EN ISO 21647 requirements -",
+        "of Humidity": "Influence of Meets EN ISO 21647 requirements -",
+        "Pressure": "0.03%rel.per%RHat25°C proportional",
+        "Up Time": "< 30 minutes, after replacement of",
+        "Lifetime": "Weight: Part No.: > 500.000 % vol. oxygen hours",
+        "Output in ambient air": "10 to 13mV",
+        "Electrical Interface": "Switchcraft® Mini Power Jack",
+        "Effect of Temperature and +50 °C": "8 % relative error 0-99 % RH (cid:73) Short lead times",
+        "Warm-Up Time": "< 30 minutes, after replacement of",
+        "Sensor Lifetime": "Weight: approximately 28 grams"
+      },
+      "pdf_text_excerpt": "General Specifications E C NVITE Medical Oxygen Sensors Measurement Range: Accuracy 0-100% oxygen Use the advantages: and Repeatability: Zero Offset: < 1 % vol. 02 when calibrated at 100 % 02 Linearity Error: Cross < 0,5 % vol. 02 in 100% N2, applied 5 minutes Interference: < 3 % relative (cid:63) Meet EN ISO 21647 < 0.5 % vol. 02 response to: (cid:63) Designed and manufactured 10% C02 balance N2 according to EN ISO 9001 80% N20 balance N2 :2000 and 7.5% Halothane balance N2 EN 13485:2003 7.5 % Isoflurane balance N2 7.5 % Enflurane balance N2 9% Sevoflurane balance N2 (cid:63) Accurate and rel",
+      "num_pages": 19,
+      "parse_method": "pdfplumber",
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:1000106:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:1000106:f911b47b1c83a8d6e8d9adc7",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "REVIEW_REQUIRED",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "REVIEW_REQUIRED"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:1000106:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:1000106:f911b47b1c83a8d6e8d9adc7",
+        "pn_primary": "1000106",
+        "normalized_title": "Беруши Honeywell 1000106",
+        "card_status": "REVIEW_REQUIRED",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "ACCEPTED",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_1000106"
+            ],
+            "evidence_ids": [
+              "ev_title_1000106"
+            ],
+            "policy_rule_id": "CAP-08N",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_1000106"
+            ],
+            "evidence_ids": [
+              "ev_image_1000106"
+            ],
+            "policy_rule_id": "CAP-08N",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_1000106"
+            ],
+            "evidence_ids": [
+              "ev_pdf_1000106"
+            ],
+            "policy_rule_id": "CAP-08N",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "industrial",
+          "pdf_source_tier": "ru_b2b",
+          "image_source_tier": "industrial"
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "no_pn_confirm",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": "ru_b2b"
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "public_price",
+          "source_tier": "industrial",
+          "page_product_class": "Беруши",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "1006186": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "1006186",
+    "pn_variants": [],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Беруши 303L FOAMPLUG",
+    "assembled_title": "Беруши Honeywell 1006186",
+    "our_price_raw": "1920,61",
+    "expected_category": "Беруши",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      "no_photo_and_no_price"
+    ],
+    "policy_decision_v2": {
+      "decision_id": "dec_1006186",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "DRAFT_ONLY",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1006186"
+          ],
+          "evidence_ids": [
+            "ev_title_1006186"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1006186"
+          ],
+          "evidence_ids": [
+            "ev_image_1006186"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_1006186"
+          ],
+          "evidence_ids": [
+            "ev_price_1006186"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1006186"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1006186"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-09"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1006186"
+        ],
+        "evidence_ids": [
+          "ev_title_1006186"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_1006186"
+        ],
+        "evidence_ids": [
+          "ev_image_1006186"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1006186"
+        ],
+        "evidence_ids": [
+          "ev_price_1006186"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1006186"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1006186"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.0,
+      "price_confidence": 0.0,
+      "overall": 0.0,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image",
+        "no_price_data"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "deterministic numeric/dotted PN guard: missing_exact_structured_context",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1006186.jpg",
+      "sha1": "c8aff4f091abfb2160158df9c12cd367505b60d8",
+      "canonical_filename": "HONEYWELL_1006186_c8aff4f0.jpg",
+      "public_url": null,
+      "width": 1200,
+      "height": 744,
+      "size_kb": 117,
+      "source": "cached",
+      "phash": "bb4ee1b09c159752",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": true,
+      "numeric_keep_guard_reasons": [
+        "missing_exact_structured_context"
+      ]
+    },
+    "price": {
+      "price_status": "no_price_found",
+      "price_per_unit": null,
+      "currency": null,
+      "rub_price": null,
+      "fx_rate_used": null,
+      "fx_provider": null,
+      "price_confidence": 0,
+      "source_url": null,
+      "source_type": null,
+      "source_tier": null,
+      "stock_status": "unknown",
+      "offer_unit_basis": "unknown",
+      "offer_qty": null,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": false,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": false,
+      "cache_fallback_reason": "",
+      "cache_schema_version": "",
+      "cache_policy_version": "",
+      "cache_source_run_id": "",
+      "cache_bundle_ref": "",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "not_found",
+      "pdf_url": null,
+      "pdf_source_tier": null,
+      "pdf_title": null,
+      "pdf_specs": {},
+      "pdf_text_excerpt": null,
+      "num_pages": 0,
+      "parse_method": null,
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:1006186:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:1006186:d70e91e5ee929a07dddc3359",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "DRAFT_ONLY",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "DRAFT_ONLY"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:1006186:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:1006186:d70e91e5ee929a07dddc3359",
+        "pn_primary": "1006186",
+        "normalized_title": "Беруши Honeywell 1006186",
+        "card_status": "DRAFT_ONLY",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "INSUFFICIENT",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_1006186"
+            ],
+            "evidence_ids": [
+              "ev_title_1006186"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_1006186"
+            ],
+            "evidence_ids": [
+              "ev_image_1006186"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PRICE_EVIDENCE",
+            "field": "price",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_price_1006186"
+            ],
+            "evidence_ids": [
+              "ev_price_1006186"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_1006186"
+            ],
+            "evidence_ids": [
+              "ev_pdf_1006186"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "",
+          "pdf_source_tier": "",
+          "image_source_tier": ""
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "not_found",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": null
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "no_price_found",
+          "source_tier": null,
+          "page_product_class": "",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "1006187": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "1006187",
+    "pn_variants": [],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Беруши 303S-YEL/WHT",
+    "assembled_title": "Беруши Honeywell 1006187",
+    "our_price_raw": "2095,17",
+    "expected_category": "Беруши",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      "no_photo_and_no_price"
+    ],
+    "policy_decision_v2": {
+      "decision_id": "dec_1006187",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "DRAFT_ONLY",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1006187"
+          ],
+          "evidence_ids": [
+            "ev_title_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1006187"
+          ],
+          "evidence_ids": [
+            "ev_image_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_1006187"
+          ],
+          "evidence_ids": [
+            "ev_price_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1006187"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-09"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1006187"
+        ],
+        "evidence_ids": [
+          "ev_title_1006187"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_1006187"
+        ],
+        "evidence_ids": [
+          "ev_image_1006187"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1006187"
+        ],
+        "evidence_ids": [
+          "ev_price_1006187"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1006187"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1006187"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.0,
+      "price_confidence": 0.0,
+      "overall": 0.0,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image",
+        "no_price_data"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "deterministic numeric/dotted PN guard: missing_exact_structured_context",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1006187.jpg",
+      "sha1": "f5bb3d5084d181ecd96d544f7ea8a5bba1f33e51",
+      "canonical_filename": "HONEYWELL_1006187_f5bb3d50.jpg",
+      "public_url": null,
+      "width": 700,
+      "height": 784,
+      "size_kb": 22,
+      "source": "cached",
+      "phash": "b832c9cdc663933c",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": true,
+      "numeric_keep_guard_reasons": [
+        "missing_exact_structured_context"
+      ]
+    },
+    "price": {
+      "price_status": "no_price_found",
+      "price_per_unit": null,
+      "currency": null,
+      "rub_price": null,
+      "fx_rate_used": null,
+      "fx_provider": null,
+      "price_confidence": 0,
+      "source_url": null,
+      "source_type": null,
+      "source_tier": null,
+      "stock_status": "unknown",
+      "offer_unit_basis": "unknown",
+      "offer_qty": null,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": false,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": false,
+      "cache_fallback_reason": "",
+      "cache_schema_version": "",
+      "cache_policy_version": "",
+      "cache_source_run_id": "",
+      "cache_bundle_ref": "",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "not_found",
+      "pdf_url": null,
+      "pdf_source_tier": null,
+      "pdf_title": null,
+      "pdf_specs": {},
+      "pdf_text_excerpt": null,
+      "num_pages": 0,
+      "parse_method": null,
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:1006187:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:1006187:c50f111900dbd5f42c5bd313",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "DRAFT_ONLY",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "DRAFT_ONLY"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:1006187:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:1006187:c50f111900dbd5f42c5bd313",
+        "pn_primary": "1006187",
+        "normalized_title": "Беруши Honeywell 1006187",
+        "card_status": "DRAFT_ONLY",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "INSUFFICIENT",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_1006187"
+            ],
+            "evidence_ids": [
+              "ev_title_1006187"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_1006187"
+            ],
+            "evidence_ids": [
+              "ev_image_1006187"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PRICE_EVIDENCE",
+            "field": "price",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_price_1006187"
+            ],
+            "evidence_ids": [
+              "ev_price_1006187"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_1006187"
+            ],
+            "evidence_ids": [
+              "ev_pdf_1006187"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "",
+          "pdf_source_tier": "",
+          "image_source_tier": ""
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "not_found",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": null
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "no_price_found",
+          "source_tier": null,
+          "page_product_class": "",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "1011893-RU": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "1011893-RU",
+    "pn_variants": [
+      "1011893.RU",
+      "1011893RU"
+    ],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом",
+    "assembled_title": "Привязь Honeywell 1011893-RU",
+    "our_price_raw": "2447,96",
+    "expected_category": "Привязь",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      "no_photo_and_no_price"
+    ],
+    "policy_decision_v2": {
+      "decision_id": "dec_1011893-RU",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "DRAFT_ONLY",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1011893-RU"
+          ],
+          "evidence_ids": [
+            "ev_title_1011893-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1011893-RU"
+          ],
+          "evidence_ids": [
+            "ev_image_1011893-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_1011893-RU"
+          ],
+          "evidence_ids": [
+            "ev_price_1011893-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1011893-RU"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1011893-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-09"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1011893-RU"
+        ],
+        "evidence_ids": [
+          "ev_title_1011893-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_1011893-RU"
+        ],
+        "evidence_ids": [
+          "ev_image_1011893-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1011893-RU"
+        ],
+        "evidence_ids": [
+          "ev_price_1011893-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1011893-RU"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1011893-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.05,
+      "price_confidence": 0.0,
+      "overall": 0.015,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image",
+        "no_price_data"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "баннер/шапка сайта 200x60px",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011893-RU.jpg",
+      "sha1": "f136aafc0054b1f63f8d911212fd43ee239c275a",
+      "canonical_filename": "HONEYWELL_1011893-RU_f136aafc.jpg",
+      "public_url": null,
+      "width": 311,
+      "height": 650,
+      "size_kb": 286,
+      "source": "cached",
+      "phash": "eb31d42a7b80dd68",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": false,
+      "numeric_keep_guard_reasons": []
+    },
+    "price": {
+      "price_status": "no_price_found",
+      "price_per_unit": null,
+      "currency": null,
+      "rub_price": null,
+      "fx_rate_used": null,
+      "fx_provider": null,
+      "price_confidence": 0,
+      "source_url": null,
+      "source_type": null,
+      "source_tier": null,
+      "stock_status": "unknown",
+      "offer_unit_basis": "unknown",
+      "offer_qty": null,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": false,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": false,
+      "cache_fallback_reason": "",
+      "cache_schema_version": "",
+      "cache_policy_version": "",
+      "cache_source_run_id": "",
+      "cache_bundle_ref": "",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "not_found",
+      "pdf_url": null,
+      "pdf_source_tier": null,
+      "pdf_title": null,
+      "pdf_specs": {},
+      "pdf_text_excerpt": null,
+      "num_pages": 0,
+      "parse_method": null,
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:1011893-RU:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:1011893-RU:b630b08ec11e5750a223c9c4",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "DRAFT_ONLY",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "DRAFT_ONLY"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:1011893-RU:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:1011893-RU:b630b08ec11e5750a223c9c4",
+        "pn_primary": "1011893-RU",
+        "normalized_title": "Привязь Honeywell 1011893-RU",
+        "card_status": "DRAFT_ONLY",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "INSUFFICIENT",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_1011893-RU"
+            ],
+            "evidence_ids": [
+              "ev_title_1011893-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_1011893-RU"
+            ],
+            "evidence_ids": [
+              "ev_image_1011893-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PRICE_EVIDENCE",
+            "field": "price",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_price_1011893-RU"
+            ],
+            "evidence_ids": [
+              "ev_price_1011893-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_1011893-RU"
+            ],
+            "evidence_ids": [
+              "ev_pdf_1011893-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "",
+          "pdf_source_tier": "",
+          "image_source_tier": ""
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "not_found",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": null
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "no_price_found",
+          "source_tier": null,
+          "page_product_class": "",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "failed",
+      "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "openai_request_id": ""
+    }
+  },
+  "1011894-RU": {
+    "schema_version": "1.2",
+    "generated_at": "2026-03-27T07:07:30.350019Z",
+    "pn": "1011894-RU",
+    "pn_variants": [
+      "1011894.RU",
+      "1011894RU"
+    ],
+    "brand": "Honeywell",
+    "subbrand": "",
+    "name": "Страховочная привязь SPERIAN Titan 2-точечная с поясом",
+    "assembled_title": "Привязь Honeywell 1011894-RU",
+    "our_price_raw": "2706,30",
+    "expected_category": "Привязь",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      "no_photo_and_no_price"
+    ],
+    "policy_decision_v2": {
+      "decision_id": "dec_1011894-RU",
+      "policy_version": "catalog_evidence_policy_v1",
+      "family_photo_policy_version": "family_photo_policy_v1",
+      "source_matrix_version": "source_role_field_matrix_v1",
+      "review_schema_version": "review_reason_schema_v1",
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "card_status": "DRAFT_ONLY",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_title_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_image_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_price_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "policy_rule_id": "CAP-09"
+    },
+    "field_statuses_v2": {
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT"
+    },
+    "review_reasons_v2": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_title_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_image_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_price_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "confidence": {
+      "pn_confidence": 0.0,
+      "image_confidence": 0.0,
+      "price_confidence": 0.0,
+      "overall": 0.0,
+      "overall_label": "VERY_LOW",
+      "publishability": "DRAFT_ONLY",
+      "notes": [
+        "pn_not_confirmed",
+        "no_usable_image",
+        "no_price_data"
+      ]
+    },
+    "photo": {
+      "verdict": "REJECT",
+      "verdict_reason": "логотип без самого товара",
+      "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011894-RU.jpg",
+      "sha1": "78f6075b2cbf080f1dc25b1ddc0406b8c1ab0ddd",
+      "canonical_filename": "HONEYWELL_1011894-RU_78f6075b.jpg",
+      "public_url": null,
+      "width": 320,
+      "height": 450,
+      "size_kb": 49,
+      "source": "cached",
+      "phash": "b433d31c4fcd9864",
+      "stock_photo_flag": false,
+      "mpn_confirmed_via_jsonld": false,
+      "numeric_keep_guard_applied": false,
+      "numeric_keep_guard_reasons": []
+    },
+    "price": {
+      "price_status": "no_price_found",
+      "price_per_unit": null,
+      "currency": null,
+      "rub_price": null,
+      "fx_rate_used": null,
+      "fx_provider": null,
+      "price_confidence": 0,
+      "source_url": null,
+      "source_type": null,
+      "source_tier": null,
+      "stock_status": "unknown",
+      "offer_unit_basis": "unknown",
+      "offer_qty": null,
+      "lead_time_detected": false,
+      "suffix_conflict": false,
+      "category_mismatch": false,
+      "page_product_class": "",
+      "brand_mismatch": false,
+      "price_median_clean": null,
+      "price_min_clean": null,
+      "price_max_clean": null,
+      "price_sample_size": 1,
+      "pn_exact_confirmed": false,
+      "page_context_clean": true,
+      "public_price_rejection_reasons": [],
+      "cache_fallback_used": false,
+      "cache_fallback_reason": "",
+      "cache_schema_version": "",
+      "cache_policy_version": "",
+      "cache_source_run_id": "",
+      "cache_bundle_ref": "",
+      "transient_failure_detected": true,
+      "transient_failure_codes": [
+        "openai_quota"
+      ]
+    },
+    "datasheet": {
+      "datasheet_status": "not_found",
+      "pdf_url": null,
+      "pdf_source_tier": null,
+      "pdf_title": null,
+      "pdf_specs": {},
+      "pdf_text_excerpt": null,
+      "num_pages": 0,
+      "parse_method": null,
+      "pn_confirmed_in_pdf": false
+    },
+    "structured_identity": {
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false,
+      "exact_structured_pn_match": false,
+      "structured_pn_match_location": ""
+    },
+    "content": {
+      "specs": {},
+      "description": null
+    },
+    "trace": {
+      "pn_match_location": "",
+      "pn_match_confidence": 0,
+      "pn_match_is_numeric": false,
+      "numeric_pn_guard_triggered": false,
+      "brand_cooccurrence": false,
+      "jsonld_hit": false,
+      "source_trust_weight": null,
+      "structured_pn_match_location": "",
+      "exact_structured_pn_match": false,
+      "exact_jsonld_pn_match": false,
+      "exact_title_pn_match": false,
+      "exact_h1_pn_match": false,
+      "exact_product_context_pn_match": false
+    },
+    "verifier_shadow": {
+      "schema_version": "catalog_verifier_shadow_record_v1",
+      "policy_version": "catalog_verifier_policy_v1",
+      "mode": "shadow",
+      "feature_enabled": true,
+      "trace_id": "catalog_verifier:1011894-RU:2026-03-27T07:07:30.350019Z",
+      "idempotency_key": "catalog_verifier:1011894-RU:ae2c278e13eda92823fd860e",
+      "transport": "responses_api",
+      "router": {
+        "should_route": true,
+        "trigger_codes": [
+          "IDENTITY_NOT_STRONG"
+        ],
+        "deterministic_card_status": "DRAFT_ONLY",
+        "deterministic_identity_level": "weak"
+      },
+      "decision_merger": {
+        "final_decision_source": "deterministic_policy",
+        "decision_effect": "none",
+        "allow_auto_publish_unlock": false,
+        "allow_verifier_override": false,
+        "owner_approval_required_for_influence": true,
+        "effective_card_status": "DRAFT_ONLY"
+      },
+      "packet": {
+        "schema_version": "catalog_verifier_input_schema_v1",
+        "trace_id": "catalog_verifier:1011894-RU:2026-03-27T07:07:30.350019Z",
+        "idempotency_key": "catalog_verifier:1011894-RU:ae2c278e13eda92823fd860e",
+        "pn_primary": "1011894-RU",
+        "normalized_title": "Привязь Honeywell 1011894-RU",
+        "card_status": "DRAFT_ONLY",
+        "field_statuses": {
+          "title_status": "ACCEPTED",
+          "image_status": "INSUFFICIENT",
+          "price_status": "INSUFFICIENT",
+          "pdf_status": "INSUFFICIENT"
+        },
+        "review_reasons": [
+          {
+            "reason_code": "IDENTITY_WEAK",
+            "field": "identity",
+            "severity": "ERROR",
+            "candidate_ids": [
+              "cand_title_1011894-RU"
+            ],
+            "evidence_ids": [
+              "ev_title_1011894-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "IDENTITY_CONFLICT"
+          },
+          {
+            "reason_code": "NO_IMAGE_EVIDENCE",
+            "field": "image",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_image_1011894-RU"
+            ],
+            "evidence_ids": [
+              "ev_image_1011894-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PRICE_EVIDENCE",
+            "field": "price",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_price_1011894-RU"
+            ],
+            "evidence_ids": [
+              "ev_price_1011894-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "MISSING_MINIMUM_EVIDENCE"
+          },
+          {
+            "reason_code": "NO_PDF_EVIDENCE",
+            "field": "pdf",
+            "severity": "INFO",
+            "candidate_ids": [
+              "cand_pdf_1011894-RU"
+            ],
+            "evidence_ids": [
+              "ev_pdf_1011894-RU"
+            ],
+            "policy_rule_id": "CAP-09",
+            "bucket": "PDF_CONFLICT"
+          }
+        ],
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ],
+        "source_role_evidence_summary": {
+          "title_source_role": "deterministic_title_assembly",
+          "price_source_tier": "",
+          "pdf_source_tier": "",
+          "image_source_tier": ""
+        },
+        "structured_identity": {
+          "exact_jsonld_pn_match": false,
+          "exact_title_pn_match": false,
+          "exact_h1_pn_match": false,
+          "exact_product_context_pn_match": false,
+          "exact_structured_pn_match": false,
+          "structured_pn_match_location": ""
+        },
+        "pdf_evidence_summary": {
+          "datasheet_status": "not_found",
+          "pdf_exact_pn_confirmed": false,
+          "pn_confirmed_in_pdf": false,
+          "pdf_source_tier": null
+        },
+        "image_evidence_summary": {
+          "photo_verdict": "REJECT",
+          "stock_photo_flag": false,
+          "mpn_confirmed_via_jsonld": false
+        },
+        "price_evidence_summary": {
+          "price_status": "no_price_found",
+          "source_tier": null,
+          "page_product_class": "",
+          "category_mismatch": false,
+          "brand_mismatch": false
+        },
+        "policy_versions": {
+          "policy_version": "catalog_evidence_policy_v1",
+          "family_photo_policy_version": "family_photo_policy_v1",
+          "source_matrix_version": "source_role_field_matrix_v1",
+          "review_schema_version": "review_reason_schema_v1"
+        },
+        "risk_reason_codes": [
+          "IDENTITY_NOT_STRONG"
+        ]
+      },
+      "response": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      "call_state": "skipped_budget",
+      "error": "max_verifier_calls_per_run_reached:8",
+      "openai_request_id": ""
+    }
+  }
+}

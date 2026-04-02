@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T19:14:05.092523Z",
+  "pn": "1012539",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Наушники противошумные EARMUFF-LEIGHTNING L1H",
+  "assembled_title": "Наушники Honeywell 1012539",
+  "our_price_raw": "1652,59",
+  "expected_category": "Наушники",
+  "card_status": "AUTO_PUBLISH",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_1012539",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1012539"
+        ],
+        "evidence_ids": [
+          "ev_title_1012539"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1012539"
+        ],
+        "evidence_ids": [
+          "ev_image_1012539"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_1012539"
+        ],
+        "evidence_ids": [
+          "ev_price_1012539"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1012539"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1012539"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1012539"
+      ],
+      "evidence_ids": [
+        "ev_title_1012539"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1012539"
+      ],
+      "evidence_ids": [
+        "ev_image_1012539"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_1012539"
+      ],
+      "evidence_ids": [
+        "ev_price_1012539"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PRICE_AMBIGUITY"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_1012539"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1012539"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "наушники противошумные на каске Honeywell",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1012539.jpg",
+    "sha1": "80632546ffcda886e195b165c08a1fc9659742c2",
+    "canonical_filename": "HONEYWELL_1012539_80632546.jpg",
+    "public_url": null,
+    "width": 2000,
+    "height": 1936,
+    "size_kb": 326,
+    "source": "cached",
+    "phash": "bcc3f07cc3260fd0",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "public_price",
+    "price_per_unit": 12.78,
+    "currency": "EUR",
+    "rub_price": 1214.1,
+    "fx_rate_used": 95.0,
+    "fx_provider": "stub",
+    "price_confidence": 100,
+    "source_url": "https://www.maxodeals.com/mdenglish/l1h--32065x0037?srsltid=AfmBOoqHvWo88WRTC28zPlK1pJdZwZN18xPMM__Q9AqmDIjaieCb_Ncp",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "stock_status": "in_stock",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Наушники",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "not_found",
+    "pdf_url": null,
+    "pdf_source_tier": null,
+    "pdf_title": null,
+    "pdf_specs": {},
+    "pdf_text_excerpt": null,
+    "num_pages": 0,
+    "parse_method": null,
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  }
+}

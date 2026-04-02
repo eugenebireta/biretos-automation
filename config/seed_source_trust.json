@@ -1,0 +1,63 @@
+{
+  "manufacturer_proof": [
+    "honeywell.com",
+    "sps.honeywell.com",
+    "buildings.honeywell.com",
+    "honeywellsafety.com",
+    "esser-systems.com",
+    "intermec.com",
+    "sperian.com",
+    "sperian-protection.com"
+  ],
+  "official_pdf_proof": [
+    "honeywell.com",
+    "sps.honeywell.com",
+    "esser-systems.com",
+    "intermec.com",
+    "sperian.com"
+  ],
+  "authorized_distributor": [
+    "rs-online.com",
+    "mouser.com",
+    "digikey.com",
+    "farnell.com",
+    "distrelec.com",
+    "conrad.com",
+    "elfa.se",
+    "arrow.com",
+    "avnet.com"
+  ],
+  "industrial_distributor": [
+    "tme.eu",
+    "soselectronic.com",
+    "automation24.com",
+    "voltmaster.ru",
+    "elcom.ru",
+    "chipdip.ru",
+    "platan.ru"
+  ],
+  "denylist": [
+    "aliexpress.com",
+    "aliexpress.ru",
+    "wish.com",
+    "temu.com",
+    "shein.com"
+  ],
+  "domain_trust_matrix": {
+    "manufacturer_proof":    {"identity": "HIGH", "price": "MED",  "photo": "HIGH", "pdf": "HIGH"},
+    "official_pdf_proof":    {"identity": "HIGH", "price": "LOW",  "photo": "MED",  "pdf": "HIGH"},
+    "authorized_distributor":{"identity": "HIGH", "price": "HIGH", "photo": "HIGH", "pdf": "MED"},
+    "industrial_distributor":{"identity": "MED",  "price": "HIGH", "photo": "MED",  "pdf": "LOW"},
+    "organic_discovery":     {"identity": "MED",  "price": "MED",  "photo": "MED",  "pdf": "LOW"}
+  },
+  "rate_limits": {
+    "default_delay_sec": 2,
+    "large_distributor_delay_sec": 3,
+    "large_distributors": ["rs-online.com", "mouser.com", "digikey.com", "farnell.com"],
+    "backoff_sequence_sec": [2, 4, 8],
+    "domain_timeout_sec": 10,
+    "domain_max_retries": 2,
+    "domain_fail_threshold": 3
+  },
+  "notes": "Это seed-таблица. Обновляется по результатам full run."
+}

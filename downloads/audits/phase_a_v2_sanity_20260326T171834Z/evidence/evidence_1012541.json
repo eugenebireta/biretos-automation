@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "1012541",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU",
+  "assembled_title": "Наушники Honeywell 1012541",
+  "our_price_raw": "4675,63",
+  "expected_category": "Наушники",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_1012541",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1012541"
+        ],
+        "evidence_ids": [
+          "ev_title_1012541"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1012541"
+        ],
+        "evidence_ids": [
+          "ev_image_1012541"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1012541"
+        ],
+        "evidence_ids": [
+          "ev_price_1012541"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1012541"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1012541"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1012541"
+      ],
+      "evidence_ids": [
+        "ev_title_1012541"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1012541"
+      ],
+      "evidence_ids": [
+        "ev_image_1012541"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_1012541"
+      ],
+      "evidence_ids": [
+        "ev_price_1012541"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_1012541"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1012541"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "наушники противошумные на каске",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1012541.jpg",
+    "sha1": "637ca5ffa5ba735cd25e2e20811ca62121bcc0a8",
+    "canonical_filename": "HONEYWELL_1012541_637ca5ff.jpg",
+    "public_url": null,
+    "width": 600,
+    "height": 419,
+    "size_kb": 10,
+    "source": "cached",
+    "phash": "b0ce9366cb396487",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://storage.yandexcloud.net/storage.rushydro.ru/iblock/97f/97f3b1b55f4ad2b200f8527c4670fbe1/069_STO-RusGidro-05.02.68-2011_SIZ-na-obektah-generatsii.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "Приложение",
+    "pdf_specs": {
+      "ВОЗОБНОВЛЯЕМЫХ ИСТОЧНИКОВ ЭНЕРГИИ": "НОРМЫ И ТРЕБОВАНИЯ",
+      "Федерации": "Стандарты организаций. Общие положения».",
+      "1 Область применения": "1",
+      "2 Нормативные ссылки": "2",
+      "3 Термины и определения": "6",
+      "4 Сокращения": "10",
+      "5 Общие положения": "10",
+      "8 Требования к специальной одежде": "14",
+      "8.1 Общие требования": "14",
+      "воздействий (ОПЗ)": "16",
+      "8.8 Костюм брезентовый": "19",
+      "утепленный": "20",
+      "8.11 Костюм противокислотный": "21",
+      "покрытием": "22",
+      "из нетканых материалов": "22",
+      "8.16 Халат из смешанных тканей": "24",
+      "8.17 Халат хлопчатобумажный": "25",
+      "8.18 Жилет сигнальный": "25",
+      "8.19 Плащ для защиты от воды": "26",
+      "кровососущих насекомых)": "26",
+      "свойствами": "29",
+      "насекомых)": "31",
+      "8.24 Куртка-рубашка термостойкая": "33",
+      "8.25 Плащ термостойкий": "33",
+      "8.26 Фуфайка-свитер термостойкий": "34",
+      "электрических полей промышленной частоты": "36",
+      "8.29 Полушубок меховой": "37",
+      "8.31 Гидрокостюм (комплект)": "37",
+      "8.32 Белье нательное": "37",
+      "8.33 Белье нательное термостойкое": "38",
+      "8.34 Белье нательное утепленное": "38",
+      "8.35 Сорочка рабочая": "38",
+      "8.36 Футболка трикотажная": "39",
+      "8.37 Футболка трикотажная с длинным рукавом": "39",
+      "8.38 Носки хлопчатобумажные": "39"
+    },
+    "pdf_text_excerpt": "Приложение к приказу ОАО «РусГидро» от 18.10.2011 №1115 ОТКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО «ФЕДЕРАЛЬНАЯ ГИДРОГЕНЕРИРУЮЩАЯ КОМПАНИЯ-РУСГИДРО» (ОАО «РУСГИДРО») СИСТЕМА ОБЕСПЕЧЕНИЯ ПЕРСОНАЛА СРЕДСТВАМИ ИНДИВИДУАЛЬНОЙ ЗАЩИТЫ НА ОБЪЕКТАХ ГИДРОГЕНЕРАЦИИ И ВОЗОБНОВЛЯЕМЫХ ИСТОЧНИКОВ ЭНЕРГИИ. НОРМЫ И ТРЕБОВАНИЯ И И Ц А З И Н А Г СТО РусГидро 05.02.68-2011 Р О Т Р А Д Н А Т С Издание официальное Москва 2011 СТО РусГидро 05.02.68-2011 Предисловие Цели и принципы стандартизации в Российской Федерации установлены Федеральным законом Российской Федерации от 27.12.2002 № 184-ФЗ «О техническом регулировании», а пр",
+    "num_pages": 262,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

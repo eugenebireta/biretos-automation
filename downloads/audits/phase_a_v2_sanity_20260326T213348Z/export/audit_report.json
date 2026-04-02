@@ -1,0 +1,115 @@
+{
+  "run_meta": {
+    "run_ts": "2026-03-26T21:33:48.088620Z",
+    "limit": 15,
+    "total_processed": 9,
+    "datasheets_enabled": true
+  },
+  "total_sku": 9,
+  "photo": {
+    "keep": 4,
+    "keep_rate": "44.4%",
+    "reject": 5,
+    "no_photo": 0
+  },
+  "price": {
+    "public_price": 5,
+    "rfq_only": 2,
+    "no_price_found": 1,
+    "category_mismatch_isolated": 1
+  },
+  "datasheet": {
+    "found": 1
+  },
+  "cards": {
+    "auto_publish": 4,
+    "auto_publish_rate": "44.4%",
+    "review_required": 3,
+    "draft_only": 2
+  },
+  "flags": {
+    "numeric_pn_guard_triggered": 0,
+    "stock_photo_flag": 0,
+    "suffix_conflict": 0,
+    "category_mismatch": 1
+  },
+  "per_sku": [
+    {
+      "pn": "00020211",
+      "name": "Датчик температуры D 20.672.022 T",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "category_mismatch_only",
+      "review_reasons": [
+        "category_mismatch",
+        "photo_rejected_or_missing"
+      ]
+    },
+    {
+      "pn": "010130.10",
+      "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "REJECT",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "027913.10",
+      "name": "Считыватель карт luminAXS mifareD RS485",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "REJECT",
+      "price_status": "rfq_only",
+      "review_reasons": []
+    },
+    {
+      "pn": "033588.17",
+      "name": "Шарнирное соединение для настенного монтажа",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "rfq_only",
+      "review_reasons": []
+    },
+    {
+      "pn": "1000106",
+      "name": "Беруши 304L CORDED EARPLUG",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1006186",
+      "name": "Беруши 303L FOAMPLUG",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1006187",
+      "name": "Беруши 303S-YEL/WHT",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1011893-RU",
+      "name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "REJECT",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1011894-RU",
+      "name": "Страховочная привязь SPERIAN Titan 2-точечная с поясом",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price"
+      ]
+    }
+  ]
+}

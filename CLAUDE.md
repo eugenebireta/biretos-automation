@@ -1,5 +1,23 @@
 # CLAUDE.md — Biretos Automation
 
+## CHAT LIVENESS OVERRIDE (highest priority)
+
+If the user message is a short liveness check or tiny conversational prompt
+(examples: "ты тут?", "ok", "ping", "проверь связь"), Claude MUST:
+
+1. Reply in one short sentence immediately.
+2. Not start any workflow/pipeline/phase protocol.
+3. Not run tools, not scan files, not propose plan, not require approvals.
+4. Ignore task-completion automation rules for that turn.
+
+This override applies only to that single liveness/conversational turn.
+
+## VERIFICATION REMINDER
+
+Before changing code, define the verification path first.
+Prefer baseline -> change -> re-check.
+If no automated checks exist, state the validation gap explicitly.
+
 ## IDENTITY
 
 Post-Core Freeze. Tier-3 Revenue development active.
@@ -115,6 +133,21 @@ Key rule:
 - `CORE` must always use Strict Mode
 - Workflow compression is allowed only as defined in `docs/PROJECT_DNA.md` §12 and `MIGRATION_POLICY_v1_0.md`
 - `CRITIC`, `AUDITOR`, `JUDGE` remain external and separate
+
+## R1 / PHASE A BATCH EXECUTION
+
+For `R1` / `Phase A` / Revenue Tier-3 / `SEMI` work, default execution mode is
+bounded batch execution under
+`docs/policies/R1_PHASE_A_BATCH_EXECUTION_STANDARD_v1_0.md`.
+
+- One logical change-set per batch
+- One risk class per batch
+- One narrow outcome per batch
+- One policy surface maximum per batch
+- No out-of-scope files
+- No multi-agent runtime
+- No substantial return without evidence pack
+- If scope breaks or evidence pack is incomplete, self-reject and reopen the batch
 
 ## AUTOPILOT PROTOCOL
 

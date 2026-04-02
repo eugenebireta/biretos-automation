@@ -32,6 +32,12 @@ if str(_scripts_dir) not in sys.path:
 
 from pn_match import confirm_pn_body
 from trust import get_source_tier, get_source_weight
+from catalog_shadow_runtime import (
+    allow_datasheet_attempt,
+    check_wallclock_budget,
+    record_source_failure,
+    record_source_success,
+)
 
 log = logging.getLogger(__name__)
 
@@ -125,6 +131,8 @@ def _fetch_pdf(url: str) -> Optional[bytes]:
         return data
     except Exception as e:
         log.debug(f"pdf fetch error [{url[:60]}]: {e}")
+        timed_out = "timeout" in str(e).lower() or "timed out" in str(e).lower()
+        record_source_failure(url, timed_out=timed_out, channel="datasheet")
         return None
 
 
@@ -259,11 +267,17 @@ def find_datasheet(
 
     for cand in candidates[:5]:
         url = cand["url"]
+        if check_wallclock_budget():
+            break
+        allowed, _reason = allow_datasheet_attempt(pn, url)
+        if not allowed:
+            continue
         log.info(f"  datasheet trying [{cand['score']}]: {url[:70]}")
 
         pdf_bytes = _fetch_pdf(url)
         if not pdf_bytes:
             continue
+        record_source_success()
 
         # Parse — PyMuPDF preferred
         if _PYMUPDF:

@@ -1,0 +1,411 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-27T08:36:42.629756Z",
+  "pn": "027913.10",
+  "pn_variants": [
+    "27913.10",
+    "027913-10",
+    "02791310"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Считыватель карт luminAXS mifareD RS485",
+  "assembled_title": "Считыватель Honeywell 027913.10",
+  "our_price_raw": "34276,71",
+  "expected_category": "Считыватель",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_027913.10",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "ACCEPTED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_027913.10"
+        ],
+        "evidence_ids": [
+          "ev_title_027913.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_027913.10"
+        ],
+        "evidence_ids": [
+          "ev_image_027913.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_027913.10"
+        ],
+        "evidence_ids": [
+          "ev_pdf_027913.10"
+        ],
+        "policy_rule_id": "CAP-08W",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-08W"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "ACCEPTED",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_027913.10"
+      ],
+      "evidence_ids": [
+        "ev_title_027913.10"
+      ],
+      "policy_rule_id": "CAP-08W",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_027913.10"
+      ],
+      "evidence_ids": [
+        "ev_image_027913.10"
+      ],
+      "policy_rule_id": "CAP-08W",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_027913.10"
+      ],
+      "evidence_ids": [
+        "ev_pdf_027913.10"
+      ],
+      "policy_rule_id": "CAP-08W",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "на изображении не считыватель карт, а сантехнический клапан/фильтр",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\027913.10.jpg",
+    "sha1": "4904fb75cfc24b2681ed203e60d3401a76280e5b",
+    "canonical_filename": "HONEYWELL_027913_10_4904fb75.jpg",
+    "public_url": null,
+    "width": 3682,
+    "height": 3726,
+    "size_kb": 284,
+    "source": "cached",
+    "phash": "a434ea916e17ca6b",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "rfq_only",
+    "price_per_unit": 467.0,
+    "currency": "EUR",
+    "rub_price": 44365.0,
+    "fx_rate_used": 95.0,
+    "fx_provider": "stub",
+    "price_confidence": 80,
+    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73676-luminaxs-mifared-readerrs485-c-d-w-wo-kb-02791310",
+    "source_type": "other",
+    "source_tier": "authorized",
+    "source_engine": "",
+    "stock_status": "rfq",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Считыватель",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73676-luminaxs-mifared-readerrs485-c-d-w-wo-kb-02791310",
+    "price_source_domain": "igs-hagen.de",
+    "price_source_type": "other",
+    "price_source_tier": "authorized",
+    "price_source_engine": "",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": false,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "",
+    "price_source_clean_product_page": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_lineage_schema_version": "",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": true,
+    "price_rfq_only": true,
+    "price_no_price_reason_code": "rfq_only",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": true,
+    "cache_fallback_reason": "openai_quota",
+    "cache_schema_version": "price_evidence_cache_v1",
+    "cache_policy_version": "catalog_evidence_policy_v1",
+    "cache_source_run_id": "phase_a_v2_sanity_20260327T074852Z",
+    "cache_bundle_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260327T074852Z\\evidence\\evidence_027913.10.json",
+    "transient_failure_detected": true,
+    "transient_failure_codes": [
+      "openai_quota"
+    ]
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://adiglobal.cz/iiWWW/cz/Produkty110.nsf/wp/katalogy/$file/Honeywell_Security_Solutions_2024_en.pdf",
+    "pdf_source_tier": "authorized",
+    "pdf_title": "SECURITY",
+    "pdf_specs": {
+      "but also more complex": "No matter whether in offices, industrial plants, banks, museums, public build-",
+      "tion, decentralized locations": "Customized alarm management",
+      "networked with each other": "This not only enables considerable cost savings, but also valuable synergies.",
+      "WINMAG plus is modular and easily scalable": "This ensures that this software can not only be easily and",
+      "interface": "Last but not least, the new licensing model of WINMAG plus offers tailor-made solutions, as",
+      "carried out in a more cost-effective manner": "Whether global or local - everything under safe supervision everywhere",
+      "easily realized through the integrated workflows": "With version V7.0, using WINMAG plus in Microsoft",
+      "IT investments": "Installations for clients are completely eliminated. This also reduces maintenance costs.",
+      "Hardware- and software requirements": "Communication Server:",
+      "Client": "- Intel I5 / AMD equivalent or higher",
+      "Common": "- RAID-1 System recommended",
+      "licenses please use the WINMAG plus order form": "6 www.security.honeywell.de"
+    },
+    "pdf_text_excerpt": "SECURITY 1 SOLUTIONS 2 2024 3 4 Intrusion, Access Control, Management Systems 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 Further information www.security.honeywell.de Honeywell Building Technologies Novar GmbH Johannes-Mauthe-Straße 14 72458 Albstadt Germany HBT-EN-DACH-EN-June2024 www.honeywell.com © 2024 Honeywell International Inc. Table of contents Management Systems 1 MB-Secure 2 Power Supplies 3 Remote data transmission 4 Radio product line / MB radio system 5 Display and operating units 6 Connection modules BUS-2/BUS-1, BUS-2, BUS-1 7 Switching devices 8 Readers / ID Carriers 9 Motion detec",
+    "num_pages": 254,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "rfq_only"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": true,
+    "trace_id": "catalog_verifier:027913.10:2026-03-27T08:36:42.629756Z",
+    "idempotency_key": "catalog_verifier:027913.10:da9e7c3a8b2ba7eee15dd3e3",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "REVIEW_REQUIRED",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "REVIEW_REQUIRED"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:027913.10:2026-03-27T08:36:42.629756Z",
+      "idempotency_key": "catalog_verifier:027913.10:da9e7c3a8b2ba7eee15dd3e3",
+      "pn_primary": "027913.10",
+      "normalized_title": "Считыватель Honeywell 027913.10",
+      "card_status": "REVIEW_REQUIRED",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "ACCEPTED",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_title_027913.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_image_027913.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_pdf_027913.10"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "authorized",
+        "pdf_source_tier": "authorized",
+        "image_source_tier": "authorized"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "authorized"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "rfq_only",
+        "source_tier": "authorized",
+        "page_product_class": "Считыватель",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "failed",
+    "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+    "openai_request_id": ""
+  }
+}

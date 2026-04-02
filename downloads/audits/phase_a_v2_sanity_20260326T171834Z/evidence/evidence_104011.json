@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "104011",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Датчик температуры D 20.545.02",
+  "assembled_title": "Датчик Honeywell 104011",
+  "our_price_raw": "625,95",
+  "expected_category": "Датчик",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "no_photo_and_no_price"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_104011",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_104011"
+        ],
+        "evidence_ids": [
+          "ev_title_104011"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_104011"
+        ],
+        "evidence_ids": [
+          "ev_image_104011"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_104011"
+        ],
+        "evidence_ids": [
+          "ev_price_104011"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_104011"
+        ],
+        "evidence_ids": [
+          "ev_pdf_104011"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_104011"
+      ],
+      "evidence_ids": [
+        "ev_title_104011"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_104011"
+      ],
+      "evidence_ids": [
+        "ev_image_104011"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_104011"
+      ],
+      "evidence_ids": [
+        "ev_price_104011"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_104011"
+      ],
+      "evidence_ids": [
+        "ev_pdf_104011"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "на изображении выключатель, а не датчик температуры",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\104011.jpg",
+    "sha1": "a2cf553cf01184f4e89ef3651a3ae7ab1ff36833",
+    "canonical_filename": "HONEYWELL_104011_a2cf553c.jpg",
+    "public_url": null,
+    "width": 700,
+    "height": 72,
+    "size_kb": 5,
+    "source": "google:https://www.conrad.sk/sk/p/peha-by-honeywell-kryt-koliska-cisto-biela-104011-285",
+    "phash": "aadd1536c9dd2ac0",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://5.imimg.com/data5/SELLER/Doc/2022/5/GP/GJ/JM/92144645/honeywell-ct40-mobile-computer.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "Honeywell CT40 Mobile Computer - image",
+    "pdf_specs": {},
+    "pdf_text_excerpt": null,
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "content": {
+    "specs": {},
+    "description": "Kúpiť PEHA by Honeywell kryt kolíska čisto biela 104011 u Conrad Electronic."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

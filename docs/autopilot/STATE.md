@@ -1,20 +1,69 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 28
-transition_ts: "2026-03-22T00:00:00Z"
+transition_seq: 43
+transition_ts: "2026-04-02T12:00:00Z"
 
 ## Current
-active_task: "8 — Stability Gate (эксплуатация)"
-task_id: "8"
-phase: MONITOR
+active_task: "R1 Enrichment - Enrichment Scout Batches"
+task_id: "R1-enrichment-scout-batches"
+phase: BUILDER
 status: ACTIVE
 phase_owner: "Owner/Maksim"
-risk_level: CORE
-pipeline: [MONITOR, WEEKLY_REVIEW, STABILITY_GATE]
-pr_url: null
-pr_branch: null
-awaiting: "≥30 closed cycles, 0 corruption, Shadow Mode exit (≥50 req, ≥90% match)"
+risk_level: SEMI
+pipeline: [BUILDER, AUDITOR]
+pr_url: "https://github.com/eugenebireta/biretos-automation/pull/18"
+pr_branch: "feat/rev-r1-catalog"
+now:
+  - step: "All pre-enrichment packs committed and pushed; gate open for enrichment scout batches"
+    actions:
+      - "Pack B committed (1fcf5e7): photo_status contract, naming_resolver, _mirror_bundle_card_outcome, 71 tests PASS"
+      - "Pack C committed (fd7d032): price_manual_scout.py, run_price_only_scout_pilot.py, photo_scene_manual_scout.py + 10 tests PASS + 4 pilot audit directories + scout_cache manifests/seeds"
+      - "Pack F committed (aa502f6): docs/memory experience JSONL files (30 enrichment + 17 engineering rules), naming_families JSON, policies, howto — Codex knowledge persisted to git"
+      - "Pack E committed (b8eae7e): CLAUDE.md liveness override section"
+      - "All commits pushed to feat/rev-r1-catalog (HEAD=b8eae7e)"
+      - "Pack D: .cursor/rules/autopilot_ux.mdc and risk_router.mdc (alwaysApply change) still deferred pending owner audit of autopilot_trigger.mdc"
+
+## Previous (seq 42 — Pack A Cleanup Gate)
+prev_active_task: "R1 Enrichment - Pack A Cleanup Gate"
+prev_task_id: "R1-pack-a-cleanup-gate"
+prev_phase: BUILDER
+prev_status: COMPLETED
+prev_actions:
+  - "RECON/HANDOFF audit completed 2026-04-02: three owner decisions recorded (Q1/Q2/Q3)"
+  - "6 AUTO_PUBLISH SKU downgraded to REVIEW_REQUIRED (LEGACY_AUTO_PUBLISH_HOLDOUT): evidence_033588.17, evidence_1000106, evidence_1006186, evidence_1006187, evidence_1012539, evidence_1061200000"
+  - "Pack A committed (6bbfbb2 + ee8dff3): catalog_seed, local_catalog_refresh, build_catalog_followup_queues, photo_enhance_local, photo_quarantine_stale + all artifacts"
+prev_exit: "Pack A cleanly committed. 6 SKU holdout in place. AUTO_PUBLISH=0 in canonical 25-SKU slice."
+
+## Previous (seq 41 — Local Catalog Refresh Overlay)
+prev_active_task: "R1 Enrichment - Local Catalog Refresh Overlay"
+prev_task_id: "R1-local-catalog-refresh-overlay"
+prev_phase: BUILDER
+prev_status: ACTIVE
+prev_now:
+  - step: "1. Local Catalog Refresh Overlay"
+    actions:
+      - "The stale rejected derivative quarantine pass is complete: downloads/photos_enhanced now holds only 11 active accepted placeholders and 14 stale rejected derivatives were moved into downloads/photos_enhanced_quarantine with a structured move manifest and summary"
+      - "A new seed loader in scripts/catalog_seed.py now reads UTF-16 honeywell_insales_import.csv and exposes seeded description, description_source, site placement, product type, brand, and our_price_raw for reuse across local catalog refresh work"
+      - "photo_pipeline.py now feeds content_seed into build_evidence_bundle and persists seeded description metadata into product_data.json so future bounded pipeline runs do not throw away the local import description and placement fields"
+      - "export_pipeline.py now exports description_source, site placement, product type, and image status, prefers merchandising image_local_path when present, and no longer falls back to raw rejected-photo paths in InSales CSV output"
+      - "A bounded overlay runner landed in scripts/local_catalog_refresh.py: instead of rebuilding old evidence from scratch, it starts from a known-good evidence slice, overlays seeded content, attaches accepted enhanced placeholder images, applies current photo_verdict overrides, and refreshes canonical downloads/evidence, downloads/export, and product_data.json without opening a second evidence-truth path"
+      - "Canonical refresh was promoted from downloads/audits/phase_a_v2_sanity_20260326T202323Z/evidence onto the current workspace: refreshed_bundle_count=25, content_seeded_count=25, merchandising_attached_count=10, photo_rejected_count=14, exported_rows=15, cards={auto_publish:6, review_required:9, draft_only:10}, and policy_card_status_mismatch_count=11 is now surfaced explicitly in refresh_trace instead of being hidden"
+      - "The rejected-photo override for 1050000000 is now reflected in canonical evidence/export: photo verdict is REJECT with user_feedback_2026_04_01_image_not_related_to_sku, card_status is REVIEW_REQUIRED, and the export image field is blank instead of a bad raw photo"
+      - "A follow-up queue builder landed in scripts/build_catalog_followup_queues.py and generated refreshed_catalog_photo_recovery_queue_20260331T215334Z.jsonl (14 rows) plus refreshed_catalog_price_followup_queue_20260331T215334Z.jsonl (15 rows) so the next scout batch can start from an operational backlog instead of manual triage"
+    exit: "The current 25-SKU local Honeywell slice is now content-seeded, reject-safe, and merchandising-aware: accepted placeholders flow to export, rejected photos are blanked, and the next bounded scout work is explicitly queued."
+next:
+  - "Run the next bounded scout batch from the generated follow-up queues: recover better photos for the 14 rejected-photo SKU and keep the same placeholder/evidence separation"
+  - "Close price follow-up on the 15 queued SKU with manual/Codex scout on admissible sources before any marketplace-specific attribute work"
+  - "After the next scout batch, decide whether to do a bounded cleanup pass on the 11 historical policy_card_status mismatches that were preserved from the legacy base evidence for operational continuity"
+  - "Keep Ozon category/attribute work downstream from the current photo/price backlog unless the owner explicitly reprioritizes marketplace preparation first"
+TODO later: "Hold broader provider expansion, TTL work, generative photo variation, and marketplace-specific category layers until the refreshed local catalog slice proves stable and the queued photo/price follow-up batches materially reduce REVIEW_REQUIRED and DRAFT_ONLY coverage gaps"
+todo_later_items:
+  - "Price-only scout pilot stays bounded to one brand and 20-30 SKU with explicit success gates"
+  - "Provider expansion beyond the current adapters stays parked until the pilot proves the seam is sufficient"
+  - "TTL decay and further evidence lifecycle policy remain follow-up work after the pilot"
+  - "Local enhancement must remain non-generative and derivative-only; raw product photos remain canonical evidence inputs"
+awaiting: "owner prioritization between the generated photo_recovery_queue (14 SKU) and price_followup_queue (15 SKU) for the next manual scout batch"
 
 ## Task 7 Closeout
 task_7_status: MERGED
@@ -26,12 +75,34 @@ task_7_ci: "SUCCESS (321 tests)"
 task_7_judge_verdict: "MERGE_APPROVED (JUDGE verdict 2026-03-23)"
 
 ## Integrity
-integrity_hash: "sha256:109ff4c8586586a0895d5138cd5dc60efeb3db8bac43a9160fe423effe23fde7"
+integrity_hash: "sha256:pending-regeneration"
 
 ## Evidence
 last_phase_output_hash: null
-builder_test_evidence: null
-changed_files: []
+builder_test_evidence: "39/39 PASS targeted tests across catalog_seed, local_catalog_refresh, export fallback guards, photo_enhance, photo_quarantine, and follow-up queue generation; canonical local refresh promoted 25 bundles with content_seeded_count=25, merchandising_attached_count=10, photo_rejected_count=14, policy_card_status_mismatch_count=11, exported_rows=15, and generated follow-up queues of 14 photo-recovery rows plus 15 price-followup rows"
+changed_files:
+  - "scripts/catalog_seed.py"
+  - "scripts/local_catalog_refresh.py"
+  - "scripts/build_catalog_followup_queues.py"
+  - "scripts/export_pipeline.py"
+  - "scripts/photo_pipeline.py"
+  - "scripts/photo_enhance_local.py"
+  - "scripts/photo_quarantine_stale.py"
+  - "tests/enrichment/test_catalog_seed.py"
+  - "tests/enrichment/test_local_catalog_refresh.py"
+  - "tests/enrichment/test_build_catalog_followup_queues.py"
+  - "tests/enrichment/test_export_phase_a_v2.py"
+  - "tests/enrichment/test_photo_enhance_local.py"
+  - "tests/enrichment/test_photo_quarantine_stale.py"
+  - "downloads/photo_verdict.json"
+  - "downloads/scout_cache/photo_enhance_seed_all25_recheck.jsonl"
+  - "downloads/scout_cache/photo_enhance_manifest_all25_recheck.jsonl"
+  - "downloads/scout_cache/photo_quarantine_manifest_all25.jsonl"
+  - "downloads/scout_cache/photo_quarantine_summary_all25.json"
+  - "downloads/audits/local_catalog_refresh_20260331T215126Z/"
+  - "downloads/scout_cache/refreshed_catalog_photo_recovery_queue_20260331T215334Z.jsonl"
+  - "downloads/scout_cache/refreshed_catalog_price_followup_queue_20260331T215334Z.jsonl"
+  - "downloads/scout_cache/refreshed_catalog_followup_summary_20260331T215334Z.json"
 capsule_ref: "docs/autopilot/CAPSULE.md"
 
 ## Multimodel
@@ -94,6 +165,66 @@ history:
     ts: "2026-03-22T00:00:00Z"
     actor: "Agent/Sonnet"
     note: "Task 7 MERGED (PR #9, CI SUCCESS, judge PASS). Advancing to Этап 8 — Stability Gate."
+  - seq: 29
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T00:00:00Z"
+    actor: "Owner/Codex"
+    note: "R1 Enrichment re-scoped to disposition gap closure: owner re-scope, route hardening, bounded proof batch."
+  - seq: 30
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T05:25:35Z"
+    actor: "Owner/Codex"
+    note: "1006186 proven closed on CAP-09B; live residual narrowed to 1012541 only."
+  - seq: 31
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T07:37:32Z"
+    actor: "Owner/Codex"
+    note: "1012541 proven closed on CAP-09B; remaining_no_price_family_count=0 and remaining_ambiguous_tail_count=0. Awaiting next bounded R1 work item."
+  - seq: 32
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T08:30:00Z"
+    actor: "Owner/Codex"
+    note: "Proof batch closed on 1006186, 1011994, 104011, and 1012541 with 368 tests pass. NEXT queue set to N1 provider adapter seam, N2 evidence schema hardening, and N3 price-only scout pilot."
+  - seq: 33
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T10:15:00Z"
+    actor: "Owner/Codex"
+    note: "N1 provider adapter seam and N2 evidence schema hardening confirmed in code: injectable chat/search adapters, negative_evidence, explicit price_date alias, and split evidence_paths. Advancing to N3 price-only scout pilot."
+  - seq: 34
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T19:49:18Z"
+    actor: "Owner/Codex"
+    note: "N3 bounded price-only scout pilot runner landed together with photo workspace hygiene. Pilot artifact price_only_scout_pilot_20260331T194918Z confirms exact product lineage on 15/15 seeded SKU with zero surface conflicts, but OpenAI quota exhaustion held the slice to 15/20 and collapsed live price extraction to no_price_found."
+  - seq: 35
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T20:12:08Z"
+    actor: "Owner/Codex"
+    note: "N3 manual proof batch landed: price_manual_seed plus price_manual_scout closed a 5-SKU trusted slice with public_price=5/5, exact_product_lineage_confirmed_count=5, surface_conflict_count=0, and no OpenAI quota dependency."
+  - seq: 36
+    phase: SCOUT
+    status: ACTIVE
+    ts: "2026-03-31T20:37:43Z"
+    actor: "Owner/Codex"
+    note: "N3 manual robustness batch landed: 20/20 manual-seeded Honeywell SKU processed with exact_product_lineage_confirmed_count=20, surface_conflict_count=0, transient_failure_row_count=0, price_status_counts={public_price:11, ambiguous_offer:4, no_price_found:5}, and explicit fx_gap_count=1."
+  - seq: 41
+    phase: BUILDER
+    status: ACTIVE
+    ts: "2026-03-31T21:53:34Z"
+    actor: "Owner/Codex"
+    note: "Photo stale-derivative quarantine completed, local catalog refresh overlay promoted onto the 25-SKU canonical Honeywell slice with seeded content plus placeholder merchandising, rejected raw images blanked in export, follow-up queues generated for 14 photo-recovery SKU and 15 price-followup SKU, and 11 inherited policy_card_status mismatches made explicit in refresh_trace for later bounded cleanup."
+  - seq: 42
+    phase: BUILDER
+    status: ACTIVE
+    ts: "2026-04-02T00:00:00Z"
+    actor: "Agent/ClaudeCode"
+    note: "Pack A cleanup gate: RECON/HANDOFF audit completed, 6 AUTO_PUBLISH SKU downgraded to REVIEW_REQUIRED holdout (owner Q1 decision), Pack A new scripts committed (10/10 tests pass), Pack B and Pack D deferred as separate gates."
 
 ## Task 5.1 Closeout (2026-03-20)
 task_5_1_status: CLOSED

@@ -1,0 +1,253 @@
+{
+  "source_run_id": "phase_a_v2_sanity_20260327T063830Z",
+  "replay_type": "post_fix_deterministic_replay_from_live_bundles",
+  "distribution": {
+    "DRAFT_ONLY": 7,
+    "REVIEW_REQUIRED": 2
+  },
+  "changed_cases": [
+    {
+      "pn_primary": "033588.17",
+      "old_card_status": "REVIEW_REQUIRED",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "ACCEPTED",
+      "new_price_status": "ACCEPTED",
+      "old_policy_rule_id": "CAP-08W",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": true,
+      "numeric_keep_guard_applied": true,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "1000106",
+      "old_card_status": "REVIEW_REQUIRED",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "ACCEPTED",
+      "new_price_status": "ACCEPTED",
+      "old_policy_rule_id": "CAP-08W",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": true,
+      "numeric_keep_guard_applied": true,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "pn_primary": "00020211",
+      "old_card_status": "DRAFT_ONLY",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "INSUFFICIENT",
+      "new_price_status": "INSUFFICIENT",
+      "old_policy_rule_id": "CAP-09",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": false,
+      "numeric_keep_guard_applied": false,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "010130.10",
+      "old_card_status": "REVIEW_REQUIRED",
+      "new_card_status": "REVIEW_REQUIRED",
+      "old_price_status": "ACCEPTED",
+      "new_price_status": "ACCEPTED",
+      "old_policy_rule_id": "CAP-08W",
+      "new_policy_rule_id": "CAP-08W",
+      "cache_fallback_used": true,
+      "numeric_keep_guard_applied": false,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "027913.10",
+      "old_card_status": "REVIEW_REQUIRED",
+      "new_card_status": "REVIEW_REQUIRED",
+      "old_price_status": "ACCEPTED",
+      "new_price_status": "ACCEPTED",
+      "old_policy_rule_id": "CAP-08W",
+      "new_policy_rule_id": "CAP-08W",
+      "cache_fallback_used": true,
+      "numeric_keep_guard_applied": false,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "033588.17",
+      "old_card_status": "REVIEW_REQUIRED",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "ACCEPTED",
+      "new_price_status": "ACCEPTED",
+      "old_policy_rule_id": "CAP-08W",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": true,
+      "numeric_keep_guard_applied": true,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "1000106",
+      "old_card_status": "REVIEW_REQUIRED",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "ACCEPTED",
+      "new_price_status": "ACCEPTED",
+      "old_policy_rule_id": "CAP-08W",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": true,
+      "numeric_keep_guard_applied": true,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "1006186",
+      "old_card_status": "DRAFT_ONLY",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "INSUFFICIENT",
+      "new_price_status": "INSUFFICIENT",
+      "old_policy_rule_id": "CAP-09",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": false,
+      "numeric_keep_guard_applied": true,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "1006187",
+      "old_card_status": "DRAFT_ONLY",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "INSUFFICIENT",
+      "new_price_status": "INSUFFICIENT",
+      "old_policy_rule_id": "CAP-09",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": false,
+      "numeric_keep_guard_applied": true,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "1011893-RU",
+      "old_card_status": "DRAFT_ONLY",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "INSUFFICIENT",
+      "new_price_status": "INSUFFICIENT",
+      "old_policy_rule_id": "CAP-09",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": false,
+      "numeric_keep_guard_applied": false,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    },
+    {
+      "pn_primary": "1011894-RU",
+      "old_card_status": "DRAFT_ONLY",
+      "new_card_status": "DRAFT_ONLY",
+      "old_price_status": "INSUFFICIENT",
+      "new_price_status": "INSUFFICIENT",
+      "old_policy_rule_id": "CAP-09",
+      "new_policy_rule_id": "CAP-09",
+      "cache_fallback_used": false,
+      "numeric_keep_guard_applied": false,
+      "old_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ],
+      "new_reasons": [
+        "IDENTITY_WEAK",
+        "NO_IMAGE_EVIDENCE",
+        "NO_PRICE_EVIDENCE",
+        "NO_PDF_EVIDENCE"
+      ]
+    }
+  ]
+}

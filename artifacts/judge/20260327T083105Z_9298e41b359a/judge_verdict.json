@@ -1,0 +1,15 @@
+{
+  "schema_version": "judge_verdict_schema_v1",
+  "verdict": "BLOCK",
+  "scope_summary": "R1 Phase A batch: live external judge validation attempt",
+  "checks_summary": "External judge call failed or returned unusable output.",
+  "main_risk": "Judge API unavailable or malformed response; manual external judge required.",
+  "merge": "NO",
+  "required_fixes": [
+    "Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************DF0A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}"
+  ],
+  "manual_external_judge_required": true,
+  "evidence_pack_complete": false,
+  "unresolved_critical_risk": true,
+  "rationale_short": "The external judge path failed, so approval is blocked."
+}

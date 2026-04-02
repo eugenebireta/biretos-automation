@@ -1,0 +1,129 @@
+{
+  "schema_version": "catalog_verifier_input_schema_v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_id",
+    "idempotency_key",
+    "pn_primary",
+    "normalized_title",
+    "card_status",
+    "field_statuses",
+    "review_reasons",
+    "review_buckets",
+    "source_role_evidence_summary",
+    "structured_identity",
+    "pdf_evidence_summary",
+    "image_evidence_summary",
+    "price_evidence_summary",
+    "policy_versions",
+    "risk_reason_codes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pn_primary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "normalized_title": {
+      "type": "string"
+    },
+    "card_status": {
+      "type": "string",
+      "enum": [
+        "AUTO_PUBLISH",
+        "REVIEW_REQUIRED",
+        "DRAFT_ONLY"
+      ]
+    },
+    "field_statuses": {
+      "type": "object",
+      "required": [
+        "title_status",
+        "image_status",
+        "price_status",
+        "pdf_status"
+      ],
+      "properties": {
+        "title_status": {
+          "type": "string"
+        },
+        "image_status": {
+          "type": "string"
+        },
+        "price_status": {
+          "type": "string"
+        },
+        "pdf_status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "review_reasons": {
+      "type": "array"
+    },
+    "review_buckets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_role_evidence_summary": {
+      "type": "object"
+    },
+    "structured_identity": {
+      "type": "object"
+    },
+    "pdf_evidence_summary": {
+      "type": "object"
+    },
+    "image_evidence_summary": {
+      "type": "object"
+    },
+    "price_evidence_summary": {
+      "type": "object"
+    },
+    "policy_versions": {
+      "type": "object",
+      "required": [
+        "policy_version",
+        "family_photo_policy_version",
+        "source_matrix_version",
+        "review_schema_version"
+      ],
+      "properties": {
+        "policy_version": {
+          "type": "string"
+        },
+        "family_photo_policy_version": {
+          "type": "string"
+        },
+        "source_matrix_version": {
+          "type": "string"
+        },
+        "review_schema_version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "risk_reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

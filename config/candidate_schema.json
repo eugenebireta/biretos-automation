@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Phase A Candidate v2",
+  "description": "Single candidate entry in Candidate Lake Lite with explicit ids and replay metadata.",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "candidate_type",
+    "field_type",
+    "source_role",
+    "source_url",
+    "source_domain",
+    "pn_match_strength",
+    "value",
+    "publishable_candidate",
+    "rejection_reason",
+    "dedupe_key",
+    "cross_pollination_detected",
+    "run_id",
+    "extraction_method",
+    "evidence_context",
+    "identity_level"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "price",
+        "pdf",
+        "title",
+        "description"
+      ]
+    },
+    "field_type": {
+      "type": "string",
+      "enum": [
+        "image",
+        "price",
+        "pdf",
+        "title",
+        "description"
+      ]
+    },
+    "source_role": {
+      "type": "string",
+      "enum": [
+        "manufacturer_proof",
+        "official_pdf_proof",
+        "authorized_distributor",
+        "industrial_distributor",
+        "organic_discovery"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "source_domain": {
+      "type": "string"
+    },
+    "pn_match_strength": {
+      "type": "string",
+      "enum": [
+        "strong",
+        "medium",
+        "weak"
+      ]
+    },
+    "value": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "publishable_candidate": {
+      "type": "boolean"
+    },
+    "rejection_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dedupe_key": {
+      "type": "string"
+    },
+    "cross_pollination_detected": {
+      "type": "boolean"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "extraction_method": {
+      "type": "string"
+    },
+    "evidence_context": {
+      "type": "string"
+    },
+    "identity_level": {
+      "type": "string",
+      "enum": [
+        "",
+        "strong",
+        "medium",
+        "weak"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

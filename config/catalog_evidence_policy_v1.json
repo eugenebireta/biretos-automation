@@ -1,0 +1,257 @@
+{
+  "schema_version": "catalog_evidence_policy_v1",
+  "policy_version": "catalog_evidence_policy_v1",
+  "family_photo_policy_version": "family_photo_policy_v1",
+  "source_matrix_version": "source_role_field_matrix_v1",
+  "review_schema_version": "review_reason_schema_v1",
+  "enum_contract_version": "catalog_enum_contract_v1",
+  "minimum_thresholds": {
+    "auto_publish": {
+      "identity_level": "strong",
+      "image_status": "ACCEPTED",
+      "price_status": "ACCEPTED"
+    },
+    "review_required": {
+      "identity_level": [
+        "strong",
+        "medium"
+      ]
+    }
+  },
+  "acceptable_evidence_by_field": {
+    "identity": "see source_role_field_matrix_v1",
+    "title": "see source_role_field_matrix_v1",
+    "image": "see source_role_field_matrix_v1",
+    "price": "see source_role_field_matrix_v1",
+    "pdf": "see source_role_field_matrix_v1"
+  },
+  "family_photo_restrictions": {
+    "default_policy": "deny_by_default",
+    "auto_publish_requires_exact_photo": true,
+    "family_photo_routes_to_review": true,
+    "blocked_if_policy_disallows": true
+  },
+  "public_price_restrictions": {
+    "public_price_requires_exact_product_page": true,
+    "family_or_catalog_page_price_not_publishable": true,
+    "rfq_only_is_valid_b2b_price_signal": true,
+    "ambiguous_unit_not_auto_publishable": true
+  },
+  "ambiguity_rules": {
+    "critical_mismatch_blocks_publish": true,
+    "unknown_image_routes_to_review": true,
+    "missing_price_with_strong_identity_and_exact_image_routes_to_review": true,
+    "weak_identity_forces_draft": true,
+    "weak_identity_clean_review_route_enabled": true,
+    "numeric_guarded_review_route_enabled": true,
+    "admissible_source_conflict_no_price_disposition_enabled": true,
+    "admissible_source_exact_lineage_no_price_disposition_enabled": true,
+    "terminal_weak_no_price_disposition_enabled": true
+  },
+  "admissible_source_conflict_no_price_route": {
+    "policy_rule_id": "CAP-09A",
+    "result": "DRAFT_ONLY",
+    "requires": {
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "price_status": "INSUFFICIENT",
+      "mismatch": "none",
+      "price_source_exact_product_lineage_confirmed": true,
+      "price_source_admissible_replacement_confirmed": true,
+      "price_source_replacement_reason_code_any_of": [
+        "source_already_admissible",
+        "admissible_replacement_confirmed"
+      ],
+      "price_source_terminal_weak_lineage": false,
+      "price_source_surface_conflict_detected": true,
+      "price_source_surface_conflict_reason_code": "current_surface_conflicts_with_prior"
+    },
+    "disallow": {
+      "critical_mismatch": true,
+      "family_photo": true,
+      "reviewable_no_price_candidate": true
+    }
+  },
+  "admissible_source_exact_lineage_no_price_route": {
+    "policy_rule_id": "CAP-09B",
+    "result": "DRAFT_ONLY",
+    "requires": {
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "price_status": "INSUFFICIENT",
+      "mismatch": "none",
+      "price_source_exact_product_lineage_confirmed": true,
+      "price_source_admissible_replacement_confirmed": true,
+      "price_source_replacement_reason_code_any_of": [
+        "source_already_admissible",
+        "admissible_replacement_confirmed"
+      ],
+      "price_source_terminal_weak_lineage": false,
+      "price_source_surface_conflict_detected": false
+    },
+    "disallow": {
+      "critical_mismatch": true,
+      "family_photo": true,
+      "reviewable_no_price_candidate": true
+    }
+  },
+  "terminal_weak_no_price_route": {
+    "policy_rule_id": "CAP-09T",
+    "result": "DRAFT_ONLY",
+    "requires": {
+      "identity_level": "weak",
+      "title_status": "ACCEPTED",
+      "price_status": "INSUFFICIENT",
+      "mismatch": "none",
+      "price_source_exact_product_lineage_confirmed": true,
+      "price_source_admissible_replacement_confirmed": false,
+      "price_source_terminal_weak_lineage": true
+    },
+    "disallow": {
+      "critical_mismatch": true,
+      "family_photo": true,
+      "reviewable_no_price_candidate": true
+    }
+  },
+  "numeric_guard_review_route": {
+    "policy_rule_id": "CAP-08N",
+    "result": "REVIEW_REQUIRED",
+    "requires": {
+      "title_status": "ACCEPTED",
+      "price_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "mismatch": "none",
+      "page_context_clean": true,
+      "exact_product_page": true,
+      "numeric_keep_guard_applied": true
+    },
+    "disallow": {
+      "critical_mismatch": true,
+      "family_photo": true,
+      "price_role_not_admissible": true,
+      "public_price_restricted": true,
+      "no_price_evidence": true
+    }
+  },
+  "weak_identity_review_route": {
+    "policy_rule_id": "CAP-08W",
+    "result": "REVIEW_REQUIRED",
+    "requires": {
+      "title_status": "ACCEPTED",
+      "price_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "mismatch": "none",
+      "page_context_clean": true,
+      "exact_product_page": true
+    },
+    "disallow": {
+      "critical_mismatch": true,
+      "family_photo": true,
+      "numeric_keep_guard_applied": true,
+      "price_role_not_admissible": true,
+      "public_price_restricted": true,
+      "no_price_evidence": true
+    }
+  },
+  "review_bucket_mapping": {
+    "IDENTITY_MEDIUM": "MISSING_MINIMUM_EVIDENCE",
+    "IDENTITY_WEAK": "IDENTITY_CONFLICT",
+    "CRITICAL_MISMATCH": "IDENTITY_CONFLICT",
+    "FAMILY_PHOTO_POLICY_REVIEW": "FAMILY_PHOTO_REVIEW",
+    "FAMILY_PHOTO_POLICY_BLOCK": "FAMILY_PHOTO_REVIEW",
+    "IMAGE_UNKNOWN": "MISSING_MINIMUM_EVIDENCE",
+    "NO_IMAGE_EVIDENCE": "MISSING_MINIMUM_EVIDENCE",
+    "NO_PRICE_EVIDENCE": "MISSING_MINIMUM_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_CONFLICT": "PRICE_AMBIGUITY",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE": "MISSING_MINIMUM_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE": "MISSING_MINIMUM_EVIDENCE",
+    "PUBLIC_PRICE_RESTRICTED": "PRICE_AMBIGUITY",
+    "PRICE_ROLE_NOT_ADMISSIBLE": "PRICE_AMBIGUITY",
+    "PDF_NOT_EXACT_CONFIRMED": "PDF_CONFLICT",
+    "NO_PDF_EVIDENCE": "PDF_CONFLICT",
+    "NO_TITLE_EVIDENCE": "MISSING_MINIMUM_EVIDENCE",
+    "PN_SECONDARY_SUPPORTING_ONLY": "MANUAL_POLICY_EXCEPTION"
+  },
+  "card_rules": [
+    {
+      "id": "CAP-01",
+      "identity_level": "strong",
+      "image_state": "exact",
+      "price_state": "public_price",
+      "mismatch": "none",
+      "result": "AUTO_PUBLISH"
+    },
+    {
+      "id": "CAP-02",
+      "identity_level": "strong",
+      "image_state": "exact",
+      "price_state": "rfq_only",
+      "mismatch": "none",
+      "result": "AUTO_PUBLISH"
+    },
+    {
+      "id": "CAP-03",
+      "identity_level": "strong",
+      "image_state": "exact",
+      "price_state": "no_price",
+      "mismatch": "none",
+      "result": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CAP-04",
+      "identity_level": "strong",
+      "image_state": "family",
+      "price_state": "any",
+      "mismatch": "none",
+      "result": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CAP-05",
+      "identity_level": "strong",
+      "image_state": "unknown",
+      "price_state": "any",
+      "mismatch": "none",
+      "result": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CAP-06",
+      "identity_level": "strong",
+      "image_state": "none",
+      "price_state": "public_price",
+      "mismatch": "none",
+      "result": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CAP-07",
+      "identity_level": "strong",
+      "image_state": "none",
+      "price_state": "no_price",
+      "mismatch": "none",
+      "result": "DRAFT_ONLY"
+    },
+    {
+      "id": "CAP-08",
+      "identity_level": "medium",
+      "image_state": "any",
+      "price_state": "any",
+      "mismatch": "none",
+      "result": "REVIEW_REQUIRED"
+    },
+    {
+      "id": "CAP-09",
+      "identity_level": "weak",
+      "image_state": "any",
+      "price_state": "any",
+      "mismatch": "none",
+      "result": "DRAFT_ONLY"
+    },
+    {
+      "id": "CAP-10",
+      "identity_level": "any",
+      "image_state": "any",
+      "price_state": "any",
+      "mismatch": "any_critical",
+      "result": "DRAFT_ONLY"
+    }
+  ]
+}

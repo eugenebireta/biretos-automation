@@ -1,0 +1,920 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260326T171834Z",
+  "created_at": "2026-03-26T17:52:14Z",
+  "manifest_summary": {
+    "batch_size": 25,
+    "selection_mode": "deterministic_head_25_prior_limited_run_alignment",
+    "coverage_by_case_type": {
+      "alphanumeric": 5,
+      "category_mismatch_case": 4,
+      "dotted_numeric": 3,
+      "expected_pdf_friendly": 10,
+      "family_gasalert": 1,
+      "family_leightning": 3,
+      "family_sperian": 2,
+      "family_titan": 2,
+      "family_weidmuller": 1,
+      "leading_zero": 4,
+      "no_price_case": 11,
+      "numeric": 17,
+      "rfq_only_case": 2,
+      "suffix_case": 5,
+      "weak_photo_case": 13
+    },
+    "coverage_gaps": [
+      "Cross-pollination-positive cases are not guaranteed by this supplier slice.",
+      "Brand diversity is limited: supplier input is Honeywell-only."
+    ]
+  },
+  "produced_artifacts": [
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\batch_manifest.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\sanity_audit_report.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\candidate_sidecar.jsonl",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\run_first_stdout.log",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\run_resume_stdout.log",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\checkpoint.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_00020211.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_010130.10.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_027913.10.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_033588.17.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1000106.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1006186.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1006187.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1011893-RU.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1011894-RU.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1011994.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1012539.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1012541.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_101411.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1015021.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_104011.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1050000000.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_105411.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_1061200000.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_106511.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_109411.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_121679-L3.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_125711.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_127411.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_129464N_U.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence\\evidence_129625-L3.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\export\\audit_report.json",
+    "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\export\\insales_export.csv"
+  ],
+  "metrics": {
+    "batch_size": 25,
+    "false_keep_numeric_pn": {
+      "count": 10,
+      "pn_list": [
+        "033588.17",
+        "1000106",
+        "1006186",
+        "1006187",
+        "1011994",
+        "1012539",
+        "1012541",
+        "1015021",
+        "1050000000",
+        "1061200000"
+      ],
+      "definition": "Numeric/dotted/leading-zero PN cases with photo verdict KEEP but non-AUTO_PUBLISH card outcome."
+    },
+    "false_public_price_count": {
+      "count": 2,
+      "pn_list": [
+        "1006187",
+        "1012539"
+      ],
+      "definition": "Bundles with raw public_price but non-ACCEPTED v2 price field status."
+    },
+    "photo_keep_rate": 0.48,
+    "usable_price_rate": 0.28,
+    "review_required_rate": 0.0,
+    "no_price_found_rate": 0.52,
+    "category_mismatch_count": 3,
+    "cross_pollination_count": 0,
+    "checkpoint_resume_ok": true,
+    "exact_photo_precision": 0.0,
+    "exact_price_precision": 0.7778,
+    "identity_conflict_rate": 1.12,
+    "family_photo_used_rate": 0.0,
+    "field_status_failure_rate": 0.68,
+    "card_status_distribution": {
+      "DRAFT_ONLY": 25
+    },
+    "field_status_distribution": {
+      "title": {
+        "ACCEPTED": 25
+      },
+      "image": {
+        "INSUFFICIENT": 13,
+        "REVIEW_REQUIRED": 12
+      },
+      "price": {
+        "ACCEPTED": 7,
+        "INSUFFICIENT": 16,
+        "REVIEW_REQUIRED": 2
+      },
+      "pdf": {
+        "INSUFFICIENT": 22,
+        "REVIEW_REQUIRED": 3
+      }
+    },
+    "review_bucket_distribution": {
+      "IDENTITY_CONFLICT": 28,
+      "MISSING_MINIMUM_EVIDENCE": 41,
+      "PDF_CONFLICT": 25,
+      "PRICE_AMBIGUITY": 2
+    },
+    "top_failure_modes": [
+      [
+        "IDENTITY_WEAK",
+        25
+      ],
+      [
+        "NO_PDF_EVIDENCE",
+        22
+      ],
+      [
+        "NO_PRICE_EVIDENCE",
+        16
+      ],
+      [
+        "NO_IMAGE_EVIDENCE",
+        13
+      ],
+      [
+        "IMAGE_UNKNOWN",
+        12
+      ],
+      [
+        "CRITICAL_MISMATCH",
+        3
+      ],
+      [
+        "PDF_NOT_EXACT_CONFIRMED",
+        3
+      ],
+      [
+        "PRICE_ROLE_NOT_ADMISSIBLE",
+        2
+      ]
+    ],
+    "top_ambiguous_cases": [
+      {
+        "pn_primary": "00020211",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 5,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      },
+      {
+        "pn_primary": "106511",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 5,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      },
+      {
+        "pn_primary": "129464N/U",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 5,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      },
+      {
+        "pn_primary": "1006187",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT",
+          "PRICE_AMBIGUITY"
+        ]
+      },
+      {
+        "pn_primary": "1011894-RU",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      },
+      {
+        "pn_primary": "1011994",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      },
+      {
+        "pn_primary": "1012539",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT",
+          "PRICE_AMBIGUITY"
+        ]
+      },
+      {
+        "pn_primary": "1012541",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      },
+      {
+        "pn_primary": "101411",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      },
+      {
+        "pn_primary": "1015021",
+        "card_status": "DRAFT_ONLY",
+        "review_reason_count": 4,
+        "review_buckets": [
+          "IDENTITY_CONFLICT",
+          "MISSING_MINIMUM_EVIDENCE",
+          "PDF_CONFLICT"
+        ]
+      }
+    ],
+    "critical_policy_surprises": []
+  },
+  "example_sku_outcomes": [
+    {
+      "pn_primary": "00020211",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_00020211"
+          ],
+          "evidence_ids": [
+            "ev_title_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "CRITICAL_MISMATCH",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_price_00020211"
+          ],
+          "evidence_ids": [
+            "ev_price_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_00020211"
+          ],
+          "evidence_ids": [
+            "ev_image_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_00020211"
+          ],
+          "evidence_ids": [
+            "ev_price_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_00020211"
+          ],
+          "evidence_ids": [
+            "ev_pdf_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-10; identity=weak; image=INSUFFICIENT; price=INSUFFICIENT; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,CRITICAL_MISMATCH,NO_IMAGE_EVIDENCE,NO_PRICE_EVIDENCE,NO_PDF_EVIDENCE"
+    },
+    {
+      "pn_primary": "010130.10",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_title_010130.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_image_010130.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_pdf_010130.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=INSUFFICIENT; price=ACCEPTED; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,NO_IMAGE_EVIDENCE,NO_PDF_EVIDENCE"
+    },
+    {
+      "pn_primary": "027913.10",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_title_027913.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_image_027913.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_pdf_027913.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=INSUFFICIENT; price=ACCEPTED; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,NO_IMAGE_EVIDENCE,NO_PDF_EVIDENCE"
+    },
+    {
+      "pn_primary": "033588.17",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "REVIEW_REQUIRED",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_title_033588.17"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_image_033588.17"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_pdf_033588.17"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=REVIEW_REQUIRED; price=ACCEPTED; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,IMAGE_UNKNOWN,NO_PDF_EVIDENCE"
+    },
+    {
+      "pn_primary": "1000106",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "REVIEW_REQUIRED",
+      "price_status": "ACCEPTED",
+      "pdf_status": "REVIEW_REQUIRED",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1000106"
+          ],
+          "evidence_ids": [
+            "ev_title_1000106"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_1000106"
+          ],
+          "evidence_ids": [
+            "ev_image_1000106"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_1000106"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1000106"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=REVIEW_REQUIRED; price=ACCEPTED; pdf=REVIEW_REQUIRED; reasons=IDENTITY_WEAK,IMAGE_UNKNOWN,PDF_NOT_EXACT_CONFIRMED"
+    },
+    {
+      "pn_primary": "1006186",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "REVIEW_REQUIRED",
+      "price_status": "ACCEPTED",
+      "pdf_status": "REVIEW_REQUIRED",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1006186"
+          ],
+          "evidence_ids": [
+            "ev_title_1006186"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_1006186"
+          ],
+          "evidence_ids": [
+            "ev_image_1006186"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_1006186"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1006186"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=REVIEW_REQUIRED; price=ACCEPTED; pdf=REVIEW_REQUIRED; reasons=IDENTITY_WEAK,IMAGE_UNKNOWN,PDF_NOT_EXACT_CONFIRMED"
+    },
+    {
+      "pn_primary": "1006187",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "REVIEW_REQUIRED",
+      "price_status": "REVIEW_REQUIRED",
+      "pdf_status": "REVIEW_REQUIRED",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1006187"
+          ],
+          "evidence_ids": [
+            "ev_title_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_1006187"
+          ],
+          "evidence_ids": [
+            "ev_image_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_1006187"
+          ],
+          "evidence_ids": [
+            "ev_price_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PRICE_AMBIGUITY"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_1006187"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1006187"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=REVIEW_REQUIRED; price=REVIEW_REQUIRED; pdf=REVIEW_REQUIRED; reasons=IDENTITY_WEAK,IMAGE_UNKNOWN,PRICE_ROLE_NOT_ADMISSIBLE,PDF_NOT_EXACT_CONFIRMED"
+    },
+    {
+      "pn_primary": "1011893-RU",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "ACCEPTED",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1011893-RU"
+          ],
+          "evidence_ids": [
+            "ev_title_1011893-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1011893-RU"
+          ],
+          "evidence_ids": [
+            "ev_image_1011893-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1011893-RU"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1011893-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=INSUFFICIENT; price=ACCEPTED; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,NO_IMAGE_EVIDENCE,NO_PDF_EVIDENCE"
+    },
+    {
+      "pn_primary": "1011894-RU",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "INSUFFICIENT",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_title_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_image_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_price_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1011894-RU"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1011894-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=INSUFFICIENT; price=INSUFFICIENT; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,NO_IMAGE_EVIDENCE,NO_PRICE_EVIDENCE,NO_PDF_EVIDENCE"
+    },
+    {
+      "pn_primary": "1011994",
+      "card_status": "DRAFT_ONLY",
+      "title_status": "ACCEPTED",
+      "image_status": "REVIEW_REQUIRED",
+      "price_status": "INSUFFICIENT",
+      "pdf_status": "INSUFFICIENT",
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1011994"
+          ],
+          "evidence_ids": [
+            "ev_title_1011994"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_1011994"
+          ],
+          "evidence_ids": [
+            "ev_image_1011994"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_1011994"
+          ],
+          "evidence_ids": [
+            "ev_price_1011994"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1011994"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1011994"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "short_explanation": "card rule CAP-09; identity=weak; image=REVIEW_REQUIRED; price=INSUFFICIENT; pdf=INSUFFICIENT; reasons=IDENTITY_WEAK,IMAGE_UNKNOWN,NO_PRICE_EVIDENCE,NO_PDF_EVIDENCE"
+    }
+  ],
+  "resume_evidence": {
+    "checkpoint_entries": 25,
+    "resume_skip_count": 25,
+    "checkpoint_resume_ok": true
+  },
+  "run_logs": {
+    "first_run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\run_first_stdout.log",
+    "resume_run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\run_resume_stdout.log",
+    "first_run_tail": [
+      "[24/25] 129464N/U — Миниатюрная трубка Honeywell Mini Peeper 129464N/U",
+      "  Фото: 1032x806px 117KB (cached)",
+      "  Источник: cached",
+      "  Цена: USD 567.80 [category_mismatch_only] (https://www.ulcontrols.com/shop/burner-and-combustion-c)",
+      "  Вердикт: KEEP (artifact_cache sha1=bfe962be) — На изображении видна миниатюрная трубка Honeywell/Beckett 129464N, товар угадывается",
+      "",
+      "[25/25] 129625-L3 — Набор для подключения Honeywell GasAlert Series IR",
+      "  Фото: 1000x1000px 18KB (cached)",
+      "  Источник: cached",
+      "  Цена: no_price_found",
+      "  Вердикт: KEEP (artifact_cache sha1=8f0394a3) — На фото виден аксессуар Honeywell IR Link, товар угадывается",
+      "",
+      "=======================================================",
+      "KEEP: 12  REJECT: 13  NO_PHOTO: 0  CHECKPOINT_SKIP: 0",
+      "",
+      "=======================================================",
+      "EXPORT: AUTO_PUBLISH=6  REVIEW_REQUIRED=9  DRAFT_ONLY=10",
+      "InSales CSV → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\export\\insales_export.csv (15 rows)",
+      "Audit      → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\export\\audit_report.json",
+      "Evidence   → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence (25 bundles)"
+    ],
+    "resume_run_tail": [
+      "[15/25] 104011 — CHECKPOINT (skip)",
+      "[16/25] 1050000000 — CHECKPOINT (skip)",
+      "[17/25] 105411 — CHECKPOINT (skip)",
+      "[18/25] 1061200000 — CHECKPOINT (skip)",
+      "[19/25] 106511 — CHECKPOINT (skip)",
+      "[20/25] 109411 — CHECKPOINT (skip)",
+      "[21/25] 121679-L3 — CHECKPOINT (skip)",
+      "[22/25] 125711 — CHECKPOINT (skip)",
+      "[23/25] 127411 — CHECKPOINT (skip)",
+      "[24/25] 129464N/U — CHECKPOINT (skip)",
+      "[25/25] 129625-L3 — CHECKPOINT (skip)",
+      "",
+      "=======================================================",
+      "KEEP: 12  REJECT: 13  NO_PHOTO: 0  CHECKPOINT_SKIP: 25",
+      "",
+      "=======================================================",
+      "EXPORT: AUTO_PUBLISH=6  REVIEW_REQUIRED=9  DRAFT_ONLY=10",
+      "InSales CSV → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\export\\insales_export.csv (15 rows)",
+      "Audit      → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\export\\audit_report.json",
+      "Evidence   → D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z\\evidence (25 bundles)"
+    ]
+  },
+  "explicit_false_positives": {
+    "false_keep_numeric_pn": [
+      "033588.17",
+      "1000106",
+      "1006186",
+      "1006187",
+      "1011994",
+      "1012539",
+      "1012541",
+      "1015021",
+      "1050000000",
+      "1061200000"
+    ],
+    "false_public_price": [
+      "1006187",
+      "1012539"
+    ]
+  },
+  "critical_policy_surprises": [],
+  "broader_controlled_run_assessment": {
+    "ready": "NO",
+    "blocking_issues": [
+      "False public-price signals remain in the sanity slice.",
+      "Numeric/dotted PN KEEP outcomes still require tighter false-positive controls.",
+      "DRAFT_ONLY share is still high for a broader controlled run."
+    ],
+    "non_blocking_issues": [
+      "PDF coverage remains incomplete and needs better datasheet hit-rate before scaling.",
+      "Missing-evidence review load is still material."
+    ]
+  }
+}

@@ -25,6 +25,7 @@ from pn_match import (
     is_numeric_pn,
     confirm_pn_body,
     confirm_pn_structured,
+    extract_structured_pn_flags,
     match_pn,
 )
 from trust import get_domain, get_source_trust, get_source_tier
@@ -211,6 +212,58 @@ class TestConfirmPnStructuredProductContext:
         matched, loc = confirm_pn_structured("1000106", html)
         assert matched is True
         assert loc == "product_context"
+
+
+class TestExtractStructuredPnFlags:
+
+    def test_extract_jsonld_flag(self):
+        html = '''<script type="application/ld+json">
+        {"@type": "Product", "mpn": "00020211"}
+        </script>'''
+        flags = extract_structured_pn_flags("00020211", html)
+        assert flags["exact_jsonld_pn_match"] is True
+        assert flags["exact_structured_pn_match"] is True
+        assert flags["structured_pn_match_location"] == "jsonld"
+
+    def test_extract_title_flag(self):
+        flags = extract_structured_pn_flags(
+            "010130.10",
+            "<html><head><title>Honeywell 010130.10 Module</title></head></html>",
+        )
+        assert flags["exact_title_pn_match"] is True
+        assert flags["structured_pn_match_location"] == "title"
+
+    def test_extract_h1_flag(self):
+        flags = extract_structured_pn_flags(
+            "00020211",
+            "<html><body><h1>Temperature Sensor 00020211</h1></body></html>",
+        )
+        assert flags["exact_h1_pn_match"] is True
+        assert flags["structured_pn_match_location"] == "h1"
+
+    def test_extract_product_context_flag(self):
+        flags = extract_structured_pn_flags(
+            "1000106",
+            '<span itemprop="sku">1000106</span>',
+        )
+        assert flags["exact_product_context_pn_match"] is True
+        assert flags["structured_pn_match_location"] == "product_context"
+
+    def test_body_only_does_not_materialize_structured_flags(self):
+        flags = extract_structured_pn_flags(
+            "00020211",
+            "<html><body><div>Part number 00020211 available now</div></body></html>",
+        )
+        assert flags["exact_structured_pn_match"] is False
+        assert flags["structured_pn_match_location"] == ""
+
+    def test_search_hint_url_does_not_materialize_structured_flags(self):
+        flags = extract_structured_pn_flags(
+            "00020211",
+            "<html><body><a href='/search?q=00020211'>search result</a></body></html>",
+        )
+        assert flags["exact_structured_pn_match"] is False
+        assert flags["structured_pn_match_location"] == ""
 
 
 # ══════════════════════════════════════════════════════════════════════════════

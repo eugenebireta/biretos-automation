@@ -1,0 +1,36 @@
+{
+  "schema_version": "price_evidence_cache_v1",
+  "description": "Lineage-safe bounded-run cache for deterministic price evidence fallback. Cache entries are replay aids only and never new truth sources.",
+  "entry_required_fields": [
+    "pn_primary",
+    "price_status",
+    "source_url",
+    "source_domain",
+    "source_tier",
+    "pn_exact_confirmed",
+    "exact_product_page",
+    "page_context_clean",
+    "policy_version",
+    "source_run_id",
+    "bundle_ref"
+  ],
+  "runtime_fallback_required_conditions": [
+    "transient_failure_code in {openai_quota, openai_rate_limit, openai_temporary_failure, openai_timeout}",
+    "same pn_primary",
+    "same exact source_url present in current candidate list",
+    "same source_tier as current candidate",
+    "page_context_clean == true",
+    "exact_product_page == true",
+    "field_statuses_v2.price_status was ACCEPTED in source bundle",
+    "policy_version == current policy family"
+  ],
+  "runtime_fallback_forbidden_conditions": [
+    "public_price_rejection_reasons not empty",
+    "category_mismatch == true",
+    "brand_mismatch == true",
+    "source_tier not in admissible tiers",
+    "missing source_url lineage",
+    "schema_version mismatch",
+    "policy_version mismatch"
+  ]
+}
