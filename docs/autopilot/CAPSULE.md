@@ -1,45 +1,49 @@
 # Task Capsule
 
-Task_ID: 5.1
-Risk: CORE
+Task_ID: auditor-system-phase1
+Risk: SEMI
+Date: 2026-04-02
+PR: https://github.com/eugenebireta/biretos-automation/pull/18 (auto-merge enabled)
+Commit: 3bfe336
 
-## Facts (SCOUT)
-- Etap 5 requires Pydantic v2 models for CDM: TaskIntent and ActionSnapshot.
-- dispatch_action() currently takes untyped Dict; governance_executor._execute_live()
-  manually checks schema_version, leaf_worker_type, leaf_payload, external_idempotency_key.
-- Task 5.1 scope: model definitions only. Per-action payload schemas are Task 5.2 scope.
+## What was built
 
-## Constraints (ARCHITECT)
-- Files must be Tier-2 (NOT Tier-1 frozen). No imports from Tier-1 modules.
-- trace_id must enforce min_length=1 (Fail Loud per DNA §7).
-- schema_version must be Literal[1]; leaf_worker_type Literal["cdek_shipment"] (Fail Loud).
-- Pure models: no DB, no side-effects, no live dependencies.
-- At least one deterministic test per DNA §7 mandatory patterns rule 8.
+Governed AI Execution System — Phase 1 thin vertical slice (SPEC v3.4).
 
-## Decisions (ARCHITECT_V2)
-- domain/cdm_models.py: two Pydantic v2 BaseModel classes (TaskIntent, ActionSnapshot).
-- tests/test_cdm_models.py: 6 deterministic unit tests, no DB, no live API.
-- No changes to any Tier-1 frozen files (19-file list per DNA §3).
-- No changes to pinned API signatures (DNA §4).
+21 files in `auditor_system/`:
+- `hard_shell/contracts.py` — Pydantic models: TaskPack, AuditVerdict, SurfaceClassification, ProtocolRun
+- `hard_shell/context_assembler.py` — rule-based surface classifier (19 TIER1_FILES, 9 OPUS_SURFACES, keyword→surface map)
+- `hard_shell/model_selector.py` — Trigger A/B/C model selection (Sonnet default, Opus for OPUS_SURFACES, escalation on gate failure)
+- `hard_shell/quality_gate.py` — deterministic pass/fail (reject+critical → fail; both 3+ warnings → fail; conflict → fail)
+- `hard_shell/approval_router.py` — AUTO_PASS / BATCH_APPROVAL / INDIVIDUAL_REVIEW / BLOCKED routing + owner_summary.md
+- `hard_shell/experience_sink.py` — DPO-ready JSONL (approved→experience_log/, rejected→anti_patterns/, guard on missing verdict)
+- `hard_shell/run_store.py` — artifact persistence in runs/<run_id>/ (12 artifact files per run)
+- `providers/mock_builder.py` + `providers/mock_auditor.py` — deterministic mocks, no external calls
+- `providers/openai_auditor.py` + `providers/anthropic_auditor.py` — Phase 2 stubs (NotImplementedError)
+- `review_runner.py` — bounded 2-round protocol orchestrator
+- `cli.py` — dry-run and single-task entry points
+- `tests/test_dry_run.py` — 14 tests
 
-## Plan_Final (ARCHITECT/PLANNER)
-- Create .cursor/windmill-core-v1/domain/cdm_models.py with TaskIntent + ActionSnapshot.
-- Create .cursor/windmill-core-v1/tests/test_cdm_models.py with 6 tests.
-- Prerequisite for Task 5.2 (Validation на 3 границах).
+## Test evidence
 
-## Result (POST_AUDIT_LOGGER)
-- branch: feat/task-5.1
-- commit: ee54864e2e5eeafe8d502d8e48b64d19676613ae
-- changed_files:
-    - .cursor/windmill-core-v1/domain/cdm_models.py (+65 lines)
-    - .cursor/windmill-core-v1/tests/test_cdm_models.py (+93 lines)
-- test_evidence: 6/6 PASS (test_cdm_models.py), full suite 124/124 PASS
-- auditor_verdict: PASS
-- notes:
-    - No Tier-1 frozen files touched (verified against DNA §3 list).
-    - No pinned API signatures changed (DNA §4 list unaffected).
-    - No prohibited imports (domain.reconciliation_* etc.) introduced.
-    - No DML on reconciliation or Core business tables.
-    - trace_id Fail Loud enforced at model boundary.
-    - ActionSnapshot Fail Loud on wrong schema_version and wrong leaf_worker_type.
-    - Capsule filed during PC-migration gap recovery (2026-03-20).
+14/14 PASS — all Phase 1 readiness criteria:
+- Full cycle artifacts in runs/<run_id>/ (12 files)
+- ModelSelector: LOW→Sonnet, fsm/guardian keywords→Opus
+- Escalation: Sonnet gate fail → Opus retry
+- QualityGate: critical reject → INDIVIDUAL_REVIEW
+- ApprovalRouter: LOW+approve→AUTO_PASS, SEMI+approve→BATCH_APPROVAL, CORE→INDIVIDUAL_REVIEW
+- owner_summary.md readable with task title + route
+- ExperienceSink: JSONL written after owner verdict; RuntimeError if called before verdict
+- Surface mismatch: ContextAssembler∪Builder declared → effective_surface union, Opus selected
+- Tier-1 file → tier1_files surface → Opus
+
+## Dependency note
+
+Requires `pyyaml` (not yet in requirements.txt). Install: `pip install pyyaml`.
+
+## Next (Phase 2)
+
+- Wire live OpenAI auditor (Responses API + json_schema, NOT Chat Completions + JSON mode)
+- Wire live Anthropic auditor (run in separate process without ANTHROPIC_API_KEY in env)
+- Add `pyyaml` to requirements.txt
+- OwnerQueue, BatchPackBuilder, FallbackHandler (scope-excluded from Phase 1)
