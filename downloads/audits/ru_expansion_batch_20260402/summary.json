@@ -1,0 +1,109 @@
+{
+  "batch_id": "ru_expansion_batch_20260402",
+  "ts": "2026-04-02T22:00:00Z",
+  "actor": "Agent/ClaudeCode-Sonnet4.6",
+  "purpose": "RU domain expansion — systematic search of Russian market for Honeywell PPE sources beyond vseinstrumenti.ru",
+
+  "trigger": "Owner: 'я считаю что копать надо там где получается. а ты взял всего лишь 2 российских сайта. Активнее используй яндекс.'",
+
+  "search_approach": [
+    "WebSearch: '1015021 Honeywell наушники купить цена рублей'",
+    "WebSearch: '1012541 Honeywell наушники каска купить цена рублей'",
+    "WebSearch: 'Honeywell Howard Leight Leightning наушники СИЗ дистрибьютор Россия'",
+    "WebSearch: 'Honeywell Leightning L1HHV 1015021 наушники купить цена сайт Россия 2025'",
+    "WebSearch: 'Honeywell Leightning L3H 1012541 наушники каска цена рублей купить интернет'",
+    "WebSearch: 'Honeywell Leightning наушники каска дистрибьютор официальный Россия'",
+    "WebFetch: vseinstrumenti.ru category + individual product pages",
+    "WebFetch: bionic.spb.ru, gwardex.ru, kovkapro.com, technoavia.ru, vostok.spb.ru, sizproject.ru, biggame.ru, tdrrk.ru, honeywellrussia.ru, honeywell.ru",
+    "Script access test: requests.py HTTP status + PN presence in HTML body"
+  ],
+
+  "domains_investigated": 12,
+
+  "results_per_domain": [
+    {"domain": "vseinstrumenti.ru", "1015021": "4314 RUB OoS (WebFetch)", "1012541": "5356 RUB OoS (WebFetch)", "script": "403", "verdict": "existing entry — only RU source with public prices for these exact SKUs"},
+    {"domain": "bionic.spb.ru", "1015021": "rfq_only (HTTP 200, PN in HTML)", "1012541": "rfq_only (HTTP 200, PN in HTML)", "script": "200/structured_exact_match_missing", "verdict": "NEW — script-accessible, PN confirmed, no public price. lineage blocker = structured matching, not 403"},
+    {"domain": "gwardex.ru", "1015021": "not listed", "1012541": "not listed", "script": "200 (L1H 4250.60 RUB in_stock)", "verdict": "NEW — script-accessible with public prices for related PPE (L1H). No 1015021/1012541 in catalog"},
+    {"domain": "kovkapro.com", "1015021": "not listed", "1012541": "not listed", "script": "200 (L2 1010922 OoS)", "verdict": "NEW — script-accessible. Has Leightning L2 only"},
+    {"domain": "technoavia.ru", "1015021": "404 (was indexed)", "1012541": "404 (was indexed)", "script": "404", "verdict": "STALE — search results show old URLs, pages removed. Not a usable source"},
+    {"domain": "honeywellrussia.ru", "1015021": "not listed", "1012541": "not listed", "script": "200 (gift boxes only)", "verdict": "WRONG — consumer gift site, not PPE catalog"},
+    {"domain": "honeywell.ru", "1015021": "-", "1012541": "-", "script": "ECONNREFUSED", "verdict": "BLOCKED — same access pattern as EU sites"},
+    {"domain": "sizproject.ru", "1015021": "not listed", "1012541": "not listed", "script": "200 (VeriShield only)", "verdict": "NO MATCH — VeriShield/L2 only, not Leightning helmet series"},
+    {"domain": "vostok.spb.ru", "1015021": "not listed", "1012541": "not listed", "script": "unknown", "verdict": "PARTIAL — Honeywell PPE section exists but no catalog details visible"},
+    {"domain": "biggame.ru", "1015021": "not listed", "1012541": "not listed", "script": "200", "verdict": "WRONG — shooting/hunting store, Impact Sport only"},
+    {"domain": "tdrrk.ru", "1015021": "not listed", "1012541": "not listed", "script": "200", "verdict": "WRONG — 3M/ROSOMZ, not Honeywell"},
+    {"domain": "ozon.ru", "1015021": "not found in search", "1012541": "not found in search", "script": "too_many_redirects", "verdict": "INCONCLUSIVE — JS-rendered marketplace, not script-accessible"}
+  ],
+
+  "lineage_failure_taxonomy": {
+    "class_A_403": {
+      "domains": ["vseinstrumenti.ru", "honeywell.ru"],
+      "cause": "Bot-protection blocks HTTP request entirely",
+      "fix": "Manual browser or bot-bypass (NOT ALLOWED)",
+      "price_outcome": "WebFetch accessible, prices confirmed manually"
+    },
+    "class_B_structured_match_missing": {
+      "domains": ["bionic.spb.ru", "gwardex.ru", "kovkapro.com"],
+      "cause": "Script gets HTTP 200 + HTML, but PN matching logic fails (page structure differs from expected)",
+      "fix": "Script improvement: extend PN extraction patterns for these page layouts",
+      "price_outcome": "Prices visible on page (gwardex.ru confirmed); bionic.spb.ru rfq_only"
+    },
+    "class_C_product_not_listed": {
+      "domains": ["gwardex.ru", "kovkapro.com", "sizproject.ru"],
+      "cause": "Site carries Honeywell PPE but not 1015021/1012541 specifically",
+      "fix": "N/A — catalog gap, not technical issue"
+    }
+  },
+
+  "key_findings": {
+    "public_price_sources_for_1015021_1012541": "vseinstrumenti.ru remains the ONLY Russian source with confirmed public prices (4314 / 5356 RUB). No new sources found.",
+    "script_accessible_new_domains": "3 new script-accessible domains found: bionic.spb.ru (PN confirmed, rfq_only), gwardex.ru (public price for L1H 4250.60 RUB in_stock), kovkapro.com (L2 only)",
+    "bionic_pn_confirmation": "bionic.spb.ru confirms both 1015021 and 1012541 exist in Russian market (HTTP 200, PN in HTML). No public price but strong PN existence signal.",
+    "lineage_class_B_opportunity": "bionic.spb.ru and gwardex.ru are HTTP 200 accessible — lineage=False is due to structured_exact_match_missing, not 403. Script pattern extension could unlock lineage=True for gwardex.ru (has public prices).",
+    "market_saturation": "10+ domains searched. The Leightning L1HHV and L3H EU helmet series are narrowly distributed in Russia — vseinstrumenti.ru dominates public pricing for this niche."
+  },
+
+  "new_domains_for_registry": [
+    {
+      "domain": "bionic.spb.ru",
+      "scope": ["price", "photo"],
+      "trust_tier_candidate": "ru_b2b",
+      "price_outcome": "rfq_only",
+      "script_accessible": true,
+      "http_status": 200,
+      "lineage_reason_code": "structured_exact_match_missing",
+      "pn_coverage": "1015021, 1012541 confirmed in HTML",
+      "url_pattern": "/catalog/product/[PART_NUMBER]/",
+      "notes": "SPb hearing protection distributor. PN confirmed for both target SKUs. Price = rfq_only. Valuable for PN existence confirmation. Upgrade path: script pattern extension for structured matching."
+    },
+    {
+      "domain": "gwardex.ru",
+      "scope": ["price", "photo"],
+      "trust_tier_candidate": "ru_b2b",
+      "price_outcome": "ambiguous_offer",
+      "script_accessible": true,
+      "http_status": 200,
+      "lineage_reason_code": "structured_exact_match_missing",
+      "pn_coverage": "L1H (1012539) IN STOCK 4250.60 RUB. No 1015021/1012541.",
+      "notes": "Russian СИЗ distributor with Honeywell PPE. Script-accessible. Has public prices for Leightning L1/L1H. Upgrade path: extend catalog or script matching."
+    },
+    {
+      "domain": "kovkapro.com",
+      "scope": ["price"],
+      "trust_tier_candidate": "ru_b2b",
+      "price_outcome": "no_price_found",
+      "script_accessible": true,
+      "http_status": 200,
+      "lineage_reason_code": "structured_exact_match_missing",
+      "pn_coverage": "L2 (1010922) OoS. No 1015021/1012541.",
+      "notes": "RU/CIS delivery shop for Honeywell Leightning. Limited catalog (L2 only). Low priority."
+    }
+  ],
+
+  "recommended_next_actions": [
+    "1. Add bionic.spb.ru + gwardex.ru + kovkapro.com to source_scout_registry_v1.jsonl",
+    "2. Consider script pattern extension for 'structured_exact_match_missing' class (separate task, LOW risk)",
+    "3. For 1015021/1012541 public_price: vseinstrumenti.ru product pages confirmed — owner manual browser verify is still the fastest path",
+    "4. Expand search to other Honeywell PPE product families (harness, glasses) using gwardex.ru as new script-accessible source"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "catalog_enum_contract_v1",
+  "field_status": [
+    "ACCEPTED",
+    "REVIEW_REQUIRED",
+    "INSUFFICIENT",
+    "REJECTED"
+  ],
+  "card_status": [
+    "AUTO_PUBLISH",
+    "REVIEW_REQUIRED",
+    "DRAFT_ONLY"
+  ],
+  "reason_code": [
+    "IDENTITY_MEDIUM",
+    "IDENTITY_WEAK",
+    "CRITICAL_MISMATCH",
+    "FAMILY_PHOTO_POLICY_REVIEW",
+    "FAMILY_PHOTO_POLICY_BLOCK",
+    "IMAGE_UNKNOWN",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_CONFLICT",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "PUBLIC_PRICE_RESTRICTED",
+    "PRICE_ROLE_NOT_ADMISSIBLE",
+    "PDF_NOT_EXACT_CONFIRMED",
+    "NO_PDF_EVIDENCE",
+    "NO_TITLE_EVIDENCE",
+    "PN_SECONDARY_SUPPORTING_ONLY"
+  ],
+  "review_bucket": [
+    "IDENTITY_CONFLICT",
+    "FAMILY_PHOTO_REVIEW",
+    "PRICE_AMBIGUITY",
+    "CROSS_POLLINATION_REVIEW",
+    "MISSING_MINIMUM_EVIDENCE",
+    "PDF_CONFLICT",
+    "MANUAL_POLICY_EXCEPTION"
+  ],
+  "identity_level": [
+    "strong",
+    "medium",
+    "weak"
+  ],
+  "severity": [
+    "INFO",
+    "WARNING",
+    "ERROR"
+  ]
+}

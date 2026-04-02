@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "1061200000",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Конечный кронштейн Weidmuller WEW 35/2, бежевый",
+  "assembled_title": "Кронштейн Honeywell 1061200000",
+  "our_price_raw": "131,08",
+  "expected_category": "Кронштейн",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_1061200000",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1061200000"
+        ],
+        "evidence_ids": [
+          "ev_title_1061200000"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1061200000"
+        ],
+        "evidence_ids": [
+          "ev_image_1061200000"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1061200000"
+        ],
+        "evidence_ids": [
+          "ev_price_1061200000"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1061200000"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1061200000"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1061200000"
+      ],
+      "evidence_ids": [
+        "ev_title_1061200000"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1061200000"
+      ],
+      "evidence_ids": [
+        "ev_image_1061200000"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_1061200000"
+      ],
+      "evidence_ids": [
+        "ev_price_1061200000"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_1061200000"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1061200000"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "Товар Weidmuller WEW 35/2 на изображении узнаваем",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1061200000.jpg",
+    "sha1": "acf51c8919213500163adff46ebf9d157d2071c3",
+    "canonical_filename": "HONEYWELL_1061200000_acf51c89.jpg",
+    "public_url": null,
+    "width": 1800,
+    "height": 1800,
+    "size_kb": 70,
+    "source": "cached",
+    "phash": "fa7885d7e0863616",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://www.elec.ru/files/2018/12/01/radiodetali_datasheet_catalog_Minsk_80447584780.pdf",
+    "pdf_source_tier": "ru_b2b",
+    "pdf_title": "радиодетали купить в Минске",
+    "pdf_specs": {
+      "Мы не работаем с частными (физическими ) лицами": "Мы работаем только с юридическими лицами(организациями) и ИП и только",
+      "по безналичному расчёту": "Электронные компоненты, радиодетали",
+      "Просим Вас указывать в заявке": "— название предприятия, факс, контактный телефон, контактное лицо;",
+      "смотрите основные направления поставок ниже": "Заказ Минск тел.+375 29 7584780 мтс email minsk17@tut.by www.fotorele.net",
+      "Продаём": "Микросхемы отечественные"
+    },
+    "pdf_text_excerpt": "радиодетали купить в Минске email minsk17@tut.by тел.+375447584780 www.fotorele.net www.tiristor.by Реле , каталог, описание, технические, характеристики, datasheet, параметры, маркировка, габариты, фото, даташит, QR код Мы не работаем с частными (физическими ) лицами. Мы работаем только с юридическими лицами(организациями) и ИП и только по безналичному расчёту. Электронные компоненты, радиодетали реле реле электромеханическое где и как купить в Минске? Сделать заявку или запрос можно по телефону факсу или по электронной почте Просим Вас указывать в заявке: — название предприятия, факс, контак",
+    "num_pages": 634,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

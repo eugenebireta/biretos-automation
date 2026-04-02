@@ -1,0 +1,70 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260330T230606Z_cap09b_exact_trio",
+  "created_at": "2026-03-30T23:06:06Z",
+  "source_input": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\honeywell_insales_import.csv",
+  "selection_mode": "owner_rescope_exact_lineage_trio",
+  "batch_size": 3,
+  "sku_rows": [
+    {
+      "row_number": 1,
+      "pn_primary": "1006186",
+      "name": "Беруши 303L FOAMPLUG",
+      "expected_category": "Беруши",
+      "our_price_raw": "1920,61",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Owner-approved exact-lineage admissible no-price blocker subset after re-scope; keeps the bounded batch on 1006186, 1011994, and 104011 only."
+    },
+    {
+      "row_number": 2,
+      "pn_primary": "1011994",
+      "name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
+      "expected_category": "Наушники",
+      "our_price_raw": "1741,63",
+      "case_tags": [
+        "family_leightning",
+        "no_price_case",
+        "numeric"
+      ],
+      "selection_reason": "Owner-approved exact-lineage admissible no-price blocker subset after re-scope; keeps the bounded batch on 1006186, 1011994, and 104011 only."
+    },
+    {
+      "row_number": 3,
+      "pn_primary": "104011",
+      "name": "Датчик температуры D 20.545.02",
+      "expected_category": "Датчик",
+      "our_price_raw": "625,95",
+      "case_tags": [
+        "expected_pdf_friendly",
+        "no_price_case",
+        "numeric",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Owner-approved exact-lineage admissible no-price blocker subset after re-scope; keeps the bounded batch on 1006186, 1011994, and 104011 only."
+    }
+  ],
+  "coverage_by_case_type": {
+    "expected_pdf_friendly": 1,
+    "family_leightning": 1,
+    "no_price_case": 2,
+    "numeric": 3,
+    "weak_photo_case": 1
+  },
+  "coverage_gaps": [
+    "No suffix-case PN in the selected subset.",
+    "Cross-pollination-positive cases are not guaranteed by this supplier slice.",
+    "Brand diversity is limited: supplier input is Honeywell-only."
+  ],
+  "execution_profile": "sanity_shadow_v1",
+  "execution_limits": {
+    "MAX_SHADOW_SKUS": 15,
+    "MAX_VERIFIER_CALLS_PER_RUN": 8,
+    "MAX_VERIFIER_CALLS_PER_SKU": 1,
+    "MAX_RUN_WALLCLOCK_SEC": 480,
+    "MAX_CONSECUTIVE_TIMEOUTS": 3,
+    "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+    "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+  },
+  "scope_note": "Owner-approved exact-lineage admissible no-price blocker subset. Includes 1006186, 1011994, 104011; excludes non-exact tail 1012541."
+}

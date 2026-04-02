@@ -1,0 +1,237 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260327T083602Z",
+  "created_at": "2026-03-27T08:36:02Z",
+  "source_input": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\honeywell_insales_import.csv",
+  "selection_mode": "deterministic_head_15_prior_limited_run_alignment",
+  "batch_size": 15,
+  "sku_rows": [
+    {
+      "row_number": 1,
+      "pn_primary": "00020211",
+      "name": "Датчик температуры D 20.672.022 T",
+      "expected_category": "Датчик",
+      "our_price_raw": "0,00",
+      "case_tags": [
+        "category_mismatch_case",
+        "expected_pdf_friendly",
+        "leading_zero",
+        "numeric",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 2,
+      "pn_primary": "010130.10",
+      "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
+      "expected_category": "Модуль",
+      "our_price_raw": "13288,04",
+      "case_tags": [
+        "dotted_numeric",
+        "expected_pdf_friendly",
+        "leading_zero",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 3,
+      "pn_primary": "027913.10",
+      "name": "Считыватель карт luminAXS mifareD RS485",
+      "expected_category": "Считыватель",
+      "our_price_raw": "34276,71",
+      "case_tags": [
+        "dotted_numeric",
+        "expected_pdf_friendly",
+        "leading_zero",
+        "rfq_only_case",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 4,
+      "pn_primary": "033588.17",
+      "name": "Шарнирное соединение для настенного монтажа",
+      "expected_category": "Соединение",
+      "our_price_raw": "3025,82",
+      "case_tags": [
+        "dotted_numeric",
+        "leading_zero",
+        "rfq_only_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 5,
+      "pn_primary": "1000106",
+      "name": "Беруши 304L CORDED EARPLUG",
+      "expected_category": "Беруши",
+      "our_price_raw": "13095,00",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 6,
+      "pn_primary": "1006186",
+      "name": "Беруши 303L FOAMPLUG",
+      "expected_category": "Беруши",
+      "our_price_raw": "1920,61",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 7,
+      "pn_primary": "1006187",
+      "name": "Беруши 303S-YEL/WHT",
+      "expected_category": "Беруши",
+      "our_price_raw": "2095,17",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 8,
+      "pn_primary": "1011893-RU",
+      "name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом",
+      "expected_category": "Привязь",
+      "our_price_raw": "2447,96",
+      "case_tags": [
+        "alphanumeric",
+        "family_sperian",
+        "family_titan",
+        "suffix_case",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 9,
+      "pn_primary": "1011894-RU",
+      "name": "Страховочная привязь SPERIAN Titan 2-точечная с поясом",
+      "expected_category": "Привязь",
+      "our_price_raw": "2706,30",
+      "case_tags": [
+        "alphanumeric",
+        "family_sperian",
+        "family_titan",
+        "no_price_case",
+        "suffix_case",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 10,
+      "pn_primary": "1011994",
+      "name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
+      "expected_category": "Наушники",
+      "our_price_raw": "1741,63",
+      "case_tags": [
+        "family_leightning",
+        "no_price_case",
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 11,
+      "pn_primary": "1012539",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNING L1H",
+      "expected_category": "Наушники",
+      "our_price_raw": "1652,59",
+      "case_tags": [
+        "family_leightning",
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 12,
+      "pn_primary": "1012541",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU",
+      "expected_category": "Наушники",
+      "our_price_raw": "4675,63",
+      "case_tags": [
+        "family_leightning",
+        "no_price_case",
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 13,
+      "pn_primary": "101411",
+      "name": "Датчик температуры D 20.572.51.70",
+      "expected_category": "Датчик",
+      "our_price_raw": "6201,83",
+      "case_tags": [
+        "expected_pdf_friendly",
+        "no_price_case",
+        "numeric",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 14,
+      "pn_primary": "1015021",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis",
+      "expected_category": "Наушники",
+      "our_price_raw": "1254,50",
+      "case_tags": [
+        "no_price_case",
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    },
+    {
+      "row_number": 15,
+      "pn_primary": "104011",
+      "name": "Датчик температуры D 20.545.02",
+      "expected_category": "Датчик",
+      "our_price_raw": "625,95",
+      "case_tags": [
+        "expected_pdf_friendly",
+        "no_price_case",
+        "numeric",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Deterministic head-15 subset from the 370-SKU input. Chosen because it matches the prior limited 15-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    }
+  ],
+  "coverage_by_case_type": {
+    "alphanumeric": 2,
+    "category_mismatch_case": 1,
+    "dotted_numeric": 3,
+    "expected_pdf_friendly": 5,
+    "family_leightning": 3,
+    "family_sperian": 2,
+    "family_titan": 2,
+    "leading_zero": 4,
+    "no_price_case": 6,
+    "numeric": 10,
+    "rfq_only_case": 2,
+    "suffix_case": 2,
+    "weak_photo_case": 7
+  },
+  "coverage_gaps": [
+    "Cross-pollination-positive cases are not guaranteed by this supplier slice.",
+    "Brand diversity is limited: supplier input is Honeywell-only."
+  ],
+  "execution_profile": "sanity_shadow_v1",
+  "execution_limits": {
+    "MAX_SHADOW_SKUS": 15,
+    "MAX_VERIFIER_CALLS_PER_RUN": 8,
+    "MAX_VERIFIER_CALLS_PER_SKU": 1,
+    "MAX_RUN_WALLCLOCK_SEC": 480,
+    "MAX_CONSECUTIVE_TIMEOUTS": 3,
+    "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+    "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+  }
+}

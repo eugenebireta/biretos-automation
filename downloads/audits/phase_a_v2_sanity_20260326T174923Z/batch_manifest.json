@@ -1,0 +1,233 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260326T174923Z",
+  "created_at": "2026-03-26T17:49:23Z",
+  "source_input": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\honeywell_insales_import.csv",
+  "selection_mode": "curated_15_from_prior_limited_run_for_coverage_balance",
+  "batch_size": 15,
+  "sku_rows": [
+    {
+      "row_number": 1,
+      "pn_primary": "00020211",
+      "name": "Датчик температуры D 20.672.022 T",
+      "expected_category": "Датчик",
+      "our_price_raw": "0,00",
+      "case_tags": [
+        "category_mismatch_case",
+        "expected_pdf_friendly",
+        "leading_zero",
+        "numeric",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 2,
+      "pn_primary": "010130.10",
+      "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
+      "expected_category": "Модуль",
+      "our_price_raw": "13288,04",
+      "case_tags": [
+        "dotted_numeric",
+        "expected_pdf_friendly",
+        "leading_zero",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 3,
+      "pn_primary": "027913.10",
+      "name": "Считыватель карт luminAXS mifareD RS485",
+      "expected_category": "Считыватель",
+      "our_price_raw": "34276,71",
+      "case_tags": [
+        "dotted_numeric",
+        "expected_pdf_friendly",
+        "leading_zero",
+        "rfq_only_case",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 4,
+      "pn_primary": "033588.17",
+      "name": "Шарнирное соединение для настенного монтажа",
+      "expected_category": "Соединение",
+      "our_price_raw": "3025,82",
+      "case_tags": [
+        "dotted_numeric",
+        "leading_zero",
+        "rfq_only_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 5,
+      "pn_primary": "1000106",
+      "name": "Беруши 304L CORDED EARPLUG",
+      "expected_category": "Беруши",
+      "our_price_raw": "13095,00",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 6,
+      "pn_primary": "1011893-RU",
+      "name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом",
+      "expected_category": "Привязь",
+      "our_price_raw": "2447,96",
+      "case_tags": [
+        "alphanumeric",
+        "family_sperian",
+        "family_titan",
+        "suffix_case",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 7,
+      "pn_primary": "1011894-RU",
+      "name": "Страховочная привязь SPERIAN Titan 2-точечная с поясом",
+      "expected_category": "Привязь",
+      "our_price_raw": "2706,30",
+      "case_tags": [
+        "alphanumeric",
+        "family_sperian",
+        "family_titan",
+        "no_price_case",
+        "suffix_case",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 8,
+      "pn_primary": "1011994",
+      "name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
+      "expected_category": "Наушники",
+      "our_price_raw": "1741,63",
+      "case_tags": [
+        "family_leightning",
+        "no_price_case",
+        "numeric"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 9,
+      "pn_primary": "1012541",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU",
+      "expected_category": "Наушники",
+      "our_price_raw": "4675,63",
+      "case_tags": [
+        "family_leightning",
+        "no_price_case",
+        "numeric"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 10,
+      "pn_primary": "1050000000",
+      "name": "Конечная пластина WAP 2.5-10",
+      "expected_category": "Пластина",
+      "our_price_raw": "45,78",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 11,
+      "pn_primary": "1061200000",
+      "name": "Конечный кронштейн Weidmuller WEW 35/2, бежевый",
+      "expected_category": "Кронштейн",
+      "our_price_raw": "131,08",
+      "case_tags": [
+        "family_weidmuller",
+        "numeric"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 12,
+      "pn_primary": "121679-L3",
+      "name": "Ручной аспиратор Honeywell 121679-L3",
+      "expected_category": "Аспиратор",
+      "our_price_raw": "17168,64",
+      "case_tags": [
+        "alphanumeric",
+        "no_price_case",
+        "suffix_case",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 13,
+      "pn_primary": "125711",
+      "name": "Термостатический вентиль Honeywell D 20.610.21 TV",
+      "expected_category": "Вентиль",
+      "our_price_raw": "714,10",
+      "case_tags": [
+        "expected_pdf_friendly",
+        "no_price_case",
+        "numeric",
+        "weak_photo_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 14,
+      "pn_primary": "129464N/U",
+      "name": "Миниатюрная трубка Honeywell Mini Peeper 129464N/U",
+      "expected_category": "Трубка",
+      "our_price_raw": "1997,60",
+      "case_tags": [
+        "alphanumeric",
+        "category_mismatch_case",
+        "suffix_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    },
+    {
+      "row_number": 15,
+      "pn_primary": "129625-L3",
+      "name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3",
+      "expected_category": "Набор",
+      "our_price_raw": "55352,00",
+      "case_tags": [
+        "alphanumeric",
+        "family_gasalert",
+        "no_price_case",
+        "suffix_case"
+      ],
+      "selection_reason": "Curated 15-SKU subset from the 370-SKU input. Chosen from the prior limited 25-SKU slice to preserve coverage across numeric, dotted, alphanumeric, suffix, leading-zero, weak-photo, RFQ, no-price, and expected PDF-friendly cases without opening broader run scope."
+    }
+  ],
+  "coverage_by_case_type": {
+    "alphanumeric": 5,
+    "category_mismatch_case": 2,
+    "dotted_numeric": 3,
+    "expected_pdf_friendly": 4,
+    "family_gasalert": 1,
+    "family_leightning": 2,
+    "family_sperian": 2,
+    "family_titan": 2,
+    "family_weidmuller": 1,
+    "leading_zero": 4,
+    "no_price_case": 6,
+    "numeric": 7,
+    "rfq_only_case": 2,
+    "suffix_case": 5,
+    "weak_photo_case": 7
+  },
+  "coverage_gaps": [
+    "Cross-pollination-positive cases are not guaranteed by this supplier slice.",
+    "Brand diversity is limited: supplier input is Honeywell-only."
+  ]
+}

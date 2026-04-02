@@ -1,0 +1,86 @@
+{
+  "family": "peha_generic",
+  "brand_final": "PEHA",
+  "family_matchers": [
+    {
+      "match_regex": "D\\s+515$",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "explicit"
+    },
+    {
+      "match_regex": "D\\s+550$",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "explicit"
+    },
+    {
+      "match_regex": "D\\s+433\\s+HAB\\s+O\\.A\\.?$",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "explicit"
+    },
+    {
+      "match_regex": "D\\s+1930/4\\.02\\s+O\\.A\\.?$",
+      "match_fields": [
+        "source_name"
+      ],
+      "basis": "explicit"
+    }
+  ],
+  "series_patterns": [],
+  "product_type_rules": [
+    {
+      "match_regex": "D\\s+515$",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "switch",
+      "type_ru": "Выключатель",
+      "basis": "explicit"
+    },
+    {
+      "match_regex": "D\\s+550$",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "pushbutton",
+      "type_ru": "Кнопка",
+      "basis": "explicit"
+    },
+    {
+      "match_regex": "D\\s+433\\s+HAB\\s+O\\.A\\.?$",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "dimmer",
+      "type_ru": "Диммер",
+      "basis": "explicit"
+    },
+    {
+      "match_regex": "D\\s+1930/4\\.02\\s+O\\.A\\.?$",
+      "match_fields": [
+        "source_name"
+      ],
+      "canonical_type": "speaker_socket",
+      "type_ru": "Акустическая розетка",
+      "basis": "explicit"
+    }
+  ],
+  "attribute_rules": {},
+  "forbidden_generic_titles": [
+    "Электроустановочный модуль"
+  ],
+  "title_templates": {
+    "switch": "{type_ru} {brand}, {part_number}",
+    "pushbutton": "{type_ru} {brand}, {part_number}",
+    "dimmer": "{type_ru} {brand}, {part_number}",
+    "speaker_socket": "{type_ru} {brand}, {part_number}"
+  },
+  "review_if_missing": [
+    "canonical_product_type"
+  ]
+}

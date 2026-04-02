@@ -1,0 +1,433 @@
+[
+  {
+    "schema_version": "shadow_reviewer_packet_v1",
+    "run_id": "phase_a_v2_sanity_20260326T213348Z",
+    "pn_primary": "00020211",
+    "review_priority": "P1",
+    "evidence_summary": {
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons_v2": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_00020211"
+          ],
+          "evidence_ids": [
+            "ev_title_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "CRITICAL_MISMATCH",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_price_00020211"
+          ],
+          "evidence_ids": [
+            "ev_price_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_00020211"
+          ],
+          "evidence_ids": [
+            "ev_image_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_00020211"
+          ],
+          "evidence_ids": [
+            "ev_price_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_00020211"
+          ],
+          "evidence_ids": [
+            "ev_pdf_00020211"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      }
+    },
+    "deterministic_status": "DRAFT_ONLY",
+    "verifier_verdict": "CONFIRM_REVIEW",
+    "verifier_confidence": 0.97,
+    "contradictions": [
+      "Normalized title identifies a Honeywell sensor for PN 00020211, but price evidence classifies the page product as 'Cover Frame' with category_mismatch=true.",
+      "The product identity relies on deterministic title assembly, while exact PN confirmation is false across jsonld, title, h1, product context, and structured identity fields."
+    ],
+    "suggested_owner_decision": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates.",
+    "why_case_matters": [
+      "False public-price signals remain in the sanity slice.",
+      "Numeric/dotted PN KEEP outcomes still require tighter false-positive controls.",
+      "DRAFT_ONLY share is still high for a broader controlled run."
+    ],
+    "artifact_refs": {
+      "bundle": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\evidence\\evidence_00020211.json",
+      "report": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\sanity_audit_report.json",
+      "sidecar": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\candidate_sidecar.jsonl",
+      "run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\run_first_stdout.log"
+    }
+  },
+  {
+    "schema_version": "shadow_reviewer_packet_v1",
+    "run_id": "phase_a_v2_sanity_20260326T213348Z",
+    "pn_primary": "027913.10",
+    "review_priority": "P1",
+    "evidence_summary": {
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "ACCEPTED",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons_v2": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_title_027913.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_image_027913.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_027913.10"
+          ],
+          "evidence_ids": [
+            "ev_pdf_027913.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      }
+    },
+    "deterministic_status": "DRAFT_ONLY",
+    "verifier_verdict": "CONFIRM_REVIEW",
+    "verifier_confidence": 0.96,
+    "contradictions": [
+      "Normalized/deterministic title includes PN 027913.10, but source-backed exact PN confirmation is false across title/structured identity checks and PDF evidence."
+    ],
+    "suggested_owner_decision": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates.",
+    "why_case_matters": [
+      "False public-price signals remain in the sanity slice.",
+      "Numeric/dotted PN KEEP outcomes still require tighter false-positive controls.",
+      "DRAFT_ONLY share is still high for a broader controlled run."
+    ],
+    "artifact_refs": {
+      "bundle": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\evidence\\evidence_027913.10.json",
+      "report": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\sanity_audit_report.json",
+      "sidecar": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\candidate_sidecar.jsonl",
+      "run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\run_first_stdout.log"
+    }
+  },
+  {
+    "schema_version": "shadow_reviewer_packet_v1",
+    "run_id": "phase_a_v2_sanity_20260326T213348Z",
+    "pn_primary": "033588.17",
+    "review_priority": "P1",
+    "evidence_summary": {
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "REVIEW_REQUIRED",
+        "price_status": "ACCEPTED",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons_v2": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_title_033588.17"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_image_033588.17"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_033588.17"
+          ],
+          "evidence_ids": [
+            "ev_pdf_033588.17"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      }
+    },
+    "deterministic_status": "DRAFT_ONLY",
+    "verifier_verdict": "CONFIRM_REVIEW",
+    "verifier_confidence": 0.95,
+    "contradictions": [
+      "Normalized title contains 033588.17, but exact title/H1/structured/product-context/JSON-LD PN matches are all false."
+    ],
+    "suggested_owner_decision": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates.",
+    "why_case_matters": [
+      "False public-price signals remain in the sanity slice.",
+      "Numeric/dotted PN KEEP outcomes still require tighter false-positive controls.",
+      "DRAFT_ONLY share is still high for a broader controlled run."
+    ],
+    "artifact_refs": {
+      "bundle": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\evidence\\evidence_033588.17.json",
+      "report": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\sanity_audit_report.json",
+      "sidecar": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\candidate_sidecar.jsonl",
+      "run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\run_first_stdout.log"
+    }
+  },
+  {
+    "schema_version": "shadow_reviewer_packet_v1",
+    "run_id": "phase_a_v2_sanity_20260326T213348Z",
+    "pn_primary": "1000106",
+    "review_priority": "P1",
+    "evidence_summary": {
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "REVIEW_REQUIRED",
+        "price_status": "ACCEPTED",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons_v2": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1000106"
+          ],
+          "evidence_ids": [
+            "ev_title_1000106"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_1000106"
+          ],
+          "evidence_ids": [
+            "ev_image_1000106"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_1000106"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1000106"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      }
+    },
+    "deterministic_status": "DRAFT_ONLY",
+    "verifier_verdict": "CONFIRM_REVIEW",
+    "verifier_confidence": 0.97,
+    "contradictions": [
+      "title_status=ACCEPTED but exact_title_pn_match=false and all other exact identity signals are false",
+      "pn_confirmed_in_pdf=true but pdf_exact_pn_confirmed=false"
+    ],
+    "suggested_owner_decision": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates.",
+    "why_case_matters": [
+      "False public-price signals remain in the sanity slice.",
+      "Numeric/dotted PN KEEP outcomes still require tighter false-positive controls.",
+      "DRAFT_ONLY share is still high for a broader controlled run."
+    ],
+    "artifact_refs": {
+      "bundle": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\evidence\\evidence_1000106.json",
+      "report": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\sanity_audit_report.json",
+      "sidecar": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\candidate_sidecar.jsonl",
+      "run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\run_first_stdout.log"
+    }
+  },
+  {
+    "schema_version": "shadow_reviewer_packet_v1",
+    "run_id": "phase_a_v2_sanity_20260326T213348Z",
+    "pn_primary": "010130.10",
+    "review_priority": "P1",
+    "evidence_summary": {
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "ACCEPTED",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons_v2": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_title_010130.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_image_010130.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_010130.10"
+          ],
+          "evidence_ids": [
+            "ev_pdf_010130.10"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      }
+    },
+    "deterministic_status": "DRAFT_ONLY",
+    "verifier_verdict": "CONFIRM_REVIEW",
+    "verifier_confidence": 0.95,
+    "contradictions": [],
+    "suggested_owner_decision": "Review whether weak-identity DRAFT_ONLY cases should become REVIEW_REQUIRED under stricter deterministic gates.",
+    "why_case_matters": [
+      "False public-price signals remain in the sanity slice.",
+      "Numeric/dotted PN KEEP outcomes still require tighter false-positive controls.",
+      "DRAFT_ONLY share is still high for a broader controlled run."
+    ],
+    "artifact_refs": {
+      "bundle": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\evidence\\evidence_010130.10.json",
+      "report": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\sanity_audit_report.json",
+      "sidecar": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\candidate_sidecar.jsonl",
+      "run_log": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T213348Z\\run_first_stdout.log"
+    }
+  }
+]

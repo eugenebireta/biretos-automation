@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T19:14:05.092523Z",
+  "pn": "1000106",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Беруши 304L CORDED EARPLUG",
+  "assembled_title": "Беруши Honeywell 1000106",
+  "our_price_raw": "13095,00",
+  "expected_category": "Беруши",
+  "card_status": "AUTO_PUBLISH",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_1000106",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "ACCEPTED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1000106"
+        ],
+        "evidence_ids": [
+          "ev_title_1000106"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1000106"
+        ],
+        "evidence_ids": [
+          "ev_image_1000106"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_1000106"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1000106"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "ACCEPTED",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1000106"
+      ],
+      "evidence_ids": [
+        "ev_title_1000106"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1000106"
+      ],
+      "evidence_ids": [
+        "ev_image_1000106"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_1000106"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1000106"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "на изображении беруши с шнурком, товар угадывается",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1000106.jpg",
+    "sha1": "9c3a73ee043def273ab4c891c98bce28fdb2cbe4",
+    "canonical_filename": "HONEYWELL_1000106_9c3a73ee.jpg",
+    "public_url": null,
+    "width": 344,
+    "height": 426,
+    "size_kb": 43,
+    "source": "cached",
+    "phash": "bd2dc0f0b0b2c3cb",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "public_price",
+    "price_per_unit": 6.825,
+    "currency": "AED",
+    "rub_price": 163.8,
+    "fx_rate_used": 24.0,
+    "fx_provider": "stub",
+    "price_confidence": 90,
+    "source_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+    "source_type": "other",
+    "source_tier": "industrial",
+    "stock_status": "out_of_stock",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Беруши",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://docs.prosafco.be/cec/A000378_cec_en_1.pdf",
+    "pdf_source_tier": "industrial",
+    "pdf_title": "EU Declaration of Conformity",
+    "pdf_specs": {
+      "Personal Protective Equipment": "Brand: Honeywell",
+      "Name": "Tomas Chvatal",
+      "Item Code": "1000106",
+      "Type": "Hearing Protection - Earplugs",
+      "Manufacturer": "HONEYWELL SAFETY PRODUCTS USA INC",
+      " the relevant Union harmonization legislation": "Personal Protective Equipment Regulation (ЕU)",
+      "demonstrated": " the relevant harmonised standard(s) and/or technical specification(s): EN 352-2:2002",
+      "The notified body": "satra Technology Europe Ltd - Ireland",
+      "Number": "0333",
+      "2777/12515-01/E00-00 issued 05/04/2019": "The PPE is subject to the conformity to type assessment procedure based on quality assurance of the",
+      "Under the surveillance of the notified body": "AFNOR Certification",
+      "Place of issue": "San Diego",
+      "Date of issue": "18/03/2021",
+      "Function": "Certification Engineer Sr"
+    },
+    "pdf_text_excerpt": "EU Declaration of Conformity Personal Protective Equipment: Brand: Honeywell Name: BILSOM® 304L - Disposable Foam Earplugs Item Code: 1000106 Type: Hearing Protection - Earplugs Manufacturer: HONEYWELL SAFETY PRODUCTS USA INC 7828 Waterville Road 92154 San Diego UNITED STATES This declaration of conformity is issued under the sole responsibility of the manufacturer: HONEYWELL SAFETY PRODUCTS USA INC The object of the declaration described above is in conformity with:  the relevant Union harmonization legislation: Personal Protective Equipment Regulation (ЕU) 2016/425 The fulfilment of the app",
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  }
+}

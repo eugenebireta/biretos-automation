@@ -1,0 +1,35 @@
+{
+  "recheck_mode": "offline_replay_from_existing_bundles_only",
+  "authoritative_input_artifact": "d:\\BIRETOS\\projects\\biretos-automation\\downloads\\audits\\phase_a_v2_sanity_20260326T171834Z",
+  "code_basis": "current_worktree_card_status_adapter",
+  "old_v2_distribution": {
+    "DRAFT_ONLY": 25
+  },
+  "replayed_v2_distribution": {
+    "DRAFT_ONLY": 23,
+    "REVIEW_REQUIRED": 2
+  },
+  "changed_skus": [
+    {
+      "pn_primary": "1006186",
+      "old_identity_level": "weak",
+      "new_identity_level": "strong",
+      "old_card_status": "DRAFT_ONLY",
+      "new_card_status": "REVIEW_REQUIRED",
+      "datasheet_status": "found",
+      "pdf_source_tier": "authorized",
+      "pn_confirmed_in_pdf": true
+    },
+    {
+      "pn_primary": "1006187",
+      "old_identity_level": "weak",
+      "new_identity_level": "strong",
+      "old_card_status": "DRAFT_ONLY",
+      "new_card_status": "REVIEW_REQUIRED",
+      "datasheet_status": "found",
+      "pdf_source_tier": "authorized",
+      "pn_confirmed_in_pdf": true
+    }
+  ],
+  "verdict": "NO"
+}

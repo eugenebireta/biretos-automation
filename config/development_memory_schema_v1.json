@@ -1,0 +1,16 @@
+{
+  "schema_version": "development_memory_schema_v1",
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "updated_at",
+    "source_run_id",
+    "proven",
+    "not_proven_or_rejected",
+    "current_blockers",
+    "active_constraints",
+    "next_approved_work_item",
+    "artifact_references",
+    "policy_schema_versions"
+  ]
+}

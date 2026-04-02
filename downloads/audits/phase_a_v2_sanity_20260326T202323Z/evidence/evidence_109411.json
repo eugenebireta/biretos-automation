@@ -1,0 +1,400 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T20:23:24.007390Z",
+  "pn": "109411",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Датчик температуры D 20.645.21",
+  "assembled_title": "Датчик Honeywell 109411",
+  "our_price_raw": "669,60",
+  "expected_category": "Датчик",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "no_photo_and_no_price"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_109411",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_109411"
+        ],
+        "evidence_ids": [
+          "ev_title_109411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_109411"
+        ],
+        "evidence_ids": [
+          "ev_image_109411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_109411"
+        ],
+        "evidence_ids": [
+          "ev_price_109411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_109411"
+        ],
+        "evidence_ids": [
+          "ev_pdf_109411"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_109411"
+      ],
+      "evidence_ids": [
+        "ev_title_109411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_109411"
+      ],
+      "evidence_ids": [
+        "ev_image_109411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_109411"
+      ],
+      "evidence_ids": [
+        "ev_price_109411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_109411"
+      ],
+      "evidence_ids": [
+        "ev_pdf_109411"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.05,
+    "price_confidence": 0.0,
+    "overall": 0.015,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "баннер/шапка сайта 700x70px",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\109411.jpg",
+    "sha1": "e729f180ffe95933b3234cc7df71a10c0f38d91d",
+    "canonical_filename": "HONEYWELL_109411_e729f180.jpg",
+    "public_url": null,
+    "width": 200,
+    "height": 316,
+    "size_kb": 6,
+    "source": "cached",
+    "phash": "e86e839986879d6c",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://ljwalch.com/wp-content/themes/LJWalch/ljwcap.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "PN DESCRIPTION COND MFG_CODE",
+    "pdf_specs": {
+      "01-P11487D01 UNDERFREQ": "SENSOR R PROJECTS UNLIMITED",
+      "0104525-003 LENS ASSY": "O LUMINATOR",
+      "02312-0032-0015 SLEEVE R DOUGLAS AIRCRAFT CO": "02312-0032-0016 SLEEVE R ROSEMOUNT AEROSPACE",
+      "02312-0034-0014 LINKAGE ASSY": "R ALCO CONTROLS",
+      "02312-0034-0015 LINKAGE ASSY": "R ROSEMOUNT AEROSPACE",
+      "02312-0034-0052 LINKAGE ASSY R DOUGLAS AIRCRAFT CO": "02312-0042-0001 LINKAGE ASSY O ALCO CONTROLS",
+      "026953 FAN, VANEAXIAL O ROTRON MFG": "02741 BALLAST F BRUCE IND.",
+      "03-01733-078 FIRE DETECTOR F FENWAL INC": "03-017343-006 FIRE DETECTOR F FENWAL INC.",
+      "03-017343-011 FIRE DETECTOR F FENWAL INC": "03-017343-016 FIRE DETECTOR F FENWAL INC.",
+      "03-017343-061 FIRE DETECTOR F FENWAL INC": "03-017343-062 FIRE DETECTOR F FENWAL INC.",
+      "03-017343-078 FIRE DETECTOR F FENWAL INC": "03-017343-081 FIRE DETECTOR F FENWAL INC.",
+      "03-017343-083 FIRE DETECTOR F FENWAL INC": "03-017343-087 FIRE DETECTOR F FENWAL INC."
+    },
+    "pdf_text_excerpt": "PN DESCRIPTION COND MFG_CODE 0-1616055-2 CONTACTOR F TYCO 0-1616055-2 CONTACTOR R TYCO 0-1616055-3 CONTACTOR O TYCO 002311-0208-0001 WINDSHIELD MOTOR ASSY O ROSEMOUNT AEROSPACE 004443-1 CUP WASHER R LUCAS 004443-5 CUP WASHER R LUCAS 00871-1693-0001 STRUT AND PROBE ASSEMBLY O ROSEMOUNT AEROSPACE 01-0770544-00 WARNING HORN F WHELEN 01-0770544-00 WARNING HORN R WHELEN 01-P11487D01 UNDERFREQ. SENSOR R PROJECTS UNLIMITED 0104244-001 LOGO FLOOD LIGHTS O LUMINATOR 0104244-002 LOGO FLOOD LIGHTS O LUMINATOR 0104244-003 LOGO FLOOD LIGHTS O LUMINATOR 0104244-004 LOGO FLOOD LIGHTS O LUMINATOR 0104525-003",
+    "num_pages": 288,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": null
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": true,
+    "trace_id": "catalog_verifier:109411:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:109411:80f22b1e4691f830ca248007",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:109411:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:109411:80f22b1e4691f830ca248007",
+      "pn_primary": "109411",
+      "normalized_title": "Датчик Honeywell 109411",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_109411"
+          ],
+          "evidence_ids": [
+            "ev_title_109411"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_109411"
+          ],
+          "evidence_ids": [
+            "ev_image_109411"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_109411"
+          ],
+          "evidence_ids": [
+            "ev_price_109411"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_109411"
+          ],
+          "evidence_ids": [
+            "ev_pdf_109411"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "",
+        "pdf_source_tier": "unknown",
+        "image_source_tier": ""
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "unknown"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": null,
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "failed",
+    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
+    "openai_request_id": ""
+  }
+}

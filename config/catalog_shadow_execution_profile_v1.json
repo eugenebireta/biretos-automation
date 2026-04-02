@@ -1,0 +1,33 @@
+{
+  "schema_version": "catalog_shadow_execution_profile_v1",
+  "profile_name": "sanity_shadow_v1",
+  "responses_only_verifier": true,
+  "limits": {
+    "MAX_SHADOW_SKUS": 15,
+    "MAX_VERIFIER_CALLS_PER_RUN": 8,
+    "MAX_VERIFIER_CALLS_PER_SKU": 1,
+    "MAX_RUN_WALLCLOCK_SEC": 480,
+    "MAX_CONSECUTIVE_TIMEOUTS": 3,
+    "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+    "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+  },
+  "weak_marketplace_policy": {
+    "allow_weak_marketplaces": false,
+    "blocked_domain_keywords": [
+      "ebay.",
+      "avito.",
+      "ozon.",
+      "wildberries.",
+      "youla.",
+      "drom.",
+      "manualslib.",
+      "indiamart."
+    ]
+  },
+  "execution_intent": {
+    "audit_first": true,
+    "coverage_maximization": false,
+    "fast_failure": true,
+    "partial_report_on_stop": true
+  }
+}

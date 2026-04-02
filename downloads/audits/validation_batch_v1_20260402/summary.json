@@ -1,0 +1,66 @@
+{
+  "batch_id": "validation_batch_v1_20260402",
+  "ts": "2026-04-02T12:00:00Z",
+  "actor": "Agent/ClaudeCode-Sonnet4.6",
+  "purpose": "Bounded validation batch: memory materialization audit + Claude scout parity check",
+
+  "memory_audit": {
+    "items": [
+      {"lesson": "photo_status contract / placeholder != identity proof", "status": "materialized", "evidence": "ENRICHMENT-PLACEHOLDER-NOT-IDENTITY-PROOF-001 + ENRICHMENT-PHOTO-STATUS-MINI-CONTRACT-001 in docs/memory/enrichment/ENRICHMENT_EXPERIENCE_v1.jsonl; photo_status enum in scripts/card_status.py"},
+      {"lesson": "canonical photos/ vs scout_* scratch separation", "status": "materialized", "evidence": "ENRICHMENT-SCOUT-CACHE-SEPARATION-001 in ENRICHMENT_EXPERIENCE_v1.jsonl; photo_scene_manual_scout.py routes downloads/photos vs downloads/scout_assets"},
+      {"lesson": "manual price path without OpenAI API", "status": "materialized", "evidence": "ENRICHMENT-CODEX-MANUAL-PRICE-SCOUT-001 in ENRICHMENT_EXPERIENCE_v1.jsonl; scripts/price_manual_scout.py implements full manual path"},
+      {"lesson": "robustness slice 20/20 for manual price batch", "status": "materialized", "evidence": "ENRICHMENT-MANUAL-PRICE-ROBUSTNESS-SLICE-001 in ENRICHMENT_EXPERIENCE_v1.jsonl; STATE.md seq-40 note: N3 manual robustness batch 20/20"},
+      {"lesson": "explicit fx_gap status", "status": "partially materialized", "evidence": "ENGINEERING-EXPLICIT-FX-GAP-STATUS-001 in docs/memory/engineering/ENGINEERING_EXPERIENCE_v1.jsonl + implementation in price_manual_scout.py. NOT in enrichment memory — cross-file gap.", "gap": "Rule lives in engineering memory, not enrichment memory. Enrichment rules contain no fx_gap mention."},
+      {"lesson": "photo_enhance v1 as derivative-only placeholder layer", "status": "materialized", "evidence": "ENRICHMENT-LOCAL-PHOTO-ENHANCE-DERIVATIVE-LAYER-001 + ENRICHMENT-PHOTO-VERDICT-REJECT-BLOCKS-ENHANCE-001 in ENRICHMENT_EXPERIENCE_v1.jsonl; scripts/photo_enhance_local.py"},
+      {"lesson": "Pack A cleanup: 6 SKU holdout from AUTO_PUBLISH to REVIEW_REQUIRED", "status": "partially materialized", "evidence": "Recorded in STATE.md seq-42 prev_actions (LEGACY_AUTO_PUBLISH_HOLDOUT). Not in enrichment or engineering JSONL memory — lives only in STATE.md and evidence JSONs.", "gap": "No reusable rule capturing the decision logic for when holdout is appropriate. Would benefit from a single enrichment rule."},
+      {"lesson": "legacy card_status mismatch as known debt", "status": "partially materialized", "evidence": "Surfaced in STATE.md: policy_card_status_mismatch_count=11 made explicit in refresh_trace. No dedicated rule in ENRICHMENT_EXPERIENCE_v1.jsonl about how to handle legacy mismatch debt.", "gap": "Missing rule on canonical treatment of pre-_mirror_bundle_card_outcome legacy evidence bundles."},
+      {"lesson": "local catalog refresh overlay outcomes", "status": "materialized", "evidence": "ENRICHMENT-LOCAL-IMPORT-CONTENT-OVERLAY-001 + ENRICHMENT-REJECTED-PHOTO-MUST-NOT-EXPORT-001 in ENRICHMENT_EXPERIENCE_v1.jsonl; scripts/local_catalog_refresh.py; audit artifacts in downloads/audits/local_catalog_refresh_*"}
+    ],
+    "summary": {"materialized": 5, "partially_materialized": 3, "missing": 0}
+  },
+
+  "price_scout_slice": {
+    "sku_count": 5,
+    "seeds_found": 1,
+    "seeds_skipped_no_source": 4,
+    "skipped": [
+      {"part_number": "00020211", "reason": "category_mismatch_only — tameson.com has price but product is PEHA frame, not Датчик температуры as per InSales seed. Admissible source not found in search."},
+      {"part_number": "1011994", "reason": "honeywellstore.com page confirmed by search but price_per_unit not extractable without page visit (quota exhausted). Deferred."},
+      {"part_number": "1012541", "reason": "Honeywell support article confirms PN (L3H EU variant) but no public price page found for EU model."},
+      {"part_number": "101411", "reason": "D 20.572.51.70 not matched by any distributor page in search. Likely requires specialist HVAC/BMS distributor lookup."}
+    ],
+    "results": [
+      {"part_number": "1011894-RU", "price_status": "ambiguous_offer", "price_per_unit": 71.5, "currency": "GBP", "rub_price": 8008.0, "fx_normalization_status": "normalized", "source_tier": "unknown", "lineage_confirmed": false, "lineage_reason_code": "access_denied_or_non_html", "surface_conflict_detected": true, "surface_conflict_reason": "current_surface_conflicts_with_prior", "review_required": true, "note": "workwear.co.uk access blocked by script (non-HTML or denied). Price confirmed by search snippet but lineage could not be verified. Review required before use."}
+    ]
+  },
+
+  "photo_scout_slice": {
+    "sku_count": 5,
+    "seeds_found": 2,
+    "seeds_skipped_no_new_source": 3,
+    "skipped": [
+      {"part_number": "010130.10", "reason": "Already in primary photo_scene_manual_seed.jsonl with igs-hagen.de source. Not re-seeded to avoid duplicate."},
+      {"part_number": "027913.10", "reason": "Already in primary photo_scene_manual_seed.jsonl with igs-hagen.de source."},
+      {"part_number": "1011893-RU", "reason": "Already in primary photo_scene_manual_seed.jsonl with ruslader.ru source."}
+    ],
+    "results": [
+      {"part_number": "00020211", "download_ok": true, "source_tier": "weak", "source_role": "organic_discovery", "photo_status_target": "exact_evidence", "review_required": true, "note": "Tameson page accessible. Tier=weak (commerce site, not official distributor). Photo downloaded. Category-name mismatch flag: product_name in evidence says Датчик температуры but 00020211 is a PEHA 2-gang NOVA frame — naming debt."},
+      {"part_number": "1011894-RU", "download_ok": true, "source_tier": "unknown", "source_role": "organic_discovery", "photo_status_target": "exact_evidence", "resolved_asset_url": null, "review_required": true, "note": "workwear.co.uk page accessible but no asset_url resolved (asset_url empty in seed, parser did not extract image URL). Page confirmed product exists. Manual asset_url lookup needed."}
+    ]
+  },
+
+  "bug_fixed": {
+    "script": "photo_scene_manual_scout.py",
+    "line": 189,
+    "fix": "row['resolved_asset_url'][:100] -> str(row['resolved_asset_url'] or '')[:100]",
+    "tests": "2/2 pass"
+  },
+
+  "created_artifacts": [
+    "downloads/scout_cache/validation_price_seed_v1.jsonl",
+    "downloads/scout_cache/validation_photo_seed_v1.jsonl",
+    "downloads/scout_cache/validation_price_manifest_v1.jsonl",
+    "downloads/scout_cache/validation_photo_manifest_v1.jsonl",
+    "downloads/audits/validation_batch_v1_20260402/summary.json"
+  ]
+}

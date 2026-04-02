@@ -1,0 +1,41 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260331T035750Z_1006186_conflict_residual",
+  "created_at": "2026-03-31T03:57:50Z",
+  "source_input": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\honeywell_insales_import.csv",
+  "selection_mode": "single_residual_conflict_case",
+  "batch_size": 1,
+  "sku_rows": [
+    {
+      "row_number": 1,
+      "pn_primary": "1006186",
+      "name": "Беруши 303L FOAMPLUG",
+      "expected_category": "Беруши",
+      "our_price_raw": "1920,61",
+      "case_tags": [
+        "numeric"
+      ],
+      "selection_reason": "Single-SKU residual conflict proof batch for 1006186 only."
+    }
+  ],
+  "coverage_by_case_type": {
+    "numeric": 1
+  },
+  "coverage_gaps": [
+    "No expected PDF-friendly SKU in the selected subset.",
+    "No suffix-case PN in the selected subset.",
+    "No family/subbrand pattern surfaced in names.",
+    "Cross-pollination-positive cases are not guaranteed by this supplier slice.",
+    "Brand diversity is limited: supplier input is Honeywell-only."
+  ],
+  "execution_profile": "sanity_shadow_v1",
+  "execution_limits": {
+    "MAX_SHADOW_SKUS": 15,
+    "MAX_VERIFIER_CALLS_PER_RUN": 8,
+    "MAX_VERIFIER_CALLS_PER_SKU": 1,
+    "MAX_RUN_WALLCLOCK_SEC": 480,
+    "MAX_CONSECUTIVE_TIMEOUTS": 3,
+    "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+    "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+  },
+  "scope_note": "Single residual exact-lineage conflict case after CAP-09B partial closure."
+}

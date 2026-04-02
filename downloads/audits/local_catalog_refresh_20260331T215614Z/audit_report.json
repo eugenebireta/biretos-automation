@@ -1,0 +1,284 @@
+{
+  "run_meta": {
+    "run_ts": "2026-03-31T21:56:14.286583Z",
+    "mode": "local_catalog_refresh_v1",
+    "promote_canonical": true,
+    "input_file": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\honeywell_insales_import.csv",
+    "photo_manifest": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
+    "source_evidence_dir": "downloads\\audits\\phase_a_v2_sanity_20260326T202323Z\\evidence",
+    "canonical_evidence_dir": "downloads\\evidence"
+  },
+  "total_sku": 25,
+  "photo": {
+    "keep": 11,
+    "keep_rate": "44.0%",
+    "reject": 14,
+    "no_photo": 0
+  },
+  "price": {
+    "public_price": 8,
+    "rfq_only": 2,
+    "no_price_found": 12,
+    "category_mismatch_isolated": 3
+  },
+  "datasheet": {
+    "found": 3
+  },
+  "cards": {
+    "auto_publish": 6,
+    "auto_publish_rate": "24.0%",
+    "review_required": 9,
+    "draft_only": 10
+  },
+  "flags": {
+    "numeric_pn_guard_triggered": 0,
+    "stock_photo_flag": 0,
+    "suffix_conflict": 0,
+    "category_mismatch": 3
+  },
+  "per_sku": [
+    {
+      "pn": "00020211",
+      "name": "Датчик температуры D 20.672.022 T",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "category_mismatch_only",
+      "review_reasons": [
+        "category_mismatch",
+        "photo_rejected_or_missing",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "010130.10",
+      "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "REJECT",
+      "price_status": "public_price",
+      "review_reasons": [
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "027913.10",
+      "name": "Считыватель карт luminAXS mifareD RS485",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "REJECT",
+      "price_status": "rfq_only",
+      "review_reasons": [
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "033588.17",
+      "name": "Шарнирное соединение для настенного монтажа",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "rfq_only",
+      "review_reasons": []
+    },
+    {
+      "pn": "1000106",
+      "name": "Беруши 304L CORDED EARPLUG",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1006186",
+      "name": "Беруши 303L FOAMPLUG",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1006187",
+      "name": "Беруши 303S-YEL/WHT",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1011893-RU",
+      "name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "REJECT",
+      "price_status": "public_price",
+      "review_reasons": [
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "1011894-RU",
+      "name": "Страховочная привязь SPERIAN Titan 2-точечная с поясом",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "1011994",
+      "name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "KEEP",
+      "price_status": "no_price_found",
+      "review_reasons": []
+    },
+    {
+      "pn": "1012539",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNING L1H",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "1012541",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "KEEP",
+      "price_status": "no_price_found",
+      "review_reasons": []
+    },
+    {
+      "pn": "101411",
+      "name": "Датчик температуры D 20.572.51.70",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "1015021",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "KEEP",
+      "price_status": "no_price_found",
+      "review_reasons": []
+    },
+    {
+      "pn": "104011",
+      "name": "Датчик температуры D 20.545.02",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "1050000000",
+      "name": "Конечная пластина WAP 2.5-10",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "REJECT",
+      "price_status": "public_price",
+      "review_reasons": [
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "105411",
+      "name": "Датчик температуры D 20.545.21",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "1061200000",
+      "name": "Конечный кронштейн Weidmuller WEW 35/2, бежевый",
+      "card_status": "AUTO_PUBLISH",
+      "photo_verdict": "KEEP",
+      "price_status": "public_price",
+      "review_reasons": []
+    },
+    {
+      "pn": "106511",
+      "name": "Датчик температуры D 20.6511.02 OKS",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "category_mismatch_only",
+      "review_reasons": [
+        "category_mismatch",
+        "photo_rejected_or_missing",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "109411",
+      "name": "Датчик температуры D 20.645.21",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "121679-L3",
+      "name": "Ручной аспиратор Honeywell 121679-L3",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "125711",
+      "name": "Термостатический вентиль Honeywell D 20.610.21 TV",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "127411",
+      "name": "Термостатический вентиль Honeywell D 20.6511.21",
+      "card_status": "DRAFT_ONLY",
+      "photo_verdict": "REJECT",
+      "price_status": "no_price_found",
+      "review_reasons": [
+        "no_photo_and_no_price",
+        "NO_IMAGE_EVIDENCE"
+      ]
+    },
+    {
+      "pn": "129464N/U",
+      "name": "Миниатюрная трубка Honeywell Mini Peeper 129464N/U",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "KEEP",
+      "price_status": "category_mismatch_only",
+      "review_reasons": [
+        "category_mismatch",
+        "mismatch_blocks_publish"
+      ]
+    },
+    {
+      "pn": "129625-L3",
+      "name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3",
+      "card_status": "REVIEW_REQUIRED",
+      "photo_verdict": "KEEP",
+      "price_status": "no_price_found",
+      "review_reasons": []
+    }
+  ]
+}

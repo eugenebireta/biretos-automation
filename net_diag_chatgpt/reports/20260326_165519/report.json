@@ -1,0 +1,152 @@
+{
+  "timestamp": "2026-03-26T13:56:29.624061Z",
+  "results": [
+    {
+      "name": "tcp_rtt",
+      "status": "ERROR",
+      "metrics": {
+        "dns_ms": 5.333333333333333,
+        "connect_ms": 0.0,
+        "appconnect_ms": 0.0,
+        "ttfb_ms": 0.0,
+        "total_ms": 5.664666666666666,
+        "http_code": 0
+      },
+      "details": "No HTTP response received",
+      "ts": "2026-03-26T13:55:19.336691Z",
+      "mode": "direct"
+    },
+    {
+      "name": "tls_handshake",
+      "status": "ERROR",
+      "metrics": {},
+      "details": "openssl not found or not accessible. Install OpenSSL to enable TLS handshake testing.",
+      "ts": "2026-03-26T13:55:19.337690Z",
+      "mode": "direct"
+    },
+    {
+      "name": "dns_leak",
+      "status": "ERROR",
+      "metrics": {},
+      "details": "nslookup timeout",
+      "ts": "2026-03-26T13:55:29.354988Z",
+      "mode": "direct"
+    },
+    {
+      "name": "http_timing",
+      "status": "ERROR",
+      "metrics": {},
+      "details": "Unexpected error: Expecting ',' delimiter: line 1 column 97 (char 96)",
+      "ts": "2026-03-26T13:55:29.386069Z",
+      "mode": "direct"
+    },
+    {
+      "name": "ws_echo",
+      "status": "SUCCESS",
+      "metrics": {
+        "skipped": true
+      },
+      "details": "WebSocket echo test skipped (WS_ECHO_URL not configured)",
+      "ts": "2026-03-26T13:55:29.386069Z",
+      "mode": "direct"
+    },
+    {
+      "name": "playwright_har",
+      "status": "SUCCESS",
+      "metrics": {
+        "skipped": true
+      },
+      "details": "Playwright HAR test skipped (PLAYWRIGHT_ENABLED not set to 'true')",
+      "ts": "2026-03-26T13:55:29.386069Z",
+      "mode": "direct"
+    },
+    {
+      "name": "idle_tcp",
+      "status": "ERROR",
+      "metrics": {
+        "first_connect_ms": 0.0,
+        "second_connect_ms": 0.0,
+        "idle_seconds": 30,
+        "connect_diff_ms": 0.0
+      },
+      "details": "Failed to measure connect times",
+      "ts": "2026-03-26T13:55:59.429011Z",
+      "mode": "direct"
+    },
+    {
+      "name": "tcp_rtt",
+      "status": "ERROR",
+      "metrics": {
+        "dns_ms": 0.01933333333333333,
+        "connect_ms": 8.255666666666666,
+        "appconnect_ms": 0.0,
+        "ttfb_ms": 0.0,
+        "total_ms": 22.35366666666667,
+        "http_code": 0
+      },
+      "details": "No HTTP response received",
+      "ts": "2026-03-26T13:55:59.525964Z",
+      "mode": "proxy"
+    },
+    {
+      "name": "tls_handshake",
+      "status": "ERROR",
+      "metrics": {},
+      "details": "openssl s_client does not support SOCKS5 proxy. Use proxy-aware tool or test direct connection.",
+      "ts": "2026-03-26T13:55:59.525964Z",
+      "mode": "proxy"
+    },
+    {
+      "name": "dns_leak",
+      "status": "FAIL",
+      "metrics": {
+        "resolver": null,
+        "ips": []
+      },
+      "details": "Cannot verify DNS leak through proxy: nslookup does not support SOCKS5 proxy. Cannot verify DNS leak through proxy.. DNS should be resolved through X-Ray (1.1.1.1) when proxy is active.",
+      "ts": "2026-03-26T13:55:59.525964Z",
+      "mode": "proxy"
+    },
+    {
+      "name": "http_timing",
+      "status": "ERROR",
+      "metrics": {},
+      "details": "Unexpected error: Expecting ',' delimiter: line 1 column 97 (char 96)",
+      "ts": "2026-03-26T13:55:59.556753Z",
+      "mode": "proxy"
+    },
+    {
+      "name": "ws_echo",
+      "status": "SUCCESS",
+      "metrics": {
+        "skipped": true
+      },
+      "details": "WebSocket echo test skipped (WS_ECHO_URL not configured)",
+      "ts": "2026-03-26T13:55:59.556753Z",
+      "mode": "proxy"
+    },
+    {
+      "name": "playwright_har",
+      "status": "SUCCESS",
+      "metrics": {
+        "skipped": true
+      },
+      "details": "Playwright HAR test skipped (PLAYWRIGHT_ENABLED not set to 'true')",
+      "ts": "2026-03-26T13:55:59.556753Z",
+      "mode": "proxy"
+    },
+    {
+      "name": "idle_tcp",
+      "status": "ERROR",
+      "metrics": {
+        "first_connect_ms": 0.0,
+        "second_connect_ms": 0.0,
+        "idle_seconds": 30,
+        "connect_diff_ms": 0.0
+      },
+      "details": "Failed to measure connect times",
+      "ts": "2026-03-26T13:56:29.623056Z",
+      "mode": "proxy"
+    }
+  ]
+}

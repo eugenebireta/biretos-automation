@@ -1,0 +1,55 @@
+{
+  "schema_version": "shadow_adjudication_policy_v1",
+  "policy_version": "shadow_adjudication_policy_v1",
+  "disagreement_categories": [
+    "deterministic_vs_verifier_disagreement",
+    "policy_too_strict_candidate",
+    "verifier_insufficient_evidence"
+  ],
+  "contradiction_categories": [
+    "contradiction_in_evidence",
+    "source_quality_problem",
+    "upstream_missing_signal"
+  ],
+  "blocker_categories": [
+    "still_blocked_for_broader_run",
+    "runtime_budget_problem",
+    "cost_visibility_problem",
+    "source_quality_problem",
+    "upstream_missing_signal",
+    "policy_too_strict_candidate"
+  ],
+  "recommendation_categories": [
+    "owner_review",
+    "deterministic_fix_candidate",
+    "schema_observability_fix",
+    "runtime_tuning_candidate",
+    "defer_out_of_scope"
+  ],
+  "memory_buckets": [
+    "proven",
+    "not_proven_or_rejected",
+    "current_blockers",
+    "active_constraints",
+    "next_approved_work_item",
+    "artifact_references",
+    "policy_schema_versions"
+  ],
+  "priority_rules": {
+    "base_scores": {
+      "policy_too_strict_candidate": 100,
+      "contradiction_in_evidence": 80,
+      "upstream_missing_signal": 70,
+      "runtime_budget_problem": 60,
+      "source_quality_problem": 50,
+      "cost_visibility_problem": 40,
+      "verifier_insufficient_evidence": 30
+    },
+    "priority_bands": {
+      "P1": 100,
+      "P2": 70,
+      "P3": 40,
+      "P4": 0
+    }
+  }
+}

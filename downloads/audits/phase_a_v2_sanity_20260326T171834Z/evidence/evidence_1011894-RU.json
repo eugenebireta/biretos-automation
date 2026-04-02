@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-03-26T17:18:34.635601Z",
+  "pn": "1011894-RU",
+  "pn_variants": [
+    "1011894.RU",
+    "1011894RU"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Страховочная привязь SPERIAN Titan 2-точечная с поясом",
+  "assembled_title": "Привязь Honeywell 1011894-RU",
+  "our_price_raw": "2706,30",
+  "expected_category": "Привязь",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "no_photo_and_no_price"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_1011894-RU",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_title_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_image_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_price_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1011894-RU"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1011894-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1011894-RU"
+      ],
+      "evidence_ids": [
+        "ev_title_1011894-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_1011894-RU"
+      ],
+      "evidence_ids": [
+        "ev_image_1011894-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_1011894-RU"
+      ],
+      "evidence_ids": [
+        "ev_price_1011894-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_1011894-RU"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1011894-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "логотип без самого товара",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011894-RU.jpg",
+    "sha1": "78f6075b2cbf080f1dc25b1ddc0406b8c1ab0ddd",
+    "canonical_filename": "HONEYWELL_1011894-RU_78f6075b.jpg",
+    "public_url": null,
+    "width": 320,
+    "height": 450,
+    "size_kb": 49,
+    "source": "yandex:https://fapsiz.ru/magazin/product/privyaz-miller-titan-2r-s-poyasom/",
+    "phash": "b433d31c4fcd9864",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "not_found",
+    "pdf_url": null,
+    "pdf_source_tier": null,
+    "pdf_title": null,
+    "pdf_specs": {},
+    "pdf_text_excerpt": null,
+    "num_pages": 0,
+    "parse_method": null,
+    "pn_confirmed_in_pdf": false
+  },
+  "content": {
+    "specs": {
+      "Артикул:": "1011894-RU"
+    },
+    "description": "Привязь Miller Титан 2Р с поясом от производителя ФАП. Цена от 4 685 руб. Доставка по Санкт-Петербургу и России. Звоните +7 (812) 386-386-8. Мы предлагаем широкий ассортимент СИЗ по минимальной розничной цене."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "batch_id": "phase_a_v2_sanity_20260331T072801Z_1012541_official_article_exact_v2",
+  "created_at": "2026-03-31T07:28:01Z",
+  "source_input": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\honeywell_insales_import.csv",
+  "selection_mode": "single_sku_1012541_official_article_exact_lineage_repro_v2",
+  "batch_size": 1,
+  "sku_rows": [
+    {
+      "row_number": 1,
+      "pn_primary": "1012541",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU",
+      "expected_category": "Наушники",
+      "our_price_raw": "4675,63",
+      "case_tags": [
+        "family_leightning",
+        "no_price_case",
+        "numeric"
+      ],
+      "selection_reason": "Deterministic head-1 subset from the 370-SKU input. Chosen because it matches the prior limited 1-SKU run and covers numeric, dotted, alphanumeric, suffix, price, and weak-photo patterns without opening broader run scope."
+    }
+  ],
+  "coverage_by_case_type": {
+    "family_leightning": 1,
+    "no_price_case": 1,
+    "numeric": 1
+  },
+  "coverage_gaps": [
+    "Single-SKU proof batch; not intended for broader coverage."
+  ],
+  "execution_profile": "sanity_shadow_v1",
+  "execution_limits": {
+    "MAX_SHADOW_SKUS": 15,
+    "MAX_VERIFIER_CALLS_PER_RUN": 8,
+    "MAX_VERIFIER_CALLS_PER_SKU": 1,
+    "MAX_RUN_WALLCLOCK_SEC": 480,
+    "MAX_CONSECUTIVE_TIMEOUTS": 3,
+    "MAX_EXTERNAL_SOURCE_ATTEMPTS_PER_SKU": 3,
+    "MAX_DATASHEET_ATTEMPTS_PER_SKU": 2
+  }
+}
