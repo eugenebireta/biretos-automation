@@ -1,5 +1,48 @@
 # Task Capsule
 
+Task_ID: bvs-merge-tool
+Risk: SEMI
+Date: 2026-04-03
+Branch: feat/rev-r1-catalog
+PR: https://github.com/eugenebireta/biretos-automation/pull/28
+
+## What was built
+
+Deterministic merge tool for first+second pass price scout manifests.
+
+New modules:
+- `scripts/merge_manifests.py` — merge by key=`part_number::source_domain`,
+  second-pass wins on lineage/price upgrade, blocked records dropped
+- `tests/enrichment/test_merge_manifests.py` — 17 deterministic tests
+
+Reproducible artifacts:
+- `downloads/scout_cache/bvs_25sku_seed.jsonl` — 5 eligible URLs from 25 SKU
+- `downloads/scout_cache/merged_manifest.jsonl` — 22 rows (20 first-pass + 2 BVS wins)
+
+## Coverage detail
+
+25 SKU checked for BVS eligibility via `load_first_pass_candidates()`:
+- 5 URLs eligible (3 PN across vseinstrumenti.ru + lemanapro.ru)
+- 20 SKU already have lineage=True from EU/AE/CZ sources or lack RU product URLs
+- 2 wins: lemanapro.ru for 1015021 (4314.40 RUB) and 1012541 (5355.82 RUB)
+- 3 blocked: vseinstrumenti.ru DDoS-Guard (ServicePipe) — not solvable
+
+## Tests
+
+40/40 PASS (17 merge + 23 BVS regression)
+
+## Governance
+- Tier-1 frozen files: CLEAN
+- Pinned API signatures: CLEAN
+- price_manual_scout.py: NOT MODIFIED
+- Runtime artifacts (bvs_25sku_manifest.jsonl): NOT in PR
+- Evidence bundle changes: NOT in PR (deferred to systemic integration)
+- captcha_solver.py fix + smoke tests: deferred to separate PR #29
+
+---
+
+# Previous Capsule
+
 Task_ID: auditor-system-phase2
 Risk: SEMI
 Date: 2026-04-03
