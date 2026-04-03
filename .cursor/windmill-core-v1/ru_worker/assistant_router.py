@@ -63,10 +63,10 @@ def _load_nlu_config() -> NLUConfig:
             return default
 
     return NLUConfig(
-        nlu_enabled=_bool("NLU_ENABLED", False),
-        degradation_level=_int("NLU_DEGRADATION_LEVEL", 2),
+        nlu_enabled=_bool("NLU_ENABLED", True),
+        degradation_level=_int("NLU_DEGRADATION_LEVEL", 0),
         confidence_threshold=_float("NLU_CONFIDENCE_THRESHOLD", 0.80),
-        shadow_mode=_bool("NLU_SHADOW_MODE", True),
+        shadow_mode=_bool("NLU_SHADOW_MODE", False),
         model_version=os.environ.get("NLU_MODEL_VERSION", "regex-v1"),
         prompt_version=os.environ.get("NLU_PROMPT_VERSION", "v1.0"),
         max_input_bytes=_int("NLU_MAX_INPUT_BYTES", 1024),
@@ -223,6 +223,20 @@ def route_assistant_intent(
         employee_id=employee_id,
         employee_role=employee_role,
         parsed=parsed,
+    )
+
+    # Always shadow-log successful parses for Stability Gate analytics (8.3)
+    write_nlu_shadow_entry(
+        db_conn,
+        trace_id=trace_id,
+        employee_id=employee_id,
+        raw_text_hash=parsed.raw_text_hash,
+        intent_type=parsed.intent_type,
+        entities=dict(parsed.entities),
+        confidence=parsed.confidence,
+        model_version=parsed.model_version,
+        prompt_version=parsed.prompt_version,
+        parse_duration_ms=parse_ms,
     )
 
     _write_sla(

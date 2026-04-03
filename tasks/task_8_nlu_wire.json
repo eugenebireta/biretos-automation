@@ -1,0 +1,9 @@
+{
+  "title": "Wire NLU intent parser to execute_telegram_update",
+  "stage": "8.1",
+  "risk": "semi",
+  "why_now": "NLU код готов (intent_parser, assistant_router, backoffice_router), но не подключён к боту. Без этого Максим не может писать свободный текст. Блокирует Stability Gate.",
+  "depends_on": ["7.1", "7.2", "7.3"],
+  "mutation_surface": [],
+  "description": "Подключить NLU pipeline к Telegram боту. Конкретно:\n\n1. В execute_telegram_update: если сообщение НЕ начинается с / (не slash-команда), передать в assistant_router вместо telegram_router.\n\n2. Установить NLU_ENABLED=True как default (или через .env).\n\n3. Установить NLU_SHADOW_MODE=True — NLU работает, но параллельно логирует в shadow_rag_log для сравнения.\n\n4. Сохранить ВСЕ существующие slash-команды без изменений. Slash-команды продолжают идти через telegram_router.\n\n5. Flow для свободного текста:\n   user message → intent_parser.parse_intent()\n   → assistant_router (sanitize → parse → shadow → confirmation)\n   → backoffice_router (check_payment / get_tracking / get_waybill)\n   → Telegram ответ\n\n6. Для send_invoice: пока возвращать 'Эта функция в разработке' (день 2).\n\n7. НЕ менять: telegram_router.py, slash-команды, API подключения.\n\nОжидаемый результат: Максим пишет 'проверь оплату заказа 12345' → бот понимает → check_payment → ответ."
+}

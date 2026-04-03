@@ -413,15 +413,58 @@ def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tupl
             error = result.get("error", "Unknown error")
             return (f"вќЊ РћС€РёР±РєР°: {error}", None)
 
+    if action_type == "nlu_parse":
+        if status == "needs_confirmation":
+            intent_label = result.get("intent_label", result.get("intent_type", ""))
+            entities = result.get("entities", {})
+            parts = ["%s: %s" % (k, v) for k, v in entities.items()]
+            entity_line = ", ".join(parts) if parts else ""
+            msg = "\u041f\u043e\u043d\u044f\u043b: " + intent_label
+            if entity_line:
+                msg = msg + chr(10) + entity_line
+            msg = msg + chr(10) + "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044c?"
+            return (msg, result.get("reply_markup"))
+        if status == "fallback":
+            return ("\u041d\u0435 \u043f\u043e\u043d\u044f\u043b \u0437\u0430\u043f\u0440\u043e\u0441. \u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 /help", None)
+        if status in ("shadow", "button_only"):
+            return ("\u041d\u0435 \u043f\u043e\u043d\u044f\u043b. \u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 /help", None)
+        if status == "error":
+            error = result.get("error", "")
+            return ("\u041e\u0448\u0438\u0431\u043a\u0430: " + str(error)[:200], None)
+        return (None, None)
+
+    if action_type == "nlu_confirm":
+        if status == "not_implemented":
+            return ("\u042d\u0442\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0435.", None)
+        if status == "forbidden":
+            return ("\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432", None)
+        if status == "success":
+            intent_type = result.get("intent_type", "")
+            if intent_type == "check_payment":
+                pid = result.get("provider_document_id", "N/A")
+                pstatus = result.get("provider_status", "unknown")
+                mark = "\u041e\u043f\u043b\u0430\u0447\u0435\u043d" if pstatus == "paid" else "\u041d\u0435 \u043e\u043f\u043b\u0430\u0447\u0435\u043d"
+                return ("%s \u0421\u0447\u0451\u0442 %s: %s" % (mark, pid, pstatus), None)
+            if intent_type == "get_tracking":
+                cid = result.get("carrier_external_id", "N/A")
+                cstatus = result.get("carrier_status", "unknown")
+                return ("\u0422\u0440\u0435\u043a\u0438\u043d\u0433 %s: %s" % (cid, cstatus), None)
+            if intent_type == "get_waybill":
+                size = result.get("pdf_size_bytes", 0)
+                return ("\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u0430\u044f \u0433\u043e\u0442\u043e\u0432\u0430 (%s \u0431\u0430\u0439\u0442)" % size, None)
+            return ("\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", None)
+        error = result.get("error", "")
+        return ("\u041e\u0448\u0438\u0431\u043a\u0430: " + str(error)[:200], None)
+
     if status == "success":
-        return ("вњ… Р’С‹РїРѕР»РЅРµРЅРѕ", None)
+        return ("\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", None)
     elif status == "error":
         error = result.get("error", "Unknown error")
-        return (f"вќЊ РћС€РёР±РєР°: {error}", None)
+        return ("\u041e\u0448\u0438\u0431\u043a\u0430: " + str(error), None)
     elif status == "duplicate":
-        return ("в„№пёЏ Р”РµР№СЃС‚РІРёРµ СѓР¶Рµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ", None)
+        return ("\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0443\u0436\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u044f\u0435\u0442\u0441\u044f", None)
     else:
-        return (f"в„№пёЏ РЎС‚Р°С‚СѓСЃ: {status}", None)
+        return ("\u0421\u0442\u0430\u0442\u0443\u0441: " + str(status), None)
 
 
 def handle_router_action(action: Dict[str, Any], db_conn) -> Dict[str, Any]:
