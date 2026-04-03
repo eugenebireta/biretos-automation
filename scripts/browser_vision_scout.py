@@ -75,6 +75,13 @@ try:
 except ImportError:
     HAS_ANTHROPIC = False
 
+try:
+    from captcha_solver import CaptchaSolverChain, CaptchaSolution  # noqa: E402
+
+    HAS_CAPTCHA_SOLVER = True
+except ImportError:
+    HAS_CAPTCHA_SOLVER = False
+
 
 log = logging.getLogger(__name__)
 
@@ -303,6 +310,209 @@ class BrowserFetcher:
                     pass
 
         return result
+
+
+# ── CdpBrowserFetcher ────────────────────────────────────────────────────────
+
+_EDGE_PATHS = [
+    r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+    r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
+]
+_CDP_PORT = 9222
+_STEALTH_SCRIPT = """
+Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4,5]});
+window.chrome = {runtime: {}};
+"""
+
+
+def _find_edge_exe() -> str | None:
+    for p in _EDGE_PATHS:
+        if Path(p).exists():
+            return p
+    return None
+
+
+def _cdp_is_ready(port: int = _CDP_PORT) -> bool:
+    import urllib.request
+    try:
+        r = urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=2)
+        return r.status == 200
+    except Exception:
+        return False
+
+
+def _launch_edge_cdp(port: int = _CDP_PORT) -> Any:
+    """Kill existing Edge processes and relaunch with CDP debugging port."""
+    import subprocess, time
+    subprocess.run(["taskkill", "/F", "/IM", "msedge.exe"],
+                   capture_output=True, timeout=10)
+    time.sleep(2)
+    edge_exe = _find_edge_exe()
+    if not edge_exe:
+        raise RuntimeError("Edge not found in Program Files")
+    proc = subprocess.Popen(
+        [edge_exe, f"--remote-debugging-port={port}",
+         "--no-first-run", "--disable-background-timer-throttling"],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    )
+    for _ in range(20):
+        time.sleep(1)
+        if _cdp_is_ready(port):
+            log.info("cdp_edge_ready", extra={"port": port, "pid": proc.pid})
+            return proc
+    raise RuntimeError(f"Edge CDP not ready on port {port} after 20s")
+
+
+class CdpBrowserFetcher:
+    """Connects to a running browser via CDP — undetectable by anti-bot systems.
+
+    If --cdp-auto is set, automatically kills Edge and relaunches with CDP port.
+    Otherwise connects to an already-running CDP instance.
+    """
+
+    def __init__(
+        self,
+        *,
+        auto_launch: bool = True,
+        port: int = _CDP_PORT,
+        page_wait_ms: int = DEFAULT_PAGE_WAIT_MS,
+        timeout_ms: int = DEFAULT_BROWSER_TIMEOUT_MS,
+    ) -> None:
+        if not HAS_PLAYWRIGHT:
+            raise RuntimeError("playwright is required")
+        self._auto_launch = auto_launch
+        self._port = port
+        self._page_wait_ms = page_wait_ms
+        self._timeout_ms = timeout_ms
+        self._pw: Any = None
+        self._browser: Any = None
+        self._edge_proc: Any = None
+        self._page: Any = None
+        # Public attrs for manifest compatibility
+        self._headless = False
+        self._channel = "cdp"
+
+    def __enter__(self) -> CdpBrowserFetcher:
+        if self._auto_launch and not _cdp_is_ready(self._port):
+            self._edge_proc = _launch_edge_cdp(self._port)
+        elif not _cdp_is_ready(self._port):
+            raise RuntimeError(
+                f"No CDP endpoint on port {self._port}. "
+                "Launch Edge with: msedge.exe --remote-debugging-port=9222"
+            )
+        self._pw = sync_playwright().start()
+        self._browser = self._pw.chromium.connect_over_cdp(
+            f"http://127.0.0.1:{self._port}"
+        )
+        ctx = self._browser.contexts[0]
+        self._page = ctx.new_page()
+        return self
+
+    def __exit__(self, *exc: Any) -> None:
+        if self._page:
+            try:
+                self._page.close()
+            except Exception:
+                pass
+        if self._browser:
+            try:
+                self._browser.close()
+            except Exception:
+                pass
+        if self._pw:
+            try:
+                self._pw.stop()
+            except Exception:
+                pass
+
+    def fetch_screenshot(self, url: str) -> dict[str, Any]:
+        """Navigate to URL in user's browser and capture screenshot."""
+        result: dict[str, Any] = {
+            "screenshot_bytes": None,
+            "final_url": url,
+            "page_title": "",
+            "browser_http_status": 0,
+            "error": None,
+        }
+        try:
+            resp = self._page.goto(url, wait_until="networkidle", timeout=self._timeout_ms)
+            self._page.wait_for_timeout(self._page_wait_ms)
+            result["browser_http_status"] = resp.status if resp else 0
+            result["final_url"] = self._page.url
+            _dismiss_cookie_banner(self._page)
+            try:
+                result["page_title"] = self._page.title() or ""
+            except Exception:
+                result["page_title"] = "(nav error)"
+            result["screenshot_bytes"] = self._page.screenshot(full_page=False, type="png")
+        except Exception as exc:
+            result["error"] = {
+                "error_class": "TRANSIENT",
+                "severity": "WARNING",
+                "retriable": True,
+                "message": f"{type(exc).__name__}: {exc}",
+            }
+            log.warning("cdp_fetch_failed", extra={"url": url, "error": str(exc)})
+        return result
+
+
+# ── CAPTCHA retry logic ──────────────────────────────────────────────────────
+
+def _is_blocked_result(browser_result: dict[str, Any], vision_result: dict[str, Any] | None) -> bool:
+    """Check if the page load was blocked by anti-bot / CAPTCHA."""
+    status = browser_result.get("browser_http_status", 0)
+    final_url = browser_result.get("final_url", "")
+    if status in (403, 401, 498):
+        return True
+    if "xpvnsulc" in final_url:  # DDoS-Guard challenge redirect
+        return True
+    if vision_result and vision_result.get("page_class") in ("blocked_ui", "login_required"):
+        return True
+    return False
+
+
+def _try_captcha_solve_and_retry(
+    url: str,
+    browser: Any,
+    solver: CaptchaSolverChain,
+    browser_result: dict[str, Any],
+) -> dict[str, Any]:
+    """Attempt CAPTCHA solve and retry page load with new cookies."""
+    log.info("captcha_solve_attempt", extra={"url": url})
+    solution = solver.solve(
+        url,
+        screenshot_bytes=browser_result.get("screenshot_bytes"),
+    )
+    if not solution.solved:
+        log.info("captcha_solve_failed", extra={"url": url, "error": solution.error})
+        return browser_result  # return original blocked result
+
+    # Inject cookies into browser and retry
+    log.info(
+        "captcha_solved_retrying",
+        extra={
+            "url": url,
+            "solver": solution.solver_used,
+            "cookies_count": len(solution.cookies),
+            "solve_time": solution.solve_time_sec,
+        },
+    )
+
+    if hasattr(browser, '_page') and browser._page:
+        # CDP mode — inject cookies and re-navigate
+        page = browser._page
+        ctx = page.context
+        if solution.cookies:
+            try:
+                ctx.add_cookies(solution.cookies)
+            except Exception as exc:
+                log.warning("cookie_inject_failed", extra={"error": str(exc)})
+        return browser.fetch_screenshot(url)
+    else:
+        # Standard BrowserFetcher — return cookies in result for later use
+        browser_result["captcha_cookies"] = solution.cookies
+        return browser.fetch_screenshot(url)
 
 
 # ── VisionExtractor ──────────────────────────────────────────────────────────
@@ -548,16 +758,18 @@ def _derive_bvs_lineage_reason_code(
 def materialize_bvs_record(
     record: dict[str, Any],
     *,
-    browser: BrowserFetcher,
+    browser: BrowserFetcher | CdpBrowserFetcher,
     extractor: VisionExtractor,
     surface_cache_payload: dict[str, Any] | None,
     run_id: str,
     save_all_screenshots: bool = False,
+    captcha_solver: CaptchaSolverChain | None = None,
 ) -> dict[str, Any]:
     """Materialize a single seed record using browser + vision.
 
     Analogous to price_manual_scout.materialize_seed_record() but uses
     Playwright for page rendering and Claude Vision for extraction.
+    If captcha_solver is provided, will attempt CAPTCHA solve + retry on blocked pages.
     """
     page_url = record["page_url"]
     pn = record["part_number"]
@@ -572,6 +784,13 @@ def materialize_bvs_record(
 
     # ── Step 1: Browser fetch ────────────────────────────────────────────────
     browser_result = browser.fetch_screenshot(page_url)
+
+    # ── Step 1b: CAPTCHA solve + retry if blocked ────────────────────────
+    if captcha_solver and _is_blocked_result(browser_result, None):
+        log.info("bvs_blocked_trying_captcha", extra={"trace_id": trace_id, "url": page_url})
+        browser_result = _try_captcha_solve_and_retry(
+            page_url, browser, captcha_solver, browser_result,
+        )
 
     # ── Step 2: Vision extraction (if screenshot available) ──────────────────
     vision_result: dict[str, Any]
@@ -833,6 +1052,9 @@ def run(
     vision_model: str = DEFAULT_VISION_MODEL,
     enable_escalation: bool = True,
     save_all_screenshots: bool = False,
+    use_cdp: bool = False,
+    capsolver_api_key: str | None = None,
+    enable_captcha_solver: bool = False,
 ) -> list[dict[str, Any]]:
     """Run browser-vision scout on seed records."""
     records = load_seed_records(seed_path)
@@ -862,11 +1084,22 @@ def run(
     prior_run_dirs = discover_prior_run_dirs(AUDITS_DIR)
     surface_cache_payload = build_source_surface_cache_payload_from_run_dirs(prior_run_dirs)
 
+    # Set up CAPTCHA solver chain if requested
+    captcha_solver: CaptchaSolverChain | None = None
+    if enable_captcha_solver and HAS_CAPTCHA_SOLVER:
+        captcha_solver = CaptchaSolverChain(
+            capsolver_api_key=capsolver_api_key,
+        )
+        log.info("captcha_solver_enabled")
+
+    # Choose browser backend
+    if use_cdp:
+        browser_ctx = CdpBrowserFetcher(auto_launch=True)
+    else:
+        browser_ctx = BrowserFetcher(headless=headless, browser_channel=browser_channel)
+
     results: list[dict[str, Any]] = []
-    with BrowserFetcher(
-        headless=headless,
-        browser_channel=browser_channel,
-    ) as browser:
+    with browser_ctx as browser:
         extractor = VisionExtractor(
             model=vision_model,
             enable_escalation=enable_escalation,
@@ -879,6 +1112,7 @@ def run(
                 surface_cache_payload=surface_cache_payload,
                 run_id=run_id,
                 save_all_screenshots=save_all_screenshots,
+                captcha_solver=captcha_solver,
             )
             results.append(row)
 
@@ -938,6 +1172,21 @@ def main() -> None:
         action="store_true",
         help="Save screenshots for all records, not just noteworthy ones",
     )
+    parser.add_argument(
+        "--cdp-auto",
+        action="store_true",
+        help="Use CDP mode: auto-launch Edge with debugging port for anti-bot bypass",
+    )
+    parser.add_argument(
+        "--captcha-solver",
+        action="store_true",
+        help="Enable CAPTCHA solver chain (FlareSolverr -> CapSolver)",
+    )
+    parser.add_argument(
+        "--capsolver-key",
+        default=None,
+        help="CapSolver API key (or set CAPSOLVER_API_KEY env var)",
+    )
 
     args = parser.parse_args()
 
@@ -951,6 +1200,9 @@ def main() -> None:
         vision_model=args.vision_model,
         enable_escalation=not args.no_escalation,
         save_all_screenshots=args.save_all_screenshots,
+        use_cdp=args.cdp_auto,
+        capsolver_api_key=args.capsolver_key,
+        enable_captcha_solver=args.captcha_solver,
     )
 
     print(f"seed_records={len(results)} manifest={args.manifest}")
