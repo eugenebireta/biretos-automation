@@ -1,0 +1,24 @@
+{
+  "task_id": "task_685187e8",
+  "title": "BVS deterministic merge tool",
+  "description": "merge_manifests.py: deterministic merge by part_number::source_domain key. 17 tests. Reproducible seed + merged manifest. No evidence bundle changes, no captcha solver changes.",
+  "roadmap_stage": "R1",
+  "why_now": "Merge first-pass and second-pass price scout manifests for 25 SKU batch",
+  "risk": "semi",
+  "depends_on": [],
+  "blocks": [],
+  "declared_surface": [],
+  "affected_files": [
+    "scripts/merge_manifests.py",
+    "tests/enrichment/test_merge_manifests.py",
+    "downloads/scout_cache/bvs_25sku_seed.jsonl",
+    "downloads/scout_cache/merged_manifest.jsonl"
+  ],
+  "keywords": [
+    "merge",
+    "manifest",
+    "bvs",
+    "price",
+    "scout"
+  ]
+}

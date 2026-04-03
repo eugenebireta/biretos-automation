@@ -1,0 +1,15 @@
+{
+  "task_id": "task_1ba4a5c0",
+  "title": "Branch protection на master",
+  "description": "Настроить branch protection rules на master: require PR, require CI pass, no direct push. Реализация через GitHub CLI / API. Никаких изменений файлов в репозитории.",
+  "roadmap_stage": "2.2",
+  "why_now": "CI уже настроен (2.1), branch protection — следующий шаг",
+  "risk": "low",
+  "depends_on": [
+    "2.1"
+  ],
+  "blocks": [],
+  "declared_surface": [],
+  "affected_files": [],
+  "keywords": []
+}
