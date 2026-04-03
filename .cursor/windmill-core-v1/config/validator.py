@@ -144,14 +144,20 @@ def validate_config() -> Config:
     )
 
     # Phase 7 — NLU
-    nlu_enabled = _parse_bool(raw.get("NLU_ENABLED"), False) or False
+    nlu_enabled = _parse_bool(raw.get("NLU_ENABLED"), True)
+    if nlu_enabled is None:
+        nlu_enabled = True
     nlu_degradation_level = _parse_int(
-        "NLU_DEGRADATION_LEVEL", raw.get("NLU_DEGRADATION_LEVEL"), 2, invalid
-    ) or 2
+        "NLU_DEGRADATION_LEVEL", raw.get("NLU_DEGRADATION_LEVEL"), 0, invalid
+    )
+    if nlu_degradation_level is None:
+        nlu_degradation_level = 0
     nlu_confidence_threshold = _parse_float(
         "NLU_CONFIDENCE_THRESHOLD", raw.get("NLU_CONFIDENCE_THRESHOLD"), 0.80, invalid
     )
-    nlu_shadow_mode = _parse_bool(raw.get("NLU_SHADOW_MODE"), True) or True
+    nlu_shadow_mode = _parse_bool(raw.get("NLU_SHADOW_MODE"), False)
+    if nlu_shadow_mode is None:
+        nlu_shadow_mode = False
     nlu_max_input_bytes = _parse_int(
         "NLU_MAX_INPUT_BYTES", raw.get("NLU_MAX_INPUT_BYTES"), 1024, invalid
     ) or 1024

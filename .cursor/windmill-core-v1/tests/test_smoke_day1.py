@@ -339,3 +339,37 @@ def test_format_action_result_nlu_parse_fallback(monkeypatch):
     text, markup = module.format_action_result(action, result)
     assert text is not None and "/help" in text, "Fallback must mention /help, got: %r" % text
     assert markup is None
+
+
+def test_format_action_result_nlu_confirm_waybill_transient(monkeypatch):
+    """Waybill transient errors must be mapped to a human-friendly Telegram reply."""
+    import config as cfg_pkg
+    monkeypatch.setattr(cfg_pkg, "get_config", lambda: _ConfigStub(), raising=True)
+
+    import importlib.util
+    module_name = "_ru_worker_fmt_smoke3"
+    sys.modules.pop(module_name, None)
+    spec = importlib.util.spec_from_file_location(
+        module_name, _root() / "ru_worker" / "ru_worker.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    action = {
+        "action_type": "nlu_confirm",
+        "payload": {"carrier_external_id": "10248510566"},
+        "metadata": {},
+    }
+    result = {
+        "status": "error",
+        "intent_type": "get_waybill",
+        "error_class": "TRANSIENT",
+        "carrier_external_id": "10248510566",
+        "error": "CDEK print task 9ce85ee5-13b6-41c1-a64c-ee8c754b3982 did not produce PDF within timeout",
+    }
+
+    text, markup = module.format_action_result(action, result)
+    assert text is not None and "СДЭК" in text
+    assert "CDEK print task" not in text
+    assert "timeout" not in text.lower()
+    assert markup is None

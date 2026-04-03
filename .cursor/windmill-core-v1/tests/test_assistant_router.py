@@ -152,6 +152,21 @@ def test_route_nlu_ok_returns_needs_confirmation():
     assert conn.committed is True
 
 
+def test_route_nlu_ok_writes_shadow_and_sla_rows():
+    os.environ["NLU_ENABLED"] = "true"
+    os.environ["NLU_DEGRADATION_LEVEL"] = "0"
+    os.environ["NLU_SHADOW_MODE"] = "false"
+    conn = _Conn()
+    result = route_assistant_intent(
+        {"trace_id": "trace-ra-004b", "employee_id": "emp-1", "text": "статус доставки 10248510566"},
+        conn,
+    )
+    assert result["status"] == "needs_confirmation"
+    sql = "\n".join(query for query, _ in conn.queries).lower()
+    assert "shadow_rag_log" in sql
+    assert "nlu_sla_log" in sql
+
+
 def test_route_fallback_on_unknown_text():
     os.environ["NLU_ENABLED"] = "true"
     os.environ["NLU_DEGRADATION_LEVEL"] = "0"
@@ -253,3 +268,31 @@ def test_confirm_check_payment_happy_path():
     )
     assert result["status"] == "success"
     assert result.get("nlu_confirmed") is True
+
+
+def test_confirm_get_tracking_happy_path():
+    conn = _Conn(pending_row=_pending_row_tuple("get_tracking", {"carrier_external_id": "10248510566"}))
+    result = confirm_nlu_intent(
+        {"trace_id": "trace-c-005", "confirmation_id": str(uuid.uuid4())},
+        conn,
+        payment_adapter=_StubPaymentAdapter(),
+        shipment_adapter=_StubShipmentAdapter(),
+    )
+    assert result["status"] == "success"
+    assert result["intent_type"] == "get_tracking"
+    assert result["carrier_external_id"] == "10248510566"
+    assert result.get("nlu_confirmed") is True
+
+
+def test_confirm_get_waybill_happy_path():
+    conn = _Conn(pending_row=_pending_row_tuple("get_waybill", {"carrier_external_id": "10248510566"}))
+    result = confirm_nlu_intent(
+        {"trace_id": "trace-c-006", "confirmation_id": str(uuid.uuid4())},
+        conn,
+        payment_adapter=_StubPaymentAdapter(),
+        shipment_adapter=_StubShipmentAdapter(),
+    )
+    assert result["status"] == "success"
+    assert result["intent_type"] == "get_waybill"
+    assert result["carrier_external_id"] == "10248510566"
+    assert result["pdf_size_bytes"] > 0
