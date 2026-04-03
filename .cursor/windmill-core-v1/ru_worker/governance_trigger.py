@@ -90,6 +90,7 @@ def handle_pending_approval(
     db_conn,
     trace_id: str,
     config=None,
+    correction_source: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     """
     Build an enriched action_snapshot for deterministic governance execution and enqueue governance_case_create.
@@ -109,7 +110,13 @@ def handle_pending_approval(
     policy_hash = str(decision["policy_hash"])
 
     resolved = _resolve_leaf_payload(action, cfg)
-    external_idempotency_key = str(uuid4())
+    if correction_source is not None:
+        original_ext_key = correction_source.get("original_external_idempotency_key") if isinstance(correction_source, dict) else None
+        if not original_ext_key:
+            raise ValueError("correction_source.original_external_idempotency_key is required")
+        external_idempotency_key = f"{str(original_ext_key)}-c{int(decision_seq)}"
+    else:
+        external_idempotency_key = str(uuid4())
 
     action_snapshot = {
         "schema_version": SNAPSHOT_SCHEMA_VERSION,

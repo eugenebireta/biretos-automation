@@ -150,6 +150,23 @@ def test_executor_replay_divergence_executing(monkeypatch):
     assert out["reason"] == "incomplete_execution"
 
 
+def test_executor_replay_needs_finalization_executing_succeeded(monkeypatch):
+    ge = _import_governance_executor()
+    conn = _Conn(case_status="executing", log_status="succeeded")
+    monkeypatch.setattr(ge, "get_config", lambda: _CfgStub(execution_mode="REPLAY"), raising=True)
+    out = ge.execute_governance_case({"case_id": str(uuid4())}, conn, trace_id=None)
+    assert out["status"] == "replay_needs_finalization"
+
+
+def test_executor_replay_divergence_executing_no_lock(monkeypatch):
+    ge = _import_governance_executor()
+    conn = _Conn(case_status="executing", log_status=None)
+    monkeypatch.setattr(ge, "get_config", lambda: _CfgStub(execution_mode="REPLAY"), raising=True)
+    out = ge.execute_governance_case({"case_id": str(uuid4())}, conn, trace_id=None)
+    assert out["status"] == "replay_divergence"
+    assert out["reason"] == "incomplete_execution_no_lock"
+
+
 def test_executor_replay_divergence_approved(monkeypatch):
     ge = _import_governance_executor()
     conn = _Conn(case_status="approved", log_status=None)
@@ -166,6 +183,15 @@ def test_executor_replay_divergence_cancelled(monkeypatch):
     out = ge.execute_governance_case({"case_id": str(uuid4())}, conn, trace_id=None)
     assert out["status"] == "replay_divergence"
     assert out["reason"] == "execution_cancelled"
+
+
+def test_executor_replay_divergence_cancelled_after_success(monkeypatch):
+    ge = _import_governance_executor()
+    conn = _Conn(case_status="cancelled", log_status="succeeded")
+    monkeypatch.setattr(ge, "get_config", lambda: _CfgStub(execution_mode="REPLAY"), raising=True)
+    out = ge.execute_governance_case({"case_id": str(uuid4())}, conn, trace_id=None)
+    assert out["status"] == "replay_divergence"
+    assert out["reason"] == "cancelled_after_success"
 
 
 def test_executor_claim_race_loses(monkeypatch):
@@ -249,21 +275,31 @@ def test_executor_genuine_failure_no_retry(monkeypatch):
     conn = _Conn()
 
     ext = str(uuid4())
+    resolve_calls: List[Dict[str, Any]] = []
+
+    def _track_resolve(*_a, **kw):
+        resolve_calls.append(kw)
+        return {"updated": True}
+
     gw = SimpleNamespace(
         claim_for_execution=lambda *_a, **_k: None,
         read_case_for_resume=lambda *_a, **_k: {"status": "executing", "action_snapshot": _valid_snapshot(ext_key=ext), "trace_id": str(uuid4())},
-        resolve_case=lambda *_a, **_k: {"updated": True},
+        resolve_case=_track_resolve,
         mark_executed=lambda *_a, **_k: {"updated": True},
     )
     monkeypatch.setattr(ge, "governance_workflow", gw, raising=True)
     monkeypatch.setattr(ge, "get_config", lambda: _CfgStub(execution_mode="LIVE"), raising=True)
+    monkeypatch.setattr(ge, "log_event", lambda *_a, **_k: None, raising=True)
     monkeypatch.setattr(ge, "acquire_action_lock", lambda **_k: {"status": "DUPLICATE_FAILED", "last_error": "boom"}, raising=True)
 
     out = ge.execute_governance_case({"case_id": str(uuid4())}, conn, trace_id=str(uuid4()))
     assert out["status"] == "failed"
     assert out["last_error"] == "boom"
     assert conn.deleted == []
-    assert conn.commits == 1
+    assert conn.commits == 2
+    assert len(resolve_calls) == 1
+    assert resolve_calls[0]["status"] == "cancelled"
+    assert resolve_calls[0]["resolved_by"] == "governance_executor"
 
 
 def test_executor_duplicate_succeeded(monkeypatch):
@@ -426,14 +462,21 @@ def test_executor_step3b_retry_limit(monkeypatch):
     conn = _Conn()
 
     ext = str(uuid4())
+    resolve_calls: List[Dict[str, Any]] = []
+
+    def _track_resolve(*_a, **kw):
+        resolve_calls.append(kw)
+        return {"updated": True}
+
     gw = SimpleNamespace(
         claim_for_execution=lambda *_a, **_k: None,
         read_case_for_resume=lambda *_a, **_k: {"status": "executing", "action_snapshot": _valid_snapshot(ext_key=ext), "trace_id": str(uuid4())},
-        resolve_case=lambda *_a, **_k: {"updated": True},
+        resolve_case=_track_resolve,
         mark_executed=lambda *_a, **_k: {"updated": True},
     )
     monkeypatch.setattr(ge, "governance_workflow", gw, raising=True)
     monkeypatch.setattr(ge, "get_config", lambda: _CfgStub(execution_mode="LIVE"), raising=True)
+    monkeypatch.setattr(ge, "log_event", lambda *_a, **_k: None, raising=True)
 
     monkeypatch.setattr(
         ge,
@@ -446,5 +489,42 @@ def test_executor_step3b_retry_limit(monkeypatch):
     out = ge.execute_governance_case({"case_id": case_id}, conn, trace_id=str(uuid4()))
     assert out["status"] == "failed"
     assert out["last_error"] == "lock_expired_by_sweeper"
-    assert conn.deleted == [f"gov_exec:{case_id}"]
-    assert conn.commits == 2
+    assert conn.deleted == [f"gov_exec:{case_id}"] * 2
+    assert conn.commits == 4
+    assert len(resolve_calls) == 1
+    assert resolve_calls[0]["status"] == "cancelled"
+    assert resolve_calls[0]["resolved_by"] == "governance_executor"
+
+
+def test_executor_step3b_retry_ttl_grows_exponentially(monkeypatch):
+    ge = _import_governance_executor()
+    conn = _Conn()
+
+    ext = str(uuid4())
+    gw = SimpleNamespace(
+        claim_for_execution=lambda *_a, **_k: None,
+        read_case_for_resume=lambda *_a, **_k: {"status": "executing", "action_snapshot": _valid_snapshot(ext_key=ext), "trace_id": str(uuid4())},
+        resolve_case=lambda *_a, **_k: {"updated": True},
+        mark_executed=lambda *_a, **_k: {"updated": True},
+    )
+    monkeypatch.setattr(ge, "governance_workflow", gw, raising=True)
+    monkeypatch.setattr(ge, "get_config", lambda: _CfgStub(execution_mode="LIVE"), raising=True)
+
+    seen_ttls = []
+    seq = {"i": 0}
+
+    def _acquire(**kwargs):
+        seen_ttls.append(int(kwargs.get("ttl_seconds") or 0))
+        seq["i"] += 1
+        if seq["i"] <= 2:
+            return {"status": "DUPLICATE_FAILED", "last_error": "lock_expired_by_sweeper"}
+        return {"status": "ACQUIRED", "lease_token": "lt"}
+
+    monkeypatch.setattr(ge, "acquire_action_lock", _acquire, raising=True)
+    monkeypatch.setattr(ge, "complete_action", lambda **_k: True, raising=True)
+    monkeypatch.setattr(ge, "execute_cdek_shipment", lambda *_a, **_k: {"status": "success"}, raising=True)
+    monkeypatch.setattr(ge, "log_event", lambda *_a, **_k: None, raising=True)
+
+    out = ge.execute_governance_case({"case_id": str(uuid4())}, conn, trace_id=str(uuid4()))
+    assert out["status"] == "success"
+    assert seen_ttls == [300, 600, 1200]

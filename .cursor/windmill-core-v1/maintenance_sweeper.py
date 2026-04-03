@@ -30,6 +30,49 @@ def _env_int(name: str, default: int) -> int:
     return parsed if parsed > 0 else default
 
 
+def _scan_stuck_governance_cases(conn, *, threshold_minutes: int, limit: int) -> List[str]:
+    rows = _run_select(
+        conn,
+        f"""
+        SELECT id
+        FROM review_cases
+        WHERE status = 'executing'
+          AND updated_at < NOW() - INTERVAL '{int(threshold_minutes)} minutes'
+        ORDER BY updated_at ASC
+        LIMIT %s
+        """,
+        (int(limit),),
+    )
+    return [str(row[0]) for row in rows]
+
+
+def _run_governance_watchdog(conn, *, trace_id: str, threshold_minutes: int, limit: int) -> int:
+    case_ids = _scan_stuck_governance_cases(conn, threshold_minutes=threshold_minutes, limit=limit)
+    log_event("governance_watchdog_scan", {"count": len(case_ids)})
+
+    if not case_ids:
+        return 0
+
+    # Local import to avoid circular import at module load time.
+    from ru_worker import enqueue_job_with_trace  # type: ignore
+
+    for case_id in case_ids:
+        try:
+            enqueue_job_with_trace(
+                db_conn=conn,
+                job_type="governance_execute",
+                payload={"case_id": str(case_id)},
+                idempotency_key=f"gov_watch:{case_id}:{int(time.time() // 3600)}",
+                trace_id=str(trace_id),
+            )
+        except Exception as e:
+            msg = str(e).lower()
+            if "duplicate" in msg or "unique" in msg:
+                continue
+            raise
+    return len(case_ids)
+
+
 def _build_pool() -> SimpleConnectionPool:
     config = get_config()
     db_pool_min = _env_int("MAINTENANCE_DB_POOL_MIN", 1)
@@ -230,6 +273,13 @@ def _run_cycle(
                 "batch_limit": _env_int("MAINTENANCE_RC4_BATCH_LIMIT", 100),
                 "now": now_ts,
             },
+        )
+
+        _run_governance_watchdog(
+            conn,
+            trace_id=trace_id,
+            threshold_minutes=_env_int("GOVERNANCE_WATCHDOG_THRESHOLD_MIN", 15),
+            limit=_env_int("GOVERNANCE_WATCHDOG_BATCH_LIMIT", 20),
         )
 
         if ic9.get("verdict") == "STALE":

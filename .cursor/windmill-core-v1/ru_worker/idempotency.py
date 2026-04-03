@@ -109,14 +109,14 @@ def compute_request_hash(action_type: str, payload: Dict[str, Any]) -> str:
 
     if action_type == "ship_paid":
         canonical = {"invoice_id": str(normalized_payload.get("invoice_id", "")).strip()}
-        return _sha256_json(canonical)
+        return f"v1:{_sha256_json(canonical)}"
 
     if action_type == "tbank_payment":
         canonical = {
             "amount": _normalize_amount(normalized_payload.get("amount")),
             "currency": str(normalized_payload.get("currency", "")).strip().upper(),
         }
-        return _sha256_json(canonical)
+        return f"v1:{_sha256_json(canonical)}"
 
     if action_type == "cdek_shipment":
         invoice_id = str(normalized_payload.get("invoice_id", "")).strip()
@@ -124,10 +124,24 @@ def compute_request_hash(action_type: str, payload: Dict[str, Any]) -> str:
             canonical = {"invoice_id": invoice_id}
         else:
             canonical = _strip_non_business_fields(normalized_payload)
-        return _sha256_json(canonical)
+        return f"v1:{_sha256_json(canonical)}"
 
     canonical_default = _strip_non_business_fields(normalized_payload)
-    return _sha256_json(canonical_default)
+    return f"v1:{_sha256_json(canonical_default)}"
+
+
+def parse_versioned_hash(value: str) -> tuple[str, str]:
+    """
+    Parse request_hash value stored in action_idempotency_log.
+
+    Format: "vN:<hex_digest>". Backward compat: bare hex => ("v0", "<hex_digest>").
+    """
+    raw = (value or "").strip()
+    if raw.startswith("v") and ":" in raw:
+        version, digest = raw.split(":", 1)
+        version = version.strip() or "v0"
+        return version, digest.strip()
+    return "v0", raw
 
 
 def acquire_action_lock(

@@ -814,7 +814,7 @@ def dispatch_action(
     )
     replay_config_status = replay_config_status or csg_verdict.details.get("replay_config_status")
 
-    if db_conn is not None:
+    if db_conn is not None and execution_mode != "REPLAY":
         try:
             _write_control_decision(
                 db_conn,

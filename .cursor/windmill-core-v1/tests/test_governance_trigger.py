@@ -165,6 +165,69 @@ def test_trigger_external_key_is_uuid(monkeypatch):
     UUID(str(ext))
 
 
+def test_trigger_external_key_rotates_when_correction_source_present(monkeypatch):
+    gt = _import_governance_trigger()
+    calls: Dict[str, Any] = {}
+    _install_fake_ru_worker(monkeypatch, calls)
+
+    monkeypatch.setattr(
+        gt,
+        "execute_tbank_invoice_status",
+        lambda _cfg, _payload: {"status": "success", "result_status": "paid", "response": {"city": "X", "address": "Y", "name": "Z", "phone": "+1"}},
+        raising=True,
+    )
+    monkeypatch.setattr(
+        gt,
+        "map_tbank_invoice_to_cdek_payload",
+        lambda _cfg, invoice_id, _data: ({"order_id": invoice_id}, None),
+        raising=True,
+    )
+
+    trace_id = str(uuid4())
+    action = {"action_type": "ship_paid", "payload": {"invoice_id": "INV-3"}}
+    pending = {"status": "pending_approval"}
+    out = gt.handle_pending_approval(
+        action,
+        pending,
+        _Conn(),
+        trace_id=trace_id,
+        config=_CfgStub(),
+        correction_source={"original_external_idempotency_key": "orig-key"},
+    )
+    assert out["status"] == "governance_case_enqueued"
+    ext = calls["enqueue"]["payload"]["action_snapshot"]["external_idempotency_key"]
+    assert ext == "orig-key-c5"
+
+
+def test_trigger_correction_source_missing_key_raises(monkeypatch):
+    gt = _import_governance_trigger()
+    calls: Dict[str, Any] = {}
+    _install_fake_ru_worker(monkeypatch, calls)
+
+    monkeypatch.setattr(
+        gt,
+        "execute_tbank_invoice_status",
+        lambda _cfg, _payload: {"status": "success", "result_status": "paid", "response": {"city": "X", "address": "Y", "name": "Z", "phone": "+1"}},
+        raising=True,
+    )
+    monkeypatch.setattr(
+        gt,
+        "map_tbank_invoice_to_cdek_payload",
+        lambda _cfg, invoice_id, _data: ({"order_id": invoice_id}, None),
+        raising=True,
+    )
+
+    with pytest.raises(ValueError):
+        gt.handle_pending_approval(
+            {"action_type": "ship_paid", "payload": {"invoice_id": "INV-3"}},
+            {"status": "pending_approval"},
+            _Conn(),
+            trace_id=str(uuid4()),
+            config=_CfgStub(),
+            correction_source={},
+        )
+
+
 def test_trigger_unsupported_action_type(monkeypatch):
     gt = _import_governance_trigger()
     calls: Dict[str, Any] = {}

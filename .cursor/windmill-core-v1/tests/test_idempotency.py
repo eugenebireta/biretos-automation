@@ -244,9 +244,17 @@ def test_t7_hash_excludes_non_business_fields():
 
 def test_t8_hash_is_sha256_shape():
     payload = {"amount": 100, "currency": "RUB"}
-    digest = idempotency.compute_request_hash("tbank_payment", payload)
+    request_hash = idempotency.compute_request_hash("tbank_payment", payload)
+    version, digest = idempotency.parse_versioned_hash(request_hash)
+    assert version == "v1"
     assert len(digest) == 64
     assert all(ch in "0123456789abcdef" for ch in digest)
+
+
+def test_t8b_parse_versioned_hash_bare_hex_treated_as_v0():
+    version, digest = idempotency.parse_versioned_hash("a" * 64)
+    assert version == "v0"
+    assert digest == "a" * 64
 
 
 def test_t9_real_without_db_conn_raises():
