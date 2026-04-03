@@ -13,6 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: UTC
+      # CI runs unit/integration tests against local/mocked flows only.
+      # Keep critical config vars non-empty so import-time validation passes
+      # without injecting production secrets into GitHub Actions.
+      TELEGRAM_BOT_TOKEN: ci-test-bot-token
+      TELEGRAM_WEBHOOK_SECRET: ci-test-webhook-secret
+      TBANK_API_TOKEN: ci-test-tbank-token
+      TBANK_API_BASE: https://tbank.example
+      TBANK_INVOICE_STATUS_PATH: /invoice/{invoice_id}/status
+      TBANK_INVOICES_LIST_PATH: /invoice/list
+      CDEK_CLIENT_ID: ci-test-cdek-client-id
+      CDEK_CLIENT_SECRET: ci-test-cdek-client-secret
+      POSTGRES_PASSWORD: ci-test-postgres-password
     steps:
       - uses: actions/checkout@v4
         with:
