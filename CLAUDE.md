@@ -20,7 +20,8 @@ If no automated checks exist, state the validation gap explicitly.
 
 ## IDENTITY
 
-Post-Core Freeze. Tier-3 Revenue development active.
+Post-Core Freeze. Corrective execution track active:
+Phase 0 loss prevention -> Phase 1 governance codification.
 
 Read these files before ANY code change:
 1. `docs/PROJECT_DNA.md`
@@ -31,6 +32,21 @@ Read these files before ANY code change:
 
 Source of truth priority:
 `docs/PROJECT_DNA.md` → `docs/MASTER_PLAN_v1_9_2.md` → `docs/EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`
+
+## CURRENT TRACK
+
+Default execution order until the owner explicitly reopens a later track:
+1. `Phase 0` — loss prevention / safety / repo integrity
+2. `Phase 1` — governance codification in authoritative files
+3. Only after that may `Stage 8.1` / local review fabric / runtime shadow gate continue
+
+Presence of Stage 8.1 code in the repo does NOT authorize expanding that track.
+
+Do not modify these files as part of corrective governance batches unless the owner
+explicitly opens a separate Stage 8.1 batch:
+- `auditor_system/review_runner.py`
+- `auditor_system/hard_shell/approval_router.py`
+- `auditor_system/hard_shell/contracts.py`
 
 ## FROZEN FILES (19) — NEVER TOUCH
 

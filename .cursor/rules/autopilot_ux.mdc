@@ -1,18 +1,24 @@
 ---
-description: Zero-Memory Autopilot UX v3.2.1 (token=12, capsule, circuit breaker, fail-routing, footer-accumulator)
+description: Zero-Memory Autopilot UX v3.2.2 (token=12, capsule, circuit breaker, fail-routing, footer-accumulator, corrected execution order)
 alwaysApply: true
 ---
 
-# Zero-Memory Autopilot UX v3.2.1
+# Zero-Memory Autopilot UX v3.2.2
 
 ## Scope and Anchors
 - Use `docs/autopilot/STATE.md` as Agent-only checkpoint state (not mandatory for Ask/Plan startup).
 - Use `docs/autopilot/CAPSULE.md` as compact single-task truth source (writer: POST_AUDIT_LOGGER only).
-- Use `EXECUTION_ROADMAP_v2_2.md` for next-task selection and sequencing.
+- Use `docs/EXECUTION_ROADMAP_v2_3.md` for next-task selection and sequencing.
 - Use `.cursor/rules/risk_router.mdc` for LOW/SEMI/CORE classification, RISK_VALIDATION, PHASE_CONTRACT.
 - Respect Tier-1 freeze via `.cursor/windmill-core-v1/docs/PHASE2_BOUNDARY.md`.
 - Do not duplicate roadmap/DNA content into this rule; only reference sources.
 - Reuse already loaded context inside the same task: do not re-read unless context changed, phase/task changed, external audit happened, or user explicitly requested re-read.
+- Current corrective execution order overrides generic next-task picking:
+  `Phase 0 loss prevention -> Phase 1 governance codification -> only then explicit owner reopen for Stage 8.1`.
+- Presence of Stage 8.1 code or old artifacts in repo does not authorize new Stage 8.1 runtime work by default.
+- During this corrective track, do not route work into `auditor_system/review_runner.py`,
+  `auditor_system/hard_shell/approval_router.py`, or `auditor_system/hard_shell/contracts.py`
+  unless the owner explicitly opens a separate Stage 8.1 batch.
 
 ## A) Triggers
 1. If user message is exactly `12` (trimmed), always:
