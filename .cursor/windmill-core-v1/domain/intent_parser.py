@@ -45,6 +45,8 @@ _REGEX_RULES: List[Dict] = [
                     r"\bINV[-_]([\w\d]+)\b",
                     r"\bSCH[-_]([\w\d]+)\b",
                     r"\b(INV[\w\d]+)\b",
+                    # Numeric invoice/bill number (6+ digits)
+                    r"\b(\d{6,20})\b",
                 ],
             )
         ],
@@ -89,6 +91,8 @@ _REGEX_RULES: List[Dict] = [
                 [
                     r"\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b",
                     r"\b(CDEK[-_][\w\d]{4,})\b",
+                    # Generic tracking number (8+ digits)
+                    r"\b(\d{8,20})\b",
                 ],
             )
         ],

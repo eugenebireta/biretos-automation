@@ -364,6 +364,16 @@ def confirm_nlu_intent(
         shipment_adapter=shipment_adapter,
     )
     # route_backoffice_intent commits internally; no second commit here
+    result.setdefault("intent_type", pending.parsed_intent_type)
+    result.setdefault("entities", dict(pending.parsed_entities))
+    if "carrier_external_id" not in result:
+        carrier_id = pending.parsed_entities.get("carrier_external_id")
+        if carrier_id is not None:
+            result["carrier_external_id"] = carrier_id
+    if "provider_document_id" not in result:
+        invoice_id = pending.parsed_entities.get("invoice_id")
+        if invoice_id is not None:
+            result["provider_document_id"] = invoice_id
     result["nlu_confirmed"] = True
     result["confirmation_id"] = confirmation_id
     return result

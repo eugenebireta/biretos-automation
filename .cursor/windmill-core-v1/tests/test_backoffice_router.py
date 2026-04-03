@@ -157,7 +157,7 @@ def test_get_tracking_happy_path():
 
 def test_get_waybill_happy_path():
     conn = _Conn(rate_count=0)
-    payload = _base_payload("get_waybill", role="manager", extra={"carrier_external_id": "CDEK-UUID-002"})
+    payload = _base_payload("get_waybill", role="operator", extra={"carrier_external_id": "CDEK-UUID-002"})
     result = route_backoffice_intent(
         payload, conn,
         payment_adapter=_StubPaymentAdapter(),
@@ -183,16 +183,16 @@ def test_result_contains_trace_id():
 # Permission denied
 # ---------------------------------------------------------------------------
 
-def test_operator_cannot_get_waybill_returns_forbidden():
+def test_unknown_role_cannot_get_waybill_returns_forbidden():
     conn = _Conn(rate_count=0)
-    payload = _base_payload("get_waybill", role="operator", extra={"carrier_external_id": "CDEK-001"})
+    payload = _base_payload("get_waybill", role="superuser", extra={"carrier_external_id": "CDEK-001"})
     result = route_backoffice_intent(
         payload, conn,
         payment_adapter=_StubPaymentAdapter(),
         shipment_adapter=_StubShipmentAdapter(),
     )
     assert result["status"] == "forbidden"
-    assert result["invariant"] == "INV-PERMISSION-DENIED"
+    assert result["invariant"] == "INV-ROLE-UNKNOWN"
     # Even for forbidden, we still commit the audit log
     assert conn.committed is True
 

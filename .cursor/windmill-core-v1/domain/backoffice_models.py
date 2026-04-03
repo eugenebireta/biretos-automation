@@ -34,6 +34,7 @@ ROLE_PERMISSIONS: Dict[EmployeeRole, FrozenSet[Permission]] = {
     EmployeeRole.OPERATOR: frozenset({
         Permission.CHECK_PAYMENT,
         Permission.GET_TRACKING,
+        Permission.GET_WAYBILL,
     }),
     EmployeeRole.MANAGER: frozenset({
         Permission.CHECK_PAYMENT,

@@ -46,10 +46,8 @@ def test_operator_can_get_tracking():
     guard_employee_intent(_intent("get_tracking", "operator"))
 
 
-def test_operator_cannot_get_waybill():
-    with pytest.raises(GuardianVeto) as exc_info:
-        guard_employee_intent(_intent("get_waybill", "operator"))
-    assert exc_info.value.invariant == "INV-PERMISSION-DENIED"
+def test_operator_can_get_waybill():
+    guard_employee_intent(_intent("get_waybill", "operator"))
 
 
 # ---------------------------------------------------------------------------

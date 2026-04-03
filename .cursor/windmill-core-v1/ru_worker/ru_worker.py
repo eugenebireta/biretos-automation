@@ -322,6 +322,53 @@ def extract_tracking_from_result(result: Dict[str, Any]) -> Optional[str]:
     return None
 
 
+def _extract_backoffice_entity_id(action: Dict[str, Any], result: Dict[str, Any], key: str) -> Optional[str]:
+    value = result.get(key)
+    if value:
+        return str(value)
+    entities = result.get("entities", {})
+    if isinstance(entities, dict) and entities.get(key):
+        return str(entities.get(key))
+    payload = action.get("payload", {})
+    if isinstance(payload, dict) and payload.get(key):
+        return str(payload.get(key))
+    return None
+
+
+def _format_nlu_confirm_error(action: Dict[str, Any], result: Dict[str, Any]) -> str:
+    intent_type = str(result.get("intent_type") or "")
+    error = str(result.get("error") or "")
+    lowered = error.lower()
+
+    if intent_type == "get_waybill":
+        carrier_id = _extract_backoffice_entity_id(action, result, "carrier_external_id")
+        if "not found" in lowered or "no order uuid" in lowered:
+            if carrier_id:
+                return "Не нашёл отправление %s в СДЭК. Проверьте номер и попробуйте ещё раз." % carrier_id
+            return "Не нашёл это отправление в СДЭК. Проверьте номер и попробуйте ещё раз."
+        if (
+            "406 not acceptable" in lowered
+            or "did not become ready within timeout" in lowered
+            or "did not produce pdf within timeout" in lowered
+            or "non-pdf" in lowered
+        ):
+            return "СДЭК ещё готовит накладную. Повторите запрос через 1-2 минуты."
+        return "Не удалось получить накладную из СДЭК. Попробуйте ещё раз чуть позже."
+
+    if intent_type == "get_tracking":
+        carrier_id = _extract_backoffice_entity_id(action, result, "carrier_external_id")
+        if "not found" in lowered:
+            if carrier_id:
+                return "Не нашёл отправление %s в СДЭК. Проверьте номер и попробуйте ещё раз." % carrier_id
+            return "Не нашёл это отправление в СДЭК. Проверьте номер и попробуйте ещё раз."
+        return "Не удалось получить статус доставки. Попробуйте ещё раз чуть позже."
+
+    if intent_type == "check_payment":
+        return "Не удалось проверить оплату. Попробуйте ещё раз чуть позже."
+
+    return "Ошибка: " + error[:200]
+
+
 def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
     """Р¤РѕСЂРјР°С‚РёСЂСѓРµС‚ СЂРµР·СѓР»СЊС‚Р°С‚ action РґР»СЏ РѕС‚РїСЂР°РІРєРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ."""
     action_type = action.get("action_type")
@@ -453,8 +500,7 @@ def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tupl
                 size = result.get("pdf_size_bytes", 0)
                 return ("\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u0430\u044f \u0433\u043e\u0442\u043e\u0432\u0430 (%s \u0431\u0430\u0439\u0442)" % size, None)
             return ("\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", None)
-        error = result.get("error", "")
-        return ("\u041e\u0448\u0438\u0431\u043a\u0430: " + str(error)[:200], None)
+        return (_format_nlu_confirm_error(action, result), None)
 
     if status == "success":
         return ("\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", None)
@@ -526,6 +572,25 @@ def handle_router_action(action: Dict[str, Any], db_conn) -> Dict[str, Any]:
                     )
 
         # РРЎРџР РђР’Р›Р•РќРР•: Р’СЃРµРіРґР° С„РѕСЂРјР°С‚РёСЂСѓРµРј Рё РѕС‚РїСЂР°РІР»СЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚
+        if action_type == "nlu_parse" and result.get("status") == "needs_confirmation":
+            log_event("nlu_confirmation_ready", {
+                "trace_id": result.get("trace_id") or metadata.get("trace_id"),
+                "intent_type": result.get("intent_type"),
+                "confirmation_id": result.get("confirmation_id"),
+                "chat_id": chat_id,
+                "has_reply_markup": bool(result.get("reply_markup")),
+            })
+
+        if action_type == "nlu_confirm":
+            log_event("nlu_confirm_result", {
+                "trace_id": result.get("trace_id") or metadata.get("trace_id"),
+                "intent_type": result.get("intent_type"),
+                "status": result.get("status"),
+                "error_class": result.get("error_class"),
+                "confirmation_id": result.get("confirmation_id"),
+                "carrier_external_id": result.get("carrier_external_id"),
+            })
+
         message_text, reply_markup = format_action_result(action, result)
         if message_text and chat_id:
             send_telegram_message(chat_id, message_text, reply_markup)
