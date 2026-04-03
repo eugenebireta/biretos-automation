@@ -1,5 +1,10 @@
 # config/models.yaml — настраиваемые модели, не менять в коде
 # Роли постоянны. Модели меняются здесь.
+# Governance note (Phase 1 corrected execution):
+# auditor models remain advisory reviewers only.
+# Their verdicts do NOT become owner authority and do NOT reopen Stage 8.1 runtime work.
+# Quota / provider issues must be handled in a separate governance batch, not by
+# reopening review_runner / approval_router / contracts during unrelated tracks.
 
 builder:
   default: "sonnet"      # Claude Code Default (Sonnet 4.6) — подписка
