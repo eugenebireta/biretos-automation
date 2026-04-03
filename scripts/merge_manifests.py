@@ -9,6 +9,10 @@ If both have same lineage/price status, first-pass is kept (conservative).
 
 New second-pass records (URLs not in first-pass) are always appended.
 
+Committed merged output strips run-scoped Browser Vision/CDP metadata so the
+versioned artifact stays deterministic. Raw runtime provenance remains in the
+runtime second-pass manifest/evidence layer.
+
 Usage:
     python merge_manifests.py \
         --first-pass downloads/scout_cache/price_manual_manifest_target20.jsonl \
@@ -23,6 +27,23 @@ import json
 import sys
 from pathlib import Path
 from typing import Any
+
+
+VOLATILE_OUTPUT_FIELDS = {
+    "blocked_ui_detected",
+    "browser_channel",
+    "browser_mode",
+    "browser_vision_source",
+    "escalated_to_opus",
+    "final_url",
+    "idempotency_key",
+    "page_title",
+    "screenshot_path",
+    "screenshot_taken",
+    "trace_id",
+    "vision_confidence",
+    "vision_model",
+}
 
 
 def _load_manifest(path: Path) -> list[dict[str, Any]]:
@@ -74,6 +95,14 @@ def _second_pass_wins(first: dict[str, Any], second: dict[str, Any]) -> bool:
     return False
 
 
+def _sanitize_output_row(row: dict[str, Any]) -> dict[str, Any]:
+    """Drop run-scoped Browser Vision/CDP metadata from committed output."""
+    sanitized = dict(row)
+    for field in VOLATILE_OUTPUT_FIELDS:
+        sanitized.pop(field, None)
+    return sanitized
+
+
 def merge(
     first_pass: list[dict[str, Any]],
     second_pass: list[dict[str, Any]],
@@ -109,14 +138,16 @@ def merge(
 
         if key in first_by_key:
             if _second_pass_wins(first_by_key[key], row):
-                row["merge_source"] = "second_pass_replaced"
-                replacements[key] = row
+                replacement = _sanitize_output_row(row)
+                replacement["merge_source"] = "second_pass_replaced"
+                replacements[key] = replacement
                 stats["replaced"] += 1
             else:
                 stats["kept_first"] += 1
         else:
-            row["merge_source"] = "second_pass_new"
-            new_rows.append(row)
+            new_row = _sanitize_output_row(row)
+            new_row["merge_source"] = "second_pass_new"
+            new_rows.append(new_row)
             stats["appended"] += 1
 
     # Build merged result
@@ -129,7 +160,7 @@ def merge(
         if key in replacements:
             merged.append(replacements[key])
         else:
-            row = first_by_key[key]
+            row = _sanitize_output_row(first_by_key[key])
             row["merge_source"] = "first_pass"
             merged.append(row)
 

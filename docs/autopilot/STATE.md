@@ -1,29 +1,29 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 49
-transition_ts: "2026-04-03T00:00:00Z"
+transition_seq: 50
+transition_ts: "2026-04-03T17:07:18Z"
 
 ## Current
 active_task: "BVS deterministic merge tool"
 task_id: "bvs-merge-tool"
 phase: BUILDER
-status: PR_OPEN
+status: COMPLETED
 phase_owner: "Owner/Eugene"
 risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: 28
 now:
-  - step: "Deterministic merge tool + reproducible artifacts"
+  - step: "PR #28 merged; deterministic artifacts pinned post-merge"
     actions:
-      - "merge_manifests.py: deterministic first+second pass JSONL merge (17/17 tests)"
+      - "merge_manifests.py: deterministic first+second pass JSONL merge (18/18 tests)"
       - "25 SKU checked for BVS eligibility, 5 URLs eligible (3 PN on 2 RU sites)"
       - "2 wins (lemanapro.ru), 3 blocked (vseinstrumenti.ru ServicePipe)"
-      - "Seed + merged manifest committed as reproducible artifacts"
-      - "40/40 tests PASS (17 merge + 23 BVS regression)"
-known_gap: "vseinstrumenti.ru ServicePipe not solvable; CDP only working approach"
-awaiting: "Owner review of PR #28"
+      - "bvs_25sku_seed.jsonl committed; merged_manifest.jsonl sanitized to deterministic versioned output"
+      - "41/41 tests PASS (18 merge + 23 BVS regression)"
+known_gap: "vseinstrumenti.ru ServicePipe not solvable; raw BVS/CDP provenance remains in runtime manifest and screenshots, not in committed merged output."
+awaiting: "No open dependency inside this batch; PR #28 is already merged to master."
 
 ## Previous (seq 48 — auditor_system Phase 2)
 prev_active_task: "auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)"
