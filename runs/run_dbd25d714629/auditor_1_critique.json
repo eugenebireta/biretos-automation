@@ -1,0 +1,44 @@
+{
+  "auditor_id": "anthropic",
+  "verdict": "concerns",
+  "summary": "The proposal is too vague to fully audit — it references 17 tests and a deterministic merge pattern but provides no actual implementation code, schema, or module structure. Without concrete code, several Tier-3 compliance requirements cannot be verified, and the mock proposal label raises questions about whether this represents a real implementation.",
+  "issues": [
+    {
+      "severity": "warning",
+      "area": "proposal completeness",
+      "description": "The proposal is explicitly labeled 'Mock proposal: implement BVS deterministic merge tool via standard pattern.' No actual code, schema, or module structure is provided. A meaningful audit cannot confirm compliance with Tier-3 requirements (trace_id, idempotency_key, structured error logging, FSM constraints, table prefixes, etc.) without implementation details.",
+      "line_ref": "proposal body"
+    },
+    {
+      "severity": "warning",
+      "area": "table/prefix compliance",
+      "description": "The proposal mentions merging 'price scout manifests' but does not confirm that all revenue table writes use required rev_* / stg_* / lot_* prefixes. Cannot verify without schema or DDL.",
+      "line_ref": "N/A"
+    },
+    {
+      "severity": "warning",
+      "area": "idempotency and dedup",
+      "description": "No evidence that inbound event dedup (INSERT ON CONFLICT DO NOTHING) or idempotency_key handling is implemented for the merge operation. Merging manifests with a reproducible seed does not automatically satisfy idempotency requirements for side-effects.",
+      "line_ref": "N/A"
+    },
+    {
+      "severity": "warning",
+      "area": "structured error logging",
+      "description": "No code is present to verify that error logging includes required fields: error_class (TRANSIENT/PERMANENT/POLICY_VIOLATION), severity, and retriable flag. Cannot confirm no silent exception swallowing.",
+      "line_ref": "N/A"
+    },
+    {
+      "severity": "warning",
+      "area": "test determinism",
+      "description": "The proposal claims 17 tests with reproducible seed, but no test code is provided. Cannot confirm tests are deterministic (no live API, no unmocked time) as required.",
+      "line_ref": "N/A"
+    },
+    {
+      "severity": "info",
+      "area": "scope clarity",
+      "description": "The description explicitly states 'No evidence bundle changes, no captcha solver changes,' which is good scoping hygiene. If the implementation is genuinely limited to a pure merge utility with no DB writes or external calls, several Tier-3 side-effect rules may not apply — but this must be confirmed in actual code.",
+      "line_ref": "description"
+    }
+  ],
+  "schema_valid": true
+}

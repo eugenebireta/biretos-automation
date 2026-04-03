@@ -1,0 +1,15 @@
+{
+  "task_id": "task_c55b46ad",
+  "title": "Iron Fence: Boundary Grep M3a",
+  "description": "CI grep-проверка: запрет DML по reconciliation_* таблицам из Tier-3 кода. Создать .github/workflows/iron_fence.yml с grep-шагом. Exit 1 если любой match найден в scripts/ или workers/.",
+  "roadmap_stage": "5.5.2",
+  "why_now": "Hash Lock (5.5.1) done, grep guards — следующий шаг к Revenue",
+  "risk": "semi",
+  "depends_on": [
+    "5.5.1"
+  ],
+  "blocks": [],
+  "declared_surface": [],
+  "affected_files": [],
+  "keywords": []
+}

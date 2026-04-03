@@ -1,0 +1,50 @@
+{
+  "auditor_id": "anthropic",
+  "verdict": "concerns",
+  "summary": "The proposal is conceptually sound and aligns with policy enforcement goals, but the 'mock proposal via standard pattern' provides no concrete implementation to audit. Without actual workflow YAML, grep patterns, and scope definitions, critical gaps cannot be verified.",
+  "issues": [
+    {
+      "severity": "critical",
+      "area": "proposal completeness",
+      "description": "The proposal is a stub ('Mock proposal: implement via standard pattern') with zero implementation details. No actual .github/workflows/iron_fence.yml content is provided. A CI grep guard that is misconfigured or incomplete provides false security — worse than no guard. Cannot verify correctness of grep patterns, exit conditions, or scope.",
+      "line_ref": "proposal body"
+    },
+    {
+      "severity": "critical",
+      "area": "grep pattern correctness",
+      "description": "No grep patterns are specified. The guard must cover all prohibited DML forms: INSERT, UPDATE, DELETE against reconciliation_audit_log, reconciliation_alerts, reconciliation_suppressions, and ALTER/DROP on reconciliation_* tables. Missing patterns (e.g., multi-line DML, ORM-style calls, aliased table references) would allow policy violations to slip through undetected.",
+      "line_ref": "N/A — not provided"
+    },
+    {
+      "severity": "critical",
+      "area": "scope definition",
+      "description": "The description says grep scripts/ and workers/ but Tier-3 code may also reside in other directories (e.g., tasks/, jobs/, handlers/). Without an explicit, exhaustive path list or a repo-wide scan with exclusions, the fence has blind spots. The exact directory scope must be declared and justified.",
+      "line_ref": "Description: 'scripts/ или workers/'"
+    },
+    {
+      "severity": "warning",
+      "area": "false-negative risk",
+      "description": "Grep-based guards are bypassable via string concatenation, dynamic table name construction, or ORM model references. The proposal does not acknowledge this limitation or pair the grep with complementary controls (e.g., DB-level row security, integration test assertions). This should be documented as a known gap.",
+      "line_ref": "N/A"
+    },
+    {
+      "severity": "warning",
+      "area": "false-positive handling",
+      "description": "No allowlist or comment-based suppression mechanism is defined. Legitimate occurrences in comments, test fixtures, or documentation strings would cause spurious CI failures. The workflow must handle these cases explicitly.",
+      "line_ref": "N/A"
+    },
+    {
+      "severity": "warning",
+      "area": "surface mismatch",
+      "description": "Surface mismatch detected: task is classified under 'reconciliation' but declared surface is empty. The iron_fence.yml must explicitly cover reconciliation mutation surface as the strictest union applies. This must be reflected in the grep targets.",
+      "line_ref": "surface mismatch notice"
+    },
+    {
+      "severity": "info",
+      "area": "deterministic test requirement",
+      "description": "Per Tier-3 module requirements, at least one deterministic test is required. For a CI workflow, this means a test fixture with known-bad and known-good files should be included to verify the grep step behaves correctly. Not present in the proposal.",
+      "line_ref": "N/A"
+    }
+  ],
+  "schema_valid": true
+}

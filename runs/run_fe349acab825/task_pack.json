@@ -1,0 +1,15 @@
+{
+  "task_id": "task_67461f92",
+  "title": "Branch protection na master",
+  "description": "Sozdat GitHub Actions workflow ili dokumentaciyu dlya nastroyki branch protection rules na master: require PR review, require CI pass (pytest), no direct push to master. NE primenyat nastroyki - tolko sgenerirovat kod/instrukciyu.",
+  "roadmap_stage": "2.2",
+  "why_now": "CI uzhe nastroyen (2.1 done), branch protection - sleduyushchiy shag po Roadmap",
+  "risk": "low",
+  "depends_on": [
+    "2.1"
+  ],
+  "blocks": [],
+  "declared_surface": [],
+  "affected_files": [],
+  "keywords": []
+}
