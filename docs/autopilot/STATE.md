@@ -1,34 +1,36 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 48
-transition_ts: "2026-04-02T22:12:08Z"
+transition_seq: 49
+transition_ts: "2026-04-03T00:00:00Z"
 
 ## Current
-active_task: "auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)"
-task_id: "auditor-system-phase2"
+active_task: "BVS deterministic merge tool"
+task_id: "bvs-merge-tool"
 phase: BUILDER
 status: PR_OPEN
 phase_owner: "Owner/Eugene"
 risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
+pr_number: 28
 now:
-  - step: "Phase 2 complete — live auditors + pilot gate"
+  - step: "Deterministic merge tool + reproducible artifacts"
     actions:
-      - "schema_validator.py: SchemaViolationError + validate_and_parse (SPEC §19.3)"
-      - "fallback_handler.py: FallbackHandler risk-aware (SPEC §7)"
-      - "openai_auditor.py: live Responses API + Structured Outputs"
-      - "anthropic_auditor.py: live Messages API (claude-sonnet-4-6)"
-      - "review_runner.py: _gather_safe + FallbackHandler wired"
-      - "run_store.py: load_run_for_verdict"
-      - "cli.py: verdict + pilot + live commands"
-      - "38/38 tests PASS"
-      - "Pilot: LOW=auto_pass, SEMI=batch_approval (Anthropic live), CORE=BLOCKED (correct)"
-      - "2 DPO records in experience_log/2026-04.jsonl"
-      - "Secrets isolated to auditor_system/config/.env.auditors"
-known_gap: "OpenAI key insufficient_quota — Responses API unavailable. CORE pilot needs funded key."
-awaiting: "OpenAI key with credits for CORE pilot completion"
+      - "merge_manifests.py: deterministic first+second pass JSONL merge (17/17 tests)"
+      - "25 SKU checked for BVS eligibility, 5 URLs eligible (3 PN on 2 RU sites)"
+      - "2 wins (lemanapro.ru), 3 blocked (vseinstrumenti.ru ServicePipe)"
+      - "Seed + merged manifest committed as reproducible artifacts"
+      - "40/40 tests PASS (17 merge + 23 BVS regression)"
+known_gap: "vseinstrumenti.ru ServicePipe not solvable; CDP only working approach"
+awaiting: "Owner review of PR #28"
+
+## Previous (seq 48 — auditor_system Phase 2)
+prev_active_task: "auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)"
+prev_task_id: "auditor-system-phase2"
+prev_phase: BUILDER
+prev_status: PR_OPEN
+prev_exit: "Phase 2 complete: 38/38 tests, live auditors, pilot gate. OpenAI quota gap remains."
 
 ## Previous (seq 44 — Governed AI Execution System Phase 1)
 prev_active_task: "Governed AI Execution System — Phase 1 complete, PR #18 auto-merge enabled"

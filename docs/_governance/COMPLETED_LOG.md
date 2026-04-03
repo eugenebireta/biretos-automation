@@ -1,5 +1,21 @@
 ---
 DATE: 2026-04-03
+TITLE: BVS deterministic merge tool
+RISK_LEVEL: SEMI
+STATUS: PR_OPEN (awaiting owner review)
+SCOPE:
+  - scripts/merge_manifests.py (NEW — deterministic first+second pass merge)
+  - tests/enrichment/test_merge_manifests.py (NEW — 17 tests)
+  - downloads/scout_cache/bvs_25sku_seed.jsonl (NEW — reproducible seed)
+  - downloads/scout_cache/merged_manifest.jsonl (NEW — deterministic merge output)
+TEST_EVIDENCE: 40/40 PASS (17 merge + 23 BVS regression)
+EXCLUDED_FROM_PR: captcha_solver fix (separate PR), bvs_25sku_manifest.jsonl (runtime), evidence_*.json (point demo)
+PR: https://github.com/eugenebireta/biretos-automation/pull/28
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-03
 TITLE: auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)
 RISK_LEVEL: SEMI
 STATUS: COMPLETED
