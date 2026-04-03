@@ -11,6 +11,7 @@ from synthetic_bot_driver import (
     SyntheticTelegramDriver,
     load_reference_fixture,
     replay_reference_fixture,
+    replay_reference_fixture_n_times,
 )
 
 
@@ -39,3 +40,11 @@ def test_waybill_confirm_scenario_records_snapshot_and_shadow_rows():
     assert actual_steps[-1]["side_effects"]["shadow_rows"] == 2
     assert actual_steps[-1]["side_effects"]["snapshot_rows"] == 1
     assert actual_steps[-1]["side_effects"]["employee_action_rows"] == 1
+
+
+def test_reference_fixture_volume_mode_reaches_stage83_synthetic_threshold():
+    result = replay_reference_fixture_n_times(_fixture_path(), repeat=7)
+
+    assert result["repeat"] == 7
+    assert result["synthetic_requests"] == 56
+    assert result["match_rate"] == 1.0, result["mismatches"]

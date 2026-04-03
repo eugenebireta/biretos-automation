@@ -9,7 +9,7 @@ TESTS_DIR = Path(__file__).resolve().parent
 if str(TESTS_DIR) not in sys.path:
     sys.path.insert(0, str(TESTS_DIR))
 
-from synthetic_bot_driver import replay_reference_fixture
+from synthetic_bot_driver import replay_reference_fixture_n_times
 
 
 def main() -> int:
@@ -19,9 +19,15 @@ def main() -> int:
         default=str(Path(__file__).resolve().parent / "fixtures" / "synthetic_bot_reference.json"),
         help="Path to the synthetic transcript fixture JSON.",
     )
+    parser.add_argument(
+        "--repeat",
+        type=int,
+        default=1,
+        help="How many times to replay the fixture batch. Use 7 for 56 synthetic requests.",
+    )
     args = parser.parse_args()
 
-    result = replay_reference_fixture(Path(args.fixture))
+    result = replay_reference_fixture_n_times(Path(args.fixture), repeat=args.repeat)
 
     print(json.dumps(result, ensure_ascii=True, indent=2))
     return 0 if result["match_rate"] == 1.0 else 1
