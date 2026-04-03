@@ -1,0 +1,55 @@
+{
+  "task_id": "task_c55b46ad",
+  "roadmap_stage": "5.5.2",
+  "risk": "semi",
+  "why_now": "Hash Lock (5.5.1) done, grep guards — следующий шаг к Revenue",
+  "effective_surface": [
+    "reconciliation"
+  ],
+  "surface_mismatch": true,
+  "opus_surface_hit": true,
+  "tier1_files": [
+    ".cursor/windmill-core-v1/docs/RETENTION_INVARIANT.md",
+    ".cursor/windmill-core-v1/domain/observability_service.py",
+    ".cursor/windmill-core-v1/domain/reconciliation_alerts.py",
+    ".cursor/windmill-core-v1/domain/reconciliation_service.py",
+    ".cursor/windmill-core-v1/domain/reconciliation_verify.py",
+    ".cursor/windmill-core-v1/domain/structural_checks.py",
+    ".cursor/windmill-core-v1/maintenance_sweeper.py",
+    ".cursor/windmill-core-v1/migrations/016_create_reconciliation_audit_log.sql",
+    ".cursor/windmill-core-v1/migrations/017_create_reconciliation_suppressions.sql",
+    ".cursor/windmill-core-v1/migrations/018_create_reconciliation_alerts.sql",
+    ".cursor/windmill-core-v1/migrations/019_add_retention_indexes.sql",
+    ".cursor/windmill-core-v1/retention_policy.py",
+    ".cursor/windmill-core-v1/tests/validation/test_phase25_contract_guards.py",
+    ".cursor/windmill-core-v1/tests/validation/test_phase25_replay_gate.py",
+    ".cursor/windmill-core-v1/tests/validation/test_phase3_alert_emission.py",
+    ".cursor/windmill-core-v1/tests/validation/test_phase3_cache_read_model_contract.py",
+    ".cursor/windmill-core-v1/tests/validation/test_phase3_l3_structural_checks.py",
+    ".cursor/windmill-core-v1/tests/validation/test_phase3_replay_verify.py",
+    ".cursor/windmill-core-v1/tests/validation/test_phase3_structural_safety_contract.py"
+  ],
+  "pinned_api": [
+    "InvoiceStatusRequest",
+    "ShipmentTrackingStatusRequest",
+    "_derive_payment_status",
+    "_ensure_snapshot_row",
+    "_extract_order_total_minor",
+    "recompute_order_cdek_cache_atomic",
+    "update_shipment_status_atomic"
+  ],
+  "absolute_prohibitions": [
+    "No INSERT/UPDATE/DELETE on reconciliation_audit_log, reconciliation_alerts, reconciliation_suppressions",
+    "No raw DML on order_ledger, shipments, payment_transactions, reservations, stock_ledger_entries",
+    "No import from domain.reconciliation_service, domain.reconciliation_alerts, domain.reconciliation_verify",
+    "No ALTER/DROP on reconciliation_* tables in migrations/020+",
+    "Tier-3 CANNOT call Tier-2 atomics without Guardian"
+  ],
+  "revenue_table_rules": [
+    "Always prefix: rev_* / stg_* / lot_*",
+    "No direct JOIN with Core tables",
+    "Read Core only through read-only views",
+    "Linear FSM only, max 5 states"
+  ],
+  "surface_mismatch_warning": "Surface mismatch detected! Classified: ['reconciliation'], Declared: []. Using UNION (strictest). Verify task scope."
+}

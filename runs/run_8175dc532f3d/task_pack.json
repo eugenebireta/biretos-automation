@@ -1,0 +1,17 @@
+{
+  "task_id": "task_51ce5d23",
+  "title": "Pydantic Validation на 3 границах",
+  "description": "Pydantic validation на границах: API input, domain boundary (TaskIntent перед Guardian), external output (перед экспортом). ValidationError → structured log: error_class=POLICY_VIOLATION, severity=ERROR, retriable=False. Alert owner. Never silent pass. Затронутые файлы: guardian.py, webhook_handler.py, export_pipeline.py",
+  "roadmap_stage": "5.2",
+  "why_now": "5.1 done (TaskIntent + ActionSnapshot), validation — следующий",
+  "risk": "core",
+  "depends_on": [
+    "5.1"
+  ],
+  "blocks": [],
+  "declared_surface": [
+    "guardian_logic"
+  ],
+  "affected_files": [],
+  "keywords": []
+}

@@ -88,6 +88,21 @@ downloads/lots/
 downloads/**/lot_*_artifact.json
 downloads/**/summary_filters_report.xlsx
 downloads/**/_metadata/
+downloads/browser_profiles/
+downloads/photos/
+downloads/photos_enhanced/
+downloads/photos_enhanced_quarantine/
+downloads/scout_cache/
+downloads/scout_assets/
+downloads/export/
+downloads/audits/phase_a_v2_sanity_*/
+downloads/audits/local_catalog_refresh_*/
+downloads/audits/price_only_scout_*/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
 
 # Temporary office files
 ~$*
