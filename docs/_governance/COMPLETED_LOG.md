@@ -2,15 +2,15 @@
 DATE: 2026-04-03
 TITLE: BVS deterministic merge tool
 RISK_LEVEL: SEMI
-STATUS: PR_OPEN (awaiting owner review)
+STATUS: COMPLETED (PR #28 merged to master)
 SCOPE:
   - scripts/merge_manifests.py (NEW — deterministic first+second pass merge)
-  - tests/enrichment/test_merge_manifests.py (NEW — 17 tests)
+  - tests/enrichment/test_merge_manifests.py (NEW — 18 tests)
   - downloads/scout_cache/bvs_25sku_seed.jsonl (NEW — reproducible seed)
-  - downloads/scout_cache/merged_manifest.jsonl (NEW — deterministic merge output)
-TEST_EVIDENCE: 40/40 PASS (17 merge + 23 BVS regression)
-EXCLUDED_FROM_PR: captcha_solver fix (separate PR), bvs_25sku_manifest.jsonl (runtime), evidence_*.json (point demo)
-PR: https://github.com/eugenebireta/biretos-automation/pull/28
+  - downloads/scout_cache/merged_manifest.jsonl (NEW — sanitized deterministic merge output)
+TEST_EVIDENCE: 41/41 PASS (18 merge + 23 BVS regression)
+EXCLUDED_FROM_PR: captcha_solver fix (separate PR), bvs_25sku_manifest.jsonl (runtime BVS/CDP provenance), evidence_*.json (point demo)
+PR: https://github.com/eugenebireta/biretos-automation/pull/28 (MERGED 2026-04-03; merge commit f6c9954)
 TIER1_CLEAN: true
 PINNED_API_CLEAN: true
 
