@@ -515,3 +515,32 @@ def replay_reference_fixture(path: Path | None = None) -> Dict[str, Any]:
         "match_rate": match_rate,
         "mismatches": mismatches,
     }
+
+
+def replay_reference_fixture_n_times(path: Path | None = None, *, repeat: int = 1) -> Dict[str, Any]:
+    if repeat < 1:
+        raise ValueError("repeat must be >= 1")
+
+    fixture = load_reference_fixture(path)
+    total_steps = 0
+    matched_steps = 0
+    mismatches: List[Dict[str, Any]] = []
+
+    for run_index in range(1, repeat + 1):
+        result = replay_reference_fixture(path)
+        total_steps += result["total_steps"]
+        matched_steps += result["matched_steps"]
+        for mismatch in result["mismatches"]:
+            mismatches.append({"run": run_index, **mismatch})
+
+    match_rate = (matched_steps / total_steps) if total_steps else 0.0
+    return {
+        "schema_version": fixture["schema_version"],
+        "repeat": repeat,
+        "scenario_count": len(fixture["scenarios"]),
+        "synthetic_requests": total_steps,
+        "total_steps": total_steps,
+        "matched_steps": matched_steps,
+        "match_rate": match_rate,
+        "mismatches": mismatches,
+    }
