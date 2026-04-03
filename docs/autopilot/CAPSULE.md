@@ -5,6 +5,7 @@ Risk: SEMI
 Date: 2026-04-03
 Branch: feat/rev-r1-catalog
 PR: https://github.com/eugenebireta/biretos-automation/pull/28
+Status: COMPLETED — PR #28 merged to master (merge commit `f6c9954`)
 
 ## What was built
 
@@ -13,11 +14,11 @@ Deterministic merge tool for first+second pass price scout manifests.
 New modules:
 - `scripts/merge_manifests.py` — merge by key=`part_number::source_domain`,
   second-pass wins on lineage/price upgrade, blocked records dropped
-- `tests/enrichment/test_merge_manifests.py` — 17 deterministic tests
+- `tests/enrichment/test_merge_manifests.py` — 18 deterministic tests
 
 Reproducible artifacts:
 - `downloads/scout_cache/bvs_25sku_seed.jsonl` — 5 eligible URLs from 25 SKU
-- `downloads/scout_cache/merged_manifest.jsonl` — 22 rows (20 first-pass + 2 BVS wins)
+- `downloads/scout_cache/merged_manifest.jsonl` — 22 rows (20 first-pass + 2 BVS wins), sanitized deterministic committed output
 
 ## Coverage detail
 
@@ -29,13 +30,14 @@ Reproducible artifacts:
 
 ## Tests
 
-40/40 PASS (17 merge + 23 BVS regression)
+41/41 PASS (18 merge + 23 BVS regression)
 
 ## Governance
 - Tier-1 frozen files: CLEAN
 - Pinned API signatures: CLEAN
 - price_manual_scout.py: NOT MODIFIED
-- Runtime artifacts (bvs_25sku_manifest.jsonl): NOT in PR
+- `merged_manifest.jsonl`: committed as deterministic versioned output; run-scoped BVS/CDP fields stripped
+- Runtime artifacts (`bvs_25sku_manifest.jsonl`): NOT in PR; retain raw BVS/CDP provenance (`trace_id`, `idempotency_key`, screenshots, model/runtime metadata)
 - Evidence bundle changes: NOT in PR (deferred to systemic integration)
 - captcha_solver.py fix + smoke tests: deferred to separate PR #29
 

@@ -159,6 +159,47 @@ def test_merge_stats_counts():
     assert len(merged) == 3  # 2 from first + 1 appended
 
 
+def test_merge_strips_run_scoped_bvs_fields():
+    sp = [_row(
+        domain="b.com",
+        price=20.0,
+        browser_mode="headed",
+        browser_channel="cdp",
+        screenshot_taken=True,
+        screenshot_path="D:/tmp/snap.png",
+        vision_model="claude-sonnet-4-6",
+        vision_confidence=99,
+        blocked_ui_detected=False,
+        final_url="https://example.com/final",
+        page_title="Example",
+        escalated_to_opus=False,
+        trace_id="bvs-123",
+        idempotency_key="bvs:123",
+        browser_vision_source=True,
+    )]
+    merged, stats = merge([], sp)
+
+    assert stats["appended"] == 1
+    assert merged[0]["merge_source"] == "second_pass_new"
+    assert merged[0]["price_per_unit"] == 20.0
+    for field in (
+        "browser_mode",
+        "browser_channel",
+        "screenshot_taken",
+        "screenshot_path",
+        "vision_model",
+        "vision_confidence",
+        "blocked_ui_detected",
+        "final_url",
+        "page_title",
+        "escalated_to_opus",
+        "trace_id",
+        "idempotency_key",
+        "browser_vision_source",
+    ):
+        assert field not in merged[0]
+
+
 # ── Integration: run() with real files ───────────────────────────────────────
 
 def test_run_writes_jsonl(tmp_path):
