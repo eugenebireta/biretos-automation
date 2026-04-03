@@ -1,0 +1,329 @@
+{
+  "schema_version": "synthetic_bot_transcript_v1",
+  "scenarios": [
+    {
+      "name": "slash_ping",
+      "steps": [
+        {
+          "input": {
+            "type": "message",
+            "text": "/ping"
+          },
+          "expected": {
+            "callback_acked": false,
+            "route": {
+              "action_type": null,
+              "response_text": "pong"
+            },
+            "execution": null,
+            "outbound": {
+              "text": "pong",
+              "has_reply_markup": false,
+              "reply_markup": null
+            },
+            "side_effects": {
+              "pending_total": 0,
+              "pending_confirmed": 0,
+              "shadow_rows": 0,
+              "sla_rows": 0,
+              "employee_action_rows": 0,
+              "snapshot_rows": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "nlu_check_payment_confirm",
+      "steps": [
+        {
+          "input": {
+            "type": "message",
+            "text": "проверить оплату INV-123"
+          },
+          "expected": {
+            "callback_acked": false,
+            "route": {
+              "action_type": "nlu_parse",
+              "response_text": null
+            },
+            "execution": {
+              "status": "needs_confirmation",
+              "intent_type": "check_payment",
+              "confirmation_id": "<confirmation_id>",
+              "entities": {
+                "invoice_id": "123"
+              }
+            },
+            "outbound": {
+              "text": "Понял: Проверить оплату\ninvoice_id: 123\nПодтвердить?",
+              "has_reply_markup": true,
+              "reply_markup": {
+                "inline_keyboard": [
+                  [
+                    {
+                      "text": "✅ Да, проверить оплату",
+                      "callback_data": "nlu_confirm:<confirmation_id>"
+                    },
+                    {
+                      "text": "❌ Отмена",
+                      "callback_data": "nlu_cancel:<confirmation_id>"
+                    }
+                  ]
+                ]
+              }
+            },
+            "side_effects": {
+              "pending_total": 1,
+              "pending_confirmed": 0,
+              "shadow_rows": 1,
+              "sla_rows": 1,
+              "employee_action_rows": 0,
+              "snapshot_rows": 0
+            }
+          }
+        },
+        {
+          "input": {
+            "type": "callback",
+            "data": "nlu_confirm:{last_confirmation_id}"
+          },
+          "expected": {
+            "callback_acked": true,
+            "route": {
+              "action_type": "nlu_confirm",
+              "response_text": null
+            },
+            "execution": {
+              "status": "success",
+              "intent_type": "check_payment",
+              "provider_document_id": "123",
+              "provider_status": "paid",
+              "confirmation_id": "<confirmation_id>",
+              "nlu_confirmed": true
+            },
+            "outbound": {
+              "text": "Оплачен Счёт 123: paid",
+              "has_reply_markup": false,
+              "reply_markup": null
+            },
+            "side_effects": {
+              "pending_total": 1,
+              "pending_confirmed": 1,
+              "shadow_rows": 2,
+              "sla_rows": 1,
+              "employee_action_rows": 1,
+              "snapshot_rows": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "nlu_get_tracking_confirm",
+      "steps": [
+        {
+          "input": {
+            "type": "message",
+            "text": "где посылка 10248510566"
+          },
+          "expected": {
+            "callback_acked": false,
+            "route": {
+              "action_type": "nlu_parse",
+              "response_text": null
+            },
+            "execution": {
+              "status": "needs_confirmation",
+              "intent_type": "get_tracking",
+              "confirmation_id": "<confirmation_id>",
+              "entities": {
+                "carrier_external_id": "10248510566"
+              }
+            },
+            "outbound": {
+              "text": "Понял: Статус доставки\ncarrier_external_id: 10248510566\nПодтвердить?",
+              "has_reply_markup": true,
+              "reply_markup": {
+                "inline_keyboard": [
+                  [
+                    {
+                      "text": "✅ Да, статус доставки",
+                      "callback_data": "nlu_confirm:<confirmation_id>"
+                    },
+                    {
+                      "text": "❌ Отмена",
+                      "callback_data": "nlu_cancel:<confirmation_id>"
+                    }
+                  ]
+                ]
+              }
+            },
+            "side_effects": {
+              "pending_total": 1,
+              "pending_confirmed": 0,
+              "shadow_rows": 1,
+              "sla_rows": 1,
+              "employee_action_rows": 0,
+              "snapshot_rows": 0
+            }
+          }
+        },
+        {
+          "input": {
+            "type": "callback",
+            "data": "nlu_confirm:{last_confirmation_id}"
+          },
+          "expected": {
+            "callback_acked": true,
+            "route": {
+              "action_type": "nlu_confirm",
+              "response_text": null
+            },
+            "execution": {
+              "status": "success",
+              "intent_type": "get_tracking",
+              "carrier_external_id": "10248510566",
+              "carrier_status": "delivered",
+              "confirmation_id": "<confirmation_id>",
+              "nlu_confirmed": true
+            },
+            "outbound": {
+              "text": "Трекинг 10248510566: delivered",
+              "has_reply_markup": false,
+              "reply_markup": null
+            },
+            "side_effects": {
+              "pending_total": 1,
+              "pending_confirmed": 1,
+              "shadow_rows": 2,
+              "sla_rows": 1,
+              "employee_action_rows": 1,
+              "snapshot_rows": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "nlu_get_waybill_confirm",
+      "steps": [
+        {
+          "input": {
+            "type": "message",
+            "text": "накладная 10248510566"
+          },
+          "expected": {
+            "callback_acked": false,
+            "route": {
+              "action_type": "nlu_parse",
+              "response_text": null
+            },
+            "execution": {
+              "status": "needs_confirmation",
+              "intent_type": "get_waybill",
+              "confirmation_id": "<confirmation_id>",
+              "entities": {
+                "carrier_external_id": "10248510566"
+              }
+            },
+            "outbound": {
+              "text": "Понял: Получить накладную\ncarrier_external_id: 10248510566\nПодтвердить?",
+              "has_reply_markup": true,
+              "reply_markup": {
+                "inline_keyboard": [
+                  [
+                    {
+                      "text": "✅ Да, получить накладную",
+                      "callback_data": "nlu_confirm:<confirmation_id>"
+                    },
+                    {
+                      "text": "❌ Отмена",
+                      "callback_data": "nlu_cancel:<confirmation_id>"
+                    }
+                  ]
+                ]
+              }
+            },
+            "side_effects": {
+              "pending_total": 1,
+              "pending_confirmed": 0,
+              "shadow_rows": 1,
+              "sla_rows": 1,
+              "employee_action_rows": 0,
+              "snapshot_rows": 0
+            }
+          }
+        },
+        {
+          "input": {
+            "type": "callback",
+            "data": "nlu_confirm:{last_confirmation_id}"
+          },
+          "expected": {
+            "callback_acked": true,
+            "route": {
+              "action_type": "nlu_confirm",
+              "response_text": null
+            },
+            "execution": {
+              "status": "success",
+              "intent_type": "get_waybill",
+              "carrier_external_id": "10248510566",
+              "pdf_size_bytes": 9,
+              "confirmation_id": "<confirmation_id>",
+              "nlu_confirmed": true
+            },
+            "outbound": {
+              "text": "Накладная готова (9 байт)",
+              "has_reply_markup": false,
+              "reply_markup": null
+            },
+            "side_effects": {
+              "pending_total": 1,
+              "pending_confirmed": 1,
+              "shadow_rows": 2,
+              "sla_rows": 1,
+              "employee_action_rows": 1,
+              "snapshot_rows": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "nlu_fallback_garbage",
+      "steps": [
+        {
+          "input": {
+            "type": "message",
+            "text": "qwerty asdfgh lorem ipsum xyz"
+          },
+          "expected": {
+            "callback_acked": false,
+            "route": {
+              "action_type": "nlu_parse",
+              "response_text": null
+            },
+            "execution": {
+              "status": "fallback"
+            },
+            "outbound": {
+              "text": "Не понял запрос. Попробуйте /help",
+              "has_reply_markup": false,
+              "reply_markup": null
+            },
+            "side_effects": {
+              "pending_total": 0,
+              "pending_confirmed": 0,
+              "shadow_rows": 0,
+              "sla_rows": 1,
+              "employee_action_rows": 0,
+              "snapshot_rows": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
