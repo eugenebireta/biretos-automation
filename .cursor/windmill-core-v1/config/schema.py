@@ -187,10 +187,10 @@ class Config:
     test_invoice_id: Optional[str]
     telegram_webhook_url: Optional[str]
     # Phase 7 — NLU config
-    nlu_enabled: bool = False
+    nlu_enabled: bool = True
     nlu_degradation_level: int = 2
     nlu_confidence_threshold: float = 0.80
-    nlu_shadow_mode: bool = True
+    nlu_shadow_mode: bool = False
     nlu_max_input_bytes: int = 1024
     nlu_model_version: str = "regex-v1"
     nlu_prompt_version: str = "v1.0"

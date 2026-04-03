@@ -1,0 +1,390 @@
+{
+  "schema_version": "stage-8.3/synthetic-webhook-v1",
+  "scenarios": [
+    {
+      "name": "tbank_paid_create_duplicate",
+      "steps": [
+        {
+          "input": {
+            "endpoint": "tbank_invoice_paid",
+            "headers": {
+              "X-Api-Token": "tbank-secret"
+            },
+            "json": {
+              "eventType": "INVOICE_PAID",
+              "invoiceId": "INV-42",
+              "invoiceNumber": "B-42",
+              "paidAt": "2026-01-02T03:04:05Z"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Payment recorded",
+                "trace_id": "<trace_id>"
+              }
+            },
+            "insert": {
+              "created": true,
+              "job_type": "tbank_invoice_paid",
+              "job_id": "<job_id>",
+              "status": "pending",
+              "trace_id": "<trace_id>",
+              "idempotency_key": "tbank:invoice_paid:INV-42",
+              "payload": {
+                "invoice_id": "INV-42",
+                "invoice_number": "B-42",
+                "paid_at": "2026-01-02T03:04:05Z"
+              }
+            },
+            "logs": [
+              {
+                "event": "tbank_webhook_job_created",
+                "invoice_id": "INV-42",
+                "idempotency_key": "tbank:invoice_paid:INV-42"
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 1,
+              "duplicate_hits": 0,
+              "rollbacks": 0
+            }
+          }
+        },
+        {
+          "input": {
+            "endpoint": "tbank_invoice_paid",
+            "headers": {
+              "X-Api-Token": "tbank-secret"
+            },
+            "json": {
+              "eventType": "INVOICE_PAID",
+              "invoiceId": "INV-42",
+              "invoiceNumber": "B-42",
+              "paidAt": "2026-01-02T03:04:05Z"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Payment recorded",
+                "trace_id": "<trace_id>"
+              }
+            },
+            "insert": {
+              "created": false,
+              "job_type": "tbank_invoice_paid",
+              "job_id": "<job_id>",
+              "status": "pending",
+              "trace_id": "<trace_id>",
+              "idempotency_key": "tbank:invoice_paid:INV-42",
+              "payload": {
+                "invoice_id": "INV-42",
+                "invoice_number": "B-42",
+                "paid_at": "2026-01-02T03:04:05Z"
+              }
+            },
+            "logs": [
+              {
+                "event": "tbank_webhook_idempotent",
+                "invoice_id": "INV-42",
+                "idempotency_key": "tbank:invoice_paid:INV-42"
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 1,
+              "duplicate_hits": 1,
+              "rollbacks": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "tbank_invalid_event_validation",
+      "steps": [
+        {
+          "input": {
+            "endpoint": "tbank_invoice_paid",
+            "headers": {
+              "X-Api-Token": "tbank-secret"
+            },
+            "json": {
+              "eventType": "INVOICE_CANCELLED",
+              "invoiceId": "INV-43"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Payment recorded"
+              }
+            },
+            "insert": null,
+            "logs": [
+              {
+                "error_type": "validation",
+                "message": "Unsupported eventType: INVOICE_CANCELLED",
+                "context": {
+                  "event_type": "INVOICE_CANCELLED"
+                }
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 0,
+              "duplicate_hits": 0,
+              "rollbacks": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "tbank_database_error_safe_200",
+      "steps": [
+        {
+          "input": {
+            "endpoint": "tbank_invoice_paid",
+            "headers": {
+              "X-Api-Token": "tbank-secret"
+            },
+            "simulate_insert_error": "synthetic db unavailable",
+            "json": {
+              "eventType": "INVOICE_PAID",
+              "invoiceId": "INV-500",
+              "invoiceNumber": "B-500",
+              "paidAt": "2026-01-02T05:06:07Z"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Payment recorded"
+              }
+            },
+            "insert": null,
+            "logs": [
+              {
+                "error_type": "database",
+                "message": "Database error: synthetic db unavailable",
+                "context": {
+                  "invoice_id": "INV-500"
+                }
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 0,
+              "duplicate_hits": 0,
+              "rollbacks": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cdek_numeric_status_create_duplicate",
+      "steps": [
+        {
+          "input": {
+            "endpoint": "cdek_shipment_status",
+            "json": {
+              "cdek_uuid": "CDEK-42",
+              "status_date": 1700000000,
+              "status": "DELIVERED"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Status update received",
+                "trace_id": "<trace_id>"
+              }
+            },
+            "insert": {
+              "created": true,
+              "job_type": "cdek_shipment_status",
+              "job_id": "<job_id>",
+              "status": "pending",
+              "trace_id": "<trace_id>",
+              "idempotency_key": "cdek:shipment_status_update:CDEK-42:2023-11-14T22:13:20Z",
+              "payload": {
+                "source": "cdek",
+                "event_type": "shipment_status_update",
+                "external_id": "CDEK-42",
+                "occurred_at": "2023-11-14T22:13:20Z",
+                "payload": {
+                  "cdek_uuid": "CDEK-42",
+                  "status_date": 1700000000,
+                  "status": "DELIVERED"
+                }
+              }
+            },
+            "logs": [
+              {
+                "event": "cdek_webhook_job_created",
+                "external_id": "CDEK-42",
+                "idempotency_key": "cdek:shipment_status_update:CDEK-42:2023-11-14T22:13:20Z"
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 1,
+              "duplicate_hits": 0,
+              "rollbacks": 0
+            }
+          }
+        },
+        {
+          "input": {
+            "endpoint": "cdek_shipment_status",
+            "json": {
+              "cdek_uuid": "CDEK-42",
+              "status_date": 1700000000,
+              "status": "DELIVERED"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Status update received",
+                "trace_id": "<trace_id>"
+              }
+            },
+            "insert": {
+              "created": false,
+              "job_type": "cdek_shipment_status",
+              "job_id": "<job_id>",
+              "status": "pending",
+              "trace_id": "<trace_id>",
+              "idempotency_key": "cdek:shipment_status_update:CDEK-42:2023-11-14T22:13:20Z",
+              "payload": {
+                "source": "cdek",
+                "event_type": "shipment_status_update",
+                "external_id": "CDEK-42",
+                "occurred_at": "2023-11-14T22:13:20Z",
+                "payload": {
+                  "cdek_uuid": "CDEK-42",
+                  "status_date": 1700000000,
+                  "status": "DELIVERED"
+                }
+              }
+            },
+            "logs": [
+              {
+                "event": "cdek_webhook_idempotent",
+                "external_id": "CDEK-42",
+                "idempotency_key": "cdek:shipment_status_update:CDEK-42:2023-11-14T22:13:20Z"
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 1,
+              "duplicate_hits": 1,
+              "rollbacks": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cdek_request_uuid_iso_timestamp",
+      "steps": [
+        {
+          "input": {
+            "endpoint": "cdek_shipment_status",
+            "json": {
+              "request_uuid": "REQ-9",
+              "statusDate": "2026-02-03T04:05:06Z",
+              "status": "IN_TRANSIT"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Status update received",
+                "trace_id": "<trace_id>"
+              }
+            },
+            "insert": {
+              "created": true,
+              "job_type": "cdek_shipment_status",
+              "job_id": "<job_id>",
+              "status": "pending",
+              "trace_id": "<trace_id>",
+              "idempotency_key": "cdek:shipment_status_update:REQ-9:2026-02-03T04:05:06Z",
+              "payload": {
+                "source": "cdek",
+                "event_type": "shipment_status_update",
+                "external_id": "REQ-9",
+                "occurred_at": "2026-02-03T04:05:06Z",
+                "payload": {
+                  "request_uuid": "REQ-9",
+                  "statusDate": "2026-02-03T04:05:06Z",
+                  "status": "IN_TRANSIT"
+                }
+              }
+            },
+            "logs": [
+              {
+                "event": "cdek_webhook_job_created",
+                "external_id": "REQ-9",
+                "idempotency_key": "cdek:shipment_status_update:REQ-9:2026-02-03T04:05:06Z"
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 1,
+              "duplicate_hits": 0,
+              "rollbacks": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cdek_missing_id_validation",
+      "steps": [
+        {
+          "input": {
+            "endpoint": "cdek_shipment_status",
+            "json": {
+              "status": "CREATED"
+            }
+          },
+          "expected": {
+            "response": {
+              "status_code": 200,
+              "body": {
+                "ok": true,
+                "message": "Status update received"
+              }
+            },
+            "insert": null,
+            "logs": [
+              {
+                "error_type": "validation",
+                "message": "cdek_uuid or request_uuid is required"
+              }
+            ],
+            "side_effects": {
+              "jobs_total": 0,
+              "duplicate_hits": 0,
+              "rollbacks": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

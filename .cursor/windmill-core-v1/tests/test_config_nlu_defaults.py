@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from config.schema import Config
 from config import validator
 
 
@@ -23,3 +24,8 @@ def test_validator_defaults_match_day1_canon(monkeypatch):
     assert cfg.nlu_enabled is True
     assert cfg.nlu_shadow_mode is False
     assert cfg.nlu_degradation_level == 0
+
+
+def test_schema_defaults_match_day1_canon():
+    assert Config.__dataclass_fields__["nlu_enabled"].default is True
+    assert Config.__dataclass_fields__["nlu_shadow_mode"].default is False
