@@ -30,6 +30,7 @@ CLAUDE.md constraints:
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 from typing import Any, Callable, Dict, Optional
 
 from pydantic import ValidationError
@@ -62,6 +63,23 @@ from ru_worker.stability_gate_metrics import (
     record_escalation,
     record_manual_intervention,
 )
+from ru_worker import governance_workflow
+
+
+SEND_INVOICE_MANUAL_REVIEW_GATE = "send_invoice_manual_review"
+_SEND_INVOICE_MANUAL_REVIEW_DECISION_SEQ = {
+    "insufficient_context": 1,
+    "review_required": 2,
+}
+_SEND_INVOICE_REQUIRED_FIELDS = {
+    "send_invoice_order_context_unavailable": ["order_context"],
+    "send_invoice_missing_customer_inn": ["customer_data.inn"],
+    "send_invoice_missing_total_amount": ["total_amount"],
+    "send_invoice_missing_line_items": ["order_line_items"],
+    "send_invoice_multiple_line_items_unsupported": ["single_line_item_snapshot"],
+    "send_invoice_invalid_line_quantity": ["valid_line_item_quantity"],
+    "send_invoice_negative_delivery_delta": ["consistent_order_total_vs_line_items"],
+}
 
 
 # ---------------------------------------------------------------------------
@@ -71,6 +89,117 @@ from ru_worker.stability_gate_metrics import (
 def _log(event: str, data: Dict[str, Any]) -> None:
     import time
     print(json.dumps({"event": event, "ts": time.time(), **data}), flush=True)
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _send_invoice_review_required_fields(leaf_result: Dict[str, Any]) -> list[str]:
+    required_fields = leaf_result.get("required_fields")
+    if isinstance(required_fields, list):
+        return [str(item) for item in required_fields if str(item).strip()]
+    reason = str(leaf_result.get("error") or "")
+    return list(_SEND_INVOICE_REQUIRED_FIELDS.get(reason, []))
+
+
+def _send_invoice_redacted_summary(intent: BackofficeTaskIntent, leaf_result: Dict[str, Any]) -> str:
+    insales_order_id = str(
+        leaf_result.get("insales_order_id")
+        or intent.payload.get("insales_order_id")
+        or ""
+    ).strip()
+    if insales_order_id:
+        return f"send_invoice manual review for order {insales_order_id}"
+    return "send_invoice manual review without explicit order reference"
+
+
+def _create_send_invoice_manual_review_case(
+    db_conn: Any,
+    *,
+    intent: BackofficeTaskIntent,
+    leaf_result: Dict[str, Any],
+    risk_level: RiskLevel,
+) -> Dict[str, Any]:
+    leaf_status = str(leaf_result.get("status") or "")
+    decision_seq = _SEND_INVOICE_MANUAL_REVIEW_DECISION_SEQ.get(leaf_status)
+    if decision_seq is None:
+        raise ValueError(f"unsupported send_invoice manual review status: {leaf_status}")
+
+    created_at = _utc_now_iso()
+    reason = str(leaf_result.get("error") or leaf_status)
+    required_fields = _send_invoice_review_required_fields(leaf_result)
+    summary = _send_invoice_redacted_summary(intent, leaf_result)
+    nlu_meta = intent.metadata.get("nlu") if isinstance(intent.metadata.get("nlu"), dict) else {}
+    source_entrypoint = "assistant_nlu_confirm" if nlu_meta else "backoffice_router"
+    order_ref = str(
+        leaf_result.get("insales_order_id")
+        or intent.payload.get("insales_order_id")
+        or ""
+    ).strip() or None
+    order_id = leaf_result.get("order_id")
+
+    action_snapshot = {
+        "case_type": "manual_review",
+        "intent_type": "send_invoice",
+        "manual_outcome": leaf_status,
+        "reason": reason,
+        "redacted_summary": summary,
+        "order_reference": {
+            "insales_order_id": order_ref,
+            "order_id": order_id,
+        },
+        "risk_level": risk_level.value,
+        "source": source_entrypoint,
+        "created_at": created_at,
+    }
+    resume_context = {
+        "intent_type": "send_invoice",
+        "manual_outcome": leaf_status,
+        "reason": reason,
+        "redacted_summary": summary,
+        "message": leaf_result.get("message"),
+        "entities": dict(intent.payload),
+        "required_fields": required_fields,
+        "order_reference": {
+            "insales_order_id": order_ref,
+            "order_id": order_id,
+        },
+        "risk_level": risk_level.value,
+        "source": {
+            "channel": "telegram" if nlu_meta else "backoffice",
+            "entrypoint": source_entrypoint,
+            "confirmation_id": nlu_meta.get("confirmation_id"),
+            "model_version": nlu_meta.get("model_version"),
+            "prompt_version": nlu_meta.get("prompt_version"),
+            "confidence": nlu_meta.get("confidence"),
+        },
+        "employee": {
+            "employee_id": intent.employee_id,
+            "employee_role": intent.employee_role,
+        },
+        "created_at": created_at,
+    }
+
+    result = governance_workflow.create_review_case(
+        db_conn,
+        trace_id=intent.trace_id,
+        order_id=str(order_id) if order_id else None,
+        gate_name=SEND_INVOICE_MANUAL_REVIEW_GATE,
+        original_verdict="NEEDS_HUMAN",
+        original_decision_seq=decision_seq,
+        policy_hash=SEND_INVOICE_POLICY_HASH,
+        action_snapshot=action_snapshot,
+        resume_context=resume_context,
+        sla_deadline_at=None,
+    )
+    return {
+        "case_id": result["case_id"],
+        "status": result["status"],
+        "created": bool(result["created"]),
+        "gate_name": SEND_INVOICE_MANUAL_REVIEW_GATE,
+        "original_decision_seq": decision_seq,
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -346,6 +475,27 @@ def route_backoffice_intent(
         leaf_status = str(leaf_result.get("status") or "error")
         if leaf_status in {"insufficient_context", "review_required"}:
             reason = str(leaf_result.get("error") or leaf_status)
+            try:
+                review_case = _create_send_invoice_manual_review_case(
+                    db_conn,
+                    intent=intent,
+                    leaf_result=leaf_result,
+                    risk_level=risk_level,
+                )
+            except Exception as exc:
+                if hasattr(db_conn, "rollback"):
+                    db_conn.rollback()
+                _log("send_invoice_review_case_error", {
+                    "trace_id": trace_id,
+                    "intent_type": intent.intent_type,
+                    "employee_id": intent.employee_id,
+                    "manual_outcome": leaf_status,
+                    "error_class": "ERROR",
+                    "severity": "ERROR",
+                    "retriable": False,
+                    "error": str(exc),
+                })
+                raise
             record_manual_intervention(
                 db_conn,
                 trace_id=trace_id,
@@ -373,6 +523,8 @@ def route_backoffice_intent(
                 {
                     "error": reason,
                     "required_fields": leaf_result.get("required_fields"),
+                    "review_case_id": review_case["case_id"],
+                    "review_case_created": review_case["created"],
                 },
                 context_snapshot={"risk_level": risk_level.value},
             )
@@ -386,6 +538,7 @@ def route_backoffice_intent(
                     "risk_level": risk_level.value,
                     "outcome": leaf_status,
                     "error": reason,
+                    "review_case_id": review_case["case_id"],
                 },
                 response_summary=f"{intent.intent_type} {leaf_status}",
             )
@@ -395,10 +548,15 @@ def route_backoffice_intent(
                 "intent_type": intent.intent_type,
                 "employee_id": intent.employee_id,
                 "outcome": leaf_status,
+                "review_case_id": review_case["case_id"],
+                "review_case_created": review_case["created"],
             })
             return {
                 "trace_id": trace_id,
                 "intent_type": intent.intent_type,
+                "review_case_id": review_case["case_id"],
+                "review_case_created": review_case["created"],
+                "review_case_gate_name": review_case["gate_name"],
                 **leaf_result,
             }
         if leaf_status == "success":
