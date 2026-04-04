@@ -63,7 +63,7 @@ from ru_worker.stability_gate_metrics import (
     record_escalation,
     record_manual_intervention,
 )
-from ru_worker import governance_workflow
+import ru_worker.governance_workflow as governance_workflow
 
 
 SEND_INVOICE_MANUAL_REVIEW_GATE = "send_invoice_manual_review"
