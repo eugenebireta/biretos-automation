@@ -35,9 +35,13 @@ def test_get_waybill_is_medium():
     assert classify_intent_risk("get_waybill") == RiskLevel.MEDIUM
 
 
+def test_send_invoice_is_high():
+    assert classify_intent_risk("send_invoice") == RiskLevel.HIGH
+
+
 def test_unknown_intent_raises_value_error():
     with pytest.raises(ValueError, match="unknown intent_type"):
-        classify_intent_risk("send_invoice")
+        classify_intent_risk("delete_everything")
 
 
 def test_empty_intent_raises_value_error():

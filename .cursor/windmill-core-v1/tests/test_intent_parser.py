@@ -146,6 +146,23 @@ def test_send_invoice_english():
     assert result.parsed.intent_type == "send_invoice"
 
 
+def test_send_invoice_extracts_order_id_from_phrase():
+    cfg = _cfg()
+    result = parse_intent("send invoice ORDER-12345", cfg)
+    assert result.status == "ok"
+    assert result.parsed is not None
+    assert result.parsed.intent_type == "send_invoice"
+    assert result.parsed.entities["insales_order_id"] == "ORDER-12345"
+
+
+def test_send_invoice_extracts_order_id_after_keyword():
+    cfg = _cfg()
+    result = parse_intent("send invoice order ORDER-777", cfg)
+    assert result.status == "ok"
+    assert result.parsed is not None
+    assert result.parsed.entities["insales_order_id"] == "ORDER-777"
+
+
 # ---------------------------------------------------------------------------
 # fallback
 # ---------------------------------------------------------------------------

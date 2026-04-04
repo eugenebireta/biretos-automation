@@ -107,7 +107,15 @@ _REGEX_RULES: List[Dict] = [
             r"issue\s+invoice",
             r"новый\s+счёт",
         ],
-        "entity_extractors": [],
+        "entity_extractors": [
+            (
+                "insales_order_id",
+                [
+                    r"(?:РІС‹СЃС‚Р°РІ[РёС‚СЊ]*\s+СЃС‡С‘С‚|СЃРѕР·РґР°С‚СЊ?\s+СЃС‡С‘С‚|send\s+invoice|issue\s+invoice|РЅРѕРІС‹Р№\s+СЃС‡С‘С‚)\s*[#в„–: -]?\s*([A-Za-z0-9_-]*\d[A-Za-z0-9_-]*)\b",
+                    r"(?:Р·Р°РєР°Р·(?:Сѓ|Р°)?|order)\s*[#в„–: -]?\s*([A-Za-z0-9_-]*\d[A-Za-z0-9_-]*)\b",
+                ],
+            )
+        ],
     },
 ]
 

@@ -681,7 +681,7 @@ def _dispatch_real(
             return {"status": "error", "action_type": action_type, "error": str(e)}
 
     # Phase 6 — Backoffice Task Engine
-    if action_type in {"check_payment", "get_tracking", "get_waybill"}:
+    if action_type in {"check_payment", "get_tracking", "get_waybill", "send_invoice"}:
         try:
             from backoffice_router import route_backoffice_intent
         except ImportError:

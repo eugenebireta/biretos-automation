@@ -53,6 +53,16 @@ except ImportError:
     from ru_worker.backoffice_shadow_logger import write_shadow_rag_entry  # type: ignore
     from ru_worker.backoffice_snapshot_store import snapshot_external_read  # type: ignore
 
+from ru_worker.send_invoice_execution import (
+    SEND_INVOICE_POLICY_HASH,
+    execute_send_invoice,
+)
+from ru_worker.stability_gate_metrics import (
+    record_closed_cycle,
+    record_escalation,
+    record_manual_intervention,
+)
+
 
 # ---------------------------------------------------------------------------
 # Structured logging helper (no secrets)
@@ -167,10 +177,22 @@ def _handle_get_waybill(
     }
 
 
+def _handle_send_invoice(
+    intent: BackofficeTaskIntent,
+    db_conn: Any,
+) -> Dict[str, Any]:
+    return execute_send_invoice(
+        db_conn,
+        trace_id=intent.trace_id,
+        payload=intent.payload,
+    )
+
+
 _LEAF_HANDLERS: Dict[str, Callable] = {
     "check_payment": _handle_check_payment,
     "get_tracking":  _handle_get_tracking,
     "get_waybill":   _handle_get_waybill,
+    "send_invoice":  _handle_send_invoice,
 }
 
 
@@ -282,16 +304,21 @@ def route_backoffice_intent(
         }
 
     # ── Step 6: Lazy-load default adapters ───────────────────────────────
-    if payment_adapter is None:
+    if intent.intent_type == "check_payment" and payment_adapter is None:
         from side_effects.adapters.tbank_adapter import TBankInvoiceAdapter
         payment_adapter = TBankInvoiceAdapter()
-    if shipment_adapter is None:
+    if intent.intent_type in {"get_tracking", "get_waybill"} and shipment_adapter is None:
         from side_effects.adapters.cdek_adapter import CDEKShipmentAdapter
         shipment_adapter = CDEKShipmentAdapter()
 
     # ── Step 6: Leaf handler call ─────────────────────────────────────────
     handler = _LEAF_HANDLERS[intent.intent_type]
-    adapter = payment_adapter if intent.intent_type == "check_payment" else shipment_adapter
+    if intent.intent_type == "check_payment":
+        adapter = payment_adapter
+    elif intent.intent_type == "send_invoice":
+        adapter = db_conn
+    else:
+        adapter = shipment_adapter
 
     try:
         leaf_result = handler(intent, adapter)
@@ -314,6 +341,75 @@ def route_backoffice_intent(
             "error": str(exc),
             "error_class": "TRANSIENT",
         }
+
+    if intent.intent_type == "send_invoice":
+        leaf_status = str(leaf_result.get("status") or "error")
+        if leaf_status in {"insufficient_context", "review_required"}:
+            reason = str(leaf_result.get("error") or leaf_status)
+            record_manual_intervention(
+                db_conn,
+                trace_id=trace_id,
+                intent_type=intent.intent_type,
+                reason=reason,
+                employee_id=intent.employee_id,
+                employee_role=intent.employee_role,
+                policy_hash=SEND_INVOICE_POLICY_HASH,
+                extra={"insales_order_id": leaf_result.get("insales_order_id")},
+            )
+            record_escalation(
+                db_conn,
+                trace_id=trace_id,
+                intent_type=intent.intent_type,
+                reason=reason,
+                employee_id=intent.employee_id,
+                policy_hash=SEND_INVOICE_POLICY_HASH,
+                extra={"insales_order_id": leaf_result.get("insales_order_id")},
+            )
+            _write_action_log(
+                db_conn,
+                intent,
+                idem_key,
+                leaf_status,
+                {
+                    "error": reason,
+                    "required_fields": leaf_result.get("required_fields"),
+                },
+                context_snapshot={"risk_level": risk_level.value},
+            )
+            write_shadow_rag_entry(
+                db_conn,
+                trace_id=trace_id,
+                employee_id=intent.employee_id,
+                intent_type=intent.intent_type,
+                context_json={
+                    "intent_payload": intent.payload,
+                    "risk_level": risk_level.value,
+                    "outcome": leaf_status,
+                    "error": reason,
+                },
+                response_summary=f"{intent.intent_type} {leaf_status}",
+            )
+            db_conn.commit()
+            _log("backoffice_intent_complete", {
+                "trace_id": trace_id,
+                "intent_type": intent.intent_type,
+                "employee_id": intent.employee_id,
+                "outcome": leaf_status,
+            })
+            return {
+                "trace_id": trace_id,
+                "intent_type": intent.intent_type,
+                **leaf_result,
+            }
+        if leaf_status == "success":
+            record_closed_cycle(
+                db_conn,
+                trace_id=trace_id,
+                intent_type=intent.intent_type,
+                employee_id=intent.employee_id,
+                policy_hash=SEND_INVOICE_POLICY_HASH,
+                extra={"provider_document_id": leaf_result.get("provider_document_id")},
+            )
 
     # ── Step 7: Snapshot external read (INV-ERS) ──────────────────────────
     snap_meta = leaf_result.pop("_snapshot", None)
@@ -384,7 +480,7 @@ def _write_action_log(
     outcome_detail: Optional[Dict[str, Any]] = None,
     context_snapshot: Optional[Dict[str, Any]] = None,
 ) -> None:
-    risk = classify_intent_risk(intent.intent_type) if intent.intent_type in ("check_payment", "get_tracking", "get_waybill") else RiskLevel.LOW
+    risk = classify_intent_risk(intent.intent_type) if intent.intent_type in ("check_payment", "get_tracking", "get_waybill", "send_invoice") else RiskLevel.LOW
     write_employee_action(
         db_conn,
         trace_id=intent.trace_id,
