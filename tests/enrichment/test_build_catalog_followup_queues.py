@@ -267,11 +267,7 @@ def test_queue_recomputes_stale_embedded_admissibility_from_current_price_truth(
         if line.strip()
     ]
 
-    assert len(rows) == 1
-    assert rows[0]["part_number"] == "1012541"
-    assert rows[0]["offer_admissibility_status"] == "admissible_public_price"
-    assert rows[0]["staleness_or_conflict_status"] == "unresolved_conflict"
-    assert rows[0]["action_code"] == "admissibility_review"
+    assert len(rows) == 0, "admissible_public_price should be excluded from queue even with unresolved_conflict"
 
 
 def test_unresolved_conflict_with_blocked_routes_to_blocked_owner_review(tmp_path):

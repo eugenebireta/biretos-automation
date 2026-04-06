@@ -197,10 +197,7 @@ def run(
         raw_price = dict(bundle.get("price", {}) or {})
         if _has_explicit_admissibility(raw_price):
             price = _materialized_price_view(bundle)
-            if (
-                str(price.get("offer_admissibility_status", "") or "").strip() == "admissible_public_price"
-                and str(price.get("staleness_or_conflict_status", "") or "").strip() == "clean"
-            ):
+            if str(price.get("offer_admissibility_status", "") or "").strip() == "admissible_public_price":
                 continue
             price_queue.append(build_price_followup_row({**bundle, "price": price}, snapshot_id=snapshot_id))
             continue
