@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "directive_v1",
+  "title": "Orchestrator Directive",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_id",
+    "task_id",
+    "intent",
+    "scope",
+    "constraints",
+    "acceptance_criteria",
+    "max_attempts",
+    "attempt_number"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "v1" },
+    "trace_id":        { "type": "string", "pattern": "^orch_" },
+    "task_id":         { "type": "string", "minLength": 1 },
+    "intent":          { "type": "string", "minLength": 1 },
+    "scope":           { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "constraints":     { "type": "array", "items": { "type": "string" } },
+    "acceptance_criteria": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "relevant_artifacts": { "type": "array", "items": { "type": "string" } },
+    "context_summary": { "type": "string" },
+    "max_attempts":    { "type": "integer", "minimum": 1, "maximum": 10 },
+    "attempt_number":  { "type": "integer", "minimum": 1 },
+    "base_commit":     { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "execution_packet_v1",
+  "title": "Execution Packet",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_id",
+    "status",
+    "changed_files",
+    "affected_tiers",
+    "collected_by",
+    "collected_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version":   { "type": "string", "const": "v1" },
+    "trace_id":         { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["completed", "partial", "blocked", "failed", "collection_failed"]
+    },
+    "changed_files":    { "type": "array", "items": { "type": "string" } },
+    "diff_summary":     { "type": ["string", "null"] },
+    "diff_char_count":  { "type": "integer", "minimum": 0 },
+    "diff_truncated":   { "type": "boolean" },
+    "test_results": {
+      "type": ["object", "null"],
+      "properties": {
+        "passed":  { "type": "integer", "minimum": 0 },
+        "failed":  { "type": "integer", "minimum": 0 },
+        "skipped": { "type": "integer", "minimum": 0 },
+        "error":   { "type": "integer", "minimum": 0 }
+      }
+    },
+    "affected_tiers":   { "type": "array", "items": { "type": "string" } },
+    "executor_notes":   { "type": ["string", "null"] },
+    "questions":        { "type": "array", "items": { "type": "string" } },
+    "blockers":         { "type": "array", "items": { "type": "string" } },
+    "artifacts_produced": { "type": "array", "items": { "type": "string" } },
+    "collected_by":     { "type": "string" },
+    "collected_at":     { "type": "string", "format": "date-time" },
+    "base_commit":      { "type": ["string", "null"] }
+  }
+}

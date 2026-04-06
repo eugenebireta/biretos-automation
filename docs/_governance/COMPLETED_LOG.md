@@ -1,4 +1,29 @@
 ---
+DATE: 2026-04-06
+TITLE: Meta Orchestrator — M0 Execution Interface Spike
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/__init__.py (NEW)
+  - orchestrator/main.py (NEW — FSM skeleton, one-cycle runner)
+  - orchestrator/collect_packet.py (NEW — deterministic git+pytest post-processor)
+  - orchestrator/config.yaml (NEW — thresholds)
+  - orchestrator/schemas/directive_v1.json (NEW — JSON Schema draft-07)
+  - orchestrator/schemas/execution_packet_v1.json (NEW — JSON Schema draft-07)
+  - orchestrator/spike_findings.md (NEW — physical interface findings)
+  - tests/orchestrator/__init__.py (NEW)
+  - tests/orchestrator/conftest.py (NEW)
+  - tests/orchestrator/test_collect_packet.py (NEW — 30 mocked tests)
+TEST_EVIDENCE: 30/30 orchestrator tests PASS; 509/509 enrichment tests PASS (zero regression)
+KEY_FINDINGS:
+  - Physical interface: cat directive.md | claude -p (stdin piped to --print mode)
+  - FSM: 5 states, 12 transitions defined
+  - base_commit auto-resolution: merge-base origin/master → HEAD~1 fallback
+  - collect_packet.py: deterministic, mocked, no live API dependencies
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
 DATE: 2026-04-03
 TITLE: BVS deterministic merge tool
 RISK_LEVEL: SEMI

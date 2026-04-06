@@ -1,0 +1,12 @@
+## Meta Orchestrator — runtime config
+## Schema: M0 spike defaults
+
+max_attempts: 3
+max_context_chars: 15000
+diff_truncation_chars: 15000
+escalation_timeout_hours: 24
+advisor_parse_max_retries: 2
+runs_retention_days: 90
+sprint_goal_staleness_warn_days: 7
+pytest_timeout_seconds: 120
+base_commit: null   # set per-task; null = use git merge-base HEAD origin/master

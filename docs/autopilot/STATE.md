@@ -1,29 +1,38 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 50
-transition_ts: "2026-04-03T17:07:18Z"
+transition_seq: 55
+transition_ts: "2026-04-06T21:00:00Z"
 
 ## Current
-active_task: "BVS deterministic merge tool"
-task_id: "bvs-merge-tool"
-phase: BUILDER
-status: COMPLETED
+active_task: "Meta Orchestrator — M0 Execution Interface Spike"
+task_id: "meta-orchestrator-m0-spike"
+phase: COMPLETED
+status: CLOSED
 phase_owner: "Owner/Eugene"
-risk_level: SEMI
+risk_level: LOW
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
-pr_number: 28
+pr_number: null
 now:
-  - step: "PR #28 merged; deterministic artifacts pinned post-merge"
+  - step: "M0 spike: physical interface + collect_packet + FSM table"
     actions:
-      - "merge_manifests.py: deterministic first+second pass JSONL merge (18/18 tests)"
-      - "25 SKU checked for BVS eligibility, 5 URLs eligible (3 PN on 2 RU sites)"
-      - "2 wins (lemanapro.ru), 3 blocked (vseinstrumenti.ru ServicePipe)"
-      - "bvs_25sku_seed.jsonl committed; merged_manifest.jsonl sanitized to deterministic versioned output"
-      - "41/41 tests PASS (18 merge + 23 BVS regression)"
-known_gap: "vseinstrumenti.ru ServicePipe not solvable; raw BVS/CDP provenance remains in runtime manifest and screenshots, not in committed merged output."
-awaiting: "No open dependency inside this batch; PR #28 is already merged to master."
+      - "orchestrator/ directory: main.py, collect_packet.py, config.yaml, schemas/, spike_findings.md"
+      - "schemas/directive_v1.json + execution_packet_v1.json (JSON Schema draft-07)"
+      - "FSM 5 states, 12 transitions defined in main.py + spike_findings.md"
+      - "Physical interface resolved: cat directive.md | claude -p (stdin to --print mode)"
+      - "base_commit auto-resolution: merge-base origin/master → HEAD~1 fallback"
+      - "30/30 mocked tests PASS, 509 enrichment tests PASS (zero regression)"
+      - "One roundtrip verified: init → directive → awaiting_execution → packet → ready"
+known_gap: "M0 stub directive — real task intent from Claude Advisor in M2. Advisor/Synthesizer not yet implemented."
+awaiting: "Owner review. Next: M0.5 — Artifact Schemas (advisor_verdict_v1 + manifest_v1 + validation)."
+
+## Previous (seq 50 — BVS deterministic merge tool)
+prev_active_task: "BVS deterministic merge tool"
+prev_task_id: "bvs-merge-tool"
+prev_phase: BUILDER
+prev_status: COMPLETED
+prev_exit: "PR #28 merged; 41/41 tests PASS; bvs_25sku_seed.jsonl + merged_manifest.jsonl committed."
 
 ## Previous (seq 48 — auditor_system Phase 2)
 prev_active_task: "auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)"
