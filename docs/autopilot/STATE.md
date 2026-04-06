@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 55
-transition_ts: "2026-04-06T21:00:00Z"
+transition_seq: 56
+transition_ts: "2026-04-07T00:00:00Z"
 
 ## Current
-active_task: "Meta Orchestrator — M0 Execution Interface Spike"
-task_id: "meta-orchestrator-m0-spike"
+active_task: "Meta Orchestrator — M0.5 Artifact Schemas"
+task_id: "meta-orchestrator-m0.5-schemas"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
@@ -15,14 +15,17 @@ pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: null
 now:
-  - step: "M0 spike: physical interface + collect_packet + FSM table"
+  - step: "M0.5: 3 new schemas + validation module + 53 tests"
     actions:
-      - "orchestrator/ directory: main.py, collect_packet.py, config.yaml, schemas/, spike_findings.md"
-      - "schemas/directive_v1.json + execution_packet_v1.json (JSON Schema draft-07)"
-      - "FSM 5 states, 12 transitions defined in main.py + spike_findings.md"
-      - "Physical interface resolved: cat directive.md | claude -p (stdin to --print mode)"
-      - "base_commit auto-resolution: merge-base origin/master → HEAD~1 fallback"
-      - "30/30 mocked tests PASS, 509 enrichment tests PASS (zero regression)"
+      - "schemas/advisor_verdict_v1.json (governance_route, risk_assessment, next_step)"
+      - "schemas/manifest_v1.json (fsm_state enum, last_verdict enum, all nullable fields)"
+      - "schemas/escalation_v1.json (escalation_type, options, idempotency_key)"
+      - "orchestrator/schemas.py: validate(), validate_soft(), is_valid() — jsonschema draft-07"
+      - "confidence_score rejected from advisor schema (AI-driven routing, violates rule engine)"
+      - "cost_estimate + affected_sku_count removed from escalation (generic: affected_entity_count)"
+      - "53/53 schema tests PASS; 541/541 total PASS (zero regression)"
+known_gap: "M3 synthesizer can now enforce schemas deterministically — prerequisite satisfied."
+awaiting: "Owner review. Next: M1 — Task Intake + Classifier + Context Pruner."
       - "One roundtrip verified: init → directive → awaiting_execution → packet → ready"
 known_gap: "M0 stub directive — real task intent from Claude Advisor in M2. Advisor/Synthesizer not yet implemented."
 awaiting: "Owner review. Next: M0.5 — Artifact Schemas (advisor_verdict_v1 + manifest_v1 + validation)."

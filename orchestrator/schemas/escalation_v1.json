@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "escalation_v1",
+  "title": "Owner Escalation Packet",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_id",
+    "packet_id",
+    "idempotency_key",
+    "escalation_type",
+    "what_blocked",
+    "why_not_auto",
+    "business_question",
+    "reversible",
+    "options",
+    "recommended_option",
+    "default_if_no_reply"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "v1" },
+    "trace_id": { "type": "string" },
+    "packet_id": { "type": "string" },
+    "idempotency_key": { "type": "string" },
+    "escalation_type": {
+      "type": "string",
+      "enum": [
+        "business_decision",
+        "deadlock",
+        "guardrail_violation",
+        "collection_failure",
+        "advisor_failure"
+      ]
+    },
+    "what_blocked": { "type": "string", "minLength": 1 },
+    "why_not_auto": { "type": "string", "minLength": 1 },
+    "business_question": { "type": "string", "minLength": 1 },
+    "affected_entity_count": { "type": ["integer", "null"], "minimum": 0 },
+    "reversible": { "type": "boolean" },
+    "options": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "next_action"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "next_action": { "type": "string" }
+        }
+      }
+    },
+    "recommended_option": { "type": "string" },
+    "default_if_no_reply": { "type": "string" },
+    "deadline_at": { "type": ["string", "null"] },
+    "artifact_refs": { "type": "array", "items": { "type": "string" } }
+  }
+}

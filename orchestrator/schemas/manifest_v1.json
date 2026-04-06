@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "manifest_v1",
+  "title": "Orchestrator Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "fsm_state",
+    "current_sprint_goal",
+    "current_task_id",
+    "trace_id",
+    "attempt_count",
+    "updated_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "v1" },
+    "fsm_state": {
+      "type": "string",
+      "enum": ["ready", "awaiting_execution", "awaiting_owner_reply", "completed", "error"]
+    },
+    "current_sprint_goal": { "type": "string" },
+    "current_task_id": { "type": "string" },
+    "trace_id": { "type": "string" },
+    "attempt_count": { "type": "integer", "minimum": 0 },
+    "last_verdict": {
+      "type": ["string", "null"],
+      "enum": ["EXECUTE_NEXT_STEP", "ASK_EXECUTOR_FOR_RECON", "RUN_CRITIQUE",
+               "RUN_SPEC_GOVERNANCE", "ESCALATE_TO_OWNER", null]
+    },
+    "last_directive_hash": { "type": ["string", "null"] },
+    "pending_packet_id": { "type": ["string", "null"] },
+    "deadline_at": { "type": ["string", "null"] },
+    "default_option_id": { "type": ["string", "null"] },
+    "updated_at": { "type": "string" }
+  }
+}

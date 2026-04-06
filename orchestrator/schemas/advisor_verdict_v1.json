@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "advisor_verdict_v1",
+  "title": "Claude Advisor Verdict",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "next_step",
+    "affected_tiers",
+    "governance_route",
+    "risk_assessment",
+    "rationale",
+    "needs_full_context"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "v1" },
+    "next_step": {
+      "type": "object",
+      "required": ["intent", "scope", "constraints", "acceptance_criteria", "estimated_complexity"],
+      "additionalProperties": false,
+      "properties": {
+        "intent": { "type": "string", "minLength": 1 },
+        "scope": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "constraints": { "type": "array", "items": { "type": "string" } },
+        "acceptance_criteria": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "estimated_complexity": { "type": "string", "enum": ["low", "medium", "high"] }
+      }
+    },
+    "affected_tiers": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["Tier-1", "Tier-2", "Tier-3"] },
+      "minItems": 1
+    },
+    "governance_route": {
+      "type": "string",
+      "enum": ["none", "critique", "audit", "spec_full"]
+    },
+    "risk_assessment": {
+      "type": "string",
+      "enum": ["LOW", "SEMI", "CORE"]
+    },
+    "rationale": { "type": "string", "minLength": 1 },
+    "needs_full_context": { "type": "boolean" }
+  }
+}

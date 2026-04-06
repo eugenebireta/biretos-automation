@@ -1,4 +1,23 @@
 ---
+DATE: 2026-04-07
+TITLE: Meta Orchestrator — M0.5 Artifact Schemas
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/schemas/advisor_verdict_v1.json (NEW)
+  - orchestrator/schemas/manifest_v1.json (NEW)
+  - orchestrator/schemas/escalation_v1.json (NEW)
+  - orchestrator/schemas.py (NEW — validate/validate_soft/is_valid, jsonschema draft-07)
+  - tests/orchestrator/test_schemas.py (NEW — 53 tests)
+TEST_EVIDENCE: 53/53 schema tests PASS; 541/541 total PASS (zero regression)
+KEY_DECISIONS:
+  - confidence_score rejected from advisor_verdict (AI-driven, violates deterministic rule engine)
+  - cost_estimate + affected_sku_count removed from escalation base schema (use affected_entity_count)
+  - validate_soft() returns error list, never raises — safe for rule engine use in M3
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
 DATE: 2026-04-06
 TITLE: Meta Orchestrator — M0 Execution Interface Spike
 RISK_LEVEL: LOW
