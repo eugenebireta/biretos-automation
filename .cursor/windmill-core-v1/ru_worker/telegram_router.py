@@ -191,6 +191,48 @@ def handle_callback_query(callback_query: Dict[str, Any], chat_id: Optional[int]
         }
 
     # Неизвестный callback_data
+    if callback_data.startswith("review_assign:"):
+        case_id = callback_data[len("review_assign:"):].strip()
+        if not case_id:
+            log_event("review_assign_error", {"error": "empty case_id"})
+            return None
+        return {
+            "action_type": "review_case_assign",
+            "payload": {"case_id": case_id},
+            "source": "callback:review_assign",
+            "metadata": {
+                "chat_id": chat_id,
+                "user_id": user_id,
+                "employee_id": str(user_id) if user_id else "unknown",
+                "employee_role": "operator",
+                "callback_query_id": callback_query_id,
+                "timestamp": time.time(),
+            },
+        }
+
+    if callback_data.startswith("review_resolve:"):
+        payload = callback_data[len("review_resolve:"):].strip()
+        parts = payload.split(":", 1)
+        if len(parts) != 2 or not parts[0].strip() or not parts[1].strip():
+            log_event("review_resolve_error", {"error": "bad callback payload", "callback_data": callback_data})
+            return None
+        return {
+            "action_type": "review_case_resolve",
+            "payload": {
+                "case_id": parts[0].strip(),
+                "resolution_status": parts[1].strip().lower(),
+            },
+            "source": "callback:review_resolve",
+            "metadata": {
+                "chat_id": chat_id,
+                "user_id": user_id,
+                "employee_id": str(user_id) if user_id else "unknown",
+                "employee_role": "operator",
+                "callback_query_id": callback_query_id,
+                "timestamp": time.time(),
+            },
+        }
+
     log_event("callback_query_unknown", {
         "callback_data": callback_data
     })
@@ -363,6 +405,70 @@ def handle_export(message: Dict[str, Any], chat_id: Optional[int], user_id: Opti
     trace_id = str(uuid.uuid4())
     log_event("export_requested", {"trace_id": trace_id, "chat_id": str(chat_id) if chat_id else None})
     return ("Coming soon", None)
+
+
+def handle_review_cases(message: Dict[str, Any], chat_id: Optional[int], user_id: Optional[int]) -> Tuple[str, Optional[Dict[str, Any]]]:
+    action = {
+        "action_type": "review_case_list",
+        "payload": {"limit": 10},
+        "source": "command:/review_cases",
+        "metadata": {
+            "chat_id": chat_id,
+            "user_id": user_id,
+            "employee_id": str(user_id) if user_id else "unknown",
+            "employee_role": "operator",
+            "timestamp": time.time(),
+        },
+    }
+    return ("OK", action)
+
+
+def handle_review_assign(message: Dict[str, Any], chat_id: Optional[int], user_id: Optional[int], case_id_str: str) -> Tuple[str, Optional[Dict[str, Any]]]:
+    case_id = (case_id_str or "").strip()
+    if not case_id:
+        return ("Usage: /review_assign <case_id>", None)
+
+    action = {
+        "action_type": "review_case_assign",
+        "payload": {"case_id": case_id},
+        "source": "command:/review_assign",
+        "metadata": {
+            "chat_id": chat_id,
+            "user_id": user_id,
+            "employee_id": str(user_id) if user_id else "unknown",
+            "employee_role": "operator",
+            "timestamp": time.time(),
+        },
+    }
+    return ("OK", action)
+
+
+def handle_review_resolve(message: Dict[str, Any], chat_id: Optional[int], user_id: Optional[int], params_str: str) -> Tuple[str, Optional[Dict[str, Any]]]:
+    parts = [part for part in (params_str or "").strip().split() if part]
+    if len(parts) != 2:
+        return ("Usage: /review_resolve <case_id> <executed|rejected|cancelled>", None)
+
+    case_id, resolution_status = parts
+    resolution_status = resolution_status.strip().lower()
+    if resolution_status not in {"executed", "rejected", "cancelled"}:
+        return ("Allowed statuses: executed, rejected, cancelled", None)
+
+    action = {
+        "action_type": "review_case_resolve",
+        "payload": {
+            "case_id": case_id.strip(),
+            "resolution_status": resolution_status,
+        },
+        "source": "command:/review_resolve",
+        "metadata": {
+            "chat_id": chat_id,
+            "user_id": user_id,
+            "employee_id": str(user_id) if user_id else "unknown",
+            "employee_role": "operator",
+            "timestamp": time.time(),
+        },
+    }
+    return ("OK", action)
 
 
 def handle_invoice(message: Dict[str, Any], chat_id: Optional[int], user_id: Optional[int], invoice_id_str: str) -> Tuple[str, Optional[Dict[str, Any]]]:
@@ -635,6 +741,26 @@ COMMAND_ROUTER = {
         "requires_acl": True,
         "log_event": "export_command_received",
         "forbidden_log": "export_forbidden",
+        "pattern": "startswith"
+    },
+    "/review_cases": {
+        "handler": handle_review_cases,
+        "requires_acl": True,
+        "log_event": "review_cases_command_received",
+        "forbidden_log": "review_cases_forbidden"
+    },
+    "/review_assign": {
+        "handler": handle_review_assign,
+        "requires_acl": True,
+        "log_event": "review_assign_command_received",
+        "forbidden_log": "review_assign_forbidden",
+        "pattern": "startswith"
+    },
+    "/review_resolve": {
+        "handler": handle_review_resolve,
+        "requires_acl": True,
+        "log_event": "review_resolve_command_received",
+        "forbidden_log": "review_resolve_forbidden",
         "pattern": "startswith"
     }
 }
