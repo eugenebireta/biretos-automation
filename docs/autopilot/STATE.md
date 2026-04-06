@@ -1,30 +1,37 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 58
-transition_ts: "2026-04-07T00:00:00Z"
+transition_seq: 60
+transition_ts: "2026-04-07T01:21:00Z"
 
 ## Current
-active_task: "Meta Orchestrator — M2 Claude Advisor API Integration"
-task_id: "meta-orchestrator-m2-advisor"
+active_task: "Meta Orchestrator — M4 Executor Bridge"
+task_id: "meta-orchestrator-m4-executor-bridge"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
 risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
-pr_number: null
+pr_number: 38
 now:
-  - step: "M2: Claude Advisor + error chain + main.py wiring + 42 new tests"
+  - step: "M4: autonomous executor bridge — claude --print subprocess + auto-collect"
     actions:
-      - "orchestrator/advisor.py (NEW — Anthropic SDK call, JSON parse, retry, escalation)"
-      - "orchestrator/main.py (UPDATED — _run_advisor(), _build_directive() with real verdict)"
-      - "tests/orchestrator/test_advisor.py (NEW — 42 tests: success/retry/escalation/missing-key)"
-      - "42/42 M2 tests PASS; 662/662 total PASS (zero regression)"
-      - "Error chain: full prompt → simplified retry → escalation packet (last_escalation.json)"
-      - "Directive now contains real next_step + scope + advisor rationale from Claude API"
-known_gap: "M3 Decision Synthesizer (rule engine on top of advisor verdict) requires SPEC v3.4 CORE governance."
-awaiting: "Owner sends M3 architecture package to JUDGE chat. M3 is CORE risk — STOP until approved."
+      - "orchestrator/executor_bridge.py (NEW — run()+run_with_collect(), structured error taxonomy)"
+      - "orchestrator/main.py (UPDATED — _run_executor_bridge helper, wired in cmd_cycle)"
+      - "orchestrator/config.yaml (UPDATED — auto_execute/auto_pytest/executor_timeout_seconds)"
+      - "tests/orchestrator/test_executor_bridge.py (NEW — 43 deterministic tests)"
+      - "GOVERNANCE: SEMI audit via live API — BATCH_APPROVAL (Gemini APPROVE + Opus CONCERNS)"
+      - "308/308 orchestrator tests PASS"
+known_gap: "auto_execute defaults to false — owner must set true to enable end-to-end run."
+awaiting: "Owner review. Meta orchestrator pipeline M0-M4 complete. Next: Revenue R1 track (B)."
+
+## Previous (seq 59 — M3 synthesizer)
+prev_active_task: "Meta Orchestrator — M3 Decision Synthesizer + Gemini Auditor"
+prev_task_id: "meta-orchestrator-m3-synthesizer"
+prev_phase: COMPLETED
+prev_status: CLOSED
+prev_exit: "synthesizer.py 7-rule engine + Gemini 3.1 Pro auditor. CORE audit via API: BATCH_APPROVAL. 61/61 M3 tests PASS."
 
 ## Previous (seq 50 — BVS deterministic merge tool)
 prev_active_task: "BVS deterministic merge tool"

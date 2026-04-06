@@ -1,208 +1,46 @@
 # Task Capsule
 
-Task_ID: bvs-merge-tool
+Task_ID: meta-orchestrator-m4-executor-bridge
 Risk: SEMI
-Date: 2026-04-03
+Date: 2026-04-07
 Branch: feat/rev-r1-catalog
-PR: https://github.com/eugenebireta/biretos-automation/pull/28
-Status: COMPLETED — PR #28 merged to master (merge commit `f6c9954`)
+PR: https://github.com/eugenebireta/biretos-automation/pull/38
+Status: COMPLETED — committed e3c5b77, pushed to feat/rev-r1-catalog
 
 ## What was built
 
-Deterministic merge tool for first+second pass price scout manifests.
+M4 Executor Bridge closes the automation loop for the Meta Orchestrator.
+When `auto_execute: true` in config.yaml, `python orchestrator/main.py` now
+runs end-to-end: intake → classify → advisor → synthesizer → directive → claude --print → collect_packet.
 
 New modules:
-- `scripts/merge_manifests.py` — merge by key=`part_number::source_domain`,
-  second-pass wins on lineage/price upgrade, blocked records dropped
-- `tests/enrichment/test_merge_manifests.py` — 18 deterministic tests
+- `orchestrator/executor_bridge.py` — `run()` + `run_with_collect()`:
+  - calls `claude --print --permission-mode bypassPermissions --no-session-persistence`
+  - stdin = directive file; stdout/stderr captured
+  - structured error taxonomy:
+    - PERMANENT (retriable=False): FileNotFoundError, PermissionError, UnicodeDecodeError
+    - TRANSIENT (retriable=True): subprocess failure, timeout, generic Exception
+  - structured logging on all paths (logger.error/logger.info/logger.warning)
+  - `run_with_collect()`: auto-calls `collect_packet.collect()` on success; collect failure non-fatal
+- `tests/orchestrator/test_executor_bridge.py` — 43 deterministic tests; subprocess.run + collect_packet mocked
 
-Reproducible artifacts:
-- `downloads/scout_cache/bvs_25sku_seed.jsonl` — 5 eligible URLs from 25 SKU
-- `downloads/scout_cache/merged_manifest.jsonl` — 22 rows (20 first-pass + 2 BVS wins), sanitized deterministic committed output
-
-## Coverage detail
-
-25 SKU checked for BVS eligibility via `load_first_pass_candidates()`:
-- 5 URLs eligible (3 PN across vseinstrumenti.ru + lemanapro.ru)
-- 20 SKU already have lineage=True from EU/AE/CZ sources or lack RU product URLs
-- 2 wins: lemanapro.ru for 1015021 (4314.40 RUB) and 1012541 (5355.82 RUB)
-- 3 blocked: vseinstrumenti.ru DDoS-Guard (ServicePipe) — not solvable
-
-## Tests
-
-41/41 PASS (18 merge + 23 BVS regression)
+Updated:
+- `orchestrator/main.py` — `_run_executor_bridge` helper; in cmd_cycle: if auto_execute → run bridge,
+  advance FSM to ready on success; keep awaiting_execution + print manual fallback on failure
+- `orchestrator/config.yaml` — `auto_execute: false`, `auto_pytest: false`, `executor_timeout_seconds: 600`
 
 ## Governance
-- Tier-1 frozen files: CLEAN
-- Pinned API signatures: CLEAN
-- price_manual_scout.py: NOT MODIFIED
-- `merged_manifest.jsonl`: committed as deterministic versioned output; run-scoped BVS/CDP fields stripped
-- Runtime artifacts (`bvs_25sku_manifest.jsonl`): NOT in PR; retain raw BVS/CDP provenance (`trace_id`, `idempotency_key`, screenshots, model/runtime metadata)
-- Evidence bundle changes: NOT in PR (deferred to systemic integration)
-- captcha_solver.py fix + smoke tests: deferred to separate PR #29
 
----
+SEMI risk. Two-round audit via auditor_system API (Gemini 3.1 Pro CRITIC + Opus 4.6 JUDGE).
+Result: **BATCH_APPROVAL** (quality gate passed).
+Key issues addressed vs round 1: removed sys.path.insert inside function, added structured
+logging, distinguished PERMANENT error classes (PermissionError, UnicodeDecodeError).
 
-# Previous Capsule
+## Coverage
 
-Task_ID: auditor-system-phase2
-Risk: SEMI
-Date: 2026-04-03
-Branch: feat/rev-r1-catalog
+308/308 orchestrator tests PASS (zero regression).
+43/43 executor_bridge tests PASS.
 
-## What was built
+## Next
 
-auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4).
-
-New modules:
-- `hard_shell/schema_validator.py` — SchemaViolationError + validate_and_parse (SPEC §19.3)
-- `hard_shell/fallback_handler.py` — FallbackHandler: risk-aware (SPEC §7)
-- `providers/openai_auditor.py` — live Responses API + Structured Outputs
-- `providers/anthropic_auditor.py` — live Messages API (claude-sonnet-4-6)
-- `auditor_system/requirements.txt`
-- `auditor_system/config/.env.auditors` — isolated secrets (gitignored)
-
-Modified:
-- `review_runner.py` — _gather_safe + FallbackHandler
-- `run_store.py` — load_run_for_verdict
-- `cli.py` — verdict + pilot + live commands
-- `config/models.yaml` — anthropic: claude-sonnet-4-6
-- `.gitignore` + `.env` root cleared
-
-## Tests
-
-38/38 PASS (14 Phase1 regression + 24 Phase2 new)
-
-## Pilot Gate
-
-| Task | Risk | Route | Note |
-|------|------|-------|------|
-| Branch protection | LOW | auto_pass | Anthropic approve; OpenAI quota→CONTINUE_ONE |
-| Iron Fence M3a | SEMI | batch_approval | Anthropic concerns; OpenAI quota→CONTINUE_BATCH |
-| Pydantic Validation | CORE | BLOCKED | OpenAI quota→STOP_OWNER_ALERT (correct) |
-
-Owner verdicts: LOW=approved, SEMI=approved.
-DPO records: 2 in experience_log/2026-04.jsonl.
-
-## Known gap
-OpenAI key has insufficient_quota. CORE pilot needs funded key.
-FallbackHandler correctly BLOCKED CORE on one auditor failure.
-
-## Files changed
-- auditor_system/hard_shell/schema_validator.py (NEW)
-- auditor_system/hard_shell/fallback_handler.py (NEW)
-- auditor_system/hard_shell/run_store.py (MODIFIED)
-- auditor_system/providers/openai_auditor.py (REPLACED)
-- auditor_system/providers/anthropic_auditor.py (REPLACED)
-- auditor_system/review_runner.py (MODIFIED)
-- auditor_system/cli.py (REPLACED)
-- auditor_system/config/models.yaml (MODIFIED)
-- auditor_system/config/.env.auditors (NEW — gitignored)
-- auditor_system/requirements.txt (NEW)
-- auditor_system/tests/test_phase2.py (NEW)
-- .gitignore (MODIFIED)
-- .env root (CLEARED)
-
-## Governance
-- Tier-1 frozen files: CLEAN
-- Pinned API signatures: CLEAN
-
----
-
-# Previous Capsule
-
-Task_ID: bvs-second-pass-scout
-Risk: SEMI
-Date: 2026-04-02
-Branch: feat/rev-r1-catalog
-Status: LIVE_VALIDATION_PENDING — NOT COMPLETED
-Governance note: PR #22 merged prematurely (auto-merge without owner approval).
-Owner decision 2026-04-02: no revert. Task not closed until live evidence produced.
-
-## What was built
-
-browser_vision_scout.py — second-pass price scout for bot-blocked (403/401/498) and
-JS-rendered (200/no-lineage) product URLs.
-
-NOT Anthropic Computer Use tool. Uses Playwright (real Chromium/Edge) + Claude
-Messages API image input (Vision) for price extraction and PN lineage confirmation.
-
-Components:
-- BrowserFetcher: Playwright context manager, auto browser channel (msedge→chrome→bundled),
-  headless default, cookie banner helper (benign only), no CAPTCHA bypass
-- VisionExtractor: Claude Vision API, auto-escalation Sonnet→Opus on low confidence,
-  structured JSON extraction (price, currency, pn_confirmed, stock_status, page_class)
-- materialize_bvs_record(): same manifest schema as price_manual_scout.py + additive fields
-- load_first_pass_candidates(): filter by http_status {401,403,498} OR 200/no-lineage
-- Full CLI: --seed, --manifest, --first-pass-manifest, --headed, --browser-channel,
-  --vision-model, --no-escalation, --save-all-screenshots
-
-Tests: 23/23 PASS (deterministic, mock Playwright + mock Anthropic)
-
-## Dependencies
-- playwright 1.57.0 — already installed
-- anthropic — requires: pip install anthropic
-
-## Files changed
-- scripts/browser_vision_scout.py (NEW, 490 lines)
-- tests/enrichment/test_browser_vision_scout.py (NEW, 280 lines)
-- docs/autopilot/STATE.md (updated)
-- docs/autopilot/CAPSULE.md (this file)
-- docs/_governance/COMPLETED_LOG.md (appended)
-
-## Governance
-- Tier-1 frozen files: CLEAN
-- Pinned API signatures: CLEAN
-- price_manual_scout.py: NOT MODIFIED
-
----
-
-# Previous Capsule
-
-Task_ID: auditor-system-phase1
-Risk: SEMI
-Date: 2026-04-02
-PR: https://github.com/eugenebireta/biretos-automation/pull/18 (auto-merge enabled)
-Commit: 3bfe336
-
-## What was built
-
-Governed AI Execution System — Phase 1 thin vertical slice (SPEC v3.4).
-
-21 files in `auditor_system/`:
-- `hard_shell/contracts.py` — Pydantic models: TaskPack, AuditVerdict, SurfaceClassification, ProtocolRun
-- `hard_shell/context_assembler.py` — rule-based surface classifier (19 TIER1_FILES, 9 OPUS_SURFACES, keyword→surface map)
-- `hard_shell/model_selector.py` — Trigger A/B/C model selection (Sonnet default, Opus for OPUS_SURFACES, escalation on gate failure)
-- `hard_shell/quality_gate.py` — deterministic pass/fail (reject+critical → fail; both 3+ warnings → fail; conflict → fail)
-- `hard_shell/approval_router.py` — AUTO_PASS / BATCH_APPROVAL / INDIVIDUAL_REVIEW / BLOCKED routing + owner_summary.md
-- `hard_shell/experience_sink.py` — DPO-ready JSONL (approved→experience_log/, rejected→anti_patterns/, guard on missing verdict)
-- `hard_shell/run_store.py` — artifact persistence in runs/<run_id>/ (12 artifact files per run)
-- `providers/mock_builder.py` + `providers/mock_auditor.py` — deterministic mocks, no external calls
-- `providers/openai_auditor.py` + `providers/anthropic_auditor.py` — Phase 2 stubs (NotImplementedError)
-- `review_runner.py` — bounded 2-round protocol orchestrator
-- `cli.py` — dry-run and single-task entry points
-- `tests/test_dry_run.py` — 14 tests
-
-## Test evidence
-
-14/14 PASS — all Phase 1 readiness criteria:
-- Full cycle artifacts in runs/<run_id>/ (12 files)
-- ModelSelector: LOW→Sonnet, fsm/guardian keywords→Opus
-- Escalation: Sonnet gate fail → Opus retry
-- QualityGate: critical reject → INDIVIDUAL_REVIEW
-- ApprovalRouter: LOW+approve→AUTO_PASS, SEMI+approve→BATCH_APPROVAL, CORE→INDIVIDUAL_REVIEW
-- owner_summary.md readable with task title + route
-- ExperienceSink: JSONL written after owner verdict; RuntimeError if called before verdict
-- Surface mismatch: ContextAssembler∪Builder declared → effective_surface union, Opus selected
-- Tier-1 file → tier1_files surface → Opus
-
-## Dependency note
-
-Requires `pyyaml` (not yet in requirements.txt). Install: `pip install pyyaml`.
-
-## Next (Phase 2)
-
-- Wire live OpenAI auditor (Responses API + json_schema, NOT Chat Completions + JSON mode)
-- Wire live Anthropic auditor (run in separate process without ANTHROPIC_API_KEY in env)
-- Add `pyyaml` to requirements.txt
-- OwnerQueue, BatchPackBuilder, FallbackHandler (scope-excluded from Phase 1)
+Revenue R1 track (B): price scout, photo recovery, export pipeline on feat/rev-r1-catalog.

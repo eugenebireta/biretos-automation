@@ -1,5 +1,55 @@
 ---
 DATE: 2026-04-07
+TITLE: Meta Orchestrator — M4 Executor Bridge
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (committed e3c5b77 to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - orchestrator/executor_bridge.py (NEW — run()+run_with_collect(), structured error taxonomy)
+  - orchestrator/main.py (UPDATED — _run_executor_bridge, auto_execute wiring)
+  - orchestrator/config.yaml (UPDATED — auto_execute/auto_pytest/executor_timeout_seconds)
+  - tests/orchestrator/test_executor_bridge.py (NEW — 43 deterministic tests)
+TEST_EVIDENCE: 43/43 executor_bridge tests PASS; 308/308 orchestrator tests PASS
+GOVERNANCE:
+  - SEMI risk. Two-round live API audit (Gemini 3.1 Pro + Opus 4.6)
+  - Round 1: Gemini REJECT (sys.path.insert, no structured logging, generic Exception)
+  - Revision: removed sys.path.insert, added logging, split PERMANENT/TRANSIENT error classes
+  - Round 2: Gemini APPROVE + Opus CONCERNS → BATCH_APPROVAL (quality gate passed)
+KEY_DECISIONS:
+  - auto_execute defaults to false — opt-in; manual fallback always printed on failure
+  - PERMANENT errors: FileNotFoundError, PermissionError, UnicodeDecodeError (not retriable)
+  - collect_packet failure is non-fatal: result.status stays "completed", packet=None
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: Meta Orchestrator — M3 Decision Synthesizer + Gemini Auditor
+RISK_LEVEL: CORE
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/synthesizer.py (NEW — 7-rule engine R1-R7, pure function)
+  - orchestrator/main.py (UPDATED — M3 wired; CORE_GATE routes to auditor_system)
+  - auditor_system/providers/gemini_auditor.py (NEW — Gemini 3.1 Pro, replaces OpenAI)
+  - auditor_system/cli.py (UPDATED — GeminiAuditor replaces OpenAIAuditor)
+  - auditor_system/config/models.yaml (UPDATED — gemini+claude-opus-4-6)
+  - tests/orchestrator/test_synthesizer.py (NEW — 61 tests)
+TEST_EVIDENCE: 61/61 synthesizer tests PASS; 723/723 total PASS (zero regression)
+GOVERNANCE:
+  - M3 architecture reviewed via live API before implementation (CORE protocol)
+  - CRITIC: Gemini 3.1 Pro — CONCERNS (R3 silent strip → BLOCKED, R6 SEMI→ESCALATE)
+  - JUDGE: Claude Opus 4.6 — CONCERNS (same + R5 structured field)
+  - Manual: Opus chat APPROVED with 2 mandatory fixes; GPT rejected (5 action names)
+  - All critical issues resolved in implementation
+KEY_DECISIONS:
+  - R3: stripped_files non-empty → BLOCKED (not silent strip+proceed)
+  - R6: empty scope + SEMI risk → ESCALATE (not NO_OP); LOW → NO_OP
+  - R5: addresses_blocker structured field takes priority over "unblock" keyword
+  - Gemini replaces OpenAI as CRITIC auditor (quota issue resolved)
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
 TITLE: Meta Orchestrator — M2 Claude Advisor API Integration
 RISK_LEVEL: SEMI
 STATUS: COMPLETED (committed to feat/rev-r1-catalog)
