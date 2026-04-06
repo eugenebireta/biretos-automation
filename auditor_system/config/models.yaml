@@ -7,8 +7,9 @@ builder:
   # НЕ использовать 1M context по умолчанию (extra usage)
 
 auditors:
-  openai: "gpt-4o"                        # OpenAI Responses API + Structured Outputs
-  anthropic: "claude-sonnet-4-6" # Anthropic Messages API — API billing
+  gemini: "gemini-3.1-pro-preview"        # Google Gemini API — CRITIC role
+  anthropic: "claude-opus-4-6"            # Anthropic Messages API — JUDGE role (Opus 4.6 max)
+  # openai: "gpt-4o"                      # DISABLED — quota exhausted
   # Внимание: auditor (API) ≠ builder (подписка). Разные окружения.
 
 effort:

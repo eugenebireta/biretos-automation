@@ -63,16 +63,12 @@ def _load_secrets() -> dict[str, str]:
         )
         sys.exit(1)
 
-    # OPENAI_API_KEY: from .env.auditors first, fallback to system env (safe — not auth key)
-    if not secrets.get("OPENAI_API_KEY"):
-        openai_env = os.environ.get("OPENAI_API_KEY", "")
-        if openai_env:
-            secrets["OPENAI_API_KEY"] = openai_env
-        else:
-            logger.error(
-                "OPENAI_API_KEY missing in %s and not in system env", secrets_path
-            )
-            sys.exit(1)
+    # GEMINI_API_KEY: required for Gemini auditor (replaces OpenAI)
+    if not secrets.get("GEMINI_API_KEY"):
+        logger.error(
+            "GEMINI_API_KEY missing in %s (required for live Gemini auditor)", secrets_path
+        )
+        sys.exit(1)
 
     return secrets
 
@@ -108,12 +104,12 @@ def _make_live_runner(
     proposal_text: str | None = None,
 ):
     """
-    Live runner with real OpenAI + Anthropic auditors.
+    Live runner with real Gemini (CRITIC) + Anthropic (JUDGE) auditors.
     Secrets loaded from .env.auditors — NOT from os.environ.
     """
     import yaml
     from .providers.mock_builder import MockBuilder
-    from .providers.openai_auditor import OpenAIAuditor
+    from .providers.gemini_auditor import GeminiAuditor
     from .providers.anthropic_auditor import AnthropicAuditor
     from .review_runner import ReviewRunner
 
@@ -126,13 +122,13 @@ def _make_live_runner(
         with open(config_path, encoding="utf-8") as f:
             models_config = yaml.safe_load(f) or {}
 
-    openai_model = models_config.get("auditors", {}).get("openai", "gpt-4o")
-    anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6-20250514")
+    gemini_model = models_config.get("auditors", {}).get("gemini", "gemini-3.1-pro-preview")
+    anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6")
 
     return ReviewRunner(
         builder=MockBuilder(proposal_text=proposal_text),
         auditors=[
-            OpenAIAuditor(model=openai_model, api_key=secrets["OPENAI_API_KEY"]),
+            GeminiAuditor(model=gemini_model, api_key=secrets["GEMINI_API_KEY"]),
             AnthropicAuditor(model=anthropic_model, api_key=secrets["ANTHROPIC_API_KEY"]),
         ],
         runs_dir=runs_dir,

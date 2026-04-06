@@ -189,24 +189,6 @@ def cmd_cycle(args: argparse.Namespace) -> None:
         for r in classification.blocking_rules:
             print(f"[orchestrator] BLOCKING RULE: {r}", file=sys.stderr)
 
-    # Gate: CORE risk → stop, do not write directive
-    if classification.risk_class == "CORE":
-        manifest["fsm_state"] = "awaiting_owner_reply"
-        manifest["last_verdict"] = "RUN_SPEC_GOVERNANCE"
-        save_manifest(manifest)
-        append_run({"ts": _now(), "event": "core_risk_gate",
-                    "risk_class": "CORE", "rationale": classification.rationale,
-                    "trace_id": trace_id})
-        print()
-        print("=" * 60)
-        print("CORE RISK DETECTED — stopping for SPEC v3.4 governance.")
-        print(f"Rationale: {classification.rationale}")
-        print()
-        print("Send architecture package to JUDGE chat.")
-        print("After JUDGE approval: set fsm_state=ready in manifest.json")
-        print("=" * 60)
-        return
-
     # M2: call Claude Advisor for task guidance
     advisor_result = _run_advisor(bundle, trace_id)
     if advisor_result.warnings:
@@ -233,7 +215,55 @@ def cmd_cycle(args: argparse.Namespace) -> None:
     print(f"[orchestrator] advisor risk={verdict.risk_assessment} "
           f"route={verdict.governance_route} attempts={advisor_result.attempt_count}")
 
-    directive = _build_directive(manifest, trace_id, bundle, classification, verdict)
+    # M3: synthesizer — deterministic safety gate
+    cfg = _load_config()
+    synth = _run_synthesizer(
+        classification, verdict,
+        attempt_count=manifest.get("attempt_count", 1),
+        last_packet_status=bundle.last_status,
+        max_attempts=int(cfg.get("max_attempts", 3)),
+    )
+    for w in synth.warnings:
+        print(f"[orchestrator] SYNTH WARNING: {w}", file=sys.stderr)
+    print(f"[orchestrator] synth action={synth.action} final_risk={synth.final_risk} "
+          f"scope={len(synth.approved_scope)} rules={synth.rule_trace}")
+
+    if synth.action == "CORE_GATE":
+        manifest["fsm_state"] = "awaiting_owner_reply"
+        manifest["last_verdict"] = "RUN_SPEC_GOVERNANCE"
+        save_manifest(manifest)
+        append_run({"ts": _now(), "event": "core_risk_gate",
+                    "rule_trace": synth.rule_trace, "rationale": synth.rationale,
+                    "trace_id": trace_id})
+        print()
+        print("=" * 60)
+        print("CORE RISK — stopping for auditor_system governance review.")
+        print(f"Rationale: {synth.rationale}")
+        print("Run: python -m auditor_system.cli live --task <task_id>")
+        print("After APPROVE: set fsm_state=ready in manifest.json")
+        print("=" * 60)
+        return
+
+    if synth.action in ("ESCALATE", "BLOCKED", "NO_OP"):
+        verdict_map = {"ESCALATE": "ESCALATE", "BLOCKED": "BLOCKED", "NO_OP": "ESCALATE"}
+        manifest["fsm_state"] = "awaiting_owner_reply"
+        manifest["last_verdict"] = verdict_map[synth.action]
+        save_manifest(manifest)
+        append_run({"ts": _now(), "event": f"synth_{synth.action.lower()}",
+                    "rule_trace": synth.rule_trace, "rationale": synth.rationale,
+                    "trace_id": trace_id})
+        print()
+        print("=" * 60)
+        print(f"SYNTHESIZER: {synth.action}")
+        print(f"Rationale: {synth.rationale}")
+        if synth.stripped_files:
+            print(f"Stripped Tier-1/2 files: {synth.stripped_files}")
+        print("After resolving: set fsm_state=ready in manifest.json")
+        print("=" * 60)
+        return
+
+    # PROCEED — build directive with synthesizer-approved scope
+    directive = _build_directive(manifest, trace_id, bundle, classification, verdict, synth)
     DIRECTIVE_PATH.write_text(directive, encoding="utf-8")
 
     directive_hash = hashlib.sha256(directive.encode()).hexdigest()[:12]
@@ -284,14 +314,47 @@ def _run_advisor(bundle, trace_id: str):
     return _advisor.call(bundle)
 
 
+def _run_synthesizer(classification, verdict, attempt_count: int,
+                     last_packet_status, max_attempts: int):
+    """Apply deterministic rule engine (M3)."""
+    import synthesizer as _synthesizer
+    return _synthesizer.decide(
+        classification=classification,
+        verdict=verdict,
+        attempt_count=attempt_count,
+        last_packet_status=last_packet_status,
+        max_attempts=max_attempts,
+    )
+
+
+def _load_config() -> dict:
+    """Load orchestrator config.yaml."""
+    try:
+        import yaml
+        cfg_path = ORCH_DIR / "config.yaml"
+        if cfg_path.exists():
+            return yaml.safe_load(cfg_path.read_text(encoding="utf-8")) or {}
+    except Exception:
+        pass
+    return {}
+
+
 def _build_directive(manifest: dict, trace_id: str,
-                     bundle, classification, verdict) -> str:
-    """Build directive enriched with advisor verdict (M2)."""
+                     bundle, classification, verdict, synth=None) -> str:
+    """Build directive with synthesizer-approved scope (M3)."""
     task_id = manifest.get("current_task_id") or "UNSET_TASK_ID"
     sprint_goal = manifest.get("current_sprint_goal") or "(no sprint goal set)"
     attempt = manifest.get("attempt_count", 1)
 
-    scope_lines = "\n".join(f"- {f}" for f in (verdict.scope or [])) or "- (advisor returned empty scope)"
+    # Use synthesizer approved_scope when available (Tier-3 guaranteed)
+    if synth is not None and synth.approved_scope:
+        scope_source = synth.approved_scope
+        scope_note = f"synthesizer_action={synth.action} rule_trace={synth.rule_trace}"
+    else:
+        scope_source = verdict.scope or []
+        scope_note = "scope from advisor (synthesizer not applied)"
+
+    scope_lines = "\n".join(f"- {f}" for f in scope_source) or "- (no scope specified)"
     constraints_lines = "\n".join(f"- {c}" for c in bundle.dna_constraints)
 
     return f"""# Orchestrator Directive
@@ -301,6 +364,7 @@ attempt: {attempt}
 generated_at: {_now()}
 risk_class: {classification.risk_class}  governance_route: {classification.governance_route}
 advisor_risk: {verdict.risk_assessment}  advisor_route: {verdict.governance_route}
+scope_source: {scope_note}
 
 ## Sprint Goal
 {sprint_goal}
@@ -311,7 +375,7 @@ advisor_risk: {verdict.risk_assessment}  advisor_route: {verdict.governance_rout
 ## Advisor Rationale
 {verdict.rationale}
 
-## Scope
+## Scope (Tier-3 verified)
 {scope_lines}
 
 ## Constraints
