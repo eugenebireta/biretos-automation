@@ -121,16 +121,17 @@ def _price_followup_action_payload(price: dict[str, Any]) -> tuple[str, str]:
         if offer == "blocked_or_auth_gated":
             return BLOCKED_OWNER_REVIEW_ACTION_CODE, "confirm_blocked_surface_or_owner_review"
         return STALE_TRUTH_RECONCILE_ACTION_CODE, "reconcile_stale_truth_before_followup"
+    _SEMANTIC_BARRIER_CODES = {
+        "PRICE_COMPONENT_OR_ACCESSORY",
+        "PRICE_PACK_UNIT_AMBIGUITY",
+        "PRICE_FAMILY_SERIES_ONLY",
+        "PRICE_SEMANTIC_IDENTITY_MISMATCH",
+    }
     if offer == "blocked_or_auth_gated":
+        if reason_codes.intersection(_SEMANTIC_BARRIER_CODES):
+            return ADMISSIBILITY_REVIEW_ACTION_CODE, "review_blocked_surface_with_semantic_barrier"
         return BLOCKED_OWNER_REVIEW_ACTION_CODE, "confirm_blocked_surface_or_owner_review"
-    if review_bucket == "PRICE_ADMISSIBILITY_REVIEW" or reason_codes.intersection(
-        {
-            "PRICE_COMPONENT_OR_ACCESSORY",
-            "PRICE_PACK_UNIT_AMBIGUITY",
-            "PRICE_FAMILY_SERIES_ONLY",
-            "PRICE_SEMANTIC_IDENTITY_MISMATCH",
-        }
-    ):
+    if review_bucket == "PRICE_ADMISSIBILITY_REVIEW" or reason_codes.intersection(_SEMANTIC_BARRIER_CODES):
         return ADMISSIBILITY_REVIEW_ACTION_CODE, "review_ambiguous_offer_for_admissibility"
     if offer == "ambiguous_offer":
         return ADMISSIBILITY_REVIEW_ACTION_CODE, "review_ambiguous_offer_for_admissibility"

@@ -209,8 +209,8 @@ def test_build_catalog_followup_queues_uses_admissibility_verdicts(tmp_path):
     assert row_by_pn["101411-SEMANTIC"]["action_code"] == "admissibility_review"
     assert row_by_pn["101411-SEMANTIC"]["suggested_action"] == "review_ambiguous_offer_for_admissibility"
     assert row_by_pn["1011894-RU"]["offer_admissibility_status"] == "blocked_or_auth_gated"
-    assert row_by_pn["1011894-RU"]["action_code"] == "blocked_owner_review"
-    assert row_by_pn["1011894-RU"]["suggested_action"] == "confirm_blocked_surface_or_owner_review"
+    assert row_by_pn["1011894-RU"]["action_code"] == "admissibility_review"
+    assert row_by_pn["1011894-RU"]["suggested_action"] == "review_blocked_surface_with_semantic_barrier"
     assert row_by_pn["104011"]["staleness_or_conflict_status"] == "stale_historical_claim"
     assert row_by_pn["104011"]["action_code"] == "stale_truth_reconcile"
     assert row_by_pn["104011"]["suggested_action"] == "reconcile_stale_truth_before_followup"
@@ -364,3 +364,49 @@ def test_unresolved_conflict_with_ambiguous_offer_stays_stale_truth(tmp_path):
 
     assert len(rows) == 1
     assert rows[0]["action_code"] == "stale_truth_reconcile"
+
+
+def test_pure_blocked_without_semantic_barrier_stays_blocked_owner_review(tmp_path):
+    evidence_dir = tmp_path / "evidence"
+    output_dir = tmp_path / "queues"
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+
+    bundle = {
+        "pn": "PURE-BLOCKED",
+        "name": "Blocked exact product",
+        "brand": "Test",
+        "card_status": "REVIEW_REQUIRED",
+        "photo": {"verdict": "KEEP"},
+        "price": {
+            "price_status": "no_price_found",
+            "price_per_unit": None,
+            "currency": None,
+            "source_url": "https://example.com/blocked-exact",
+            "offer_qty": 1,
+            "offer_unit_basis": "piece",
+            "http_status": 403,
+            "blocked_ui_detected": True,
+            "price_source_exact_product_lineage_confirmed": True,
+            "price_source_lineage_reason_code": "structured_exact_product_page",
+            "price_source_clean_product_page": True,
+            "page_product_class": "Exact Product Page",
+            "price_admissibility_schema_version": "price_admissibility_v1",
+            "offer_admissibility_status": "blocked_or_auth_gated",
+            "staleness_or_conflict_status": "clean",
+            "price_admissibility_reason_codes": ["PRICE_BLOCKED_OR_AUTH_GATED"],
+            "price_admissibility_review_bucket": "PRICE_BLOCKED_SURFACE",
+        },
+        "content": {},
+    }
+    (evidence_dir / "evidence_PURE-BLOCKED.json").write_text(json.dumps(bundle, ensure_ascii=False), encoding="utf-8")
+
+    summary = run(evidence_dir=evidence_dir, output_dir=output_dir, prefix="pure_blocked")
+    rows = [
+        json.loads(line)
+        for line in Path(summary["price_followup_queue"]).read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+
+    assert len(rows) == 1
+    assert rows[0]["action_code"] == "blocked_owner_review"
+    assert rows[0]["suggested_action"] == "confirm_blocked_surface_or_owner_review"
