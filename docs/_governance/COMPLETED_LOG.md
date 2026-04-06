@@ -1,5 +1,25 @@
 ---
 DATE: 2026-04-07
+TITLE: Meta Orchestrator — M1 Task Intake + Classifier + Context Pruner
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/classifier.py (NEW — deterministic risk engine, rules C1-C4 CORE + S1-S3 SEMI)
+  - orchestrator/intake.py (NEW — ContextBundle, soft file reads, diff pruning, staleness warn)
+  - orchestrator/main.py (UPDATED — _run_intake(), _run_classify(), CORE gate, classify subcommand)
+  - tests/orchestrator/test_classifier.py (NEW — 52 tests, all 7 rules covered)
+  - tests/orchestrator/test_intake.py (NEW — 27 tests: soft failures, truncation, rendering)
+TEST_EVIDENCE: 79/79 M1 tests PASS; 620/620 total PASS (zero regression)
+KEY_DECISIONS:
+  - CORE gate in cmd_cycle: if risk_class==CORE → fsm_state=awaiting_owner_reply, no directive written
+  - classify subcommand added for standalone diagnostic use
+  - _build_stub_directive now accepts bundle+classification → embeds risk_line + context section
+  - _run_intake/_run_classify are thin wrappers — importable, mockable, testable
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
 TITLE: Meta Orchestrator — M0.5 Artifact Schemas
 RISK_LEVEL: LOW
 STATUS: COMPLETED (committed to feat/rev-r1-catalog)

@@ -1,16 +1,17 @@
 """
-main.py — Meta Orchestrator, one-cycle run-once skeleton.
+main.py — Meta Orchestrator, one-cycle run-once.
 
-M0 Spike: proves the directive → execution → packet roundtrip.
+M1: integrates classifier (risk) + intake (context bundle).
+M2: Claude Advisor call (next step).
 
 Usage:
-    python orchestrator/main.py init          # create default manifest
-    python orchestrator/main.py               # run one cycle
+    python orchestrator/main.py init            # create default manifest
+    python orchestrator/main.py                 # run one cycle
     python orchestrator/main.py show-directive  # print last directive
+    python orchestrator/main.py classify        # classify risk of last packet
 
 Physical interface (M0 finding):
     cat orchestrator/orchestrator_directive.md | claude -p
-    (stdin piped to claude --print mode; no arg length limit)
 """
 
 from __future__ import annotations
@@ -163,12 +164,50 @@ def cmd_cycle(args: argparse.Namespace) -> None:
                   f"--trace-id {manifest.get('trace_id', '<trace_id>')}")
         return
 
-    # state == "ready": write directive stub (real intent from Claude Advisor in M2)
+    # state == "ready": run intake + classify + write directive
     trace_id = f"orch_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}_{uuid.uuid4().hex[:6]}"
     manifest["trace_id"] = trace_id
     manifest["attempt_count"] = manifest.get("attempt_count", 0) + 1
 
-    directive = _build_stub_directive(manifest, trace_id)
+    # M1: load context bundle
+    bundle = _run_intake()
+    if bundle.warnings:
+        for w in bundle.warnings:
+            print(f"[orchestrator] INTAKE WARNING: {w}", file=sys.stderr)
+    if bundle.validation_errors:
+        for e in bundle.validation_errors:
+            print(f"[orchestrator] VALIDATION: {e}", file=sys.stderr)
+
+    # M1: classify risk of last execution packet
+    classification = _run_classify(bundle)
+    print(f"[orchestrator] risk={classification.risk_class} "
+          f"route={classification.governance_route}")
+    if classification.tier_violations:
+        for v in classification.tier_violations:
+            print(f"[orchestrator] TIER VIOLATION: {v}", file=sys.stderr)
+    if classification.blocking_rules:
+        for r in classification.blocking_rules:
+            print(f"[orchestrator] BLOCKING RULE: {r}", file=sys.stderr)
+
+    # Gate: CORE risk → stop, do not write directive
+    if classification.risk_class == "CORE":
+        manifest["fsm_state"] = "awaiting_owner_reply"
+        manifest["last_verdict"] = "RUN_SPEC_GOVERNANCE"
+        save_manifest(manifest)
+        append_run({"ts": _now(), "event": "core_risk_gate",
+                    "risk_class": "CORE", "rationale": classification.rationale,
+                    "trace_id": trace_id})
+        print()
+        print("=" * 60)
+        print("CORE RISK DETECTED — stopping for SPEC v3.4 governance.")
+        print(f"Rationale: {classification.rationale}")
+        print()
+        print("Send architecture package to JUDGE chat.")
+        print("After JUDGE approval: set fsm_state=ready in manifest.json")
+        print("=" * 60)
+        return
+
+    directive = _build_stub_directive(manifest, trace_id, bundle, classification)
     DIRECTIVE_PATH.write_text(directive, encoding="utf-8")
 
     directive_hash = hashlib.sha256(directive.encode()).hexdigest()[:12]
@@ -196,17 +235,45 @@ def cmd_cycle(args: argparse.Namespace) -> None:
     print("=" * 60)
 
 
-def _build_stub_directive(manifest: dict, trace_id: str) -> str:
+def _run_intake():
+    """Load context bundle from persisted artifacts (M1)."""
+    import intake as _intake
+    return _intake.load()
+
+
+def _run_classify(bundle):
+    """Classify risk from context bundle (M1)."""
+    import classifier as _classifier
+    return _classifier.classify(
+        changed_files=bundle.last_changed_files,
+        affected_tiers=bundle.last_affected_tiers or None,
+        task_id=bundle.task_id,
+        intent=bundle.sprint_goal,
+    )
+
+
+def _build_stub_directive(manifest: dict, trace_id: str,
+                          bundle=None, classification=None) -> str:
     task_id = manifest.get("current_task_id") or "UNSET_TASK_ID"
     sprint_goal = manifest.get("current_sprint_goal") or "(no sprint goal set)"
     attempt = manifest.get("attempt_count", 1)
+
+    risk_line = ""
+    context_section = ""
+    if classification is not None:
+        risk_line = (f"risk_class: {classification.risk_class}  "
+                     f"governance_route: {classification.governance_route}\n")
+    if bundle is not None:
+        ctx = bundle.to_advisor_prompt_context()
+        if ctx:
+            context_section = f"\n## Execution Context\n{ctx}\n"
 
     return f"""# Orchestrator Directive
 trace_id: {trace_id}
 task_id: {task_id}
 attempt: {attempt}
 generated_at: {_now()}
-
+{risk_line}
 ## Sprint Goal
 {sprint_goal}
 
@@ -223,9 +290,9 @@ generated_at: {_now()}
 
 ## Acceptance Criteria
 - (set per task)
-
+{context_section}
 ## Context
-This directive was generated by the Meta Orchestrator M0 spike.
+This directive was generated by the Meta Orchestrator M1 with risk classification.
 Real task-specific intent will be populated by Claude Advisor in M2.
 
 ---
@@ -241,6 +308,26 @@ def cmd_show_directive(args: argparse.Namespace) -> None:
         print("[orchestrator] No directive found. Run main.py to generate one.")
 
 
+def cmd_classify(args: argparse.Namespace) -> None:
+    """Classify risk of last execution packet (standalone diagnostic)."""
+    if not PACKET_PATH.exists():
+        print("[orchestrator] No execution packet found. Run collect_packet.py first.")
+        return
+    bundle = _run_intake()
+    result = _run_classify(bundle)
+    print(f"risk_class:        {result.risk_class}")
+    print(f"governance_route:  {result.governance_route}")
+    print(f"rationale:         {result.rationale}")
+    if result.tier_violations:
+        print("tier_violations:")
+        for v in result.tier_violations:
+            print(f"  - {v}")
+    if result.blocking_rules:
+        print("blocking_rules:")
+        for r in result.blocking_rules:
+            print(f"  - {r}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Meta Orchestrator — run-once cycle")
     sub = parser.add_subparsers(dest="cmd")
@@ -249,6 +336,7 @@ def main() -> None:
     p_init.add_argument("--force", action="store_true")
 
     sub.add_parser("show-directive", help="Print last directive")
+    sub.add_parser("classify", help="Classify risk of last execution packet")
 
     args = parser.parse_args()
 
@@ -256,6 +344,8 @@ def main() -> None:
         cmd_init(args)
     elif args.cmd == "show-directive":
         cmd_show_directive(args)
+    elif args.cmd == "classify":
+        cmd_classify(args)
     else:
         cmd_cycle(args)
 

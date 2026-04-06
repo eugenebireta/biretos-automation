@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 56
+transition_seq: 57
 transition_ts: "2026-04-07T00:00:00Z"
 
 ## Current
-active_task: "Meta Orchestrator — M0.5 Artifact Schemas"
-task_id: "meta-orchestrator-m0.5-schemas"
+active_task: "Meta Orchestrator — M1 Task Intake + Classifier + Context Pruner"
+task_id: "meta-orchestrator-m1-intake-classifier"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
@@ -15,20 +15,16 @@ pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: null
 now:
-  - step: "M0.5: 3 new schemas + validation module + 53 tests"
+  - step: "M1: classifier + intake + main.py wiring + 79 new tests"
     actions:
-      - "schemas/advisor_verdict_v1.json (governance_route, risk_assessment, next_step)"
-      - "schemas/manifest_v1.json (fsm_state enum, last_verdict enum, all nullable fields)"
-      - "schemas/escalation_v1.json (escalation_type, options, idempotency_key)"
-      - "orchestrator/schemas.py: validate(), validate_soft(), is_valid() — jsonschema draft-07"
-      - "confidence_score rejected from advisor schema (AI-driven routing, violates rule engine)"
-      - "cost_estimate + affected_sku_count removed from escalation (generic: affected_entity_count)"
-      - "53/53 schema tests PASS; 541/541 total PASS (zero regression)"
-known_gap: "M3 synthesizer can now enforce schemas deterministically — prerequisite satisfied."
-awaiting: "Owner review. Next: M1 — Task Intake + Classifier + Context Pruner."
-      - "One roundtrip verified: init → directive → awaiting_execution → packet → ready"
-known_gap: "M0 stub directive — real task intent from Claude Advisor in M2. Advisor/Synthesizer not yet implemented."
-awaiting: "Owner review. Next: M0.5 — Artifact Schemas (advisor_verdict_v1 + manifest_v1 + validation)."
+      - "orchestrator/classifier.py (NEW — deterministic risk engine: C1-C4 CORE + S1-S3 SEMI + LOW)"
+      - "orchestrator/intake.py (NEW — ContextBundle, soft file reads, diff pruning, staleness warn)"
+      - "orchestrator/main.py (UPDATED — _run_intake(), _run_classify(), CORE gate, classify subcommand)"
+      - "tests/orchestrator/test_classifier.py (NEW — 52 tests, all rules covered)"
+      - "tests/orchestrator/test_intake.py (NEW — 27 tests, soft failures, truncation, rendering)"
+      - "79/79 M1 tests PASS; 620/620 total PASS (zero regression)"
+known_gap: "Directive still M0 stub — real task intent from Claude Advisor in M2."
+awaiting: "Owner review. Next: M2 — Claude Advisor API integration (SEMI risk)."
 
 ## Previous (seq 50 — BVS deterministic merge tool)
 prev_active_task: "BVS deterministic merge tool"
