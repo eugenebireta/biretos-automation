@@ -207,7 +207,33 @@ def cmd_cycle(args: argparse.Namespace) -> None:
         print("=" * 60)
         return
 
-    directive = _build_stub_directive(manifest, trace_id, bundle, classification)
+    # M2: call Claude Advisor for task guidance
+    advisor_result = _run_advisor(bundle, trace_id)
+    if advisor_result.warnings:
+        for w in advisor_result.warnings:
+            print(f"[orchestrator] ADVISOR WARNING: {w}", file=sys.stderr)
+
+    if advisor_result.escalated:
+        manifest["fsm_state"] = "awaiting_owner_reply"
+        manifest["last_verdict"] = "ESCALATE"
+        save_manifest(manifest)
+        append_run({"ts": _now(), "event": "advisor_escalation",
+                    "reason": advisor_result.escalation_reason,
+                    "trace_id": trace_id})
+        print()
+        print("=" * 60)
+        print("ADVISOR ESCALATION — could not obtain valid verdict.")
+        print(f"Reason: {advisor_result.escalation_reason}")
+        print("Check orchestrator/last_escalation.json and resolve.")
+        print("After resolving: set fsm_state=ready in manifest.json")
+        print("=" * 60)
+        return
+
+    verdict = advisor_result.verdict
+    print(f"[orchestrator] advisor risk={verdict.risk_assessment} "
+          f"route={verdict.governance_route} attempts={advisor_result.attempt_count}")
+
+    directive = _build_directive(manifest, trace_id, bundle, classification, verdict)
     DIRECTIVE_PATH.write_text(directive, encoding="utf-8")
 
     directive_hash = hashlib.sha256(directive.encode()).hexdigest()[:12]
@@ -250,6 +276,57 @@ def _run_classify(bundle):
         task_id=bundle.task_id,
         intent=bundle.sprint_goal,
     )
+
+
+def _run_advisor(bundle, trace_id: str):
+    """Call Claude Advisor for task guidance (M2)."""
+    import advisor as _advisor
+    return _advisor.call(bundle)
+
+
+def _build_directive(manifest: dict, trace_id: str,
+                     bundle, classification, verdict) -> str:
+    """Build directive enriched with advisor verdict (M2)."""
+    task_id = manifest.get("current_task_id") or "UNSET_TASK_ID"
+    sprint_goal = manifest.get("current_sprint_goal") or "(no sprint goal set)"
+    attempt = manifest.get("attempt_count", 1)
+
+    scope_lines = "\n".join(f"- {f}" for f in (verdict.scope or [])) or "- (advisor returned empty scope)"
+    constraints_lines = "\n".join(f"- {c}" for c in bundle.dna_constraints)
+
+    return f"""# Orchestrator Directive
+trace_id: {trace_id}
+task_id: {task_id}
+attempt: {attempt}
+generated_at: {_now()}
+risk_class: {classification.risk_class}  governance_route: {classification.governance_route}
+advisor_risk: {verdict.risk_assessment}  advisor_route: {verdict.governance_route}
+
+## Sprint Goal
+{sprint_goal}
+
+## Next Step (from Claude Advisor)
+{verdict.next_step}
+
+## Advisor Rationale
+{verdict.rationale}
+
+## Scope
+{scope_lines}
+
+## Constraints
+{constraints_lines}
+
+## Acceptance Criteria
+- All tests pass (zero regression)
+- Only files in Scope section touched
+- Tier-1 files untouched
+- Pinned API signatures unchanged
+
+---
+Read this directive, execute the task, commit your changes.
+Then run: python orchestrator/collect_packet.py --trace-id {trace_id} [--run-pytest]
+"""
 
 
 def _build_stub_directive(manifest: dict, trace_id: str,

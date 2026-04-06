@@ -1,30 +1,30 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 57
+transition_seq: 58
 transition_ts: "2026-04-07T00:00:00Z"
 
 ## Current
-active_task: "Meta Orchestrator — M1 Task Intake + Classifier + Context Pruner"
-task_id: "meta-orchestrator-m1-intake-classifier"
+active_task: "Meta Orchestrator — M2 Claude Advisor API Integration"
+task_id: "meta-orchestrator-m2-advisor"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
-risk_level: LOW
+risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: null
 now:
-  - step: "M1: classifier + intake + main.py wiring + 79 new tests"
+  - step: "M2: Claude Advisor + error chain + main.py wiring + 42 new tests"
     actions:
-      - "orchestrator/classifier.py (NEW — deterministic risk engine: C1-C4 CORE + S1-S3 SEMI + LOW)"
-      - "orchestrator/intake.py (NEW — ContextBundle, soft file reads, diff pruning, staleness warn)"
-      - "orchestrator/main.py (UPDATED — _run_intake(), _run_classify(), CORE gate, classify subcommand)"
-      - "tests/orchestrator/test_classifier.py (NEW — 52 tests, all rules covered)"
-      - "tests/orchestrator/test_intake.py (NEW — 27 tests, soft failures, truncation, rendering)"
-      - "79/79 M1 tests PASS; 620/620 total PASS (zero regression)"
-known_gap: "Directive still M0 stub — real task intent from Claude Advisor in M2."
-awaiting: "Owner review. Next: M2 — Claude Advisor API integration (SEMI risk)."
+      - "orchestrator/advisor.py (NEW — Anthropic SDK call, JSON parse, retry, escalation)"
+      - "orchestrator/main.py (UPDATED — _run_advisor(), _build_directive() with real verdict)"
+      - "tests/orchestrator/test_advisor.py (NEW — 42 tests: success/retry/escalation/missing-key)"
+      - "42/42 M2 tests PASS; 662/662 total PASS (zero regression)"
+      - "Error chain: full prompt → simplified retry → escalation packet (last_escalation.json)"
+      - "Directive now contains real next_step + scope + advisor rationale from Claude API"
+known_gap: "M3 Decision Synthesizer (rule engine on top of advisor verdict) requires SPEC v3.4 CORE governance."
+awaiting: "Owner sends M3 architecture package to JUDGE chat. M3 is CORE risk — STOP until approved."
 
 ## Previous (seq 50 — BVS deterministic merge tool)
 prev_active_task: "BVS deterministic merge tool"

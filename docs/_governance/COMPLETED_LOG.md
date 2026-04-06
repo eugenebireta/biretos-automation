@@ -1,5 +1,24 @@
 ---
 DATE: 2026-04-07
+TITLE: Meta Orchestrator — M2 Claude Advisor API Integration
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/advisor.py (NEW — Anthropic SDK, JSON parse+extract, retry, escalation write)
+  - orchestrator/main.py (UPDATED — _run_advisor(), _build_directive(), advisor escalation gate)
+  - tests/orchestrator/test_advisor.py (NEW — 42 tests: success/retry/escalation/missing-key)
+TEST_EVIDENCE: 42/42 M2 tests PASS; 662/662 total PASS (zero regression)
+KEY_DECISIONS:
+  - Error chain: attempt 1 (full context) → attempt 2 (simplified prompt) → ESCALATE
+  - ESCALATE writes last_escalation.json, sets fsm_state=awaiting_owner_reply, returns
+  - _build_directive() replaces _build_stub_directive() — real next_step+scope from verdict
+  - Missing ANTHROPIC_API_KEY → immediate escalation (not exception)
+  - issued_at auto-patched if absent in response
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
 TITLE: Meta Orchestrator — M1 Task Intake + Classifier + Context Pruner
 RISK_LEVEL: LOW
 STATUS: COMPLETED (committed to feat/rev-r1-catalog)
