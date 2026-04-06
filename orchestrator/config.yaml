@@ -10,3 +10,8 @@ runs_retention_days: 90
 sprint_goal_staleness_warn_days: 7
 pytest_timeout_seconds: 120
 base_commit: null   # set per-task; null = use git merge-base HEAD origin/master
+
+# M4: Executor Bridge
+auto_execute: false          # set true to run claude -p automatically after directive
+auto_pytest: false           # set true to run pytest in auto-collect step
+executor_timeout_seconds: 600  # claude -p subprocess timeout (seconds)

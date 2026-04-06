@@ -277,18 +277,23 @@ def cmd_cycle(args: argparse.Namespace) -> None:
 
     print(f"[orchestrator] Directive written → {DIRECTIVE_PATH}")
     print(f"[orchestrator] trace_id={trace_id}")
-    print()
-    print("=" * 60)
-    print("NEXT — feed directive to Claude Code:")
-    print()
-    print("    cat orchestrator/orchestrator_directive.md | claude -p")
-    print()
-    print("Then collect result:")
-    print(f"    python orchestrator/collect_packet.py --trace-id {trace_id} [--run-pytest]")
-    print()
-    print("Then run next cycle:")
-    print("    python orchestrator/main.py")
-    print("=" * 60)
+
+    # M4: auto-execute if enabled in config
+    if cfg.get("auto_execute", False):
+        _run_executor_bridge(manifest, trace_id, cfg)
+    else:
+        print()
+        print("=" * 60)
+        print("NEXT — feed directive to Claude Code:")
+        print()
+        print("    cat orchestrator/orchestrator_directive.md | claude -p")
+        print()
+        print("Then collect result:")
+        print(f"    python orchestrator/collect_packet.py --trace-id {trace_id} [--run-pytest]")
+        print()
+        print("Then run next cycle:")
+        print("    python orchestrator/main.py")
+        print("=" * 60)
 
 
 def _run_intake():
@@ -325,6 +330,65 @@ def _run_synthesizer(classification, verdict, attempt_count: int,
         last_packet_status=last_packet_status,
         max_attempts=max_attempts,
     )
+
+
+def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
+    """M4: run Claude Code autonomously and auto-collect packet."""
+    import json
+    import executor_bridge as _eb
+
+    timeout = int(cfg.get("executor_timeout_seconds", 600))
+    run_pytest = bool(cfg.get("auto_pytest", False))
+    base_commit = cfg.get("base_commit") or None
+
+    print()
+    print("[orchestrator] auto_execute=true — running claude -p...")
+
+    exec_result, packet = _eb.run_with_collect(
+        directive_path=DIRECTIVE_PATH,
+        trace_id=trace_id,
+        base_commit=base_commit,
+        run_pytest=run_pytest,
+        timeout=timeout,
+    )
+
+    print(f"[orchestrator] executor status={exec_result.status} "
+          f"exit_code={exec_result.exit_code} "
+          f"elapsed={exec_result.elapsed_seconds:.1f}s")
+
+    if exec_result.status == "completed" and packet is not None:
+        # Write packet and advance FSM to ready
+        PACKET_PATH.write_text(json.dumps(packet, indent=2, ensure_ascii=False), encoding="utf-8")
+        manifest["fsm_state"] = "ready"
+        manifest["last_verdict"] = None
+        save_manifest(manifest)
+        append_run({"ts": _now(), "event": "auto_execute_completed",
+                    "state_before": "awaiting_execution", "state_after": "ready",
+                    "trace_id": trace_id,
+                    "changed_files": len(packet.get("changed_files", [])),
+                    "elapsed_seconds": exec_result.elapsed_seconds})
+        print(f"[orchestrator] Packet collected: "
+              f"files={len(packet.get('changed_files', []))} "
+              f"tiers={packet.get('affected_tiers', [])}")
+        print("[orchestrator] FSM → ready. Run main.py for next cycle.")
+    else:
+        # Execution failed — keep FSM at awaiting_execution, report error
+        append_run({"ts": _now(), "event": "auto_execute_failed",
+                    "state": "awaiting_execution",
+                    "trace_id": trace_id,
+                    "status": exec_result.status,
+                    "exit_code": exec_result.exit_code,
+                    "error_class": exec_result.error_class})
+        print()
+        print("=" * 60)
+        print(f"EXECUTOR FAILED: status={exec_result.status} "
+              f"exit_code={exec_result.exit_code}")
+        if exec_result.stderr:
+            print(f"stderr: {exec_result.stderr[:300]}")
+        print("Directive preserved. Manual fallback:")
+        print("    cat orchestrator/orchestrator_directive.md | claude -p")
+        print(f"    python orchestrator/collect_packet.py --trace-id {trace_id}")
+        print("=" * 60)
 
 
 def _load_config() -> dict:
