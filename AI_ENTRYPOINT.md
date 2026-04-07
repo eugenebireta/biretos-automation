@@ -4,7 +4,7 @@
 
 1. `docs/PROJECT_DNA.md` — invariants, frozen files, absolute rules
 2. `docs/autopilot/STATE.md` — current execution state
-3. Task Brief текущей задачи (если существует, путь указан в STATE.md или manifest)
+3. Task Brief текущей задачи — сейчас: `config/TASK_BRIEF_R1_ENRICHMENT.md`
 4. `docs/_governance/AI_EXECUTION_CONTRACT_v1.md` — execution role boundaries
 
 ## Read if relevant to current task:
