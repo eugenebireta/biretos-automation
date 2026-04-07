@@ -684,6 +684,126 @@ def extract_jsonld_image(html: str, pn: str) -> dict | None:
     return None
 
 
+# ── JSON-LD full extraction helpers ──────────────────────────────────────────
+
+def _jld_extract_brand(data: dict) -> Optional[str]:
+    brand = data.get("brand")
+    if isinstance(brand, dict):
+        return brand.get("name")
+    return brand if isinstance(brand, str) else None
+
+
+def _jld_extract_dimensions(data: dict) -> Optional[dict]:
+    dims = {}
+    for key in ("width", "height", "depth", "length"):
+        val = data.get(key)
+        if val is not None:
+            dims[key] = val
+    return dims if dims else None
+
+
+def _jld_extract_seller(data: dict) -> Optional[str]:
+    seller = data.get("seller")
+    if isinstance(seller, dict):
+        return seller.get("name")
+    return seller if isinstance(seller, str) else None
+
+
+def _jld_extract_rating(data: dict) -> Optional[dict]:
+    rating = data.get("aggregateRating")
+    if isinstance(rating, dict):
+        return {
+            "value": rating.get("ratingValue"),
+            "count": rating.get("reviewCount"),
+        }
+    return None
+
+
+def _jld_extract_additional_props(data: dict) -> Optional[list]:
+    props = data.get("additionalProperty", [])
+    if props and isinstance(props, list):
+        return [
+            {"name": p.get("name"), "value": p.get("value")}
+            for p in props[:20]
+            if isinstance(p, dict)
+        ]
+    return None
+
+
+def _jld_extract_availability(data: dict) -> Optional[str]:
+    avail = data.get("availability")
+    if isinstance(avail, str):
+        # Normalise schema.org URL to short form
+        return avail.split("/")[-1] if "/" in avail else avail
+    return None
+
+
+def _jld_truncate(text: Optional[str], max_len: int) -> Optional[str]:
+    if text and len(text) > max_len:
+        return text[:max_len]
+    return text
+
+
+def extract_full_jsonld(jsonld_data: dict) -> dict:
+    """Извлечь ВСЕ полезные поля из JSON-LD Product schema.
+
+    Дополняет существующий extract_jsonld_image() — сохраняет в evidence bundle
+    как jsonld_full для обучения и будущих карточек товаров.
+    """
+    offers = jsonld_data.get("offers", {})
+    if isinstance(offers, list):
+        offers = offers[0] if offers else {}
+    if not isinstance(offers, dict):
+        offers = {}
+
+    availability = _jld_extract_availability(jsonld_data) or _jld_extract_availability(offers)
+    seller = _jld_extract_seller(jsonld_data) or _jld_extract_seller(offers)
+
+    return {
+        "name": jsonld_data.get("name"),
+        "sku": jsonld_data.get("sku"),
+        "mpn": jsonld_data.get("mpn"),
+        "gtin13": jsonld_data.get("gtin13"),
+        "gtin": jsonld_data.get("gtin"),
+        "brand": _jld_extract_brand(jsonld_data),
+        "description": _jld_truncate(jsonld_data.get("description"), 500),
+        "image": jsonld_data.get("image"),
+        "category": jsonld_data.get("category"),
+        "weight": jsonld_data.get("weight"),
+        "dimensions": _jld_extract_dimensions(jsonld_data),
+        "availability": availability,
+        "seller": seller,
+        "aggregate_rating": _jld_extract_rating(jsonld_data),
+        "additional_properties": _jld_extract_additional_props(jsonld_data),
+        "price": offers.get("price"),
+        "currency": offers.get("priceCurrency"),
+        "price_valid_until": offers.get("priceValidUntil"),
+        "item_condition": offers.get("itemCondition"),
+    }
+
+
+def extract_all_jsonld_from_html(html: str, pn: str) -> Optional[dict]:
+    """Parse HTML, find first Product JSON-LD block, return full extraction.
+
+    Returns None if no Product JSON-LD found.
+    Stored in evidence bundle as jsonld_full (additive, non-breaking).
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    for script in soup.find_all("script", type="application/ld+json"):
+        try:
+            data = json.loads(script.string or "")
+        except Exception:
+            continue
+        items = data if isinstance(data, list) else [data]
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            if item.get("@type") not in ("Product", "ProductGroup"):
+                continue
+            return extract_full_jsonld(item)
+    return None
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # Query Builder
 # ══════════════════════════════════════════════════════════════════════════════
@@ -965,6 +1085,11 @@ def parse_product_page(url: str, pn: str = "") -> dict:
                 result["mpn_confirmed"] = jsonld["mpn_confirmed"]
                 result["jsonld_price"] = jsonld.get("price")
                 result["jsonld_currency"] = jsonld.get("currency")
+
+        # JSON-LD full extraction — stored in result["jsonld_full"] for evidence bundle
+        jsonld_full = extract_all_jsonld_from_html(html, pn)
+        if jsonld_full:
+            result["jsonld_full"] = jsonld_full
 
         # 2. itemprop="image"
         tag = soup.find("img", itemprop="image")
@@ -2009,6 +2134,9 @@ def run(
             expected_category=expected_category,
             content_seed=content_seed,
         )
+        # JSON-LD full extraction — additive, non-breaking enrichment
+        if _dl_with_flags.get("jsonld_full"):
+            bundle["jsonld_full"] = _dl_with_flags["jsonld_full"]
         evidence_bundles.append(bundle)
         checkpoint[pn] = bundle
         save_checkpoint(checkpoint)
