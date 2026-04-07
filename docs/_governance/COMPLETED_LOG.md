@@ -1,5 +1,25 @@
 ---
 DATE: 2026-04-07
+TITLE: R1 Revenue — Price Integration Wave2 + Canonical Refresh Promote
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed 70beec3 to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - Wave2 price scout: 6 SKUs from seed_target20 → 1 admissible (1011994 USD 9.95)
+  - Merged manifest: downloads/scout_cache/price_manual_manifest_merged.jsonl (11 rows)
+  - Canonical evidence refresh promoted: 25 bundles updated
+  - InSales export: 13/15 REVIEW_REQUIRED rows have prices
+REAL_RUN:
+  - price_followup=13 (down from 14), photo_recovery=14
+  - review_required=15, draft_only=10, auto_publish=0
+KNOWN_GAPS:
+  - 8 price-followup SKUs have no product page seed
+  - 5 price-followup SKUs blocked by CAPTCHA (Conrad SK/NL, etm.ru, tameson)
+  - 14 photo-recovery SKUs need SerpAPI (not configured)
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
 TITLE: R1 Revenue — Price Evidence Integrator
 RISK_LEVEL: SEMI
 STATUS: COMPLETED (committed to feat/rev-r1-catalog, PR #38)

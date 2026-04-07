@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 61
-transition_ts: "2026-04-07T09:45:00Z"
+transition_seq: 62
+transition_ts: "2026-04-07T11:25:00Z"
 
 ## Current
-active_task: "R1 Revenue — Price Evidence Integrator"
-task_id: "R1-revenue-price-evidence-integrator"
+active_task: "R1 Revenue — Price Integration + Canonical Refresh"
+task_id: "R1-revenue-price-integration-canonical"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
@@ -15,18 +15,22 @@ pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: 38
 now:
-  - step: "R1 batch: price_evidence_integrator — bridge price manifests into evidence bundles"
+  - step: "R1 full price integration cycle complete"
     actions:
       - "scripts/price_evidence_integrator.py (NEW — integrate_manifest + build_price_section)"
       - "tests/enrichment/test_price_evidence_integrator.py (NEW — 32 deterministic tests)"
       - "GOVERNANCE: SEMI audit via live API — BATCH_APPROVAL (Gemini APPROVE + Opus CONCERNS)"
-      - "Real run: 5/5 admissible rows integrated (027913.10, 1000106, 1006186, 1003012, 1030000000)"
-      - "Evidence bundles updated: price_status=ACCEPTED, field_statuses_v2+policy_decision_v2 patched"
-      - "local_catalog_refresh re-run: review_required=15 (up from 9), draft_only=10, auto_publish=0"
-      - "build_catalog_followup_queues re-run: price_followup=14, photo_recovery=14"
+      - "Wave1: 6 admissible prices integrated (033588.17, 010130.10, 027913.10, 1000106, 1006186, 1011994)"
+      - "Wave2: 1 more price integrated (1011994 USD 9.95 → 875.6 RUB from honeywellstore.com)"
+      - "Merged manifest: 11 rows total (7 admissible, 4 skipped CAPTCHA/no_price)"
+      - "Canonical refresh promoted: review_required=15 (up from 9), draft_only=10, auto_publish=0"
+      - "InSales export: 13/15 review_required SKUs have prices"
+      - "Follow-up queues: price_followup=13, photo_recovery=14"
       - "798/798 tests PASS (zero regression)"
-known_gap: "price_followup_count=14 SKU still need prices. photo_recovery_count=14 SKU still need photos."
-awaiting: "Owner review. Next: photo pipeline or next price scout batch."
+known_gap: |
+  price_followup=13 SKU: 8 unseeded (no product pages found), 5 CAPTCHA-blocked (Conrad SK/NL, etm.ru, tameson)
+  photo_recovery=14 SKU: need SerpAPI key (not configured)
+awaiting: "Owner review. Next: configure SerpAPI for photo recovery OR manual price seed for 8 unseeded SKUs."
 
 ## Previous (seq 60 — M4 Executor Bridge)
 prev_active_task: "Meta Orchestrator — M4 Executor Bridge"
