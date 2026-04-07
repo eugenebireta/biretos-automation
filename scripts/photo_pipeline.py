@@ -442,6 +442,9 @@ def detect_suffix_conflict(pn: str, found_pns: list[str]) -> bool:
 # Shadow Logger + call_gpt — единая обёртка
 # ══════════════════════════════════════════════════════════════════════════════
 
+_MAX_RESPONSE_RAW_CHARS = 10_000  # cap to avoid huge JSONL entries
+
+
 def shadow_log(
     task_type: str,
     pn: str,
@@ -451,7 +454,7 @@ def shadow_log(
     model_alias: str,
     model_resolved: str,
     prompt: str,
-    response_raw: str,
+    response_raw: Optional[str],
     response_parsed: dict,
     parse_success: bool,
     latency_ms: int | None = None,
@@ -463,10 +466,23 @@ def shadow_log(
 
     Файл: shadow_log/{task_type}_YYYY-MM.jsonl
     Не блокирует основной пайплайн при ошибке записи.
+
+    response_raw semantics:
+      None  — API call failed, no model response available
+      ""    — API returned empty text (unexpected but non-fatal)
+      "..." — actual model response (preserved up to _MAX_RESPONSE_RAW_CHARS)
     """
     try:
         month = datetime.datetime.utcnow().strftime("%Y-%m")
         path = SHADOW_LOG_DIR / f"{task_type}_{month}.jsonl"
+
+        # Preserve response_raw; truncate only if very long
+        raw_stored: Optional[str] = response_raw
+        raw_truncated = False
+        if isinstance(response_raw, str) and len(response_raw) > _MAX_RESPONSE_RAW_CHARS:
+            raw_stored = response_raw[:_MAX_RESPONSE_RAW_CHARS]
+            raw_truncated = True
+
         record = {
             "schema_version": SHADOW_LOG_SCHEMA_VERSION,
             "ts": datetime.datetime.utcnow().isoformat() + "Z",
@@ -478,7 +494,9 @@ def shadow_log(
             "model_alias": model_alias,
             "model_resolved": model_resolved,
             "prompt": prompt,
-            "response_raw": response_raw,
+            "response_raw": raw_stored,
+            "response_raw_present": raw_stored is not None and raw_stored != "",
+            "response_raw_truncated": raw_truncated,
             "response_parsed": response_parsed,
             "parse_success": parse_success,
             "latency_ms": latency_ms,
@@ -554,7 +572,7 @@ def call_gpt(
             model_alias=str(adapter_meta.get("model_alias", model)),
             model_resolved=str(adapter_meta.get("model_resolved", model)),
             prompt=_redact_messages_for_log(messages),
-            response_raw="",
+            response_raw=None,  # None = API failure, no model response
             response_parsed={},
             parse_success=False,
             latency_ms=adapter_meta.get("latency_ms"),
