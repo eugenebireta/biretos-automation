@@ -95,6 +95,7 @@ from catalog_shadow_runtime import (                            # noqa: E402
     record_source_success,
     shadow_runtime_active,
 )
+from price_sanity import apply_sanity_to_price_info             # noqa: E402
 
 
 # ── Logging ────────────────────────────────────────────────────────────────────
@@ -1891,6 +1892,22 @@ def run(
             )
         else:
             print(f"  Цена: {price_info['price_status']}")
+
+        # ── Price Sanity Check ────────────────────────────────────────────────
+        if price_info.get("price_usd") is not None:
+            price_info = apply_sanity_to_price_info(
+                price_info=price_info,
+                pn=pn,
+                brand=BRAND,
+            )
+            if price_info.get("price_sanity_status") != "PASS":
+                _sanity_flags = price_info.get("price_sanity_flags", [])
+                print(
+                    f"  [PRICE_SANITY] {price_info['price_sanity_status']}: "
+                    + "; ".join(_sanity_flags)
+                )
+                if price_info.get("price_sanity_status") == "REJECT":
+                    print(f"  [PRICE_SANITY] Цена отклонена → price_status=rejected_sanity_check")
 
         # ── Шаг 3: GPT Vision ─────────────────────────────────────────────────
         sha1 = dl.get("sha1", "")
