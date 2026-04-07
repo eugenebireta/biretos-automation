@@ -87,19 +87,22 @@ class TestClassifyTiers:
 
 class TestParsePytestOutput:
     def test_all_passed(self):
-        r = _parse_pytest_output("509 passed in 4.20s")
+        out = "509 passed in 4.20s"
+        r = _parse_pytest_output(out)
         assert r["passed"] == 509
         assert r["failed"] == 0
         assert r["skipped"] == 0
 
     def test_mixed_results(self):
-        r = _parse_pytest_output("3 failed, 12 passed, 1 skipped in 2.00s")
+        out = "3 failed, 12 passed, 1 skipped in 2.00s"
+        r = _parse_pytest_output(out)
         assert r["passed"] == 12
         assert r["failed"] == 3
         assert r["skipped"] == 1
 
     def test_errors(self):
-        r = _parse_pytest_output("2 error, 5 passed in 1.00s")
+        out = "2 error, 5 passed in 1.00s"
+        r = _parse_pytest_output(out)
         assert r["error"] == 2
         assert r["passed"] == 5
 
@@ -108,10 +111,12 @@ class TestParsePytestOutput:
         assert r == {"passed": 0, "failed": 0, "skipped": 0, "error": 0}
 
     def test_no_numbers(self):
-        assert _parse_pytest_output("no tests ran")["passed"] == 0
+        r = _parse_pytest_output("no tests ran")
+        assert r["passed"] == 0
 
     def test_large_suite(self):
-        r = _parse_pytest_output("1234 passed, 0 failed, 5 skipped in 60.00s")
+        out = "1234 passed, 0 failed, 5 skipped in 60.00s"
+        r = _parse_pytest_output(out)
         assert r["passed"] == 1234
         assert r["skipped"] == 5
 
@@ -171,7 +176,8 @@ class TestCollect:
         assert "scripts/export_pipeline.py" in p["changed_files"]
 
     def test_tiers_classified(self):
-        assert self._run(name_only="scripts/providers.py")["affected_tiers"] == ["Tier-3"]
+        p = self._run(name_only="scripts/providers.py")
+        assert p["affected_tiers"] == ["Tier-3"]
 
     def test_tier1_detection(self):
         p = self._run(
@@ -180,19 +186,23 @@ class TestCollect:
         assert "Tier-1" in p["affected_tiers"]
 
     def test_diff_truncation(self):
-        p = self._run(diff_out="x" * 20_000)
+        long_diff = "x" * 20_000
+        p = self._run(diff_out=long_diff)
         assert p["diff_truncated"] is True
         assert "[DIFF TRUNCATED]" in p["diff_summary"]
         assert len(p["diff_summary"]) <= 15_000 + len("\n[DIFF TRUNCATED]")
 
     def test_no_truncation_short_diff(self):
-        assert self._run(diff_out="small diff")["diff_truncated"] is False
+        p = self._run(diff_out="small diff")
+        assert p["diff_truncated"] is False
 
     def test_executor_notes_preserved(self):
-        assert self._run(executor_notes="All good")["executor_notes"] == "All good"
+        p = self._run(executor_notes="All good, adapter works")
+        assert p["executor_notes"] == "All good, adapter works"
 
     def test_no_pytest_when_flag_false(self):
-        assert self._run(run_pytest_flag=False)["test_results"] is None
+        p = self._run(run_pytest_flag=False)
+        assert p["test_results"] is None
 
     def test_pytest_results_included(self):
         with patch("collect_packet.subprocess.run",
@@ -204,10 +214,12 @@ class TestCollect:
         assert p["test_results"]["skipped"] == 2
 
     def test_status_completed_with_changes(self):
-        assert self._run(name_only="scripts/foo.py")["status"] == "completed"
+        p = self._run(name_only="scripts/foo.py")
+        assert p["status"] == "completed"
 
     def test_status_partial_no_changes(self):
-        assert self._run(name_only="")["status"] == "partial"
+        p = self._run(name_only="")
+        assert p["status"] == "partial"
 
     def test_base_commit_recorded(self):
         with patch("collect_packet.subprocess.run",
@@ -222,4 +234,6 @@ class TestCollect:
 
     def test_valid_json_serializable(self):
         p = self._run()
-        assert json.loads(json.dumps(p))["trace_id"] == "orch_test_001"
+        serialized = json.dumps(p)
+        restored = json.loads(serialized)
+        assert restored["trace_id"] == "orch_test_001"
