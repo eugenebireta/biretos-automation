@@ -1170,23 +1170,15 @@ def parse_product_page(url: str, pn: str = "") -> dict:
                 result["description"] = tag["content"][:500]
                 break
 
-        # Характеристики — таблицы
-        specs: dict = {}
-        for table in soup.find_all("table"):
-            for row in table.find_all("tr"):
-                cells = row.find_all(["td", "th"])
-                if len(cells) == 2:
-                    k, v = cells[0].get_text(strip=True), cells[1].get_text(strip=True)
-                    if k and v and len(k) < 60 and len(v) < 200:
-                        specs[k] = v
-        # dl/dt/dd
-        for dl in soup.find_all("dl"):
-            for k_tag, v_tag in zip(dl.find_all("dt"), dl.find_all("dd")):
-                k, v = k_tag.get_text(strip=True), v_tag.get_text(strip=True)
-                if k and v and len(k) < 60:
-                    specs[k] = v
-        if specs:
-            result["specs"] = dict(list(specs.items())[:20])
+        # Характеристики — используем spec_extractor (3 стратегии)
+        try:
+            from spec_extractor import extract_specs_from_html as _extract_specs
+            _extracted_specs = _extract_specs(html, pn)
+            if _extracted_specs:
+                result["specs"] = _extracted_specs
+                result["specs_status"] = "found_from_page"
+        except Exception as _spec_err:
+            log.debug(f"spec_extractor failed: {_spec_err}")
 
     except Exception as e:
         result["error"] = str(e)
