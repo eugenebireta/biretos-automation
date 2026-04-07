@@ -405,3 +405,5 @@ SMOKE_TEST: PASS (Mermaid, no image tool call)
 NOTES:
   MULTIMODEL_TRACE explicitly disambiguated from multimodal capabilities.
 ---
+## 2026-04-07 R1-revenue-price-scout-batch2 (seq 66) — LOW — CLOSED
+Price scout batch2: 17 new SKUs, 11 admissible_public_price (Esser/HVAC/barcode). trust.py +7 domains. 849/849 PASS.

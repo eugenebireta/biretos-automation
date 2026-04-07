@@ -1,5 +1,24 @@
 # Task Capsule
 
+Task_ID: R1-revenue-price-scout-batch2
+Risk: LOW
+Date: 2026-04-07
+
+## Summary
+Price scout batch2 — 17 new SKUs (Esser fire safety, HVAC actuators, barcode printers) from authorized/industrial distributors.
+
+Key deliverables:
+- **trust.py**: 7 new domains — walde.ee (authorized, Esser official distributor Estonia), firealarmmax.com, globaltestsupply.com, bolasystems.com, shop.peaktech.com, barcodefactory.com, logiscenter.us (all industrial)
+- **price_manual_seed_batch2.jsonl**: 17 manually seeded prices, all from verified distributor pages
+- **price_manual_manifest_batch2.jsonl**: 11 admissible_public_price, 6 ambiguous_offer
+- **test fix**: test_access_denied_page_stays_non_lineage URL corrected — url_path_pn_match feature fires on embedded PNs by design; test URL must not include PN
+
+Result: 11 new admissible prices for future catalog expansion. Evidence bundles not yet created (new SKUs not in current 25-SKU local catalog — expected TRANSIENT skips).
+
+849/849 tests PASS.
+
+---
+
 Task_ID: R1-revenue-price-scout-resolution
 Risk: LOW
 Date: 2026-04-07

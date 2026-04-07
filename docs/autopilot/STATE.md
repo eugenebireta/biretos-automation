@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 65
-transition_ts: "2026-04-07T16:30:00Z"
+transition_seq: 66
+transition_ts: "2026-04-07T16:40:00Z"
 
 ## Current
-active_task: "R1 Revenue — Price Scout Resolution (suffix-variant lineage + trust expansion)"
-task_id: "R1-revenue-price-scout-resolution"
+active_task: "R1 Revenue — Price Scout Batch2 (new SKU expansion)"
+task_id: "R1-revenue-price-scout-batch2"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
@@ -37,7 +37,13 @@ known_gap: |
     — prices exist on Conrad but pipeline rejects due to category_mismatch
     — needs catalog reclassification or explicit category_mismatch override
   photo_recovery=14 SKU remaining
-awaiting: "Owner decision: (A) reclassify PEHA items in catalog, OR (B) switch track to next R1 phase or Infrastructure."
+known_gap: |
+  batch2 SKUs not in current 25-SKU catalog — evidence bundles must be created before integration
+  6 ambiguous_offer rows: 704960 (pack qty ambiguity), BWC4-Y-R (suffix variant, no lineage),
+    CPO-RL4 (surplus distributor, unknown tier), CN80-HB-CNV-0 (distributor only), XJ1-00-07000000,
+    2904617 (Phoenix Contact — non-Honeywell brand)
+  test_price_lineage fix: URL in access-denied test must not embed PN (url_path_pn_match fires on matching slugs)
+awaiting: "Owner decision: (A) expand catalog with batch2 SKUs (create evidence bundles), OR (B) reclassify PEHA items, OR (C) switch track to Infrastructure."
 
 ## Previous (seq 60 — M4 Executor Bridge)
 prev_active_task: "Meta Orchestrator — M4 Executor Bridge"
