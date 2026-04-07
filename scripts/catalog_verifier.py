@@ -373,7 +373,7 @@ def call_verifier_with_retry(
                 "request": request,
                 "parsed_output": parsed_output,
                 "usage": _extract_usage(response, runtime),
-                "openai_request_id": getattr(response, "_request_id", ""),
+                "llm_request_id": getattr(response, "_request_id", ""),
                 "latency_sec": round(time.monotonic() - call_started, 4),
             }
         except Exception as exc:  # noqa: BLE001
@@ -392,7 +392,7 @@ def call_verifier_with_retry(
             "reasoning_tokens": 0,
             "estimated_cost_usd": 0.0,
         },
-        "openai_request_id": "",
+        "llm_request_id": "",
         "error": last_error,
         "latency_sec": 0.0,
     }
@@ -447,7 +447,7 @@ def build_verifier_shadow_record(
         },
         "call_state": "not_routed",
         "error": "",
-        "openai_request_id": "",
+        "llm_request_id": "",
     }
 
     if not route["should_route"]:
@@ -471,7 +471,7 @@ def build_verifier_shadow_record(
     record["call_state"] = result["call_state"]
     record["response"] = result["parsed_output"]
     record["usage"] = result["usage"]
-    record["openai_request_id"] = result.get("openai_request_id", "")
+    record["llm_request_id"] = result.get("llm_request_id", "")
     record["error"] = result.get("error", "")
     timed_out = "timeout" in record["error"].lower() or "timed out" in record["error"].lower()
     record_verifier_call(

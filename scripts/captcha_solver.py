@@ -148,13 +148,34 @@ class FlareSolverrClient:
                 if c.get("name") == "cf_clearance":
                     cf_clearance = c.get("value", "")
 
+            html = solution.get("response", "")
+
+            # Validate: FlareSolverr returns status=ok even when the
+            # JS challenge was NOT actually solved (ServicePipe, Qrator).
+            # Detect known challenge markers in the returned HTML.
+            actually_solved = True
+            html_lower = html.lower()
+            challenge_markers = [
+                "servicepipe.ru",     # ServicePipe JS-challenge (vseinstrumenti.ru)
+                "/__qrator/",         # Qrator JS-challenge (lemanapro.ru)
+                "qrator_jsr",         # Qrator cookie loader
+                "id_captcha_frame",   # ServicePipe captcha frame
+            ]
+            if any(marker in html_lower for marker in challenge_markers):
+                actually_solved = False
+                log.info(
+                    "flaresolverr_challenge_not_solved",
+                    extra={"url": url, "html_len": len(html)},
+                )
+
             return CaptchaSolution(
-                solved=True,
+                solved=actually_solved,
                 solver_used="flaresolverr",
                 cookies=pw_cookies,
                 user_agent=solution.get("userAgent", ""),
-                html=solution.get("response", ""),
+                html=html,
                 cf_clearance=cf_clearance,
+                error="" if actually_solved else "flaresolverr_challenge_page_returned",
                 solve_time_sec=time.monotonic() - t0,
             )
 

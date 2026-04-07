@@ -71,9 +71,63 @@ def test_materialize_seed_record_keeps_manual_public_price_with_lineage(monkeypa
     assert row["price_status"] == "public_price"
     assert row["price_per_unit"] == 225.0
     assert row["price_source_exact_product_lineage_confirmed"] is True
+    assert row["offer_admissibility_status"] == "admissible_public_price"
     assert row["review_required"] is False
     assert row["fx_normalization_status"] == "normalized"
     assert row["fx_gap_reason_code"] == ""
+
+
+def test_materialize_seed_record_marks_semantic_price_barrier_as_ambiguous_offer(monkeypatch):
+    html = """
+    <html>
+      <head>
+        <title>PEHA by Honeywell 101411 cover frame</title>
+        <script type="application/ld+json">
+          {"mpn":"101411"}
+        </script>
+      </head>
+      <body><h1>PEHA by Honeywell 101411 cover frame</h1></body>
+    </html>
+    """
+    monkeypatch.setattr(scout.requests, "get", lambda *_args, **_kwargs: DummyResponse(html))
+    monkeypatch.setattr(scout, "get_source_role", lambda *_args, **_kwargs: "authorized_distributor")
+    monkeypatch.setattr(scout, "get_source_trust", lambda *_args, **_kwargs: {"tier": "authorized", "weight": 0.9, "domain": "conrad.sk"})
+    monkeypatch.setattr(scout, "is_denied", lambda *_args, **_kwargs: False)
+
+    row = scout.materialize_seed_record(
+        {
+            "part_number": "101411",
+            "brand": "Honeywell",
+            "product_name": "Sensor",
+            "expected_category": "Датчик",
+            "page_url": "https://example.com/product",
+            "source_provider": "codex_manual",
+            "price_status": "public_price",
+            "price_per_unit": 60.15,
+            "currency": "EUR",
+            "offer_qty": 1,
+            "offer_unit_basis": "piece",
+            "stock_status": "in_stock",
+            "lead_time_detected": False,
+            "quote_cta_url": "",
+            "page_product_class": "cover frame switchgear",
+            "category_mismatch": False,
+            "brand_mismatch": False,
+            "price_confidence": 95,
+            "source_price_value": 60.15,
+            "source_price_currency": "EUR",
+            "source_offer_qty": 1,
+            "source_offer_unit_basis": "piece",
+            "price_basis_note": "visible price on exact PN page",
+            "notes": "",
+        },
+        surface_cache_payload=None,
+    )
+
+    assert row["price_status"] == "category_mismatch_only"
+    assert row["commercial_identity_status"] == "component_or_accessory"
+    assert row["offer_admissibility_status"] == "ambiguous_offer"
+    assert row["review_required"] is True
 
 
 def test_load_seed_records_skips_invalid_rows(tmp_path):

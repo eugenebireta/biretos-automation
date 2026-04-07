@@ -163,6 +163,8 @@ def test_no_call_when_feature_flag_off(monkeypatch):
     assert record["call_state"] == "feature_flag_off"
     assert client.calls == 0
     assert record["decision_merger"]["decision_effect"] == "none"
+    assert record["llm_request_id"] == ""
+    assert "openai_request_id" not in record
 
 
 def test_shadow_mode_call_parses_structured_output(monkeypatch):
@@ -190,6 +192,8 @@ def test_shadow_mode_call_parses_structured_output(monkeypatch):
     assert record["response"]["verdict"] == "CONFIRM_REVIEW"
     assert record["decision_merger"]["effective_card_status"] == "DRAFT_ONLY"
     assert record["decision_merger"]["allow_auto_publish_unlock"] is False
+    assert record["llm_request_id"] == "req_test"
+    assert "openai_request_id" not in record
     assert client.calls == 1
 
 

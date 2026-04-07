@@ -139,6 +139,8 @@ class TestPriceEvidenceCache:
         assert result["cache_fallback_used"] is True
         assert result["cache_source_run_id"] == "phase_a_v2_sanity_20260326T222242Z"
         assert result["price_status"] == "public_price"
+        assert result["cache_fallback_reason"] == "llm_quota"
+        assert result["transient_failure_codes"] == ["llm_quota"]
 
     def test_select_cached_price_fallback_rejects_source_url_mismatch(self):
         payload = {

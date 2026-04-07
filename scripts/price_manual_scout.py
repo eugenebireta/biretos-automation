@@ -20,6 +20,7 @@ from deterministic_false_positive_controls import tighten_public_price_result
 from fx import convert_to_rub, fx_meta
 from no_price_coverage import materialize_no_price_coverage
 from photo_pipeline import BROWSER_HEADERS, BRAND
+from price_admissibility import materialize_price_admissibility
 from price_lineage import materialize_pre_llm_price_lineage
 from price_source_surface_stability import build_source_surface_cache_payload_from_run_dirs, materialize_source_surface_stability
 from source_trust import get_source_role, is_denied
@@ -242,6 +243,10 @@ def materialize_seed_record(
         )
     )
 
+    # Materialize full admissibility classification into manifest row
+    _adm_row = {**price_result, "part_number": record["part_number"]}
+    admissibility = materialize_price_admissibility(_adm_row)
+
     return {
         "part_number": record["part_number"],
         "brand": record.get("brand", BRAND),
@@ -276,6 +281,13 @@ def materialize_seed_record(
         "price_source_surface_stable": bool(price_result.get("price_source_surface_stable")),
         "price_source_surface_conflict_detected": bool(price_result.get("price_source_surface_conflict_detected")),
         "price_source_surface_conflict_reason_code": price_result.get("price_source_surface_conflict_reason_code", ""),
+        "price_admissibility_schema_version": admissibility.get("price_admissibility_schema_version", ""),
+        "string_lineage_status": admissibility.get("string_lineage_status", ""),
+        "commercial_identity_status": admissibility.get("commercial_identity_status", ""),
+        "offer_admissibility_status": admissibility.get("offer_admissibility_status", ""),
+        "staleness_or_conflict_status": admissibility.get("staleness_or_conflict_status", ""),
+        "price_admissibility_reason_codes": admissibility.get("admissibility_rejection_reasons", []),
+        "price_admissibility_review_bucket": admissibility.get("price_admissibility_review_bucket", ""),
         "source_price_value": record.get("source_price_value"),
         "source_price_currency": record.get("source_price_currency"),
         "source_offer_qty": record.get("source_offer_qty"),

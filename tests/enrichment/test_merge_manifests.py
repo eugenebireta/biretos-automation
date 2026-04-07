@@ -102,6 +102,8 @@ def test_merge_replacement():
     assert stats["replaced"] == 1
     assert merged[0]["merge_source"] == "second_pass_replaced"
     assert merged[0]["price_per_unit"] == 100.0
+    assert merged[0]["price_admissibility_schema_version"] == "price_admissibility_v1"
+    assert merged[0]["string_lineage_status"] in {"exact", "weak"}
 
 
 def test_merge_keeps_first_when_second_blocked():
@@ -198,6 +200,26 @@ def test_merge_strips_run_scoped_bvs_fields():
         "browser_vision_source",
     ):
         assert field not in merged[0]
+
+
+def test_merge_materializes_ambiguous_offer_for_semantic_component_page():
+    fp = [_row(
+        pn="101411",
+        domain="conrad.sk",
+        price=60.15,
+        lineage=True,
+        confidence=95,
+        price_status="public_price",
+        source_tier="authorized",
+        http_status=200,
+        page_product_class="cover frame switchgear",
+    )]
+    merged, stats = merge(fp, [])
+
+    assert stats["merged_count"] if "merged_count" in stats else len(merged) == 1
+    assert merged[0]["commercial_identity_status"] == "component_or_accessory"
+    assert merged[0]["offer_admissibility_status"] == "ambiguous_offer"
+    assert merged[0]["review_required"] is True
 
 
 # ── Integration: run() with real files ───────────────────────────────────────
