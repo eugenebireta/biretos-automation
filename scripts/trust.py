@@ -63,6 +63,15 @@ DOMAIN_TRUST: dict[str, dict] = {
 
     # ── Russian industrial PPE distributors ────────────────────────────────────
     "uralsiz.ru":                 {"tier": "industrial",  "weight": 0.70},  # ТД УРАЛСИЗ — Ekaterinburg PPE, script-accessible, lineage=True confirmed
+    "sima-land.ru":               {"tier": "industrial",  "weight": 0.68},  # Sima-land — major RU wholesale/retail, PPE+industrial
+    "vseinstrumenti.ru":          {"tier": "industrial",  "weight": 0.72},  # ВсеИнструменты — large RU tools/PPE retailer
+    "specregion.ru":              {"tier": "industrial",  "weight": 0.68},  # СпецРегион — PPE distributor, Ekaterinburg
+
+    # ── International industrial distributors (non-TLD-heuristic) ─────────────
+    "pksafety.com":               {"tier": "industrial",  "weight": 0.75},  # PK Safety — US safety equipment distributor
+    "dmsupplysource.com":         {"tier": "industrial",  "weight": 0.72},  # DM Supply — US HVAC/combustion controls
+    "transcat.com":               {"tier": "industrial",  "weight": 0.75},  # Transcat — US calibration/gas detection
+    "instrumart.com":             {"tier": "industrial",  "weight": 0.75},  # Instrumart — US industrial instruments & safety
 
     # ── Russian B2B ─────────────────────────────────────────────────────────────
     "armosystems.ru":             {"tier": "ru_b2b",      "weight": 0.75},

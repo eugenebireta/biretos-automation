@@ -27,6 +27,23 @@ def is_numeric_pn(pn: str) -> bool:
     return bool(_NUMERIC_PN_RE.match(pn.strip()))
 
 
+# ── Suffix-variant helpers ──────────────────────────────────────────────────────
+
+_KNOWN_SUFFIXES_RE = re.compile(
+    r"[-/](?:RU|EU|UK|US|CN|IN|AU|BR|L[0-9]|N/U|N)$",
+    re.IGNORECASE,
+)
+"""Regional (-RU, -EU), kit-level (-L3), and replacement (N/U, N) suffixes."""
+
+
+def strip_known_suffix(pn: str) -> str | None:
+    """Strip one known suffix from PN and return base PN, or None if no suffix found."""
+    m = _KNOWN_SUFFIXES_RE.search(pn.strip())
+    if m:
+        return pn[: m.start()].strip() or None
+    return None
+
+
 # ── Pattern builders ────────────────────────────────────────────────────────────
 
 def _body_pattern(pn: str, strict: bool = False) -> re.Pattern:
@@ -156,6 +173,10 @@ def extract_structured_pn_flags(pn: str, html: str) -> dict[str, object]:
 
     Only authoritative structured contexts are considered. Body/free-text matches,
     search hints, and fuzzy expansions are intentionally excluded.
+
+    When the full PN (e.g. '1011893-RU') is not found, a fallback match is attempted
+    with the base PN (e.g. '1011893') after stripping known regional/kit suffixes.
+    The fallback is recorded as 'suffix_variant_match' in the location field.
     """
     soup = BeautifulSoup(html, "html.parser")
     exact_jsonld_pn_match = _jsonld_pn_match(pn, soup)
@@ -174,6 +195,22 @@ def extract_structured_pn_flags(pn: str, html: str) -> dict[str, object]:
             structured_pn_match_location = location
             break
 
+    # Suffix-variant fallback: try base PN when full PN not found
+    suffix_variant_matched = False
+    if not structured_pn_match_location:
+        base_pn = strip_known_suffix(pn)
+        if base_pn and base_pn != pn:
+            for _loc, _check_fn in (
+                ("jsonld", _jsonld_pn_match),
+                ("title", _title_pn_match),
+                ("h1", _h1_pn_match),
+                ("product_context", _product_context_match),
+            ):
+                if _check_fn(base_pn, soup):
+                    structured_pn_match_location = f"{_loc}_suffix_variant"
+                    suffix_variant_matched = True
+                    break
+
     return {
         "exact_jsonld_pn_match": exact_jsonld_pn_match,
         "exact_title_pn_match": exact_title_pn_match,
@@ -181,6 +218,7 @@ def extract_structured_pn_flags(pn: str, html: str) -> dict[str, object]:
         "exact_product_context_pn_match": exact_product_context_pn_match,
         "exact_structured_pn_match": bool(structured_pn_match_location),
         "structured_pn_match_location": structured_pn_match_location,
+        "suffix_variant_matched": suffix_variant_matched,
     }
 
 
