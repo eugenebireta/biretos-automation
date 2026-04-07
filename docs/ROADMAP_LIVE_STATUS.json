@@ -1,0 +1,667 @@
+{
+  "schema_version": "roadmap_live_status_v1",
+  "generated_at": "2026-04-07T21:23:44.947258+00:00Z",
+  "stages": [
+    {
+      "id": "1",
+      "name": "Governance Executor",
+      "risk": "CORE",
+      "roadmap_claimed": "IN_PROGRESS",
+      "actual_status": "DONE",
+      "passed": 8,
+      "total": 8,
+      "checks": [
+        {
+          "label": "1.1 dispatch_action.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\dispatch_action.py"
+        },
+        {
+          "label": "1.1 governance_executor.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\governance_executor.py"
+        },
+        {
+          "label": "1.3 idempotency module",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\idempotency.py"
+        },
+        {
+          "label": "1.5 replay verify",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\cli\\replay.py"
+        },
+        {
+          "label": "test_governance_executor",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_governance_executor.py"
+        },
+        {
+          "label": "test_governance_workflow",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_governance_workflow.py"
+        },
+        {
+          "label": "test_governance_trigger",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_governance_trigger.py"
+        },
+        {
+          "label": "test_idempotency",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_idempotency.py"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "CI + Branch Protection",
+      "risk": "SEMI",
+      "roadmap_claimed": "IN_PROGRESS",
+      "actual_status": "DONE",
+      "passed": 4,
+      "total": 4,
+      "checks": [
+        {
+          "label": "2.1 ci.yml exists",
+          "ok": true,
+          "evidence": ".github\\workflows\\ci.yml"
+        },
+        {
+          "label": "2.1 ci.yml runs pytest",
+          "ok": true,
+          "evidence": "ci.yml contains 'pytest'"
+        },
+        {
+          "label": "2.2 branch protection (CI required)",
+          "ok": true,
+          "evidence": "ci.yml contains 'Run tests'"
+        },
+        {
+          "label": "2.3 governance tests collected",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_governance_executor.py"
+        }
+      ]
+    },
+    {
+      "id": "2.5",
+      "name": "Context Cortex",
+      "risk": "SEMI",
+      "roadmap_claimed": "DONE",
+      "actual_status": "DONE",
+      "passed": 2,
+      "total": 2,
+      "checks": [
+        {
+          "label": "PROJECT_DNA.md",
+          "ok": true,
+          "evidence": "docs\\PROJECT_DNA.md"
+        },
+        {
+          "label": "CLAUDE.md",
+          "ok": true,
+          "evidence": "CLAUDE.md"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Reconciliation RC-2..RC-7",
+      "risk": "CORE",
+      "roadmap_claimed": "NOT_STARTED",
+      "actual_status": "DONE",
+      "passed": 7,
+      "total": 7,
+      "checks": [
+        {
+          "label": "reconciliation_service.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\reconciliation_service.py"
+        },
+        {
+          "label": "RC-2 test",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\validation\\test_phase3_rc2_shipment_cache.py"
+        },
+        {
+          "label": "RC-3 test",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\validation\\test_phase3_rc3_stock_snapshot.py"
+        },
+        {
+          "label": "RC-5 test",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\validation\\test_phase3_rc5_document_key.py"
+        },
+        {
+          "label": "RC-6 test",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\validation\\test_phase3_rc6_pending_payment.py"
+        },
+        {
+          "label": "RC-7 test",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\validation\\test_phase3_rc7_shipment_sync.py"
+        },
+        {
+          "label": "CI runs RC tests",
+          "ok": true,
+          "evidence": "ci.yml contains 'test_phase3_rc2'"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Alerting",
+      "risk": "SEMI",
+      "roadmap_claimed": "NOT_STARTED",
+      "actual_status": "DONE",
+      "passed": 4,
+      "total": 4,
+      "checks": [
+        {
+          "label": "alert_dispatcher.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\side_effects\\alert_dispatcher.py"
+        },
+        {
+          "label": "test_alert_dispatcher.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_alert_dispatcher.py"
+        },
+        {
+          "label": "severity routing",
+          "ok": true,
+          "evidence": "alert_dispatcher.py matches /CRITICAL.*HIGH/"
+        },
+        {
+          "label": "TELEGRAM_ALERT_CHAT_ID config",
+          "ok": true,
+          "evidence": "schema.py matches /telegram_alert_chat_id/"
+        }
+      ]
+    },
+    {
+      "id": "4.5",
+      "name": "Observability Strategy",
+      "risk": "SEMI",
+      "roadmap_claimed": "NOT_STARTED",
+      "actual_status": "DONE",
+      "passed": 2,
+      "total": 2,
+      "checks": [
+        {
+          "label": "observability_service.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\observability_service.py"
+        },
+        {
+          "label": "structured logging standard",
+          "ok": true,
+          "evidence": "observability_service.py matches /def check_/"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "CDM Runtime Validation (Pydantic)",
+      "risk": "CORE",
+      "roadmap_claimed": "PARTIAL",
+      "actual_status": "DONE",
+      "passed": 6,
+      "total": 6,
+      "checks": [
+        {
+          "label": "5.1 cdm_models.py (TaskIntent)",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\cdm_models.py"
+        },
+        {
+          "label": "5.1 test_cdm_models.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_cdm_models.py"
+        },
+        {
+          "label": "5.2 test_cdm_validation_boundaries",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_cdm_validation_boundaries.py"
+        },
+        {
+          "label": "5.4 guardian.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\guardian.py"
+        },
+        {
+          "label": "5.4 guard_task_intent",
+          "ok": true,
+          "evidence": "guardian.py matches /def guard_task_intent/"
+        },
+        {
+          "label": "5.4 guard_action_snapshot",
+          "ok": true,
+          "evidence": "guardian.py matches /def guard_action_snapshot/"
+        }
+      ]
+    },
+    {
+      "id": "5.5",
+      "name": "Iron Fence (Core Freeze Guards)",
+      "risk": "SEMI",
+      "roadmap_claimed": "PARTIAL",
+      "actual_status": "DONE",
+      "passed": 5,
+      "total": 5,
+      "checks": [
+        {
+          "label": "5.5.1 .tier1-hashes.sha256",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\.tier1-hashes.sha256"
+        },
+        {
+          "label": "5.5.1 CI Hash Lock step",
+          "ok": true,
+          "evidence": "ci.yml contains 'Tier-1 Hash Lock'"
+        },
+        {
+          "label": "5.5.2 CI Boundary Grep",
+          "ok": true,
+          "evidence": "ci.yml contains 'Boundary Grep Guards'"
+        },
+        {
+          "label": "5.5.3 CI Migration DDL Guard",
+          "ok": true,
+          "evidence": "ci.yml contains 'Migration DDL Guard'"
+        },
+        {
+          "label": "5.5.6 CI Ruff",
+          "ok": true,
+          "evidence": "ci.yml contains 'Ruff'"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Backoffice Task Engine",
+      "risk": "CORE",
+      "roadmap_claimed": "DONE",
+      "actual_status": "DONE",
+      "passed": 12,
+      "total": 12,
+      "checks": [
+        {
+          "label": "6.1 backoffice_router.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\backoffice_router.py"
+        },
+        {
+          "label": "6.1 backoffice_models.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\backoffice_models.py"
+        },
+        {
+          "label": "6.2 backoffice_permission.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\backoffice_permission.py"
+        },
+        {
+          "label": "6.3 migration 028",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\migrations\\028_backoffice_task_engine.sql"
+        },
+        {
+          "label": "6.3 backoffice_action_logger.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\backoffice_action_logger.py"
+        },
+        {
+          "label": "6.4 backoffice_risk_registry.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\backoffice_risk_registry.py"
+        },
+        {
+          "label": "6.7 backoffice_snapshot_store.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\backoffice_snapshot_store.py"
+        },
+        {
+          "label": "6.9 backoffice_shadow_logger.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\backoffice_shadow_logger.py"
+        },
+        {
+          "label": "6.10 backoffice_rate_limiter.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\backoffice_rate_limiter.py"
+        },
+        {
+          "label": "test_backoffice_router",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_backoffice_router.py"
+        },
+        {
+          "label": "test_backoffice_permission",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_backoffice_permission.py"
+        },
+        {
+          "label": "test_backoffice_rate_limiter",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_backoffice_rate_limiter.py"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "AI Executive Assistant (NLU)",
+      "risk": "CORE",
+      "roadmap_claimed": "DONE",
+      "actual_status": "DONE",
+      "passed": 12,
+      "total": 12,
+      "checks": [
+        {
+          "label": "7.1 intent_parser.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\intent_parser.py"
+        },
+        {
+          "label": "7.1 nlu_models.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\nlu_models.py"
+        },
+        {
+          "label": "7.2 assistant_router.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\assistant_router.py"
+        },
+        {
+          "label": "7.3 nlu_confirmation_store.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\nlu_confirmation_store.py"
+        },
+        {
+          "label": "7.6 prompt_injection_guard.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\prompt_injection_guard.py"
+        },
+        {
+          "label": "7.7 nlu_shadow_log.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\nlu_shadow_log.py"
+        },
+        {
+          "label": "7.8 nlu_sla_tracker.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\nlu_sla_tracker.py"
+        },
+        {
+          "label": "migration 029",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\migrations\\029_assistant_nlu.sql"
+        },
+        {
+          "label": "test_intent_parser",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_intent_parser.py"
+        },
+        {
+          "label": "test_assistant_router",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_assistant_router.py"
+        },
+        {
+          "label": "test_nlu_confirmation",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_nlu_confirmation_store.py"
+        },
+        {
+          "label": "test_prompt_injection",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_prompt_injection_guard.py"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Stability Gate",
+      "risk": "CORE",
+      "roadmap_claimed": "MONITOR",
+      "actual_status": "DONE",
+      "passed": 3,
+      "total": 3,
+      "checks": [
+        {
+          "label": "maintenance_sweeper.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\maintenance_sweeper.py"
+        },
+        {
+          "label": "retention_policy.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\retention_policy.py"
+        },
+        {
+          "label": "telegram_router.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\telegram_router.py"
+        }
+      ]
+    },
+    {
+      "id": "R1",
+      "name": "Mass Catalog Pipeline",
+      "risk": "SEMI",
+      "roadmap_claimed": "ACTIVE",
+      "actual_status": "DONE",
+      "passed": 10,
+      "total": 10,
+      "checks": [
+        {
+          "label": "catalog_worker.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\workers\\catalog_worker.py"
+        },
+        {
+          "label": "catalog_models.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\domain\\catalog_models.py"
+        },
+        {
+          "label": "migration 020 (stg_catalog_jobs)",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\migrations\\020_create_stg_catalog_jobs.sql"
+        },
+        {
+          "label": "migration 021 (stg_catalog_imports)",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\migrations\\021_create_stg_catalog_imports.sql"
+        },
+        {
+          "label": "shopware_api_client.py",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\ru_worker\\shopware_api_client.py"
+        },
+        {
+          "label": "test_r1_catalog_pipeline",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\validation\\test_r1_catalog_pipeline.py"
+        },
+        {
+          "label": "export_pipeline.py",
+          "ok": true,
+          "evidence": "scripts\\export_pipeline.py"
+        },
+        {
+          "label": "photo_pipeline.py",
+          "ok": true,
+          "evidence": "scripts\\photo_pipeline.py"
+        },
+        {
+          "label": "local_catalog_refresh.py",
+          "ok": true,
+          "evidence": "scripts\\local_catalog_refresh.py"
+        },
+        {
+          "label": "enrichment tests (>=20)",
+          "ok": true,
+          "evidence": "43 files in tests\\enrichment/"
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "name": "Telegram Export",
+      "risk": "LOW",
+      "roadmap_claimed": "SCAFFOLD",
+      "actual_status": "DONE",
+      "passed": 3,
+      "total": 3,
+      "checks": [
+        {
+          "label": "migration 027 (rev_export_logs)",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\migrations\\027_create_rev_export_logs.sql"
+        },
+        {
+          "label": "test_rev_export_logs_schema",
+          "ok": true,
+          "evidence": ".cursor\\windmill-core-v1\\tests\\test_rev_export_logs_schema.py"
+        },
+        {
+          "label": "telegram_router /export handler",
+          "ok": true,
+          "evidence": "telegram_router.py matches /export/"
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "name": "Lot Analyzer Engine",
+      "risk": "SEMI",
+      "roadmap_claimed": "NOT_STARTED",
+      "actual_status": "DONE",
+      "passed": 5,
+      "total": 5,
+      "checks": [
+        {
+          "label": "run_lot_analysis.py",
+          "ok": true,
+          "evidence": "scripts\\lot_scoring\\run_lot_analysis.py"
+        },
+        {
+          "label": "scoring module",
+          "ok": true,
+          "evidence": "scripts\\lot_scoring\\pipeline\\score.py"
+        },
+        {
+          "label": "filter engine",
+          "ok": true,
+          "evidence": "scripts\\lot_scoring\\filters\\engine.py"
+        },
+        {
+          "label": "capital_map.py",
+          "ok": true,
+          "evidence": "scripts\\lot_scoring\\capital_map.py"
+        },
+        {
+          "label": "lot_scoring files (>=15)",
+          "ok": true,
+          "evidence": "24 files in scripts\\lot_scoring/"
+        }
+      ]
+    },
+    {
+      "id": "META",
+      "name": "Meta Orchestrator",
+      "risk": "SEMI",
+      "roadmap_claimed": "NOT_IN_ROADMAP",
+      "actual_status": "DONE",
+      "passed": 8,
+      "total": 8,
+      "checks": [
+        {
+          "label": "M0 main.py",
+          "ok": true,
+          "evidence": "orchestrator\\main.py"
+        },
+        {
+          "label": "M1 classifier.py",
+          "ok": true,
+          "evidence": "orchestrator\\classifier.py"
+        },
+        {
+          "label": "M1 intake.py",
+          "ok": true,
+          "evidence": "orchestrator\\intake.py"
+        },
+        {
+          "label": "M2 advisor.py",
+          "ok": true,
+          "evidence": "orchestrator\\advisor.py"
+        },
+        {
+          "label": "M3 synthesizer.py",
+          "ok": true,
+          "evidence": "orchestrator\\synthesizer.py"
+        },
+        {
+          "label": "M4 executor_bridge.py",
+          "ok": true,
+          "evidence": "orchestrator\\executor_bridge.py"
+        },
+        {
+          "label": "M0.5 schemas.py",
+          "ok": true,
+          "evidence": "orchestrator\\schemas.py"
+        },
+        {
+          "label": "orchestrator tests (>=30)",
+          "ok": true,
+          "evidence": "7 files in tests\\orchestrator/"
+        }
+      ]
+    },
+    {
+      "id": "AUDITOR",
+      "name": "Governed AI Execution (auditor_system)",
+      "risk": "SEMI",
+      "roadmap_claimed": "NOT_IN_ROADMAP",
+      "actual_status": "DONE",
+      "passed": 6,
+      "total": 6,
+      "checks": [
+        {
+          "label": "review_runner.py",
+          "ok": true,
+          "evidence": "auditor_system\\review_runner.py"
+        },
+        {
+          "label": "cli.py",
+          "ok": true,
+          "evidence": "auditor_system\\cli.py"
+        },
+        {
+          "label": "quality_gate.py",
+          "ok": true,
+          "evidence": "auditor_system\\hard_shell\\quality_gate.py"
+        },
+        {
+          "label": "fallback_handler.py",
+          "ok": true,
+          "evidence": "auditor_system\\hard_shell\\fallback_handler.py"
+        },
+        {
+          "label": "gemini_auditor.py",
+          "ok": true,
+          "evidence": "auditor_system\\providers\\gemini_auditor.py"
+        },
+        {
+          "label": "auditor tests (>=10)",
+          "ok": true,
+          "evidence": "2 files in auditor_system\\tests/"
+        }
+      ]
+    }
+  ]
+}
