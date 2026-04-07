@@ -119,6 +119,13 @@ EVIDENCE_DIR        = DOWNLOADS / "evidence"
 EXPORT_DIR          = DOWNLOADS / "export"
 LAST_RUN_META: dict = {}
 
+QUEUE_SCHEMA_VERSION = "followup_queue_v2"
+INPUT_COL_PN = "Параметр: Партномер"
+INPUT_COL_NAME = "Название товара или услуги"
+INPUT_COL_OUR_PRICE = "Цена продажи"
+INPUT_COL_CATEGORY = "Параметр: Тип товара"
+INPUT_COL_BRAND = "Параметр: Бренд"
+
 CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
 
 PHOTOS_DIR.mkdir(exist_ok=True)
@@ -1558,6 +1565,66 @@ def step3_vision(pn: str, name: str, img_path: str, w: int, h: int) -> dict:
         return json.loads(clean)
     except Exception as e:
         return {"verdict": "KEEP", "reason": f"GPT error: {e}"}
+
+
+def load_queue_part_numbers(
+    queue_path,
+    *,
+    allowed_action_codes: set,
+) -> list:
+    """Load ordered part numbers from a followup queue JSONL, filtered by action_code."""
+    rows = [
+        json.loads(line)
+        for line in Path(queue_path).read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    part_numbers: list = []
+    for row in rows:
+        schema_version = str(row.get("queue_schema_version", "") or "").strip()
+        if schema_version != QUEUE_SCHEMA_VERSION:
+            raise ValueError(
+                f"Unsupported queue schema version: {schema_version or '<missing>'}"
+            )
+        action_code = str(row.get("action_code", "") or "").strip()
+        if not action_code:
+            raise ValueError("Queue row missing action_code")
+        if action_code not in allowed_action_codes:
+            continue
+        pn = str(row.get("pn") or row.get("part_number") or "").strip()
+        if not pn:
+            raise ValueError("Queue row missing pn/part_number")
+        part_numbers.append(pn)
+    return part_numbers
+
+
+def load_run_dataframe(
+    *,
+    input_file=None,
+    limit=None,
+    queue_path=None,
+):
+    """Load the InSales catalog CSV, optionally filtered and ordered by a queue file."""
+    if input_file is None:
+        input_file = INPUT_FILE
+    df = pd.read_csv(input_file, sep="\t", encoding="utf-16", dtype=str).fillna("")
+    if queue_path:
+        queue_pns = load_queue_part_numbers(
+            queue_path,
+            allowed_action_codes={"photo_recovery"},
+        )
+        if queue_pns:
+            order_map = {pn: index for index, pn in enumerate(queue_pns)}
+            df = df.assign(__queue_pn=df[INPUT_COL_PN].astype(str).str.strip())
+            df = df[df["__queue_pn"].isin(order_map)].copy()
+            df["__queue_order"] = df["__queue_pn"].map(order_map)
+            df = df.sort_values("__queue_order", kind="stable").drop(
+                columns=["__queue_pn", "__queue_order"]
+            )
+        else:
+            df = df.head(0)
+    if limit:
+        df = df.head(limit)
+    return df
 
 
 # ══════════════════════════════════════════════════════════════════════════════
