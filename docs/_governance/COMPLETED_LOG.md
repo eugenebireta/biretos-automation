@@ -1,5 +1,28 @@
 ---
 DATE: 2026-04-07
+TITLE: R1 Revenue — Stash Batch Drain (supervisor + enrichment hardening + pipeline refactor)
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (commits 34ac66e..b5218b3 to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - scripts/supervisor/ (NEW — 11 modules, FSM + Telegram packet delivery)
+  - scripts/providers.py (NEW — Anthropic provider adapter)
+  - 7 scripts updated (photo_pipeline, price_manual_scout, merge_manifests,
+    price_evidence_cache, catalog_verifier, captcha_solver, local_catalog_refresh,
+    export_pipeline)
+  - config/catalog_enum_contract_v1.json extended
+  - 79 new tests added across 8 test files
+TEST_EVIDENCE: 849/849 PASS (zero regression)
+KEY_CHANGES:
+  - materialize_price_admissibility() now called in manifest + merge output rows
+  - llm_quota/rate_limit (was openai_quota) — provider-agnostic naming
+  - Captcha false-positive detection restored (ServicePipe, Qrator)
+  - local_catalog_refresh decomposed into testable unit functions
+  - queue-addressable runners: load_run_dataframe(queue_path=) for photo pipeline
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
 TITLE: R1 Revenue — Price Integration Wave2 + Canonical Refresh Promote
 RISK_LEVEL: LOW
 STATUS: COMPLETED (committed 70beec3 to feat/rev-r1-catalog, PR #38)

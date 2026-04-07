@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 62
-transition_ts: "2026-04-07T11:25:00Z"
+transition_seq: 63
+transition_ts: "2026-04-07T12:45:00Z"
 
 ## Current
-active_task: "R1 Revenue — Price Integration + Canonical Refresh"
-task_id: "R1-revenue-price-integration-canonical"
+active_task: "R1 Revenue — Stash Batch Drain (supervisor + pipeline hardening)"
+task_id: "R1-revenue-stash-batch-drain"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
@@ -15,22 +15,25 @@ pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: 38
 now:
-  - step: "R1 full price integration cycle complete"
+  - step: "R1 stash drain — supervisor system + enrichment hardening + pipeline refactor"
     actions:
-      - "scripts/price_evidence_integrator.py (NEW — integrate_manifest + build_price_section)"
-      - "tests/enrichment/test_price_evidence_integrator.py (NEW — 32 deterministic tests)"
-      - "GOVERNANCE: SEMI audit via live API — BATCH_APPROVAL (Gemini APPROVE + Opus CONCERNS)"
-      - "Wave1: 6 admissible prices integrated (033588.17, 010130.10, 027913.10, 1000106, 1006186, 1011994)"
-      - "Wave2: 1 more price integrated (1011994 USD 9.95 → 875.6 RUB from honeywellstore.com)"
-      - "Merged manifest: 11 rows total (7 admissible, 4 skipped CAPTCHA/no_price)"
-      - "Canonical refresh promoted: review_required=15 (up from 9), draft_only=10, auto_publish=0"
-      - "InSales export: 13/15 review_required SKUs have prices"
-      - "Follow-up queues: price_followup=13, photo_recovery=14"
-      - "798/798 tests PASS (zero regression)"
+      - "scripts/supervisor/ (NEW — 11 modules: rules/launcher/reader/main/config/journal/manifest/packets/telegram/telegram_reader)"
+      - "scripts/providers.py (NEW — Anthropic provider adapter + token-bucket rate limiter)"
+      - "photo_pipeline.py: provider injection (LLMProvider/SerpProvider), queue-addressable load_run_dataframe()"
+      - "price_manual_scout.py: materialize_price_admissibility() per row + admissibility fields in manifest"
+      - "merge_manifests.py: _finalize_output_row() attaches admissibility to all merged rows"
+      - "price_evidence_cache.py: llm_quota rename, normalize_transient_failure_codes(), normalize_cache_fallback_reason()"
+      - "catalog_verifier.py: openai_request_id → llm_request_id"
+      - "captcha_solver.py: restored ServicePipe/Qrator challenge detection"
+      - "local_catalog_refresh.py: full refactor — decomposed into iter_evidence_bundles + index loaders"
+      - "export_pipeline.py: normalize_cache_fallback_reason applied to legacy codes"
+      - "config/catalog_enum_contract_v1.json: identity_level + severity enums added"
+      - "Tests: 25 supervisor + 12 captcha + 5 photo_provider + 30 collect_packet + 7 price_admissibility = 79 new"
+      - "849/849 PASS total"
 known_gap: |
-  price_followup=13 SKU: 8 unseeded (no product pages found), 5 CAPTCHA-blocked (Conrad SK/NL, etm.ru, tameson)
+  price_followup=13 SKU: 8 unseeded (no product pages found), 5 CAPTCHA-blocked
   photo_recovery=14 SKU: need SerpAPI key (not configured)
-awaiting: "Owner review. Next: configure SerpAPI for photo recovery OR manual price seed for 8 unseeded SKUs."
+awaiting: "Owner review. Clean stash drained. Next track TBD."
 
 ## Previous (seq 60 — M4 Executor Bridge)
 prev_active_task: "Meta Orchestrator — M4 Executor Bridge"
