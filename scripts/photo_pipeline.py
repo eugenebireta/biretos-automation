@@ -65,7 +65,10 @@ from no_price_coverage import (                                # noqa: E402
 from providers import (                                        # noqa: E402
     ClaudeChatAdapter,
     get_enrichment_model_alias,
+    reset_batch_usage,
+    get_batch_usage_summary,
 )
+from enrichment_experience_log import append_batch_experience   # noqa: E402
 from catalog_seed import build_content_seed_from_row           # noqa: E402
 from price_lineage import (                                     # noqa: E402
     choose_better_price_lineage_candidate,
@@ -122,6 +125,7 @@ SHADOW_LOG_DIR      = ROOT / "shadow_log"
 EVIDENCE_DIR        = DOWNLOADS / "evidence"
 EXPORT_DIR          = DOWNLOADS / "export"
 LAST_RUN_META: dict = {}
+_provider_errors: list[dict] = []
 
 CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
 SHADOW_LOG_SCHEMA_VERSION = "photo_pipeline_shadow_log_record_v1"
@@ -532,6 +536,14 @@ def call_gpt(
         )
     except Exception as exc:
         adapter_meta = dict(getattr(active_adapter, "last_call_metadata", {}) or {})
+        error_class = str(adapter_meta.get("error_class") or exc.__class__.__name__)
+        _provider_errors.append({
+            "pn": pn,
+            "task_type": task_type,
+            "error_class": error_class,
+            "model": str(adapter_meta.get("model_alias", model)),
+            "latency_ms": adapter_meta.get("latency_ms"),
+        })
         shadow_log(
             task_type=task_type,
             pn=pn,
@@ -545,7 +557,7 @@ def call_gpt(
             response_parsed={},
             parse_success=False,
             latency_ms=adapter_meta.get("latency_ms"),
-            error_class=str(adapter_meta.get("error_class") or exc.__class__.__name__),
+            error_class=error_class,
             source_url=source_url,
             source_type=source_type,
         )
@@ -1718,7 +1730,9 @@ def run(
     phash_cache: dict[str, list[str]] = {}  # phash → [pn1, pn2, ...]
     checkpoint     = load_checkpoint()
 
-    global LAST_RUN_META
+    global LAST_RUN_META, _provider_errors
+    reset_batch_usage()
+    _provider_errors = []
     keep = reject = no_photo = skipped_checkpoint = 0
     all_results = []
     evidence_bundles: list[dict] = []
@@ -2078,6 +2092,34 @@ def run(
         print(f"Evidence   → {EVIDENCE_DIR} ({len(evidence_bundles)} bundles)")
 
     shadow_summary = get_shadow_runtime_summary()
+    cost_summary = get_batch_usage_summary()
+
+    # Experience log — one record per finalized bundle
+    try:
+        append_batch_experience(
+            shadow_log_dir=SHADOW_LOG_DIR,
+            bundles=evidence_bundles,
+            batch_id=run_ts,
+        )
+    except Exception as _exp_exc:
+        log.warning(f"experience_log flush failed: {_exp_exc}")
+
+    # Cost + provider error summary
+    print(f"\n{'='*55}")
+    print(
+        f"COST:  calls={cost_summary['calls']}  "
+        f"in={cost_summary['input_tokens']}tok  "
+        f"out={cost_summary['output_tokens']}tok  "
+        f"~${cost_summary['estimated_cost_usd']:.4f}"
+        + ("  ⚠ COST_ANOMALY" if cost_summary.get("cost_anomaly") else "")
+    )
+    if _provider_errors:
+        print(f"PROVIDER_ERRORS: {len(_provider_errors)} — " + ", ".join(
+            f"{e['error_class']}({e['pn']})" for e in _provider_errors[:5]
+        ) + ("…" if len(_provider_errors) > 5 else ""))
+    else:
+        print("PROVIDER_ERRORS: 0")
+
     LAST_RUN_META = {
         "run_ts": run_ts,
         "limit": limit,
@@ -2087,6 +2129,8 @@ def run(
         "evidence_bundles": len(evidence_bundles),
         "early_stop_reason": early_stop_reason or shadow_summary.get("reason_for_early_stop", ""),
         "shadow_runtime_summary": shadow_summary,
+        "cost_summary": cost_summary,
+        "provider_errors": len(_provider_errors),
     }
 
     # Clear checkpoint only on full (unlimited) successful run

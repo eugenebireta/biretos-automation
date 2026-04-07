@@ -33,6 +33,58 @@ _DATA_URI_RE = re.compile(
     r"^data:(?P<media_type>[\w.+/-]+);base64,(?P<data>[A-Za-z0-9+/=\s]+)$"
 )
 
+# ── Batch-scoped usage counters (reset per run) ───────────────────────────────
+# Rough cost rates (USD per 1M tokens) as of 2026-04.
+_COST_RATES: dict[str, dict[str, float]] = {
+    "claude-haiku-4-5-20251001": {"input": 0.80, "output": 4.00},
+    "claude-haiku-4-5":          {"input": 0.80, "output": 4.00},
+    "claude-sonnet-4-6":         {"input": 3.00, "output": 15.00},
+    "claude-opus-4-6":           {"input": 15.00, "output": 75.00},
+}
+_COST_ANOMALY_THRESHOLD_USD = 2.0  # warn if single batch exceeds this
+
+_batch_usage: dict[str, Any] = {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_cost_usd": 0.0,
+    "by_model": {},
+}
+
+
+def reset_batch_usage() -> None:
+    """Reset batch usage counters. Call at the start of each run()."""
+    global _batch_usage
+    _batch_usage = {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "estimated_cost_usd": 0.0,
+        "by_model": {},
+    }
+
+
+def _record_usage(model_resolved: str, input_tokens: int, output_tokens: int) -> None:
+    rates = _COST_RATES.get(model_resolved, {"input": 1.00, "output": 5.00})
+    call_cost = (input_tokens * rates["input"] + output_tokens * rates["output"]) / 1_000_000
+    _batch_usage["calls"] += 1
+    _batch_usage["input_tokens"] += input_tokens
+    _batch_usage["output_tokens"] += output_tokens
+    _batch_usage["estimated_cost_usd"] += call_cost
+    by_model = _batch_usage["by_model"].setdefault(model_resolved, {"calls": 0, "input_tokens": 0, "output_tokens": 0, "cost_usd": 0.0})
+    by_model["calls"] += 1
+    by_model["input_tokens"] += input_tokens
+    by_model["output_tokens"] += output_tokens
+    by_model["cost_usd"] += call_cost
+
+
+def get_batch_usage_summary() -> dict:
+    """Return a copy of current batch usage counters."""
+    summary = dict(_batch_usage)
+    summary["by_model"] = dict(_batch_usage["by_model"])
+    summary["cost_anomaly"] = summary["estimated_cost_usd"] > _COST_ANOMALY_THRESHOLD_USD
+    return summary
+
 
 def load_enrichment_models_config(path: Path = DEFAULT_MODELS_PATH) -> dict[str, Any]:
     """Load enrichment model config, falling back to safe defaults if absent."""
@@ -345,12 +397,18 @@ class ClaudeChatAdapter:
                 block.text for block in response.content if getattr(block, "type", None) == "text"
             )
             latency_ms = int((self._monotonic_fn() - start) * 1000)
+            usage = getattr(response, "usage", None)
+            input_tokens = getattr(usage, "input_tokens", 0) or 0
+            output_tokens = getattr(usage, "output_tokens", 0) or 0
+            _record_usage(model_resolved, input_tokens, output_tokens)
             self.last_call_metadata = {
                 "provider": self.provider,
                 "model_alias": model_alias,
                 "model_resolved": model_resolved,
                 "latency_ms": latency_ms,
                 "error_class": None,
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
             }
             return content
         except Exception as exc:
