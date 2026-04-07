@@ -149,3 +149,7 @@ jobs:
             tests/validation/test_phase3_rc6_pending_payment.py \
             tests/validation/test_phase3_rc7_shipment_sync.py \
             -v
+
+      - name: "Roadmap Live Status"
+        run: python scripts/roadmap_status.py
+        continue-on-error: true
