@@ -17,7 +17,10 @@
     "schema_version": { "type": "string", "const": "v1" },
     "fsm_state": {
       "type": "string",
-      "enum": ["ready", "awaiting_execution", "awaiting_owner_reply", "completed", "error"]
+      "enum": [
+        "ready", "awaiting_execution", "awaiting_owner_reply", "completed", "error",
+        "audit_in_progress", "audit_passed", "blocked", "needs_owner_review"
+      ]
     },
     "current_sprint_goal": { "type": "string" },
     "current_task_id": { "type": "string" },
@@ -25,8 +28,17 @@
     "attempt_count": { "type": "integer", "minimum": 0 },
     "last_verdict": {
       "type": ["string", "null"],
-      "enum": ["EXECUTE_NEXT_STEP", "ASK_EXECUTOR_FOR_RECON", "RUN_CRITIQUE",
-               "RUN_SPEC_GOVERNANCE", "ESCALATE_TO_OWNER", null]
+      "enum": [
+        "EXECUTE_NEXT_STEP", "ASK_EXECUTOR_FOR_RECON", "RUN_CRITIQUE",
+        "RUN_SPEC_GOVERNANCE", "ESCALATE_TO_OWNER",
+        "ESCALATE", "BLOCKED",
+        "AUDIT_PASSED", "AUDIT_FAILED", "AUDIT_INCONCLUSIVE",
+        null
+      ]
+    },
+    "last_audit_result": {
+      "type": ["object", "null"],
+      "description": "Summary of the last automated audit run (set by CORE_GATE bridge)"
     },
     "last_directive_hash": { "type": ["string", "null"] },
     "pending_packet_id": { "type": ["string", "null"] },

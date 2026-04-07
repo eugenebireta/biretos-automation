@@ -44,6 +44,7 @@ DEFAULT_MANIFEST = {
     "deadline_at": None,
     "default_option_id": None,
     "updated_at": "",
+    "last_audit_result": None,
 }
 
 # ---------------------------------------------------------------------------
@@ -229,19 +230,69 @@ def cmd_cycle(args: argparse.Namespace) -> None:
           f"scope={len(synth.approved_scope)} rules={synth.rule_trace}")
 
     if synth.action == "CORE_GATE":
-        manifest["fsm_state"] = "awaiting_owner_reply"
-        manifest["last_verdict"] = "RUN_SPEC_GOVERNANCE"
+        # Automated dual-audit via CORE_GATE bridge (infra/acceleration-bootstrap Task 5)
+        manifest["fsm_state"] = "audit_in_progress"
         save_manifest(manifest)
-        append_run({"ts": _now(), "event": "core_risk_gate",
+        append_run({"ts": _now(), "event": "core_risk_gate_started",
                     "rule_trace": synth.rule_trace, "rationale": synth.rationale,
                     "trace_id": trace_id})
         print()
         print("=" * 60)
-        print("CORE RISK — stopping for auditor_system governance review.")
+        print("CORE RISK — launching automated auditor_system review...")
         print(f"Rationale: {synth.rationale}")
-        print("Run: python -m auditor_system.cli live --task <task_id>")
-        print("After APPROVE: set fsm_state=ready in manifest.json")
         print("=" * 60)
+
+        try:
+            import core_gate_bridge as _cgb
+            task_pack = _cgb.decision_to_task_pack(synth, manifest)
+            audit_result = _cgb.run_audit_sync(task_pack)
+
+            new_state  = _cgb._determine_fsm_state(audit_result)
+            new_verdict = _cgb._determine_last_verdict(new_state)
+
+            # Persist compact audit summary
+            audit_summary = {
+                "run_id":         audit_result.run_id,
+                "ts":             _now(),
+                "fsm_state":      new_state,
+                "verdict":        new_verdict,
+                "gate_passed":    audit_result.quality_gate.passed if audit_result.quality_gate else None,
+                "approval_route": audit_result.approval_route.value if audit_result.approval_route else None,
+                "escalated":      audit_result.escalated,
+                "trace_id":       trace_id,
+            }
+            LAST_AUDIT_RESULT_PATH = ORCH_DIR / "last_audit_result.json"
+            LAST_AUDIT_RESULT_PATH.write_text(
+                json.dumps(audit_summary, indent=2, ensure_ascii=False), encoding="utf-8"
+            )
+
+            manifest["fsm_state"]        = new_state
+            manifest["last_verdict"]     = new_verdict
+            manifest["last_audit_result"] = audit_summary
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "core_risk_gate_complete",
+                        "new_state": new_state, "verdict": new_verdict,
+                        "trace_id": trace_id})
+
+            print(f"[orchestrator] Audit complete: state={new_state} verdict={new_verdict}")
+            if new_state == "audit_passed":
+                print("[orchestrator] Audit PASSED — ready to proceed to builder.")
+            elif new_state == "blocked":
+                print("[orchestrator] Audit FAILED — task blocked. See last_audit_result.json")
+            else:
+                print("[orchestrator] Audit INCONCLUSIVE — owner review required.")
+
+        except Exception as _audit_exc:
+            # ConfigError (missing .env.auditors) or any other failure
+            _err_class = type(_audit_exc).__name__
+            print(f"[orchestrator] AUDIT BLOCKED: {_err_class}: {_audit_exc}")
+            manifest["fsm_state"]    = "blocked"
+            manifest["last_verdict"] = "AUDIT_FAILED"
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "core_risk_gate_error",
+                        "error": str(_audit_exc), "error_class": _err_class,
+                        "trace_id": trace_id})
+
         return
 
     if synth.action in ("ESCALATE", "BLOCKED", "NO_OP"):
