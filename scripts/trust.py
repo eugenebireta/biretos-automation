@@ -72,6 +72,7 @@ DOMAIN_TRUST: dict[str, dict] = {
     "dmsupplysource.com":         {"tier": "industrial",  "weight": 0.72},  # DM Supply — US HVAC/combustion controls
     "transcat.com":               {"tier": "industrial",  "weight": 0.75},  # Transcat — US calibration/gas detection
     "instrumart.com":             {"tier": "industrial",  "weight": 0.75},  # Instrumart — US industrial instruments & safety
+    "lightshine.ae":              {"tier": "industrial",  "weight": 0.70},  # Lightshine — UAE safety/PPE distributor
 
     # ── Russian B2B ─────────────────────────────────────────────────────────────
     "armosystems.ru":             {"tier": "ru_b2b",      "weight": 0.75},

@@ -16,7 +16,7 @@ from urllib.parse import unquote, urlparse
 from bs4 import BeautifulSoup
 
 from no_price_coverage import materialize_no_price_coverage
-from pn_match import extract_structured_pn_flags
+from pn_match import extract_structured_pn_flags, strip_known_suffix
 
 
 PRICE_LINEAGE_SCHEMA_VERSION = "price_lineage_v1"
@@ -61,6 +61,32 @@ def _domain(url: Any) -> str:
     if not url:
         return ""
     return (urlparse(str(url)).netloc or "").lower().removeprefix("www.")
+
+
+def _pn_in_url_path(pn: str, source_url: str) -> bool:
+    """Return True if the PN (or its base without known suffix) appears as a
+    word-boundary token in the URL path.  Reliable for product URLs that embed
+    the article number in the slug (e.g. '…-1015021-2126028/').
+    """
+    if not pn or not source_url:
+        return False
+    import re
+    path = unquote(urlparse(source_url).path or "").lower()
+    for candidate in _distinct_nonempty(pn, strip_known_suffix(pn)):
+        escaped = re.escape(candidate.lower())
+        if re.search(r"(?<![0-9a-z])" + escaped + r"(?![0-9a-z])", path):
+            return True
+    return False
+
+
+def _distinct_nonempty(*values: str | None) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    for v in values:
+        if v and v not in seen:
+            seen.add(v)
+            out.append(v)
+    return out
 
 
 def _best_title_h1_text(soup: BeautifulSoup) -> str:
@@ -189,6 +215,17 @@ def materialize_pre_llm_price_lineage(
     }
 
     if blocked_or_non_html:
+        # Even for blocked pages, the URL path may contain the exact PN.
+        # This covers product URLs that embed the article number in the slug
+        # (e.g. vseinstrumenti.ru /product/…-1015021-2126028/).
+        url_path_match = _pn_in_url_path(pn, result.get("source_url") or source_url)
+        if url_path_match:
+            lineage_flags = {
+                **lineage_flags,
+                "price_source_exact_product_lineage_confirmed": True,
+                "price_source_lineage_reason_code": "url_path_pn_match",
+                "price_source_structured_match_location": "url_path",
+            }
         result.update(lineage_flags)
         result["price_source_domain"] = result.get("price_source_domain") or _domain(result.get("price_source_url"))
         return result
