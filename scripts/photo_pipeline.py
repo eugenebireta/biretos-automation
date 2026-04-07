@@ -2097,11 +2097,24 @@ def run(
         if v.get("numeric_keep_guard_applied"):
             print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
 
-        # ── Datasheet (optional) ────────────────────────────────────────────────
+        # ── Datasheet (optional + conditional) ─────────────────────────────────
         ds_result: dict = {"datasheet_status": "skipped"}
-        if datasheets:
-            from datasheet_pipeline import find_datasheet
-            ds_result = find_datasheet(pn, BRAND, get_serpapi_key())
+        _needs_datasheet = (
+            price_info.get("price_status") == "no_price_found"
+            or v.get("verdict") == "NO_PHOTO"
+            or bool(price_info.get("category_mismatch"))
+        )
+        if datasheets or _needs_datasheet:
+            try:
+                from datasheet_pipeline import find_datasheet
+                from brand_knowledge import get_datasheet_query as _ds_query
+                _serpapi_key = get_serpapi_key()
+                if _serpapi_key:
+                    ds_result = find_datasheet(pn, BRAND, _serpapi_key)
+                    if ds_result.get("datasheet_status") == "found":
+                        print(f"  [DATASHEET] Found: {ds_result.get('pdf_url', '')[:80]}")
+            except Exception as _ds_err:
+                log.debug(f"datasheet_pipeline failed for {pn}: {_ds_err}")
 
         # ── Brand co-occurrence check ──────────────────────────────────────────
         page_text_for_cooc = dl.get("description") or ""
