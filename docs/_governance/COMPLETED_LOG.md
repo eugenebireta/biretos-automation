@@ -1,5 +1,33 @@
 ---
 DATE: 2026-04-07
+TITLE: R1 Revenue — Price Evidence Integrator
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (committed to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - scripts/price_evidence_integrator.py (NEW — integrate_manifest + build_price_section)
+  - tests/enrichment/test_price_evidence_integrator.py (NEW — 32 deterministic tests)
+  - downloads/evidence/ — 5 evidence bundles updated (price_status=ACCEPTED)
+  - downloads/audits/price_integration_<ts>/ — integration audit trace
+TEST_EVIDENCE: 32/32 integrator tests PASS; 798/798 total PASS (zero regression)
+GOVERNANCE:
+  - SEMI risk. Two-round live API audit (Gemini 3.1 Pro CRITIC + Opus 4.6 JUDGE)
+  - Round 1: Gemini CONCERNS (sys.path.insert in proposal, trace_id timestamp)
+  - Revision: sys.path at module level, trace_id uses now_fn() timestamp
+  - Round 2: Gemini APPROVE + Opus CONCERNS → BATCH_APPROVAL (quality gate passed)
+KEY_DECISIONS:
+  - Does NOT touch card_status — left to local_catalog_refresh.py
+  - field_statuses_v2.price_status + policy_decision_v2.price_status set to ACCEPTED
+  - Explicit _PRICE_FIELD_MAP allowlist prevents schema drift
+  - Idempotent: overwriting price section with same trace_id is safe
+REAL_RUN:
+  - 5/5 admissible rows integrated from price_manual_manifest.jsonl (20 rows total)
+  - local_catalog_refresh result: review_required=15 (up from 9), draft_only=10, auto_publish=0
+  - build_catalog_followup_queues: price_followup=14, photo_recovery=14
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
 TITLE: Meta Orchestrator — M4 Executor Bridge
 RISK_LEVEL: SEMI
 STATUS: COMPLETED (committed e3c5b77 to feat/rev-r1-catalog, PR #38)

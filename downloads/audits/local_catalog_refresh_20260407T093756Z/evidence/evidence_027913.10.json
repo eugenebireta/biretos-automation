@@ -1,24 +1,24 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
-  "pn": "010130.10",
+  "generated_at": "2026-04-07T09:37:56.639919Z",
+  "pn": "027913.10",
   "pn_variants": [
-    "10130.10",
-    "010130-10",
-    "01013010"
+    "27913.10",
+    "027913-10",
+    "02791310"
   ],
   "brand": "Honeywell",
   "subbrand": "",
-  "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
-  "assembled_title": "Модуль Honeywell 010130.10",
-  "our_price_raw": "13288,04",
-  "expected_category": "Модуль",
+  "name": "Считыватель карт luminAXS mifareD RS485",
+  "assembled_title": "Считыватель Honeywell 027913.10",
+  "our_price_raw": "34276,71",
+  "expected_category": "Считыватель",
   "card_status": "REVIEW_REQUIRED",
   "review_reasons": [
     "NO_IMAGE_EVIDENCE"
   ],
   "policy_decision_v2": {
-    "decision_id": "dec_010130.10",
+    "decision_id": "dec_027913.10",
     "policy_version": "catalog_evidence_policy_v1",
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
@@ -35,10 +35,10 @@
         "field": "identity",
         "severity": "ERROR",
         "candidate_ids": [
-          "cand_title_010130.10"
+          "cand_title_027913.10"
         ],
         "evidence_ids": [
-          "ev_title_010130.10"
+          "ev_title_027913.10"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "IDENTITY_CONFLICT"
@@ -48,10 +48,10 @@
         "field": "image",
         "severity": "INFO",
         "candidate_ids": [
-          "cand_image_010130.10"
+          "cand_image_027913.10"
         ],
         "evidence_ids": [
-          "ev_image_010130.10"
+          "ev_image_027913.10"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -61,10 +61,10 @@
         "field": "pdf",
         "severity": "INFO",
         "candidate_ids": [
-          "cand_pdf_010130.10"
+          "cand_pdf_027913.10"
         ],
         "evidence_ids": [
-          "ev_pdf_010130.10"
+          "ev_pdf_027913.10"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "PDF_CONFLICT"
@@ -89,10 +89,10 @@
       "field": "identity",
       "severity": "ERROR",
       "candidate_ids": [
-        "cand_title_010130.10"
+        "cand_title_027913.10"
       ],
       "evidence_ids": [
-        "ev_title_010130.10"
+        "ev_title_027913.10"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "IDENTITY_CONFLICT"
@@ -102,10 +102,10 @@
       "field": "image",
       "severity": "INFO",
       "candidate_ids": [
-        "cand_image_010130.10"
+        "cand_image_027913.10"
       ],
       "evidence_ids": [
-        "ev_image_010130.10"
+        "ev_image_027913.10"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -115,10 +115,10 @@
       "field": "pdf",
       "severity": "INFO",
       "candidate_ids": [
-        "cand_pdf_010130.10"
+        "cand_pdf_027913.10"
       ],
       "evidence_ids": [
-        "ev_pdf_010130.10"
+        "ev_pdf_027913.10"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "PDF_CONFLICT"
@@ -126,9 +126,9 @@
   ],
   "confidence": {
     "pn_confidence": 0.0,
-    "image_confidence": 0.05,
+    "image_confidence": 0.0,
     "price_confidence": 0.0,
-    "overall": 0.015,
+    "overall": 0.0,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
@@ -138,16 +138,16 @@
   },
   "photo": {
     "verdict": "REJECT",
-    "verdict_reason": "баннер/шапка сайта 420x65px",
-    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\010130.10.jpg",
-    "sha1": "752088d9f0c5ac8a6824814586bc48068ea7666d",
-    "canonical_filename": "HONEYWELL_010130_10_752088d9.jpg",
+    "verdict_reason": "на изображении не считыватель карт, а сантехнический клапан/фильтр",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\027913.10.jpg",
+    "sha1": "4904fb75cfc24b2681ed203e60d3401a76280e5b",
+    "canonical_filename": "HONEYWELL_027913_10_4904fb75.jpg",
     "public_url": null,
-    "width": 1280,
-    "height": 720,
-    "size_kb": 130,
+    "width": 3682,
+    "height": 3726,
+    "size_kb": 284,
     "source": "cached",
-    "phash": "ad3dc2fc0ee2e206",
+    "phash": "a434ea916e17ca6b",
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "photo_status": "rejected",
@@ -157,19 +157,19 @@
   },
   "price": {
     "price_status": "public_price",
-    "price_per_unit": 225.0,
+    "price_per_unit": 467.0,
     "currency": "EUR",
-    "rub_price": 21375.0,
+    "rub_price": 44365.0,
     "fx_rate_used": 95.0,
     "fx_provider": "stub",
     "price_confidence": 95,
     "source_tier": "authorized",
-    "stock_status": "in_stock",
+    "stock_status": "backorder",
     "offer_unit_basis": "piece",
     "offer_qty": 1,
-    "lead_time_detected": false,
+    "lead_time_detected": true,
     "page_product_class": "",
-    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73660-4mg-2a-modul-bus-2-bus-1-ap-01013010",
+    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73676-luminaxs-mifared-readerrs485-c-d-w-wo-kb-02791310",
     "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
@@ -213,11 +213,11 @@
   },
   "content": {
     "specs": {},
-    "description": "Модуль 4DG/2OP предназначен для интеграции в системы безопасности и автоматизации. Он поддерживает шины BUS-2 и BUS-1, обеспечивая надежную передачу данных и управление различными устройствами.",
+    "description": "Считыватель карт luminAXS mifareD предназначен для использования в системах контроля доступа. Он поддерживает интерфейс RS485 и обеспечивает надежное считывание карт стандарта Mifare.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Системы безопасности",
-    "product_type": "Модуль",
-    "seed_name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m."
+    "product_type": "Считыватель",
+    "seed_name": "Считыватель карт luminAXS mifareD RS485"
   },
   "trace": {
     "pn_match_location": "",
@@ -239,8 +239,8 @@
     "policy_version": "catalog_verifier_policy_v1",
     "mode": "shadow",
     "feature_enabled": true,
-    "trace_id": "catalog_verifier:010130.10:2026-03-26T20:23:24.007390Z",
-    "idempotency_key": "catalog_verifier:010130.10:63c3ce8bf1d316817788d9c6",
+    "trace_id": "catalog_verifier:027913.10:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:027913.10:b42e7d94b1409525d92e290c",
     "router": {
       "should_route": true,
       "trigger_codes": [
@@ -259,10 +259,10 @@
     },
     "packet": {
       "schema_version": "catalog_verifier_input_schema_v1",
-      "trace_id": "catalog_verifier:010130.10:2026-03-26T20:23:24.007390Z",
-      "idempotency_key": "catalog_verifier:010130.10:63c3ce8bf1d316817788d9c6",
-      "pn_primary": "010130.10",
-      "normalized_title": "Модуль Honeywell 010130.10",
+      "trace_id": "catalog_verifier:027913.10:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:027913.10:b42e7d94b1409525d92e290c",
+      "pn_primary": "027913.10",
+      "normalized_title": "Считыватель Honeywell 027913.10",
       "card_status": "DRAFT_ONLY",
       "field_statuses": {
         "title_status": "ACCEPTED",
@@ -276,10 +276,10 @@
           "field": "identity",
           "severity": "ERROR",
           "candidate_ids": [
-            "cand_title_010130.10"
+            "cand_title_027913.10"
           ],
           "evidence_ids": [
-            "ev_title_010130.10"
+            "ev_title_027913.10"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "IDENTITY_CONFLICT"
@@ -289,10 +289,10 @@
           "field": "image",
           "severity": "INFO",
           "candidate_ids": [
-            "cand_image_010130.10"
+            "cand_image_027913.10"
           ],
           "evidence_ids": [
-            "ev_image_010130.10"
+            "ev_image_027913.10"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -302,10 +302,10 @@
           "field": "pdf",
           "severity": "INFO",
           "candidate_ids": [
-            "cand_pdf_010130.10"
+            "cand_pdf_027913.10"
           ],
           "evidence_ids": [
-            "ev_pdf_010130.10"
+            "ev_pdf_027913.10"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "PDF_CONFLICT"
@@ -342,9 +342,9 @@
         "mpn_confirmed_via_jsonld": false
       },
       "price_evidence_summary": {
-        "price_status": "public_price",
+        "price_status": "rfq_only",
         "source_tier": "authorized",
-        "page_product_class": "Модуль",
+        "page_product_class": "Считыватель",
         "category_mismatch": false,
         "brand_mismatch": false
       },
@@ -391,13 +391,6 @@
     "merchandising_image_status": "rejected",
     "card_status_source": "photo_verdict_override",
     "policy_card_status_historical": "REVIEW_REQUIRED",
-    "policy_card_status_mismatch": false,
-    "price_integration": {
-      "trace_id": "pi_20260407T093744Z_13f264",
-      "integrated_at": "2026-04-07T09:37:44Z",
-      "source_manifest": "price_manual_manifest.jsonl",
-      "offer_admissibility_status": "admissible_public_price",
-      "schema_version": "price_evidence_integration_v1"
-    }
+    "policy_card_status_mismatch": false
   }
 }

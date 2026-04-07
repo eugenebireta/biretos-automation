@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 60
-transition_ts: "2026-04-07T01:21:00Z"
+transition_seq: 61
+transition_ts: "2026-04-07T09:45:00Z"
 
 ## Current
-active_task: "Meta Orchestrator — M4 Executor Bridge"
-task_id: "meta-orchestrator-m4-executor-bridge"
+active_task: "R1 Revenue — Price Evidence Integrator"
+task_id: "R1-revenue-price-evidence-integrator"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
@@ -15,19 +15,29 @@ pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: 38
 now:
-  - step: "M4: autonomous executor bridge — claude --print subprocess + auto-collect"
+  - step: "R1 batch: price_evidence_integrator — bridge price manifests into evidence bundles"
     actions:
-      - "orchestrator/executor_bridge.py (NEW — run()+run_with_collect(), structured error taxonomy)"
-      - "orchestrator/main.py (UPDATED — _run_executor_bridge helper, wired in cmd_cycle)"
-      - "orchestrator/config.yaml (UPDATED — auto_execute/auto_pytest/executor_timeout_seconds)"
-      - "tests/orchestrator/test_executor_bridge.py (NEW — 43 deterministic tests)"
+      - "scripts/price_evidence_integrator.py (NEW — integrate_manifest + build_price_section)"
+      - "tests/enrichment/test_price_evidence_integrator.py (NEW — 32 deterministic tests)"
       - "GOVERNANCE: SEMI audit via live API — BATCH_APPROVAL (Gemini APPROVE + Opus CONCERNS)"
-      - "308/308 orchestrator tests PASS"
-known_gap: "auto_execute defaults to false — owner must set true to enable end-to-end run."
-awaiting: "Owner review. Meta orchestrator pipeline M0-M4 complete. Next: Revenue R1 track (B)."
+      - "Real run: 5/5 admissible rows integrated (027913.10, 1000106, 1006186, 1003012, 1030000000)"
+      - "Evidence bundles updated: price_status=ACCEPTED, field_statuses_v2+policy_decision_v2 patched"
+      - "local_catalog_refresh re-run: review_required=15 (up from 9), draft_only=10, auto_publish=0"
+      - "build_catalog_followup_queues re-run: price_followup=14, photo_recovery=14"
+      - "798/798 tests PASS (zero regression)"
+known_gap: "price_followup_count=14 SKU still need prices. photo_recovery_count=14 SKU still need photos."
+awaiting: "Owner review. Next: photo pipeline or next price scout batch."
+
+## Previous (seq 60 — M4 Executor Bridge)
+prev_active_task: "Meta Orchestrator — M4 Executor Bridge"
+prev_task_id: "meta-orchestrator-m4-executor-bridge"
+prev_phase: COMPLETED
+prev_status: CLOSED
+prev_exit: "executor_bridge.py run()+run_with_collect(), 43 tests, SEMI BATCH_APPROVAL. 308/308 orchestrator tests PASS."
 
 ## Previous (seq 59 — M3 synthesizer)
 prev_active_task: "Meta Orchestrator — M3 Decision Synthesizer + Gemini Auditor"
+
 prev_task_id: "meta-orchestrator-m3-synthesizer"
 prev_phase: COMPLETED
 prev_status: CLOSED

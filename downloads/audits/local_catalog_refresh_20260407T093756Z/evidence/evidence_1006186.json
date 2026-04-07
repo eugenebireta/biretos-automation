@@ -1,55 +1,42 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
-  "pn": "1000106",
+  "generated_at": "2026-04-07T09:37:56.639919Z",
+  "pn": "1006186",
   "pn_variants": [],
   "brand": "Honeywell",
   "subbrand": "",
-  "name": "Беруши 304L CORDED EARPLUG",
-  "assembled_title": "Беруши Honeywell 1000106",
-  "our_price_raw": "13095,00",
+  "name": "Беруши 303L FOAMPLUG",
+  "assembled_title": "Беруши Honeywell 1006186",
+  "our_price_raw": "1920,61",
   "expected_category": "Беруши",
   "card_status": "REVIEW_REQUIRED",
   "review_reasons": [
     "LEGACY_AUTO_PUBLISH_HOLDOUT"
   ],
   "policy_decision_v2": {
-    "decision_id": "dec_1000106",
+    "decision_id": "dec_1006186",
     "policy_version": "catalog_evidence_policy_v1",
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
     "image_status": "REVIEW_REQUIRED",
     "price_status": "ACCEPTED",
     "pdf_status": "REVIEW_REQUIRED",
-    "card_status": "DRAFT_ONLY",
+    "card_status": "REVIEW_REQUIRED",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_1000106"
-        ],
-        "evidence_ids": [
-          "ev_title_1000106"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
       {
         "reason_code": "IMAGE_UNKNOWN",
         "field": "image",
         "severity": "WARNING",
         "candidate_ids": [
-          "cand_image_1000106"
+          "cand_image_1006186"
         ],
         "evidence_ids": [
-          "ev_image_1000106"
+          "ev_image_1006186"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-05",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
@@ -57,21 +44,20 @@
         "field": "pdf",
         "severity": "WARNING",
         "candidate_ids": [
-          "cand_pdf_1000106"
+          "cand_pdf_1006186"
         ],
         "evidence_ids": [
-          "ev_pdf_1000106"
+          "ev_pdf_1006186"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-05",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
       "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-05"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -81,29 +67,16 @@
   },
   "review_reasons_v2": [
     {
-      "reason_code": "IDENTITY_WEAK",
-      "field": "identity",
-      "severity": "ERROR",
-      "candidate_ids": [
-        "cand_title_1000106"
-      ],
-      "evidence_ids": [
-        "ev_title_1000106"
-      ],
-      "policy_rule_id": "CAP-09",
-      "bucket": "IDENTITY_CONFLICT"
-    },
-    {
       "reason_code": "IMAGE_UNKNOWN",
       "field": "image",
       "severity": "WARNING",
       "candidate_ids": [
-        "cand_image_1000106"
+        "cand_image_1006186"
       ],
       "evidence_ids": [
-        "ev_image_1000106"
+        "ev_image_1006186"
       ],
-      "policy_rule_id": "CAP-09",
+      "policy_rule_id": "CAP-05",
       "bucket": "MISSING_MINIMUM_EVIDENCE"
     },
     {
@@ -111,12 +84,12 @@
       "field": "pdf",
       "severity": "WARNING",
       "candidate_ids": [
-        "cand_pdf_1000106"
+        "cand_pdf_1006186"
       ],
       "evidence_ids": [
-        "ev_pdf_1000106"
+        "ev_pdf_1006186"
       ],
-      "policy_rule_id": "CAP-09",
+      "policy_rule_id": "CAP-05",
       "bucket": "PDF_CONFLICT"
     }
   ],
@@ -134,16 +107,16 @@
   },
   "photo": {
     "verdict": "KEEP",
-    "verdict_reason": "на изображении беруши с шнурком, товар угадывается",
-    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1000106.jpg",
-    "sha1": "9c3a73ee043def273ab4c891c98bce28fdb2cbe4",
-    "canonical_filename": "HONEYWELL_1000106_9c3a73ee.jpg",
+    "verdict_reason": "На изображении видны беруши, товар соответствует описанию.",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1006186.jpg",
+    "sha1": "c8aff4f091abfb2160158df9c12cd367505b60d8",
+    "canonical_filename": "HONEYWELL_1006186_c8aff4f0.jpg",
     "public_url": null,
-    "width": 344,
-    "height": 426,
-    "size_kb": 43,
+    "width": 1200,
+    "height": 744,
+    "size_kb": 117,
     "source": "cached",
-    "phash": "bd2dc0f0b0b2c3cb",
+    "phash": "bb4ee1b09c159752",
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "photo_status": "exact_evidence",
@@ -153,20 +126,18 @@
   },
   "price": {
     "price_status": "public_price",
-    "price_per_unit": 68.25,
-    "currency": "AED",
-    "rub_price": 1638.0,
-    "fx_rate_used": 24.0,
+    "price_per_unit": 1794.0,
+    "currency": "TWD",
     "fx_provider": "stub",
-    "price_confidence": 90,
-    "source_tier": "industrial",
-    "stock_status": "out_of_stock",
-    "offer_unit_basis": "piece",
+    "price_confidence": 95,
+    "source_tier": "authorized",
+    "stock_status": "in_stock",
+    "offer_unit_basis": "box",
     "offer_qty": 1,
-    "lead_time_detected": false,
+    "lead_time_detected": true,
     "page_product_class": "",
-    "source_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
-    "source_type": "industrial_distributor",
+    "source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922?srsltid=AfmBOoqn2Ny_TR5hBHhMJq7poxvRhnnQxolIKzQU3BH2PR7LOdfNGCkv",
+    "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
     "brand_mismatch": false,
@@ -177,26 +148,21 @@
   },
   "datasheet": {
     "datasheet_status": "found",
-    "pdf_url": "https://docs.prosafco.be/cec/A000378_cec_en_1.pdf",
-    "pdf_source_tier": "industrial",
-    "pdf_title": "EU Declaration of Conformity",
+    "pdf_url": "https://docs.rs-online.com/2f8c/A700000011191469.pdf",
+    "pdf_source_tier": "authorized",
+    "pdf_title": "HL400™-AM",
     "pdf_specs": {
-      "Personal Protective Equipment": "Brand: Honeywell",
-      "Name": "Tomas Chvatal",
-      "Item Code": "1000106",
-      "Type": "Hearing Protection - Earplugs",
-      "Manufacturer": "HONEYWELL SAFETY PRODUCTS USA INC",
-      " the relevant Union harmonization legislation": "Personal Protective Equipment Regulation (ЕU)",
-      "demonstrated": " the relevant harmonised standard(s) and/or technical specification(s): EN 352-2:2002",
-      "The notified body": "satra Technology Europe Ltd - Ireland",
-      "Number": "0333",
-      "2777/12515-01/E00-00 issued 05/04/2019": "The PPE is subject to the conformity to type assessment procedure based on quality assurance of the",
-      "Under the surveillance of the notified body": "AFNOR Certification",
-      "Place of issue": "San Diego",
-      "Date of issue": "18/03/2021",
-      "Function": "Certification Engineer Sr"
+      "ADDED PROTECTION": "AROUND THE CLOCK.",
+      "odors caused by mold, mildew and bacteria": "This product does not",
+      "PART NO": "DESCRIPTION CASE QTY",
+      "United Kingdom Phone": "+34 91 676 45 21",
+      "Phone": "+46 (0) 424480433",
+      "Email": "info-nordic.hsp@honeywell.com © 2022 Honeywell International Inc.",
+      "1H – 1831 Diegem Phone": "00800 33 44 28 03",
+      "7332 BP Apeldoorn, Nederland Email": "is.ppe.techsupport.europe@honeywell.com",
+      "Tel": "+31 (0) 20 5656 988 Self-Service Portal: https://sps-support."
     },
-    "pdf_text_excerpt": "EU Declaration of Conformity Personal Protective Equipment: Brand: Honeywell Name: BILSOM® 304L - Disposable Foam Earplugs Item Code: 1000106 Type: Hearing Protection - Earplugs Manufacturer: HONEYWELL SAFETY PRODUCTS USA INC 7828 Waterville Road 92154 San Diego UNITED STATES This declaration of conformity is issued under the sole responsibility of the manufacturer: HONEYWELL SAFETY PRODUCTS USA INC The object of the declaration described above is in conformity with:  the relevant Union harmonization legislation: Personal Protective Equipment Regulation (ЕU) 2016/425 The fulfilment of the app",
+    "pdf_text_excerpt": "HL400™-AM ANTIMICROBIAL- PROTECTED DISPENSER ADDED PROTECTION. AROUND THE CLOCK. Maintaining clean workspaces is important for every business. Introducing Honeywell’s HL400-AM earplug dispenser – with built in antimicrobial properties to protect the dispenser against stains, discoloration and odors caused by mold, mildew and bacteria. This product does not protect users or others against disease-causing organisms. Enjoy cleaner surfaces from a dispenser with enhanced cleanliness. FEATURES AND BENEFITS BUILT-IN EASY TO INSTALL, YOUR CHOICE OF ANTIMICROBIAL USE AND REFILL HEARING PROTECTION PROT",
     "num_pages": 2,
     "parse_method": "pdfplumber",
     "pn_confirmed_in_pdf": true
@@ -211,11 +177,11 @@
   },
   "content": {
     "specs": {},
-    "description": "Беруши 304L с шнурком обеспечивают защиту слуха в шумных условиях. Они удобны в использовании и подходят для длительного ношения, что делает их идеальными для промышленных рабочих мест.",
+    "description": "Беруши 303L из пеноматериала обеспечивают надежную защиту слуха. Они мягкие и удобные, что позволяет использовать их в течение длительного времени без дискомфорта.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
     "product_type": "Беруши",
-    "seed_name": "Беруши 304L CORDED EARPLUG"
+    "seed_name": "Беруши 303L FOAMPLUG"
   },
   "trace": {
     "pn_match_location": "",
@@ -237,17 +203,16 @@
     "policy_version": "catalog_verifier_policy_v1",
     "mode": "shadow",
     "feature_enabled": true,
-    "trace_id": "catalog_verifier:1000106:2026-03-26T20:23:24.007390Z",
-    "idempotency_key": "catalog_verifier:1000106:dec4e9ce46c04c8d69078db7",
+    "trace_id": "catalog_verifier:1006186:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:1006186:6f66d0c02bb3ecd20957b506",
     "router": {
       "should_route": true,
       "trigger_codes": [
         "AMBIGUOUS_EXACTNESS",
-        "IDENTITY_NOT_STRONG",
         "PDF_REVIEW_REQUIRED"
       ],
-      "deterministic_card_status": "DRAFT_ONLY",
-      "deterministic_identity_level": "weak"
+      "deterministic_card_status": "REVIEW_REQUIRED",
+      "deterministic_identity_level": "strong"
     },
     "decision_merger": {
       "final_decision_source": "deterministic_policy",
@@ -255,15 +220,15 @@
       "allow_auto_publish_unlock": false,
       "allow_verifier_override": false,
       "owner_approval_required_for_influence": true,
-      "effective_card_status": "DRAFT_ONLY"
+      "effective_card_status": "REVIEW_REQUIRED"
     },
     "packet": {
       "schema_version": "catalog_verifier_input_schema_v1",
-      "trace_id": "catalog_verifier:1000106:2026-03-26T20:23:24.007390Z",
-      "idempotency_key": "catalog_verifier:1000106:dec4e9ce46c04c8d69078db7",
-      "pn_primary": "1000106",
-      "normalized_title": "Беруши Honeywell 1000106",
-      "card_status": "DRAFT_ONLY",
+      "trace_id": "catalog_verifier:1006186:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:1006186:6f66d0c02bb3ecd20957b506",
+      "pn_primary": "1006186",
+      "normalized_title": "Беруши Honeywell 1006186",
+      "card_status": "REVIEW_REQUIRED",
       "field_statuses": {
         "title_status": "ACCEPTED",
         "image_status": "REVIEW_REQUIRED",
@@ -272,29 +237,16 @@
       },
       "review_reasons": [
         {
-          "reason_code": "IDENTITY_WEAK",
-          "field": "identity",
-          "severity": "ERROR",
-          "candidate_ids": [
-            "cand_title_1000106"
-          ],
-          "evidence_ids": [
-            "ev_title_1000106"
-          ],
-          "policy_rule_id": "CAP-09",
-          "bucket": "IDENTITY_CONFLICT"
-        },
-        {
           "reason_code": "IMAGE_UNKNOWN",
           "field": "image",
           "severity": "WARNING",
           "candidate_ids": [
-            "cand_image_1000106"
+            "cand_image_1006186"
           ],
           "evidence_ids": [
-            "ev_image_1000106"
+            "ev_image_1006186"
           ],
-          "policy_rule_id": "CAP-09",
+          "policy_rule_id": "CAP-05",
           "bucket": "MISSING_MINIMUM_EVIDENCE"
         },
         {
@@ -302,25 +254,24 @@
           "field": "pdf",
           "severity": "WARNING",
           "candidate_ids": [
-            "cand_pdf_1000106"
+            "cand_pdf_1006186"
           ],
           "evidence_ids": [
-            "ev_pdf_1000106"
+            "ev_pdf_1006186"
           ],
-          "policy_rule_id": "CAP-09",
+          "policy_rule_id": "CAP-05",
           "bucket": "PDF_CONFLICT"
         }
       ],
       "review_buckets": [
-        "IDENTITY_CONFLICT",
         "MISSING_MINIMUM_EVIDENCE",
         "PDF_CONFLICT"
       ],
       "source_role_evidence_summary": {
         "title_source_role": "deterministic_title_assembly",
-        "price_source_tier": "industrial",
-        "pdf_source_tier": "industrial",
-        "image_source_tier": "industrial"
+        "price_source_tier": "authorized",
+        "pdf_source_tier": "authorized",
+        "image_source_tier": "authorized"
       },
       "structured_identity": {
         "exact_jsonld_pn_match": false,
@@ -334,7 +285,7 @@
         "datasheet_status": "found",
         "pdf_exact_pn_confirmed": false,
         "pn_confirmed_in_pdf": true,
-        "pdf_source_tier": "industrial"
+        "pdf_source_tier": "authorized"
       },
       "image_evidence_summary": {
         "photo_verdict": "KEEP",
@@ -343,7 +294,7 @@
       },
       "price_evidence_summary": {
         "price_status": "public_price",
-        "source_tier": "industrial",
+        "source_tier": "authorized",
         "page_product_class": "Беруши",
         "category_mismatch": false,
         "brand_mismatch": false
@@ -356,7 +307,6 @@
       },
       "risk_reason_codes": [
         "AMBIGUOUS_EXACTNESS",
-        "IDENTITY_NOT_STRONG",
         "PDF_REVIEW_REQUIRED"
       ]
     },
@@ -372,7 +322,7 @@
     "openai_request_id": ""
   },
   "merchandising": {
-    "image_local_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos_enhanced\\1000106__catalog_placeholder_v1__9c3a73ee.jpg",
+    "image_local_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos_enhanced\\1006186__catalog_placeholder_v1__c8aff4f0.jpg",
     "image_status": "placeholder",
     "image_kind": "placeholder_enhanced",
     "image_temporary": true,
@@ -392,17 +342,7 @@
     "merchandising_attached": true,
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
-    "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true,
-    "holdout_applied": true,
-    "holdout_reason": "AUTO_PUBLISH_V2_MISMATCH_OWNER_DECISION_20260402",
-    "holdout_previous_card_status": "AUTO_PUBLISH",
-    "price_integration": {
-      "trace_id": "pi_20260407T093744Z_13f264",
-      "integrated_at": "2026-04-07T09:37:44Z",
-      "source_manifest": "price_manual_manifest.jsonl",
-      "offer_admissibility_status": "admissible_public_price",
-      "schema_version": "price_evidence_integration_v1"
-    }
+    "policy_card_status_historical": "REVIEW_REQUIRED",
+    "policy_card_status_mismatch": false
   }
 }

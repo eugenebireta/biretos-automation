@@ -1,0 +1,64 @@
+{
+  "schema_version": "price_evidence_integration_v1",
+  "trace_id": "pi_20260407T093744Z_13f264",
+  "run_ts": "2026-04-07T09:37:44Z",
+  "manifest": "downloads\\scout_cache\\price_manual_manifest.jsonl",
+  "evidence_dir": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence",
+  "dry_run": false,
+  "total_rows": 5,
+  "integrated_count": 5,
+  "skipped_count": 0,
+  "error_count": 0,
+  "rows": [
+    {
+      "pn": "033588.17",
+      "action": "integrated",
+      "offer_admissibility_status": "admissible_public_price",
+      "price_per_unit": 33.0,
+      "currency": "EUR",
+      "rub_price": 3135.0,
+      "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=54106-kugelgelenk-viewguard-scm-03358817",
+      "evidence_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_033588.17.json"
+    },
+    {
+      "pn": "010130.10",
+      "action": "integrated",
+      "offer_admissibility_status": "admissible_public_price",
+      "price_per_unit": 225.0,
+      "currency": "EUR",
+      "rub_price": 21375.0,
+      "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73660-4mg-2a-modul-bus-2-bus-1-ap-01013010",
+      "evidence_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_010130.10.json"
+    },
+    {
+      "pn": "027913.10",
+      "action": "integrated",
+      "offer_admissibility_status": "admissible_public_price",
+      "price_per_unit": 467.0,
+      "currency": "EUR",
+      "rub_price": 44365.0,
+      "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73676-luminaxs-mifared-readerrs485-c-d-w-wo-kb-02791310",
+      "evidence_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_027913.10.json"
+    },
+    {
+      "pn": "1000106",
+      "action": "integrated",
+      "offer_admissibility_status": "admissible_public_price",
+      "price_per_unit": 68.25,
+      "currency": "AED",
+      "rub_price": 1638.0,
+      "source_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+      "evidence_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_1000106.json"
+    },
+    {
+      "pn": "1006186",
+      "action": "integrated",
+      "offer_admissibility_status": "admissible_public_price",
+      "price_per_unit": 1794.0,
+      "currency": "TWD",
+      "rub_price": null,
+      "source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922?srsltid=AfmBOoqn2Ny_TR5hBHhMJq7poxvRhnnQxolIKzQU3BH2PR7LOdfNGCkv",
+      "evidence_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_1006186.json"
+    }
+  ]
+}

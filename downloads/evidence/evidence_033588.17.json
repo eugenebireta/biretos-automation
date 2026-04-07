@@ -156,23 +156,23 @@
     "replacement_required": false
   },
   "price": {
-    "price_status": "rfq_only",
+    "price_status": "public_price",
     "price_per_unit": 33.0,
     "currency": "EUR",
     "rub_price": 3135.0,
     "fx_rate_used": 95.0,
     "fx_provider": "stub",
-    "price_confidence": 80,
-    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=54106-kugelgelenk-viewguard-scm-03358817",
-    "source_type": "other",
+    "price_confidence": 95,
     "source_tier": "authorized",
-    "stock_status": "rfq",
+    "stock_status": "backorder",
     "offer_unit_basis": "piece",
     "offer_qty": 1,
-    "lead_time_detected": false,
+    "lead_time_detected": true,
+    "page_product_class": "",
+    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=54106-kugelgelenk-viewguard-scm-03358817",
+    "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
-    "page_product_class": "Соединение",
     "brand_mismatch": false,
     "price_median_clean": null,
     "price_min_clean": null,
@@ -396,6 +396,13 @@
     "policy_card_status_mismatch": true,
     "holdout_applied": true,
     "holdout_reason": "AUTO_PUBLISH_V2_MISMATCH_OWNER_DECISION_20260402",
-    "holdout_previous_card_status": "AUTO_PUBLISH"
+    "holdout_previous_card_status": "AUTO_PUBLISH",
+    "price_integration": {
+      "trace_id": "pi_20260407T093744Z_13f264",
+      "integrated_at": "2026-04-07T09:37:44Z",
+      "source_manifest": "price_manual_manifest.jsonl",
+      "offer_admissibility_status": "admissible_public_price",
+      "schema_version": "price_evidence_integration_v1"
+    }
   }
 }

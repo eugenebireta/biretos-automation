@@ -126,22 +126,20 @@
   },
   "price": {
     "price_status": "public_price",
-    "price_per_unit": 0.237,
-    "currency": "EUR",
-    "rub_price": 22.52,
-    "fx_rate_used": 95.0,
+    "price_per_unit": 1794.0,
+    "currency": "TWD",
     "fx_provider": "stub",
     "price_confidence": 95,
-    "source_url": "https://nl.rs-online.com/web/p/ear-plugs/1040922",
-    "source_type": "authorized_distributor",
     "source_tier": "authorized",
     "stock_status": "in_stock",
-    "offer_unit_basis": "piece",
+    "offer_unit_basis": "box",
     "offer_qty": 1,
-    "lead_time_detected": false,
+    "lead_time_detected": true,
+    "page_product_class": "",
+    "source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922?srsltid=AfmBOoqn2Ny_TR5hBHhMJq7poxvRhnnQxolIKzQU3BH2PR7LOdfNGCkv",
+    "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
-    "page_product_class": "Беруши",
     "brand_mismatch": false,
     "price_median_clean": null,
     "price_min_clean": null,
@@ -348,6 +346,13 @@
     "policy_card_status_mismatch": true,
     "holdout_applied": true,
     "holdout_reason": "AUTO_PUBLISH_V2_MISMATCH_OWNER_DECISION_20260402",
-    "holdout_previous_card_status": "AUTO_PUBLISH"
+    "holdout_previous_card_status": "AUTO_PUBLISH",
+    "price_integration": {
+      "trace_id": "pi_20260407T093744Z_13f264",
+      "integrated_at": "2026-04-07T09:37:44Z",
+      "source_manifest": "price_manual_manifest.jsonl",
+      "offer_admissibility_status": "admissible_public_price",
+      "schema_version": "price_evidence_integration_v1"
+    }
   }
 }

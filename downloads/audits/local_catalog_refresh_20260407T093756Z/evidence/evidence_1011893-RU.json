@@ -1,24 +1,23 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
-  "pn": "010130.10",
+  "generated_at": "2026-04-07T09:37:56.639919Z",
+  "pn": "1011893-RU",
   "pn_variants": [
-    "10130.10",
-    "010130-10",
-    "01013010"
+    "1011893.RU",
+    "1011893RU"
   ],
   "brand": "Honeywell",
   "subbrand": "",
-  "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
-  "assembled_title": "Модуль Honeywell 010130.10",
-  "our_price_raw": "13288,04",
-  "expected_category": "Модуль",
+  "name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом",
+  "assembled_title": "Привязь Honeywell 1011893-RU",
+  "our_price_raw": "2447,96",
+  "expected_category": "Привязь",
   "card_status": "REVIEW_REQUIRED",
   "review_reasons": [
     "NO_IMAGE_EVIDENCE"
   ],
   "policy_decision_v2": {
-    "decision_id": "dec_010130.10",
+    "decision_id": "dec_1011893-RU",
     "policy_version": "catalog_evidence_policy_v1",
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
@@ -35,10 +34,10 @@
         "field": "identity",
         "severity": "ERROR",
         "candidate_ids": [
-          "cand_title_010130.10"
+          "cand_title_1011893-RU"
         ],
         "evidence_ids": [
-          "ev_title_010130.10"
+          "ev_title_1011893-RU"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "IDENTITY_CONFLICT"
@@ -48,10 +47,10 @@
         "field": "image",
         "severity": "INFO",
         "candidate_ids": [
-          "cand_image_010130.10"
+          "cand_image_1011893-RU"
         ],
         "evidence_ids": [
-          "ev_image_010130.10"
+          "ev_image_1011893-RU"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -61,10 +60,10 @@
         "field": "pdf",
         "severity": "INFO",
         "candidate_ids": [
-          "cand_pdf_010130.10"
+          "cand_pdf_1011893-RU"
         ],
         "evidence_ids": [
-          "ev_pdf_010130.10"
+          "ev_pdf_1011893-RU"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "PDF_CONFLICT"
@@ -89,10 +88,10 @@
       "field": "identity",
       "severity": "ERROR",
       "candidate_ids": [
-        "cand_title_010130.10"
+        "cand_title_1011893-RU"
       ],
       "evidence_ids": [
-        "ev_title_010130.10"
+        "ev_title_1011893-RU"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "IDENTITY_CONFLICT"
@@ -102,10 +101,10 @@
       "field": "image",
       "severity": "INFO",
       "candidate_ids": [
-        "cand_image_010130.10"
+        "cand_image_1011893-RU"
       ],
       "evidence_ids": [
-        "ev_image_010130.10"
+        "ev_image_1011893-RU"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -115,10 +114,10 @@
       "field": "pdf",
       "severity": "INFO",
       "candidate_ids": [
-        "cand_pdf_010130.10"
+        "cand_pdf_1011893-RU"
       ],
       "evidence_ids": [
-        "ev_pdf_010130.10"
+        "ev_pdf_1011893-RU"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "PDF_CONFLICT"
@@ -138,16 +137,16 @@
   },
   "photo": {
     "verdict": "REJECT",
-    "verdict_reason": "баннер/шапка сайта 420x65px",
-    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\010130.10.jpg",
-    "sha1": "752088d9f0c5ac8a6824814586bc48068ea7666d",
-    "canonical_filename": "HONEYWELL_010130_10_752088d9.jpg",
+    "verdict_reason": "баннер/шапка сайта 200x60px",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011893-RU.jpg",
+    "sha1": "f136aafc0054b1f63f8d911212fd43ee239c275a",
+    "canonical_filename": "HONEYWELL_1011893-RU_f136aafc.jpg",
     "public_url": null,
-    "width": 1280,
-    "height": 720,
-    "size_kb": 130,
+    "width": 311,
+    "height": 650,
+    "size_kb": 286,
     "source": "cached",
-    "phash": "ad3dc2fc0ee2e206",
+    "phash": "eb31d42a7b80dd68",
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "photo_status": "rejected",
@@ -157,22 +156,22 @@
   },
   "price": {
     "price_status": "public_price",
-    "price_per_unit": 225.0,
-    "currency": "EUR",
-    "rub_price": 21375.0,
-    "fx_rate_used": 95.0,
+    "price_per_unit": 4084.0,
+    "currency": "руб",
+    "rub_price": null,
+    "fx_rate_used": null,
     "fx_provider": "stub",
-    "price_confidence": 95,
-    "source_tier": "authorized",
+    "price_confidence": 100,
+    "source_url": "https://ruslader.ru/magazin/product-detail/honeywell-1011893-ru-privyaz-titan-1p-s-poyasom-titan-harness-1p-belt-detail",
+    "source_type": "ru_b2b",
+    "source_tier": "ru_b2b",
     "stock_status": "in_stock",
     "offer_unit_basis": "piece",
     "offer_qty": 1,
     "lead_time_detected": false,
-    "page_product_class": "",
-    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73660-4mg-2a-modul-bus-2-bus-1-ap-01013010",
-    "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
+    "page_product_class": "Привязь",
     "brand_mismatch": false,
     "price_median_clean": null,
     "price_min_clean": null,
@@ -180,27 +179,14 @@
     "price_sample_size": 1
   },
   "datasheet": {
-    "datasheet_status": "no_pn_confirm",
-    "pdf_url": "https://adiglobal.cz/iiWWW/cz/Produkty110.nsf/wp/katalogy/$file/Honeywell_Security_Solutions_2024_en.pdf",
-    "pdf_source_tier": "authorized",
-    "pdf_title": "SECURITY",
-    "pdf_specs": {
-      "but also more complex": "No matter whether in offices, industrial plants, banks, museums, public build-",
-      "tion, decentralized locations": "Customized alarm management",
-      "networked with each other": "This not only enables considerable cost savings, but also valuable synergies.",
-      "WINMAG plus is modular and easily scalable": "This ensures that this software can not only be easily and",
-      "interface": "Last but not least, the new licensing model of WINMAG plus offers tailor-made solutions, as",
-      "carried out in a more cost-effective manner": "Whether global or local - everything under safe supervision everywhere",
-      "easily realized through the integrated workflows": "With version V7.0, using WINMAG plus in Microsoft",
-      "IT investments": "Installations for clients are completely eliminated. This also reduces maintenance costs.",
-      "Hardware- and software requirements": "Communication Server:",
-      "Client": "- Intel I5 / AMD equivalent or higher",
-      "Common": "- RAID-1 System recommended",
-      "licenses please use the WINMAG plus order form": "6 www.security.honeywell.de"
-    },
-    "pdf_text_excerpt": "SECURITY 1 SOLUTIONS 2 2024 3 4 Intrusion, Access Control, Management Systems 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 Further information www.security.honeywell.de Honeywell Building Technologies Novar GmbH Johannes-Mauthe-Straße 14 72458 Albstadt Germany HBT-EN-DACH-EN-June2024 www.honeywell.com © 2024 Honeywell International Inc. Table of contents Management Systems 1 MB-Secure 2 Power Supplies 3 Remote data transmission 4 Radio product line / MB radio system 5 Display and operating units 6 Connection modules BUS-2/BUS-1, BUS-2, BUS-1 7 Switching devices 8 Readers / ID Carriers 9 Motion detec",
-    "num_pages": 254,
-    "parse_method": "pdfplumber",
+    "datasheet_status": "not_found",
+    "pdf_url": null,
+    "pdf_source_tier": null,
+    "pdf_title": null,
+    "pdf_specs": {},
+    "pdf_text_excerpt": null,
+    "num_pages": 0,
+    "parse_method": null,
     "pn_confirmed_in_pdf": false
   },
   "structured_identity": {
@@ -213,11 +199,11 @@
   },
   "content": {
     "specs": {},
-    "description": "Модуль 4DG/2OP предназначен для интеграции в системы безопасности и автоматизации. Он поддерживает шины BUS-2 и BUS-1, обеспечивая надежную передачу данных и управление различными устройствами.",
+    "description": "Страховочная привязь SPERIAN TITAN с одной точкой крепления и поясом обеспечивает безопасность при работе на высоте. Она удобна в использовании и соответствует всем необходимым стандартам безопасности.",
     "description_source": "insales_import_seed",
-    "site_placement": "Каталог/Системы безопасности",
-    "product_type": "Модуль",
-    "seed_name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m."
+    "site_placement": "Каталог/Средства индивидуальной защиты",
+    "product_type": "Привязь",
+    "seed_name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом"
   },
   "trace": {
     "pn_match_location": "",
@@ -239,8 +225,8 @@
     "policy_version": "catalog_verifier_policy_v1",
     "mode": "shadow",
     "feature_enabled": true,
-    "trace_id": "catalog_verifier:010130.10:2026-03-26T20:23:24.007390Z",
-    "idempotency_key": "catalog_verifier:010130.10:63c3ce8bf1d316817788d9c6",
+    "trace_id": "catalog_verifier:1011893-RU:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:1011893-RU:c87786f15666b3868b670352",
     "router": {
       "should_route": true,
       "trigger_codes": [
@@ -259,10 +245,10 @@
     },
     "packet": {
       "schema_version": "catalog_verifier_input_schema_v1",
-      "trace_id": "catalog_verifier:010130.10:2026-03-26T20:23:24.007390Z",
-      "idempotency_key": "catalog_verifier:010130.10:63c3ce8bf1d316817788d9c6",
-      "pn_primary": "010130.10",
-      "normalized_title": "Модуль Honeywell 010130.10",
+      "trace_id": "catalog_verifier:1011893-RU:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:1011893-RU:c87786f15666b3868b670352",
+      "pn_primary": "1011893-RU",
+      "normalized_title": "Привязь Honeywell 1011893-RU",
       "card_status": "DRAFT_ONLY",
       "field_statuses": {
         "title_status": "ACCEPTED",
@@ -276,10 +262,10 @@
           "field": "identity",
           "severity": "ERROR",
           "candidate_ids": [
-            "cand_title_010130.10"
+            "cand_title_1011893-RU"
           ],
           "evidence_ids": [
-            "ev_title_010130.10"
+            "ev_title_1011893-RU"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "IDENTITY_CONFLICT"
@@ -289,10 +275,10 @@
           "field": "image",
           "severity": "INFO",
           "candidate_ids": [
-            "cand_image_010130.10"
+            "cand_image_1011893-RU"
           ],
           "evidence_ids": [
-            "ev_image_010130.10"
+            "ev_image_1011893-RU"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -302,10 +288,10 @@
           "field": "pdf",
           "severity": "INFO",
           "candidate_ids": [
-            "cand_pdf_010130.10"
+            "cand_pdf_1011893-RU"
           ],
           "evidence_ids": [
-            "ev_pdf_010130.10"
+            "ev_pdf_1011893-RU"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "PDF_CONFLICT"
@@ -318,9 +304,9 @@
       ],
       "source_role_evidence_summary": {
         "title_source_role": "deterministic_title_assembly",
-        "price_source_tier": "authorized",
-        "pdf_source_tier": "authorized",
-        "image_source_tier": "authorized"
+        "price_source_tier": "ru_b2b",
+        "pdf_source_tier": "",
+        "image_source_tier": "ru_b2b"
       },
       "structured_identity": {
         "exact_jsonld_pn_match": false,
@@ -331,10 +317,10 @@
         "structured_pn_match_location": ""
       },
       "pdf_evidence_summary": {
-        "datasheet_status": "no_pn_confirm",
+        "datasheet_status": "not_found",
         "pdf_exact_pn_confirmed": false,
         "pn_confirmed_in_pdf": false,
-        "pdf_source_tier": "authorized"
+        "pdf_source_tier": null
       },
       "image_evidence_summary": {
         "photo_verdict": "REJECT",
@@ -343,8 +329,8 @@
       },
       "price_evidence_summary": {
         "price_status": "public_price",
-        "source_tier": "authorized",
-        "page_product_class": "Модуль",
+        "source_tier": "ru_b2b",
+        "page_product_class": "Привязь",
         "category_mismatch": false,
         "brand_mismatch": false
       },
@@ -391,13 +377,6 @@
     "merchandising_image_status": "rejected",
     "card_status_source": "photo_verdict_override",
     "policy_card_status_historical": "REVIEW_REQUIRED",
-    "policy_card_status_mismatch": false,
-    "price_integration": {
-      "trace_id": "pi_20260407T093744Z_13f264",
-      "integrated_at": "2026-04-07T09:37:44Z",
-      "source_manifest": "price_manual_manifest.jsonl",
-      "offer_admissibility_status": "admissible_public_price",
-      "schema_version": "price_evidence_integration_v1"
-    }
+    "policy_card_status_mismatch": false
   }
 }

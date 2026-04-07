@@ -1,24 +1,20 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
-  "pn": "010130.10",
-  "pn_variants": [
-    "10130.10",
-    "010130-10",
-    "01013010"
-  ],
+  "generated_at": "2026-04-07T09:37:56.639919Z",
+  "pn": "1050000000",
+  "pn_variants": [],
   "brand": "Honeywell",
   "subbrand": "",
-  "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
-  "assembled_title": "Модуль Honeywell 010130.10",
-  "our_price_raw": "13288,04",
-  "expected_category": "Модуль",
+  "name": "Конечная пластина WAP 2.5-10",
+  "assembled_title": "Пластина Honeywell 1050000000",
+  "our_price_raw": "45,78",
+  "expected_category": "Пластина",
   "card_status": "REVIEW_REQUIRED",
   "review_reasons": [
     "NO_IMAGE_EVIDENCE"
   ],
   "policy_decision_v2": {
-    "decision_id": "dec_010130.10",
+    "decision_id": "dec_1050000000",
     "policy_version": "catalog_evidence_policy_v1",
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
@@ -35,23 +31,23 @@
         "field": "identity",
         "severity": "ERROR",
         "candidate_ids": [
-          "cand_title_010130.10"
+          "cand_title_1050000000"
         ],
         "evidence_ids": [
-          "ev_title_010130.10"
+          "ev_title_1050000000"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "IDENTITY_CONFLICT"
       },
       {
-        "reason_code": "NO_IMAGE_EVIDENCE",
+        "reason_code": "IMAGE_UNKNOWN",
         "field": "image",
-        "severity": "INFO",
+        "severity": "WARNING",
         "candidate_ids": [
-          "cand_image_010130.10"
+          "cand_image_1050000000"
         ],
         "evidence_ids": [
-          "ev_image_010130.10"
+          "ev_image_1050000000"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -61,13 +57,26 @@
         "field": "pdf",
         "severity": "INFO",
         "candidate_ids": [
-          "cand_pdf_010130.10"
+          "cand_pdf_1050000000"
         ],
         "evidence_ids": [
-          "ev_pdf_010130.10"
+          "ev_pdf_1050000000"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "PDF_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_1050000000"
+        ],
+        "evidence_ids": [
+          "ev_image_1050000000"
+        ],
+        "policy_rule_id": "local_catalog_refresh_v1",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
       }
     ],
     "review_buckets": [
@@ -89,23 +98,23 @@
       "field": "identity",
       "severity": "ERROR",
       "candidate_ids": [
-        "cand_title_010130.10"
+        "cand_title_1050000000"
       ],
       "evidence_ids": [
-        "ev_title_010130.10"
+        "ev_title_1050000000"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "IDENTITY_CONFLICT"
     },
     {
-      "reason_code": "NO_IMAGE_EVIDENCE",
+      "reason_code": "IMAGE_UNKNOWN",
       "field": "image",
-      "severity": "INFO",
+      "severity": "WARNING",
       "candidate_ids": [
-        "cand_image_010130.10"
+        "cand_image_1050000000"
       ],
       "evidence_ids": [
-        "ev_image_010130.10"
+        "ev_image_1050000000"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -115,20 +124,33 @@
       "field": "pdf",
       "severity": "INFO",
       "candidate_ids": [
-        "cand_pdf_010130.10"
+        "cand_pdf_1050000000"
       ],
       "evidence_ids": [
-        "ev_pdf_010130.10"
+        "ev_pdf_1050000000"
       ],
       "policy_rule_id": "CAP-09",
       "bucket": "PDF_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_1050000000"
+      ],
+      "evidence_ids": [
+        "ev_image_1050000000"
+      ],
+      "policy_rule_id": "local_catalog_refresh_v1",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
     }
   ],
   "confidence": {
     "pn_confidence": 0.0,
-    "image_confidence": 0.05,
+    "image_confidence": 0.0,
     "price_confidence": 0.0,
-    "overall": 0.015,
+    "overall": 0.0,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
@@ -138,16 +160,16 @@
   },
   "photo": {
     "verdict": "REJECT",
-    "verdict_reason": "баннер/шапка сайта 420x65px",
-    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\010130.10.jpg",
-    "sha1": "752088d9f0c5ac8a6824814586bc48068ea7666d",
-    "canonical_filename": "HONEYWELL_010130_10_752088d9.jpg",
+    "verdict_reason": "user_feedback_2026_04_01_image_not_related_to_sku",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1050000000.jpg",
+    "sha1": "cf97df1b7b3698c2e7736f2536358a9caf11e780",
+    "canonical_filename": "HONEYWELL_1050000000_cf97df1b.jpg",
     "public_url": null,
-    "width": 1280,
-    "height": 720,
-    "size_kb": 130,
+    "width": 640,
+    "height": 480,
+    "size_kb": 4,
     "source": "cached",
-    "phash": "ad3dc2fc0ee2e206",
+    "phash": "eb3285e2d28f83c9",
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "photo_status": "rejected",
@@ -157,22 +179,22 @@
   },
   "price": {
     "price_status": "public_price",
-    "price_per_unit": 225.0,
-    "currency": "EUR",
-    "rub_price": 21375.0,
-    "fx_rate_used": 95.0,
+    "price_per_unit": 29.6,
+    "currency": "TWD",
+    "rub_price": null,
+    "fx_rate_used": null,
     "fx_provider": "stub",
-    "price_confidence": 95,
+    "price_confidence": 90,
+    "source_url": "https://twcn.rs-online.com/web/p/din-rail-terminal-accessories/0425291",
+    "source_type": "authorized_distributor",
     "source_tier": "authorized",
     "stock_status": "in_stock",
     "offer_unit_basis": "piece",
     "offer_qty": 1,
     "lead_time_detected": false,
-    "page_product_class": "",
-    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=73660-4mg-2a-modul-bus-2-bus-1-ap-01013010",
-    "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
+    "page_product_class": "Пластина",
     "brand_mismatch": false,
     "price_median_clean": null,
     "price_min_clean": null,
@@ -181,25 +203,18 @@
   },
   "datasheet": {
     "datasheet_status": "no_pn_confirm",
-    "pdf_url": "https://adiglobal.cz/iiWWW/cz/Produkty110.nsf/wp/katalogy/$file/Honeywell_Security_Solutions_2024_en.pdf",
-    "pdf_source_tier": "authorized",
-    "pdf_title": "SECURITY",
+    "pdf_url": "https://www.elec.ru/files/2018/12/01/radiodetali_datasheet_catalog_Minsk_80447584780.pdf",
+    "pdf_source_tier": "ru_b2b",
+    "pdf_title": "радиодетали купить в Минске",
     "pdf_specs": {
-      "but also more complex": "No matter whether in offices, industrial plants, banks, museums, public build-",
-      "tion, decentralized locations": "Customized alarm management",
-      "networked with each other": "This not only enables considerable cost savings, but also valuable synergies.",
-      "WINMAG plus is modular and easily scalable": "This ensures that this software can not only be easily and",
-      "interface": "Last but not least, the new licensing model of WINMAG plus offers tailor-made solutions, as",
-      "carried out in a more cost-effective manner": "Whether global or local - everything under safe supervision everywhere",
-      "easily realized through the integrated workflows": "With version V7.0, using WINMAG plus in Microsoft",
-      "IT investments": "Installations for clients are completely eliminated. This also reduces maintenance costs.",
-      "Hardware- and software requirements": "Communication Server:",
-      "Client": "- Intel I5 / AMD equivalent or higher",
-      "Common": "- RAID-1 System recommended",
-      "licenses please use the WINMAG plus order form": "6 www.security.honeywell.de"
+      "Мы не работаем с частными (физическими ) лицами": "Мы работаем только с юридическими лицами(организациями) и ИП и только",
+      "по безналичному расчёту": "Электронные компоненты, радиодетали",
+      "Просим Вас указывать в заявке": "— название предприятия, факс, контактный телефон, контактное лицо;",
+      "смотрите основные направления поставок ниже": "Заказ Минск тел.+375 29 7584780 мтс email minsk17@tut.by www.fotorele.net",
+      "Продаём": "Микросхемы отечественные"
     },
-    "pdf_text_excerpt": "SECURITY 1 SOLUTIONS 2 2024 3 4 Intrusion, Access Control, Management Systems 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 Further information www.security.honeywell.de Honeywell Building Technologies Novar GmbH Johannes-Mauthe-Straße 14 72458 Albstadt Germany HBT-EN-DACH-EN-June2024 www.honeywell.com © 2024 Honeywell International Inc. Table of contents Management Systems 1 MB-Secure 2 Power Supplies 3 Remote data transmission 4 Radio product line / MB radio system 5 Display and operating units 6 Connection modules BUS-2/BUS-1, BUS-2, BUS-1 7 Switching devices 8 Readers / ID Carriers 9 Motion detec",
-    "num_pages": 254,
+    "pdf_text_excerpt": "радиодетали купить в Минске email minsk17@tut.by тел.+375447584780 www.fotorele.net www.tiristor.by Реле , каталог, описание, технические, характеристики, datasheet, параметры, маркировка, габариты, фото, даташит, QR код Мы не работаем с частными (физическими ) лицами. Мы работаем только с юридическими лицами(организациями) и ИП и только по безналичному расчёту. Электронные компоненты, радиодетали реле реле электромеханическое где и как купить в Минске? Сделать заявку или запрос можно по телефону факсу или по электронной почте Просим Вас указывать в заявке: — название предприятия, факс, контак",
+    "num_pages": 634,
     "parse_method": "pdfplumber",
     "pn_confirmed_in_pdf": false
   },
@@ -213,11 +228,11 @@
   },
   "content": {
     "specs": {},
-    "description": "Модуль 4DG/2OP предназначен для интеграции в системы безопасности и автоматизации. Он поддерживает шины BUS-2 и BUS-1, обеспечивая надежную передачу данных и управление различными устройствами.",
+    "description": "Конечная пластина WAP 2.5-10 используется для завершения сборки клеммных блоков. Она обеспечивает надежное крепление и защиту проводов.",
     "description_source": "insales_import_seed",
-    "site_placement": "Каталог/Системы безопасности",
-    "product_type": "Модуль",
-    "seed_name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m."
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Пластина",
+    "seed_name": "Конечная пластина WAP 2.5-10"
   },
   "trace": {
     "pn_match_location": "",
@@ -239,11 +254,12 @@
     "policy_version": "catalog_verifier_policy_v1",
     "mode": "shadow",
     "feature_enabled": true,
-    "trace_id": "catalog_verifier:010130.10:2026-03-26T20:23:24.007390Z",
-    "idempotency_key": "catalog_verifier:010130.10:63c3ce8bf1d316817788d9c6",
+    "trace_id": "catalog_verifier:1050000000:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:1050000000:7e24a79faac9f12d0a368794",
     "router": {
       "should_route": true,
       "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
         "IDENTITY_NOT_STRONG"
       ],
       "deterministic_card_status": "DRAFT_ONLY",
@@ -259,14 +275,14 @@
     },
     "packet": {
       "schema_version": "catalog_verifier_input_schema_v1",
-      "trace_id": "catalog_verifier:010130.10:2026-03-26T20:23:24.007390Z",
-      "idempotency_key": "catalog_verifier:010130.10:63c3ce8bf1d316817788d9c6",
-      "pn_primary": "010130.10",
-      "normalized_title": "Модуль Honeywell 010130.10",
+      "trace_id": "catalog_verifier:1050000000:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:1050000000:7e24a79faac9f12d0a368794",
+      "pn_primary": "1050000000",
+      "normalized_title": "Пластина Honeywell 1050000000",
       "card_status": "DRAFT_ONLY",
       "field_statuses": {
         "title_status": "ACCEPTED",
-        "image_status": "INSUFFICIENT",
+        "image_status": "REVIEW_REQUIRED",
         "price_status": "ACCEPTED",
         "pdf_status": "INSUFFICIENT"
       },
@@ -276,23 +292,23 @@
           "field": "identity",
           "severity": "ERROR",
           "candidate_ids": [
-            "cand_title_010130.10"
+            "cand_title_1050000000"
           ],
           "evidence_ids": [
-            "ev_title_010130.10"
+            "ev_title_1050000000"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "IDENTITY_CONFLICT"
         },
         {
-          "reason_code": "NO_IMAGE_EVIDENCE",
+          "reason_code": "IMAGE_UNKNOWN",
           "field": "image",
-          "severity": "INFO",
+          "severity": "WARNING",
           "candidate_ids": [
-            "cand_image_010130.10"
+            "cand_image_1050000000"
           ],
           "evidence_ids": [
-            "ev_image_010130.10"
+            "ev_image_1050000000"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -302,10 +318,10 @@
           "field": "pdf",
           "severity": "INFO",
           "candidate_ids": [
-            "cand_pdf_010130.10"
+            "cand_pdf_1050000000"
           ],
           "evidence_ids": [
-            "ev_pdf_010130.10"
+            "ev_pdf_1050000000"
           ],
           "policy_rule_id": "CAP-09",
           "bucket": "PDF_CONFLICT"
@@ -319,7 +335,7 @@
       "source_role_evidence_summary": {
         "title_source_role": "deterministic_title_assembly",
         "price_source_tier": "authorized",
-        "pdf_source_tier": "authorized",
+        "pdf_source_tier": "ru_b2b",
         "image_source_tier": "authorized"
       },
       "structured_identity": {
@@ -334,17 +350,17 @@
         "datasheet_status": "no_pn_confirm",
         "pdf_exact_pn_confirmed": false,
         "pn_confirmed_in_pdf": false,
-        "pdf_source_tier": "authorized"
+        "pdf_source_tier": "ru_b2b"
       },
       "image_evidence_summary": {
-        "photo_verdict": "REJECT",
+        "photo_verdict": "KEEP",
         "stock_photo_flag": false,
         "mpn_confirmed_via_jsonld": false
       },
       "price_evidence_summary": {
         "price_status": "public_price",
         "source_tier": "authorized",
-        "page_product_class": "Модуль",
+        "page_product_class": "Пластина",
         "category_mismatch": false,
         "brand_mismatch": false
       },
@@ -355,6 +371,7 @@
         "review_schema_version": "review_reason_schema_v1"
       },
       "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
         "IDENTITY_NOT_STRONG"
       ]
     },
@@ -391,13 +408,6 @@
     "merchandising_image_status": "rejected",
     "card_status_source": "photo_verdict_override",
     "policy_card_status_historical": "REVIEW_REQUIRED",
-    "policy_card_status_mismatch": false,
-    "price_integration": {
-      "trace_id": "pi_20260407T093744Z_13f264",
-      "integrated_at": "2026-04-07T09:37:44Z",
-      "source_manifest": "price_manual_manifest.jsonl",
-      "offer_admissibility_status": "admissible_public_price",
-      "schema_version": "price_evidence_integration_v1"
-    }
+    "policy_card_status_mismatch": false
   }
 }
