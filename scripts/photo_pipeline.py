@@ -127,6 +127,10 @@ EXPORT_DIR          = DOWNLOADS / "export"
 LAST_RUN_META: dict = {}
 _provider_errors: list[dict] = []
 
+# ── Graceful shutdown support ─────────────────────────────────────────────────
+_shutdown_requested: bool = False
+LEASE_FILE = Path(__file__).resolve().parent / ".lease.json"
+
 CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
 SHADOW_LOG_SCHEMA_VERSION = "photo_pipeline_shadow_log_record_v1"
 QUEUE_SCHEMA_VERSION = "followup_queue_v2"
@@ -171,6 +175,65 @@ def clear_checkpoint() -> None:
             CHECKPOINT_FILE.unlink()
     except Exception:
         pass
+
+
+# ── Lease file helpers ────────────────────────────────────────────────────────
+
+def _write_lease(total_skus: int) -> None:
+    """Write lease file at batch start so external monitors can track liveness."""
+    try:
+        now = datetime.datetime.utcnow().isoformat() + "Z"
+        lease = {
+            "pid": os.getpid(),
+            "started_at": now,
+            "heartbeat_at": now,
+            "task": "photo_pipeline",
+            "total_skus": total_skus,
+        }
+        tmp = LEASE_FILE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(lease, ensure_ascii=False), encoding="utf-8")
+        os.rename(tmp, LEASE_FILE)
+    except Exception as _e:
+        log.warning(f"lease write failed: {_e}")
+
+
+def _update_lease_heartbeat(total_skus: int) -> None:
+    """Update heartbeat_at in lease file (called every 10 SKUs)."""
+    try:
+        if not LEASE_FILE.exists():
+            return
+        lease = json.loads(LEASE_FILE.read_text(encoding="utf-8"))
+        lease["heartbeat_at"] = datetime.datetime.utcnow().isoformat() + "Z"
+        lease["total_skus"] = total_skus
+        tmp = LEASE_FILE.with_suffix(".tmp")
+        tmp.write_text(json.dumps(lease, ensure_ascii=False), encoding="utf-8")
+        os.rename(tmp, LEASE_FILE)
+    except Exception as _e:
+        log.warning(f"lease heartbeat failed: {_e}")
+
+
+def _cleanup_lease() -> None:
+    """Remove lease file at batch end (normal or graceful shutdown)."""
+    try:
+        if LEASE_FILE.exists():
+            LEASE_FILE.unlink()
+    except Exception:
+        pass
+
+
+# ── SIGTERM / SIGINT handler ──────────────────────────────────────────────────
+
+import signal as _signal
+
+
+def _request_shutdown(signum, frame):  # noqa: ARG001
+    global _shutdown_requested
+    _shutdown_requested = True
+    log.info(
+        f"shutdown signal {signum} received — will stop after current SKU"
+    )
+
+
 load_dotenv(DOWNLOADS / ".env")
 
 serpapi_key = str(os.getenv("SERPAPI_KEY", "")).strip()
@@ -1730,7 +1793,11 @@ def run(
     phash_cache: dict[str, list[str]] = {}  # phash → [pn1, pn2, ...]
     checkpoint     = load_checkpoint()
 
-    global LAST_RUN_META, _provider_errors
+    global LAST_RUN_META, _provider_errors, _shutdown_requested
+    _shutdown_requested = False
+    _signal.signal(_signal.SIGTERM, _request_shutdown)
+    _signal.signal(_signal.SIGINT, _request_shutdown)
+
     reset_batch_usage()
     _provider_errors = []
     keep = reject = no_photo = skipped_checkpoint = 0
@@ -1739,7 +1806,17 @@ def run(
     run_ts = datetime.datetime.utcnow().isoformat() + "Z"
     early_stop_reason = ""
 
+    _write_lease(total_skus=len(df))
+
     for i, (_, row) in enumerate(df.iterrows()):
+        # ── Graceful shutdown check ────────────────────────────────────────────
+        if _shutdown_requested:
+            pn_cur = str(row.get("Параметр: Партномер", "?")).strip()
+            save_checkpoint(checkpoint)
+            log.info(f"graceful shutdown at SKU {pn_cur}")
+            _cleanup_lease()
+            sys.exit(0)
+
         pn                = row["Параметр: Партномер"].strip()
         name              = row["Название товара или услуги"].strip()
         our_price         = row["Цена продажи"].strip()
@@ -1750,17 +1827,21 @@ def run(
 
         if pn in checkpoint:
             bundle = checkpoint[pn]
-            evidence_bundles.append(bundle)
-            v_cached = bundle.get("photo", {}).get("verdict", "NO_PHOTO")
-            if v_cached == "KEEP":
-                keep += 1
-            elif v_cached == "NO_PHOTO":
-                no_photo += 1
+            _ck_status = bundle.get("_status", "done")  # backward compat: no _status → done
+            if _ck_status == "failed":
+                pass  # re-process failed SKU
             else:
-                reject += 1
-            skipped_checkpoint += 1
-            print(f"[{i+1}/{len(df)}] {pn} — CHECKPOINT (skip)")
-            continue
+                evidence_bundles.append(bundle)
+                v_cached = bundle.get("photo", {}).get("verdict", "NO_PHOTO")
+                if v_cached == "KEEP":
+                    keep += 1
+                elif v_cached == "NO_PHOTO":
+                    no_photo += 1
+                else:
+                    reject += 1
+                skipped_checkpoint += 1
+                print(f"[{i+1}/{len(df)}] {pn} — CHECKPOINT (skip)")
+                continue
 
         # ── Evidence-first skip: protect bundles written by other pipelines ───
         if not force_reprocess:
@@ -1770,6 +1851,7 @@ def run(
                 try:
                     existing_bundle = json.loads(evidence_path.read_text(encoding="utf-8"))
                     evidence_bundles.append(existing_bundle)
+                    existing_bundle["_status"] = "done"
                     checkpoint[pn] = existing_bundle
                     save_checkpoint(checkpoint)
                     v_cached = existing_bundle.get("photo", {}).get("verdict", "NO_PHOTO")
@@ -1795,61 +1877,273 @@ def run(
                     record_skipped_due_to_budget(remaining_pn, reason)
             break
 
-        # ── PN variants generation ─────────────────────────────────────────────
-        pn_var = generate_variants(pn)
-        if pn_var.is_short:
-            log.warning(f"  SHORT PN ({len(pn)} chars) — high collision risk: {pn}")
+        # ── Heartbeat every 10 SKUs ───────────────────────────────────────────
+        if i % 10 == 0:
+            _update_lease_heartbeat(len(df))
 
-        print(f"\n[{i+1}/{len(df)}] {pn} — {name[:50]}")
+        _sku_trace_id = f"photo_pipeline_{run_ts}_{pn}".replace(":", "-").replace(" ", "_")
 
-        # ── Шаг 1: фото ───────────────────────────────────────────────────────
-        dl = step1_find_and_download(pn, name, artifact_cache)
+        try:
+            # ── PN variants generation ────────────────────────────────────────
+            pn_var = generate_variants(pn)
+            if pn_var.is_short:
+                log.warning(f"  SHORT PN ({len(pn)} chars) — high collision risk: {pn}")
 
-        if not dl["path"]:
-            print("  Фото: НЕ НАЙДЕНО")
-            verdicts[pn] = {"verdict": "NO_PHOTO", "reason": "не найдено", "path": ""}
-            data[pn] = {
-                "specs": {}, "description": None,
-                "price_usd": None, "price_source": None,
-                "price_status": "no_price_found",
-            }
-            no_photo += 1
-            VERDICT_FILE.write_text(json.dumps(verdicts, ensure_ascii=False, indent=2), encoding="utf-8")
-            DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-            _no_photo_bundle = build_evidence_bundle(
-                pn=pn, name=name, brand=BRAND,
+            print(f"\n[{i+1}/{len(df)}] {pn} — {name[:50]}")
+
+            # ── Шаг 1: фото ──────────────────────────────────────────────────
+            dl = step1_find_and_download(pn, name, artifact_cache)
+
+            if not dl["path"]:
+                print("  Фото: НЕ НАЙДЕНО")
+                verdicts[pn] = {"verdict": "NO_PHOTO", "reason": "не найдено", "path": ""}
+                data[pn] = {
+                    "specs": {}, "description": None,
+                    "price_usd": None, "price_source": None,
+                    "price_status": "no_price_found",
+                }
+                no_photo += 1
+                VERDICT_FILE.write_text(json.dumps(verdicts, ensure_ascii=False, indent=2), encoding="utf-8")
+                DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+                _no_photo_bundle = build_evidence_bundle(
+                    pn=pn, name=name, brand=BRAND,
+                    photo_result=dl,
+                    vision_verdict={"verdict": "NO_PHOTO", "reason": "не найдено"},
+                    price_result={"price_status": "no_price_found"},
+                    datasheet_result={"datasheet_status": "skipped"},
+                    run_ts=run_ts,
+                    our_price_raw=our_price,
+                    pn_variants=pn_var.variants,
+                    expected_category=expected_category,
+                    content_seed=content_seed,
+                )
+                _no_photo_content = _no_photo_bundle.get("content", {})
+                data[pn] = {
+                    "specs": {},
+                    "description": _no_photo_content.get("description"),
+                    "description_source": _no_photo_content.get("description_source", ""),
+                    "site_placement": _no_photo_content.get("site_placement", ""),
+                    "product_type": _no_photo_content.get("product_type", ""),
+                    "seed_name": _no_photo_content.get("seed_name", ""),
+                    "price_usd": None,
+                    "price_source": None,
+                    "price_status": "no_price_found",
+                }
+                VERDICT_FILE.write_text(json.dumps(verdicts, ensure_ascii=False, indent=2), encoding="utf-8")
+                DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+                evidence_bundles.append(_no_photo_bundle)
+                _no_photo_bundle["_status"] = "done"
+                checkpoint[pn] = _no_photo_bundle
+                save_checkpoint(checkpoint)
+                record_completed_sku(pn)
+                all_results.append({
+                    "pn": pn, "name": name, "verdict": "NO_PHOTO",
+                    "our_price": our_price, "price_status": "no_price_found",
+                    "description": (_no_photo_content.get("description") or "")[:200],
+                })
+                if check_wallclock_budget():
+                    early_stop_reason = get_shadow_runtime_summary().get("reason_for_early_stop", "")
+                    for j in range(i + 1, len(df)):
+                        remaining_pn = df.iloc[j]["Параметр: Партномер"].strip()
+                        record_skipped_due_to_budget(remaining_pn, early_stop_reason or "wallclock_budget_reached")
+                    break
+                continue
+
+            # Perceptual hash dedupe
+            ph = compute_phash(dl["path"])
+            stock_flag = is_stock_photo(ph, phash_cache, pn)
+            if stock_flag:
+                log.warning(f"  stock_photo_flag=True для {pn} (phash у 5+ SKU)")
+
+            cached_mark = "(cached)" if dl["source"] == "cached" else ""
+            print(f"  Фото: {dl['width']}x{dl['height']}px {dl['size_kb']}KB {cached_mark}")
+            print(f"  Источник: {dl['source'][:85]}")
+
+            # ── Шаг 2: поиск URL кандидатов ──────────────────────────────────
+            candidates = step2_us_price(pn, name)
+
+            # ── Шаг 2b: извлечение цены ──────────────────────────────────────
+            price_info = tighten_public_price_result(
+                step2b_extract_from_pages(
+                    candidates,
+                    pn,
+                    BRAND,
+                    expected_category,
+                    price_cache_payload=price_evidence_cache,
+                    source_surface_cache_payload=source_surface_cache,
+                )
+            )
+            if price_info["price_usd"]:
+                fallback_mark = " [cache_fallback]" if price_info.get("cache_fallback_used") else ""
+                print(
+                    f"  Цена: {price_info['currency']} {price_info['price_usd']:,.2f} "
+                    f"[{price_info['price_status']}] ({price_info['source_url'][:55]}){fallback_mark}"
+                )
+            else:
+                print(f"  Цена: {price_info['price_status']}")
+
+            # ── Шаг 3: GPT Vision ─────────────────────────────────────────────
+            sha1 = dl.get("sha1", "")
+            gpt_key = f"{pn}:{dl['path']}"
+
+            # Проверяем artifact cache по sha1 — KEEP позволяет пропустить GPT
+            av = lookup_artifact(sha1, artifact_cache) if sha1 else None
+            if av:
+                v = {"verdict": av["verdict"], "reason": av.get("reason", "artifact_cache")}
+                print(f"  Вердикт: {v['verdict']} (artifact_cache sha1={sha1[:8]}) — {v['reason']}")
+            elif gpt_key in gpt_cache:
+                v = gpt_cache[gpt_key]
+                # Баг A fix: сохраняем в artifact cache и из gpt_cache ветки
+                if sha1 and sha1 not in artifact_cache:
+                    artifact_cache[sha1] = {
+                        "pn": pn,
+                        "source_url": dl.get("source", ""),
+                        "phash": ph,
+                        "verdict": v["verdict"],
+                        "reason": v.get("reason", ""),
+                        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+                    }
+                    ARTIFACT_CACHE_FILE.write_text(
+                        json.dumps(artifact_cache, ensure_ascii=False, indent=2), encoding="utf-8"
+                    )
+                print(f"  Вердикт: {v['verdict']} (gpt_cache) — {v['reason']}")
+            else:
+                v = step3_vision(pn, name, dl["path"], dl["width"], dl["height"])
+                gpt_cache[gpt_key] = v
+                GPT_CACHE.write_text(json.dumps(gpt_cache, ensure_ascii=False, indent=2), encoding="utf-8")
+                # Сохраняем в artifact cache по sha1
+                if sha1:
+                    artifact_cache[sha1] = {
+                        "pn": pn,
+                        "source_url": dl.get("source", ""),
+                        "phash": ph,
+                        "verdict": v["verdict"],
+                        "reason": v.get("reason", ""),
+                        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+                    }
+                    ARTIFACT_CACHE_FILE.write_text(
+                        json.dumps(artifact_cache, ensure_ascii=False, indent=2), encoding="utf-8"
+                    )
+                print(f"  Вердикт: {v['verdict']} — {v['reason']}")
+
+            v = apply_numeric_keep_guard(
+                pn=pn,
                 photo_result=dl,
-                vision_verdict={"verdict": "NO_PHOTO", "reason": "не найдено"},
-                price_result={"price_status": "no_price_found"},
-                datasheet_result={"datasheet_status": "skipped"},
+                vision_verdict=v,
+                price_result=price_info,
+            )
+            if v.get("numeric_keep_guard_applied"):
+                print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
+
+            # ── Datasheet (optional) ──────────────────────────────────────────
+            ds_result: dict = {"datasheet_status": "skipped"}
+            if datasheets:
+                from datasheet_pipeline import find_datasheet
+                ds_result = find_datasheet(pn, BRAND, get_serpapi_key())
+
+            # ── Brand co-occurrence check ─────────────────────────────────────
+            page_text_for_cooc = dl.get("description") or ""
+            brand_cooc = check_brand_cooccurrence(BRAND, page_text_for_cooc)
+
+            # ── Evidence bundle ───────────────────────────────────────────────
+            _dl_with_flags = {
+                **dl,
+                "phash": ph,
+                "stock_photo_flag": stock_flag,
+                "brand_cooccurrence": brand_cooc,
+            }
+            bundle = build_evidence_bundle(
+                pn=pn, name=name, brand=BRAND,
+                photo_result=_dl_with_flags,
+                vision_verdict=v,
+                price_result=price_info,
+                datasheet_result=ds_result,
                 run_ts=run_ts,
                 our_price_raw=our_price,
                 pn_variants=pn_var.variants,
                 expected_category=expected_category,
                 content_seed=content_seed,
             )
-            _no_photo_content = _no_photo_bundle.get("content", {})
+            evidence_bundles.append(bundle)
+            bundle["_status"] = "done"
+            checkpoint[pn] = bundle
+            save_checkpoint(checkpoint)
+            bundle_content = bundle.get("content", {})
+
+            verdicts[pn] = {
+                **v,
+                "path": dl["path"],
+                "width": dl["width"],
+                "height": dl["height"],
+                "stock_photo_flag": stock_flag,
+            }
             data[pn] = {
-                "specs": {},
-                "description": _no_photo_content.get("description"),
-                "description_source": _no_photo_content.get("description_source", ""),
-                "site_placement": _no_photo_content.get("site_placement", ""),
-                "product_type": _no_photo_content.get("product_type", ""),
-                "seed_name": _no_photo_content.get("seed_name", ""),
-                "price_usd": None,
-                "price_source": None,
-                "price_status": "no_price_found",
+                "specs": dl.get("specs", {}),
+                "description": bundle_content.get("description"),
+                "description_source": bundle_content.get("description_source", ""),
+                "site_placement": bundle_content.get("site_placement", ""),
+                "product_type": bundle_content.get("product_type", ""),
+                "seed_name": bundle_content.get("seed_name", ""),
+                "price_usd": price_info["price_usd"],
+                "price_source": price_info["source_url"],
+                "price_status": price_info["price_status"],
+                "price_confidence": price_info["price_confidence"],
+                "price_currency": price_info["currency"],
+                "stock_status": price_info["stock_status"],
+                "suffix_conflict": price_info["suffix_conflict"],
+                "category_mismatch": price_info["category_mismatch"],
+                "page_product_class": price_info["page_product_class"],
+                "price_source_seen": bool(price_info.get("price_source_seen")),
+                "price_source_url": price_info.get("price_source_url"),
+                "price_source_tier": price_info.get("price_source_tier"),
+                "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
+                "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
+                "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
+                "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
+                "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
+                "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
+                "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),
+                "price_source_replacement_tier": price_info.get("price_source_replacement_tier", ""),
+                "price_reviewable_no_price_candidate": bool(price_info.get("price_reviewable_no_price_candidate")),
+                "price_no_price_reason_code": price_info.get("price_no_price_reason_code", ""),
+                "cache_fallback_used": bool(price_info.get("cache_fallback_used")),
+                "cache_source_run_id": price_info.get("cache_source_run_id"),
+                "transient_failure_codes": price_info.get("transient_failure_codes", []),
             }
             VERDICT_FILE.write_text(json.dumps(verdicts, ensure_ascii=False, indent=2), encoding="utf-8")
             DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-            evidence_bundles.append(_no_photo_bundle)
-            checkpoint[pn] = _no_photo_bundle
-            save_checkpoint(checkpoint)
+
+            if v["verdict"] == "KEEP":
+                keep += 1
+            else:
+                reject += 1
+
             record_completed_sku(pn)
             all_results.append({
-                "pn": pn, "name": name, "verdict": "NO_PHOTO",
-                "our_price": our_price, "price_status": "no_price_found",
-                "description": (_no_photo_content.get("description") or "")[:200],
+                "pn": pn, "name": name, "verdict": v["verdict"],
+                "photo": f"{dl['width']}x{dl['height']}px {dl['size_kb']}KB",
+                "our_price": our_price,
+                "price_usd": price_info["price_usd"],
+                "price_status": price_info["price_status"],
+                "price_source": price_info["source_url"],
+                "description": (bundle_content.get("description") or "")[:200],
+                "specs": dl.get("specs", {}),
+                "photo_source": dl["source"][:80],
+                "stock_photo_flag": stock_flag,
+                "suffix_conflict": price_info["suffix_conflict"],
+                "category_mismatch": price_info["category_mismatch"],
+                "page_product_class": price_info["page_product_class"],
+                "price_source_seen": bool(price_info.get("price_source_seen")),
+                "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
+                "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
+                "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
+                "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
+                "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
+                "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
+                "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),
+                "price_source_replacement_tier": price_info.get("price_source_replacement_tier", ""),
+                "price_reviewable_no_price_candidate": bool(price_info.get("price_reviewable_no_price_candidate")),
+                "price_no_price_reason_code": price_info.get("price_no_price_reason_code", ""),
             })
             if check_wallclock_budget():
                 early_stop_reason = get_shadow_runtime_summary().get("reason_for_early_stop", "")
@@ -1857,210 +2151,17 @@ def run(
                     remaining_pn = df.iloc[j]["Параметр: Партномер"].strip()
                     record_skipped_due_to_budget(remaining_pn, early_stop_reason or "wallclock_budget_reached")
                 break
-            continue
 
-        # Perceptual hash dedupe
-        ph = compute_phash(dl["path"])
-        stock_flag = is_stock_photo(ph, phash_cache, pn)
-        if stock_flag:
-            log.warning(f"  stock_photo_flag=True для {pn} (phash у 5+ SKU)")
+        except Exception as _sku_exc:
+            log.error(json.dumps({
+                "trace_id": _sku_trace_id, "pn": pn,
+                "error_class": "TRANSIENT", "severity": "ERROR",
+                "retriable": True, "error": str(_sku_exc),
+            }, ensure_ascii=False))
+            checkpoint[pn] = {"pn": pn, "_status": "failed", "error": str(_sku_exc)}
+            save_checkpoint(checkpoint)
 
-        cached_mark = "(cached)" if dl["source"] == "cached" else ""
-        print(f"  Фото: {dl['width']}x{dl['height']}px {dl['size_kb']}KB {cached_mark}")
-        print(f"  Источник: {dl['source'][:85]}")
-
-        # ── Шаг 2: поиск URL кандидатов ───────────────────────────────────────
-        candidates = step2_us_price(pn, name)
-
-        # ── Шаг 2b: извлечение цены ────────────────────────────────────────────
-        price_info = tighten_public_price_result(
-            step2b_extract_from_pages(
-                candidates,
-                pn,
-                BRAND,
-                expected_category,
-                price_cache_payload=price_evidence_cache,
-                source_surface_cache_payload=source_surface_cache,
-            )
-        )
-        if price_info["price_usd"]:
-            fallback_mark = " [cache_fallback]" if price_info.get("cache_fallback_used") else ""
-            print(
-                f"  Цена: {price_info['currency']} {price_info['price_usd']:,.2f} "
-                f"[{price_info['price_status']}] ({price_info['source_url'][:55]}){fallback_mark}"
-            )
-        else:
-            print(f"  Цена: {price_info['price_status']}")
-
-        # ── Шаг 3: GPT Vision ─────────────────────────────────────────────────
-        sha1 = dl.get("sha1", "")
-        gpt_key = f"{pn}:{dl['path']}"
-
-        # Проверяем artifact cache по sha1 — KEEP позволяет пропустить GPT
-        av = lookup_artifact(sha1, artifact_cache) if sha1 else None
-        if av:
-            v = {"verdict": av["verdict"], "reason": av.get("reason", "artifact_cache")}
-            print(f"  Вердикт: {v['verdict']} (artifact_cache sha1={sha1[:8]}) — {v['reason']}")
-        elif gpt_key in gpt_cache:
-            v = gpt_cache[gpt_key]
-            # Баг A fix: сохраняем в artifact cache и из gpt_cache ветки
-            if sha1 and sha1 not in artifact_cache:
-                artifact_cache[sha1] = {
-                    "pn": pn,
-                    "source_url": dl.get("source", ""),
-                    "phash": ph,
-                    "verdict": v["verdict"],
-                    "reason": v.get("reason", ""),
-                    "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
-                }
-                ARTIFACT_CACHE_FILE.write_text(
-                    json.dumps(artifact_cache, ensure_ascii=False, indent=2), encoding="utf-8"
-                )
-            print(f"  Вердикт: {v['verdict']} (gpt_cache) — {v['reason']}")
-        else:
-            v = step3_vision(pn, name, dl["path"], dl["width"], dl["height"])
-            gpt_cache[gpt_key] = v
-            GPT_CACHE.write_text(json.dumps(gpt_cache, ensure_ascii=False, indent=2), encoding="utf-8")
-            # Сохраняем в artifact cache по sha1
-            if sha1:
-                artifact_cache[sha1] = {
-                    "pn": pn,
-                    "source_url": dl.get("source", ""),
-                    "phash": ph,
-                    "verdict": v["verdict"],
-                    "reason": v.get("reason", ""),
-                    "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
-                }
-                ARTIFACT_CACHE_FILE.write_text(
-                    json.dumps(artifact_cache, ensure_ascii=False, indent=2), encoding="utf-8"
-                )
-            print(f"  Вердикт: {v['verdict']} — {v['reason']}")
-
-        v = apply_numeric_keep_guard(
-            pn=pn,
-            photo_result=dl,
-            vision_verdict=v,
-            price_result=price_info,
-        )
-        if v.get("numeric_keep_guard_applied"):
-            print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
-
-        # ── Datasheet (optional) ────────────────────────────────────────────────
-        ds_result: dict = {"datasheet_status": "skipped"}
-        if datasheets:
-            from datasheet_pipeline import find_datasheet
-            ds_result = find_datasheet(pn, BRAND, get_serpapi_key())
-
-        # ── Brand co-occurrence check ──────────────────────────────────────────
-        page_text_for_cooc = dl.get("description") or ""
-        brand_cooc = check_brand_cooccurrence(BRAND, page_text_for_cooc)
-
-        # ── Evidence bundle ─────────────────────────────────────────────────────
-        _dl_with_flags = {
-            **dl,
-            "phash": ph,
-            "stock_photo_flag": stock_flag,
-            "brand_cooccurrence": brand_cooc,
-        }
-        bundle = build_evidence_bundle(
-            pn=pn, name=name, brand=BRAND,
-            photo_result=_dl_with_flags,
-            vision_verdict=v,
-            price_result=price_info,
-            datasheet_result=ds_result,
-            run_ts=run_ts,
-            our_price_raw=our_price,
-            pn_variants=pn_var.variants,
-            expected_category=expected_category,
-            content_seed=content_seed,
-        )
-        evidence_bundles.append(bundle)
-        checkpoint[pn] = bundle
-        save_checkpoint(checkpoint)
-        bundle_content = bundle.get("content", {})
-
-        verdicts[pn] = {
-            **v,
-            "path": dl["path"],
-            "width": dl["width"],
-            "height": dl["height"],
-            "stock_photo_flag": stock_flag,
-        }
-        data[pn] = {
-            "specs": dl.get("specs", {}),
-            "description": bundle_content.get("description"),
-            "description_source": bundle_content.get("description_source", ""),
-            "site_placement": bundle_content.get("site_placement", ""),
-            "product_type": bundle_content.get("product_type", ""),
-            "seed_name": bundle_content.get("seed_name", ""),
-            "price_usd": price_info["price_usd"],
-            "price_source": price_info["source_url"],
-            "price_status": price_info["price_status"],
-            "price_confidence": price_info["price_confidence"],
-            "price_currency": price_info["currency"],
-            "stock_status": price_info["stock_status"],
-            "suffix_conflict": price_info["suffix_conflict"],
-            "category_mismatch": price_info["category_mismatch"],
-            "page_product_class": price_info["page_product_class"],
-            "price_source_seen": bool(price_info.get("price_source_seen")),
-            "price_source_url": price_info.get("price_source_url"),
-            "price_source_tier": price_info.get("price_source_tier"),
-            "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
-            "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
-            "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
-            "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
-            "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
-            "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
-            "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),
-            "price_source_replacement_tier": price_info.get("price_source_replacement_tier", ""),
-            "price_reviewable_no_price_candidate": bool(price_info.get("price_reviewable_no_price_candidate")),
-            "price_no_price_reason_code": price_info.get("price_no_price_reason_code", ""),
-            "cache_fallback_used": bool(price_info.get("cache_fallback_used")),
-            "cache_source_run_id": price_info.get("cache_source_run_id"),
-            "transient_failure_codes": price_info.get("transient_failure_codes", []),
-        }
-        VERDICT_FILE.write_text(json.dumps(verdicts, ensure_ascii=False, indent=2), encoding="utf-8")
-        DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-
-        if v["verdict"] == "KEEP":
-            keep += 1
-        else:
-            reject += 1
-
-        record_completed_sku(pn)
-        all_results.append({
-            "pn": pn, "name": name, "verdict": v["verdict"],
-            "photo": f"{dl['width']}x{dl['height']}px {dl['size_kb']}KB",
-            "our_price": our_price,
-            "price_usd": price_info["price_usd"],
-            "price_status": price_info["price_status"],
-            "price_source": price_info["source_url"],
-            "description": (bundle_content.get("description") or "")[:200],
-            "specs": dl.get("specs", {}),
-            "photo_source": dl["source"][:80],
-            "stock_photo_flag": stock_flag,
-            "suffix_conflict": price_info["suffix_conflict"],
-            "category_mismatch": price_info["category_mismatch"],
-            "page_product_class": price_info["page_product_class"],
-            "price_source_seen": bool(price_info.get("price_source_seen")),
-            "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
-            "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
-            "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
-            "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
-            "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
-            "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
-            "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),
-            "price_source_replacement_tier": price_info.get("price_source_replacement_tier", ""),
-            "price_reviewable_no_price_candidate": bool(price_info.get("price_reviewable_no_price_candidate")),
-            "price_no_price_reason_code": price_info.get("price_no_price_reason_code", ""),
-        })
-        if check_wallclock_budget():
-            early_stop_reason = get_shadow_runtime_summary().get("reason_for_early_stop", "")
-            for j in range(i + 1, len(df)):
-                remaining_pn = df.iloc[j]["Параметр: Партномер"].strip()
-                record_skipped_due_to_budget(remaining_pn, early_stop_reason or "wallclock_budget_reached")
-            break
-
+    _cleanup_lease()
     print(f"\n{'='*55}")
     print(f"KEEP: {keep}  REJECT: {reject}  NO_PHOTO: {no_photo}  CHECKPOINT_SKIP: {skipped_checkpoint}")
 
