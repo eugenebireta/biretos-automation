@@ -62,20 +62,24 @@ PN = identity anchor (из xlsx, не enrichment).
 
 ## Current state (обновляет агент)
 
-Обновлено: 2026-04-07
+Обновлено: 2026-04-07 (после batch 50)
 
 | Метрика | Значение |
 |---------|----------|
 | Всего SKU | 370 |
-| С evidence bundle | 25 (6.8%) |
-| Без evidence (gap) | 345 |
-| photo KEEP | 11 |
-| photo нужна замена | 14 |
-| price найдена | 8 |
-| price не найдена | 17 |
-| title_ru enriched | 0 |
-| description_ru | 0 |
-| category | 0 |
-| specs | 0 |
-| Baseline reached | 0 / 370 |
-| Provider swap | DONE (ClaudeChatAdapter default) |
+| С evidence bundle | 69 (18.6%) |
+| Без evidence (gap) | 301 |
+| title_ru | 69/69 в bundles |
+| description_ru | 69/69 в bundles |
+| brand confirmed | 69/69 в bundles |
+| category | 69/69 в bundles |
+| photo KEEP | 14/69 |
+| photo REJECT | 55/69 |
+| price public_price | 8/69 |
+| price category_mismatch | 34/69 |
+| price not found | 27/69 |
+| specs | 0/69 |
+| card_status | 69/69 (58 DRAFT_ONLY, 11 REVIEW_REQUIRED) |
+| Baseline reached | 0 / 370 (AUTO_PUBLISH = 0) |
+| Provider swap | DONE |
+| Evidence-first skip | DONE |

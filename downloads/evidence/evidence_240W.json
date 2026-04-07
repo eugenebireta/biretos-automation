@@ -1,0 +1,539 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T18:19:14.480694Z",
+  "pn": "240W",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Зарядное устройство Honeywell 240W",
+  "assembled_title": "Зарядное устройство Honeywell 240W",
+  "our_price_raw": "1756,00",
+  "expected_category": "Зарядное устройство",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_240W",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_240W"
+        ],
+        "evidence_ids": [
+          "ev_title_240W"
+        ],
+        "policy_rule_id": "CAP-09B",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_240W"
+        ],
+        "evidence_ids": [
+          "ev_image_240W"
+        ],
+        "policy_rule_id": "CAP-09B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_240W"
+        ],
+        "evidence_ids": [
+          "ev_price_240W"
+        ],
+        "policy_rule_id": "CAP-09B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_240W"
+        ],
+        "evidence_ids": [
+          "ev_pdf_240W"
+        ],
+        "policy_rule_id": "CAP-09B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09B"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_240W"
+      ],
+      "evidence_ids": [
+        "ev_title_240W"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_240W"
+      ],
+      "evidence_ids": [
+        "ev_image_240W"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_240W"
+      ],
+      "evidence_ids": [
+        "ev_price_240W"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_240W"
+      ],
+      "evidence_ids": [
+        "ev_pdf_240W"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\240W.jpg",
+      "canonical_filename": "HONEYWELL_240W_768417a0.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://www.alpro.ru/catalog/istochniki-pitaniya-i-akkumulyatory/istochniki-pita",
+      "origin_page_url": "https://www.alpro.ru/catalog/istochniki-pitaniya-i-akkumulyatory/istochniki-pita",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.jjstech.com/tppr-v-0503.html?srsltid=AfmBOorjbl1Z2jDBHuzMCUyQG4nvE-KiPIoY7cp2w0TadEpO-OpzJsvq",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.jjstech.com/tppr-v-0503.html?srsltid=AfmBOorjbl1Z2jDBHuzMCUyQG4nvE-KiPIoY7cp2w0TadEpO-OpzJsvq",
+      "replacement_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/bi-directional-amplifiers/power-amplifiers/ma-240-mixing-amplifiers-240w",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "На изображении блок питания Faraday Electronics, а не зарядное устройство Honeywell",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\240W.jpg",
+    "sha1": "768417a00137aae40367789b25ca42bc027764d3",
+    "canonical_filename": "HONEYWELL_240W_768417a0.jpg",
+    "public_url": null,
+    "width": 600,
+    "height": 600,
+    "size_kb": 46,
+    "source": "google:https://www.alpro.ru/catalog/istochniki-pitaniya-i-akkumulyatory/istochniki-pita",
+    "phash": "ed5ae1a18616d6e1",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-07T18:19:14.480694Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.jjstech.com/tppr-v-0503.html?srsltid=AfmBOorjbl1Z2jDBHuzMCUyQG4nvE-KiPIoY7cp2w0TadEpO-OpzJsvq",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.jjstech.com/tppr-v-0503.html?srsltid=AfmBOorjbl1Z2jDBHuzMCUyQG4nvE-KiPIoY7cp2w0TadEpO-OpzJsvq",
+    "price_source_domain": "jjstech.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/bi-directional-amplifiers/power-amplifiers/ma-240-mixing-amplifiers-240w",
+    "price_source_replacement_domain": "buildings.honeywell.com",
+    "price_source_replacement_tier": "official",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "url_path",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {
+      "Выходная мощность": "240 Вт",
+      "Номинальное выходное напряжение": "48 В",
+      "Диапазон выходного напряжения": "47-56 В",
+      "Номинальный выходной ток": "5 А",
+      "Шум и пульсации выходного напряжения": "≤ 100 мВ",
+      "Частота преобразования": "200 кГц",
+      "Температурный дрейф": "≤ 1%",
+      "Время установки напряжения": "≤ 2000 мс",
+      "Диапазон входного напряжения": "100-240 В переменного тока (90-264 макс.)",
+      "Частота входного тока": "47-63 Гц",
+      "КПД": "≥ 91% (PF gt; 0,95)",
+      "Мощность холостого хода": "≤ 0,3 Вт",
+      "Пусковой ток": "35 А макс.",
+      "Максимальная выходная мощность": "264 Вт",
+      "Тип защиты": "Автоматическая (КЗ, перегрузка, перенапряжение)",
+      "Рабочая температура": "-40°C … +70°C",
+      "Рабочая влажность": "20-90% (без конденсации влаги)",
+      "Температура хранения": "-40°C … +85°",
+      "Влажность хранения": "10-90%",
+      "Размеры": "130,5×124×45 мм"
+    },
+    "description": "Зарядное устройство Honeywell 240W предназначено для зарядки аккумуляторов в промышленных и коммерческих системах. Обеспечивает быструю и безопасную зарядку.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Зарядное устройство",
+    "seed_name": "Зарядное устройство Honeywell 240W"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T18:19:14.480694Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:240W:2026-04-07T18:19:14.480694Z",
+    "idempotency_key": "catalog_verifier:240W:b0d706e442d755793537fbb6",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:240W:2026-04-07T18:19:14.480694Z",
+      "idempotency_key": "catalog_verifier:240W:b0d706e442d755793537fbb6",
+      "pn_primary": "240W",
+      "normalized_title": "Зарядное устройство Honeywell 240W",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_240W"
+          ],
+          "evidence_ids": [
+            "ev_title_240W"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_240W"
+          ],
+          "evidence_ids": [
+            "ev_image_240W"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_240W"
+          ],
+          "evidence_ids": [
+            "ev_price_240W"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_240W"
+          ],
+          "evidence_ids": [
+            "ev_pdf_240W"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  }
+}
