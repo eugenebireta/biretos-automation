@@ -229,6 +229,12 @@ Naming convention:
 - AI Executor = governed assistant, not trusted operator
 - Execution Risk Classes (LOW/SEMI/CORE) определяют допуск (см. CLAUDE.md)
 - Tracked guards must be versioned in repo, not only in .git/hooks
+- Task Brief Required: каждая задача длительностью >5 bounded batches
+  обязана иметь Task Brief (config/TASK_BRIEF_<name>.md) до начала
+  активной разработки. Агенты обязаны прочитать brief перед каждым
+  циклом. Brief содержит: goal, truth rules, exit condition, enrichment
+  fields, scope, constraints, current state. Frozen секции меняет
+  только owner. Current state обновляет агент.
 
 ---
 

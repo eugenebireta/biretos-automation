@@ -318,3 +318,17 @@
 | Связанный этап  | После стабилизации R1 enrichment + provider adapter seam                      |
 | Proposal        | `docs/proposals/IDEA-SPIK.md`                                                 |
 | Краткое описание | Переиспользуемое ядро товарного интеллекта: identity normalization, evidence acquisition, spec extraction, category inference, price observation, image intelligence и unified disposition. Принцип: `one acquisition -> many consumers`; channel adapters остаются вне kernel. |
+
+---
+
+### IDEA-20260407-021 — Budget Envelope / Cost Guardrail (TD-056)
+
+| Поле            | Значение                                                                      |
+|-----------------|-------------------------------------------------------------------------------|
+| Дата добавления | 2026-04-07                                                                    |
+| Статус          | `INBOX`                                                                       |
+| Автор           | Owner                                                                         |
+| Связанные TD    | TD-056                                                                        |
+| Связанный этап  | При реализации Meta Orchestrator или при масштабировании batch'ей >100 SKU     |
+| Proposal        | —                                                                             |
+| Краткое описание | Max per day, max per batch, alert threshold, stop threshold, cost per SKU sanity check. Нужен для автономного режима (supervisor, orchestrator). Без budget envelope автономный batch может бесконтрольно потратить API credits. |
