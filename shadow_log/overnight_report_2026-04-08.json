@@ -1,0 +1,37 @@
+{
+  "report_date": "2026-04-08",
+  "generated_at": "2026-04-07T23:18:36.532457Z",
+  "enrichment": {
+    "total_sku": 370,
+    "processed_before": 69,
+    "processed_now": 69,
+    "newly_processed": 0,
+    "card_status_breakdown": {
+      "DRAFT_ONLY": 58,
+      "REVIEW_REQUIRED": 11
+    }
+  },
+  "research": {
+    "queue_total": 69,
+    "researched": 37,
+    "high_confidence": 0,
+    "medium_confidence": 11,
+    "low_confidence": 26,
+    "merge_candidates": 0,
+    "parse_errors": 0
+  },
+  "price_sanity": {
+    "flagged_skus": 11
+  },
+  "budget": {
+    "daily_total_usd": 0.1121,
+    "daily_limit_usd": 10.0,
+    "remaining_usd": 9.8879
+  },
+  "action_items_for_owner": [
+    "Review merge candidates in research_results/merge_candidates_2026-04-08.json",
+    "Approve/reject research results before merge to evidence",
+    "Check price sanity flags in shadow_log/price_sanity_audit_2026-04.jsonl",
+    "Enrichment: 69/370 SKU processed"
+  ]
+}

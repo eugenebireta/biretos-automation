@@ -1,0 +1,60 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_189291",
+  "entity_id": "189291",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка для выключателя PEHA by Honeywell 189291",
+    "description_ru": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки.",
+    "category_suggestion": "Электроустановочные изделия / Рамки и накладки",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad Elektronik (Дания) предлагает PN 189291 как рамку PEHA by Honeywell по цене в EUR, упаковка 5 шт. Источник: https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-sort-189291-5-stk-2856763.html",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 189291 идентифицирован как рамка (ramme) для выключателей PEHA by Honeywell, а не как детектор пламени",
+      "Текущее название в каталоге 'Детектор пламени Honeywell D 20.673.223.192' является ошибочным и относится к другому продукту",
+      "Продукт доступен в упаковке по 5 штук на Conrad Elektronik",
+      "Категория 'Детектор' неправильна для этого PN",
+      "Цена в каталоге (9291,30) несоответствует типичной стоимости рамки для выключателя и может быть ошибкой данных"
+    ],
+    "ambiguities": [
+      "Точные технические характеристики рамки (материал, размеры, цвет) не подтверждены из официальных источников Honeywell",
+      "Полный модельный номер D 20.673.223.192 не связан с PN 189291 в доступных источниках",
+      "Невозможно подтвердить наличие других вариантов PN в этой серии рамок",
+      "Отсутствует официальный datasheet от Honeywell для PN 189291"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-sort-189291-5-stk-2856763.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price_evidence"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентичность PN 189291 как рамки PEHA by Honeywell подтверждена одним авторитетным дистрибьютором (Conrad Elektronik), но отсутствуют официальные источники Honeywell и datasheet. Категория явно неправильна в текущем каталоге. Цена требует пересмотра. Необходимо получить официальное подтверждение от Honeywell или дополнительные источники для повышения уверенности."
+  },
+  "sources": [
+    {
+      "url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-sort-189291-5-stk-2856763.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price_evidence"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:15:40.348694Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2270,
+  "cost_usd": 0.0019
+}

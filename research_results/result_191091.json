@@ -1,0 +1,61 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_191091",
+  "entity_id": "191091",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка электроустановочная PEHA by Honeywell 191091",
+    "description_ru": "Рамка для электроустановочных изделий PEHA by Honeywell, черного цвета. Предназначена для монтажа модульных электрических компонентов в стандартные установочные коробки.",
+    "category_suggestion": "Электроустановочные изделия / Рамки и накладки",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad.fr (источник в текущем статусе): €12,64 за единицу (5 шт. в упаковке), EUR, розничная цена дистрибьютора",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 191091 относится к линейке PEHA by Honeywell электроустановочных изделий, а не к детекторам пламени",
+      "Текущее название в каталоге 'Детектор пламени Honeywell D 20.674.221.192' является ошибочным и не соответствует действительному продукту",
+      "Conrad.fr подтверждает идентичность как 'PEHA by Honeywell cadre (рамка) черная 191091'",
+      "Цена €12,64 соответствует розничной цене электроустановочной рамки, а не детектора пламени",
+      "Категория 'Детектор' полностью неправильна для этого продукта"
+    ],
+    "ambiguities": [
+      "Полные технические характеристики (размеры, материал, стандарты соответствия) не найдены в открытых источниках",
+      "Невозможно подтвердить наличие официального PDF-документа производителя для PN 191091",
+      "Неясно, существует ли путаница с другим номером детектора пламени Honeywell в системе"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-noir-191091-5-pc-s-2856835.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price_evidence",
+          "category_correction"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентичность продукта как электроустановочной рамки PEHA подтверждена одним авторитетным дистрибьютором (Conrad.fr). Однако отсутствуют официальные источники Honeywell и полные технические спецификации. Критическое расхождение между текущим названием (детектор пламени) и фактическим продуктом (рамка) требует немедленной коррекции в каталоге."
+  },
+  "sources": [
+    {
+      "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-noir-191091-5-pc-s-2856835.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price_evidence",
+        "category_correction"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:16:28.309661Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2157,
+  "cost_usd": 0.0019
+}

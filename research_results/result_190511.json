@@ -1,0 +1,59 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_190511",
+  "entity_id": "190511",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Неподтвержденный продукт Honeywell 190511",
+    "description_ru": "Идентификация продукта затруднена. Источник указывает на коммутационное устройство (выключатель), а не на детектор пламени. Требуется уточнение.",
+    "category_suggestion": "Неопределено (возможно: Коммутационные устройства или Детекторы)",
+    "price_assessment": "ambiguous_offer",
+    "price_evidence": "Источник dnaelektro.cz указывает на переключатель PEHA by Honeywell (встраиваемый колебательный переключатель), цена не указана явно. Внутренний прайс 902,70 EUR не подтвержден публичными источниками.",
+    "photo_assessment": "mismatch",
+    "specs_assessment": "specs_gap",
+    "key_findings": [
+      "Критическое несоответствие: источник цены (dnaelektro.cz) описывает PN 190511 как встраиваемый колебательный переключатель PEHA by Honeywell, а не как детектор пламени D 515",
+      "Каталогное название 'Детектор пламени Honeywell D 515' не подтверждено в найденных источниках",
+      "Honeywell D 515 — известная серия детекторов пламени, но связь с PN 190511 не установлена",
+      "PEHA — бренд коммутационных устройств, принадлежащий Honeywell, что объясняет наличие 'by Honeywell' в описании"
+    ],
+    "ambiguities": [
+      "Является ли 190511 коммутационным устройством (выключатель) или детектором пламени?",
+      "Существует ли реальная связь между PN 190511 и серией D 515?",
+      "Почему внутренний каталог содержит название 'Детектор пламени D 515', если источник цены указывает на переключатель?",
+      "Какова точная спецификация и назначение PN 190511?"
+    ],
+    "sources": [
+      {
+        "url": "https://www.dnaelektro.cz/dum-zahrada/elektroinstalace/vypinace-zasuvky-a-ramecky/peha/C2855285-peha-by-honeywell-vestavny-kolebkovy-prepinac-barevna-190511-1-ks",
+        "type": "distributor",
+        "supports": [
+          "identity_conflict",
+          "category_mismatch"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Критическое противоречие между каталогным названием (детектор пламени) и единственным найденным источником (коммутационное устройство). Идентификация продукта невозможна без дополнительных источников. Требуется проверка у производителя Honeywell или поиск официальной документации PN 190511."
+  },
+  "sources": [
+    {
+      "url": "https://www.dnaelektro.cz/dum-zahrada/elektroinstalace/vypinace-zasuvky-a-ramecky/peha/C2855285-peha-by-honeywell-vestavny-kolebkovy-prepinac-barevna-190511-1-ks",
+      "type": "distributor",
+      "supports": [
+        "identity_conflict",
+        "category_mismatch"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:16:03.361933Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2249,
+  "cost_usd": 0.0019
+}

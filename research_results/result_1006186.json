@@ -1,0 +1,59 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_1006186",
+  "entity_id": "1006186",
+  "research_reason": "specs_gap",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Беруши поролоновые 303L FOAMPLUG",
+    "description_ru": "Одноразовые противошумные беруши из вспененного материала серии FOAMPLUG. Предназначены для защиты слуха в условиях повышенного шума на производстве.",
+    "category_suggestion": "Средства защиты органов слуха / Беруши",
+    "price_assessment": "ambiguous_offer",
+    "price_evidence": "Внутренняя справочная цена 1920,61 (источник не указан). Публичная цена не подтверждена для PN 1006186. RS Online ссылка в метаданных относится к PN 1040922, а не к 1006186.",
+    "photo_assessment": "not_found",
+    "specs_assessment": "specs_gap",
+    "key_findings": [
+      "PN 1006186 не найден в открытых источниках Honeywell или крупных дистрибьюторов",
+      "Каталогное название '303L FOAMPLUG' соответствует известной линейке противошумных берушей Honeywell",
+      "Ссылка на RS Online в метаданных указывает на PN 1040922, а не на 1006186 — возможна ошибка маппинга",
+      "Серия FOAMPLUG — стандартная поролоновая линейка Honeywell для защиты слуха",
+      "Внутренняя цена 1920,61 не имеет подтверждения в публичных источниках"
+    ],
+    "ambiguities": [
+      "PN 1006186 не подтверждается в открытых каталогах Honeywell или дистрибьюторов (RS Online, Grainger, Heilind и др.)",
+      "Возможна ошибка в номере детали или региональное обозначение, не используемое в англоязычных источниках",
+      "Связь между PN 1006186 и ссылкой на RS Online (PN 1040922) требует уточнения",
+      "Технические характеристики (NRR, материал, размер, упаковка) не найдены для этого конкретного PN",
+      "Источник внутренней цены 1920,61 не указан"
+    ],
+    "sources": [
+      {
+        "url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+        "type": "distributor",
+        "supports": [
+          "price_reference_only_different_pn"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Идентификация бренда и категории продукта надежна на основе названия каталога, но сам PN 1006186 не подтверждается в открытых источниках. Ссылка на RS Online указывает на другой PN (1040922). Требуется прямое подтверждение от Honeywell или авторизованного дистрибьютора для разрешения расхождения и получения полных технических характеристик."
+  },
+  "sources": [
+    {
+      "url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+      "type": "distributor",
+      "supports": [
+        "price_reference_only_different_pn"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:12:39.069897Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2223,
+  "cost_usd": 0.0019
+}

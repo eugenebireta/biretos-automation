@@ -1,0 +1,61 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_184791",
+  "entity_id": "184791",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Неподтвержденный продукт Honeywell 184791",
+    "description_ru": "Продукт Honeywell с номером 184791. Текущее описание в каталоге указывает на детектор пламени (Детектор пламени Honeywell D 20.671.222.022), однако источник из Хорватии (nabava.net) предполагает рамку/корпус (PEHA by Honeywell - оквир/рамка). Требуется уточнение истинного назначения продукта.",
+    "category_suggestion": "Неопределено - требуется уточнение",
+    "price_assessment": "ambiguous_offer",
+    "price_evidence": "Единственный найденный источник (nabava.net, Хорватия) указывает цену ~860 HRK за упаковку (10 шт.), что соответствует ~86 HRK/шт. Источник содержит противоречивую информацию о типе продукта. Цена не подтверждена авторитетными дистрибьюторами Honeywell.",
+    "photo_assessment": "not_found",
+    "specs_assessment": "specs_gap",
+    "key_findings": [
+      "PN 184791 не найден в официальных каталогах Honeywell с высокой уверенностью",
+      "Существует противоречие между описанием в каталоге (детектор пламени D 20.671.222.022) и источником nabava.net (рамка/корпус PEHA)",
+      "Модель D 20.671.222.022 не подтверждена как реальный продукт Honeywell в открытых источниках",
+      "Цена 3348,81 (предположительно RUB) не имеет подтверждения в публичных источниках",
+      "Источник nabava.net содержит смешанную информацию о продукте (PEHA by Honeywell + рамка)"
+    ],
+    "ambiguities": [
+      "Является ли 184791 детектором пламени или электротехническим компонентом (рамка/корпус)?",
+      "Существует ли модель D 20.671.222.022 в портфеле Honeywell?",
+      "Какова связь между PN 184791 и обозначением D 20.671.222.022?",
+      "Является ли PEHA брендом Honeywell или отдельным производителем?",
+      "Какова единица измерения для цены 3348,81 (шт., упаковка, другое)?"
+    ],
+    "sources": [
+      {
+        "url": "https://www.nabava.net/nekategorizirano/peha-by-honeywell-okvir-okvir-bijela-184791-10-st-cijena-860434111",
+        "type": "marketplace",
+        "supports": [
+          "price",
+          "partial_identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Идентичность продукта не подтверждена. Единственный найденный источник содержит противоречивую информацию о типе продукта (детектор пламени vs. рамка). Отсутствуют официальные источники Honeywell, спецификации и фотографии. Требуется прямое уточнение у производителя или авторитетного дистрибьютора."
+  },
+  "sources": [
+    {
+      "url": "https://www.nabava.net/nekategorizirano/peha-by-honeywell-okvir-okvir-bijela-184791-10-st-cijena-860434111",
+      "type": "marketplace",
+      "supports": [
+        "price",
+        "partial_identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:14:39.028619Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2408,
+  "cost_usd": 0.0019
+}

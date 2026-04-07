@@ -1,0 +1,62 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_190991",
+  "entity_id": "190991",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка декоративная PEHA by Honeywell 190991",
+    "description_ru": "Декоративная рамка для электроустановочных изделий серии PEHA by Honeywell. Предназначена для монтажа в стандартные подрозетники и распределительные коробки.",
+    "category_suggestion": "Аксессуары и комплектующие для электроустановок",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad.fr (источник в текущих данных): ~11.87 EUR за единицу (рамка, 5 шт. в упаковке согласно URL). Цена соответствует диапазону аксессуаров электроустановок.",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 190991 — это НЕ детектор пламени, а декоративная рамка (frame) серии PEHA by Honeywell",
+      "Текущее название в каталоге 'Детектор пламени Honeywell D 20.674.220.702' содержит критическую ошибку идентификации",
+      "Conrad.fr подтверждает: 'PEHA by Honeywell cadre (frame) 190991' — электроустановочный аксессуар",
+      "Категория 'Детектор' абсолютно неправильна для этого продукта",
+      "Цена 11874,00 (в исходных данных) соответствует розничной цене рамки, а не датчика пламени"
+    ],
+    "ambiguities": [
+      "Невозможно найти официальный datasheet Honeywell для PN 190991 в открытых источниках",
+      "Точные технические спецификации (материал, размеры, цвет) не подтверждены",
+      "Связь между PN 190991 и кодом 'D 20.674.220.702' требует уточнения у производителя",
+      "Возможна путаница с другим PN детектора пламени Honeywell в системе"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-190991-5-pc-s-2856778.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентификация как рамки (frame) подтверждена одним авторитетным дистрибьютором (Conrad.fr), но отсутствуют официальные datasheet Honeywell и фотографии продукта. Категория 'Аксессуары' уверена, но требуется уточнение точной подкатегории и технических параметров у производителя или официального дистрибьютора."
+  },
+  "sources": [
+    {
+      "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-190991-5-pc-s-2856778.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:16:21.447223Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2137,
+  "cost_usd": 0.0019
+}

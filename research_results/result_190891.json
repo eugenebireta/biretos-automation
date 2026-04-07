@@ -1,0 +1,74 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_190891",
+  "entity_id": "190891",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Детектор пламени Honeywell D 20.674.220.192",
+    "description_ru": "Устройство для обнаружения пламени, предназначенное для систем пожарной безопасности и автоматизации промышленных процессов. Относится к семейству детекторов пламени Honeywell серии D 20.674.",
+    "category_suggestion": "Датчики и детекторы пожарной безопасности",
+    "price_assessment": "no_public_price",
+    "price_evidence": "Исходная ссылка (liveinlight.ru) относится к электрическим рамкам Honeywell Nova, а не к детектору пламени. Публичные цены для PN 190891 не найдены в открытых источниках.",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 190891 не подтверждён в открытых источниках как точный номер детектора пламени D 20.674.220.192",
+      "Серия D 20.674 является известной линейкой детекторов пламени Honeywell для промышленного применения",
+      "Исходная ссылка на цену содержит несоответствие: указывает на рамки электрические, а не на детектор пламени",
+      "Категория 'Детектор' слишком общая; более точная категория — 'Датчики пожарной безопасности' или 'Детекторы пламени'",
+      "Спецификации детектора пламени серии D 20.674 включают: инфракрасное обнаружение, защиту от ложных срабатываний, применение в промышленности"
+    ],
+    "ambiguities": [
+      "PN 190891 не найден в официальных каталогах Honeywell как прямой номер детектора D 20.674.220.192",
+      "Возможно, 190891 — внутренний номер дистрибьютора или региональный SKU, а не оригинальный PN Honeywell",
+      "Исходная ссылка на цену явно ошибочна (рамки вместо детектора) — источник цены требует переверификации",
+      "Точные технические характеристики (спектральный диапазон, время отклика, питание) не подтверждены для этого конкретного номера"
+    ],
+    "sources": [
+      {
+        "url": "https://www.honeywell.com/us/en/products/safety-and-productivity/fire-detection/flame-detectors",
+        "type": "manufacturer",
+        "supports": [
+          "category",
+          "product_family"
+        ]
+      },
+      {
+        "url": "https://liveinlight.ru/ramki/ramki-4-posta/ramka-4-posta-peha-by-honeywell-nova-matirovannaya-stal-16209",
+        "type": "marketplace",
+        "supports": [
+          "price_mismatch_evidence"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Идентификация слаба из-за отсутствия прямого подтверждения PN 190891 в открытых источниках Honeywell. Категория 'Детектор пламени' логична для серии D 20.674, но требует верификации точного номера детали. Исходная ссылка на цену содержит критическое несоответствие (электрические рамки вместо детектора). Требуется доступ к официальному каталогу Honeywell или подтверждение от дистрибьютора для повышения уверенности."
+  },
+  "sources": [
+    {
+      "url": "https://www.honeywell.com/us/en/products/safety-and-productivity/fire-detection/flame-detectors",
+      "type": "manufacturer",
+      "supports": [
+        "category",
+        "product_family"
+      ]
+    },
+    {
+      "url": "https://liveinlight.ru/ramki/ramki-4-posta/ramka-4-posta-peha-by-honeywell-nova-matirovannaya-stal-16209",
+      "type": "marketplace",
+      "supports": [
+        "price_mismatch_evidence"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:16:12.393915Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2723,
+  "cost_usd": 0.0019
+}

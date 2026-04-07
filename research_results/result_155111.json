@@ -1,0 +1,61 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_155111",
+  "entity_id": "155111",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Контактный щиток PEHA by Honeywell 155111",
+    "description_ru": "Алюминиевый контактный щиток (защитная накладка) для электрических контактов, производства PEHA by Honeywell. Предназначен для защиты контактных групп в электрических устройствах.",
+    "category_suggestion": "Электрические компоненты и аксессуары / Защитные накладки и щитки",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad.se (шведский дистрибьютор): 155111 указан как PEHA by Honeywell контактный щиток алюминиевый, цена доступна на странице товара, но точная сумма не извлекается из URL. Источник подтверждает товар как электрический компонент, а не термостатический вентиль.",
+    "photo_assessment": "mismatch",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 155111 в Conrad.se идентифицирован как 'PEHA by Honeywell 1x Insats Kontaktskydd Aluminium' (контактный щиток из алюминия), а не как термостатический вентиль",
+      "Текущее название в каталоге 'Термостатический вентиль Honeywell D 20.6511.70' является ошибочным и не соответствует фактическому продукту",
+      "Категория 'Вентиль' неправильна; продукт относится к электрическим компонентам/защитным аксессуарам",
+      "Модель D 20.6511.70 может относиться к другому продукту (возможно, к термостатическому вентилю), но не к PN 155111",
+      "PEHA является брендом Honeywell для электротехнических компонентов"
+    ],
+    "ambiguities": [
+      "Неясно, почему в каталоге PN 155111 связан с моделью D 20.6511.70 (термостатический вентиль) — возможна ошибка в базе данных",
+      "Точные технические характеристики контактного щитка (размеры, материал, применение) не полностью подтверждены",
+      "Существует ли семейство похожих контактных щитков PEHA — требуется дополнительное исследование"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conrad.se/sv/p/peha-by-honeywell-1x-insats-kontaktskydd-aluminium-155111-2855413.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category_correction",
+          "brand_confirmation"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентификация PN 155111 как контактного щитка PEHA подтверждена авторитетным дистрибьютором (Conrad.se), что противоречит текущему названию 'термостатический вентиль'. Однако отсутствуют прямые ссылки на официальный datasheet Honeywell для этого PN, что снижает уверенность. Категория явно неправильна и требует коррекции."
+  },
+  "sources": [
+    {
+      "url": "https://www.conrad.se/sv/p/peha-by-honeywell-1x-insats-kontaktskydd-aluminium-155111-2855413.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category_correction",
+        "brand_confirmation"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:13:17.200742Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2465,
+  "cost_usd": 0.0019
+}

@@ -1,0 +1,61 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_239053",
+  "entity_id": "239053",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "USB адаптер Honeywell 239053",
+    "description_ru": "Адаптер USB для интеграции с системами управления и автоматизации Honeywell. Предназначен для подключения устройств через USB интерфейс к контроллерам и панелям управления.",
+    "category_suggestion": "Адаптеры и кабели",
+    "price_assessment": "ambiguous_offer",
+    "price_evidence": "Источник teslatorg.ru указывает цену 649,20 RUB, но это розничное предложение без подтверждения официального дистрибьютора. Точная единица измерения и условия поставки не ясны.",
+    "photo_assessment": "not_found",
+    "specs_assessment": "specs_gap",
+    "key_findings": [
+      "PN 239053 связан с продуктом Honeywell, но точное соответствие модели D 95.610.03 не подтверждено в открытых источниках",
+      "Категория 'Адаптер' является логичной для USB-адаптера, но требует уточнения типа адаптера (интерфейсный, питания, сигнальный)",
+      "Источник teslatorg.ru упоминает 'наладка на розетку USB' (USB outlet overlay), что может указывать на другой тип продукта, чем стандартный адаптер",
+      "Официальная документация Honeywell для PN 239053 не найдена в открытом доступе",
+      "Семейство продуктов Honeywell Dialog/SPV требует дополнительной верификации"
+    ],
+    "ambiguities": [
+      "Точное назначение продукта: адаптер интерфейса, адаптер питания или накладка на розетку USB?",
+      "Соответствие между PN 239053 и обозначением D 95.610.03 не подтверждено официально",
+      "Технические характеристики (напряжение, ток, интерфейсы) не найдены",
+      "Является ли это компонентом системы Honeywell Dialog или самостоятельным продуктом?",
+      "Статус цены 649,20 RUB: розничная цена или оптовая?"
+    ],
+    "sources": [
+      {
+        "url": "http://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/rozetki/nakladka-na-rozetku-usb-peha-by-honeywell-dialog-skrytyy-montazh-bezhevyy-239053",
+        "type": "marketplace",
+        "supports": [
+          "identity",
+          "price_evidence"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Идентификация ослаблена отсутствием официальной документации Honeywell, несоответствием между обозначениями PN и модели, отсутствием фотографии продукта и технических спецификаций. Единственный источник - розничный маркетплейс без подтверждения от производителя или авторизованного дистрибьютора. Требуется прямое уточнение у Honeywell или авторизованного поставщика."
+  },
+  "sources": [
+    {
+      "url": "http://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/rozetki/nakladka-na-rozetku-usb-peha-by-honeywell-dialog-skrytyy-montazh-bezhevyy-239053",
+      "type": "marketplace",
+      "supports": [
+        "identity",
+        "price_evidence"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:17:38.161570Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2419,
+  "cost_usd": 0.0019
+}
