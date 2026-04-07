@@ -2134,6 +2134,17 @@ def run(
         save_checkpoint(checkpoint)
         bundle_content = bundle.get("content", {})
 
+        # ── Brand experience record ──────────────────────────────────────────────
+        try:
+            from brand_experience_writer import (
+                build_brand_experience_from_bundle,
+                write_brand_experience,
+            )
+            _brand_exp = build_brand_experience_from_bundle(bundle)
+            write_brand_experience(_brand_exp, shadow_log_dir=SHADOW_LOG_DIR)
+        except Exception as _bexp_err:
+            log.debug(f"brand_experience_writer failed for {pn}: {_bexp_err}")
+
         verdicts[pn] = {
             **v,
             "path": dl["path"],
