@@ -76,6 +76,12 @@ def _record_usage(model_resolved: str, input_tokens: int, output_tokens: int) ->
     by_model["input_tokens"] += input_tokens
     by_model["output_tokens"] += output_tokens
     by_model["cost_usd"] += call_cost
+    # Persist to BudgetTracker for cross-session daily totals
+    try:
+        from budget_tracker import get_default_tracker
+        get_default_tracker().record_cost("anthropic", model_resolved, call_cost)
+    except Exception:
+        pass  # budget_tracker unavailable — in-memory tracking still works
 
 
 def get_batch_usage_summary() -> dict:
@@ -360,6 +366,21 @@ class ClaudeChatAdapter:
         return self._client
 
     def complete(self, *, model: str, messages: list[dict], **api_kwargs: Any) -> str:
+        # ── Budget pre-call gate ──────────────────────────────────────────────
+        try:
+            from budget_tracker import BudgetExceeded, get_default_tracker
+            _bt = get_default_tracker()
+            _status = _bt.check_budget()
+            if not _status.is_ok:
+                raise BudgetExceeded(
+                    f"Daily Anthropic budget hard-stop reached "
+                    f"(${_bt.get_daily_total():.4f} >= ${_bt._config['hard_stop_usd']:.2f})"
+                )
+        except BudgetExceeded:
+            raise
+        except Exception:
+            pass  # budget_tracker unavailable — proceed without gate
+
         start = self._monotonic_fn()
         model_alias = model
         model_resolved = resolve_model_id(model_alias)
