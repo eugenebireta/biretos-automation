@@ -1,0 +1,59 @@
+{
+  "schema_version": "price_evidence_integration_v1",
+  "trace_id": "pi_20260407T110828Z_d0b4b6",
+  "run_ts": "2026-04-07T11:08:28Z",
+  "manifest": "downloads\\scout_cache\\price_manual_manifest_wave2.jsonl",
+  "evidence_dir": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence",
+  "dry_run": false,
+  "total_rows": 6,
+  "integrated_count": 1,
+  "skipped_count": 5,
+  "error_count": 0,
+  "rows": [
+    {
+      "pn": "00020211",
+      "action": "skip",
+      "reason": "offer_status=ambiguous_offer",
+      "price_per_unit": 10.18,
+      "currency": "USD"
+    },
+    {
+      "pn": "1011894-RU",
+      "action": "skip",
+      "reason": "offer_status=no_price_found",
+      "price_per_unit": null,
+      "currency": null
+    },
+    {
+      "pn": "1011994",
+      "action": "integrated",
+      "offer_admissibility_status": "admissible_public_price",
+      "price_per_unit": 9.95,
+      "currency": "USD",
+      "rub_price": 875.6,
+      "source_url": "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm",
+      "evidence_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_1011994.json"
+    },
+    {
+      "pn": "101411",
+      "action": "skip",
+      "reason": "offer_status=no_price_found",
+      "price_per_unit": null,
+      "currency": null
+    },
+    {
+      "pn": "1015021",
+      "action": "skip",
+      "reason": "offer_status=ambiguous_offer",
+      "price_per_unit": 70.35,
+      "currency": "AED"
+    },
+    {
+      "pn": "104011",
+      "action": "skip",
+      "reason": "offer_status=no_price_found",
+      "price_per_unit": null,
+      "currency": null
+    }
+  ]
+}
