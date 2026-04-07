@@ -42,6 +42,24 @@ def _normalized(value: Any) -> str:
     return str(value or "").strip().lower()
 
 
+def normalize_transient_failure_code(value: Any) -> str:
+    """Normalize legacy provider-specific failure codes to generic llm_* codes."""
+    normalized = _normalized(value)
+    return _LEGACY_FAILURE_CODE_ALIASES.get(normalized, normalized)
+
+
+def normalize_transient_failure_codes(values) -> list:
+    """Normalize failure-code collections while preserving unique sorted values."""
+    normalized = {normalize_transient_failure_code(v) for v in values if _normalized(v)}
+    return sorted(normalized)
+
+
+def normalize_cache_fallback_reason(reason: Any) -> str:
+    """Normalize comma-separated legacy fallback reasons to llm_* codes."""
+    tokens = [t.strip() for t in str(reason or "").split(",") if t.strip()]
+    return ",".join(normalize_transient_failure_codes(tokens))
+
+
 def _domain(url: Any) -> str:
     if not url:
         return ""

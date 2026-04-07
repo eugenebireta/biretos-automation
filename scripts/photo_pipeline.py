@@ -62,6 +62,10 @@ from no_price_coverage import (                                # noqa: E402
     choose_better_no_price_candidate,
     materialize_no_price_coverage,
 )
+from providers import (                                        # noqa: E402
+    ClaudeChatAdapter,
+    get_enrichment_model_alias,
+)
 from catalog_seed import build_content_seed_from_row           # noqa: E402
 from price_lineage import (                                     # noqa: E402
     choose_better_price_lineage_candidate,
@@ -119,14 +123,14 @@ EVIDENCE_DIR        = DOWNLOADS / "evidence"
 EXPORT_DIR          = DOWNLOADS / "export"
 LAST_RUN_META: dict = {}
 
+CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
+SHADOW_LOG_SCHEMA_VERSION = "photo_pipeline_shadow_log_record_v1"
 QUEUE_SCHEMA_VERSION = "followup_queue_v2"
 INPUT_COL_PN = "Параметр: Партномер"
 INPUT_COL_NAME = "Название товара или услуги"
 INPUT_COL_OUR_PRICE = "Цена продажи"
 INPUT_COL_CATEGORY = "Параметр: Тип товара"
 INPUT_COL_BRAND = "Параметр: Бренд"
-
-CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
 
 PHOTOS_DIR.mkdir(exist_ok=True)
 SHADOW_LOG_DIR.mkdir(exist_ok=True)
@@ -174,8 +178,8 @@ BRAND                 = "Honeywell"
 DELAY                 = 0.4
 MIN_BYTES             = 4000
 MIN_DIM               = 150
-PRICE_LLM_MODEL       = "gpt-4o-mini"
-VISION_MODEL          = "gpt-5.4-mini"
+PRICE_LLM_MODEL       = get_enrichment_model_alias("text")
+VISION_MODEL          = get_enrichment_model_alias("vision")
 STOCK_PHOTO_THRESHOLD = 5  # phash у N+ SKU → stock_photo_flag
 
 
@@ -206,18 +210,39 @@ def get_openai_client() -> OpenAI:
 
 
 class OpenAIChatCompletionsAdapter:
-    """Default provider adapter backed by OpenAI chat completions."""
+    """Legacy provider adapter backed by OpenAI chat completions."""
 
     def __init__(self, client_loader: Callable[[], Any] | None = None):
         self._client_loader = client_loader or get_openai_client
+        self.last_call_metadata: dict[str, Any] = {}
 
     def complete(self, *, model: str, messages: list[dict], **api_kwargs: Any) -> str:
-        response = self._client_loader().chat.completions.create(
-            model=model,
-            messages=messages,
-            **api_kwargs,
-        )
-        return response.choices[0].message.content or ""
+        started_at = time.perf_counter()
+        try:
+            response = self._client_loader().chat.completions.create(
+                model=model,
+                messages=messages,
+                **api_kwargs,
+            )
+            latency_ms = int((time.perf_counter() - started_at) * 1000)
+            self.last_call_metadata = {
+                "provider": "openai",
+                "model_alias": model,
+                "model_resolved": model,
+                "latency_ms": latency_ms,
+                "error_class": None,
+            }
+            return response.choices[0].message.content or ""
+        except Exception as exc:
+            latency_ms = int((time.perf_counter() - started_at) * 1000)
+            self.last_call_metadata = {
+                "provider": "openai",
+                "model_alias": model,
+                "model_resolved": model,
+                "latency_ms": latency_ms,
+                "error_class": exc.__class__.__name__,
+            }
+            raise
 
 
 class SerpAPISearchAdapter:
@@ -233,7 +258,7 @@ class SerpAPISearchAdapter:
         return search_factory(resolved_params).get_dict()
 
 
-chat_completion_adapter: ChatCompletionAdapter = OpenAIChatCompletionsAdapter()
+chat_completion_adapter: ChatCompletionAdapter = ClaudeChatAdapter()
 search_provider_adapter: SearchProviderAdapter = SerpAPISearchAdapter()
 
 
@@ -244,7 +269,7 @@ def set_chat_completion_adapter(adapter: ChatCompletionAdapter) -> None:
 
 def reset_chat_completion_adapter() -> None:
     global chat_completion_adapter
-    chat_completion_adapter = OpenAIChatCompletionsAdapter()
+    chat_completion_adapter = ClaudeChatAdapter()
 
 
 def set_search_provider_adapter(adapter: SearchProviderAdapter) -> None:
@@ -417,10 +442,15 @@ def shadow_log(
     pn: str,
     brand: str,
     model: str,
+    provider: str,
+    model_alias: str,
+    model_resolved: str,
     prompt: str,
     response_raw: str,
     response_parsed: dict,
     parse_success: bool,
+    latency_ms: int | None = None,
+    error_class: str | None = None,
     source_url: str = None,
     source_type: str = None,
 ) -> None:
@@ -433,15 +463,21 @@ def shadow_log(
         month = datetime.datetime.utcnow().strftime("%Y-%m")
         path = SHADOW_LOG_DIR / f"{task_type}_{month}.jsonl"
         record = {
+            "schema_version": SHADOW_LOG_SCHEMA_VERSION,
             "ts": datetime.datetime.utcnow().isoformat() + "Z",
             "pn": pn,
             "brand": brand,
             "task_type": task_type,
+            "provider": provider,
             "model": model,
+            "model_alias": model_alias,
+            "model_resolved": model_resolved,
             "prompt": prompt,
             "response_raw": response_raw,
             "response_parsed": response_parsed,
             "parse_success": parse_success,
+            "latency_ms": latency_ms,
+            "error_class": error_class,
             "human_correction": None,
             "correction_ts": None,
             "source_url": source_url,
@@ -482,16 +518,38 @@ def call_gpt(
     adapter: ChatCompletionAdapter | None = None,
     **api_kwargs,
 ) -> str:
-    """Единая обёртка над client.chat.completions.create.
+    """Единая обёртка над provider chat completions.
 
-    Вызывает OpenAI API, автоматически пишет запись в shadow_log.
+    Вызывает configured provider adapter, автоматически пишет запись в shadow_log.
     Возвращает content строку ответа. При ошибке API — пробрасывает исключение.
     """
-    content = (adapter or chat_completion_adapter).complete(
-        model=model,
-        messages=messages,
-        **api_kwargs,
-    )
+    active_adapter = adapter or chat_completion_adapter
+    try:
+        content = active_adapter.complete(
+            model=model,
+            messages=messages,
+            **api_kwargs,
+        )
+    except Exception as exc:
+        adapter_meta = dict(getattr(active_adapter, "last_call_metadata", {}) or {})
+        shadow_log(
+            task_type=task_type,
+            pn=pn,
+            brand=brand,
+            provider=str(adapter_meta.get("provider", "unknown")),
+            model=str(adapter_meta.get("model_alias", model)),
+            model_alias=str(adapter_meta.get("model_alias", model)),
+            model_resolved=str(adapter_meta.get("model_resolved", model)),
+            prompt=_redact_messages_for_log(messages),
+            response_raw="",
+            response_parsed={},
+            parse_success=False,
+            latency_ms=adapter_meta.get("latency_ms"),
+            error_class=str(adapter_meta.get("error_class") or exc.__class__.__name__),
+            source_url=source_url,
+            source_type=source_type,
+        )
+        raise
 
     # Пробуем распарсить JSON для поля response_parsed в логе
     parse_success = False
@@ -505,15 +563,21 @@ def call_gpt(
     except Exception:
         pass
 
+    adapter_meta = dict(getattr(active_adapter, "last_call_metadata", {}) or {})
     shadow_log(
         task_type=task_type,
         pn=pn,
         brand=brand,
-        model=model,
+        provider=str(adapter_meta.get("provider", "unknown")),
+        model=str(adapter_meta.get("model_alias", model)),
+        model_alias=str(adapter_meta.get("model_alias", model)),
+        model_resolved=str(adapter_meta.get("model_resolved", model)),
         prompt=_redact_messages_for_log(messages),
         response_raw=content,
         response_parsed=response_parsed,
         parse_success=parse_success,
+        latency_ms=adapter_meta.get("latency_ms"),
+        error_class=adapter_meta.get("error_class"),
         source_url=source_url,
         source_type=source_type,
     )
@@ -1425,13 +1489,13 @@ def step2b_extract_from_pages(
             error_text = str(e).lower()
             timed_out = "timeout" in error_text or "timed out" in error_text
             if "insufficient_quota" in error_text or ("429" in error_text and "quota" in error_text):
-                transient_failure_codes.add("openai_quota")
+                transient_failure_codes.add("llm_quota")
             elif "rate limit" in error_text or "rate_limit" in error_text:
-                transient_failure_codes.add("openai_rate_limit")
+                transient_failure_codes.add("llm_rate_limit")
             elif timed_out:
-                transient_failure_codes.add("openai_timeout")
+                transient_failure_codes.add("llm_timeout")
             elif any(token in error_text for token in ("temporary", "temporarily", "502", "503", "504", "connection reset")):
-                transient_failure_codes.add("openai_temporary_failure")
+                transient_failure_codes.add("llm_temporary_failure")
             record_source_failure(url, timed_out=timed_out, channel="external_source")
             log.warning(f"  step2b error {url[:70]}: {e}")
 
@@ -1567,18 +1631,21 @@ def step3_vision(pn: str, name: str, img_path: str, w: int, h: int) -> dict:
         return {"verdict": "KEEP", "reason": f"GPT error: {e}"}
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# Главная функция
+# ══════════════════════════════════════════════════════════════════════════════
+
 def load_queue_part_numbers(
-    queue_path,
+    queue_path: Path | str,
     *,
-    allowed_action_codes: set,
-) -> list:
-    """Load ordered part numbers from a followup queue JSONL, filtered by action_code."""
+    allowed_action_codes: set[str],
+) -> list[str]:
     rows = [
         json.loads(line)
         for line in Path(queue_path).read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
-    part_numbers: list = []
+    part_numbers: list[str] = []
     for row in rows:
         schema_version = str(row.get("queue_schema_version", "") or "").strip()
         if schema_version != QUEUE_SCHEMA_VERSION:
@@ -1599,13 +1666,10 @@ def load_queue_part_numbers(
 
 def load_run_dataframe(
     *,
-    input_file=None,
-    limit=None,
-    queue_path=None,
-):
-    """Load the InSales catalog CSV, optionally filtered and ordered by a queue file."""
-    if input_file is None:
-        input_file = INPUT_FILE
+    input_file: Path = INPUT_FILE,
+    limit: int | None = None,
+    queue_path: Path | str | None = None,
+) -> pd.DataFrame:
     df = pd.read_csv(input_file, sep="\t", encoding="utf-16", dtype=str).fillna("")
     if queue_path:
         queue_pns = load_queue_part_numbers(
@@ -1627,21 +1691,16 @@ def load_run_dataframe(
     return df
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# Главная функция
-# ══════════════════════════════════════════════════════════════════════════════
-
 def run(
     limit: int = None,
     show_results: bool = False,
     datasheets: bool = False,
     export: bool = True,
     base_photo_url: str = "",
+    queue_path: Path | str | None = None,
 ):
     """Запускает пайплайн для всех SKU из INPUT_FILE."""
-    df = pd.read_csv(INPUT_FILE, sep="\t", encoding="utf-16", dtype=str).fillna("")
-    if limit:
-        df = df.head(limit)
+    df = load_run_dataframe(limit=limit, queue_path=queue_path)
 
     verdicts       = json.loads(VERDICT_FILE.read_text(encoding="utf-8")) if VERDICT_FILE.exists() else {}
     data           = json.loads(DATA_FILE.read_text(encoding="utf-8")) if DATA_FILE.exists() else {}
@@ -1998,6 +2057,8 @@ def run(
     LAST_RUN_META = {
         "run_ts": run_ts,
         "limit": limit,
+        "queue_path": str(queue_path) if queue_path else "",
+        "selected_input_rows": len(df),
         "processed_results": len(all_results),
         "evidence_bundles": len(evidence_bundles),
         "early_stop_reason": early_stop_reason or shadow_summary.get("reason_for_early_stop", ""),
@@ -2005,7 +2066,7 @@ def run(
     }
 
     # Clear checkpoint only on full (unlimited) successful run
-    if not limit and export and not shadow_summary.get("early_stop"):
+    if not limit and not queue_path and export and not shadow_summary.get("early_stop"):
         clear_checkpoint()
         log.info("checkpoint cleared after full run")
 
@@ -2049,6 +2110,7 @@ if __name__ == "__main__":
     p.add_argument("--datasheets",  action="store_true",       help="Искать и парсить PDF datasheet")
     p.add_argument("--no-export",   action="store_true",       help="Не писать export/evidence")
     p.add_argument("--photo-base-url", default="",             help="Базовый URL для фото (InSales)")
+    p.add_argument("--queue", default="", help="JSONL queue file from build_catalog_followup_queues.py")
     args = p.parse_args()
     run(
         limit=args.limit,
@@ -2056,4 +2118,5 @@ if __name__ == "__main__":
         datasheets=args.datasheets,
         export=not args.no_export,
         base_photo_url=args.photo_base_url,
+        queue_path=Path(args.queue) if args.queue else None,
     )

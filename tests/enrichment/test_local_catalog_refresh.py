@@ -11,7 +11,7 @@ if str(_scripts) not in sys.path:
     sys.path.insert(0, str(_scripts))
 
 from export_pipeline import build_evidence_bundle
-from local_catalog_refresh import run
+from local_catalog_refresh import refresh_bundle, run
 
 
 def _write_jsonl(path: Path, rows: list[dict]) -> None:
@@ -135,6 +135,9 @@ def test_local_catalog_refresh_applies_seeded_content_and_merchandising(tmp_path
     assert refreshed_bundle["content"]["product_type"] == "Беруши"
     assert refreshed_bundle["merchandising"]["image_local_path"] == str(enhanced_path)
     assert refreshed_bundle["merchandising"]["image_status"] == "placeholder"
+    assert refreshed_bundle["price"]["price_admissibility_schema_version"] == "price_admissibility_v1"
+    assert refreshed_bundle["price"]["offer_admissibility_status"] == "ambiguous_offer"
+    assert refreshed_bundle["price"]["staleness_or_conflict_status"] == "clean"
 
     rows = list(csv.DictReader((export_dir / "insales_export.csv").open(encoding="utf-8-sig")))
     assert len(rows) == 1
@@ -148,3 +151,105 @@ def test_local_catalog_refresh_applies_seeded_content_and_merchandising(tmp_path
     product_data = json.loads(product_data_file.read_text(encoding="utf-8"))
     assert product_data["1000106"]["description"] == "Seeded описание для карточки."
     assert product_data["1000106"]["image_local_path"] == str(enhanced_path)
+    assert product_data["1000106"]["offer_admissibility_status"] == "ambiguous_offer"
+    assert product_data["1000106"]["staleness_or_conflict_status"] == "clean"
+    assert product_data["1000106"]["price_admissibility_review_bucket"] == "PRICE_ADMISSIBILITY_REVIEW"
+
+
+def test_refresh_bundle_applies_price_overlay_truth():
+    refreshed = refresh_bundle(
+        {
+            "pn": "1011994",
+            "name": "Earmuff",
+            "brand": "Honeywell",
+            "price": {"price_status": "no_price_found"},
+            "content": {},
+            "photo": {"verdict": "KEEP"},
+            "policy_decision_v2": {"card_status": "REVIEW_REQUIRED"},
+        },
+        content_seed={},
+        merchandising_row=None,
+        photo_verdict_row=None,
+        price_overlay_row={
+            "part_number": "1011994",
+            "price_status": "public_price",
+            "price_per_unit": 9.95,
+            "currency": "USD",
+            "page_url": "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm",
+            "source_domain": "honeywellstore.com",
+            "source_tier": "official",
+            "source_type": "official",
+            "offer_qty": 1,
+            "offer_unit_basis": "piece",
+            "price_source_seen": True,
+            "price_source_exact_product_lineage_confirmed": True,
+            "price_source_lineage_reason_code": "structured_exact_product_page",
+            "price_source_surface_stable": True,
+            "notes": "Official exact product page with out-of-stock status preserved.",
+            "http_status": 200,
+        },
+        blocked_price_overlay_row=None,
+        run_ts="2026-04-04T00:00:00Z",
+    )
+
+    assert refreshed["price"]["price_status"] == "public_price"
+    assert refreshed["price"]["source_url"] == "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm"
+    assert refreshed["price"]["offer_admissibility_status"] == "admissible_public_price"
+    assert refreshed["price"]["string_lineage_status"] == "exact"
+    assert refreshed["refresh_trace"]["price_overlay_applied"] is True
+    assert refreshed["refresh_trace"]["blocked_price_overlay_applied"] is False
+
+
+def test_refresh_bundle_preserves_exact_public_price_when_blocked_tail_exists():
+    refreshed = refresh_bundle(
+        {
+            "pn": "1012541",
+            "name": "Earmuff",
+            "brand": "Honeywell",
+            "price": {"price_status": "no_price_found"},
+            "content": {},
+            "photo": {"verdict": "KEEP"},
+            "policy_decision_v2": {"card_status": "REVIEW_REQUIRED"},
+        },
+        content_seed={},
+        merchandising_row=None,
+        photo_verdict_row=None,
+        price_overlay_row={
+            "part_number": "1012541",
+            "price_status": "public_price",
+            "price_per_unit": 68.9,
+            "currency": "PLN",
+            "page_url": "https://behapownia.pl/nauszniki-nahelmowe-howard-l3h",
+            "source_domain": "behapownia.pl",
+            "source_tier": "industrial",
+            "source_type": "industrial_distributor",
+            "offer_qty": 1,
+            "offer_unit_basis": "piece",
+            "price_source_seen": True,
+            "price_source_exact_product_lineage_confirmed": True,
+            "price_source_lineage_reason_code": "structured_exact_product_page",
+            "price_source_surface_stable": False,
+            "price_source_surface_conflict_detected": True,
+            "price_source_surface_conflict_reason_code": "current_surface_conflicts_with_prior",
+            "page_product_class": "Nauszniki nahełmowe HOWARD L3H (1012541)",
+            "notes": "quality wave exact public candidate",
+            "http_status": 200,
+        },
+        blocked_price_overlay_row={
+            "part_number": "1012541",
+            "page_url": "https://www.vseinstrumenti.ru/product/protivoshumnye-naushniki-honeywell-lajtning-l3n-s-krepleniyami-iz-stalnoj-provoloki-na-kasku-1012541-2151517/",
+            "source_domain": "vseinstrumenti.ru",
+            "blocked_ui_detected": True,
+            "http_status": 403,
+        },
+        run_ts="2026-04-06T18:35:00Z",
+    )
+
+    assert refreshed["price"]["price_status"] == "public_price"
+    assert refreshed["price"]["source_url"] == "https://behapownia.pl/nauszniki-nahelmowe-howard-l3h"
+    assert refreshed["price"]["blocked_surface_page_url"] == "https://www.vseinstrumenti.ru/product/protivoshumnye-naushniki-honeywell-lajtning-l3n-s-krepleniyami-iz-stalnoj-provoloki-na-kasku-1012541-2151517/"
+    assert refreshed["price"]["http_status"] == 200
+    assert refreshed["price"]["offer_admissibility_status"] == "admissible_public_price"
+    assert refreshed["price"]["staleness_or_conflict_status"] == "unresolved_conflict"
+    assert refreshed["refresh_trace"]["price_overlay_applied"] is True
+    assert refreshed["refresh_trace"]["blocked_price_overlay_applied"] is True

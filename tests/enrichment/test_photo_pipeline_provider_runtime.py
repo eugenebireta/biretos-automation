@@ -26,6 +26,7 @@ class DummyAdapter:
     def __init__(self, content: str):
         self._content = content
         self.calls: list[dict] = []
+        self.last_call_metadata: dict = {}
 
     def complete(self, *, model: str, messages: list[dict], **api_kwargs) -> str:
         self.calls.append(
@@ -35,6 +36,13 @@ class DummyAdapter:
                 "api_kwargs": api_kwargs,
             }
         )
+        self.last_call_metadata = {
+            "provider": "dummy",
+            "model_alias": model,
+            "model_resolved": f"{model}-resolved",
+            "latency_ms": 12,
+            "error_class": None,
+        }
         return self._content
 
 
@@ -80,8 +88,20 @@ def test_call_gpt_uses_injected_adapter_and_logs_parsed_json(monkeypatch):
             "api_kwargs": {"temperature": 0},
         }
     ]
+    assert records[0]["provider"] == "dummy"
+    assert records[0]["model_alias"] == photo_pipeline.PRICE_LLM_MODEL
+    assert records[0]["model_resolved"] == f"{photo_pipeline.PRICE_LLM_MODEL}-resolved"
+    assert records[0]["latency_ms"] == 12
     assert records[0]["parse_success"] is True
     assert records[0]["response_parsed"] == {"ok": True, "source": "dummy"}
+
+
+def test_reset_chat_completion_adapter_restores_claude_default():
+    photo_pipeline.set_chat_completion_adapter(DummyAdapter("{}"))
+
+    photo_pipeline.reset_chat_completion_adapter()
+
+    assert type(photo_pipeline.chat_completion_adapter).__name__ == "ClaudeChatAdapter"
 
 
 def test_call_gpt_requires_openai_key_only_at_call_time(monkeypatch):

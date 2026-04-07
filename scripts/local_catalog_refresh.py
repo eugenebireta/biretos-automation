@@ -20,6 +20,7 @@ from typing import Any
 from catalog_seed import load_insales_seed_index
 from card_status import derive_photo_contract_fields
 from export_pipeline import write_audit_report, write_evidence_bundles, write_insales_export
+from price_admissibility import materialize_price_admissibility
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -28,6 +29,8 @@ DEFAULT_INPUT_FILE = DOWNLOADS / "honeywell_insales_import.csv"
 DEFAULT_EVIDENCE_DIR = DOWNLOADS / "evidence"
 DEFAULT_PHOTO_MANIFEST = DOWNLOADS / "scout_cache" / "photo_enhance_manifest_all25_recheck.jsonl"
 DEFAULT_PHOTO_VERDICT_FILE = DOWNLOADS / "photo_verdict.json"
+DEFAULT_PRICE_MANIFEST = DOWNLOADS / "scout_cache" / "merged_manifest.jsonl"
+DEFAULT_BLOCKED_PRICE_MANIFEST = DOWNLOADS / "scout_cache" / "bvs_25sku_manifest.jsonl"
 DEFAULT_EXPORT_DIR = DOWNLOADS / "export"
 DEFAULT_CANONICAL_DATA_FILE = DOWNLOADS / "product_data.json"
 AUDITS_DIR = DOWNLOADS / "audits"
@@ -91,6 +94,26 @@ def load_merchandising_index(path: Path) -> dict[str, dict[str, Any]]:
             "cleanup_recommended": bool(row.get("cleanup_recommended", False)),
             "policy_reason_code": str(row.get("policy_reason_code", "") or "").strip(),
         }
+    return index
+
+
+def load_price_overlay_index(path: Path) -> dict[str, dict[str, Any]]:
+    index: dict[str, dict[str, Any]] = {}
+    for row in _load_jsonl(path):
+        pn = _safe_pn_key(row.get("part_number", ""))
+        if pn:
+            index[pn] = row
+    return index
+
+
+def load_blocked_price_overlay_index(path: Path) -> dict[str, dict[str, Any]]:
+    index: dict[str, dict[str, Any]] = {}
+    for row in _load_jsonl(path):
+        pn = _safe_pn_key(row.get("part_number", ""))
+        if not pn:
+            continue
+        if bool(row.get("blocked_ui_detected")) or str(row.get("http_status", "") or "").strip() in {"401", "403", "407", "429", "498"}:
+            index[pn] = row
     return index
 
 
@@ -201,7 +224,15 @@ def _build_merchandising_block(row: dict[str, Any] | None) -> dict[str, Any]:
 
 def build_product_data_entry(bundle: dict[str, Any]) -> dict[str, Any]:
     content = bundle.get("content", {})
-    price = bundle.get("price", {})
+    raw_price = dict(bundle.get("price", {}) or {})
+    price = materialize_price_admissibility(
+        raw_price,
+        historical_state_price_status=str(
+            bundle.get("historical_state_price_status", "")
+            or bundle.get("state_price_status", "")
+            or ""
+        ).strip(),
+    )
     merchandising = bundle.get("merchandising", {})
     return {
         "specs": content.get("specs") or {},
@@ -213,6 +244,12 @@ def build_product_data_entry(bundle: dict[str, Any]) -> dict[str, Any]:
         "price_usd": price.get("price_per_unit"),
         "price_source": price.get("source_url"),
         "price_status": price.get("price_status"),
+        "offer_admissibility_status": price.get("offer_admissibility_status", ""),
+        "string_lineage_status": price.get("string_lineage_status", ""),
+        "commercial_identity_status": price.get("commercial_identity_status", ""),
+        "staleness_or_conflict_status": price.get("staleness_or_conflict_status", ""),
+        "price_admissibility_reason_codes": list(price.get("price_admissibility_reason_codes", []) or []),
+        "price_admissibility_review_bucket": price.get("price_admissibility_review_bucket", ""),
         "price_confidence": price.get("price_confidence"),
         "price_currency": price.get("currency"),
         "stock_status": price.get("stock_status"),
@@ -246,6 +283,115 @@ def _append_review_reason_record(records: list[dict[str, Any]], pn: str, reason_
             }
         )
     return records
+
+
+def _materialize_bundle_price_truth(bundle: dict[str, Any]) -> None:
+    price = dict(bundle.get("price", {}) or {})
+    materialized = materialize_price_admissibility(
+        price,
+        historical_state_price_status=str(
+            bundle.get("historical_state_price_status", "")
+            or bundle.get("state_price_status", "")
+            or ""
+        ).strip(),
+    )
+    bundle["price"] = materialized
+
+
+def _merge_price_overlay(
+    bundle: dict[str, Any],
+    *,
+    price_overlay_row: dict[str, Any] | None,
+    blocked_price_overlay_row: dict[str, Any] | None,
+) -> tuple[bool, bool]:
+    if not price_overlay_row and not blocked_price_overlay_row:
+        return False, False
+
+    price = dict(bundle.get("price", {}) or {})
+    for key in (
+        "price_admissibility_schema_version",
+        "string_lineage_status",
+        "commercial_identity_status",
+        "offer_admissibility_status",
+        "staleness_or_conflict_status",
+        "price_admissibility_reason_codes",
+        "price_admissibility_review_bucket",
+        "price_admissibility_review_required",
+    ):
+        price.pop(key, None)
+
+    if price_overlay_row:
+        for key in (
+            "price_status",
+            "price_per_unit",
+            "currency",
+            "rub_price",
+            "fx_rate_used",
+            "fx_provider",
+            "price_confidence",
+            "stock_status",
+            "offer_unit_basis",
+            "offer_qty",
+            "lead_time_detected",
+            "quote_cta_url",
+            "page_product_class",
+            "price_source_seen",
+            "price_source_exact_product_lineage_confirmed",
+            "price_source_lineage_reason_code",
+            "price_source_surface_stable",
+            "price_source_surface_conflict_detected",
+            "price_source_surface_conflict_reason_code",
+            "source_domain",
+            "source_tier",
+            "source_type",
+            "source_provider",
+            "source_role",
+            "source_price_value",
+            "source_price_currency",
+            "source_offer_qty",
+            "source_offer_unit_basis",
+            "notes",
+            "http_status",
+            "review_required",
+            "cache_fallback_used",
+            "merge_source",
+            "transient_failure_codes",
+            "page_url",
+            "price_basis_note",
+        ):
+            if key in price_overlay_row and price_overlay_row.get(key) is not None:
+                price[key] = price_overlay_row.get(key)
+        page_url = str(price_overlay_row.get("page_url", "") or "").strip()
+        if page_url:
+            price["source_url"] = page_url
+            price["price_source_url"] = page_url
+        if price_overlay_row.get("price_per_unit") is not None:
+            price["price_usd"] = price_overlay_row.get("price_per_unit")
+        if price_overlay_row.get("source_domain"):
+            price["price_source_domain"] = price_overlay_row.get("source_domain")
+        if price_overlay_row.get("source_tier"):
+            price["price_source_tier"] = price_overlay_row.get("source_tier")
+        if price_overlay_row.get("source_type"):
+            price["price_source_type"] = price_overlay_row.get("source_type")
+
+    prefer_current_price_overlay = bool(
+        price_overlay_row
+        and str(price.get("price_status", "") or "").strip() == "public_price"
+        and bool(price.get("price_source_exact_product_lineage_confirmed"))
+    )
+
+    if blocked_price_overlay_row:
+        if not prefer_current_price_overlay and blocked_price_overlay_row.get("blocked_ui_detected") is not None:
+            price["blocked_ui_detected"] = blocked_price_overlay_row.get("blocked_ui_detected")
+        if not prefer_current_price_overlay and blocked_price_overlay_row.get("http_status") is not None:
+            price["http_status"] = blocked_price_overlay_row.get("http_status")
+        blocked_page_url = str(blocked_price_overlay_row.get("page_url", "") or "").strip()
+        if blocked_page_url:
+            price["blocked_surface_page_url"] = blocked_page_url
+            price["blocked_surface_domain"] = str(blocked_price_overlay_row.get("source_domain", "") or "").strip()
+
+    bundle["price"] = price
+    return bool(price_overlay_row), bool(blocked_price_overlay_row)
 
 
 def _apply_photo_verdict_override(refreshed: dict[str, Any], photo_verdict_row: dict[str, Any] | None) -> None:
@@ -304,6 +450,8 @@ def refresh_bundle(
     content_seed: dict[str, Any],
     merchandising_row: dict[str, Any] | None,
     photo_verdict_row: dict[str, Any] | None,
+    price_overlay_row: dict[str, Any] | None,
+    blocked_price_overlay_row: dict[str, Any] | None,
     run_ts: str,
 ) -> dict[str, Any]:
     refreshed = deepcopy(bundle)
@@ -324,6 +472,12 @@ def refresh_bundle(
     content["product_type"] = str(content_seed.get("product_type", "") or content.get("product_type", "") or "").strip()
     content["seed_name"] = str(content_seed.get("seed_name", "") or content.get("seed_name", "") or "").strip()
     refreshed["content"] = content
+    price_overlay_applied, blocked_price_overlay_applied = _merge_price_overlay(
+        refreshed,
+        price_overlay_row=price_overlay_row,
+        blocked_price_overlay_row=blocked_price_overlay_row,
+    )
+    _materialize_bundle_price_truth(refreshed)
 
     refreshed["merchandising"] = _build_merchandising_block(merchandising_row)
     _apply_photo_verdict_override(refreshed, photo_verdict_row)
@@ -341,6 +495,8 @@ def refresh_bundle(
         "content_seed_source": content_seed.get("description_source", ""),
         "photo_verdict_cache_applied": bool(photo_verdict_row),
         "photo_verdict_value": str((photo_verdict_row or {}).get("verdict", "") or "").strip(),
+        "price_overlay_applied": price_overlay_applied,
+        "blocked_price_overlay_applied": blocked_price_overlay_applied,
         "merchandising_attached": bool(refreshed["merchandising"].get("image_local_path")),
         "merchandising_image_status": refreshed["merchandising"].get("image_status", ""),
         "card_status_source": card_status_source,
@@ -363,6 +519,8 @@ def run(
     evidence_dir: Path = DEFAULT_EVIDENCE_DIR,
     photo_manifest: Path = DEFAULT_PHOTO_MANIFEST,
     photo_verdict_file: Path = DEFAULT_PHOTO_VERDICT_FILE,
+    price_manifest: Path = DEFAULT_PRICE_MANIFEST,
+    blocked_price_manifest: Path = DEFAULT_BLOCKED_PRICE_MANIFEST,
     output_root: Path | None = None,
     canonical_evidence_dir: Path = DEFAULT_EVIDENCE_DIR,
     canonical_export_dir: Path = DEFAULT_EXPORT_DIR,
@@ -382,6 +540,8 @@ def run(
     seeds = load_insales_seed_index(input_file)
     merchandising_index = load_merchandising_index(photo_manifest)
     photo_verdict_index = load_photo_verdict_index(photo_verdict_file)
+    price_overlay_index = load_price_overlay_index(price_manifest)
+    blocked_price_overlay_index = load_blocked_price_overlay_index(blocked_price_manifest)
     bundles = iter_evidence_bundles(evidence_dir, limit=limit)
     run_ts = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
@@ -402,6 +562,8 @@ def run(
             content_seed=content_seed,
             merchandising_row=merchandising_row,
             photo_verdict_row=photo_verdict_row,
+            price_overlay_row=price_overlay_index.get(_safe_pn_key(pn)),
+            blocked_price_overlay_row=blocked_price_overlay_index.get(_safe_pn_key(pn)),
             run_ts=run_ts,
         )
         refreshed_bundles.append(refreshed)
@@ -426,6 +588,8 @@ def run(
             "promote_canonical": promote_canonical,
             "input_file": str(input_file),
             "photo_manifest": str(photo_manifest),
+            "price_manifest": str(price_manifest),
+            "blocked_price_manifest": str(blocked_price_manifest),
             "source_evidence_dir": str(evidence_dir),
             "canonical_evidence_dir": str(canonical_evidence_dir),
         },
@@ -461,6 +625,8 @@ def run(
         "canonical_evidence_dir": str(canonical_evidence_dir),
         "photo_manifest": str(photo_manifest),
         "photo_verdict_file": str(photo_verdict_file),
+        "price_manifest": str(price_manifest),
+        "blocked_price_manifest": str(blocked_price_manifest),
         "output_root": str(output_root),
         "input_bundle_count": len(bundles),
         "refreshed_bundle_count": len(refreshed_bundles),
@@ -483,6 +649,8 @@ def main() -> None:
     parser.add_argument("--canonical-evidence-dir", default=str(DEFAULT_EVIDENCE_DIR))
     parser.add_argument("--photo-manifest", default=str(DEFAULT_PHOTO_MANIFEST))
     parser.add_argument("--photo-verdict-file", default=str(DEFAULT_PHOTO_VERDICT_FILE))
+    parser.add_argument("--price-manifest", default=str(DEFAULT_PRICE_MANIFEST))
+    parser.add_argument("--blocked-price-manifest", default=str(DEFAULT_BLOCKED_PRICE_MANIFEST))
     parser.add_argument("--output-root", default="")
     parser.add_argument("--base-photo-url", default="")
     parser.add_argument("--limit", type=int, default=None)
@@ -495,6 +663,8 @@ def main() -> None:
         canonical_evidence_dir=Path(args.canonical_evidence_dir),
         photo_manifest=Path(args.photo_manifest),
         photo_verdict_file=Path(args.photo_verdict_file),
+        price_manifest=Path(args.price_manifest),
+        blocked_price_manifest=Path(args.blocked_price_manifest),
         output_root=Path(args.output_root) if args.output_root else None,
         promote_canonical=args.promote_canonical,
         base_photo_url=args.base_photo_url,

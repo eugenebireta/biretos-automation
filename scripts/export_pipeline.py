@@ -59,6 +59,11 @@ from deterministic_false_positive_controls import (
 )
 from naming_resolver import resolve_title_or_fallback
 from no_price_coverage import materialize_no_price_coverage
+from price_admissibility import materialize_price_admissibility
+from price_evidence_cache import (
+    normalize_cache_fallback_reason,
+    normalize_transient_failure_codes,
+)
 
 
 # ── H-lite: deterministic title assembly (no AI) ────────────────────────────────
@@ -441,8 +446,12 @@ def build_evidence_bundle(
     Computes overall_card_confidence via confidence.py when available.
     Assembles assembled_title via H-lite title formula.
     """
-    guarded_price_result = materialize_no_price_coverage(
-        tighten_public_price_result(price_result)
+    guarded_price_result = materialize_price_admissibility(
+        materialize_no_price_coverage(tighten_public_price_result(price_result)),
+        queue_price_status=str(price_result.get("queue_price_status", "") or "").strip(),
+        historical_state_price_status=str(
+            price_result.get("historical_state_price_status", "") or ""
+        ).strip(),
     )
     guarded_vision_verdict = apply_numeric_keep_guard(
         pn=pn,
@@ -487,6 +496,12 @@ def build_evidence_bundle(
         price_result=guarded_price_result,
     )
     price_observation = infer_price_observation_surface(guarded_price_result, run_ts)
+    normalized_cache_fallback_reason = normalize_cache_fallback_reason(
+        guarded_price_result.get("cache_fallback_reason", "")
+    )
+    normalized_transient_failure_codes = normalize_transient_failure_codes(
+        guarded_price_result.get("transient_failure_codes", [])
+    )
     evidence_paths = build_evidence_paths_block(
         photo_result=photo_result,
         price_result=guarded_price_result,
@@ -600,6 +615,18 @@ def build_evidence_bundle(
 
         "price": {
             "price_status": price_status,
+            "price_admissibility_schema_version": guarded_price_result.get("price_admissibility_schema_version", ""),
+            "string_lineage_status": guarded_price_result.get("string_lineage_status", ""),
+            "commercial_identity_status": guarded_price_result.get("commercial_identity_status", ""),
+            "offer_admissibility_status": guarded_price_result.get("offer_admissibility_status", ""),
+            "staleness_or_conflict_status": guarded_price_result.get("staleness_or_conflict_status", ""),
+            "price_admissibility_reason_codes": list(guarded_price_result.get("price_admissibility_reason_codes", [])),
+            "price_admissibility_review_bucket": guarded_price_result.get("price_admissibility_review_bucket", ""),
+            "price_admissibility_review_required": bool(
+                guarded_price_result.get("price_admissibility_review_required")
+            ),
+            "queue_price_status": guarded_price_result.get("queue_price_status", ""),
+            "historical_state_price_status": guarded_price_result.get("historical_state_price_status", ""),
             "price_per_unit": guarded_price_result.get("price_usd"),
             "currency": guarded_price_result.get("currency"),
             "rub_price": guarded_price_result.get("rub_price"),
@@ -677,13 +704,13 @@ def build_evidence_bundle(
             "no_price_coverage_schema_version": guarded_price_result.get("no_price_coverage_schema_version", ""),
             "public_price_rejection_reasons": list(guarded_price_result.get("public_price_rejection_reasons", [])),
             "cache_fallback_used": bool(guarded_price_result.get("cache_fallback_used")),
-            "cache_fallback_reason": guarded_price_result.get("cache_fallback_reason", ""),
+            "cache_fallback_reason": normalized_cache_fallback_reason,
             "cache_schema_version": guarded_price_result.get("cache_schema_version", ""),
             "cache_policy_version": guarded_price_result.get("cache_policy_version", ""),
             "cache_source_run_id": guarded_price_result.get("cache_source_run_id", ""),
             "cache_bundle_ref": guarded_price_result.get("cache_bundle_ref", ""),
             "transient_failure_detected": bool(guarded_price_result.get("transient_failure_detected")),
-            "transient_failure_codes": list(guarded_price_result.get("transient_failure_codes", [])),
+            "transient_failure_codes": normalized_transient_failure_codes,
         },
 
         "datasheet": datasheet_result,
@@ -778,7 +805,7 @@ def build_evidence_bundle(
             },
             "call_state": "shadow_error",
             "error": str(exc),
-            "openai_request_id": "",
+            "llm_request_id": "",
         }
     return bundle
 
