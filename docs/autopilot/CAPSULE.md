@@ -1,5 +1,27 @@
 # Task Capsule
 
+Task_ID: R1-revenue-price-scout-resolution
+Risk: LOW
+Date: 2026-04-07
+
+## Summary
+Resolved 5 of 11 previously ambiguous price seeds. Key deliverables:
+- **pn_match.py**: suffix-variant fallback (strip -RU/-L3/N/U before lineage match)
+- **trust.py**: 7 new industrial domains for RU PPE + US safety suppliers  
+- **Seeds**: 4 updated with accessible URLs; 129464N/U newly admissible ($640 DM Supply)
+- **Honeywell PN conventions** documented in memory (base PN + color/region/kit suffixes)
+- **Evaluation report** (honeywell.xlsx) identified as reference price source for all 17 SKU
+
+Final state: 6 admissible_public_price, 5 review_required (surface_conflict or rfq/no-url)
+
+## Remaining Gaps
+- 8 PEHA items: catalog says "sensors" but products are electrical switch covers → needs reclassification
+- 1011893-RU / 1011894-RU: lineage=True, surface_conflict (new URLs, will stabilize)
+- 129625-L3: distributor uses GA-USB1-IR code, manufacturer PN not in page HTML
+- 1015021 / 121679-L3: no public price found (rfq_only or no accessible page)
+
+---
+
 Task_ID: R1-revenue-photo-price-recovery-attempt
 Risk: LOW
 Date: 2026-04-07

@@ -1,12 +1,12 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 64
-transition_ts: "2026-04-07T15:10:00Z"
+transition_seq: 65
+transition_ts: "2026-04-07T16:30:00Z"
 
 ## Current
-active_task: "R1 Revenue — Photo Recovery + Price Scout Attempts (structural gap confirmed)"
-task_id: "R1-revenue-photo-price-recovery-attempt"
+active_task: "R1 Revenue — Price Scout Resolution (suffix-variant lineage + trust expansion)"
+task_id: "R1-revenue-price-scout-resolution"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
@@ -15,26 +15,29 @@ pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: 38
 now:
-  - step: "Photo recovery attempt (14 SKU) + Price scout attempt (10 SKU) — structural gap confirmed"
+  - step: "Price scout resolution — suffix-variant PN matching, trust domain expansion, URL refresh for 6 ambiguous seeds"
     actions:
-      - "config/.env.providers created (ANTHROPIC_API_KEY injected from auditor_system config)"
-      - ".claude/settings.local.json created with SERPAPI_KEY + OPENAI_API_KEY (persistent across sessions)"
-      - ".gitignore updated: .claude/settings.local.json added"
-      - "photo_pipeline.py --queue: 14/14 REJECT (no improvement) — SerpAPI returns same Peha PN-collision URLs, gpt_cache blocks re-evaluation"
-      - "run_price_only_scout_pilot.py --queue: 0/8 new admissible prices — same Peha PN-collision problem for 5 SKU, 3 genuinely unseeded"
-      - "local_catalog_refresh.py rebuilt: 0 auto_publish, 13 review_required, 12 draft_only"
-      - "849/849 PASS (no regressions)"
+      - "pn_match.py: strip_known_suffix() + suffix-variant fallback in extract_structured_pn_flags"
+      - "trust.py: 7 new industrial domains (sima-land, vseinstrumenti, specregion, pksafety, dmsupply, transcat, instrumart)"
+      - "4 seeds updated with accessible URLs (specregion for harnesses, DM Supply for 129464N/U, instrumart for 129625-L3)"
+      - "129464N/U: admissible_public_price ($640.44, DM Supply, lineage=True)"
+      - "1011893-RU + 1011894-RU: lineage=True via suffix-variant matching (surface_conflict pending stabilization)"
+      - "Final: 6 admissible_public_price, 5 ambiguous_offer/review_required"
+      - "Evaluation report (honeywell.xlsx) provides reference prices for all 17 SKU"
 known_gap: |
-  STRUCTURAL PN COLLISION: 7 SKU (101411, 104011, 105411, 106511, 109411, 125711, 127411)
-    — part numbers collide with Peha by Honeywell home automation products
-    — SerpAPI always returns wrong category (switches/outlets vs industrial sensors/valves)
-    — photo and price recovery impossible via automated search alone
-    — NEEDS: manual photo sourcing OR catalog cleanup (remove/reclassify these SKU)
-  GENUINELY UNSEEDED: 3 SKU (121679-L3, 129625-L3 not in catalog CSV; 1015021 no web presence)
-  ADMISSIBILITY_REVIEW: 3 SKU (00020211 pack ambiguity, 106511 component, 129464N/U component — need owner judgment)
+  SURFACE_CONFLICT (new sources): 1011893-RU, 1011894-RU — lineage=True but surface_conflict with prior runs
+    — will stabilize after 2+ pipeline runs; currently flagged as review_required
+  MANUFACTURER_PN_NOT_VISIBLE: 129625-L3 (GA-USB1-IR distributor code), 121679-L3 (no accessible URL)
+    — distributor pages don't show manufacturer PN; lineage unconfirmable by automation
+    — evaluation report reference prices: 129625-L3=55352₽, 121679-L3=17169₽
+  NO_PUBLIC_PRICE: 1015021 (rfq_only on all found pages), 121679-L3 (no page found)
+    — evaluation report reference: 1015021=1255₽, 121679-L3=17169₽
+  STRUCTURAL_PN_COLLISION: 8 PEHA items (00020211, 101411, 104011, 105411, 106511, 109411, 125711, 127411)
+    — mislabeled as industrial sensors/valves but are Peha electrical switch covers
+    — prices exist on Conrad but pipeline rejects due to category_mismatch
+    — needs catalog reclassification or explicit category_mismatch override
   photo_recovery=14 SKU remaining
-  price_followup=17 SKU (up from 13 after refresh — new admissibility checks surfaced more issues)
-awaiting: "Owner decision: (A) continue R1 catalog cleanup manually for PN-collision SKU, OR (B) switch track to Meta Orchestrator M5 or Infrastructure."
+awaiting: "Owner decision: (A) reclassify PEHA items in catalog, OR (B) switch track to next R1 phase or Infrastructure."
 
 ## Previous (seq 60 — M4 Executor Bridge)
 prev_active_task: "Meta Orchestrator — M4 Executor Bridge"
