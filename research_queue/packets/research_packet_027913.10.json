@@ -1,0 +1,72 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_027913.10",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "027913.10",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 027913.10 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=027913.10",
+    "What is the full product name and product family for Honeywell 027913.10?",
+    "Is 027913.10 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 027913.10"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "REJECT",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.manualslib.com/products/Honeywell-027913-10-11419000.html",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Считыватель карт luminAXS mifareD RS485",
+    "assembled_title": "Считыватель Honeywell 027913.10",
+    "expected_category": "Считыватель",
+    "our_price_raw": "34276,71",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.manualslib.com/products/Honeywell-027913-10-11419000.html",
+    "pn_variants": [
+      "27913.10",
+      "027913-10",
+      "02791310"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_027913.10.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.921034Z"
+}

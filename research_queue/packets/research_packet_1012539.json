@@ -1,0 +1,65 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_1012539",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "1012539",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 1012539 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=1012539",
+    "What is the full product name and product family for Honeywell 1012539?",
+    "Is 1012539 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 1012539"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "public_price",
+    "price_source_url": "https://www.maxodeals.com/mdenglish/l1h--32065x0037?srsltid=AfmBOorHU3CQUFqatDYGwq4OFMhbvH1rOf3thYLoSSQromxtGVG9e5yz",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "LEGACY_AUTO_PUBLISH_HOLDOUT"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Наушники противошумные EARMUFF-LEIGHTNING L1H",
+    "assembled_title": "Наушники Honeywell 1012539",
+    "expected_category": "Наушники",
+    "our_price_raw": "1652,59",
+    "has_content_seed": true,
+    "price_currency": "EUR",
+    "price_native_value": 12.78,
+    "price_rub": 1214.1,
+    "existing_source_url": "https://www.maxodeals.com/mdenglish/l1h--32065x0037?srsltid=AfmBOorHU3CQUFqatDYGwq4OFMhbvH1rOf3thYLoSSQromxtGVG9e5yz",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_1012539.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.937730Z"
+}

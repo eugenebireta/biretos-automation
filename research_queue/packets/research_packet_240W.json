@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_240W",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "240W",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 240W (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=240W",
+    "What is the full product name and product family for Honeywell 240W?",
+    "Is 240W a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 240W"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "REJECT",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.jjstech.com/tppr-v-0503.html?srsltid=AfmBOorjbl1Z2jDBHuzMCUyQG4nvE-KiPIoY7cp2w0TadEpO-OpzJsvq",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Зарядное устройство Honeywell 240W",
+    "assembled_title": "Зарядное устройство Honeywell 240W",
+    "expected_category": "Зарядное устройство",
+    "our_price_raw": "1756,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.jjstech.com/tppr-v-0503.html?srsltid=AfmBOorjbl1Z2jDBHuzMCUyQG4nvE-KiPIoY7cp2w0TadEpO-OpzJsvq",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_240W.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.983847Z"
+}

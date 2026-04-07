@@ -1,0 +1,72 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_00020211",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "00020211",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 00020211 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=00020211",
+    "What is the full product name and product family for Honeywell 00020211?",
+    "Is 00020211 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 00020211"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "REJECT",
+    "price_status": "no_price_found",
+    "price_source_url": "https://tameson.com/products/honeywell-peha-nova-cover-frame-switchgear-00020211-2-pieces-e29xd-x2",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Датчик температуры D 20.672.022 T",
+    "assembled_title": "Рамка 2-постовая PEHA NOVA, 00020211",
+    "expected_category": "Датчик",
+    "our_price_raw": "0,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://tameson.com/products/honeywell-peha-nova-cover-frame-switchgear-00020211-2-pieces-e29xd-x2",
+    "pn_variants": [
+      "0020211",
+      "020211",
+      "20211"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_00020211.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.918034Z"
+}

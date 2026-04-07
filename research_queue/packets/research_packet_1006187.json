@@ -1,0 +1,65 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_1006187",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "1006187",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 1006187 (Honeywell)",
+  "research_reason": "specs_gap",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Find technical specifications for Honeywell 1006187",
+    "What are the key technical parameters and operating conditions?",
+    "Is there a product datasheet for Honeywell 1006187?",
+    "Provide any relevant Russian-language product description for Honeywell 1006187"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "public_price",
+    "price_source_url": "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33?srsltid=AfmBOooCDhimF5IpXiU1ge0c5tyaF8U8Vz981j7ybLx1UaEOgw41ESXj",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "LEGACY_AUTO_PUBLISH_HOLDOUT"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Беруши 303S-YEL/WHT",
+    "assembled_title": "Беруши Honeywell 1006187",
+    "expected_category": "Беруши",
+    "our_price_raw": "2095,17",
+    "has_content_seed": true,
+    "price_currency": "GBP",
+    "price_native_value": 0.15645,
+    "price_rub": 17.52,
+    "existing_source_url": "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33?srsltid=AfmBOooCDhimF5IpXiU1ge0c5tyaF8U8Vz981j7ybLx1UaEOgw41ESXj",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_1006187.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.934732Z"
+}

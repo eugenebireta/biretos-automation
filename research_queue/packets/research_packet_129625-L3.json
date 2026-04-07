@@ -1,0 +1,66 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_129625-L3",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "129625-L3",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 129625-L3 (Honeywell)",
+  "research_reason": "no_price_lineage",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Find a public market price for Honeywell 129625-L3 from a verifiable distributor",
+    "Is 129625-L3 RFQ-only or available with published pricing?",
+    "Which authorized distributors carry this part number?",
+    "Provide any relevant Russian-language product description for Honeywell 129625-L3"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": null,
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": []
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3",
+    "assembled_title": "Набор Honeywell 129625-L3",
+    "expected_category": "Набор",
+    "our_price_raw": "55352,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": null,
+    "pn_variants": [
+      "129625.L3",
+      "129625L3"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_129625-L3.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.948729Z"
+}

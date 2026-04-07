@@ -8,7 +8,7 @@
   "name": "Датчик Honeywell D 433 HAB O.A",
   "assembled_title": "Диммер PEHA, 210213",
   "our_price_raw": "8582,50",
-  "expected_category": "Датчик",
+  "expected_category": "Диммеры PEHA",
   "card_status": "DRAFT_ONLY",
   "review_reasons": [
     "IDENTITY_WEAK",
@@ -230,7 +230,7 @@
     ]
   },
   "price": {
-    "price_status": "category_mismatch_only",
+    "price_status": "public_price",
     "price_admissibility_schema_version": "price_admissibility_v1",
     "string_lineage_status": "exact",
     "commercial_identity_status": "component_or_accessory",
@@ -264,7 +264,7 @@
     "lead_time_detected": false,
     "quote_cta_url": null,
     "suffix_conflict": false,
-    "category_mismatch": true,
+    "category_mismatch": false,
     "page_product_class": "Dimmer (Phasenabschnittdimmer)",
     "brand_mismatch": false,
     "price_median_clean": null,
@@ -587,5 +587,8 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "category_fix_applied": true,
+  "category_fix_ts": "2026-04-07T23:11:05.748983Z",
+  "category_fix_original": "Датчик"
 }
