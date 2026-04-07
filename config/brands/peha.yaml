@@ -1,0 +1,56 @@
+brand: PEHA
+parent_brand: Honeywell
+aliases:
+  - peha
+  - PEHA
+  - Peha by Honeywell
+
+pn_patterns:
+  - '^[01]\d{4,5}$'   # 5-6 digit starting with 0 or 1: 20511 excluded, 101411, 153711
+  - '^2\d{4,5}$'      # 5-6 digit starting with 2: 20511, 22811, 210213
+
+categories:
+  - Рамки PEHA
+  - Клавиши PEHA
+  - Накладки PEHA
+  - Диммеры PEHA
+  - Розетки PEHA
+  - Выключатели PEHA
+
+trusted_domains:
+  tier1:
+    - peha.de
+    - peha.com
+  tier2:
+    - conrad.de
+    - conrad.com
+    - conrad.fr
+    - conrad.se
+    - conrad.nl
+    - conradelektronik.dk
+    - nabava.net
+    - voltus.ru
+    - liveinlight.ru
+    - elektro-wandelt.de
+    - cdon.se
+
+search_hints:
+  primary_lang: de
+  append_terms:
+    - peha
+    - schalterprogramm
+    - elektroinstallation
+    - Abdeckrahmen
+  avoid_terms:
+    - gebraucht
+    - ebay
+    - verwendet
+
+datasheet_query_template: '{pn} PEHA datasheet filetype:pdf'
+
+known_issues:
+  - 'Numeric PNs collide with other brands on generic pages (Conrad accessories catalog)'
+  - 'xlsx source data labels PEHA items as Вентиль/Детектор/Датчик — these are wrong'
+  - 'Correct categories: Рамки, Клавиши, Накладки, Диммеры, Розетки'
+  - 'PN 153711 = 3-gang frame NOVA series; 155111 = 5-gang frame'
+  - 'Conrad.fr/de/se often have correct prices for PEHA accessories'

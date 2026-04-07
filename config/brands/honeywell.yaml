@@ -1,0 +1,71 @@
+brand: Honeywell
+aliases:
+  - honeywell
+  - HONEYWELL
+  - Honeywell Analytics
+
+pn_patterns:
+  - '^\d{6,10}$'           # numeric: 1000106, 1030000000
+  - '^\d+\.\d+$'           # dotted: 027913.10
+  - '^\d+-[A-Z]+\d*$'      # suffix: 129464N
+  - '^\d+[A-Z]+$'          # trailing alpha: 129464N
+  - '^[A-Z]{2,4}-[\w-]+$'  # alpha-numeric: BWC4-Y-R
+
+pn_suffix_rules:
+  '.10': 'цвет/вариант (белый = стандарт)'
+  '-RU': 'Россия/СНГ версия'
+  '-L3': 'комплект (kit)'
+  'N': 'новая версия (замена устаревшей)'
+  'U': 'обновлённая версия'
+  '/U': 'обновлённая версия'
+
+search_hints:
+  primary_lang: en
+  append_terms:
+    - honeywell
+    - industrial
+    - B2B
+    - distributor
+  avoid_terms:
+    - review
+    - forum
+    - ebay reseller
+    - amazon used
+    - купить отзывы
+
+trusted_domains:
+  tier1:
+    - honeywell.com
+    - honeywellsensing.com
+    - buildingsecurity.honeywell.com
+    - security.honeywell.com
+  tier2:
+    - mouser.com
+    - mouser.ru
+    - rs-components.com
+    - arrow.com
+    - digikey.com
+    - tme.eu
+    - farnell.com
+    - distrelec.com
+    - walde.ee
+
+datasheet_query_template: '{pn} honeywell datasheet filetype:pdf'
+
+sub_brands:
+  - peha
+  - esser
+
+categories:
+  - Датчики безопасности
+  - Пожарные датчики
+  - Детекторы дыма
+  - Контроллеры
+  - Модули управления
+  - Аксессуары
+
+known_issues:
+  - 'Numeric 6-digit PNs may collide with PEHA switch accessories (same numeric space)'
+  - 'PN suffixes N/U mean replacement model — search both base and suffixed'
+  - '-RU suffix = Russia/CIS market, may not appear on EU distributor pages'
+  - 'evalulation-report (honeywell.xlsx) is the reference price source for RU pricing'
