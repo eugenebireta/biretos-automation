@@ -1,4 +1,27 @@
 ---
+DATE: 2026-04-08
+TITLE: R1 Revenue — Overnight Batch 1+2 (price sanity + enrichment + research)
+RISK_LEVEL: SEMI
+STATUS: IN_PROGRESS (seq 67, feat/rev-r1-catalog, awaiting batch completion)
+SCOPE:
+  - scripts/price_sanity.py: 5-rule price validator (REJECT/WARNING/PASS)
+  - photo_pipeline.py: price sanity integrated after extraction
+  - Retrospective sanity audit: 69 SKU (PASS=31, WARNING=11, REJECT=0)
+  - Enrichment batch: running background (301 new SKU, budget-limited)
+  - Self-audit 10 sample SKU: systematic PEHA category_mismatch identified
+  - Category fix: 33 PEHA SKUs corrected (30 price_now_admissible)
+  - scripts/research_queue.py: research packet emitter (69 packets)
+  - scripts/research_runner.py: Claude API deep-research + budget guard
+  - Batch research: 37 high-priority SKUs (running background)
+TEST_EVIDENCE: 646/646 PASS (69 new tests)
+KEY_FINDINGS:
+  - All 34 category_mismatch SKUs are PEHA electrical accessories mislabeled in xlsx
+  - 33 PEHA categories fixed deterministically from assembled_title
+  - 1 AED price suspicious (1000106 earplug: $18.61 instead of ~$0.60)
+  - Research queue: 37 high-priority, 32 low-priority; category_mismatch=34, identity_weak=28
+  - Enrichment progress: 69→N/370 (N TBD after batch completes overnight)
+TIER1_CLEAN: true
+---
 DATE: 2026-04-07
 TITLE: R1 Revenue — Photo Recovery + Price Scout (structural gap confirmed)
 RISK_LEVEL: LOW

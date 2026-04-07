@@ -1,5 +1,39 @@
 # Task Capsule
 
+Task_ID: R1-overnight-batch-1-2
+Risk: SEMI
+Date: 2026-04-08
+
+## Summary
+Overnight autonomous batch: price sanity check, enrichment continuation (301 SKU),
+self-audit, PEHA category_mismatch batch fix, research queue export, Claude API
+deep-research batch.
+
+Key deliverables:
+- **price_sanity.py**: 5-rule price validator (REJECT/WARNING/PASS) — AED/exotic
+  currency flag, high piece price, cross-reference 5× median, extreme bounds, round
+  number detection. 26 deterministic tests PASS. Integrated into photo_pipeline.py.
+- **Retrospective sanity audit**: 69 existing SKU — PASS=31, WARNING=11, REJECT=0.
+  Results in shadow_log/price_sanity_audit_2026-04.jsonl.
+- **Enrichment batch**: running background, ~79/370 at snapshot time (~1 SKU/min).
+- **Category fix**: 33 PEHA items corrected (Вентиль/Детектор/Датчик →
+  Рамки/Клавиши/Диммеры/Накладки PEHA). 30 SKU: price_now_admissible.
+  shadow_log/category_fix_2026-04.jsonl.
+- **research_queue.py**: emits JSON+MD research packets for DRAFT/REVIEW_REQUIRED SKU.
+  69 packets generated (37 high, 32 low priority). Category breakdown: category_mismatch=34,
+  identity_weak=28, no_price_lineage=5, specs_gap=2.
+- **research_runner.py**: Claude API deep-research with budget guard, MockProvider for
+  tests, audit, merge candidates, overnight report. 23 tests PASS.
+- **Batch research**: 37 high-priority packets sent to claude-haiku (running background).
+  Results go to research_results/ — NOT merged without owner review.
+
+After category fix: DRAFT_ONLY=58, REVIEW_REQUIRED=11 (from initial 69 SKU).
+Total new tests: 69 (26+20+23), full suite 646/646 PASS.
+
+---
+
+# Task Capsule (previous)
+
 Task_ID: R1-revenue-price-scout-batch2
 Risk: LOW
 Date: 2026-04-07
