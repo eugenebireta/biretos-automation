@@ -407,3 +407,26 @@ NOTES:
 ---
 ## 2026-04-07 R1-revenue-price-scout-batch2 (seq 66) — LOW — CLOSED
 Price scout batch2: 17 new SKUs, 11 admissible_public_price (Esser/HVAC/barcode). trust.py +7 domains. 849/849 PASS.
+
+---
+DATE: 2026-04-08
+TITLE: AI Construction Bootstrap — Tasks 1–5 (infra/acceleration-bootstrap plan v1.4 FINAL)
+RISK_LEVEL: LOW/SEMI
+STATUS: COMPLETED (infra/acceleration-bootstrap, 5 commits)
+BRANCH: infra/acceleration-bootstrap
+SCOPE:
+  - Task 1: scripts/photo_pipeline.py — per-SKU batch resilience (try/except isolation,
+    graceful SIGTERM shutdown, lease file heartbeat, checkpoint _status field)
+  - Task 2: scripts/budget_tracker.py (NEW) + config/budget_guardrails.json (NEW) —
+    persistent daily cost tracking, BudgetExceeded pre-gate in providers.py
+  - Task 3: shadow_log/experience_writer.py (NEW) — unified ExperienceRecord schema,
+    write_experience() append-only JSONL, 3 adapters for existing log formats
+  - Task 4: orchestrator/experience_loader.py (NEW) + orchestrator/intake.py —
+    context injection: load_relevant_experience() + ContextBundle.experience_summary
+    + to_advisor_prompt_context() "## Relevant past experience" section
+  - Task 5: auditor_system/runner_factory.py (NEW) + orchestrator/core_gate_bridge.py (NEW)
+    + orchestrator/main.py + orchestrator/schemas/manifest_v1.json — CORE_GATE automated
+    audit bridge: SynthesizerDecision → TaskPack → dual audit → fsm state
+TEST_EVIDENCE: 916/916 PASS (zero regression)
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
