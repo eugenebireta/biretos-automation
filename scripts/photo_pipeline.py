@@ -1698,6 +1698,7 @@ def run(
     export: bool = True,
     base_photo_url: str = "",
     queue_path: Path | str | None = None,
+    force_reprocess: bool = False,
 ):
     """Запускает пайплайн для всех SKU из INPUT_FILE."""
     df = load_run_dataframe(limit=limit, queue_path=queue_path)
@@ -1746,6 +1747,29 @@ def run(
             skipped_checkpoint += 1
             print(f"[{i+1}/{len(df)}] {pn} — CHECKPOINT (skip)")
             continue
+
+        # ── Evidence-first skip: protect bundles written by other pipelines ───
+        if not force_reprocess:
+            pn_safe = re.sub(r'[\\/:*?"<>|]', "_", pn)
+            evidence_path = EVIDENCE_DIR / f"evidence_{pn_safe}.json"
+            if evidence_path.exists():
+                try:
+                    existing_bundle = json.loads(evidence_path.read_text(encoding="utf-8"))
+                    evidence_bundles.append(existing_bundle)
+                    checkpoint[pn] = existing_bundle
+                    save_checkpoint(checkpoint)
+                    v_cached = existing_bundle.get("photo", {}).get("verdict", "NO_PHOTO")
+                    if v_cached == "KEEP":
+                        keep += 1
+                    elif v_cached == "NO_PHOTO":
+                        no_photo += 1
+                    else:
+                        reject += 1
+                    skipped_checkpoint += 1
+                    print(f"[{i+1}/{len(df)}] {pn} — EVIDENCE_EXISTS (skip)")
+                    continue
+                except Exception:
+                    pass  # Corrupted file — fall through to normal processing
 
         allowed, reason = allow_next_sku(pn)
         if not allowed:
@@ -2111,6 +2135,8 @@ if __name__ == "__main__":
     p.add_argument("--no-export",   action="store_true",       help="Не писать export/evidence")
     p.add_argument("--photo-base-url", default="",             help="Базовый URL для фото (InSales)")
     p.add_argument("--queue", default="", help="JSONL queue file from build_catalog_followup_queues.py")
+    p.add_argument("--force-reprocess", action="store_true",
+                   help="Ignore existing evidence bundles and reprocess from scratch")
     args = p.parse_args()
     run(
         limit=args.limit,
@@ -2119,4 +2145,5 @@ if __name__ == "__main__":
         export=not args.no_export,
         base_photo_url=args.photo_base_url,
         queue_path=Path(args.queue) if args.queue else None,
+        force_reprocess=args.force_reprocess,
     )
