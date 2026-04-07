@@ -2,25 +2,31 @@
   "00020211": {
     "verdict": "REJECT",
     "reason": "баннер/шапка сайта 519x56px",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\00020211.jpg",
-    "width": 260,
-    "height": 103,
+    "width": 149,
+    "height": 220,
     "stock_photo_flag": false
   },
   "010130.10": {
     "verdict": "REJECT",
     "reason": "баннер/шапка сайта 420x65px",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\010130.10.jpg",
-    "width": 399,
-    "height": 559,
+    "width": 1280,
+    "height": 720,
     "stock_photo_flag": false
   },
   "027913.10": {
     "verdict": "REJECT",
     "reason": "на изображении не считыватель карт, а сантехнический клапан/фильтр",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\027913.10.jpg",
-    "width": 512,
-    "height": 512,
+    "width": 3682,
+    "height": 3726,
     "stock_photo_flag": false
   },
   "033588.17": {
@@ -58,17 +64,21 @@
   "1011893-RU": {
     "verdict": "REJECT",
     "reason": "баннер/шапка сайта 200x60px",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011893-RU.jpg",
-    "width": 200,
-    "height": 60,
+    "width": 311,
+    "height": 650,
     "stock_photo_flag": false
   },
   "1011894-RU": {
     "verdict": "REJECT",
     "reason": "логотип без самого товара",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011894-RU.jpg",
-    "width": 2000,
-    "height": 1000,
+    "width": 320,
+    "height": 450,
     "stock_photo_flag": false
   },
   "1011994": {
@@ -98,9 +108,11 @@
   "101411": {
     "verdict": "REJECT",
     "reason": "на фото рамка/накладка, а не датчик температуры",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\101411.jpg",
-    "width": 450,
-    "height": 450,
+    "width": 566,
+    "height": 566,
     "stock_photo_flag": false
   },
   "1015021": {
@@ -114,14 +126,20 @@
   "104011": {
     "verdict": "REJECT",
     "reason": "на изображении выключатель, а не датчик температуры",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\104011.jpg",
-    "width": 566,
-    "height": 566,
+    "width": 700,
+    "height": 72,
     "stock_photo_flag": false
   },
   "1050000000": {
     "verdict": "REJECT",
-    "reason": "user_feedback_2026_04_01_image_not_related_to_sku",
+    "reason": "deterministic numeric/dotted PN guard: missing_exact_structured_context",
+    "numeric_keep_guard_applied": true,
+    "numeric_keep_guard_reasons": [
+      "missing_exact_structured_context"
+    ],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1050000000.jpg",
     "width": 640,
     "height": 480,
@@ -130,9 +148,11 @@
   "105411": {
     "verdict": "REJECT",
     "reason": "на фото выключатель, а не датчик температуры",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\105411.jpg",
-    "width": 650,
-    "height": 650,
+    "width": 2084,
+    "height": 545,
     "stock_photo_flag": false
   },
   "1061200000": {
@@ -146,41 +166,51 @@
   "106511": {
     "verdict": "REJECT",
     "reason": "на изображении розетка, а не датчик температуры",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\106511.jpg",
-    "width": 450,
-    "height": 450,
+    "width": 500,
+    "height": 500,
     "stock_photo_flag": false
   },
   "109411": {
     "verdict": "REJECT",
     "reason": "баннер/шапка сайта 700x70px",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\109411.jpg",
-    "width": 700,
-    "height": 70,
+    "width": 200,
+    "height": 316,
     "stock_photo_flag": false
   },
   "121679-L3": {
     "verdict": "REJECT",
     "reason": "на изображении только логотип и текст, товара не видно",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\121679-L3.jpg",
-    "width": 350,
-    "height": 286,
+    "width": 270,
+    "height": 55,
     "stock_photo_flag": false
   },
   "125711": {
     "verdict": "REJECT",
     "reason": "на фото не термостатический вентиль, а лицевая панель/накладка с отверстиями",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\125711.jpg",
-    "width": 500,
-    "height": 500,
+    "width": 702,
+    "height": 159,
     "stock_photo_flag": false
   },
   "127411": {
     "verdict": "REJECT",
     "reason": "на фото розетка, а не термостатический вентиль Honeywell",
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\127411.jpg",
-    "width": 650,
-    "height": 650,
+    "width": 370,
+    "height": 370,
     "stock_photo_flag": false
   },
   "129464N/U": {

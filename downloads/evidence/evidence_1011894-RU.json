@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-04-07T11:19:55.107152Z",
+  "generated_at": "2026-04-07T11:57:32.170030Z",
   "pn": "1011894-RU",
   "pn_variants": [
     "1011894.RU",
@@ -14,8 +14,10 @@
   "expected_category": "Привязь",
   "card_status": "DRAFT_ONLY",
   "review_reasons": [
-    "no_photo_and_no_price",
-    "NO_IMAGE_EVIDENCE"
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "NO_PDF_EVIDENCE"
   ],
   "policy_decision_v2": {
     "decision_id": "dec_1011894-RU",
@@ -40,7 +42,7 @@
         "evidence_ids": [
           "ev_title_1011894-RU"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-09T",
         "bucket": "IDENTITY_CONFLICT"
       },
       {
@@ -53,20 +55,20 @@
         "evidence_ids": [
           "ev_image_1011894-RU"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-09T",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
-        "reason_code": "NO_PRICE_EVIDENCE",
+        "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
         "field": "price",
-        "severity": "INFO",
+        "severity": "WARNING",
         "candidate_ids": [
           "cand_price_1011894-RU"
         ],
         "evidence_ids": [
           "ev_price_1011894-RU"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-09T",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
@@ -79,7 +81,7 @@
         "evidence_ids": [
           "ev_pdf_1011894-RU"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-09T",
         "bucket": "PDF_CONFLICT"
       }
     ],
@@ -88,7 +90,7 @@
       "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-09T"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -107,7 +109,7 @@
       "evidence_ids": [
         "ev_title_1011894-RU"
       ],
-      "policy_rule_id": "CAP-09",
+      "policy_rule_id": "CAP-09T",
       "bucket": "IDENTITY_CONFLICT"
     },
     {
@@ -120,20 +122,20 @@
       "evidence_ids": [
         "ev_image_1011894-RU"
       ],
-      "policy_rule_id": "CAP-09",
+      "policy_rule_id": "CAP-09T",
       "bucket": "MISSING_MINIMUM_EVIDENCE"
     },
     {
-      "reason_code": "NO_PRICE_EVIDENCE",
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
       "field": "price",
-      "severity": "INFO",
+      "severity": "WARNING",
       "candidate_ids": [
         "cand_price_1011894-RU"
       ],
       "evidence_ids": [
         "ev_price_1011894-RU"
       ],
-      "policy_rule_id": "CAP-09",
+      "policy_rule_id": "CAP-09T",
       "bucket": "MISSING_MINIMUM_EVIDENCE"
     },
     {
@@ -146,7 +148,7 @@
       "evidence_ids": [
         "ev_pdf_1011894-RU"
       ],
-      "policy_rule_id": "CAP-09",
+      "policy_rule_id": "CAP-09T",
       "bucket": "PDF_CONFLICT"
     }
   ],
@@ -163,9 +165,31 @@
       "no_price_data"
     ]
   },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011894-RU.jpg",
+      "canonical_filename": "HONEYWELL_1011894-RU_78f6075b.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "https://ruslader.ru/magazin/product-detail/honeywell-1011894-ru-privyaz-titan-2p-s-poyasom-detail",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://ruslader.ru/magazin/product-detail/honeywell-1011894-ru-privyaz-titan-2p-s-poyasom-detail",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
   "photo": {
     "verdict": "REJECT",
     "verdict_reason": "логотип без самого товара",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1011894-RU.jpg",
     "sha1": "78f6075b2cbf080f1dc25b1ddc0406b8c1ab0ddd",
     "canonical_filename": "HONEYWELL_1011894-RU_78f6075b.jpg",
@@ -177,26 +201,42 @@
     "phash": "b433d31c4fcd9864",
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
-    "photo_status": "rejected",
-    "photo_evidence_role": "none",
-    "photo_is_temporary": false,
-    "replacement_required": false
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
     "price_per_unit": null,
     "currency": null,
     "rub_price": null,
     "fx_rate_used": null,
     "fx_provider": null,
     "price_confidence": 0,
-    "source_url": null,
-    "source_type": null,
-    "source_tier": null,
+    "price_observed_at": "2026-04-07T11:57:32.170030Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://ruslader.ru/magazin/product-detail/honeywell-1011894-ru-privyaz-titan-2p-s-poyasom-detail",
+    "source_type": "ru_b2b",
+    "source_tier": "ru_b2b",
+    "source_engine": "google_us",
     "stock_status": "unknown",
     "offer_unit_basis": "unknown",
     "offer_qty": null,
     "lead_time_detected": false,
+    "quote_cta_url": null,
     "suffix_conflict": false,
     "category_mismatch": false,
     "page_product_class": "",
@@ -204,18 +244,67 @@
     "price_median_clean": null,
     "price_min_clean": null,
     "price_max_clean": null,
-    "price_sample_size": 1
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://ruslader.ru/magazin/product-detail/honeywell-1011894-ru-privyaz-titan-2p-s-poyasom-detail",
+    "price_source_domain": "ruslader.ru",
+    "price_source_type": "ru_b2b",
+    "price_source_tier": "ru_b2b",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
   },
   "datasheet": {
-    "datasheet_status": "not_found",
-    "pdf_url": null,
-    "pdf_source_tier": null,
-    "pdf_title": null,
-    "pdf_specs": {},
-    "pdf_text_excerpt": null,
-    "num_pages": 0,
-    "parse_method": null,
-    "pn_confirmed_in_pdf": false
+    "datasheet_status": "skipped"
   },
   "structured_identity": {
     "exact_jsonld_pn_match": false,
@@ -224,6 +313,22 @@
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
     "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
   },
   "content": {
     "specs": {},
@@ -246,15 +351,37 @@
     "exact_jsonld_pn_match": false,
     "exact_title_pn_match": false,
     "exact_h1_pn_match": false,
-    "exact_product_context_pn_match": false
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T11:57:32.170030Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
   },
   "verifier_shadow": {
     "schema_version": "catalog_verifier_shadow_record_v1",
     "policy_version": "catalog_verifier_policy_v1",
     "mode": "shadow",
-    "feature_enabled": true,
-    "trace_id": "catalog_verifier:1011894-RU:2026-03-26T20:23:24.007390Z",
-    "idempotency_key": "catalog_verifier:1011894-RU:7ac1b67f88f183f0b6e465ce",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:1011894-RU:2026-04-07T11:57:32.170030Z",
+    "idempotency_key": "catalog_verifier:1011894-RU:e7676547843638c13d2afdcc",
+    "transport": "responses_api",
     "router": {
       "should_route": true,
       "trigger_codes": [
@@ -273,8 +400,8 @@
     },
     "packet": {
       "schema_version": "catalog_verifier_input_schema_v1",
-      "trace_id": "catalog_verifier:1011894-RU:2026-03-26T20:23:24.007390Z",
-      "idempotency_key": "catalog_verifier:1011894-RU:7ac1b67f88f183f0b6e465ce",
+      "trace_id": "catalog_verifier:1011894-RU:2026-04-07T11:57:32.170030Z",
+      "idempotency_key": "catalog_verifier:1011894-RU:e7676547843638c13d2afdcc",
       "pn_primary": "1011894-RU",
       "normalized_title": "Привязь Honeywell 1011894-RU",
       "card_status": "DRAFT_ONLY",
@@ -295,7 +422,7 @@
           "evidence_ids": [
             "ev_title_1011894-RU"
           ],
-          "policy_rule_id": "CAP-09",
+          "policy_rule_id": "CAP-09T",
           "bucket": "IDENTITY_CONFLICT"
         },
         {
@@ -308,20 +435,20 @@
           "evidence_ids": [
             "ev_image_1011894-RU"
           ],
-          "policy_rule_id": "CAP-09",
+          "policy_rule_id": "CAP-09T",
           "bucket": "MISSING_MINIMUM_EVIDENCE"
         },
         {
-          "reason_code": "NO_PRICE_EVIDENCE",
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
           "field": "price",
-          "severity": "INFO",
+          "severity": "WARNING",
           "candidate_ids": [
             "cand_price_1011894-RU"
           ],
           "evidence_ids": [
             "ev_price_1011894-RU"
           ],
-          "policy_rule_id": "CAP-09",
+          "policy_rule_id": "CAP-09T",
           "bucket": "MISSING_MINIMUM_EVIDENCE"
         },
         {
@@ -334,7 +461,7 @@
           "evidence_ids": [
             "ev_pdf_1011894-RU"
           ],
-          "policy_rule_id": "CAP-09",
+          "policy_rule_id": "CAP-09T",
           "bucket": "PDF_CONFLICT"
         }
       ],
@@ -345,9 +472,9 @@
       ],
       "source_role_evidence_summary": {
         "title_source_role": "deterministic_title_assembly",
-        "price_source_tier": "",
+        "price_source_tier": "ru_b2b",
         "pdf_source_tier": "",
-        "image_source_tier": ""
+        "image_source_tier": "ru_b2b"
       },
       "structured_identity": {
         "exact_jsonld_pn_match": false,
@@ -358,10 +485,10 @@
         "structured_pn_match_location": ""
       },
       "pdf_evidence_summary": {
-        "datasheet_status": "not_found",
+        "datasheet_status": "skipped",
         "pdf_exact_pn_confirmed": false,
         "pn_confirmed_in_pdf": false,
-        "pdf_source_tier": null
+        "pdf_source_tier": ""
       },
       "image_evidence_summary": {
         "photo_verdict": "REJECT",
@@ -370,7 +497,7 @@
       },
       "price_evidence_summary": {
         "price_status": "no_price_found",
-        "source_tier": null,
+        "source_tier": "ru_b2b",
         "page_product_class": "",
         "category_mismatch": false,
         "brand_mismatch": false
@@ -392,32 +519,8 @@
       "reasoning_tokens": 0,
       "estimated_cost_usd": 0.0
     },
-    "call_state": "failed",
-    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
-    "openai_request_id": ""
-  },
-  "merchandising": {
-    "image_local_path": "",
-    "image_status": "rejected",
-    "image_kind": "blocked_reject",
-    "image_temporary": false,
-    "replacement_required": true,
-    "lineage_preserved": false,
-    "source_manifest_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
-    "source_photo_verdict": "REJECT",
-    "cleanup_recommended": true,
-    "policy_reason_code": "source_photo_verdict_reject"
-  },
-  "refresh_trace": {
-    "refresh_mode": "local_catalog_refresh_v1",
-    "content_seed_applied": true,
-    "content_seed_source": "insales_import_seed",
-    "photo_verdict_cache_applied": true,
-    "photo_verdict_value": "REJECT",
-    "merchandising_attached": false,
-    "merchandising_image_status": "rejected",
-    "card_status_source": "photo_verdict_override",
-    "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": false
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
   }
 }

@@ -1,5 +1,27 @@
 ---
 DATE: 2026-04-07
+TITLE: R1 Revenue — Photo Recovery + Price Scout (structural gap confirmed)
+RISK_LEVEL: LOW
+STATUS: COMPLETED (seq 64, feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - config/.env.providers created (ANTHROPIC_API_KEY for providers.py step2b)
+  - .claude/settings.local.json created (SERPAPI_KEY + OPENAI_API_KEY persistent)
+  - .gitignore updated
+  - photo_pipeline.py --queue: 14/14 REJECT, 0 improved
+  - run_price_only_scout_pilot.py --queue: 0/8 new admissible prices
+  - local_catalog_refresh.py: 0 auto_publish, 13 review_required, 12 draft_only
+TEST_EVIDENCE: 849/849 PASS
+KEY_FINDINGS:
+  - 7 SKU have PN collisions with Peha by Honeywell home products
+  - Automated recovery impossible for PN-collision SKU
+  - 3 genuinely unseeded SKU (not in catalog or no web presence)
+  - 3 admissibility_review SKU need owner judgment
+  - price_followup=17, photo_recovery=14 remain
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
 TITLE: R1 Revenue — Stash Batch Drain (supervisor + enrichment hardening + pipeline refactor)
 RISK_LEVEL: SEMI
 STATUS: COMPLETED (commits 34ac66e..b5218b3 to feat/rev-r1-catalog, PR #38)

@@ -1,39 +1,40 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 63
-transition_ts: "2026-04-07T12:45:00Z"
+transition_seq: 64
+transition_ts: "2026-04-07T15:10:00Z"
 
 ## Current
-active_task: "R1 Revenue — Stash Batch Drain (supervisor + pipeline hardening)"
-task_id: "R1-revenue-stash-batch-drain"
+active_task: "R1 Revenue — Photo Recovery + Price Scout Attempts (structural gap confirmed)"
+task_id: "R1-revenue-photo-price-recovery-attempt"
 phase: COMPLETED
 status: CLOSED
 phase_owner: "Owner/Eugene"
-risk_level: SEMI
+risk_level: LOW
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 pr_number: 38
 now:
-  - step: "R1 stash drain — supervisor system + enrichment hardening + pipeline refactor"
+  - step: "Photo recovery attempt (14 SKU) + Price scout attempt (10 SKU) — structural gap confirmed"
     actions:
-      - "scripts/supervisor/ (NEW — 11 modules: rules/launcher/reader/main/config/journal/manifest/packets/telegram/telegram_reader)"
-      - "scripts/providers.py (NEW — Anthropic provider adapter + token-bucket rate limiter)"
-      - "photo_pipeline.py: provider injection (LLMProvider/SerpProvider), queue-addressable load_run_dataframe()"
-      - "price_manual_scout.py: materialize_price_admissibility() per row + admissibility fields in manifest"
-      - "merge_manifests.py: _finalize_output_row() attaches admissibility to all merged rows"
-      - "price_evidence_cache.py: llm_quota rename, normalize_transient_failure_codes(), normalize_cache_fallback_reason()"
-      - "catalog_verifier.py: openai_request_id → llm_request_id"
-      - "captcha_solver.py: restored ServicePipe/Qrator challenge detection"
-      - "local_catalog_refresh.py: full refactor — decomposed into iter_evidence_bundles + index loaders"
-      - "export_pipeline.py: normalize_cache_fallback_reason applied to legacy codes"
-      - "config/catalog_enum_contract_v1.json: identity_level + severity enums added"
-      - "Tests: 25 supervisor + 12 captcha + 5 photo_provider + 30 collect_packet + 7 price_admissibility = 79 new"
-      - "849/849 PASS total"
+      - "config/.env.providers created (ANTHROPIC_API_KEY injected from auditor_system config)"
+      - ".claude/settings.local.json created with SERPAPI_KEY + OPENAI_API_KEY (persistent across sessions)"
+      - ".gitignore updated: .claude/settings.local.json added"
+      - "photo_pipeline.py --queue: 14/14 REJECT (no improvement) — SerpAPI returns same Peha PN-collision URLs, gpt_cache blocks re-evaluation"
+      - "run_price_only_scout_pilot.py --queue: 0/8 new admissible prices — same Peha PN-collision problem for 5 SKU, 3 genuinely unseeded"
+      - "local_catalog_refresh.py rebuilt: 0 auto_publish, 13 review_required, 12 draft_only"
+      - "849/849 PASS (no regressions)"
 known_gap: |
-  price_followup=13 SKU: 8 unseeded (no product pages found), 5 CAPTCHA-blocked
-  photo_recovery=14 SKU: need SerpAPI key (not configured)
-awaiting: "Owner review. Clean stash drained. Next track TBD."
+  STRUCTURAL PN COLLISION: 7 SKU (101411, 104011, 105411, 106511, 109411, 125711, 127411)
+    — part numbers collide with Peha by Honeywell home automation products
+    — SerpAPI always returns wrong category (switches/outlets vs industrial sensors/valves)
+    — photo and price recovery impossible via automated search alone
+    — NEEDS: manual photo sourcing OR catalog cleanup (remove/reclassify these SKU)
+  GENUINELY UNSEEDED: 3 SKU (121679-L3, 129625-L3 not in catalog CSV; 1015021 no web presence)
+  ADMISSIBILITY_REVIEW: 3 SKU (00020211 pack ambiguity, 106511 component, 129464N/U component — need owner judgment)
+  photo_recovery=14 SKU remaining
+  price_followup=17 SKU (up from 13 after refresh — new admissibility checks surfaced more issues)
+awaiting: "Owner decision: (A) continue R1 catalog cleanup manually for PN-collision SKU, OR (B) switch track to Meta Orchestrator M5 or Infrastructure."
 
 ## Previous (seq 60 — M4 Executor Bridge)
 prev_active_task: "Meta Orchestrator — M4 Executor Bridge"

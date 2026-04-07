@@ -1,5 +1,43 @@
 # Task Capsule
 
+Task_ID: R1-revenue-photo-price-recovery-attempt
+Risk: LOW
+Date: 2026-04-07
+Branch: feat/rev-r1-catalog
+PR: https://github.com/eugenebireta/biretos-automation/pull/38
+Status: COMPLETED — structural gap confirmed, no new admissible data
+
+## What was done
+
+Attempted photo recovery (14 SKU) and price scout (10 SKU) from followup queues.
+
+Key setup actions completed:
+- `config/.env.providers` created with ANTHROPIC_API_KEY (providers.py step2b now functional)
+- `.claude/settings.local.json` created with SERPAPI_KEY + OPENAI_API_KEY (persistent across sessions)
+- `.gitignore` updated to protect `settings.local.json`
+
+## Results
+
+Photo recovery: 14/14 REJECT — no improvement.
+Price scout: 0/8 new admissible prices found.
+
+Root cause: Structural PN collision. 7 SKU (101411, 104011, 105411, 106511, 109411, 125711, 127411)
+have Honeywell part numbers that are shared with Peha by Honeywell home automation products
+(switches, outlets, cover frames). Automated search always returns the wrong product category.
+No automated recovery path exists for these SKU.
+
+Catalog state after refresh: 0 auto_publish, 13 review_required, 12 draft_only, 25 total.
+849/849 tests PASS.
+
+## Known Gap (structural)
+
+7 PN-collision SKU need manual photo sourcing or catalog cleanup.
+3 genuinely unseeded SKU (not in catalog CSV or no web presence).
+3 admissibility_review SKU need owner judgment (pack ambiguity, component flags).
+price_followup=17, photo_recovery=14.
+
+## Previous Capsule (R1 price-evidence-integrator — seq 63)
+
 Task_ID: R1-revenue-price-evidence-integrator
 Risk: SEMI
 Date: 2026-04-07
