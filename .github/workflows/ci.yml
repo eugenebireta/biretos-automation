@@ -161,3 +161,19 @@ jobs:
             tests/validation/test_phase3_rc6_pending_payment.py \
             tests/validation/test_phase3_rc7_shipment_sync.py \
             -v
+
+      - name: "Roadmap Live Status"
+        run: python scripts/roadmap_status.py
+
+      - name: "Commit Roadmap Live Status"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ROADMAP_LIVE_STATUS.json
+          if git diff --cached --quiet; then
+            echo "No status changes to commit."
+          else
+            git commit -m "ci: update ROADMAP_LIVE_STATUS.json [skip ci]"
+            git push
+          fi
