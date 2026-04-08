@@ -1373,6 +1373,40 @@ def step2_us_price(pn: str, ru_name: str) -> list[dict]:
     return candidates
 
 
+def step2_distributor_multisource(pn: str) -> list[dict]:
+    """Optional multi-source: additional distributor search via Q_DISTRIBUTORS.
+
+    Runs ONLY when --multi-source flag is set. Off by default.
+    Returns additional candidate URLs for cross-validation via price_sanity Rule 3.
+    Results stored in bundle["additional_prices"] for downstream use.
+    """
+    queries = build_search_queries(pn, BRAND)
+    candidates: list[dict] = []
+    try:
+        results = run_search_query({
+            "engine": "google",
+            "q": queries["distributors"],
+            "num": 5, "gl": "ru", "hl": "ru",
+        }).get("organic_results", [])
+        time.sleep(DELAY)
+        for res in results:
+            url = res.get("link", "")
+            if not url or any(d in url for d in SKIP_PAGE_DOMAINS):
+                continue
+            if not allow_external_source_candidate(url):
+                continue
+            candidates.append({
+                "url": url,
+                "snippet": res.get("snippet", ""),
+                "title": res.get("title", ""),
+                "source_type": "distributor_multisource",
+                "engine": "google_distributors",
+            })
+    except Exception as exc:
+        log.warning(f"step2_distributor_multisource error for {pn}: {exc}")
+    return candidates
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # Шаг 2b — извлечение цены из страниц кандидатов
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1847,6 +1881,7 @@ def run(
     base_photo_url: str = "",
     queue_path: Path | str | None = None,
     force_reprocess: bool = False,
+    multi_source: bool = False,
 ):
     """Запускает пайплайн для всех SKU из INPUT_FILE."""
     df = load_run_dataframe(limit=limit, queue_path=queue_path)
@@ -2028,6 +2063,17 @@ def run(
         else:
             print(f"  Цена: {price_info['price_status']}")
 
+        # ── Multi-source distributor search (--multi-source only) ─────────────
+        additional_prices: list[dict] = []
+        if multi_source:
+            additional_candidates = step2_distributor_multisource(pn)
+            if additional_candidates:
+                additional_prices = [
+                    {"url": c["url"], "title": c["title"], "snippet": c["snippet"]}
+                    for c in additional_candidates
+                ]
+                log.info(f"  multi_source: {len(additional_prices)} distributor candidates for {pn}")
+
         # ── Price Sanity Check ────────────────────────────────────────────────
         if price_info.get("price_usd") is not None:
             price_info = apply_sanity_to_price_info(
@@ -2103,6 +2149,8 @@ def run(
             price_info.get("price_status") == "no_price_found"
             or v.get("verdict") == "NO_PHOTO"
             or bool(price_info.get("category_mismatch"))
+            # Phase 1.7: also trigger for weak identity (no structured PN match)
+            or not dl.get("exact_structured_pn_match", False)
         )
         if datasheets or _needs_datasheet:
             try:
@@ -2142,6 +2190,9 @@ def run(
         # JSON-LD full extraction — additive, non-breaking enrichment
         if _dl_with_flags.get("jsonld_full"):
             bundle["jsonld_full"] = _dl_with_flags["jsonld_full"]
+        # Multi-source distributor candidates — additive, for cross-validation
+        if additional_prices:
+            bundle["additional_prices"] = additional_prices
         evidence_bundles.append(bundle)
         checkpoint[pn] = bundle
         save_checkpoint(checkpoint)
@@ -2360,6 +2411,8 @@ if __name__ == "__main__":
     p.add_argument("--queue", default="", help="JSONL queue file from build_catalog_followup_queues.py")
     p.add_argument("--force-reprocess", action="store_true",
                    help="Ignore existing evidence bundles and reprocess from scratch")
+    p.add_argument("--multi-source", action="store_true",
+                   help="Run additional distributor search for cross-validation prices (OFF by default)")
     args = p.parse_args()
     run(
         limit=args.limit,
@@ -2369,4 +2422,5 @@ if __name__ == "__main__":
         base_photo_url=args.photo_base_url,
         queue_path=Path(args.queue) if args.queue else None,
         force_reprocess=args.force_reprocess,
+        multi_source=args.multi_source,
     )
