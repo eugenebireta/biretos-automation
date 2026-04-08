@@ -6,11 +6,6 @@ All tests use tmp_path fixtures and in-memory JSON — no live files, no subproc
 from __future__ import annotations
 
 import json
-import sys
-from pathlib import Path
-
-# Follow project pattern: add orchestrator/ to sys.path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "orchestrator"))
 
 import pytest
 from intake import load, ContextBundle, _DNA_CONSTRAINTS

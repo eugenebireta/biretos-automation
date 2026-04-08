@@ -6,12 +6,7 @@ All API calls are mocked — no live network, no Anthropic key required.
 from __future__ import annotations
 
 import json
-import sys
-from pathlib import Path
 from unittest.mock import MagicMock, patch
-
-# Follow project pattern: add orchestrator/ to sys.path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "orchestrator"))
 
 import pytest
 from advisor import (

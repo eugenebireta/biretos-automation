@@ -5,14 +5,7 @@ Deterministic schema validation tests for all 5 M0.5 schemas.
 No live API, no filesystem writes — pure in-memory validation.
 """
 
-import os
-import sys
-
 import pytest
-
-_orch = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "orchestrator"))
-if _orch not in sys.path:
-    sys.path.insert(0, _orch)
 
 from schemas import is_valid, list_schemas, validate, validate_soft
 

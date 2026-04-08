@@ -1,9 +1,4 @@
 """Tests for orchestrator/batch_quality_gate.py — deterministic batch quality gate."""
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "orchestrator"))
-
 from batch_quality_gate import check_packet, BatchGateResult
 
 

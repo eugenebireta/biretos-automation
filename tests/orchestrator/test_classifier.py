@@ -5,12 +5,6 @@ All tests are mocked/parameterized — no file I/O, no live API, no subprocess.
 """
 from __future__ import annotations
 
-import sys
-from pathlib import Path
-
-# Follow project pattern: add orchestrator/ to sys.path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "orchestrator"))
-
 import pytest
 from classifier import classify, ClassifierResult, _check_tier, _migration_seq
 

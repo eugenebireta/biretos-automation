@@ -6,15 +6,9 @@ All subprocess calls are mocked — no live git, no live pytest.
 """
 
 import json
-import os
-import sys
 from unittest.mock import MagicMock, patch
 
 import pytest
-
-_orch = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "orchestrator"))
-if _orch not in sys.path:
-    sys.path.insert(0, _orch)
 
 from collect_packet import (
     _parse_pytest_output,

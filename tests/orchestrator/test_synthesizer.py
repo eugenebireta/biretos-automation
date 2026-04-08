@@ -5,11 +5,7 @@ All tests are pure — no file I/O, no LLM, no subprocess.
 """
 from __future__ import annotations
 
-import sys
-from pathlib import Path
 from unittest.mock import MagicMock, patch
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "orchestrator"))
 
 import pytest
 from synthesizer import (

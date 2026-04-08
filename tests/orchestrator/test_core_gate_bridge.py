@@ -14,17 +14,10 @@ Covers:
 from __future__ import annotations
 
 import asyncio
-import sys
 from dataclasses import dataclass, field
-from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
-
-# Make orchestrator/ importable
-_orch_dir = Path(__file__).resolve().parent.parent.parent / "orchestrator"
-if str(_orch_dir) not in sys.path:
-    sys.path.insert(0, str(_orch_dir))
 
 import core_gate_bridge as cgb
 
@@ -245,8 +238,6 @@ class TestManifestSchemaExtensions:
     """Verify the extended manifest_v1.json schema accepts new states/verdicts."""
 
     def setup_method(self):
-        _orch = Path(__file__).resolve().parent.parent.parent / "orchestrator"
-        sys.path.insert(0, str(_orch))
         from schemas import is_valid
         self._is_valid = is_valid
 
