@@ -118,6 +118,10 @@ def parse_markdown_table(text: str) -> list[dict] | None:
             header_map[i] = 'category'
         elif 'image' in h or 'photo' in h:
             header_map[i] = 'image_url'
+        elif 'price_type' in h or 'type' == h:
+            header_map[i] = 'price_type'
+        elif 'alias' in h:
+            header_map[i] = 'alias_found'
         elif 'spec' in h:
             header_map[i] = 'specs'
         elif 'note' in h:
@@ -221,6 +225,22 @@ def normalize_result(raw: dict) -> dict:
     else:
         category = None
 
+    price_type = raw.get('price_type', '')
+    if isinstance(price_type, str):
+        price_type = price_type.strip().lower()
+        if price_type in ('not found', 'n/a', 'null', '-', ''):
+            price_type = None
+    else:
+        price_type = None
+
+    alias_found = raw.get('alias_found', '')
+    if isinstance(alias_found, str):
+        alias_found = alias_found.strip()
+        if alias_found.lower() in ('not found', 'n/a', 'null', '-', '', 'none'):
+            alias_found = None
+    else:
+        alias_found = None
+
     return {
         "pn": pn,
         "price": price,
@@ -228,6 +248,8 @@ def normalize_result(raw: dict) -> dict:
         "source_url": source_url,
         "category": category,
         "image_url": image_url,
+        "price_type": price_type,
+        "alias_found": alias_found,
         "specs": raw.get('specs'),
         "notes": raw.get('notes', ''),
     }
@@ -257,6 +279,8 @@ def update_evidence(pn: str, result: dict, source: str) -> Path:
         "source_url": result["source_url"],
         "category": result["category"],
         "image_url": result["image_url"],
+        "price_type": result.get("price_type"),
+        "alias_found": result.get("alias_found"),
         "specs": result.get("specs"),
         "notes": result.get("notes", ""),
     }
@@ -358,6 +382,8 @@ def main():
             "currency": normalized["currency"],
             "source_url": normalized["source_url"],
             "category": normalized["category"],
+            "price_type": normalized.get("price_type"),
+            "alias_found": normalized.get("alias_found"),
         })
 
     # Save import report
