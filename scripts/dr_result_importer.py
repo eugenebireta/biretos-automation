@@ -83,25 +83,12 @@ def parse_json_array(text: str) -> list[dict] | None:
     return objects if objects else None
 
 
-def parse_markdown_table(text: str) -> list[dict] | None:
-    """Parse a markdown table into list of dicts."""
-    lines = text.strip().split('\n')
-
-    # Find table header
-    header_idx = None
-    for i, line in enumerate(lines):
-        if '|' in line and ('PN' in line.upper() or 'PART' in line.upper()):
-            header_idx = i
-            break
-
-    if header_idx is None:
-        return None
-
-    # Parse header
+def _parse_single_table(lines: list[str], header_idx: int) -> tuple[list[dict], dict, int]:
+    """Parse one markdown table starting at header_idx.
+    Returns (rows, header_map, end_line_idx)."""
     header_line = lines[header_idx]
     headers = [h.strip().lower().replace(' ', '_') for h in header_line.split('|') if h.strip()]
 
-    # Normalize header names
     header_map = {}
     for i, h in enumerate(headers):
         if h in ('#', 'no', 'num', 'row'):
@@ -126,6 +113,16 @@ def parse_markdown_table(text: str) -> list[dict] | None:
             header_map[i] = 'specs'
         elif 'note' in h:
             header_map[i] = 'notes'
+        elif 'page_type' in h or 'page' in h:
+            header_map[i] = 'page_type'
+        elif 'has_price' in h:
+            header_map[i] = 'has_price'
+        elif 'has_spec' in h:
+            header_map[i] = 'has_specs'
+        elif 'has_photo' in h:
+            header_map[i] = 'has_photo'
+        elif 'domain' in h:
+            header_map[i] = 'domain'
         else:
             header_map[i] = h
 
@@ -134,14 +131,25 @@ def parse_markdown_table(text: str) -> list[dict] | None:
     if data_start < len(lines) and re.match(r'\s*\|[\s\-:|]+\|', lines[data_start]):
         data_start += 1
 
-    # Parse data rows
     results = []
-    for line in lines[data_start:]:
+    end_idx = data_start
+    for idx in range(data_start, len(lines)):
+        line = lines[idx]
+        # Stop at blank line or next heading (signals a new table)
+        if not line.strip() or line.strip().startswith('#'):
+            end_idx = idx
+            break
         if '|' not in line:
-            continue
+            end_idx = idx
+            break
         cells = [c.strip() for c in line.split('|') if c.strip() != '']
         if not cells:
-            continue
+            end_idx = idx
+            break
+        # Stop if this looks like a new table header (separator follows)
+        if idx + 1 < len(lines) and re.match(r'\s*\|[\s\-:|]+\|', lines[idx + 1]):
+            end_idx = idx
+            break
 
         row = {}
         for i, cell in enumerate(cells):
@@ -152,8 +160,70 @@ def parse_markdown_table(text: str) -> list[dict] | None:
                 row[key] = cell
         if 'pn' in row and row['pn']:
             results.append(row)
+        end_idx = idx + 1
+    else:
+        end_idx = len(lines)
 
-    return results if results else None
+    return results, header_map, end_idx
+
+
+def parse_markdown_table(text: str) -> list[dict] | None:
+    """Parse markdown tables into list of dicts.
+
+    Detects two tables: Table 1 (prices) and Table 2 (sources).
+    Returns price rows. Sources are attached as 'dr_sources' on matching PNs.
+    """
+    lines = text.strip().split('\n')
+
+    # Find ALL table headers with PN column
+    table_headers = []
+    for i, line in enumerate(lines):
+        if '|' in line and ('PN' in line.upper() or 'PART' in line.upper()):
+            # Make sure next line is a separator (confirms it's a real header)
+            if i + 1 < len(lines) and re.match(r'\s*\|[\s\-:|]+\|', lines[i + 1]):
+                table_headers.append(i)
+
+    if not table_headers:
+        return None
+
+    # Parse first table (prices)
+    price_rows, price_headers, end1 = _parse_single_table(lines, table_headers[0])
+
+    # Check if the first table is actually a price table (has 'price' column)
+    is_price_table = 'price' in price_headers.values()
+
+    # Parse second table (sources) if it exists
+    sources_by_pn = {}
+    if len(table_headers) >= 2:
+        source_rows, source_headers, _ = _parse_single_table(lines, table_headers[1])
+        is_source_table = 'page_type' in source_headers.values() or 'has_price' in source_headers.values()
+
+        if is_source_table:
+            for row in source_rows:
+                pn = row.get('pn', '')
+                if pn:
+                    if pn not in sources_by_pn:
+                        sources_by_pn[pn] = []
+                    sources_by_pn[pn].append({
+                        "url": row.get("source_url", row.get("url", "")),
+                        "page_type": row.get("page_type", ""),
+                        "has_price": row.get("has_price", ""),
+                        "has_specs": row.get("has_specs", ""),
+                        "has_photo": row.get("has_photo", ""),
+                        "domain": row.get("domain", ""),
+                    })
+        elif not is_price_table:
+            # First table wasn't prices, second isn't sources — just concat
+            price_rows.extend(source_rows)
+
+    # Attach sources to price rows
+    if sources_by_pn:
+        for row in price_rows:
+            pn = row.get('pn', '')
+            if pn in sources_by_pn:
+                row['_sources'] = sources_by_pn[pn]
+
+    return price_rows if price_rows else None
 
 
 def normalize_result(raw: dict) -> dict:
@@ -252,6 +322,7 @@ def normalize_result(raw: dict) -> dict:
         "alias_found": alias_found,
         "specs": raw.get('specs'),
         "notes": raw.get('notes', ''),
+        "_sources": raw.get('_sources'),
     }
 
 
@@ -269,33 +340,49 @@ def update_evidence(pn: str, result: dict, source: str) -> Path:
     else:
         evidence = {}
 
-    # Add DR results under a dedicated key
+    # Add DR results under a dedicated key (merge, don't overwrite)
     dr_key = f"deep_research_{source}"
-    evidence[dr_key] = {
+    existing_dr = evidence.get(dr_key, {})
+    new_dr = {
         "imported_at": datetime.now(timezone.utc).isoformat(),
         "source": source,
-        "price": result["price"],
-        "currency": result["currency"],
-        "source_url": result["source_url"],
-        "category": result["category"],
-        "image_url": result["image_url"],
-        "price_type": result.get("price_type"),
-        "alias_found": result.get("alias_found"),
-        "specs": result.get("specs"),
-        "notes": result.get("notes", ""),
+        "price": result["price"] or existing_dr.get("price"),
+        "currency": result["currency"] or existing_dr.get("currency"),
+        "source_url": result["source_url"] or existing_dr.get("source_url"),
+        "category": result["category"] or existing_dr.get("category"),
+        "image_url": result["image_url"] or existing_dr.get("image_url"),
+        "price_type": result.get("price_type") or existing_dr.get("price_type"),
+        "alias_found": result.get("alias_found") or existing_dr.get("alias_found"),
+        "specs": result.get("specs") or existing_dr.get("specs"),
+        "notes": result.get("notes", "") or existing_dr.get("notes", ""),
     }
 
-    # Update top-level fields if DR found better data
+    # Save sources list for training local AI
+    if result.get("_sources"):
+        new_dr["sources"] = result["_sources"]
+    elif existing_dr.get("sources"):
+        new_dr["sources"] = existing_dr["sources"]
+
+    evidence[dr_key] = new_dr
+
+    # Update top-level fields if DR found better data (never overwrite with empty)
     if result["price"] is not None and result["source_url"]:
         evidence["dr_price"] = result["price"]
         evidence["dr_currency"] = result["currency"]
         evidence["dr_price_source"] = result["source_url"]
+
+    if result.get("price_type"):
+        evidence["dr_price_type"] = result["price_type"]
 
     if result["image_url"]:
         evidence["dr_image_url"] = result["image_url"]
 
     if result["category"]:
         evidence["dr_category"] = result["category"]
+
+    # Save sources to top-level for training data access
+    if result.get("_sources"):
+        evidence["dr_sources"] = result["_sources"]
 
     ev_path.write_text(
         json.dumps(evidence, ensure_ascii=False, indent=2), encoding="utf-8"
