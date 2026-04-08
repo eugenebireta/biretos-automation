@@ -1,0 +1,115 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_2208WFPT",
+  "entity_id": "2208WFPT",
+  "research_reason": "no_price_lineage",
+  "priority": "low",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "не найдено",
+    "description_ru": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell.",
+    "category_suggestion": "not found",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "The exact part number '2208WFPT' is NOT a Honeywell product. It is the Dell UltraSharp 22-inch LCD monitor (model 2208WFPt/2208WFPT), sold as a consumer/business PC monitor.",
+      "No Honeywell manufacturer page, datasheet, or authorized distributor listing was found for part number '2208WFPT'.",
+      "Honeywell '2208' refers to an entirely different product category — a water/fire-resistant steel safe (consumer product, not industrial B2B).",
+      "Honeywell part numbers containing '2208' found during search include: MS7520H2208 (damper actuator) — unrelated to '2208WFPT'.",
+      "The Dell 2208WFPt monitor is a discontinued legacy LCD monitor (1680x1050 WSXGA+, 22\", TFT Active Matrix), sold only on secondary/refurbished markets (eBay, Amazon Renewed, Back Market, PCLiquidations).",
+      "No industrial B2B Honeywell product matching this part number exists in any distributor database checked (Mouser, Digi-Key, Arrow, TrustedParts, etc.).",
+      "Identity as a Honeywell industrial part is fully unconfirmed — this appears to be a brand/part number mismatch in the input query."
+    ],
+    "ambiguities": [
+      "The requester assigned brand 'Honeywell' to part number '2208WFPT', but all verifiable sources confirm '2208WFPT' belongs to Dell, not Honeywell.",
+      "It is possible the requester intended a different Honeywell part number (e.g., a similar alphanumeric string) — no candidate Honeywell part number could be inferred."
+    ],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/275523272849",
+        "type": "distributor",
+        "supports": [
+          "identity — confirms 2208WFPT is a Dell monitor, not Honeywell"
+        ]
+      },
+      {
+        "url": "https://www.amazon.com/Dell-2208WFPT-WideScreen-Resolution-Monitor/dp/B07XTQZSQJ",
+        "type": "distributor",
+        "supports": [
+          "identity — confirms 2208WFPT is a Dell product"
+        ]
+      },
+      {
+        "url": "https://www.backmarket.com/en-us/p/dell-22-inch-monitor-1680-x-1050-2208wfpt/1e020c9f-b947-4c24-a212-3a3243aac8a5",
+        "type": "distributor",
+        "supports": [
+          "identity — confirms Dell 2208WFPT as refurbished consumer monitor"
+        ]
+      },
+      {
+        "url": "https://www.honeywellstore.com/store/products/water-resistant-steel-fire-and-security-safe-2208.htm",
+        "type": "manufacturer",
+        "supports": [
+          "negative — Honeywell '2208' is a safe product, unrelated to 2208WFPT"
+        ]
+      },
+      {
+        "url": "https://www.trustedparts.com/en/manufacturers/honeywell",
+        "type": "distributor",
+        "supports": [
+          "negative — no Honeywell 2208WFPT found in authorized distributor inventory"
+        ]
+      }
+    ],
+    "confidence": "high",
+    "confidence_notes": "High confidence in the finding that 2208WFPT is NOT a Honeywell product. Multiple independent sources consistently identify 2208WFPT as a Dell UltraSharp monitor. No Honeywell source, datasheet, or distributor listing references this part number. The brand/part combination as submitted is incorrect."
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/itm/275523272849",
+      "type": "distributor",
+      "supports": [
+        "identity — confirms 2208WFPT is a Dell monitor, not Honeywell"
+      ]
+    },
+    {
+      "url": "https://www.amazon.com/Dell-2208WFPT-WideScreen-Resolution-Monitor/dp/B07XTQZSQJ",
+      "type": "distributor",
+      "supports": [
+        "identity — confirms 2208WFPT is a Dell product"
+      ]
+    },
+    {
+      "url": "https://www.backmarket.com/en-us/p/dell-22-inch-monitor-1680-x-1050-2208wfpt/1e020c9f-b947-4c24-a212-3a3243aac8a5",
+      "type": "distributor",
+      "supports": [
+        "identity — confirms Dell 2208WFPT as refurbished consumer monitor"
+      ]
+    },
+    {
+      "url": "https://www.honeywellstore.com/store/products/water-resistant-steel-fire-and-security-safe-2208.htm",
+      "type": "manufacturer",
+      "supports": [
+        "negative — Honeywell '2208' is a safe product, unrelated to 2208WFPT"
+      ]
+    },
+    {
+      "url": "https://www.trustedparts.com/en/manufacturers/honeywell",
+      "type": "distributor",
+      "supports": [
+        "negative — no Honeywell 2208WFPT found in authorized distributor inventory"
+      ]
+    }
+  ],
+  "confidence": "high",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:34:01.873435Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3831,
+  "cost_usd": 0.05,
+  "web_search_used": true
+}

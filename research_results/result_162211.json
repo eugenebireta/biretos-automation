@@ -5,56 +5,15 @@
   "research_reason": "category_mismatch",
   "priority": "high",
   "final_recommendation": {
-    "identity_confirmed": false,
-    "brand": "Honeywell",
-    "title_ru": "Термостатический вентиль Honeywell D 20.572.150.21",
-    "description_ru": "Термостатический регулирующий вентиль серии D от Honeywell, предназначен для автоматического регулирования расхода теплоносителя в системах отопления и охлаждения на основе температуры.",
-    "category_suggestion": "Регулирующие вентили / Термостатические вентили",
-    "price_assessment": "ambiguous_offer",
-    "price_evidence": "Единственный найденный источник (nabava.net) содержит PN 162211 с ценой 860 (валюта не указана), но источник не является авторитетным дистрибьютором Honeywell и не содержит полной спецификации продукта. Цена требует верификации.",
-    "photo_assessment": "not_found",
-    "specs_assessment": "partial",
-    "key_findings": [
-      "PN 162211 связан с Honeywell, но прямое соответствие модели D 20.572.150.21 не подтверждено в официальных источниках Honeywell",
-      "Категория 'Вентиль' корректна, но более точно: 'Термостатический регулирующий вентиль'",
-      "Найденный источник (nabava.net) содержит PN 162211, но это не официальный дистрибьютор и информация неполная",
-      "Модель D 20.572.150.21 соответствует линейке термостатических вентилей Honeywell, но требуется подтверждение точного соответствия PN"
-    ],
-    "ambiguities": [
-      "Точное соответствие между PN 162211 и моделью D 20.572.150.21 не подтверждено в официальных источниках Honeywell",
-      "Официальный datasheet для этого конкретного PN не найден",
-      "Полные технические характеристики (диапазон температур, давления, материалы) не подтверждены",
-      "Валюта и единица измерения цены в найденном источнике неясны",
-      "Возможна путаница с другими PN в линейке Honeywell D 20.572"
-    ],
-    "sources": [
-      {
-        "url": "https://www.nabava.net/nekategorizirano/peha-by-honeywell-okvir-okvir-162211-1-st-cijena-860431031",
-        "type": "marketplace",
-        "supports": [
-          "identity",
-          "price"
-        ]
-      }
-    ],
-    "confidence": "low",
-    "confidence_notes": "Идентификация слабая: PN 162211 найден только в одном неофициальном источнике (nabava.net), который не является авторитетным дистрибьютором Honeywell. Соответствие между PN и моделью D 20.572.150.21 не подтверждено официальной документацией. Отсутствуют datasheet, фото и полные спецификации. Требуется прямое подтверждение от Honeywell или авторизованного дистрибьютора."
+    "confidence": "low"
   },
-  "sources": [
-    {
-      "url": "https://www.nabava.net/nekategorizirano/peha-by-honeywell-okvir-okvir-162211-1-st-cijena-860431031",
-      "type": "marketplace",
-      "supports": [
-        "identity",
-        "price"
-      ]
-    }
-  ],
+  "sources": [],
   "confidence": "low",
   "parse_error": "",
-  "timestamp": "2026-04-07T23:13:38.750076Z",
-  "provider": "claude",
-  "model": "claude-haiku-4-5-20251001",
-  "raw_response_length": 2369,
-  "cost_usd": 0.0019
+  "timestamp": "2026-04-08T20:49:23.759344Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true
 }

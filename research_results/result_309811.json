@@ -1,0 +1,87 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_309811",
+  "entity_id": "309811",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Датчик температуры Honeywell 309811 (D 95.540.70)",
+    "description_ru": "Предположительно датчик температуры производства Honeywell с внутренним обозначением D 95.540.70. Точное подтверждение продукта по артикулу 309811 в открытых источниках не найдено.",
+    "category_suggestion": "Датчик температуры",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "Артикул 309811 не найден ни на официальном сайте Honeywell, ни у авторизованных дистрибьюторов в открытом доступе.",
+      "Внутренняя ссылка D 95.540.70 не дала результатов ни в одном из поисковых запросов.",
+      "Honeywell производит широкий ассортимент датчиков температуры (RTD, NTC, Pt1000, термисторы), поэтому категория 'Датчик температуры' правдоподобна, но не подтверждена для данного артикула.",
+      "Аналогичные продуктовые семейства Honeywell включают серии: HEL-700, HEL-705, HEL-711, VF00/VF10/VF20 (погружные), AF00/AF01/AF10/AF20 (наружного воздуха), C7085, T7335 — однако 309811 не идентифицирован ни в одной из них.",
+      "Номер может принадлежать к специализированной или устаревшей (EOL) линейке Honeywell либо являться внутренним/OEM артикулом."
+    ],
+    "ambiguities": [
+      "Артикул 309811 не найден ни в одном открытом каталоге или базе данных дистрибьюторов.",
+      "D 95.540.70 может быть внутренним номером чертежа или OEM-обозначением, не используемым в публичном каталоге.",
+      "Неизвестно, является ли продукт активным, снятым с производства или OEM-позицией.",
+      "Категория 'Датчик' (температуры) является разумным предположением на основе описания, но не подтверждена официальными источниками."
+    ],
+    "sources": [
+      {
+        "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/sensors/temperature-and-humidity-sensors",
+        "type": "manufacturer",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://honeywell-trade.ru/products/datchiki-i-rele-honeywell/datchiki-temperatury/",
+        "type": "distributor",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://honeywellshop.ru/catalog/datchiki_rele_signalizatory_honeywell/datchiki_honeywell/datchiki_temperatury/",
+        "type": "distributor",
+        "supports": [
+          "category_context"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Артикул 309811 от Honeywell не обнаружен ни в одном публичном источнике — ни на сайте производителя, ни у авторизованных дистрибьюторов, ни в технических базах данных. Категория 'Датчик температуры' и описание D 95.540.70 не могут быть верифицированы. Все выводы носят предположительный характер. Рекомендуется обратиться напрямую в Honeywell или к авторизованному дистрибьютору для подтверждения."
+  },
+  "sources": [
+    {
+      "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/sensors/temperature-and-humidity-sensors",
+      "type": "manufacturer",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://honeywell-trade.ru/products/datchiki-i-rele-honeywell/datchiki-temperatury/",
+      "type": "distributor",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://honeywellshop.ru/catalog/datchiki_rele_signalizatory_honeywell/datchiki_honeywell/datchiki_temperatury/",
+      "type": "distributor",
+      "supports": [
+        "category_context"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:47:39.080323Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3776,
+  "cost_usd": 0.05,
+  "web_search_used": true
+}

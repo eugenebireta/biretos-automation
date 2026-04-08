@@ -1,0 +1,39 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_174411",
+  "entity_id": "174411",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": null,
+    "description_ru": null,
+    "category_suggestion": null,
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "No specific product information for Honeywell Part Number 174411 was found through web search.",
+      "No datasheets, product pages, or distributor listings for this exact part number were identified.",
+      "The part number does not appear to be publicly listed or commonly available online."
+    ],
+    "ambiguities": [
+      "The exact product identity, family, and status (current/discontinued/superseded) for Honeywell PN=174411 could not be determined.",
+      "No relevant Russian-language product description was found."
+    ],
+    "sources": [],
+    "confidence": "high",
+    "confidence_notes": "Multiple targeted web searches for 'Honeywell 174411' combined with various keywords (sensor, switch, industrial control, datasheet, Russia, price, image) yielded no relevant results. This indicates that the product information is not publicly available or easily discoverable through standard web search methods."
+  },
+  "sources": [],
+  "confidence": "high",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:32:20.714283Z",
+  "provider": "gemini_grounding",
+  "model": "gemini-2.5-flash",
+  "raw_response_length": 1175,
+  "cost_usd": 0.004,
+  "web_search_used": true
+}

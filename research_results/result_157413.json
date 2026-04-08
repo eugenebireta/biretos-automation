@@ -5,57 +5,15 @@
   "research_reason": "category_mismatch",
   "priority": "high",
   "final_recommendation": {
-    "identity_confirmed": false,
-    "brand": "Honeywell",
-    "title_ru": "Неподтвержденный продукт Honeywell 157413",
-    "description_ru": "Продукт Honeywell с номером 157413. Текущее описание в каталоге указывает на термостатический вентиль D 20.810.70 HR, однако это требует верификации.",
-    "category_suggestion": "Неопределено - требуется уточнение",
-    "price_assessment": "ambiguous_offer",
-    "price_evidence": "Conrad Elektronik (Дания) указывает PN 157413 как 'PEHA by Honeywell' с категорией 'afdaekning' (накладка/крышка), что противоречит текущему описанию вентиля. Цена в источнике не извлечена из публичного доступа.",
-    "photo_assessment": "mismatch",
-    "specs_assessment": "specs_gap",
-    "key_findings": [
-      "Критическое несоответствие: Conrad Elektronik классифицирует PN 157413 как 'PEHA by Honeywell afdaekning' (накладка/крышка из алюминия), а не как термостатический вентиль",
-      "Текущее описание 'Термостатический вентиль D 20.810.70 HR' не подтверждено в публичных источниках для этого PN",
-      "PEHA - это бренд Honeywell для электротехнических изделий (выключатели, розетки, накладки), а не для гидравлических вентилей",
-      "Номер D 20.810.70 HR относится к серии термостатических вентилей Honeywell, но не подтвержден для PN 157413",
-      "Источник Conrad указывает на электротехническую продукцию, что исключает вентиль как категорию"
-    ],
-    "ambiguities": [
-      "Является ли PN 157413 действительно термостатическим вентилем или это электротехническая накладка/крышка?",
-      "Какова точная функция и назначение PN 157413 согласно официальной документации Honeywell?",
-      "Существует ли путаница между PN 157413 и номером модели вентиля D 20.810.70 HR?",
-      "Почему Conrad Elektronik классифицирует этот PN как PEHA (электротехника), а не как вентиль?",
-      "Доступна ли официальная техническая документация Honeywell для подтверждения идентичности?"
-    ],
-    "sources": [
-      {
-        "url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-157413-afdaekning-afdaekning-aluminium-2854875.html",
-        "type": "distributor",
-        "supports": [
-          "identity_conflict",
-          "category_mismatch"
-        ]
-      }
-    ],
-    "confidence": "low",
-    "confidence_notes": "Критическое противоречие между текущим описанием (вентиль) и единственным найденным источником (электротехническая накладка PEHA). Требуется официальная верификация у Honeywell или поиск дополнительных источников для разрешения категориального конфликта. Текущая информация в каталоге может быть ошибочной или относиться к другому PN."
+    "confidence": "low"
   },
-  "sources": [
-    {
-      "url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-157413-afdaekning-afdaekning-aluminium-2854875.html",
-      "type": "distributor",
-      "supports": [
-        "identity_conflict",
-        "category_mismatch"
-      ]
-    }
-  ],
+  "sources": [],
   "confidence": "low",
   "parse_error": "",
-  "timestamp": "2026-04-07T23:13:24.916908Z",
-  "provider": "claude",
-  "model": "claude-haiku-4-5-20251001",
-  "raw_response_length": 2524,
-  "cost_usd": 0.0019
+  "timestamp": "2026-04-08T20:49:17.683982Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true
 }
