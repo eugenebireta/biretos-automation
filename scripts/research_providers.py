@@ -30,7 +30,7 @@ _ROOT = Path(_scripts_dir).parent
 _SECRETS_PATH = _ROOT / "auditor_system" / "config" / ".env.auditors"
 
 GEMINI_FLASH_MODEL = "gemini-2.5-flash"
-CLAUDE_SONNET_MODEL = "claude-sonnet-4-5-20241022"
+CLAUDE_SONNET_MODEL = "claude-sonnet-4-6"
 
 # Rough cost estimates (USD per call at ~3k tokens in + ~1.5k out)
 _GEMINI_FLASH_COST = 0.004   # Flash with grounding
