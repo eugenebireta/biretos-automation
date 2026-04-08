@@ -20,12 +20,19 @@ Autonomy by risk:
 """
 from __future__ import annotations
 
+import io
 import json
 import os
 import sys
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
+
+# Force UTF-8 output on Windows (console may default to cp1251)
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+if sys.stderr.encoding and sys.stderr.encoding.lower() not in ("utf-8", "utf8"):
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
@@ -208,6 +215,7 @@ def run_orchestrator(auto_execute: bool) -> int:
         capture_output=True,
         text=True,
         encoding="utf-8",
+        errors="replace",
         timeout=600,
         cwd=str(ROOT),
     )
