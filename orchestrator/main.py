@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import sys
 import uuid
 from datetime import datetime, timezone
@@ -30,6 +31,48 @@ MANIFEST_PATH = ORCH_DIR / "manifest.json"
 DIRECTIVE_PATH = ORCH_DIR / "orchestrator_directive.md"
 PACKET_PATH = ORCH_DIR / "last_execution_packet.json"
 RUNS_PATH = ORCH_DIR / "runs.jsonl"
+LOCK_PATH = ORCH_DIR / "orchestrator.lock"
+
+
+# ---------------------------------------------------------------------------
+# P0-1: File lock — prevent concurrent manifest overwrites
+# ---------------------------------------------------------------------------
+def _acquire_lock():
+    """Non-blocking file lock. Returns file handle or None."""
+    try:
+        fh = open(LOCK_PATH, "w")
+        if sys.platform == "win32":
+            import msvcrt
+            msvcrt.locking(fh.fileno(), msvcrt.LK_NBLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        fh.write(str(os.getpid()))
+        fh.flush()
+        return fh
+    except (IOError, OSError):
+        try:
+            fh.close()
+        except Exception:
+            pass
+        return None
+
+
+def _release_lock(fh):
+    """Release file lock."""
+    if fh is None:
+        return
+    try:
+        if sys.platform == "win32":
+            import msvcrt
+            try:
+                fh.seek(0)
+                msvcrt.locking(fh.fileno(), msvcrt.LK_UNLCK, 1)
+            except (IOError, OSError):
+                pass
+        fh.close()
+    except Exception:
+        pass
 
 DEFAULT_MANIFEST = {
     "schema_version": "v1",
@@ -128,6 +171,22 @@ def cmd_init(args: argparse.Namespace) -> None:
 
 
 def cmd_cycle(args: argparse.Namespace) -> None:
+    # P0-1: single-run guard — prevent concurrent manifest overwrites
+    lock_fh = _acquire_lock()
+    if lock_fh is None:
+        append_run({"ts": _now(), "event": "lock_busy",
+                     "reason": "Another orchestrator instance holds the lock"})
+        print("[orchestrator] lock_busy — another instance is running. Exiting.",
+              file=sys.stderr)
+        return
+
+    try:
+        _cmd_cycle_inner(args)
+    finally:
+        _release_lock(lock_fh)
+
+
+def _cmd_cycle_inner(args: argparse.Namespace) -> None:
     manifest = load_manifest()
     state = manifest.get("fsm_state", "ready")
 
@@ -416,6 +475,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
           f"exit_code={exec_result.exit_code} "
           f"elapsed={exec_result.elapsed_seconds:.1f}s")
 
+    # P0-3: Separate three outcomes: success, collect failure, executor failure
     if exec_result.status == "completed" and packet is not None:
         # Write packet
         PACKET_PATH.write_text(json.dumps(packet, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -460,10 +520,30 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
             print(f"Reason: {gate_result.reason}")
             print("Resolve and set fsm_state=ready in manifest.json")
             print("=" * 60)
+
+    elif exec_result.status == "completed" and packet is None:
+        # P0-3: Executor succeeded but packet collection FAILED — do NOT mask as success
+        manifest["fsm_state"] = "error"
+        manifest["last_verdict"] = "COLLECT_FAILED"
+        save_manifest(manifest)
+        append_run({"ts": _now(), "event": "collect_failed",
+                    "trace_id": trace_id,
+                    "reason": "executor completed but packet collection returned None",
+                    "executor_status": exec_result.status})
+        print()
+        print("=" * 60)
+        print("COLLECT FAILED: executor completed but packet collection failed.")
+        print("FSM -> error. Check logs for collect_packet errors.")
+        print("After fixing: set fsm_state=ready in manifest.json")
+        print("=" * 60)
+
     else:
-        # Execution failed — keep FSM at awaiting_execution, report error
+        # Execution failed — set FSM to error, report honestly
+        manifest["fsm_state"] = "error"
+        manifest["last_verdict"] = "EXECUTOR_FAILED"
+        save_manifest(manifest)
         append_run({"ts": _now(), "event": "auto_execute_failed",
-                    "state": "awaiting_execution",
+                    "state_after": "error",
                     "trace_id": trace_id,
                     "status": exec_result.status,
                     "exit_code": exec_result.exit_code,
@@ -474,7 +554,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
               f"exit_code={exec_result.exit_code}")
         if exec_result.stderr:
             print(f"stderr: {exec_result.stderr[:300]}")
-        print("Directive preserved. Manual fallback:")
+        print("FSM -> error. Directive preserved. Manual fallback:")
         print("    cat orchestrator/orchestrator_directive.md | claude -p")
         print(f"    python orchestrator/collect_packet.py --trace-id {trace_id}")
         print("=" * 60)

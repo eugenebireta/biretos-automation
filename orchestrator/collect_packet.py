@@ -158,8 +158,15 @@ def collect(
         test_results = run_pytest()
 
     status = "completed"
+    blockers: list[str] = []
+
     if not changed_files and not run_pytest_flag:
         status = "partial"
+
+    # P1-2: populate blockers from pytest failures
+    if test_results and test_results.get("failed", 0) > 0:
+        blockers.append(f"{test_results['failed']} test(s) failed")
+        status = "blocked"
 
     packet = {
         "schema_version": "v1",
@@ -173,7 +180,7 @@ def collect(
         "affected_tiers": affected_tiers,
         "executor_notes": executor_notes,
         "questions": [],
-        "blockers": [],
+        "blockers": blockers,
         "artifacts_produced": [],
         "collected_by": "collect_packet.py",
         "collected_at": datetime.now(timezone.utc).isoformat(),

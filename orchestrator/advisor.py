@@ -19,8 +19,10 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import re
 import sys
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -186,17 +188,46 @@ def _build_full_user_prompt(bundle) -> str:
     return bundle.to_advisor_prompt_context()
 
 
+_API_MAX_RETRIES = 2
+_API_BACKOFF_SECONDS = [2, 5]
+
+
+def _is_retriable(exc: Exception) -> bool:
+    """Check if an API exception is transient and worth retrying."""
+    exc_name = type(exc).__name__
+    # Anthropic SDK transient errors
+    if exc_name in ("APITimeoutError", "APIConnectionError",
+                     "InternalServerError", "RateLimitError",
+                     "OverloadedError"):
+        return True
+    # httpx transport errors
+    if "timeout" in str(exc).lower() or "connection" in str(exc).lower():
+        return True
+    return False
+
+
 def _call_api(client, model: str, user_prompt: str,
               max_tokens: int, timeout: int) -> str:
-    """Make the API call and return raw text content."""
-    response = client.messages.create(
-        model=model,
-        max_tokens=max_tokens,
-        system=_SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_prompt}],
-        timeout=timeout,
-    )
-    return response.content[0].text
+    """Make the API call with retry + backoff + jitter. Returns raw text."""
+    last_exc = None
+    for attempt in range(_API_MAX_RETRIES + 1):
+        try:
+            response = client.messages.create(
+                model=model,
+                max_tokens=max_tokens,
+                system=_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_prompt}],
+                timeout=timeout,
+            )
+            return response.content[0].text
+        except Exception as e:
+            last_exc = e
+            if attempt < _API_MAX_RETRIES and _is_retriable(e):
+                delay = _API_BACKOFF_SECONDS[attempt] + random.uniform(0, 1)
+                time.sleep(delay)
+                continue
+            raise
+    raise last_exc  # unreachable but satisfies type checker
 
 
 def _write_verdict_file(verdict: AdvisorVerdict, path: Path | None = None) -> None:

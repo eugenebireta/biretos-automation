@@ -204,19 +204,41 @@ def decide(
         try:
             from classifier import _check_tier
         except ImportError:
-            # Fallback if classifier not on path — treat all as Tier-3 with warning
-            warnings.append(
-                "synthesizer: could not import classifier._check_tier — "
-                "scope sanitization skipped; manual tier review required"
+            # P0-2: fail-closed — if tier check is unavailable, BLOCK (not pass-through)
+            rule_trace.append("R3:TIER_CHECK_UNAVAILABLE")
+            rationale = (
+                "Cannot import classifier._check_tier — tier protection unavailable. "
+                "Fail-closed: blocking execution to prevent unguarded Tier-1/2 access."
             )
-            approved_scope = list(advisor_scope)
-            logger.warning(
-                "synthesizer.decide: R3 tier check unavailable — scope not sanitized",
-                extra={"error_class": "TRANSIENT", "severity": "WARNING", "retriable": True},
+            logger.error(
+                "synthesizer.decide: R3 TIER_CHECK_UNAVAILABLE — fail-closed BLOCK",
+                extra={"error_class": "PERMANENT", "severity": "ERROR", "retriable": False},
+            )
+            return SynthesizerDecision(
+                action=ACTION_BLOCKED,
+                final_risk="CORE",
+                final_route="spec_full",
+                approved_scope=[],
+                rationale=rationale,
+                rule_trace=rule_trace,
+                stripped_files=[],
+                warnings=warnings + [
+                    "CRITICAL: classifier._check_tier import failed — "
+                    "all scope blocked as fail-closed safety measure"
+                ],
             )
         else:
             for f in advisor_scope:
-                tier = _check_tier(f)
+                try:
+                    tier = _check_tier(f)
+                except Exception as _tier_exc:
+                    # P0-2: individual file tier check crash => assume Tier-1 (fail-closed)
+                    logger.error(
+                        "synthesizer.decide: _check_tier crashed for %s: %s — assuming Tier-1",
+                        f, _tier_exc,
+                        extra={"error_class": "PERMANENT", "severity": "ERROR", "retriable": False},
+                    )
+                    tier = "Tier-1"
                 if tier in ("Tier-1", "Tier-2"):
                     stripped_files.append(f)
                 else:
