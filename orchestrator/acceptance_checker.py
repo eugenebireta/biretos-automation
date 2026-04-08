@@ -7,6 +7,7 @@ Deterministic checks (no LLM):
   A3: tests_pass — test_results.failed == 0 (if available)
   A4: no_empty_execution — at least 1 file changed
   A5: no_out_of_scope — changed files are subset of approved scope
+  A5: task_id_integrity — no created files reference a different task_id
 
 Returns AcceptanceResult with per-check verdicts.
 
@@ -43,6 +44,20 @@ class AcceptanceResult:
     scope_from_directive: list[str] = field(default_factory=list)
 
 
+def _parse_directive_task_id(directive_text: str) -> Optional[str]:
+    """Extract task_id from directive header (format: 'task_id: <value>')."""
+    for line in directive_text.splitlines():
+        m = re.match(r"^task_id:\s*(.+)$", line.strip())
+        if m:
+            return m.group(1).strip()
+    return None
+
+
+# Matches task_id-like tokens in filenames: e.g. A5-TASK-ID-CHECK, RECLASSIFY-PEHA-8SKU
+# Anchored by non-alphanumeric-or-hyphen chars (or start/end of string).
+_TASK_ID_PATTERN = re.compile(r'(?<![A-Z0-9-])([A-Z][A-Z0-9]*(?:-[A-Z0-9]+){2,})(?![A-Z0-9-])')
+
+
 def _parse_directive_scope(directive_text: str) -> list[str]:
     """Extract file paths from the ## Scope section of a directive."""
     lines = directive_text.splitlines()
@@ -69,6 +84,7 @@ def check(
     packet: dict,
     directive_text: str,
     trace_id: str,
+    idempotency_key: Optional[str] = None,
 ) -> AcceptanceResult:
     """Run acceptance checks against execution packet and directive.
 
@@ -76,6 +92,9 @@ def check(
         packet: Execution packet dict (from collect_packet).
         directive_text: Raw text of the orchestrator directive.
         trace_id: Orchestrator trace ID.
+        idempotency_key: Caller-supplied key for dedup (same inputs always
+            produce the same result, so this is informational only — the
+            function itself is naturally idempotent).
 
     Returns:
         AcceptanceResult with per-check verdicts.
@@ -151,6 +170,42 @@ def check(
             check_id="A4:SCOPE_COMPLIANCE",
             passed=True,
             detail="no scope defined in directive (skipped)",
+        ))
+
+    # A5: task_id integrity — no created/changed files reference a different task_id
+    task_id_from_directive = _parse_directive_task_id(directive_text)
+    if task_id_from_directive:
+        all_files = list(packet.get("created_files", [])) + list(changed_files)
+        violating_files: list[str] = []
+        for filepath in all_files:
+            basename = Path(filepath).name
+            for match in _TASK_ID_PATTERN.finditer(basename):
+                found_id = match.group(1)
+                if found_id != task_id_from_directive:
+                    violating_files.append(
+                        f"{filepath!r} (found task_id token '{found_id}',"
+                        f" expected '{task_id_from_directive}')"
+                    )
+        if violating_files:
+            raise ValueError(
+                f"A5:TASK_ID_INTEGRITY VIOLATED — executor created/modified files "
+                f"whose names contain a task_id token that differs from the directive. "
+                f"Expected task_id='{task_id_from_directive}'. "
+                f"Violations ({len(violating_files)}): {violating_files}"
+            )
+        checks.append(AcceptanceCheck(
+            check_id="A5:TASK_ID_INTEGRITY",
+            passed=True,
+            detail=(
+                f"all {len(all_files)} files use correct task_id"
+                f" '{task_id_from_directive}'"
+            ),
+        ))
+    else:
+        checks.append(AcceptanceCheck(
+            check_id="A5:TASK_ID_INTEGRITY",
+            passed=True,
+            detail="no task_id in directive (skipped)",
         ))
 
     all_passed = all(c.passed for c in checks)

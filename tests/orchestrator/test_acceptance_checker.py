@@ -129,7 +129,7 @@ class TestAcceptanceChecker:
         }
         result = ac.check(packet, SAMPLE_DIRECTIVE, "trace_007")
         assert result.passed is True
-        assert len(result.checks) == 4  # A1, A2, A3, A4
+        assert len(result.checks) == 5  # A1, A2, A3, A4, A5
 
     def test_no_test_results_passes(self):
         """If tests weren't run, A3 passes by default."""
