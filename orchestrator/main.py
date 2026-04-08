@@ -320,6 +320,7 @@ def cmd_cycle(args: argparse.Namespace) -> None:
     directive_hash = hashlib.sha256(directive.encode()).hexdigest()[:12]
     manifest["last_directive_hash"] = directive_hash
     manifest["fsm_state"] = "awaiting_execution"
+    manifest["_last_risk_class"] = synth.final_risk or classification.risk_class
     save_manifest(manifest)
 
     append_run({"ts": _now(), "event": "directive_written",
@@ -392,6 +393,14 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
     run_pytest = bool(cfg.get("auto_pytest", False))
     base_commit = cfg.get("base_commit") or None
 
+    # Snapshot HEAD before executor runs — diff only executor's changes
+    if not base_commit:
+        import subprocess as _sp
+        _head = _sp.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                        text=True, cwd=str(ROOT))
+        if _head.returncode == 0:
+            base_commit = _head.stdout.strip()
+
     print()
     print("[orchestrator] auto_execute=true — running claude -p...")
 
@@ -408,20 +417,49 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
           f"elapsed={exec_result.elapsed_seconds:.1f}s")
 
     if exec_result.status == "completed" and packet is not None:
-        # Write packet and advance FSM to ready
+        # Write packet
         PACKET_PATH.write_text(json.dumps(packet, indent=2, ensure_ascii=False), encoding="utf-8")
-        manifest["fsm_state"] = "ready"
-        manifest["last_verdict"] = None
-        save_manifest(manifest)
-        append_run({"ts": _now(), "event": "auto_execute_completed",
-                    "state_before": "awaiting_execution", "state_after": "ready",
-                    "trace_id": trace_id,
-                    "changed_files": len(packet.get("changed_files", [])),
-                    "elapsed_seconds": exec_result.elapsed_seconds})
+
+        # Batch Quality Gate — deterministic check on execution packet
+        import batch_quality_gate as _bqg
+        # Derive expected risk from last classification
+        _expected_risk = manifest.get("_last_risk_class", "LOW")
+        gate_result = _bqg.check_packet(packet, expected_risk=_expected_risk)
+
         print(f"[orchestrator] Packet collected: "
               f"files={len(packet.get('changed_files', []))} "
               f"tiers={packet.get('affected_tiers', [])}")
-        print("[orchestrator] FSM -> ready. Run main.py for next cycle.")
+        print(f"[orchestrator] Batch gate: passed={gate_result.passed} "
+              f"rule={gate_result.rule} auto_merge={gate_result.auto_merge_eligible}")
+
+        if gate_result.passed:
+            manifest["fsm_state"] = "ready"
+            manifest["last_verdict"] = None
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "auto_execute_completed",
+                        "state_before": "awaiting_execution", "state_after": "ready",
+                        "trace_id": trace_id,
+                        "changed_files": len(packet.get("changed_files", [])),
+                        "elapsed_seconds": exec_result.elapsed_seconds,
+                        "gate_rule": gate_result.rule,
+                        "auto_merge": gate_result.auto_merge_eligible})
+            print("[orchestrator] FSM -> ready. Run main.py for next cycle.")
+        else:
+            manifest["fsm_state"] = "awaiting_owner_reply"
+            manifest["last_verdict"] = "BATCH_GATE_FAILED"
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "batch_gate_failed",
+                        "state_before": "awaiting_execution",
+                        "state_after": "awaiting_owner_reply",
+                        "trace_id": trace_id,
+                        "gate_rule": gate_result.rule,
+                        "gate_reason": gate_result.reason})
+            print()
+            print("=" * 60)
+            print(f"BATCH GATE FAILED: {gate_result.rule}")
+            print(f"Reason: {gate_result.reason}")
+            print("Resolve and set fsm_state=ready in manifest.json")
+            print("=" * 60)
     else:
         # Execution failed — keep FSM at awaiting_execution, report error
         append_run({"ts": _now(), "event": "auto_execute_failed",
