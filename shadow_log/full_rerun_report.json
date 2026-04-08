@@ -1,0 +1,119 @@
+{
+  "report": "Block 8 — Full Enrichment Report",
+  "timestamp": "2026-04-08T14:00:00Z",
+  "quick_fixes": {
+    "confidence_bug": "Fixed pn_match_location → structured_pn_match_location in export_pipeline.py",
+    "owner_price": "Added owner_price fallback from xlsx for 105+ SKUs",
+    "policy_rule": "Added CAP-06B: strong + no_image + rfq_only → REVIEW_REQUIRED",
+    "confidence_gap": "Added REVIEW path for has_pn + price_present + low_confidence",
+    "total_quickfix_skus": 132
+  },
+  "integration": {
+    "page_ranker": "integrated (deterministic mode)",
+    "price_judge": "integrated (Sonnet on trigger)",
+    "category_resolver": "integrated (override mismatch if resolvable)",
+    "training_logger": "integrated (6-point collection)"
+  },
+  "before_after": {
+    "before": {
+      "AUTO_PUBLISH": 5,
+      "REVIEW_REQUIRED": 14,
+      "DRAFT_ONLY": 342,
+      "readiness_pct": 5.3
+    },
+    "after": {
+      "AUTO_PUBLISH": 7,
+      "REVIEW_REQUIRED": 144,
+      "DRAFT_ONLY": 210,
+      "readiness_pct": 41.8
+    },
+    "improvement": "+36.5pp readiness, +132 SKU moved from DRAFT"
+  },
+  "identity": {
+    "strong": 262,
+    "weak": 99
+  },
+  "photo_re_review": {
+    "total_reject": 127,
+    "reconsidered": 75,
+    "kept_reject": 52,
+    "note": "75 photos flagged photo_reconsider=True (strong identity + structured PN)"
+  },
+  "family_inference": {
+    "multi_member_families": 9,
+    "inferred": 0,
+    "reason": "All siblings share same no-price status — needs pipeline re-run first"
+  },
+  "yandex_market": {
+    "status": "scaffold_created",
+    "reason": "No API keys available in session — script ready for manual execution"
+  },
+  "remaining_draft_analysis": {
+    "total_draft": 210,
+    "blockers": {
+      "identity_weak": 99,
+      "photo_problem": 104,
+      "no_ext_price": 219
+    },
+    "dominant_blocker": "no_price (219 SKU have no external price at all)",
+    "note": "85 SKU have xlsx owner_price as fallback (already applied)"
+  },
+  "research_queue": {
+    "total_packets": 363,
+    "high_priority": 290,
+    "low_priority": 73,
+    "pilot_skus_exported": 20,
+    "providers": ["claude_pro", "gemini_dr", "chatgpt_dr"]
+  },
+  "training_data": {
+    "category_resolution_examples": 1,
+    "identity_boost_examples": 196,
+    "identity_check_examples": 48,
+    "page_ranking_examples": 1,
+    "photo_verdict_examples": 1,
+    "price_extraction_examples": 1,
+    "spec_extraction_examples": 1,
+    "unit_judge_examples": 1,
+    "note": "Training data collection integrated but minimal examples — grows with pipeline re-run"
+  },
+  "next_actions": {
+    "immediate": [
+      "Set SERPAPI_KEY + GEMINI_API_KEY in environment",
+      "Run: python scripts/prepare_rerun.py && python scripts/photo_pipeline.py",
+      "Budget: ~$10 for 210 DRAFT SKUs"
+    ],
+    "after_rerun": [
+      "Re-run family price inference (will find donors after sibling prices found)",
+      "Run: python scripts/yandex_market_search.py --from-queue --limit 50",
+      "Export training dataset: python scripts/training_dataset_export.py",
+      "Review 144 REVIEW_REQUIRED cards in owner dashboard"
+    ],
+    "estimated_after_rerun": {
+      "AUTO_PUBLISH": "15-25 (from current 7)",
+      "REVIEW_REQUIRED": "180-220 (many DRAFT → REVIEW with new prices/photos)",
+      "DRAFT_ONLY": "80-130 (remaining identity-weak + truly unfindable)",
+      "readiness_pct": "65-75%"
+    }
+  },
+  "files_changed_summary": {
+    "scripts_modified": [
+      "export_pipeline.py (confidence bug fix)",
+      "confidence.py (owner_price + publishability gap)",
+      "card_status.py (owner_price normalization)",
+      "recalculate_card_status.py (confidence recalc + owner_price)",
+      "photo_pipeline.py (page_ranker + price_judge + category_resolver + training)"
+    ],
+    "scripts_created": [
+      "prepare_rerun.py",
+      "photo_reject_rereview.py",
+      "family_price_inference.py",
+      "yandex_market_search.py"
+    ],
+    "config_modified": [
+      "config/catalog_evidence_policy_v1.json (added CAP-06B rule)"
+    ],
+    "tests_added": 9,
+    "tests_total": 842,
+    "tests_passing": 842
+  }
+}
