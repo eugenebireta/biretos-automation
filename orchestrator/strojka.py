@@ -55,6 +55,8 @@ Rules:
 5. Determine roadmap_stage: which stage from Roadmap this belongs to (e.g. "R1", "8.1", "Phase 7"). Use "NEW" if it's a new idea not in roadmap.
 6. Determine task_type: "implement" (write code), "design" (architecture only), "research" (explore options), "roadmap_next" (pick next from roadmap).
 7. If the user says "следующая задача" or "next task" or similar, read the Roadmap current position and pick the next incomplete stage.
+8. CRITICAL: Only do EXACTLY what the user asked. Do NOT invent tasks from STATE.md context. STATE.md is for context only — the user's instruction is the sole source of what to do.
+9. NEVER start enrichment, batch runs, or data processing unless the user EXPLICITLY asked for it.
 
 Output schema:
 {

@@ -3,12 +3,16 @@ telegram_bot.py — Telegram bridge for ИИ-стройка.
 
 Listens for messages, runs strojka.py, sends results back.
 
+PC console: full technical output in real-time.
+Telegram: only human-friendly summaries + escalation questions.
+
 Usage:
     python orchestrator/telegram_bot.py
 
 Commands:
     Стройка: <задача>     — запустить задачу
-    /status               — текущий статус манифеста
+    ок / да / нет         — ответ на эскалацию
+    /status               — текущий статус
     /help                 — справка
 
 Token: loaded from orchestrator/.env.telegram (gitignored).
@@ -20,6 +24,7 @@ import logging
 import os
 import subprocess
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 from telegram import Update
@@ -35,18 +40,32 @@ ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
 MANIFEST_PATH = ORCH_DIR / "manifest.json"
 
+# Console logging — full technical detail on PC
 logging.basicConfig(
-    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
+    format="%(asctime)s %(message)s",
+    datefmt="%H:%M:%S",
     level=logging.INFO,
+    stream=sys.stdout,
 )
-logger = logging.getLogger("strojka_bot")
+# Suppress noisy httpx polling logs
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("telegram.ext").setLevel(logging.WARNING)
 
-# Owner chat ID — set on first /start, then only this user can use the bot
+log = logging.getLogger("strojka")
+
 OWNER_CHAT_ID: int | None = None
 
+# ── Console helpers ─────────────────────────────────────────────────────
+
+def _pc(msg: str) -> None:
+    """Print to PC console with timestamp."""
+    ts = datetime.now().strftime("%H:%M:%S")
+    print(f"[{ts}] {msg}", flush=True)
+
+
+# ── Token / Auth ────────────────────────────────────────────────────────
 
 def _load_token() -> str:
-    """Load bot token from .env.telegram."""
     env_path = ORCH_DIR / ".env.telegram"
     if env_path.exists():
         for line in env_path.read_text(encoding="utf-8").splitlines():
@@ -55,38 +74,43 @@ def _load_token() -> str:
                 return line.split("=", 1)[1].strip()
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
     if not token:
-        raise ValueError(
-            "TELEGRAM_BOT_TOKEN not found in .env.telegram or environment"
-        )
+        raise ValueError("TELEGRAM_BOT_TOKEN not found")
     return token
 
 
 def _is_owner(update: Update) -> bool:
-    """Check if message is from the owner."""
     global OWNER_CHAT_ID
     if OWNER_CHAT_ID is None:
-        return True  # First user becomes owner
+        return True
     return update.effective_chat.id == OWNER_CHAT_ID
 
 
-def _truncate(text: str, limit: int = 4000) -> str:
-    """Truncate text to fit Telegram message limit."""
-    if len(text) <= limit:
-        return text
-    return text[:limit] + "\n\n... (truncated)"
+def _load_env() -> dict:
+    """Load API keys from .env.auditors for subprocess."""
+    env = os.environ.copy()
+    env["PYTHONIOENCODING"] = "utf-8"
+    env_auditors = ROOT / "auditor_system" / "config" / ".env.auditors"
+    if env_auditors.exists():
+        for line in env_auditors.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if "=" in line and not line.startswith("#"):
+                k, v = line.split("=", 1)
+                env[k.strip()] = v.strip()
+    return env
 
+
+# ── Telegram commands ───────────────────────────────────────────────────
 
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Register owner on first /start."""
     global OWNER_CHAT_ID
     if OWNER_CHAT_ID is None:
         OWNER_CHAT_ID = update.effective_chat.id
-        logger.info("Owner registered: chat_id=%d", OWNER_CHAT_ID)
+        _pc(f"Owner registered: {update.effective_user.first_name} (chat_id={OWNER_CHAT_ID})")
     await update.message.reply_text(
         "ИИ-Стройка на связи.\n\n"
-        "Напиши:\n"
-        "  Стройка: <описание задачи>\n\n"
-        "Или:\n"
+        "Напиши задачу, например:\n"
+        "  Стройка: добавить тесты для batch gate\n\n"
+        "Команды:\n"
         "  /status — текущий статус\n"
         "  /help — справка"
     )
@@ -96,13 +120,11 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not _is_owner(update):
         return
     await update.message.reply_text(
-        "Стройка: <задача> — запустить задачу\n"
-        "/status — показать манифест\n"
-        "/help — эта справка\n\n"
-        "Примеры:\n"
-        "  Стройка: добавить тесты для batch gate\n"
-        "  Стройка: следующая задача по роадмапу\n"
-        "  Стройка: спроектировать систему уведомлений"
+        "Стройка: <задача> — запустить\n"
+        "ок / да — одобрить эскалацию\n"
+        "нет — отклонить\n"
+        "/status — статус манифеста\n"
+        "/help — эта справка"
     )
 
 
@@ -110,27 +132,64 @@ async def cmd_status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     if not _is_owner(update):
         return
     if not MANIFEST_PATH.exists():
-        await update.message.reply_text("Манифест не найден. Стройка не запущена.")
+        await update.message.reply_text("Стройка не запущена.")
         return
-    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    status_text = (
-        f"FSM: {manifest.get('fsm_state', '?')}\n"
-        f"Task: {manifest.get('current_task_id', '?')}\n"
-        f"Goal: {manifest.get('current_sprint_goal', '?')[:200]}\n"
-        f"Attempt: {manifest.get('attempt_count', 0)}\n"
-        f"Verdict: {manifest.get('last_verdict', 'none')}\n"
-        f"Updated: {manifest.get('updated_at', '?')}"
+    m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    state = m.get("fsm_state", "?")
+    task = m.get("current_task_id", "?")
+    goal = (m.get("current_sprint_goal") or "?")[:200]
+    verdict = m.get("last_verdict") or "—"
+    await update.message.reply_text(
+        f"Состояние: {state}\n"
+        f"Задача: {task}\n"
+        f"Цель: {goal}\n"
+        f"Вердикт: {verdict}"
     )
-    await update.message.reply_text(f"📋 Статус стройки:\n\n{status_text}")
 
+
+# ── Owner reply to escalation ──────────────────────────────────────────
+
+async def _handle_owner_reply(update: Update, text: str) -> bool:
+    """Handle 'ок/да/нет' replies to pending escalations. Returns True if handled."""
+    if not MANIFEST_PATH.exists():
+        return False
+    m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    state = m.get("fsm_state", "")
+
+    if state not in ("awaiting_owner_reply", "error"):
+        return False
+
+    lower = text.lower().strip()
+    if lower in ("ок", "ok", "да", "yes", "го", "давай"):
+        m["fsm_state"] = "ready"
+        m["last_verdict"] = None
+        m["updated_at"] = datetime.now(timezone.utc).isoformat()
+        MANIFEST_PATH.write_text(
+            json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+        _pc(f"Owner approved escalation → fsm_state=ready")
+        await update.message.reply_text("Принято. Стройка продолжит при следующем запуске.")
+        return True
+    elif lower in ("нет", "no", "стоп", "stop"):
+        _pc(f"Owner rejected escalation — fsm stays at {state}")
+        await update.message.reply_text("Понял. Задача остаётся на паузе.")
+        return True
+
+    return False
+
+
+# ── Main message handler ───────────────────────────────────────────────
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Handle incoming text messages."""
     if not _is_owner(update):
         return
 
     text = (update.message.text or "").strip()
     if not text:
+        return
+
+    # Check for escalation reply first
+    if await _handle_owner_reply(update, text):
         return
 
     # Check for strojka trigger
@@ -140,154 +199,155 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             task_text = text[len(prefix):].strip()
             break
 
-    if not task_text:
-        # Not a strojka command — ignore
-        return
+    if task_text is None:
+        return  # Not a command, ignore
 
     if not task_text:
-        await update.message.reply_text("Пустая задача. Напиши: Стройка: <описание>")
+        await update.message.reply_text("Напиши задачу после 'Стройка:'")
         return
 
-    # Acknowledge
-    msg = await update.message.reply_text(
-        f"🔨 Принял задачу:\n{task_text[:200]}\n\nЗапускаю стройку..."
-    )
+    # ── Run strojka ─────────────────────────────────────────────────
+    _pc(f"")
+    _pc(f"{'='*60}")
+    _pc(f"ЗАДАЧА: {task_text}")
+    _pc(f"{'='*60}")
 
-    # Run strojka.py as subprocess
+    await update.message.reply_text(f"Принял. Работаю...")
+
     try:
-        env = os.environ.copy()
-        env["PYTHONIOENCODING"] = "utf-8"
+        env = _load_env()
 
-        # Load API key from .env.auditors
-        env_auditors = ROOT / "auditor_system" / "config" / ".env.auditors"
-        if env_auditors.exists():
-            for line in env_auditors.read_text(encoding="utf-8").splitlines():
-                line = line.strip()
-                if "=" in line and not line.startswith("#"):
-                    k, v = line.split("=", 1)
-                    env[k.strip()] = v.strip()
-
-        result = subprocess.run(
+        # Run strojka — stream output to PC console in real-time
+        proc = subprocess.Popen(
             [sys.executable, str(ORCH_DIR / "strojka.py"), task_text],
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
             text=True,
             encoding="utf-8",
-            timeout=600,
+            errors="replace",
             cwd=str(ROOT),
             env=env,
         )
 
-        output = (result.stdout or "") + (result.stderr or "")
-        output = output.strip()
+        full_output = []
+        for line in proc.stdout:
+            line = line.rstrip()
+            if line:
+                _pc(f"  {line}")
+                full_output.append(line)
 
-        if not output:
-            output = "(нет вывода)"
+        proc.wait(timeout=600)
+        output = "\n".join(full_output)
 
-        # Parse key info from output for a clean summary
-        summary = _build_summary(output, task_text)
-        await context.bot.edit_message_text(
-            chat_id=msg.chat_id,
-            message_id=msg.message_id,
-            text=summary,
-        )
+        _pc(f"Exit code: {proc.returncode}")
+        _pc(f"{'='*60}")
 
-        # If output is long, send full log as a follow-up
-        if len(output) > 500:
-            await update.message.reply_text(
-                f"📜 Полный лог:\n\n```\n{_truncate(output, 3800)}\n```",
-                parse_mode="Markdown",
-            )
+        # ── Send human-friendly result to Telegram ──────────────────
+        tg_msg = _build_telegram_message(output, task_text)
+        await update.message.reply_text(tg_msg)
 
     except subprocess.TimeoutExpired:
-        await context.bot.edit_message_text(
-            chat_id=msg.chat_id,
-            message_id=msg.message_id,
-            text="⏰ Стройка не уложилась в 10 минут. Проверь вручную.",
-        )
+        proc.kill()
+        _pc("TIMEOUT — killed after 600s")
+        await update.message.reply_text("Не уложилась в 10 минут. Посмотри на ПК.")
     except Exception as e:
-        await context.bot.edit_message_text(
-            chat_id=msg.chat_id,
-            message_id=msg.message_id,
-            text=f"❌ Ошибка: {e}",
+        _pc(f"ERROR: {e}")
+        await update.message.reply_text(f"Ошибка: {e}")
+
+
+def _build_telegram_message(output: str, task: str) -> str:
+    """Build human-friendly Telegram message — no technical jargon."""
+
+    # Determine outcome
+    if "FSM -> ready" in output:
+        # Success — tell what was done
+        files_changed = "?"
+        for line in output.splitlines():
+            if "files=" in line and "tiers=" in line:
+                for p in line.split():
+                    if p.startswith("files="):
+                        files_changed = p.split("=", 1)[1]
+        return (
+            f"Готово.\n\n"
+            f"Задача: {task[:200]}\n"
+            f"Изменено файлов: {files_changed}\n"
+            f"Проверки пройдены."
         )
 
+    if "BATCH GATE FAILED" in output:
+        reason = ""
+        for line in output.splitlines():
+            if "Reason:" in line:
+                reason = line.split("Reason:", 1)[1].strip()
+        return (
+            f"Задача выполнена, но проверка не прошла.\n\n"
+            f"Причина: {reason[:300]}\n\n"
+            f"Что делать: посмотри детали на ПК и ответь 'ок' чтобы продолжить."
+        )
 
-def _build_summary(output: str, task: str) -> str:
-    """Build a clean Telegram-friendly summary from strojka output."""
-    lines = output.splitlines()
+    if "EXECUTOR FAILED" in output or "COLLECT FAILED" in output:
+        return (
+            f"Ошибка выполнения.\n\n"
+            f"Задача: {task[:200]}\n\n"
+            f"Детали на ПК. Ответь 'ок' когда починишь."
+        )
 
-    # Extract key fields
-    risk = "?"
-    action = "?"
-    gate = "?"
-    trace = "?"
-    files = "?"
+    if "ESCALAT" in output:
+        # Extract rationale
+        rationale = ""
+        for line in output.splitlines():
+            if "Rationale:" in line:
+                rationale = line.split("Rationale:", 1)[1].strip()
+        return (
+            f"Нужно твоё решение.\n\n"
+            f"Задача: {task[:200]}\n"
+            f"Причина: {rationale[:300]}\n\n"
+            f"Ответь 'ок' чтобы продолжить или 'нет' чтобы отменить."
+        )
 
-    for line in lines:
-        if "risk=" in line and "route=" in line:
-            # [orchestrator] risk=LOW route=none
-            parts = line.split()
-            for p in parts:
-                if p.startswith("risk="):
-                    risk = p.split("=", 1)[1]
-                    break
-        if "synth action=" in line:
-            for p in line.split():
-                if p.startswith("action="):
-                    action = p.split("=", 1)[1]
-                    break
-        if "Batch gate:" in line:
-            if "passed=True" in line:
-                gate = "PASS ✅"
-            else:
-                gate = "FAIL ❌"
-        if "trace_id=" in line:
-            for p in line.split():
-                if p.startswith("trace_id="):
-                    trace = p.split("=", 1)[1]
-                    break
-        if "files=" in line and "tiers=" in line:
-            for p in line.split():
-                if p.startswith("files="):
-                    files = p.split("=", 1)[1]
-                    break
-        if "ESCALAT" in line or "BLOCKED" in line or "CORE_GATE" in line:
-            action = line.strip()[:80]
+    if "CORE_GATE" in output or "CORE RISK" in output:
+        return (
+            f"Задача затрагивает ядро системы. Нужен полный аудит.\n\n"
+            f"Задача: {task[:200]}\n\n"
+            f"Детали на ПК."
+        )
 
-    # Check for various outcomes
-    if "FSM -> ready" in output:
-        status = "✅ Выполнено"
-    elif "BATCH GATE FAILED" in output:
-        status = "❌ Gate failed"
-    elif "EXECUTOR FAILED" in output:
-        status = "❌ Executor failed"
-    elif "COLLECT FAILED" in output:
-        status = "❌ Collect failed"
-    elif "ESCALAT" in output:
-        status = "⚠️ Эскалация (нужен ответ)"
-    elif "CORE_GATE" in output or "CORE RISK" in output:
-        status = "🔴 CORE — нужен аудит"
-    elif "BLOCKED" in output:
-        status = "🚫 Заблокировано"
-    elif "lock_busy" in output:
-        status = "🔒 Другой процесс работает"
-    else:
-        status = "❓ Проверь вручную"
+    if "BLOCKED" in output:
+        rationale = ""
+        for line in output.splitlines():
+            if "Rationale:" in line:
+                rationale = line.split("Rationale:", 1)[1].strip()
+        return (
+            f"Заблокировано.\n\n"
+            f"Причина: {rationale[:300]}\n\n"
+            f"Детали на ПК. Ответь 'ок' когда будет готово."
+        )
 
+    if "lock_busy" in output:
+        return "Другой процесс уже работает. Подожди."
+
+    # Unknown outcome
     return (
-        f"{status}\n\n"
-        f"📌 Задача: {task[:150]}\n"
-        f"🎯 Risk: {risk}\n"
-        f"⚙️ Action: {action}\n"
-        f"📦 Files: {files}\n"
-        f"🚦 Gate: {gate}\n"
-        f"🔗 Trace: {trace}"
+        f"Стройка завершилась.\n\n"
+        f"Задача: {task[:200]}\n\n"
+        f"Посмотри результат на ПК."
     )
 
 
+# ── Entry point ─────────────────────────────────────────────────────────
+
 def main():
     token = _load_token()
-    logger.info("Starting strojka Telegram bot...")
+
+    print(flush=True)
+    print("=" * 60, flush=True)
+    print("  ИИ-СТРОЙКА — Telegram Bot", flush=True)
+    print("  @bireta_code_bot", flush=True)
+    print("=" * 60, flush=True)
+    print(flush=True)
+    _pc("Бот запущен. Ожидаю команды из Telegram...")
+    _pc("Ctrl+C чтобы остановить.")
+    print(flush=True)
 
     app = ApplicationBuilder().token(token).build()
 
@@ -296,7 +356,6 @@ def main():
     app.add_handler(CommandHandler("status", cmd_status))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-    logger.info("Bot is polling. Send /start in Telegram to register.")
     app.run_polling(drop_pending_updates=True)
 
 
