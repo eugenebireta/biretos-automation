@@ -125,6 +125,118 @@ def run_audit_sync(task_pack, proposal_text: str = ""):
     return result
 
 
+def run_post_execution_audit_sync(
+    packet: dict,
+    directive_text: str,
+    trace_id: str,
+    risk_class: str,
+    manifest: dict,
+) -> "ProtocolRun":
+    """
+    Run auditor on COMPLETED execution for SEMI/CORE tasks.
+
+    Unlike run_audit_sync (pre-execution for CORE_GATE), this reviews
+    the actual execution result: diff, changed files, test results.
+
+    Args:
+        packet: Execution packet (from collect_packet)
+        directive_text: The directive that was executed
+        trace_id: Orchestrator trace ID
+        risk_class: LOW/SEMI/CORE
+        manifest: Current manifest dict
+
+    Returns:
+        ProtocolRun with quality_gate, approval_route, critiques
+
+    Raises:
+        ConfigError: if .env.auditors missing
+    """
+    import sys
+    from auditor_system.hard_shell.contracts import TaskPack, RiskLevel
+
+    _orch_dir = Path(__file__).resolve().parent
+    if str(_orch_dir) not in sys.path:
+        sys.path.insert(0, str(_orch_dir))
+
+    from auditor_system.runner_factory import create_review_runner
+
+    # Build proposal text from execution results
+    changed_files = packet.get("changed_files", [])
+    test_results = packet.get("test_results", {})
+    affected_tiers = packet.get("affected_tiers", [])
+
+    proposal_text = (
+        f"## Post-Execution Review\n\n"
+        f"**Directive executed:** trace_id={trace_id}\n"
+        f"**Changed files ({len(changed_files)}):** {changed_files[:20]}\n"
+        f"**Affected tiers:** {affected_tiers}\n"
+        f"**Test results:** passed={test_results.get('passed', '?')} "
+        f"failed={test_results.get('failed', '?')}\n\n"
+        f"### Directive\n```\n{directive_text[:2000]}\n```\n"
+    )
+
+    risk_str = risk_class.lower()
+    try:
+        risk = RiskLevel(risk_str)
+    except ValueError:
+        risk = RiskLevel.SEMI
+
+    task_id = manifest.get("current_task_id") or "unknown"
+    sprint_goal = manifest.get("current_sprint_goal") or ""
+
+    task_pack = TaskPack(
+        title=f"post-exec-review:{task_id}",
+        description=f"Post-execution semantic review: {sprint_goal}",
+        roadmap_stage=task_id or "bootstrap",
+        why_now=f"Executor completed SEMI/CORE task. Semantic review required per governance.",
+        risk=risk,
+        declared_surface=changed_files[:20],
+    )
+
+    logger.info(json.dumps({
+        "trace_id": trace_id,
+        "task_id": task_id,
+        "risk": risk.value,
+        "changed_files": len(changed_files),
+        "outcome": "post_exec_audit_starting",
+    }, ensure_ascii=False))
+
+    runner = create_review_runner(proposal_text=proposal_text)
+    result = asyncio.run(runner.execute(task_pack))
+
+    logger.info(json.dumps({
+        "trace_id": trace_id,
+        "run_id": result.run_id,
+        "gate_passed": result.quality_gate.passed if result.quality_gate else None,
+        "approval_route": result.approval_route.value if result.approval_route else None,
+        "outcome": "post_exec_audit_complete",
+    }, ensure_ascii=False))
+
+    return result
+
+
+def extract_critique_text(audit_result) -> str:
+    """Extract human-readable critique from ProtocolRun for retry directive."""
+    parts = []
+    if hasattr(audit_result, "critiques") and audit_result.critiques:
+        for critique in audit_result.critiques:
+            auditor_id = getattr(critique, "auditor_id", "unknown")
+            summary = getattr(critique, "summary", "")
+            issues = getattr(critique, "issues", [])
+            parts.append(f"[{auditor_id}] {summary}")
+            for issue in issues[:5]:
+                severity = getattr(issue, "severity", "")
+                desc = getattr(issue, "description", str(issue))
+                parts.append(f"  - [{severity}] {desc}")
+    if hasattr(audit_result, "final_verdicts") and audit_result.final_verdicts:
+        for verdict in audit_result.final_verdicts:
+            auditor_id = getattr(verdict, "auditor_id", "unknown")
+            v = getattr(verdict, "verdict", "")
+            summary = getattr(verdict, "summary", "")
+            parts.append(f"[{auditor_id} final] {v}: {summary}")
+    return "\n".join(parts) if parts else "No critique details available."
+
+
 def _determine_fsm_state(audit_result) -> str:
     """
     Map ProtocolRun outcome → fsm_state string.

@@ -30,6 +30,7 @@ logger = logging.getLogger(__name__)
 # Actions
 ACTION_PROCEED    = "PROCEED"
 ACTION_CORE_GATE  = "CORE_GATE"
+ACTION_SEMI_AUDIT = "SEMI_AUDIT"   # P0.5: SEMI risk routes to pre-execution auditor
 ACTION_ESCALATE   = "ESCALATE"
 ACTION_BLOCKED    = "BLOCKED"
 ACTION_NO_OP      = "NO_OP"
@@ -326,8 +327,32 @@ def decide(
             )
 
     # -------------------------------------------------------------------------
-    # R7: PROCEED
+    # R7: PROCEED (LOW) or SEMI_AUDIT (SEMI)
+    # P0.5: SEMI risk requires pre-execution auditor sign-off before building directive.
     # -------------------------------------------------------------------------
+    if final_risk == "SEMI":
+        rule_trace.append("R7:SEMI_AUDIT")
+        rationale = (
+            f"All gates passed. final_risk=SEMI — routing to pre-execution auditor. "
+            f"Approved scope: {approved_scope}. "
+            f"Audit must pass before directive is built."
+        )
+        logger.info(
+            "synthesizer.decide: R7 SEMI_AUDIT final_risk=%s scope=%s",
+            final_risk, approved_scope,
+            extra={"error_class": None, "severity": "INFO", "retriable": False},
+        )
+        return SynthesizerDecision(
+            action=ACTION_SEMI_AUDIT,
+            final_risk=final_risk,
+            final_route=final_route,
+            approved_scope=approved_scope,
+            rationale=rationale,
+            rule_trace=rule_trace,
+            stripped_files=[],
+            warnings=warnings,
+        )
+
     rule_trace.append("R7:PROCEED")
     rationale = (
         f"All gates passed. final_risk={final_risk}, route={final_route}. "

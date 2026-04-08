@@ -134,6 +134,13 @@ FSM_TRANSITIONS: dict[tuple[str, str], str] = {
     ("error",                 "owner_replied"):      "ready",
     ("error",                 "cycle_start"):        "error",
     ("completed",             "cycle_start"):        "completed",
+    # P0.5: audit states
+    ("audit_in_progress",     "audit_passed"):       "ready",
+    ("audit_in_progress",     "audit_failed"):       "awaiting_owner_reply",
+    ("audit_in_progress",     "audit_blocked"):      "blocked",
+    ("audit_in_progress",     "cycle_start"):        "audit_in_progress",
+    ("blocked",               "owner_replied"):      "ready",
+    ("blocked",               "cycle_start"):        "blocked",
 }
 
 
@@ -238,6 +245,14 @@ def cmd_cycle(args: argparse.Namespace) -> None:
             print("[orchestrator] Awaiting owner reply. Check escalation packet and respond.")
             return
 
+        if state == "blocked":
+            print("[orchestrator] Blocked by auditor. Owner review required.")
+            return
+
+        if state == "audit_in_progress":
+            print("[orchestrator] Audit in progress. Waiting for completion.")
+            return
+
         if state == "processing":
             append_run({"ts": _now(), "event": "cycle_busy",
                         "status": "cycle_busy",
@@ -245,6 +260,18 @@ def cmd_cycle(args: argparse.Namespace) -> None:
             print("[orchestrator] cycle_busy — previous cycle still running. Exiting.",
                   file=sys.stderr)
             return
+
+        if state == "audit_passed":
+            # P0.5: pre-execution SEMI audit passed — forward to ready for directive build
+            manifest["fsm_state"] = "ready"
+            state = "ready"
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "audit_passed_forwarded",
+                        "status": "audit_passed_forwarded",
+                        "state_before": "audit_passed", "state_after": "ready",
+                        "trace_id": manifest.get("trace_id")})
+            print("[orchestrator] audit_passed → ready (directive build next)")
+            # fall through to ready processing below
 
         if state == "awaiting_execution":
             if PACKET_PATH.exists():
@@ -450,6 +477,88 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
 
         return
 
+    # P0.5: SEMI_AUDIT — pre-execution auditor review for SEMI risk tasks
+    _semi_audit_critique = None
+    if synth.action == "SEMI_AUDIT":
+        manifest["fsm_state"] = "audit_in_progress"
+        save_manifest(manifest)
+        append_run({"ts": _now(), "event": "semi_risk_audit_started",
+                    "status": "audit_in_progress",
+                    "rule_trace": synth.rule_trace, "rationale": synth.rationale,
+                    "trace_id": trace_id})
+        print()
+        print("=" * 60)
+        print("SEMI RISK — launching pre-execution auditor review...")
+        print(f"Rationale: {synth.rationale}")
+        print("=" * 60)
+
+        try:
+            import core_gate_bridge as _cgb
+            task_pack = _cgb.decision_to_task_pack(synth, manifest)
+            proposal_text = (
+                f"## SEMI Risk Pre-Execution Review\n\n"
+                f"Task: {manifest.get('current_task_id', 'unknown')}\n"
+                f"Sprint Goal: {manifest.get('current_sprint_goal', '')}\n"
+                f"Scope ({len(synth.approved_scope)} files): {synth.approved_scope[:20]}\n"
+                f"Rationale: {synth.rationale}\n"
+                f"Rule trace: {synth.rule_trace}\n"
+            )
+            audit_result = _cgb.run_audit_sync(task_pack, proposal_text=proposal_text)
+            new_state = _cgb._determine_fsm_state(audit_result)
+            new_verdict = _cgb._determine_last_verdict(new_state)
+            _semi_audit_critique = _cgb.extract_critique_text(audit_result)
+
+            audit_summary = {
+                "run_id": audit_result.run_id,
+                "ts": _now(),
+                "fsm_state": new_state,
+                "verdict": new_verdict,
+                "gate_passed": audit_result.quality_gate.passed if audit_result.quality_gate else None,
+                "approval_route": audit_result.approval_route.value if audit_result.approval_route else None,
+                "escalated": audit_result.escalated,
+                "trace_id": trace_id,
+                "audit_type": "semi_pre_execution",
+            }
+            LAST_AUDIT_RESULT_PATH = ORCH_DIR / "last_audit_result.json"
+            LAST_AUDIT_RESULT_PATH.write_text(
+                json.dumps(audit_summary, indent=2, ensure_ascii=False), encoding="utf-8"
+            )
+            manifest["last_audit_result"] = audit_summary
+
+            if new_state == "audit_passed":
+                # Audit passed → continue to directive building (fall through below)
+                manifest["_semi_audit_critique"] = _semi_audit_critique
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "semi_risk_audit_passed",
+                            "status": "audit_passed", "trace_id": trace_id})
+                print(f"[orchestrator] SEMI audit PASSED — building directive.")
+            else:
+                manifest["fsm_state"] = new_state
+                manifest["last_verdict"] = new_verdict
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "semi_risk_audit_complete",
+                            "status": new_verdict.lower(), "new_state": new_state,
+                            "verdict": new_verdict, "trace_id": trace_id})
+                print(f"[orchestrator] SEMI audit: state={new_state} verdict={new_verdict}")
+                if new_state == "blocked":
+                    print("[orchestrator] Audit FAILED — task blocked. See last_audit_result.json")
+                else:
+                    print("[orchestrator] Audit INCONCLUSIVE — owner review required.")
+                return
+
+        except Exception as _audit_exc:
+            _err_class = type(_audit_exc).__name__
+            print(f"[orchestrator] SEMI AUDIT BLOCKED: {_err_class}: {_audit_exc}")
+            manifest["fsm_state"] = "blocked"
+            manifest["last_verdict"] = "AUDIT_FAILED"
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "semi_risk_audit_error",
+                        "status": "audit_error",
+                        "error": str(_audit_exc), "error_class": _err_class,
+                        "trace_id": trace_id})
+            return
+        # If we reach here: SEMI audit passed, fall through to directive building
+
     if synth.action in ("ESCALATE", "BLOCKED", "NO_OP"):
         verdict_map = {"ESCALATE": "ESCALATE", "BLOCKED": "BLOCKED", "NO_OP": "ESCALATE"}
         manifest["fsm_state"] = "awaiting_owner_reply"
@@ -481,8 +590,12 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
         print("=" * 60)
         return
 
-    # PROCEED — build directive with synthesizer-approved scope
-    directive = _build_directive(manifest, trace_id, bundle, classification, verdict, synth)
+    # PROCEED (or SEMI_AUDIT after audit pass) — build directive with synthesizer-approved scope
+    directive = _build_directive(
+        manifest, trace_id, bundle, classification, verdict, synth,
+        retry_context=manifest.get("_retry_reason"),
+        audit_critique=_semi_audit_critique,
+    )
 
     # P1: write to per-run dir + legacy path (backward compat)
     (run_dir / "directive.md").write_text(directive, encoding="utf-8")
@@ -564,11 +677,70 @@ def _run_synthesizer(classification, verdict, attempt_count: int,
     )
 
 
+def _get_retry_policy(risk_class: str) -> int:
+    """Return max retry count based on risk class.
+
+    Policy (from 3-critic consensus):
+      LOW:  1 auto-retry with tightened directive
+      SEMI: 1 retry with auditor critique attached
+      CORE: 0 retries (always escalate)
+    """
+    return {"LOW": 1, "SEMI": 1, "CORE": 0}.get(risk_class, 0)
+
+
+def _build_retry_directive(
+    original_directive: str,
+    attempt: int,
+    acceptance_failures: list[dict],
+    audit_critique: str = "",
+    out_of_scope_files: list[str] | None = None,
+) -> str:
+    """Build a tightened directive for retry based on previous failures.
+
+    Appends correction instructions to original directive so executor
+    knows what went wrong and how to fix it.
+    """
+    corrections = []
+
+    if acceptance_failures:
+        corrections.append("## Previous Attempt Failed — Corrections Required\n")
+        corrections.append(f"This is retry attempt {attempt + 1}. "
+                           "Your previous attempt was rejected for the following reasons:\n")
+        for check in acceptance_failures:
+            if not check.get("passed", True):
+                corrections.append(f"- **{check['check_id']}**: {check['detail']}")
+
+    if out_of_scope_files:
+        corrections.append(f"\n**Out-of-scope files detected ({len(out_of_scope_files)}):**")
+        for f in out_of_scope_files[:10]:
+            corrections.append(f"- {f}")
+        corrections.append("\nDo NOT touch these files. Only modify files listed in ## Scope.")
+
+    if audit_critique:
+        corrections.append("\n## Auditor Critique\n")
+        corrections.append("An automated auditor reviewed your changes and found issues:\n")
+        corrections.append(audit_critique)
+        corrections.append("\nAddress all issues above in this retry.")
+
+    if not corrections:
+        return original_directive
+
+    correction_block = "\n".join(corrections)
+
+    # Insert correction block before the final "---" separator
+    if "\n---\n" in original_directive:
+        parts = original_directive.rsplit("\n---\n", 1)
+        return f"{parts[0]}\n\n{correction_block}\n\n---\n{parts[1]}"
+    else:
+        return f"{original_directive}\n\n{correction_block}"
+
+
 def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
     """M4: run Claude Code autonomously, verify, and record experience.
 
-    Control loop: executor → gate → acceptance check → experience record.
-    This closes the learning loop identified as P0 in audit v2.
+    Control loop with retry (P0.5+P3):
+      executor → gate → acceptance check → [SEMI/CORE: audit] → experience
+      On failure: build correction directive → retry (policy-limited)
     """
     import json
     import executor_bridge as _eb
@@ -668,13 +840,112 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
               f"trace_id={trace_id}")
 
         if gate_result.passed:
-            # Determine final verdict based on both gate and acceptance
+            retry_count = manifest.get("retry_count", 0)
+            max_retries = _get_retry_policy(risk_class)
+            failed_checks = [c.check_id for c in acceptance.checks if not c.passed]
+
+            # --- P0.5: POST-EXECUTION AUDIT (SEMI/CORE only, after acceptance) ---
+            audit_verdict = None  # None = no audit needed/run
+            audit_critique_text = ""
+            if acceptance.passed and risk_class in ("SEMI", "CORE"):
+                print("[orchestrator] SEMI/CORE — running post-execution audit...")
+                try:
+                    from core_gate_bridge import (
+                        run_post_execution_audit_sync,
+                        extract_critique_text,
+                        _determine_fsm_state,
+                        _determine_last_verdict,
+                    )
+                    audit_result = run_post_execution_audit_sync(
+                        packet=packet,
+                        directive_text=directive_text,
+                        trace_id=trace_id,
+                        risk_class=risk_class,
+                        manifest=manifest,
+                    )
+                    audit_verdict = _determine_fsm_state(audit_result)
+                    audit_critique_text = extract_critique_text(audit_result)
+                    manifest["last_audit_result"] = {
+                        "run_id": audit_result.run_id,
+                        "gate_passed": audit_result.quality_gate.passed
+                        if audit_result.quality_gate else None,
+                        "approval_route": audit_result.approval_route.value
+                        if audit_result.approval_route else None,
+                        "verdict": audit_verdict,
+                    }
+                    print(f"[orchestrator] Post-exec audit: verdict={audit_verdict} "
+                          f"run_id={audit_result.run_id}")
+                except Exception as exc:
+                    print(f"[orchestrator] Post-exec audit ERROR: {exc}")
+                    print("[orchestrator] Continuing without audit result.")
+                    audit_verdict = None
+
+            # --- DETERMINE FINAL STATE ---
             if acceptance.passed:
-                manifest["fsm_state"] = "ready"
-                manifest["last_verdict"] = None
+                if audit_verdict is None or audit_verdict == "audit_passed":
+                    # Clean success (LOW, or SEMI/CORE with audit pass)
+                    manifest["fsm_state"] = "ready"
+                    manifest["last_verdict"] = None
+                    manifest["retry_count"] = 0
+                    manifest.pop("_retry_reason", None)
+                elif audit_verdict == "blocked":
+                    # Auditor blocked — escalate, no retry
+                    manifest["fsm_state"] = "blocked"
+                    manifest["last_verdict"] = "AUDIT_BLOCKED"
+                elif risk_class == "SEMI" and retry_count < max_retries:
+                    # P3: SEMI retry with auditor critique
+                    retry_directive = _build_retry_directive(
+                        original_directive=directive_text,
+                        attempt=retry_count,
+                        acceptance_failures=[],
+                        audit_critique=audit_critique_text,
+                    )
+                    _retry_path = DIRECTIVE_PATH
+                    _retry_path.write_text(retry_directive, encoding="utf-8")
+                    manifest["retry_count"] = retry_count + 1
+                    manifest["fsm_state"] = "awaiting_execution"
+                    manifest["last_verdict"] = "AUDIT_RETRY_SCHEDULED"
+                    manifest["_retry_reason"] = f"Audit failed: {audit_verdict}"
+                    print()
+                    print("=" * 60)
+                    print(f"P3 AUDIT-RETRY {retry_count + 1}/{max_retries} (SEMI risk)")
+                    print(f"Critique: {audit_critique_text[:200]}")
+                    print("[orchestrator] Tightened directive written. Re-executing...")
+                    print("=" * 60)
+                else:
+                    # CORE or retries exhausted — owner review
+                    manifest["fsm_state"] = "awaiting_owner_reply"
+                    manifest["last_verdict"] = "AUDIT_FAILED"
             else:
-                manifest["fsm_state"] = "awaiting_owner_reply"
-                manifest["last_verdict"] = "ACCEPTANCE_FAILED"
+                # Acceptance failed
+                retry_reason = (
+                    f"Acceptance failed: checks={failed_checks}, "
+                    f"drift={acceptance.drift_detected}, "
+                    f"out_of_scope={acceptance.out_of_scope_files[:5]}"
+                )
+                if retry_count < max_retries:
+                    # P3: AUTO-RETRY — tighten directive and restart
+                    retry_directive = _build_retry_directive(
+                        original_directive=directive_text,
+                        attempt=retry_count,
+                        acceptance_failures=acceptance_checks_dicts,
+                        out_of_scope_files=acceptance.out_of_scope_files,
+                    )
+                    DIRECTIVE_PATH.write_text(retry_directive, encoding="utf-8")
+                    manifest["retry_count"] = retry_count + 1
+                    manifest["fsm_state"] = "awaiting_execution"
+                    manifest["last_verdict"] = "RETRY_SCHEDULED"
+                    manifest["_retry_reason"] = retry_reason
+                    print()
+                    print("=" * 60)
+                    print(f"P3 AUTO-RETRY {retry_count + 1}/{max_retries} ({risk_class} risk)")
+                    print(f"Reason: {retry_reason}")
+                    print("[orchestrator] Tightened directive written. Re-executing...")
+                    print("=" * 60)
+                else:
+                    manifest["fsm_state"] = "awaiting_owner_reply"
+                    manifest["last_verdict"] = "ACCEPTANCE_FAILED"
+
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "auto_execute_completed",
                         "status": "pass" if acceptance.passed else "acceptance_failed",
@@ -686,16 +957,42 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         "gate_rule": gate_result.rule,
                         "auto_merge": gate_result.auto_merge_eligible,
                         "acceptance_passed": acceptance.passed,
-                        "drift_detected": acceptance.drift_detected})
-            if acceptance.passed:
+                        "drift_detected": acceptance.drift_detected,
+                        "retry_count": manifest.get("retry_count", 0),
+                        "audit_verdict": audit_verdict})
+
+            # --- AUTO RE-EXECUTE on retry ---
+            if manifest.get("last_verdict") in ("RETRY_SCHEDULED", "AUDIT_RETRY_SCHEDULED"):
+                if cfg.get("auto_execute", False):
+                    print("[orchestrator] Auto re-executing retry...")
+                    manifest["fsm_state"] = "awaiting_execution"
+                    save_manifest(manifest)
+                    _run_executor_bridge(manifest, trace_id, cfg)
+                    return
+
+            if acceptance.passed and manifest["fsm_state"] == "ready":
                 print("[orchestrator] FSM -> ready. Run main.py for next cycle.")
-            else:
+            elif manifest["fsm_state"] == "blocked":
+                print()
+                print("=" * 60)
+                print("AUDIT BLOCKED — auditor flagged critical issues.")
+                print(f"Critique: {audit_critique_text[:300]}")
+                print("Owner review required. Set fsm_state=ready after resolution.")
+                print("=" * 60)
+            elif manifest["fsm_state"] == "awaiting_owner_reply" and not acceptance.passed:
                 print()
                 print("=" * 60)
                 print("ACCEPTANCE CHECK FAILED (gate passed but executor drifted)")
                 for c in acceptance.checks:
                     if not c.passed:
                         print(f"  {c.check_id}: {c.detail}")
+                print("Resolve and set fsm_state=ready in manifest.json")
+                print("=" * 60)
+            elif manifest["fsm_state"] == "awaiting_owner_reply":
+                print()
+                print("=" * 60)
+                print("AUDIT FAILED — owner review required.")
+                print(f"Critique: {audit_critique_text[:300]}")
                 print("Resolve and set fsm_state=ready in manifest.json")
                 print("=" * 60)
         else:
@@ -781,12 +1078,25 @@ def _load_config() -> dict:
     return {}
 
 
-def _build_directive(manifest: dict, trace_id: str,
-                     bundle, classification, verdict, synth=None) -> str:
-    """Build directive with synthesizer-approved scope (M3)."""
+def _build_directive(
+    manifest: dict,
+    trace_id: str,
+    bundle,
+    classification,
+    verdict,
+    synth=None,
+    retry_context: str | None = None,
+    audit_critique: str | None = None,
+) -> str:
+    """Build directive with synthesizer-approved scope (M3).
+
+    P3: retry_context injects acceptance failure reason for tightened retry.
+    P0.5: audit_critique injects pre-execution SEMI audit findings.
+    """
     task_id = manifest.get("current_task_id") or "UNSET_TASK_ID"
     sprint_goal = manifest.get("current_sprint_goal") or "(no sprint goal set)"
     attempt = manifest.get("attempt_count", 1)
+    retry_count = manifest.get("retry_count", 0)
 
     # Use synthesizer approved_scope when available (Tier-3 guaranteed)
     if synth is not None and synth.approved_scope:
@@ -799,6 +1109,26 @@ def _build_directive(manifest: dict, trace_id: str,
     scope_lines = "\n".join(f"- {f}" for f in scope_source) or "- (no scope specified)"
     constraints_lines = "\n".join(f"- {c}" for c in bundle.dna_constraints)
 
+    # P3: retry annotation
+    retry_section = ""
+    if retry_context or retry_count > 0:
+        retry_section = f"""
+## RETRY CONTEXT (attempt {attempt}, retry {retry_count})
+Previous attempt failed acceptance check. Address these issues:
+{retry_context or '(see acceptance_checker output)'}
+
+"""
+
+    # P0.5: SEMI audit critique annotation
+    audit_section = ""
+    if audit_critique:
+        audit_section = f"""
+## PRE-EXECUTION AUDIT CRITIQUE (SEMI risk)
+Auditor reviewed this task before execution. Address findings:
+{audit_critique}
+
+"""
+
     return f"""# Orchestrator Directive
 trace_id: {trace_id}
 task_id: {task_id}
@@ -807,7 +1137,7 @@ generated_at: {_now()}
 risk_class: {classification.risk_class}  governance_route: {classification.governance_route}
 advisor_risk: {verdict.risk_assessment}  advisor_route: {verdict.governance_route}
 scope_source: {scope_note}
-
+{retry_section}{audit_section}
 ## Sprint Goal
 {sprint_goal}
 
