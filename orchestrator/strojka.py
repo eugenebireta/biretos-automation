@@ -126,6 +126,7 @@ def parse_intent(user_text: str) -> dict:
     state = _read_truncated(STATE_PATH, 3000)
     roadmap = _read_truncated(ROADMAP_PATH, CONTEXT_LIMIT)
 
+    # NLU parsing is always Sonnet — simple JSON extraction, no need for Opus
     client = anthropic.Anthropic(api_key=key)
     response = client.messages.create(
         model="claude-sonnet-4-6",

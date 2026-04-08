@@ -13,9 +13,12 @@ from advisor import (
     AdvisorResult,
     AdvisorVerdict,
     _extract_json,
+    _select_model,
     _validate_verdict_dict,
     _build_full_user_prompt,
     call,
+    DEFAULT_MODEL,
+    OPUS_MODEL,
 )
 
 
@@ -469,6 +472,92 @@ class TestCallIssuedAt:
                       config={})
         assert result.verdict is not None
         assert result.verdict.issued_at != ""
+
+
+# ---------------------------------------------------------------------------
+# _select_model — risk-based model selection
+# ---------------------------------------------------------------------------
+class TestSelectModel:
+    def test_low_risk_returns_sonnet(self):
+        assert _select_model("LOW", {}) == DEFAULT_MODEL
+
+    def test_semi_risk_returns_opus(self):
+        assert _select_model("SEMI", {}) == OPUS_MODEL
+
+    def test_core_risk_returns_opus(self):
+        assert _select_model("CORE", {}) == OPUS_MODEL
+
+    def test_config_override_wins(self):
+        """Explicit advisor_model in config overrides risk-based selection."""
+        assert _select_model("CORE", {"advisor_model": "claude-haiku-4-5-20251001"}) == "claude-haiku-4-5-20251001"
+
+    def test_empty_risk_defaults_to_sonnet(self):
+        assert _select_model("", {}) == DEFAULT_MODEL
+
+    def test_none_risk_defaults_to_sonnet(self):
+        assert _select_model(None, {}) == DEFAULT_MODEL
+
+    def test_lowercase_risk_works(self):
+        """Risk from various sources may be lowercase."""
+        assert _select_model("semi", {}) == OPUS_MODEL
+        assert _select_model("core", {}) == OPUS_MODEL
+        assert _select_model("low", {}) == DEFAULT_MODEL
+
+
+class TestModelSelectionInCall:
+    def test_low_risk_uses_sonnet(self, tmp_path):
+        """LOW risk bundle → Sonnet model used in API call."""
+        bundle = _make_bundle()
+        bundle.risk_assessment = "LOW"
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
+             verdict_path=tmp_path / "v.json",
+             escalation_path=tmp_path / "e.json",
+             config={})
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "sonnet" in model_used
+
+    def test_semi_risk_uses_opus(self, tmp_path):
+        """SEMI risk bundle → Opus model used in API call."""
+        bundle = _make_bundle()
+        bundle.risk_assessment = "SEMI"
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
+             verdict_path=tmp_path / "v.json",
+             escalation_path=tmp_path / "e.json",
+             config={})
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "opus" in model_used
+
+    def test_core_risk_uses_opus(self, tmp_path):
+        """CORE risk bundle → Opus model used in API call."""
+        bundle = _make_bundle()
+        bundle.risk_assessment = "CORE"
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
+             verdict_path=tmp_path / "v.json",
+             escalation_path=tmp_path / "e.json",
+             config={})
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "opus" in model_used
+
+    def test_no_risk_attr_defaults_sonnet(self, tmp_path):
+        """Bundle without risk_assessment → defaults to Sonnet."""
+        bundle = _make_bundle()
+        # MagicMock won't have risk_assessment unless set
+        if hasattr(bundle, 'risk_assessment'):
+            del bundle.risk_assessment
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
+             verdict_path=tmp_path / "v.json",
+             escalation_path=tmp_path / "e.json",
+             config={})
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "sonnet" in model_used
 
 
 # ---------------------------------------------------------------------------

@@ -32,8 +32,12 @@ ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
 
 DEFAULT_MODEL = "claude-sonnet-4-6"
+OPUS_MODEL = "claude-opus-4-6"
 DEFAULT_MAX_TOKENS = 1024
 DEFAULT_TIMEOUT = 60
+
+# Risk levels that trigger Opus API instead of Sonnet
+_OPUS_RISK_LEVELS = {"SEMI", "CORE"}
 
 _SYSTEM_PROMPT = """\
 You are a task advisor for the Biretos Automation project.
@@ -105,6 +109,49 @@ def _load_config() -> dict:
     except Exception:
         pass
     return {}
+
+
+def _load_models_config() -> dict:
+    """Load model names from auditor_system/config/models.yaml."""
+    try:
+        import yaml
+        models_path = ROOT / "auditor_system" / "config" / "models.yaml"
+        if models_path.exists():
+            return yaml.safe_load(models_path.read_text(encoding="utf-8")) or {}
+    except Exception:
+        pass
+    return {}
+
+
+def _select_model(risk: str, config: dict) -> str:
+    """Select API model based on risk level.
+
+    LOW  → Sonnet (cheap, fast, sufficient for routine tasks)
+    SEMI → Opus (needs deeper reasoning for financial/Tier-2 tasks)
+    CORE → Opus (critical tasks need best model)
+
+    Model names come from auditor_system/config/models.yaml.
+    Falls back to hardcoded defaults if config unavailable.
+    """
+    # Check if config has explicit advisor_model override
+    if config.get("advisor_model"):
+        return config["advisor_model"]
+
+    models_cfg = _load_models_config()
+    builder_cfg = models_cfg.get("builder", {})
+
+    risk_upper = (risk or "LOW").upper()
+    if risk_upper in _OPUS_RISK_LEVELS:
+        model_name = builder_cfg.get("escalation", "opus")
+        # Map short name → API model ID
+        if model_name == "opus":
+            return OPUS_MODEL
+        return model_name
+    else:
+        model_name = builder_cfg.get("default", "sonnet")
+        if model_name == "sonnet":
+            return DEFAULT_MODEL
+        return model_name
 
 
 def _now() -> str:
@@ -278,12 +325,19 @@ def call(
     """
     Call Claude Advisor with the given ContextBundle.
 
+    Model selection by risk (from models.yaml):
+      LOW  → Sonnet (fast, cheap)
+      SEMI → Opus API (deeper reasoning)
+      CORE → Opus API (critical tasks)
+
     Returns AdvisorResult with verdict (or None + escalated=True on failure).
     Writes last_advisor_verdict.json on success.
     Writes last_escalation.json on escalation.
     """
     cfg = config if config is not None else _load_config()
-    model = cfg.get("advisor_model", DEFAULT_MODEL)
+    # Risk-based model selection: SEMI/CORE → Opus, LOW → Sonnet
+    bundle_risk = getattr(bundle, "risk_assessment", None) or "LOW"
+    model = _select_model(bundle_risk, cfg)
     max_tokens = int(cfg.get("advisor_max_tokens", DEFAULT_MAX_TOKENS))
     timeout = int(cfg.get("advisor_timeout_seconds", DEFAULT_TIMEOUT))
 
@@ -302,6 +356,10 @@ def call(
         )
 
     trace_id = getattr(bundle, "trace_id", "") or "unknown"
+
+    # Log model selection
+    model_short = "opus" if "opus" in model else "sonnet"
+    print(f"[advisor] model={model_short} ({model}) risk={bundle_risk}")
 
     # --- Attempt 1: full context ---
     attempt = 1

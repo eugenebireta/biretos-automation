@@ -250,7 +250,9 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
             print(f"[orchestrator] BLOCKING RULE: {r}", file=sys.stderr)
 
     # M2: call Claude Advisor for task guidance
-    advisor_result = _run_advisor(bundle, trace_id)
+    # Model selection: LOW → Sonnet API, SEMI/CORE → Opus API
+    advisor_result = _run_advisor(bundle, trace_id,
+                                  classifier_risk=classification.risk_class)
     if advisor_result.warnings:
         for w in advisor_result.warnings:
             print(f"[orchestrator] ADVISOR WARNING: {w}", file=sys.stderr)
@@ -424,9 +426,16 @@ def _run_classify(bundle):
     )
 
 
-def _run_advisor(bundle, trace_id: str):
-    """Call Claude Advisor for task guidance (M2)."""
+def _run_advisor(bundle, trace_id: str, classifier_risk: str = "LOW"):
+    """Call Claude Advisor for task guidance (M2).
+
+    classifier_risk is used for model selection:
+      LOW  → Sonnet API (fast, cheap)
+      SEMI/CORE → Opus API (deeper reasoning)
+    """
     import advisor as _advisor
+    # Inject risk into bundle for model selection
+    bundle.risk_assessment = classifier_risk
     return _advisor.call(bundle)
 
 
