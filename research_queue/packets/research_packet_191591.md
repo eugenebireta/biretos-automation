@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki-dlya-rozetok-i-vyklyuchateley/ramka-4-posta-peha-by-honeywell-nova-bezuprechnyy-oniks-191591",

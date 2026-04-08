@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_FX808430.18R",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "FX808430.18R",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN FX808430.18R (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=FX808430.18R",
+    "What is the full product name and product family for Honeywell FX808430.18R?",
+    "Is FX808430.18R a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell FX808430.18R"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "hidden_price",
+    "price_source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=51102-fx80843018r-schwerlastschublade-fx80843018r",
+    "category_mismatch": false,
+    "overall_confidence": "MEDIUM",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "NO_PRICE_EVIDENCE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Тяжелый ящик FX808430.18R",
+    "assembled_title": "Ящик Honeywell FX808430.18R",
+    "expected_category": "Ящик",
+    "our_price_raw": "189150,71",
+    "has_content_seed": true,
+    "price_currency": "EUR",
+    "price_native_value": 7129.2,
+    "price_rub": 677274.0,
+    "existing_source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=51102-fx80843018r-schwerlastschublade-fx80843018r",
+    "pn_variants": [
+      "FX808430-18R",
+      "FX80843018R"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_FX808430.18R.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.477260Z"
+}

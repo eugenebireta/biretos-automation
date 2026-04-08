@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-191791-5-stk-2856771.html",

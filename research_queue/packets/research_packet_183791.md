@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://www.conrad.nl/nl/p/peha-by-honeywell-183791-frame-frame-wit-10-stuk-s-2856802.html",

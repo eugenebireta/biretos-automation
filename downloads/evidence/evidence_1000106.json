@@ -21,26 +21,13 @@
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
     "image_status": "INSUFFICIENT",
     "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "REVIEW_REQUIRED",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_1000106"
-        ],
-        "evidence_ids": [
-          "ev_title_1000106"
-        ],
-        "policy_rule_id": "CAP-08N",
-        "bucket": "IDENTITY_CONFLICT"
-      },
       {
         "reason_code": "NO_IMAGE_EVIDENCE",
         "field": "image",
@@ -51,7 +38,7 @@
         "evidence_ids": [
           "ev_image_1000106"
         ],
-        "policy_rule_id": "CAP-08N",
+        "policy_rule_id": "CAP-06",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
@@ -64,16 +51,15 @@
         "evidence_ids": [
           "ev_pdf_1000106"
         ],
-        "policy_rule_id": "CAP-08N",
+        "policy_rule_id": "CAP-06",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
       "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-08N"
+    "policy_rule_id": "CAP-06"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -473,5 +459,6 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "identity_level": "strong"
 }

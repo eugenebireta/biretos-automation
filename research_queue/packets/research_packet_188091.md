@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://www.conrad.se/sv/p/peha-by-honeywell-tackram-ram-tra-188091-5-st-2856760.html",

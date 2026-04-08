@@ -1,0 +1,522 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "H4W4PER2",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "IP камера RUG DOM 4MP H.265 H4W4PER2",
+  "assembled_title": "Камера Honeywell H4W4PER2",
+  "our_price_raw": "19447,12",
+  "expected_category": "Камера",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "PDF_NOT_EXACT_CONFIRMED"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_H4W4PER2",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_H4W4PER2"
+        ],
+        "evidence_ids": [
+          "ev_image_H4W4PER2"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_H4W4PER2"
+        ],
+        "evidence_ids": [
+          "ev_price_H4W4PER2"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_H4W4PER2"
+        ],
+        "evidence_ids": [
+          "ev_pdf_H4W4PER2"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-06B"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_H4W4PER2"
+      ],
+      "evidence_ids": [
+        "ev_image_H4W4PER2"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_H4W4PER2"
+      ],
+      "evidence_ids": [
+        "ev_price_H4W4PER2"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_H4W4PER2"
+      ],
+      "evidence_ids": [
+        "ev_pdf_H4W4PER2"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\H4W4PER2.jpg",
+      "canonical_filename": "HONEYWELL_H4W4PER2_a3636340.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "https://www.jvsg.com/cameras/honeywell/H4W4PER3/honeywell/H4W4PER2/",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.jvsg.com/cameras/honeywell/H4W4PER3/honeywell/H4W4PER2/",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqNsCAnRnLU5mxKMsFrE'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\H4W4PER2.jpg",
+    "sha1": "a36363400fdb641da1ce41d3f996514305c58988",
+    "canonical_filename": "HONEYWELL_H4W4PER2_a3636340.jpg",
+    "public_url": null,
+    "width": 400,
+    "height": 400,
+    "size_kb": 7,
+    "source": "cached",
+    "phash": "fc8fc2708f729c21",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": "stub",
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.jvsg.com/cameras/honeywell/H4W4PER3/honeywell/H4W4PER2/",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Dome Camera",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.jvsg.com/cameras/honeywell/H4W4PER3/honeywell/H4W4PER2/",
+    "price_source_domain": "jvsg.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://hbtmkto.honeywell.com/rs/127-UCB-316/images/Performace%204-8-16-Channel%20ENVRs%20Datasheet%200329.pdf",
+    "pdf_source_tier": "official",
+    "pdf_title": "Performance Series Embedded NVRs",
+    "pdf_specs": {
+      "resolution": "Choose between a 4-, 8-, or 16-channel NVR, with multiple",
+      "flexible solution to fit your surveillance needs": "Fully-featured NVRs",
+      "OPERATING SYSTEM Embedded LINUX HEN041*3": "4 ports (802.3af/at)",
+      "VIDEO POE HEN081*3": "8 ports (802.3af/at)",
+      "HEN161*3": "200Mpbs",
+      "HEN041*3": "1U, 375mm×281.5mm×56mm",
+      "INPUTS HEN081*3": "8 Channels IP SUPPORTED HTTP, HTTPS, TCP/IP, IPv4/IPv6, UPnP, RTSP, UDP, SMTP,",
+      "TWO-WAY Supported HEN041*3": "80Mbps",
+      "COMMUNICATION NETWORK THROUGHPUT HEN081*3": "200Mpbs",
+      "OPERATIONAL HEN161*3": "200Mpbs",
+      "DISPLAY SPLIT HEN081*3": "1/4/8/9 RS232 1 port (for POS communications)",
+      "OSD HEN041*3": "DC48V/2A",
+      "HEN081*3/HEN161*3": "1U, 375mm×327.5mm×53mm",
+      "OPERATIONAL HEN041*3": "<9W (Without HDD)",
+      "COMPRESSION H.265/H.264 POWER CONSUMPTION HEN081*3": "<9.6W (Without HDD)",
+      "8 MP (3840 × 2160); 6 MP (3072 ×2048); HEN161*3": "<13.2W (Without HDD)",
+      "5 MP (2560 × 1920); 4 MP (2560 × 1440); HEN041*3": "Max 25.5w for single port, 50w in total",
+      "RECORD BIT RATE HEN081*3": "200Mpbs",
+      "PRE-EVENT RECORDING 1 to 30 seconds HEN041*3": "1.6kg (3.5 lb) (without HDD)",
+      "INTERVAL WEIGHT (WITHOUT HDD) HEN081*3": "2.6kg (5.7lb) (without HDD)",
+      "POST-EVENT RECORDING 10 to 300 seconds HEN161*3": "2.7kg (6.0 lb) (without HDD)",
+      "VIDEO DETECTION AND ALARMS HEN041*3": "FCC Part 15B, EN55032: 2012",
+      "Motion Detection—MD Zones": "396 (22 × 18); +AC: 2013, EN61000-3-2: 2014,",
+      "Video Loss; Tampering EN61000-3-3": "2013",
+      "ALARM INPUT 4 Channels IMMUNITY EN50130-4": "2011",
+      "RELAY OUTPUT 2 Channels EU": "EN60950-1",
+      "SYNC PLAYBACK 8-channel NVRs": "1/4/8 1. Actual bitrate is scene and motion dependent with H.264 stream.",
+      "16-channel NVRs": "1/4/8/16",
+      "SEARCH MODE over time": "Search (accurate to a second); Smart Search"
+    },
+    "pdf_text_excerpt": "Performance Series Embedded NVRs 4-/8-/16-Channel ENVRs HEN04103/HEN04113/HEN04123/HEN08103 HEN08113/HEN08123/HEN08143/HEN16103/ HEN16123/HEN16143/HEN16163 Introducing Honeywell’s Performance Series Embedded NVRs, our newest affordable, fully-featured NVRs offer Ultra 4k HD video resolution. Choose between a 4-, 8-, or 16-channel NVR, with multiple hard drive options and up to 12 TB of internal storage, for an ideal and flexible solution to fit your surveillance needs. Fully-featured NVRs • High decoding capability for Ultra 4K HD viewing and recording • View 4/8/16 channels simultaneously wit",
+    "num_pages": 4,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "IP камера RUG DOM с разрешением 4MP поддерживает кодек H.265 и предназначена для надежного видеонаблюдения. Она оснащена объективом с фокусным расстоянием 2.7-13.5 мм и имеет степень защиты IP66.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Видеонаблюдение",
+    "product_type": "Камера",
+    "seed_name": "IP камера RUG DOM 4MP H.265 H4W4PER2"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:H4W4PER2:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:H4W4PER2:19c527ec1c99f60a1fd100fb",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "strong"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:H4W4PER2:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:H4W4PER2:19c527ec1c99f60a1fd100fb",
+      "pn_primary": "H4W4PER2",
+      "normalized_title": "Камера Honeywell H4W4PER2",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_H4W4PER2"
+          ],
+          "evidence_ids": [
+            "ev_image_H4W4PER2"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_H4W4PER2"
+          ],
+          "evidence_ids": [
+            "ev_price_H4W4PER2"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_H4W4PER2"
+          ],
+          "evidence_ids": [
+            "ev_pdf_H4W4PER2"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "official",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "official"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "Dome Camera",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong"
+}

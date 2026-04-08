@@ -1,6 +1,6 @@
 # Research Brief — 1631930000
 
-**Priority:** low | **Reason:** identity_weak
+**Priority:** high | **Reason:** identity_weak
 **Goal:** Close unresolved enrichment gaps for PN 1631930000 (Honeywell)
 
 ## Known Facts
@@ -18,13 +18,13 @@
 ## Current State
 ```json
 {
-  "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "card_status": "REVIEW_REQUIRED",
+  "identity_level": "strong",
   "photo_verdict": "KEEP",
   "price_status": "no_price_found",
   "price_source_url": "https://www.tme.eu/ba/hr/details/scht5s/prikljucci-i-stezaljke/weidmuller/1631930000/",
   "category_mismatch": false,
-  "overall_confidence": "VERY_LOW",
+  "overall_confidence": "LOW",
   "review_reasons": [
     "IDENTITY_WEAK",
     "NO_IMAGE_EVIDENCE",

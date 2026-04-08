@@ -18,7 +18,7 @@
 ## Current State
 ```json
 {
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "identity_level": "weak",
   "photo_verdict": "KEEP",
   "price_status": "public_price",

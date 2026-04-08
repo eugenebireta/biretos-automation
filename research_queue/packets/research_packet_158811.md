@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://www.conrad.sk/sk/p/peha-by-honeywell-kryt-koliska-biela-158811-2855102.html",

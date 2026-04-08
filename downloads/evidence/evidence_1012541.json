@@ -9,7 +9,7 @@
   "assembled_title": "Наушники Honeywell 1012541",
   "our_price_raw": "4675,63",
   "expected_category": "Наушники",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_1012541",
@@ -19,8 +19,8 @@
     "review_schema_version": "review_reason_schema_v1",
     "identity_level": "weak",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
-    "price_status": "INSUFFICIENT",
+    "image_status": "ACCEPTED",
+    "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
@@ -38,32 +38,6 @@
         "bucket": "IDENTITY_CONFLICT"
       },
       {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1012541"
-        ],
-        "evidence_ids": [
-          "ev_image_1012541"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
-        "reason_code": "NO_PRICE_EVIDENCE",
-        "field": "price",
-        "severity": "INFO",
-        "candidate_ids": [
-          "cand_price_1012541"
-        ],
-        "evidence_ids": [
-          "ev_price_1012541"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
         "reason_code": "NO_PDF_EVIDENCE",
         "field": "pdf",
         "severity": "INFO",
@@ -79,7 +53,6 @@
     ],
     "review_buckets": [
       "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
     "policy_rule_id": "CAP-09"
@@ -153,8 +126,7 @@
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
   },
   "photo": {
@@ -490,5 +462,6 @@
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
     "policy_card_status_mismatch": true
-  }
+  },
+  "identity_level": "weak"
 }

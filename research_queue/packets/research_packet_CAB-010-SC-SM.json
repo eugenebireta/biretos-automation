@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_CAB-010-SC-SM",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "CAB-010-SC-SM",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN CAB-010-SC-SM (Honeywell)",
+  "research_reason": "no_price_lineage",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Find a public market price for Honeywell CAB-010-SC-SM from a verifiable distributor",
+    "Is CAB-010-SC-SM RFQ-only or available with published pricing?",
+    "Which authorized distributors carry this part number?",
+    "Provide any relevant Russian-language product description for Honeywell CAB-010-SC-SM"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": null,
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "NO_PRICE_EVIDENCE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Оптический адаптер Honeywell CAB-010-SC-SM",
+    "assembled_title": "Адаптер Honeywell CAB-010-SC-SM",
+    "expected_category": "Адаптер",
+    "our_price_raw": "8,73",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": null,
+    "pn_variants": [
+      "CAB.010.SC.SM",
+      "CAB010SCSM"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_CAB-010-SC-SM.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.449260Z"
+}

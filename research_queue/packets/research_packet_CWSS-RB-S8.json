@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_CWSS-RB-S8",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "CWSS-RB-S8",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN CWSS-RB-S8 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=CWSS-RB-S8",
+    "What is the full product name and product family for Honeywell CWSS-RB-S8?",
+    "Is CWSS-RB-S8 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell CWSS-RB-S8"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "ambiguous_offer",
+    "price_source_url": "https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie-ops-system-sensor-by-honeywell/cwss-rb-s8-opoveshchatel-pozharnyy-sveto-zvukovoy/",
+    "category_mismatch": false,
+    "overall_confidence": "LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Световой маяк красный Honeywell CWSS-RB-S8",
+    "assembled_title": "Маяк Honeywell CWSS-RB-S8",
+    "expected_category": "Маяк",
+    "our_price_raw": "3960,00",
+    "has_content_seed": true,
+    "price_currency": "RUB",
+    "price_native_value": 6880.0,
+    "price_rub": 6880.0,
+    "existing_source_url": "https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie-ops-system-sensor-by-honeywell/cwss-rb-s8-opoveshchatel-pozharnyy-sveto-zvukovoy/",
+    "pn_variants": [
+      "CWSS.RB.S8",
+      "CWSSRBS8"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_CWSS-RB-S8.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.459259Z"
+}

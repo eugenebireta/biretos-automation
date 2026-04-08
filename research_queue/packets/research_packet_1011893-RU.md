@@ -1,6 +1,6 @@
 # Research Brief — 1011893-RU
 
-**Priority:** low | **Reason:** identity_weak
+**Priority:** high | **Reason:** identity_weak
 **Goal:** Close unresolved enrichment gaps for PN 1011893-RU (Honeywell)
 
 ## Known Facts
@@ -18,8 +18,8 @@
 ## Current State
 ```json
 {
-  "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "card_status": "REVIEW_REQUIRED",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "no_price_found",
   "price_source_url": "https://ruslader.ru/magazin/product-detail/honeywell-1011893-ru-privyaz-titan-1p-s-poyasom-titan-harness-1p-belt-detail",

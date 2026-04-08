@@ -9,7 +9,7 @@
   "assembled_title": "Кронштейн Honeywell 1061200000",
   "our_price_raw": "131,08",
   "expected_category": "Кронштейн",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [
     "LEGACY_AUTO_PUBLISH_HOLDOUT"
   ],
@@ -21,7 +21,7 @@
     "review_schema_version": "review_reason_schema_v1",
     "identity_level": "weak",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
@@ -38,19 +38,6 @@
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1061200000"
-        ],
-        "evidence_ids": [
-          "ev_image_1061200000"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
         "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
@@ -81,7 +68,6 @@
     ],
     "review_buckets": [
       "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT",
       "PRICE_AMBIGUITY"
     ],
@@ -426,5 +412,6 @@
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
     "policy_card_status_mismatch": true
-  }
+  },
+  "identity_level": "weak"
 }

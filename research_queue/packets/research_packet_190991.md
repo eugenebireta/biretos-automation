@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-190991-5-pc-s-2856778.html",

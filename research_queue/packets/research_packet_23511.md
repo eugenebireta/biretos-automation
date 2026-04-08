@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://www.conrad.se/sv/p/peha-by-honeywell-vippa-centrumplatta-gungbrada-vit-23511-1-st-2855149.html",

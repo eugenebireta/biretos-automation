@@ -1,0 +1,557 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "MCP-PRO-M",
+  "pn_variants": [
+    "MCP.PRO.M",
+    "MCPPROM"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Ручной извещатель MCP-PRO-M",
+  "assembled_title": "Извещатель Honeywell MCP-PRO-M",
+  "our_price_raw": "607,20",
+  "expected_category": "Извещатель",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_MCP-PRO-M",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_MCP-PRO-M"
+        ],
+        "evidence_ids": [
+          "ev_title_MCP-PRO-M"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_MCP-PRO-M"
+        ],
+        "evidence_ids": [
+          "ev_image_MCP-PRO-M"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_MCP-PRO-M"
+        ],
+        "evidence_ids": [
+          "ev_pdf_MCP-PRO-M"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_MCP-PRO-M"
+      ],
+      "evidence_ids": [
+        "ev_title_MCP-PRO-M"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_MCP-PRO-M"
+      ],
+      "evidence_ids": [
+        "ev_image_MCP-PRO-M"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_MCP-PRO-M"
+      ],
+      "evidence_ids": [
+        "ev_price_MCP-PRO-M"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_MCP-PRO-M"
+      ],
+      "evidence_ids": [
+        "ev_pdf_MCP-PRO-M"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\MCP-PRO-M.jpg",
+      "canonical_filename": "HONEYWELL_MCP-PRO-M_bb53aa3a.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "https://reestrinform.ru/reestr-sertifikatov-sootvetstviia/reg_number-%D0%A1-RU.%D0%9F%D0%9134.%D0%92.02281.html",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://reestrinform.ru/reestr-sertifikatov-sootvetstviia/reg_number-%D0%A1-RU.%D0%9F%D0%9134.%D0%92.02281.html",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqPmxNJ3q8QvmC9WTvsh'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\MCP-PRO-M.jpg",
+    "sha1": "bb53aa3a07ff91280b9613d9c1027e745f7e9ab9",
+    "canonical_filename": "HONEYWELL_MCP-PRO-M_bb53aa3a.jpg",
+    "public_url": null,
+    "width": 529,
+    "height": 580,
+    "size_kb": 23,
+    "source": "cached",
+    "phash": "be53e16ac42cd8b2",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": "stub",
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://reestrinform.ru/reestr-sertifikatov-sootvetstviia/reg_number-%D0%A1-RU.%D0%9F%D0%9134.%D0%92.02281.html",
+    "source_type": "ru_b2b",
+    "source_tier": "ru_b2b",
+    "source_engine": "yandex",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Извещатель пожарный ручной",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://reestrinform.ru/reestr-sertifikatov-sootvetstviia/reg_number-%D0%A1-RU.%D0%9F%D0%9134.%D0%92.02281.html",
+    "price_source_domain": "reestrinform.ru",
+    "price_source_type": "ru_b2b",
+    "price_source_tier": "ru_b2b",
+    "price_source_engine": "yandex",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://journal.tusur.ru/storage/126704/%D0%B6%D1%83%D1%80%D0%BD%D0%B0%D0%BB-1-22-2019.pdf?1559275355",
+    "pdf_source_tier": "ru_b2b",
+    "pdf_title": "DDOOII:: 1100..2211229933//11881188--00444422",
+    "pdf_specs": {
+      "DDOOII": "1100..2211229933//11881188--00444422",
+      "Основан в 1997 г": "DOI: 10.21293/1818-0442",
+      "(гл": "редактор).",
+      "(зам": "гл. редактора).",
+      "В.Н": "Масленников, к.т.н., доцент, ТУСУР, Томск, Россия (ответственный секретарь).",
+      "М.П. Батура, д.т.н., проф., гл": "науч. сотрудник, БГУИР, заслуженный работник образования Республики Беларусь, Минск, Беларусь.",
+      "Б.А. Беляев, д.т.н., проф., зав": "лабораторией ЭиСВЧЭ, Институт физики им. Л.В. Киренского СО РАН, заслуженный изобретатель",
+      "России, Красноярск, Россия": "Ян Браун (Ian G. Brown), PhD, Национальная лаборатория им. Лоуренса, Беркли, Калифорния, США.",
+      "Ю.П": "Ехлаков, д.т.н., проф., зав. каф. автоматизации обработки информации, ТУСУР, заслуженный работник",
+      "А.В. Кобзев, д.т.н., проф., проф": "каф. промышленной электроники, ТУСУР, Томск, Россия, почетный работник науки и техники РФ,",
+      "А.М. Кориков, д.т.н., проф., зав": "каф. автоматизированных систем управления, ТУСУР, заслуженный деятель науки РФ, почетный",
+      "Е.М. Окс, д.т.н., проф., зав": "каф. физики, ТУСУР, Институт сильноточной электроники СО РАН, Томск, Россия,",
+      "Э.Д. Павлыгин, к.т.н., зам": "ген. директора по науке, ФНПЦ АО «Научно-производственное объединение (НПО) «МАРС», Ульяновск,",
+      "https://orcid.org/0000-0002-3820-8777": "В.К. Сарьян, д.т.н., проф., академик Национальной академии наук (НАН) Республики Армения, проф.,",
+      "А.Р": "Сафин, к.т.н., доц., НИУ «МЭИ», Москва, Россия.",
+      "И.А. Ходашинский, д.т.н., проф., проф": "каф. комплексной информационной безопасности электронно-вычислительных систем",
+      "(КИБЭВС) ТУСУРа, вед": "науч. сотрудник лаб. медико-биологических исследований (ЛМБИ), Томск, Россия.",
+      "В.В. Шайдуров, д.ф.-м.н., проф., чл.-корр": "РАН, зав. отделом, ФГБУН «Институт вычислительного моделирования СО РАН», научный",
+      "С.М. Шандаров, д.ф.-м.н., проф., зав": "каф. электронных приборов, ТУСУР, заслуженный работник высшей школы РФ,",
+      "НИИ АЭМ ТУСУР, зав. каф": "компьютерных систем в управлении и проектировании, заслуженный деятель науки РФ, почетный работник",
+      "образования, Томск, Россия": "Адрес редакции: 634050, г. Томск, пр. Ленина, 40, ТУСУР, тел. (382-2) 51-21-21",
+      "634050, Томск, пр": "Ленина, 40, тел. (382-2) 51-21-21.",
+      "Корректор В.Г": "Лихачева.",
+      "Подписано в печать 25.03.2019": "Формат 60×84 1/8. Усл. печ. л. 8,8. Тираж 500. Заказ 8.",
+      "Viktor M": "Rulevskiy Deputy Editor in Chief, Vice-Rector for Research and Innovations of TUSUR University,",
+      "Candidate of Engineering": "Viktor N. Maslennikov Executive Secretary of the Editor’s Office, Candidate of Engineering.",
+      "Mikhail P": "Batura Chief Researcher of the Belarusian State University of Informatics and Radioelectronics",
+      "(Minsk, Belarus), Doctor of Engineering, Professor": "Boris A. Belyaev Head of the Electrodynamics Department, Institute of Physics SB RAS (Krasnoyarsk),",
+      "Doctor of Engineering": "Anatoly V. Kobzev Professor of the Department of Industrial Electronics, TUSUR University,",
+      "Sergei A": "Gavrilov Vice Rector for Research, National Research University of Electronic Technology",
+      "(MIET, Moscow), Doctor of Engineering, Professor": "Yury P. Ekhlakov Head of the Department of Data Processing Automation, TUSUR University,",
+      "Vyacheslav M": "Isaev First Deputy Director of the Mytishchi Research Institute of Radio Measurement Instruments,",
+      "Doctor of Engineering, Professor": "Yury N. Kulchin Director of the Institute of Automation and Control Processes FEB RAS (Vladivostok),",
+      "Vazgen Sh": "Melikyan Director of the Academic Department of Synopsis Armenia (Yerevan, Armenia), Correspondent",
+      "Yefim M": "Oks Head of the Department of Physics, TUSUR University, Doctor of Engineering, Professor."
+    },
+    "pdf_text_excerpt": "DDOOII:: 1100..2211229933//11881188--00444422 9 771818 044708 02007 Министерство науки и высшего образования Российской Федерации ДОКЛАДЫ ТОМСКОГО ГОСУДАРСТВЕННОГО УНИВЕРСИТЕТА СИСТЕМ УПРАВЛЕНИЯ И РАДИОЭЛЕКТРОНИКИ 2019, том 22, № 1 Периодический научный журнал Выходит 4 раза в год ISSN 1818-0442 Основан в 1997 г. DOI: 10.21293/1818-0442 А.А. Шелупанов, д.т.н., проф., ректор, ТУСУР, заслуженный работник высшей школы РФ, лауреат Премии Правительства РФ в области образования, дважды лауреат Премии Правительства РФ в области науки и техники, Томск, Россия, https://orcid.org/0000-0003-2393-6701 (гл",
+    "num_pages": 101,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Ручной извещатель MCP-PRO-M используется для ручного запуска системы пожарной сигнализации. Он обеспечивает надежное и быстрое оповещение о пожаре.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Пожарная сигнализация",
+    "product_type": "Извещатель",
+    "seed_name": "Ручной извещатель MCP-PRO-M"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:MCP-PRO-M:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:MCP-PRO-M:a063944b4ccd097763065390",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:MCP-PRO-M:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:MCP-PRO-M:a063944b4ccd097763065390",
+      "pn_primary": "MCP-PRO-M",
+      "normalized_title": "Извещатель Honeywell MCP-PRO-M",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_MCP-PRO-M"
+          ],
+          "evidence_ids": [
+            "ev_title_MCP-PRO-M"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_MCP-PRO-M"
+          ],
+          "evidence_ids": [
+            "ev_image_MCP-PRO-M"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_MCP-PRO-M"
+          ],
+          "evidence_ids": [
+            "ev_price_MCP-PRO-M"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_MCP-PRO-M"
+          ],
+          "evidence_ids": [
+            "ev_pdf_MCP-PRO-M"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "ru_b2b",
+        "pdf_source_tier": "ru_b2b",
+        "image_source_tier": "ru_b2b"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "ru_b2b"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "ru_b2b",
+        "page_product_class": "Извещатель пожарный ручной",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "weak"
+}

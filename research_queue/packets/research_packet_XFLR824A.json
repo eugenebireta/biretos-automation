@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_XFLR824A",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "XFLR824A",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN XFLR824A (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=XFLR824A",
+    "What is the full product name and product family for Honeywell XFLR824A?",
+    "Is XFLR824A a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell XFLR824A"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.industrialservomotor.com/sale-29888027-honeywell-xflr824a-output-module-digital-6-output-physical-output-signals.html",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "PDF_NOT_EXACT_CONFIRMED"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Модуль с 6 реле Honeywell XFLR824A",
+    "assembled_title": "Модуль Honeywell XFLR824A",
+    "expected_category": "Модуль",
+    "our_price_raw": "20908,81",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.industrialservomotor.com/sale-29888027-honeywell-xflr824a-output-module-digital-6-output-physical-output-signals.html",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_XFLR824A.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.563412Z"
+}

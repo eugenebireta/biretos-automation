@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_FP1B-LCUL-01H",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "FP1B-LCUL-01H",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN FP1B-LCUL-01H (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=FP1B-LCUL-01H",
+    "What is the full product name and product family for Honeywell FP1B-LCUL-01H?",
+    "Is FP1B-LCUL-01H a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell FP1B-LCUL-01H"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.ritm-it.ru/hardwarebay/siemon/komponenty-kabelnyh-sistem-2/lc-2/FP1B-LCUL-01H-140986.htm",
+    "category_mismatch": false,
+    "overall_confidence": "LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Пигтейл Honeywell FP1B-LCUL-01H",
+    "assembled_title": "Пигтейл Honeywell FP1B-LCUL-01H",
+    "expected_category": "Пигтейл",
+    "our_price_raw": "588,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.ritm-it.ru/hardwarebay/siemon/komponenty-kabelnyh-sistem-2/lc-2/FP1B-LCUL-01H-140986.htm",
+    "pn_variants": [
+      "FP1B.LCUL.01H",
+      "FP1BLCUL01H"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_FP1B-LCUL-01H.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.468259Z"
+}

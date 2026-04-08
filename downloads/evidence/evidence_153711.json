@@ -8,7 +8,7 @@
   "name": "Термостатический вентиль Honeywell D 20.610.70 TV",
   "assembled_title": "Вставка PEHA AURA, 153711",
   "our_price_raw": "1040,60",
-  "expected_category": "Накладки PEHA",
+  "expected_category": "Вентиль",
   "card_status": "DRAFT_ONLY",
   "review_reasons": [
     "IDENTITY_WEAK",
@@ -23,26 +23,13 @@
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
     "image_status": "INSUFFICIENT",
     "price_status": "INSUFFICIENT",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_153711"
-        ],
-        "evidence_ids": [
-          "ev_title_153711"
-        ],
-        "policy_rule_id": "CAP-10",
-        "bucket": "IDENTITY_CONFLICT"
-      },
       {
         "reason_code": "CRITICAL_MISMATCH",
         "field": "identity",
@@ -101,7 +88,12 @@
       "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-10"
+    "policy_rule_id": "CAP-10",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.905758+00:00"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -177,10 +169,10 @@
     }
   ],
   "confidence": {
-    "pn_confidence": 0.0,
-    "image_confidence": 0.0,
+    "pn_confidence": 0.128,
+    "image_confidence": 0.017,
     "price_confidence": 0.1,
-    "overall": 0.02,
+    "overall": 0.076,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
@@ -228,7 +220,7 @@
     "numeric_keep_guard_reasons": []
   },
   "price": {
-    "price_status": "public_price",
+    "price_status": "category_mismatch_only",
     "price_admissibility_schema_version": "price_admissibility_v1",
     "string_lineage_status": "weak",
     "commercial_identity_status": "component_or_accessory",
@@ -261,7 +253,7 @@
     "lead_time_detected": false,
     "quote_cta_url": null,
     "suffix_conflict": false,
-    "category_mismatch": false,
+    "category_mismatch": true,
     "page_product_class": "poklopac (cover/lid)",
     "brand_mismatch": false,
     "price_median_clean": null,
@@ -575,7 +567,5 @@
     "error": "",
     "llm_request_id": ""
   },
-  "category_fix_applied": true,
-  "category_fix_ts": "2026-04-07T23:11:05.748983Z",
-  "category_fix_original": "Вентиль"
+  "identity_level": "strong"
 }

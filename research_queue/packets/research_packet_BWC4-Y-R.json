@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_BWC4-Y-R",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "BWC4-Y-R",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN BWC4-Y-R (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=BWC4-Y-R",
+    "What is the full product name and product family for Honeywell BWC4-Y-R?",
+    "Is BWC4-Y-R a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell BWC4-Y-R"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "ambiguous_offer",
+    "price_source_url": "https://www.isssafety.com/products/bwc4-y-r-honeywell-bw-clip4-o2-lel-h2s-co-customs-union-certified-yellow-housing?srsltid=AfmBOoqwIixzf69kUxEFujSwhn7xk2yMGjvaN-AUFfFr6Gnh6k6ibMj9",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Газоанализатор Honeywell BWC4 - O2, LEL, H2S, CO, Yellow, RU",
+    "assembled_title": "Газоанализатор Honeywell BWC4-Y-R",
+    "expected_category": "Газоанализатор",
+    "our_price_raw": "97560,26",
+    "has_content_seed": true,
+    "price_currency": "GBP",
+    "price_native_value": 733.0,
+    "price_rub": 82096.0,
+    "existing_source_url": "https://www.isssafety.com/products/bwc4-y-r-honeywell-bw-clip4-o2-lel-h2s-co-customs-union-certified-yellow-housing?srsltid=AfmBOoqwIixzf69kUxEFujSwhn7xk2yMGjvaN-AUFfFr6Gnh6k6ibMj9",
+    "pn_variants": [
+      "BWC4.Y.R",
+      "BWC4YR"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_BWC4-Y-R.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.448260Z"
+}

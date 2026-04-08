@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "http://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/rozetki/nakladka-na-rozetku-usb-peha-by-honeywell-dialog-skrytyy-montazh-bezhevyy-239053",

@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_P2212HB",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "P2212HB",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN P2212HB (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=P2212HB",
+    "What is the full product name and product family for Honeywell P2212HB?",
+    "Is P2212HB a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell P2212HB"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "REJECT",
+    "price_status": "ambiguous_offer",
+    "price_source_url": "https://www.galador.ee/en/0-product/21426429-del-dell-p2212hb-22-fhd-grade-ab-working-unboxed-refurbished",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Монитор Honeywell P2212HB",
+    "assembled_title": "Монитор Honeywell P2212HB",
+    "expected_category": "Монитор",
+    "our_price_raw": "3267,40",
+    "has_content_seed": true,
+    "price_currency": "EUR",
+    "price_native_value": 59.2,
+    "price_rub": 5624.0,
+    "existing_source_url": "https://www.galador.ee/en/0-product/21426429-del-dell-p2212hb-22-fhd-grade-ab-working-unboxed-refurbished",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_P2212HB.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.506412Z"
+}

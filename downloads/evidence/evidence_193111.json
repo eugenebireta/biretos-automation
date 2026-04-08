@@ -9,7 +9,7 @@
   "assembled_title": "Кнопка PEHA, 193111",
   "our_price_raw": "924,50",
   "expected_category": "Детектор",
-  "card_status": "DRAFT_ONLY",
+  "card_status": "REVIEW_REQUIRED",
   "review_reasons": [
     "IDENTITY_WEAK",
     "NO_IMAGE_EVIDENCE",
@@ -22,26 +22,13 @@
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
     "image_status": "INSUFFICIENT",
-    "price_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
-    "card_status": "DRAFT_ONLY",
+    "card_status": "REVIEW_REQUIRED",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_193111"
-        ],
-        "evidence_ids": [
-          "ev_title_193111"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
       {
         "reason_code": "NO_IMAGE_EVIDENCE",
         "field": "image",
@@ -52,20 +39,7 @@
         "evidence_ids": [
           "ev_image_193111"
         ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
-        "reason_code": "NO_PRICE_EVIDENCE",
-        "field": "price",
-        "severity": "INFO",
-        "candidate_ids": [
-          "cand_price_193111"
-        ],
-        "evidence_ids": [
-          "ev_price_193111"
-        ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-06B",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
@@ -78,16 +52,20 @@
         "evidence_ids": [
           "ev_pdf_193111"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-06B",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
       "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-06B",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.909758+00:00"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -150,16 +128,15 @@
     }
   ],
   "confidence": {
-    "pn_confidence": 0.0,
-    "image_confidence": 0.0,
-    "price_confidence": 0.0,
-    "overall": 0.0,
-    "overall_label": "VERY_LOW",
-    "publishability": "DRAFT_ONLY",
+    "pn_confidence": 0.712,
+    "image_confidence": 0.534,
+    "price_confidence": 0.35,
+    "overall": 0.515,
+    "overall_label": "LOW",
+    "publishability": "REVIEW_REQUIRED",
     "notes": [
-      "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "price_low_confidence",
+      "no_usable_image"
     ]
   },
   "evidence_paths": {
@@ -514,5 +491,6 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "identity_level": "strong"
 }

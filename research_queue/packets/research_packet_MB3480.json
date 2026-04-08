@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_MB3480",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "MB3480",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN MB3480 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=MB3480",
+    "What is the full product name and product family for Honeywell MB3480?",
+    "Is MB3480 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell MB3480"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.indmall.in/moxa-mgate-mb3180-mb3280-mb3480-series/?srsltid=AfmBOoqduOV_hnqiccb0oNgkDSTrND84vqSK_EWH-zoBccbk_TsJgWbD",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Шлюз Moxa MB3480",
+    "assembled_title": "Шлюз Honeywell MB3480",
+    "expected_category": "Шлюз",
+    "our_price_raw": "42020,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.indmall.in/moxa-mgate-mb3180-mb3280-mb3480-series/?srsltid=AfmBOoqduOV_hnqiccb0oNgkDSTrND84vqSK_EWH-zoBccbk_TsJgWbD",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_MB3480.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.495264Z"
+}

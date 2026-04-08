@@ -1,0 +1,70 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_EDA61K-SH-DC",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "EDA61K-SH-DC",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN EDA61K-SH-DC (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=EDA61K-SH-DC",
+    "What is the full product name and product family for Honeywell EDA61K-SH-DC?",
+    "Is EDA61K-SH-DC a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell EDA61K-SH-DC"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "public_price",
+    "price_source_url": "https://www.barcodefactory.com/honeywell/parts/eda61k-sh-dc?srsltid=AfmBOoqPchWRgI5xHPY39C5V-EPeoRkx8g-qvgp1eiqOntHclDfA967N",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Пистолетная рукоять для ТСД Honeywell EDA61K-SH-DC",
+    "assembled_title": "Рукоять Honeywell EDA61K-SH-DC",
+    "expected_category": "Рукоять",
+    "our_price_raw": "10226,32",
+    "has_content_seed": true,
+    "price_currency": "USD",
+    "price_native_value": 155.33,
+    "price_rub": 13669.04,
+    "existing_source_url": "https://www.barcodefactory.com/honeywell/parts/eda61k-sh-dc?srsltid=AfmBOoqPchWRgI5xHPY39C5V-EPeoRkx8g-qvgp1eiqOntHclDfA967N",
+    "pn_variants": [
+      "EDA61K.SH.DC",
+      "EDA61KSHDC"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_EDA61K-SH-DC.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.463261Z"
+}

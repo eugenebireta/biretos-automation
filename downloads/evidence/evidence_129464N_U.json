@@ -9,7 +9,7 @@
   "assembled_title": "Трубка Honeywell 129464N/U",
   "our_price_raw": "1997,60",
   "expected_category": "Трубка",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [
     "category_mismatch",
     "mismatch_blocks_publish"
@@ -22,7 +22,7 @@
     "review_schema_version": "review_reason_schema_v1",
     "identity_level": "weak",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "INSUFFICIENT",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
@@ -52,19 +52,6 @@
         ],
         "policy_rule_id": "CAP-10",
         "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_129464N/U"
-        ],
-        "evidence_ids": [
-          "ev_image_129464N/U"
-        ],
-        "policy_rule_id": "CAP-10",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
         "reason_code": "NO_PRICE_EVIDENCE",
@@ -494,5 +481,6 @@
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
     "policy_card_status_mismatch": true
-  }
+  },
+  "identity_level": "weak"
 }

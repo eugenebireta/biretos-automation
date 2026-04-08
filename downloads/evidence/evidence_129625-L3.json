@@ -12,7 +12,7 @@
   "assembled_title": "Набор Honeywell 129625-L3",
   "our_price_raw": "55352,00",
   "expected_category": "Набор",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "AUTO_PUBLISH",
   "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_129625-L3",
@@ -20,51 +20,25 @@
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
-    "price_status": "INSUFFICIENT",
+    "image_status": "ACCEPTED",
+    "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
-    "card_status": "DRAFT_ONLY",
+    "card_status": "AUTO_PUBLISH",
     "review_reasons": [
       {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_129625-L3"
-        ],
-        "evidence_ids": [
-          "ev_title_129625-L3"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_129625-L3"
-        ],
-        "evidence_ids": [
-          "ev_image_129625-L3"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
-        "reason_code": "NO_PRICE_EVIDENCE",
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
         "field": "price",
-        "severity": "INFO",
+        "severity": "WARNING",
         "candidate_ids": [
           "cand_price_129625-L3"
         ],
         "evidence_ids": [
           "ev_price_129625-L3"
         ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
+        "policy_rule_id": "CAP-02",
+        "bucket": "PRICE_AMBIGUITY"
       },
       {
         "reason_code": "NO_PDF_EVIDENCE",
@@ -76,16 +50,15 @@
         "evidence_ids": [
           "ev_pdf_129625-L3"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-02",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
-      "PDF_CONFLICT"
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-02"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -150,14 +123,13 @@
   "confidence": {
     "pn_confidence": 0.0,
     "image_confidence": 0.0,
-    "price_confidence": 0.0,
-    "overall": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
   },
   "photo": {
@@ -418,5 +390,6 @@
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
     "policy_card_status_mismatch": true
-  }
+  },
+  "identity_level": "strong"
 }

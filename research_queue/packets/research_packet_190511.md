@@ -19,7 +19,7 @@
 ```json
 {
   "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "category_mismatch_only",
   "price_source_url": "https://www.dnaelektro.cz/dum-zahrada/elektroinstalace/vypinace-zasuvky-a-ramecky/peha/C2855285-peha-by-honeywell-vestavny-kolebkovy-prepinac-barevna-190511-1-ks",

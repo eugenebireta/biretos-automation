@@ -9,7 +9,7 @@
   "assembled_title": "Беруши Honeywell 1006186",
   "our_price_raw": "1920,61",
   "expected_category": "Беруши",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "AUTO_PUBLISH",
   "review_reasons": [
     "LEGACY_AUTO_PUBLISH_HOLDOUT"
   ],
@@ -21,24 +21,11 @@
     "review_schema_version": "review_reason_schema_v1",
     "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "ACCEPTED",
     "pdf_status": "REVIEW_REQUIRED",
-    "card_status": "REVIEW_REQUIRED",
+    "card_status": "AUTO_PUBLISH",
     "review_reasons": [
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1006186"
-        ],
-        "evidence_ids": [
-          "ev_image_1006186"
-        ],
-        "policy_rule_id": "CAP-05",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
       {
         "reason_code": "PDF_NOT_EXACT_CONFIRMED",
         "field": "pdf",
@@ -49,15 +36,14 @@
         "evidence_ids": [
           "ev_pdf_1006186"
         ],
-        "policy_rule_id": "CAP-05",
+        "policy_rule_id": "CAP-01",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-05"
+    "policy_rule_id": "CAP-01"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -344,5 +330,6 @@
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "REVIEW_REQUIRED",
     "policy_card_status_mismatch": false
-  }
+  },
+  "identity_level": "strong"
 }

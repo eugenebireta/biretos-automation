@@ -1,6 +1,6 @@
 # Research Brief — 240W
 
-**Priority:** low | **Reason:** identity_weak
+**Priority:** high | **Reason:** identity_weak
 **Goal:** Close unresolved enrichment gaps for PN 240W (Honeywell)
 
 ## Known Facts
@@ -18,8 +18,8 @@
 ## Current State
 ```json
 {
-  "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "card_status": "REVIEW_REQUIRED",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "no_price_found",
   "price_source_url": "https://www.jjstech.com/tppr-v-0503.html?srsltid=AfmBOorjbl1Z2jDBHuzMCUyQG4nvE-KiPIoY7cp2w0TadEpO-OpzJsvq",

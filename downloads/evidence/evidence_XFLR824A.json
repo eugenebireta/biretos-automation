@@ -1,0 +1,572 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "XFLR824A",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Модуль с 6 реле Honeywell XFLR824A",
+  "assembled_title": "Модуль Honeywell XFLR824A",
+  "our_price_raw": "20908,81",
+  "expected_category": "Модуль",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "PDF_NOT_EXACT_CONFIRMED"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_XFLR824A",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_XFLR824A"
+        ],
+        "evidence_ids": [
+          "ev_title_XFLR824A"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_XFLR824A"
+        ],
+        "evidence_ids": [
+          "ev_image_XFLR824A"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_XFLR824A"
+        ],
+        "evidence_ids": [
+          "ev_price_XFLR824A"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_XFLR824A"
+        ],
+        "evidence_ids": [
+          "ev_pdf_XFLR824A"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09T"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_XFLR824A"
+      ],
+      "evidence_ids": [
+        "ev_title_XFLR824A"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_XFLR824A"
+      ],
+      "evidence_ids": [
+        "ev_image_XFLR824A"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_XFLR824A"
+      ],
+      "evidence_ids": [
+        "ev_price_XFLR824A"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_XFLR824A"
+      ],
+      "evidence_ids": [
+        "ev_pdf_XFLR824A"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\XFLR824A.jpg",
+      "canonical_filename": "HONEYWELL_XFLR824A_379c316e.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "https://www.industrialservomotor.com/sale-29888027-honeywell-xflr824a-output-module-digital-6-output-physical-output-signals.html",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.industrialservomotor.com/sale-29888027-honeywell-xflr824a-output-module-digital-6-output-physical-output-signals.html",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqsS8HoMKreaUGfC5T3M'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\XFLR824A.jpg",
+    "sha1": "379c316e4aa8810523669b215df827638d20f8cb",
+    "canonical_filename": "HONEYWELL_XFLR824A_379c316e.jpg",
+    "public_url": null,
+    "width": 1000,
+    "height": 750,
+    "size_kb": 133,
+    "source": "cached",
+    "phash": "d0d06e3e0f2dad94",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": "stub",
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.industrialservomotor.com/sale-29888027-honeywell-xflr824a-output-module-digital-6-output-physical-output-signals.html",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "rfq",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": true,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Output Module",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.industrialservomotor.com/sale-29888027-honeywell-xflr824a-output-module-digital-6-output-physical-output-signals.html",
+    "price_source_domain": "industrialservomotor.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": true,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "jsonld",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": true,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "quote_required",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": true,
+    "transient_failure_codes": [
+      "llm_timeout"
+    ]
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://www.lonmark.org/wp-content/uploads/product_database/datasheets/hon_xl800.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "Excel 800",
+    "pdf_specs": {
+      "• Max": "wiring flexibility due to optional accessories like aux.",
+      "conditioning (HVAC) systems": "It performs a wide range of • Can be mounted in small installation housings",
+      "night purge, and max": "load demand. The Excel 800 provides requirements",
+      "meet growing needs": "• State-of-the-art control of critical applications thanks to",
+      "LONWORKS communication standard": "The I/O modules consist Honeywell installations, thereby protecting your investment",
+      "electronic module is installed": "All electronic modules can be",
+      "done automatically for the Panel Bus I/O Modules": "modules, thus lower risk of damage and theft in the",
+      "devices (e.g": "Excel 10 and Excel 12 room controllers).",
+      "adapter in connection with a building supervisor": "Direct Web is supported via Honeywell's OpenViewNet, which",
+      "may be connected via C-Bus to the Excel 800": "® U.S. Registered Trademark",
+      "Copyright © 2007 Honeywell Inc": "• All Rights Reserved EN0B-0564GE51 R0307",
+      "Fig": "2. Overview of Excel 800 Modules",
+      "Modules and LONWORKS devices (e.g": "room controllers). Simply unplug the “old” and insert the ”new” module.",
+      "controllers": "manually by adjusting their HEX switches.",
+      "Table 1": "Overview of Excel 800 Modules",
+      "Table 2": "Overview of auxiliary parts and spare parts",
+      "useful during start-up)": "Plugged between Terminal Socket and Electronic Module.",
+      "signals; useful during start-up)": "Plugged between Terminal Socket and Electronic Module. Not",
+      "with seven internally-connected terminals": "XS815 20 Cross-Connectors for connection of six relay commons. One Cross-Connector is included in",
+      "from voltage in relay block 2)": "XS816 10 Bridge Connectors. One Bridge Connector is included in the Terminal Socket package.",
+      "is included in the Terminal Socket package": "XW586 Modem cable for Excel 800.",
+      "NOTE": "All Excel 800 I/O Modules are protected against short circuit, 24 V~ +20% and 30 Vdc",
+      "Table 3": "Excel 800 I/O Module specifications",
+      "characteristic Linear Graph 0": "10 Vdc 0…11 Vdc / ± 1 mA, 8- static binary input relay outputs (default) floating outputs",
+      "with pull-up, bit resolution (default) (default": "dry contact) Also configurable as Features:",
+      "0(2)…10 Vdc without Also configurable as": "Also configurable floating outputs (cid:131) 2 relays per",
+      "pull-up floating outputs or as": "Features: floating output",
+      "PT 1000-1 (-50…150°C) 10 V) Features": "(cid:131) Voltage: 19…250 V~, 19…250 V~,",
+      "PT 1000-2 (0…400°C) Features": "(cid:131) 1 LED per input 20…30 Vdc, 20…30 Vdc,",
+      "Also configurable as": "100%) green/red using (cid:131) current per relay: (cid:131) current per relay:",
+      "(cid:131) red LED per output CARE N.O": "4(4) A~ or N.O.: 4(4) A~ or",
+      "Features": "(remain, 0%, 100%) floating output",
+      "override (R)": "(cid:131) 16-bit resolution (cid:131) yellow LED per output (cid:131) 2 LEDs per output:",
+      "(cid:131) configurable offset per green": "relay 1"
+    },
+    "pdf_text_excerpt": "Excel 800 CONTROL SYSTEM HONEYWELL EXCEL 5000 OPEN SYSTEM SPECIFICATION DATA FEATURES • Plug-and-play Panel Bus I/O Modules for easy maintenance • LONWORKS Bus I/O Modules (FTT10-A, link power compatible) for easy integration into any system • I/O module exchange without disrupting the power and bus connections • Reuseability of existing applications (Excel 500, etc.) • Fast wiring due to state-of-the-art push-in terminals and bridge connectors • Wide range of sensors supported (PT3000, Balco500, NTC20k, PT1000-1/-2…, 0/2…10 V, 0/4…20 mA) • Binary input LEDs can be configured for status displa",
+    "num_pages": 16,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "quote_required",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Модуль Honeywell XFLR824A с 6 реле и функцией принудительного управления (LON) предназначен для коммутации электрических цепей в системах автоматизации. Обеспечивает надежное управление и контроль.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Модуль",
+    "seed_name": "Модуль с 6 реле Honeywell XFLR824A"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "quote_required"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:XFLR824A:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:XFLR824A:9f2a5613b7a953ff12cd23d9",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:XFLR824A:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:XFLR824A:9f2a5613b7a953ff12cd23d9",
+      "pn_primary": "XFLR824A",
+      "normalized_title": "Модуль Honeywell XFLR824A",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_XFLR824A"
+          ],
+          "evidence_ids": [
+            "ev_title_XFLR824A"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_XFLR824A"
+          ],
+          "evidence_ids": [
+            "ev_image_XFLR824A"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_XFLR824A"
+          ],
+          "evidence_ids": [
+            "ev_price_XFLR824A"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_XFLR824A"
+          ],
+          "evidence_ids": [
+            "ev_pdf_XFLR824A"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "unknown",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "unknown"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "Output Module",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  }
+}

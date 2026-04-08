@@ -13,7 +13,7 @@
   "assembled_title": "Соединение Honeywell 033588.17",
   "our_price_raw": "3025,82",
   "expected_category": "Соединение",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "AUTO_PUBLISH",
   "review_reasons": [
     "LEGACY_AUTO_PUBLISH_HOLDOUT"
   ],
@@ -23,39 +23,13 @@
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT",
-    "card_status": "DRAFT_ONLY",
+    "card_status": "AUTO_PUBLISH",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_033588.17"
-        ],
-        "evidence_ids": [
-          "ev_title_033588.17"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_033588.17"
-        ],
-        "evidence_ids": [
-          "ev_image_033588.17"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
       {
         "reason_code": "NO_PDF_EVIDENCE",
         "field": "pdf",
@@ -66,16 +40,14 @@
         "evidence_ids": [
           "ev_pdf_033588.17"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-01",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-01"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -394,5 +366,6 @@
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
     "policy_card_status_mismatch": true
-  }
+  },
+  "identity_level": "strong"
 }

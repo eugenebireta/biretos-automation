@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_RMK400AP-IV",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "RMK400AP-IV",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN RMK400AP-IV (Honeywell)",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "questions_to_resolve": [
+    "What is the correct product category for Honeywell RMK400AP-IV (Комплект для встраиваемого монтажа RMK400AP-IV)?",
+    "Is the expected category 'Комплект' correct for this product?",
+    "What similar part numbers exist in the same product family?",
+    "Provide any relevant Russian-language product description for Honeywell RMK400AP-IV"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "category_mismatch_only",
+    "price_source_url": "https://www.orbitadigital.com/en/fire/conventional/detectors/14487-notifier-rmk400ap-iv-accessory-for-embedding-400-and-800-series.html?srsltid=AfmBOoocZTefhggM56ZxD6MJSpBKKHkGnbFsupWLLQOuiOFs6pDsyvRm",
+    "category_mismatch": true,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "CRITICAL_MISMATCH",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "PDF_NOT_EXACT_CONFIRMED"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Комплект для встраиваемого монтажа RMK400AP-IV",
+    "assembled_title": "Комплект Honeywell RMK400AP-IV",
+    "expected_category": "Комплект",
+    "our_price_raw": "349,20",
+    "has_content_seed": true,
+    "price_currency": "EUR",
+    "price_native_value": 14.93,
+    "price_rub": 1418.35,
+    "existing_source_url": "https://www.orbitadigital.com/en/fire/conventional/detectors/14487-notifier-rmk400ap-iv-accessory-for-embedding-400-and-800-series.html?srsltid=AfmBOoocZTefhggM56ZxD6MJSpBKKHkGnbFsupWLLQOuiOFs6pDsyvRm",
+    "pn_variants": [
+      "RMK400AP.IV",
+      "RMK400APIV"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_RMK400AP-IV.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.525412Z"
+}

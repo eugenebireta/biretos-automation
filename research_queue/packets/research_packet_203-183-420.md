@@ -1,6 +1,6 @@
 # Research Brief — 203-183-420
 
-**Priority:** low | **Reason:** identity_weak
+**Priority:** high | **Reason:** identity_weak
 **Goal:** Close unresolved enrichment gaps for PN 203-183-420 (Honeywell)
 
 ## Known Facts
@@ -18,8 +18,8 @@
 ## Current State
 ```json
 {
-  "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "card_status": "REVIEW_REQUIRED",
+  "identity_level": "strong",
   "photo_verdict": "KEEP",
   "price_status": "no_price_found",
   "price_source_url": "https://www.newegg.com/p/0X6-000K-00023?srsltid=AfmBOopyPTb_y0c_6I-yvLviLcxrjvjpikGpvS6egFy66joOSfE9KnZL",

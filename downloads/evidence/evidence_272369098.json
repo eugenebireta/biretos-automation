@@ -25,7 +25,7 @@
     "identity_level": "weak",
     "title_status": "ACCEPTED",
     "image_status": "INSUFFICIENT",
-    "price_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
@@ -56,9 +56,9 @@
         "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
-        "reason_code": "NO_PRICE_EVIDENCE",
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
         "field": "price",
-        "severity": "INFO",
+        "severity": "WARNING",
         "candidate_ids": [
           "cand_price_272369098"
         ],
@@ -66,7 +66,7 @@
           "ev_price_272369098"
         ],
         "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
+        "bucket": "PRICE_AMBIGUITY"
       },
       {
         "reason_code": "NO_PDF_EVIDENCE",
@@ -85,7 +85,8 @@
     "review_buckets": [
       "IDENTITY_CONFLICT",
       "MISSING_MINIMUM_EVIDENCE",
-      "PDF_CONFLICT"
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
     ],
     "policy_rule_id": "CAP-09"
   },
@@ -152,14 +153,13 @@
   "confidence": {
     "pn_confidence": 0.0,
     "image_confidence": 0.0,
-    "price_confidence": 0.0,
-    "overall": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
   },
   "evidence_paths": {
@@ -512,5 +512,6 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "identity_level": "weak"
 }

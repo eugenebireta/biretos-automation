@@ -1,6 +1,6 @@
 # Research Brief — 104011
 
-**Priority:** low | **Reason:** identity_weak
+**Priority:** high | **Reason:** identity_weak
 **Goal:** Close unresolved enrichment gaps for PN 104011 (Honeywell)
 
 ## Known Facts
@@ -18,8 +18,8 @@
 ## Current State
 ```json
 {
-  "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "card_status": "REVIEW_REQUIRED",
+  "identity_level": "strong",
   "photo_verdict": "REJECT",
   "price_status": "no_price_found",
   "price_source_url": "https://www.conrad.nl/nl/p/peha-by-honeywell-104011-wipschakelaar-afdekking-zuiver-wit-1-stuk-s-2855045.html",

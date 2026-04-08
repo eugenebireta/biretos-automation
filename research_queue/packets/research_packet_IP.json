@@ -1,0 +1,67 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_IP",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "IP",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN IP (Honeywell)",
+  "research_reason": "photo_mismatch",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Find the official product image for Honeywell IP",
+    "Is there a manufacturer page with product images?",
+    "What does Honeywell IP physically look like?",
+    "Provide any relevant Russian-language product description for Honeywell IP"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "REJECT",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.alarmgrid.com/products/honeywell-home-prowifi",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "PDF_NOT_EXACT_CONFIRMED"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "IP-телефон",
+    "assembled_title": "Телефон Honeywell IP",
+    "expected_category": "Телефон",
+    "our_price_raw": "0,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.alarmgrid.com/products/honeywell-home-prowifi",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_IP.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.485260Z"
+}

@@ -1,6 +1,6 @@
 # Research Brief — 13960
 
-**Priority:** low | **Reason:** identity_weak
+**Priority:** high | **Reason:** identity_weak
 **Goal:** Close unresolved enrichment gaps for PN 13960 (Honeywell)
 
 ## Known Facts
@@ -18,8 +18,8 @@
 ## Current State
 ```json
 {
-  "card_status": "DRAFT_ONLY",
-  "identity_level": "weak",
+  "card_status": "REVIEW_REQUIRED",
+  "identity_level": "strong",
   "photo_verdict": "KEEP",
   "price_status": "no_price_found",
   "price_source_url": "https://www.homes.com/property/13960-n-sutherland-wash-way-oro-valley-az/hs3vtfxwmjqb4/",
