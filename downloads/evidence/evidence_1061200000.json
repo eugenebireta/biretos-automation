@@ -10,9 +10,7 @@
   "our_price_raw": "131,08",
   "expected_category": "Кронштейн",
   "card_status": "DRAFT_ONLY",
-  "review_reasons": [
-    "LEGACY_AUTO_PUBLISH_HOLDOUT"
-  ],
+  "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_1061200000",
     "policy_version": "catalog_evidence_policy_v1",
@@ -411,7 +409,9 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.505678+00:00"
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {

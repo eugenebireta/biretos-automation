@@ -12,7 +12,7 @@
   "assembled_title": "Набор Honeywell 129625-L3",
   "our_price_raw": "55352,00",
   "expected_category": "Набор",
-  "card_status": "AUTO_PUBLISH",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_129625-L3",
@@ -25,7 +25,7 @@
     "image_status": "ACCEPTED",
     "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
-    "card_status": "AUTO_PUBLISH",
+    "card_status": "DRAFT_ONLY",
     "review_reasons": [
       {
         "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
@@ -389,7 +389,9 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.506678+00:00"
   },
   "identity_level": "strong"
 }

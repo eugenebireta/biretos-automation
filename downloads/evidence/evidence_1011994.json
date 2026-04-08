@@ -9,7 +9,7 @@
   "assembled_title": "Наушники Honeywell 1011994",
   "our_price_raw": "1741,63",
   "expected_category": "Наушники",
-  "card_status": "AUTO_PUBLISH",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_1011994",
@@ -22,7 +22,7 @@
     "image_status": "ACCEPTED",
     "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT",
-    "card_status": "AUTO_PUBLISH",
+    "card_status": "DRAFT_ONLY",
     "review_reasons": [
       {
         "reason_code": "NO_PDF_EVIDENCE",
@@ -382,7 +382,9 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.503680+00:00"
   },
   "identity_level": "strong"
 }
