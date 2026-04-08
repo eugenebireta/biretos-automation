@@ -1,0 +1,249 @@
+{
+  "total_tested": 20,
+  "agreement": 14,
+  "disagreement": 6,
+  "agreement_pct": 70.0,
+  "results": [
+    {
+      "pn": "3240197-RU",
+      "name": "Кабельный канал 3240197-RU",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "KEEP",
+      "gemini_reason": "Изображение соответствует товару \"Кабельный канал\".",
+      "match": true
+    },
+    {
+      "pn": "MB3480",
+      "name": "Шлюз Moxa MB3480",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Бренд на изображении (Moxa) не соответствует бренду в описании (Honeywell).",
+      "match": false
+    },
+    {
+      "pn": "42511",
+      "name": "Устройство Honeywell D 20.677.192-Z",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует товару. На изображении показан металлический разъем, а не устройство Honeywell D 20.677.192-Z.",
+      "match": false
+    },
+    {
+      "pn": "171111",
+      "name": "Термостатический вентиль Honeywell D 20.571.02 T",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует описанию товара. На изображении рамка, а в описании термостатический вентиль.",
+      "match": true
+    },
+    {
+      "pn": "187091",
+      "name": "Детектор пламени Honeywell D 20.672.222.702",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует описанию товара. На изображении показана рамка для розеток или выключателей, а не детектор пламени.",
+      "match": true
+    },
+    {
+      "pn": "600GB-SAS2.5",
+      "name": "Жесткий диск Honeywell 600GB-SAS2.5, 600 GB SAS 10K",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "KEEP",
+      "gemini_reason": "Изображение соответствует товару. На фото жесткий диск, который соответствует описанию.",
+      "match": true
+    },
+    {
+      "pn": "121679-L3",
+      "name": "Ручной аспиратор Honeywell 121679-L3",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "На изображении логотип Raytronics, а не ручной аспиратор Honeywell.",
+      "match": true
+    },
+    {
+      "pn": "MZ-PCWS77",
+      "name": "Рабочая станция Dell R7920XL RAID1 RACK",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует описанию товара. На изображении автоматический выключатель, а в описании рабочая станция.",
+      "match": true
+    },
+    {
+      "pn": "CAB-010-SC-SM",
+      "name": "Оптический адаптер Honeywell CAB-010-SC-SM",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "KEEP",
+      "gemini_reason": "The image clearly shows an optical adapter, which matches the product description. The item is identifiable despite the plain background.",
+      "match": true
+    },
+    {
+      "pn": "RDU300504",
+      "name": "Редуктор RDU300504",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение является заглушкой \"NO IMAGE\" и не содержит информации о товаре.",
+      "match": false
+    },
+    {
+      "pn": "C7355A1050",
+      "name": "Мультисенсор настенный Honeywell C7355A1050",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "KEEP",
+      "gemini_reason": "Изображение соответствует товару, на нем виден мультисенсор Honeywell.",
+      "match": true
+    },
+    {
+      "pn": "191191",
+      "name": "Детектор пламени Honeywell D 20.674.222.022",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует описанию товара. На изображении показана рамка для розеток/выключателей, а не детектор пламени.",
+      "match": true
+    },
+    {
+      "pn": "EP10427404",
+      "name": "Датчик присутствия Honeywell PD-C360i/8 KNX UP",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "The image shows a Resideo Protectorelay Oil Burner, which is not the Honeywell PD-C360i/8 KNX UP presence sensor specified in the product description.",
+      "match": true
+    },
+    {
+      "pn": "LUX",
+      "name": "Конвертер LUX",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "The image shows two blue industrial valves, which are not a \"LUX Converter\" as described in the product information.",
+      "match": true
+    },
+    {
+      "pn": "3240605",
+      "name": "Кабельный канал 3240605",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "На изображении микропереключатель, а не кабельный канал.",
+      "match": true
+    },
+    {
+      "pn": "S05230-2POS",
+      "name": "Привод заслонки S05230-2POS",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "KEEP",
+      "gemini_reason": "The image clearly shows the product, a damper actuator, matching the description \"Привод заслонки S05230-2POS\". The brand Honeywell and the model number S05230-2POS are visible on the product label. The watermarks do not obscure the product significantly.",
+      "match": true
+    },
+    {
+      "pn": "36024-RU",
+      "name": "Горизонтальный угол 200x80мм 36024-RU",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "На изображении показана электронная плата и рука с ручкой, а не горизонтальный угол 200x80мм.",
+      "match": true
+    },
+    {
+      "pn": "MZ-PCWS84",
+      "name": "Рабочая станция HP Z4 G4 RAID1 TOWER",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "The image shows an industrial control module, specifically an \"Analog Output 16\" module from Honeywell, which is not a \"Рабочая станция HP Z4 G4 RAID1 TOWER\".",
+      "match": false
+    },
+    {
+      "pn": "36206-RU",
+      "name": "Соединительный муфта Honeywell 36206-RU, 400x80мм",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует описанию товара. На изображении показана полнолицевая маска, а в описании указана соединительная муфта.",
+      "match": false
+    },
+    {
+      "pn": "1000106",
+      "name": "Беруши 304L CORDED EARPLUG",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "KEEP",
+      "gemini_reason": "Изображение соответствует товару: беруши 304L CORDED EARPLUG.",
+      "match": false
+    }
+  ],
+  "rate_limiter": {
+    "daily_plain": 20,
+    "daily_grounded": 0,
+    "consecutive_429": 0
+  },
+  "disagreements": [
+    {
+      "pn": "MB3480",
+      "name": "Шлюз Moxa MB3480",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Бренд на изображении (Moxa) не соответствует бренду в описании (Honeywell).",
+      "match": false
+    },
+    {
+      "pn": "42511",
+      "name": "Устройство Honeywell D 20.677.192-Z",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует товару. На изображении показан металлический разъем, а не устройство Honeywell D 20.677.192-Z.",
+      "match": false
+    },
+    {
+      "pn": "RDU300504",
+      "name": "Редуктор RDU300504",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение является заглушкой \"NO IMAGE\" и не содержит информации о товаре.",
+      "match": false
+    },
+    {
+      "pn": "MZ-PCWS84",
+      "name": "Рабочая станция HP Z4 G4 RAID1 TOWER",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "The image shows an industrial control module, specifically an \"Analog Output 16\" module from Honeywell, which is not a \"Рабочая станция HP Z4 G4 RAID1 TOWER\".",
+      "match": false
+    },
+    {
+      "pn": "36206-RU",
+      "name": "Соединительный муфта Honeywell 36206-RU, 400x80мм",
+      "original_verdict": "KEEP",
+      "original_reason": "",
+      "gemini_verdict": "REJECT",
+      "gemini_reason": "Изображение не соответствует описанию товара. На изображении показана полнолицевая маска, а в описании указана соединительная муфта.",
+      "match": false
+    },
+    {
+      "pn": "1000106",
+      "name": "Беруши 304L CORDED EARPLUG",
+      "original_verdict": "REJECT",
+      "original_reason": "",
+      "gemini_verdict": "KEEP",
+      "gemini_reason": "Изображение соответствует товару: беруши 304L CORDED EARPLUG.",
+      "match": false
+    }
+  ]
+}

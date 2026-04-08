@@ -2603,7 +2603,28 @@ if __name__ == "__main__":
                    help="Ignore existing evidence bundles and reprocess from scratch")
     p.add_argument("--multi-source", action="store_true",
                    help="Run additional distributor search for cross-validation prices (OFF by default)")
+    p.add_argument("--provider", choices=["openai", "claude", "gemini"], default=None,
+                   help="LLM provider: openai (default), claude, or gemini (DDG search + Gemini Flash)")
     args = p.parse_args()
+
+    # Provider override: swap global adapters before run()
+    if args.provider == "gemini":
+        try:
+            from gemini_provider import create_gemini_adapters
+            _search, _chat = create_gemini_adapters()
+            set_search_provider_adapter(_search)
+            set_chat_completion_adapter(_chat)
+            log.info("Provider: gemini (DDG search + Gemini 2.5 Flash)")
+        except Exception as exc:
+            log.error(f"Failed to init gemini provider: {exc}")
+            sys.exit(1)
+    elif args.provider == "claude":
+        log.info("Provider: claude (Anthropic Messages API)")
+        # ClaudeChatAdapter is already the default for chat_completion_adapter
+        # but search still uses SerpAPI — that's expected
+    else:
+        log.info("Provider: openai (SerpAPI + OpenAI)")
+
     run(
         limit=args.limit,
         show_results=args.show,
