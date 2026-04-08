@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "trace_id": "orch_20260408T200656Z_b9a901",
+  "task_id": "RECLASSIFY-PEHA-8SKU",
+  "generated_at": "2026-04-08T20:14:15.139296+00:00",
+  "description": "Reclassify 8 PEHA SKUs from xlsx-sourced wrong categories (Датчик/Вентиль → electrical_switch_covers)",
+  "target_skus": [
+    "00020211",
+    "101411",
+    "104011",
+    "105411",
+    "106511",
+    "109411",
+    "125711",
+    "127411"
+  ],
+  "old_categories": [
+    "Вентиль",
+    "Датчик"
+  ],
+  "new_category": "electrical_switch_covers",
+  "results": [
+    {
+      "sku": "00020211",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::00020211::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_00020211.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "101411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::101411::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_101411.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "104011",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::104011::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_104011.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "105411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::105411::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_105411.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "106511",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::106511::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_106511.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "109411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::109411::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_109411.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "125711",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::125711::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_125711.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "127411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::127411::evidence",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\evidence\\evidence_127411.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "00020211",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::00020211::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "101411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::101411::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "104011",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::104011::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "105411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::105411::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "106511",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::106511::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "109411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::109411::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "125711",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::125711::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    },
+    {
+      "sku": "127411",
+      "idempotency_key": "orch_20260408T200656Z_b9a901::127411::training",
+      "old_category": "electrical_switch_covers",
+      "new_category": "electrical_switch_covers",
+      "file_patched": "D:\\BIRETOS\\projects\\biretos-automation\\training_data\\category_classification.json",
+      "status": "already_correct"
+    }
+  ],
+  "errors": []
+}
