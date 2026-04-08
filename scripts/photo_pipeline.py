@@ -97,6 +97,38 @@ from catalog_shadow_runtime import (                            # noqa: E402
 )
 from price_sanity import apply_sanity_to_price_info             # noqa: E402
 
+# ── Phase 2 components (safe imports — never kill pipeline) ───────────────────
+try:
+    from page_ranker import rank_candidates, PageCandidate
+    _PAGE_RANKER_AVAILABLE = True
+except ImportError:
+    _PAGE_RANKER_AVAILABLE = False
+
+try:
+    from price_unit_judge import judge_price_unit_basis
+    _PRICE_JUDGE_AVAILABLE = True
+except ImportError:
+    _PRICE_JUDGE_AVAILABLE = False
+
+try:
+    from category_resolver import resolve_category
+    _CATEGORY_RESOLVER_AVAILABLE = True
+except ImportError:
+    _CATEGORY_RESOLVER_AVAILABLE = False
+
+try:
+    from training_logger import (
+        log_photo_verdict as _tl_photo_verdict,
+        log_page_ranking as _tl_page_ranking,
+        log_price_extraction as _tl_price_extraction,
+        log_unit_judge as _tl_unit_judge,
+        log_category_resolution as _tl_category_resolution,
+        log_spec_extraction as _tl_spec_extraction,
+    )
+    _TRAINING_LOGGER_AVAILABLE = True
+except ImportError:
+    _TRAINING_LOGGER_AVAILABLE = False
+
 
 # ── Logging ────────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -2043,6 +2075,40 @@ def run(
         # ── Шаг 2: поиск URL кандидатов ───────────────────────────────────────
         candidates = step2_us_price(pn, name)
 
+        # ── Page Ranker: reorder candidates by domain tier + PN signals ────────
+        page_ranking_result: list[dict] = []
+        if _PAGE_RANKER_AVAILABLE and candidates:
+            try:
+                page_cands = [
+                    PageCandidate(url=c["url"], title=c.get("title", ""), snippet=c.get("snippet", ""))
+                    for c in candidates
+                ]
+                ranked = rank_candidates(pn, BRAND, page_cands, use_gemini=False)
+                # Reorder candidates by ranker score (keep non-rejected first)
+                non_rejected = [r for r in ranked if not r.rejected]
+                if non_rejected:
+                    candidates = [
+                        next((c for c in candidates if c["url"] == r.url), candidates[0])
+                        for r in non_rejected
+                    ]
+                    page_ranking_result = [
+                        {"url": r.url, "score": r.score, "reason": r.rank_reason, "rejected": r.rejected}
+                        for r in ranked
+                    ]
+                    print(f"  Page ranker: {len(non_rejected)}/{len(ranked)} candidates kept")
+            except Exception as _pr_err:
+                log.debug(f"page_ranker failed for {pn}: {_pr_err}")
+        if _TRAINING_LOGGER_AVAILABLE and page_ranking_result:
+            try:
+                _tl_page_ranking(
+                    pn=pn, brand=BRAND,
+                    candidate_urls=[c["url"] for c in candidates[:10]],
+                    ranked_result=page_ranking_result[:10],
+                    method="deterministic",
+                )
+            except Exception:
+                pass
+
         # ── Шаг 2b: извлечение цены ────────────────────────────────────────────
         price_info = tighten_public_price_result(
             step2b_extract_from_pages(
@@ -2089,6 +2155,101 @@ def run(
                 )
                 if price_info.get("price_sanity_status") == "REJECT":
                     print(f"  [PRICE_SANITY] Цена отклонена → price_status=rejected_sanity_check")
+
+        # ── Price Unit Judge (per-unit vs per-pack detection) ─────────────────
+        if _PRICE_JUDGE_AVAILABLE and price_info.get("price_usd") is not None:
+            try:
+                _context = (price_info.get("offer_title", "") + " " + price_info.get("context_text", ""))[:500]
+                _judge_result = judge_price_unit_basis(
+                    price=price_info["price_usd"],
+                    currency=price_info.get("currency", ""),
+                    context_text=_context,
+                    pn=pn, brand=BRAND,
+                    use_llm=True,
+                )
+                if _judge_result.triggered:
+                    price_info["unit_judge_result"] = {
+                        "unit_basis": _judge_result.unit_basis,
+                        "confidence": _judge_result.confidence,
+                        "trigger_reason": _judge_result.trigger_reason,
+                        "pack_qty": _judge_result.pack_qty,
+                        "llm_used": _judge_result.llm_used,
+                    }
+                    print(f"  [UNIT_JUDGE] {_judge_result.unit_basis}/{_judge_result.confidence} (trigger: {_judge_result.trigger_reason})")
+                if _TRAINING_LOGGER_AVAILABLE:
+                    _tl_unit_judge(
+                        pn=pn, brand=BRAND,
+                        price=price_info["price_usd"],
+                        currency=price_info.get("currency", ""),
+                        context_text=_context,
+                        unit_basis=_judge_result.unit_basis,
+                        confidence=_judge_result.confidence,
+                        triggered=_judge_result.triggered,
+                        trigger_reason=_judge_result.trigger_reason,
+                        llm_raw=_judge_result.llm_raw,
+                    )
+            except Exception as _uj_err:
+                log.debug(f"price_unit_judge failed for {pn}: {_uj_err}")
+
+        # ── Category Resolver ─────────────────────────────────────────────────
+        if _CATEGORY_RESOLVER_AVAILABLE and expected_category:
+            try:
+                _page_cat = price_info.get("page_product_class", "")
+                _source_url = price_info.get("source_url", "")
+                _source_tier = 0
+                if _source_url:
+                    _st = get_source_trust(_source_url)
+                    _tier_map = {"official": 1, "authorized": 2, "industrial": 3}
+                    _source_tier = _tier_map.get(_st.get("tier", ""), 0)
+                _exact_pn = bool(dl.get("exact_structured_pn_match", False))
+                _cat_result = resolve_category(
+                    xlsx_hint=expected_category,
+                    page_category=_page_cat,
+                    source_tier=_source_tier,
+                    exact_pn_confirmed=_exact_pn,
+                )
+                price_info["category_resolution"] = {
+                    "resolved_category": _cat_result.resolved_category,
+                    "resolution_method": _cat_result.resolution_method,
+                    "conflict": _cat_result.conflict,
+                    "confidence": _cat_result.confidence,
+                }
+                # Override category_mismatch if resolver says it's OK
+                if _cat_result.resolution_method in ("page_confirmed", "xlsx_hint", "page_override"):
+                    if price_info.get("category_mismatch"):
+                        price_info["category_mismatch"] = False
+                        price_info["category_mismatch_resolved"] = True
+                        print(f"  [CATEGORY] Mismatch resolved: {_cat_result.resolution_method}")
+                elif _cat_result.conflict:
+                    print(f"  [CATEGORY] Conflict: {_cat_result.conflict_reason}")
+                if _TRAINING_LOGGER_AVAILABLE:
+                    _tl_category_resolution(
+                        pn=pn, brand=BRAND,
+                        xlsx_hint=expected_category,
+                        page_category=_page_cat,
+                        source_tier=_source_tier,
+                        exact_pn_confirmed=_exact_pn,
+                        resolved_category=_cat_result.resolved_category,
+                        resolution_method=_cat_result.resolution_method,
+                        confidence=_cat_result.confidence,
+                    )
+            except Exception as _cr_err:
+                log.debug(f"category_resolver failed for {pn}: {_cr_err}")
+
+        # ── Training: price extraction ────────────────────────────────────────
+        if _TRAINING_LOGGER_AVAILABLE and price_info.get("price_usd") is not None:
+            try:
+                _tl_price_extraction(
+                    pn=pn, brand=BRAND,
+                    html_snippet="",
+                    prompt="",
+                    response_raw=str(price_info.get("price_usd", "")),
+                    source_url=price_info.get("source_url", ""),
+                    extracted_price=price_info.get("price_usd"),
+                    currency=price_info.get("currency", ""),
+                )
+            except Exception:
+                pass
 
         # ── Шаг 3: GPT Vision ─────────────────────────────────────────────────
         sha1 = dl.get("sha1", "")
@@ -2143,6 +2304,19 @@ def run(
         if v.get("numeric_keep_guard_applied"):
             print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
 
+        # ── Training: photo verdict ───────────────────────────────────────────
+        if _TRAINING_LOGGER_AVAILABLE:
+            try:
+                _tl_photo_verdict(
+                    pn=pn, brand=BRAND,
+                    photo_path=dl.get("path", ""),
+                    verdict=v.get("verdict", "NO_PHOTO"),
+                    reason=v.get("reason", ""),
+                    source_url=dl.get("source", ""),
+                )
+            except Exception:
+                pass
+
         # ── Datasheet (optional + conditional) ─────────────────────────────────
         ds_result: dict = {"datasheet_status": "skipped"}
         _needs_datasheet = (
@@ -2193,10 +2367,26 @@ def run(
         # Multi-source distributor candidates — additive, for cross-validation
         if additional_prices:
             bundle["additional_prices"] = additional_prices
+        # Page ranking result — additive
+        if page_ranking_result:
+            bundle["page_ranking"] = page_ranking_result
         evidence_bundles.append(bundle)
         checkpoint[pn] = bundle
         save_checkpoint(checkpoint)
         bundle_content = bundle.get("content", {})
+
+        # ── Training: spec extraction ─────────────────────────────────────────
+        if _TRAINING_LOGGER_AVAILABLE and dl.get("specs"):
+            try:
+                _tl_spec_extraction(
+                    pn=pn, brand=BRAND,
+                    html_snippet="",
+                    extracted_specs=dl.get("specs", {}),
+                    method="page_parse",
+                    source_url=dl.get("source", ""),
+                )
+            except Exception:
+                pass
 
         # ── Brand experience record ──────────────────────────────────────────────
         try:
