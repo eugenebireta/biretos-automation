@@ -80,6 +80,16 @@ jobs:
             fi
           done
 
+          # M3b: Core business tables — raw DML from Tier-3 forbidden (PROJECT_DNA §5)
+          CORE_BIZ_TABLES="order_ledger|shipments|payment_transactions|reservations|stock_ledger_entries|availability_snapshot|documents"
+          for dir in $TIER3_DIRS; do
+            [ -d "$dir" ] || continue
+            if grep -rn --include='*.py' -E "(INSERT|UPDATE|DELETE|ALTER|DROP).*(${CORE_BIZ_TABLES})" "$dir"; then
+              echo "::error::BOUNDARY VIOLATION: $dir contains DML against Core business tables (DNA §5)"
+              FAILED=1
+            fi
+          done
+
           FORBIDDEN_IMPORTS="from domain\.reconciliation_service|from domain\.reconciliation_verify|from domain\.reconciliation_alerts|from domain\.structural_checks|from domain\.observability_service|from retention_policy|import reconciliation_service|import reconciliation_verify|import reconciliation_alerts|import structural_checks|import observability_service"
           for dir in $TIER3_DIRS; do
             [ -d "$dir" ] || continue
