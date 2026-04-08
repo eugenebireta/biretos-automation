@@ -516,14 +516,65 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:13.999165+00:00",
+    "imported_at": "2026-04-08T18:40:17.017107+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 212283.0,
+    "currency": "RUB",
+    "source_url": "https://group-sb.ru/product/788013.40.urh-1_opornyy_element_dlya_montazha_trub/",
+    "category": "Fire safety accessory",
+    "image_url": "group-sb.ru",
+    "price_type": "distributor",
+    "alias_found": "788013.40",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Retail 212283 RUB, wholesale 169827 RUB",
+    "sources": [
+      {
+        "url": "https://group-sb.ru/product/788013.40.urh-1_opornyy_element_dlya_montazha_trub/",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "group-sb.ru"
+      }
+    ]
+  },
+  "dr_price": 315.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.ebay.de/",
+  "dr_category": "Fire Safety",
+  "dr_image_url": "ebay.de",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.663161+00:00",
+    "source": "gemini",
+    "price": 315.0,
+    "currency": "EUR",
+    "source_url": "https://www.ebay.de/",
+    "category": "Fire Safety",
+    "image_url": "ebay.de",
+    "price_type": "gray_market",
+    "alias_found": "788013.40",
+    "specs": null,
+    "notes": "Esser IQ8Quad optical heat detector; search without .RU",
+    "sources": [
+      {
+        "url": "https://www.ebay.de/",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.de"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.de/",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.de"
+    }
+  ]
 }

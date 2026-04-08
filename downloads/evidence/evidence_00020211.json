@@ -519,5 +519,75 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.546605+00:00",
+    "source": "chatgpt",
+    "price": 5.97,
+    "currency": "EUR",
+    "source_url": "https://www.voltking.de/Peha-00020211-Nova-Rahmen-2-fach-Reinweiss",
+    "category": "Switch frame",
+    "image_url": "https://www.voltking.de/media/image/product/63898/xs/peha-00020211-nova-rahmen-2-fach-reinweiss.jpg",
+    "price_type": "distributor",
+    "alias_found": "D 20.672.022 T / EAN 4010105020212",
+    "specs": "2âfach; ÑÐ²ÐµÑ ReinweiÃ; ÑÐ°Ð·Ð¼ÐµÑÑ 83Ã154 Ð¼Ð¼ (Ð² Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ð¸)",
+    "notes": "Ð¦ÐµÐ½Ð° Â«inkl. 19% USt.Â» (Ð²ÐºÐ». ÐÐÐ¡).",
+    "sources": [
+      {
+        "url": "https://www.voltking.de/Peha-00020211-Nova-Rahmen-2-fach-Reinweiss",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "voltking.de"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-en/hbt-ep-00020211-en-datasheet.pdf",
+        "page_type": "datasheet_pdf",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "prod-edam.honeywell.com"
+      }
+    ]
+  },
+  "dr_price": 24.5,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.ebay.de/itm/PEHA-00020211-Honeywell-Module",
+  "dr_image_url": "https://www.voltking.de/media/image/product/63898/xs/peha-00020211-nova-rahmen-2-fach-reinweiss.jpg",
+  "dr_category": "Switch",
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.peha.de/en/products/00020211",
+      "page_type": "manufacturer",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "peha.de"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.473536+00:00",
+    "source": "gemini",
+    "price": 24.5,
+    "currency": "EUR",
+    "source_url": "https://www.ebay.de/itm/PEHA-00020211-Honeywell-Module",
+    "category": "Switch",
+    "image_url": null,
+    "price_type": "gray_market",
+    "alias_found": "PEHA 00020211",
+    "specs": null,
+    "notes": "Standard PEHA rocker; European lighting/switch",
+    "sources": [
+      {
+        "url": "https://www.peha.de/en/products/00020211",
+        "page_type": "manufacturer",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "peha.de"
+      }
+    ]
+  }
 }

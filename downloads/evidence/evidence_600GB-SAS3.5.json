@@ -519,14 +519,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.021214+00:00",
+    "imported_at": "2026-04-08T18:40:17.027106+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 32.43,
+    "currency": "CHF",
+    "source_url": "https://variotrade.ch/HP-600GB-SAS-15K-rpm-6Gb-s-35-HDD-fuer-HP-Workstation-Server-ohne-Rahmen-gebraucht-90-Tage-Garantie",
+    "category": "Server HDD 600GB SAS 3.5",
+    "image_url": "ebay.com",
+    "price_type": "surplus",
+    "alias_found": "623391-001_REF",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "32.43 CHF incl 8.1% USt, gebraucht, 90 days warranty",
+    "sources": [
+      {
+        "url": "https://variotrade.ch/HP-600GB-SAS-15K-rpm-6Gb-s-35-HDD-fuer-HP-Workstation-Server-ohne-Rahmen-gebraucht-90-Tage-Garantie",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "variotrade.ch"
+      },
+      {
+        "url": "https://www.ebay.com/itm/267028567356",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_price": 110.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/",
+  "dr_category": "Computing",
+  "dr_image_url": "ebay.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.726163+00:00",
+    "source": "gemini",
+    "price": 110.0,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/",
+    "category": "Computing",
+    "image_url": "ebay.com",
+    "price_type": "surplus",
+    "alias_found": "15K RPM SAS Drive; older 3.5 form factor",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ]
 }

@@ -572,5 +572,72 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.034104+00:00",
+    "source": "chatgpt",
+    "price": null,
+    "currency": "UNKNOWN",
+    "source_url": "No relevant commercial results found",
+    "category": "no",
+    "image_url": "accadia.com.sg",
+    "price_type": "no",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://commons.wikimedia.org/wiki/File%3ABridge_over_the_A27",
+        "page_type": "catalog",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "commons.wikimedia.org"
+      },
+      {
+        "url": "https://www.accadia.com.sg/contact-us/",
+        "page_type": "catalog",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "accadia.com.sg"
+      }
+    ]
+  },
+  "dr_image_url": "ebay.com",
+  "dr_category": "No",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.783676+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "MARKETPLACE",
+    "source_url": "No",
+    "category": "No",
+    "image_url": "ebay.com",
+    "price_type": "legacy pneumatic or mechanical catalog code",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/",
+        "page_type": "marketplace",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/",
+      "page_type": "marketplace",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ],
+  "dr_price_type": "legacy pneumatic or mechanical catalog code"
 }

@@ -530,5 +530,91 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.539600+00:00",
+    "source": "chatgpt",
+    "price": 0.59,
+    "currency": "CHF",
+    "source_url": "https://www.eibabo.ch/abb/kunststoffhalter-fuer-cr-m-sockel-cr-mh-eb10742700",
+    "category": "Relay accessory",
+    "image_url": "https://www.eibabo.ch/media/image/7f/64/01/EB10742700mXiqM1W59UOl3.jpg",
+    "price_type": "distributor",
+    "alias_found": "1SVR405659R1000",
+    "specs": "CRâMH; 1SVR405659R1000; Ð´ÐµÑÐ¶Ð°ÑÐµÐ»Ñ (HaltebÃ¼gel)",
+    "notes": "Ð¦ÐµÐ½Ð° Â«incl. MwSt.Â» Ð½Ð° ÑÐ²ÐµÐ¹ÑÐ°ÑÑÐºÐ¾Ð¹ Ð²Ð¸ÑÑÐ¸Ð½Ðµ.",
+    "sources": [
+      {
+        "url": "https://www.eibabo.ch/abb/kunststoffhalter-fuer-cr-m-sockel-cr-mh-eb10742700",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "eibabo.ch"
+      },
+      {
+        "url": "https://de.wiautomation.com/abb/general-automation/1svr405659r1000-abb-cr-mh",
+        "page_type": "gray_market",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "de.wiautomation.com"
+      }
+    ]
+  },
+  "dr_price": 3.9,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.electrical.com/Products/Fuses-ABB/CR-MH",
+  "dr_image_url": "https://www.electrical.com/Admin/Product/CR-MH.jpg",
+  "dr_category": "Socket Holder",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/itm/333548244745",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    },
+    {
+      "url": "https://www.electrical.com/Products/Fuses-ABB/CR-MH",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "electrical.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.468532+00:00",
+    "source": "gemini",
+    "price": 3.9,
+    "currency": "USD",
+    "source_url": "https://www.electrical.com/Products/Fuses-ABB/CR-MH",
+    "category": "Socket Holder",
+    "image_url": "https://www.electrical.com/Admin/Product/CR-MH.jpg",
+    "price_type": "distributor",
+    "alias_found": "1SVR405659R1000",
+    "specs": null,
+    "notes": "Plastic; Socket holder for CR-M relays",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/333548244745",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      },
+      {
+        "url": "https://www.electrical.com/Products/Fuses-ABB/CR-MH",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "electrical.com"
+      }
+    ]
+  }
 }

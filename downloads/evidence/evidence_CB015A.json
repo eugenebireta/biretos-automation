@@ -515,14 +515,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.020215+00:00",
+    "imported_at": "2026-04-08T18:40:17.026104+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 299.99,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/117085947375",
+    "category": "Printer HP Officejet Pro K8600",
+    "image_url": "hp.com",
+    "price_type": "surplus",
+    "alias_found": "HP Officejet Pro K8600",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "eBay, condition Used",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/117085947375",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      },
+      {
+        "url": "https://www.hp.com/us-en/shop/pdp/hp-officejet-pro-k8600-printer",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "hp.com"
+      }
+    ]
+  },
+  "dr_price": 3200.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.nseautomation.com/",
+  "dr_category": "Control",
+  "dr_image_url": "nseautomation.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.722161+00:00",
+    "source": "gemini",
+    "price": 3200.0,
+    "currency": "USD",
+    "source_url": "https://www.nseautomation.com/",
+    "category": "Control",
+    "image_url": "nseautomation.com",
+    "price_type": "gray_market",
+    "alias_found": "Controller module for specialized Honeywell systems",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.nseautomation.com/",
+        "page_type": "catalog",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "nseautomation.com"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.nseautomation.com/",
+      "page_type": "catalog",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "nseautomation.com"
+    }
+  ]
 }

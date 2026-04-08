@@ -588,5 +588,75 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.040106+00:00",
+    "source": "chatgpt",
+    "price": 55194.0,
+    "currency": "HUF",
+    "source_url": "https://www.senetic.hu/product/EDA61K-HB-2",
+    "category": "Mobile computer charger home base",
+    "image_url": "shop.acventis.de",
+    "price_type": "distributor",
+    "alias_found": "EAN 5704174212379",
+    "specs": null,
+    "notes": "55194 Ft netto, 70096 Ft brutto, 9 units available",
+    "sources": [
+      {
+        "url": "https://www.senetic.hu/product/EDA61K-HB-2",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "senetic.hu"
+      },
+      {
+        "url": "https://shop.acventis.de/detail/index/sArticle/22832",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "shop.acventis.de"
+      }
+    ]
+  },
+  "dr_price": 195.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.barcodedatasystems.co.uk/",
+  "dr_category": "Mobile Comp.",
+  "dr_image_url": "barcodedatasystems.co.uk",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.833676+00:00",
+    "source": "gemini",
+    "price": 195.0,
+    "currency": "USD",
+    "source_url": "https://www.barcodedatasystems.co.uk/",
+    "category": "Mobile Comp.",
+    "image_url": "barcodedatasystems.co.uk",
+    "price_type": "gray_market",
+    "alias_found": "ScanPal",
+    "specs": null,
+    "notes": "Home base / charging cradle for ScanPal EDA61K",
+    "sources": [
+      {
+        "url": "https://www.barcodedatasystems.co.uk/",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "barcodedatasystems.co.uk"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.barcodedatasystems.co.uk/",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "barcodedatasystems.co.uk"
+    }
+  ]
 }

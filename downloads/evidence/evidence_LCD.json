@@ -533,5 +533,66 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.549604+00:00",
+    "source": "chatgpt",
+    "price": 293.93,
+    "currency": "USD",
+    "source_url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+    "category": "Printer spare part",
+    "image_url": null,
+    "price_type": "list_price",
+    "alias_found": "346-314S-001",
+    "specs": "Part #: 346-314S-001; Â«LCD, panel assy spare PM 23/43Â»; MSRP ÑÐºÐ°Ð·Ð°Ð½",
+    "notes": "PN=LCD ÑÑÐ°ÐºÑÐ¾Ð²Ð°Ð½ ÐºÐ°Ðº Ð²Ð½ÑÑÑÐµÐ½Ð½Ð¸Ð¹ ÑÑÐ»ÑÐº Â«LCD spare partÂ»; Ð¿ÑÑÐ¼Ð¾Ð³Ð¾ Â«LCDÂ» ÐºÐ°Ðº MPN Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾.",
+    "sources": [
+      {
+        "url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+        "page_type": "distributor",
+        "has_price": "Yes (MSRP)",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "thermalprintersupplies.com"
+      }
+    ]
+  },
+  "dr_price": 320.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+  "dr_category": "HMI Display",
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.476538+00:00",
+    "source": "gemini",
+    "price": 320.0,
+    "currency": "USD",
+    "source_url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+    "category": "HMI Display",
+    "image_url": null,
+    "price_type": "surplus",
+    "alias_found": "Replacement for T7350/T7750",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  }
 }

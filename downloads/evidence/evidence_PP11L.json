@@ -528,5 +528,75 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.038104+00:00",
+    "source": "chatgpt",
+    "price": 465.51,
+    "currency": "USD",
+    "source_url": "https://www.robotshop.com/products/eyou-pp11l-canopen-planetary-actuator",
+    "category": "Robotics planetary actuator",
+    "image_url": "ca.robotshop.com",
+    "price_type": "distributor",
+    "alias_found": "EYOU PP11L CANopen",
+    "specs": null,
+    "notes": "Re-stocking soon",
+    "sources": [
+      {
+        "url": "https://www.robotshop.com/products/eyou-pp11l-canopen-planetary-actuator",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "robotshop.com"
+      },
+      {
+        "url": "https://ca.robotshop.com/products/eyou-robotics-canopen-planetary-actuator-18-nm-instantaneous-50-rpm-pp11l-36-c",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ca.robotshop.com"
+      }
+    ]
+  },
+  "dr_price": 420.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.radwell.com/",
+  "dr_category": "Power Supply",
+  "dr_image_url": "radwell.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.814674+00:00",
+    "source": "gemini",
+    "price": 420.0,
+    "currency": "USD",
+    "source_url": "https://www.radwell.com/",
+    "category": "Power Supply",
+    "image_url": "radwell.com",
+    "price_type": "gray_market",
+    "alias_found": "Power Supply unit; likely multi-voltage",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.radwell.com/",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.radwell.com/",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ]
 }

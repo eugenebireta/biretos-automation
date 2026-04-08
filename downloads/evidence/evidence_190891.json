@@ -578,6 +578,64 @@
     "llm_request_id": ""
   },
   "identity_level": "strong",
-  "dr_image_url": "ai_generated:imagen-4.0:Детектор by Honeywell",
-  "dr_image_channel": "gemini_imagen"
+  "dr_image_url": "Product card found but no price shown",
+  "dr_image_channel": "gemini_imagen",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.037106+00:00",
+    "source": "chatgpt",
+    "price": null,
+    "currency": "HTTPS://WWW.TESLI.COM/PRODUCT/RAMKA-4-POSTA-PEHA-BY-HONEYWELL-NOVA-284955/",
+    "source_url": "yes",
+    "category": "P190891",
+    "image_url": "Product card found but no price shown",
+    "price_type": "peha frame nova",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.tesli.com/product/ramka-4-posta-peha-by-honeywell-nova-284955/",
+        "page_type": "distributor",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "tesli.com"
+      }
+    ]
+  },
+  "dr_category": "P190891",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.809675+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CATALOG",
+    "source_url": "No",
+    "category": "No",
+    "image_url": "radwell.com",
+    "price_type": "legacy hardware catalog number",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.radwell.com/",
+        "page_type": "catalog",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "dr_price_type": "legacy hardware catalog number",
+  "dr_sources": [
+    {
+      "url": "https://www.radwell.com/",
+      "page_type": "catalog",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ]
 }

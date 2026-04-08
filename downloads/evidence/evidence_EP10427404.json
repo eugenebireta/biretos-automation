@@ -527,14 +527,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.022217+00:00",
+    "imported_at": "2026-04-08T18:40:17.028104+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 96.97,
+    "currency": "EUR",
+    "source_url": "https://www.knxwarehouse.com/en/esylux-ep10427404.html",
+    "category": "KNX presence detector",
+    "image_url": "watt24.com",
+    "price_type": "distributor",
+    "alias_found": "ESYLUX PD-C 360i/8 KNX UP",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Excl. tax",
+    "sources": [
+      {
+        "url": "https://www.knxwarehouse.com/en/esylux-ep10427404.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "knxwarehouse.com"
+      },
+      {
+        "url": "https://www.watt24.com/en/p/esylux-decken-praesenzmelder-knx-360grad-rw-ca.8m-up-pd-c-360i-8-ep10427404/",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "watt24.com"
+      }
+    ]
+  },
+  "dr_price": 1450.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.classicautomation.com/",
+  "dr_category": "Processing",
+  "dr_image_url": "classicautomation.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.735161+00:00",
+    "source": "gemini",
+    "price": 1450.0,
+    "currency": "USD",
+    "source_url": "https://www.classicautomation.com/",
+    "category": "Processing",
+    "image_url": "classicautomation.com",
+    "price_type": "surplus",
+    "alias_found": "Logic board for industrial processing units",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.classicautomation.com/",
+        "page_type": "catalog",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "classicautomation.com"
+      }
+    ]
+  },
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.classicautomation.com/",
+      "page_type": "catalog",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "classicautomation.com"
+    }
+  ]
 }

@@ -583,14 +583,73 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.016215+00:00",
+    "imported_at": "2026-04-08T18:40:17.023106+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 339.15,
+    "currency": "EUR",
+    "source_url": "https://www.ebay.de/itm/205173519196",
+    "category": "PLC analog input module",
+    "image_url": "app-new.wiautomation.com",
+    "price_type": "gray_market",
+    "alias_found": "Saia PCD3.W340",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "eBay.de, prices incl/excl MwSt shown",
+    "sources": [
+      {
+        "url": "https://www.ebay.de/itm/205173519196",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.de"
+      },
+      {
+        "url": "https://app-new.wiautomation.com/saiaburgess/general-automation/other/pcd3w340",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "app-new.wiautomation.com"
+      }
+    ]
+  },
+  "dr_price": 320.0,
+  "dr_currency": "CHF",
+  "dr_price_source": "https://www.sps-service.eu/",
+  "dr_category": "I/O Module",
+  "dr_image_url": "sps-service.eu",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.705162+00:00",
+    "source": "gemini",
+    "price": 320.0,
+    "currency": "CHF",
+    "source_url": "https://www.sps-service.eu/",
+    "category": "I/O Module",
+    "image_url": "sps-service.eu",
+    "price_type": "gray_market",
+    "alias_found": "Saia Burgess",
+    "specs": null,
+    "notes": "8-channel analog input module for PCD3 PLC",
+    "sources": [
+      {
+        "url": "https://www.sps-service.eu/",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "sps-service.eu"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.sps-service.eu/",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "sps-service.eu"
+    }
+  ]
 }

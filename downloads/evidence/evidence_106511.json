@@ -520,5 +520,66 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.427543+00:00",
+    "source": "chatgpt",
+    "price": 4.77,
+    "currency": "EUR",
+    "source_url": "https://www.watt24.com/en/p/peha-schuko-steckdose-rws-16a-250v-2-pol.-d-20.6511.02-oks-00106511/",
+    "category": "socket insert (SCHUKO)",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "00106511 (ordering code)",
+    "specs": "16A; 250V; product number 106511; ÑÐµÐ½Ð° incl. VAT",
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.watt24.com/en/p/peha-schuko-steckdose-rws-16a-250v-2-pol.-d-20.6511.02-oks-00106511/",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "www.watt24.com"
+      }
+    ]
+  },
+  "dr_price": 4.77,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.watt24.com/en/p/peha-schuko-steckdose-rws-16a-250v-2-pol.-d-20.6511.02-oks-00106511/",
+  "dr_category": "socket insert (SCHUKO)",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.co.uk/sch/i.html?_nkw=honeywell+106511",
+      "page_type": "marketplace",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.co.uk"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.359482+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "SWITCH",
+    "source_url": null,
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.ebay.co.uk/sch/i.html?_nkw=honeywell+106511",
+        "page_type": "marketplace",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.co.uk"
+      }
+    ]
+  }
 }

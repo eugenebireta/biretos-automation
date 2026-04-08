@@ -515,14 +515,62 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.019217+00:00",
+    "imported_at": "2026-04-08T18:40:17.025104+00:00",
     "source": "chatgpt",
     "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "currency": "HTTPS://TBANKROT.RU/ITEM?ID=7463581",
+    "source_url": "no",
+    "category": "ASD1/V2-COMPLETE",
+    "image_url": "Auction lot, no unit price",
+    "price_type": "unknown assembly asd1/v2-complete",
+    "alias_found": null,
     "specs": null,
-    "notes": ""
-  }
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://tbankrot.ru/item?id=7463581",
+        "page_type": "marketplace",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "tbankrot.ru"
+      }
+    ]
+  },
+  "dr_image_url": "Auction lot, no unit price",
+  "dr_category": "ASD1/V2-COMPLETE",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.718161+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CATALOG",
+    "source_url": "No",
+    "category": "No",
+    "image_url": "radwell.com",
+    "price_type": "obscure assembly part number",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.radwell.com/",
+        "page_type": "catalog",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "dr_price_type": "obscure assembly part number",
+  "dr_sources": [
+    {
+      "url": "https://www.radwell.com/",
+      "page_type": "catalog",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ]
 }

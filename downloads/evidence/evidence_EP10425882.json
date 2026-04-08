@@ -525,14 +525,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.026215+00:00",
+    "imported_at": "2026-04-08T18:40:17.030105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 113.04,
+    "currency": "EUR",
+    "source_url": "https://www.watt24.com/en/p/esylux-decken-praesenzmelder-up-360-grad-pd-c-360i-8-mic-ep10425882/",
+    "category": "Presence detector flush-mount",
+    "image_url": "esylux.com",
+    "price_type": "distributor",
+    "alias_found": "ESYLUX PD-C 360i/8 MIC",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Incl VAT; net 94.99",
+    "sources": [
+      {
+        "url": "https://www.watt24.com/en/p/esylux-decken-praesenzmelder-up-360-grad-pd-c-360i-8-mic-ep10425882/",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "watt24.com"
+      },
+      {
+        "url": "https://www.esylux.com/products/indoor-automation/presence-and-motion-detectors/compact/ep10425882",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "esylux.com"
+      }
+    ]
+  },
+  "dr_price": 2100.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.classicautomation.com/",
+  "dr_category": "Processing",
+  "dr_image_url": "classicautomation.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.755168+00:00",
+    "source": "gemini",
+    "price": 2100.0,
+    "currency": "USD",
+    "source_url": "https://www.classicautomation.com/",
+    "category": "Processing",
+    "image_url": "classicautomation.com",
+    "price_type": "surplus",
+    "alias_found": "Communication board for industrial control",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.classicautomation.com/",
+        "page_type": "catalog",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "classicautomation.com"
+      }
+    ]
+  },
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.classicautomation.com/",
+      "page_type": "catalog",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "classicautomation.com"
+    }
+  ]
 }

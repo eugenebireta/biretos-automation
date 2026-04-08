@@ -596,5 +596,83 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.300335+00:00",
+    "source": "chatgpt",
+    "price": 17.99,
+    "currency": "EUR",
+    "source_url": "https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-aluminium-773111-1-st-2855966.html",
+    "category": "switch frame",
+    "image_url": "https://asset.conrad.com/media10/isa/160267/c1/-/de/002855966PI00/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400",
+    "price_type": "distributor",
+    "alias_found": "773111",
+    "specs": "IP20; Kunststoff; ÑÐ¸ÑÐ¸Ð½Ð° 81 Ð¼Ð¼; Ð²ÑÑÐ¾ÑÐ° 86 Ð¼Ð¼; Farbe Aluminium",
+    "notes": "Ð¦ÐµÐ½Ð° â¬17.99 incl. MwSt.; ÑÐµÑÐ´Ð°Ð½Ð½ÑÐµ Ð¸ Ð³Ð°Ð±Ð°ÑÐ¸ÑÑ Ð¿ÑÐ¸ÑÑÑÑÑÐ²ÑÑÑ Ð½Ð° ÑÑÑÐ°Ð½Ð¸ÑÐµ.",
+    "sources": [
+      {
+        "url": "https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-aluminium-773111-1-st-2855966.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "conrad.at"
+      }
+    ]
+  },
+  "dr_price": 70.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/itm/315340315161",
+  "dr_image_url": "https://i.ebayimg.com/images/g/VlAAAOSwE~xmMn~a/s-l1600.jpg",
+  "dr_category": "Smoke Detector",
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/itm/315340315161",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    },
+    {
+      "url": "https://www.ebay.com/itm/386980395512",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.244457+00:00",
+    "source": "gemini",
+    "price": 70.0,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/315340315161",
+    "category": "Smoke Detector",
+    "image_url": "https://i.ebayimg.com/images/g/VlAAAOSwE~xmMn~a/s-l1600.jpg",
+    "price_type": "surplus",
+    "alias_found": "MI-PSE",
+    "specs": null,
+    "notes": "MI-PSE; Addressable; 773111-S",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/315340315161",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      },
+      {
+        "url": "https://www.ebay.com/itm/386980395512",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  }
 }

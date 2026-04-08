@@ -515,14 +515,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.014217+00:00",
+    "imported_at": "2026-04-08T18:40:17.022105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 578.18,
+    "currency": "USD",
+    "source_url": "https://www.ibselectronics.com/part/weidmuller/7508001857/2552242/",
+    "category": "Interface terminal block",
+    "image_url": "electroline.ru",
+    "price_type": "distributor",
+    "alias_found": "WEIDMULLER 7508001857",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Unit price with price breaks",
+    "sources": [
+      {
+        "url": "https://www.ibselectronics.com/part/weidmuller/7508001857/2552242/",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ibselectronics.com"
+      },
+      {
+        "url": "https://electroline.ru/product/weidmuller-7508001857.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "electroline.ru"
+      }
+    ]
+  },
+  "dr_price": 578.18,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ibselectronics.com/part/weidmuller/7508001857/2552242/",
+  "dr_category": "Interface terminal block",
+  "dr_image_url": "ebay.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.696162+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "INTERNAL BOARD",
+    "source_url": "Often part of a C300 controller assembly",
+    "category": "No",
+    "image_url": "ebay.com",
+    "price_type": "no",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/",
+        "page_type": "marketplace",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/",
+      "page_type": "marketplace",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ]
 }

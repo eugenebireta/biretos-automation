@@ -514,14 +514,73 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.027215+00:00",
+    "imported_at": "2026-04-08T18:40:17.031105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 177.88,
+    "currency": "EUR",
+    "source_url": "https://www.bolasystems.com/smartact-damper-actuator-honeywell-n0524-sw2-5nm-24vac-2-auxiliary-end-switches",
+    "category": "HVAC damper actuator SmartAct",
+    "image_url": "resideo.com",
+    "price_type": "distributor",
+    "alias_found": "N0524-SW2",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "List 269.04, excl VAT 177.88, incl 21% VAT 215.23, Out of stock",
+    "sources": [
+      {
+        "url": "https://www.bolasystems.com/smartact-damper-actuator-honeywell-n0524-sw2-5nm-24vac-2-auxiliary-end-switches",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "bolasystems.com"
+      },
+      {
+        "url": "https://www.resideo.com/emea/en/products/comfort/hydronic-valves-and-actuators/hydronic-valve-actuators/n0524-sw2-for-damper-area-of-1-m2-n0524-sw2/",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "resideo.com"
+      }
+    ]
+  },
+  "dr_price": 115.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/",
+  "dr_category": "Switchgear",
+  "dr_image_url": "ebay.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.759671+00:00",
+    "source": "gemini",
+    "price": 115.0,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/",
+    "category": "Switchgear",
+    "image_url": "ebay.com",
+    "price_type": "surplus",
+    "alias_found": "Panel mount switch component",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ]
 }

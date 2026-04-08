@@ -413,5 +413,91 @@
     "policy_card_status_historical": "DRAFT_ONLY",
     "policy_card_status_mismatch": true
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.537604+00:00",
+    "source": "chatgpt",
+    "price": 2.391,
+    "currency": "EUR",
+    "source_url": "https://www.tme.eu/en/details/wew35-2/terminal-block-accessories/weidmuller/1061200000/",
+    "category": "Terminal block accessory",
+    "image_url": "https://assets.dam.weidmueller.com/assets/api/a6b351d5-.../DAP_Master_PP%2Cw_800%2Cq_80",
+    "price_type": "distributor",
+    "alias_found": "WEW35/2 / 1061200000",
+    "specs": "ÐÑÑÐ¸ÐºÑÐ»: 1061200000; Ð¾Ð±Ð¾Ð·Ð½Ð°ÑÐµÐ½Ð¸Ðµ: WEW35/2",
+    "notes": "Ð Ð²Ð°ÑÐµÐ¼ ÑÐ¿Ð¸ÑÐºÐµ ÐºÐ°Ðº Honeywell, Ð½Ð¾ Ð½Ð° ÑÑÐ½ÐºÐµ ÑÑÑÐ¾Ð¹ÑÐ¸Ð²Ð¾ ÐºÐ°Ðº WeidmÃ¼ller.",
+    "sources": [
+      {
+        "url": "https://www.tme.eu/en/details/wew35-2/terminal-block-accessories/weidmuller/1061200000/",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "tme.eu"
+      },
+      {
+        "url": "https://catalog.weidmueller.com/catalog/Start.do?localeId=en&language=en&search=1061200000",
+        "page_type": "manufacturer",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "weidmueller.com"
+      }
+    ]
+  },
+  "dr_price": 2.08,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.specialtycontrolsystems.com/proddetail.php?prod=106120",
+  "dr_image_url": "https://www.specialtycontrolsystems.com/images/106120.jpg",
+  "dr_category": "Terminal Bracket",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.digikey.com/en/products/detail/weidm%C3%BCller/1061200000/385503",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "digikey.com"
+    },
+    {
+      "url": "https://www.specialtycontrolsystems.com/proddetail.php?prod=106120",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "specialtycontrolsystems.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.466532+00:00",
+    "source": "gemini",
+    "price": 2.08,
+    "currency": "USD",
+    "source_url": "https://www.specialtycontrolsystems.com/proddetail.php?prod=106120",
+    "category": "Terminal Bracket",
+    "image_url": "https://www.specialtycontrolsystems.com/images/106120.jpg",
+    "price_type": "distributor",
+    "alias_found": "WEW 35/2",
+    "specs": null,
+    "notes": "DIN Rail; Wemid; End bracket for TS 35 rails",
+    "sources": [
+      {
+        "url": "https://www.digikey.com/en/products/detail/weidm%C3%BCller/1061200000/385503",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "digikey.com"
+      },
+      {
+        "url": "https://www.specialtycontrolsystems.com/proddetail.php?prod=106120",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "specialtycontrolsystems.com"
+      }
+    ]
+  }
 }

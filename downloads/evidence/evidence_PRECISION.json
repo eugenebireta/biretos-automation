@@ -557,5 +557,66 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.551605+00:00",
+    "source": "chatgpt",
+    "price": 83.91,
+    "currency": "EUR",
+    "source_url": "https://www.mouser.com/c/passive-components/potentiometers-trimmers-rheostats/precision-potentiometers/?m=Honeywell",
+    "category": "Precision component",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "SA1CB1A103",
+    "specs": "ÐÑÐ¸Ð¼ÐµÑ Ð¿Ð¾Ð·Ð¸ÑÐ¸Ð¸: SA1CB1A103; ÑÐµÐ½Ð° 83.91â¬ Ð¿ÑÐ¸ 250 ÑÑ",
+    "notes": "PN=PRECISION ÑÑÐ°ÐºÑÐ¾Ð²Ð°Ð½ ÐºÐ°Ðº Ð²Ð½ÑÑÑÐµÐ½Ð½Ð¸Ð¹ ÑÑÐ»ÑÐº Ð½Ð° ÑÐµÑÐ¸Ñ/ÐºÐ°ÑÐµÐ³Ð¾ÑÐ¸Ñ; ÐºÐ¾Ð½ÐºÑÐµÑÐ½ÑÐ¹ MPN Ð½ÑÐ¶ÐµÐ½ Ð´Ð»Ñ ÑÐ¾ÑÐ½Ð¾Ð¹ Ð·Ð°ÐºÑÐ¿ÐºÐ¸.",
+    "sources": [
+      {
+        "url": "https://www.mouser.com/c/passive-components/potentiometers-trimmers-rheostats/precision-potentiometers/?m=Honeywell",
+        "page_type": "distributor",
+        "has_price": "Yes (price break)",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "mouser.com"
+      }
+    ]
+  },
+  "dr_price": 3400.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/itm/Honeywell-Precision-Workstation",
+  "dr_category": "Workstation",
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.classicautomation.com/Product/Precision",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "classicautomation.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.479536+00:00",
+    "source": "gemini",
+    "price": 3400.0,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/Honeywell-Precision-Workstation",
+    "category": "Workstation",
+    "image_url": null,
+    "price_type": "surplus",
+    "alias_found": "Dell Precision",
+    "specs": null,
+    "notes": "Dell Precision; DCS Server; T5810/T5820",
+    "sources": [
+      {
+        "url": "https://www.classicautomation.com/Product/Precision",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "classicautomation.com"
+      }
+    ]
+  }
 }

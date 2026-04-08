@@ -598,5 +598,75 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.037106+00:00",
+    "source": "chatgpt",
+    "price": 18596.0,
+    "currency": "CZK",
+    "source_url": "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-190991-5-ks-1641437.html",
+    "category": "PEHA frame 5-pack",
+    "image_url": "elecena.pl",
+    "price_type": "distributor",
+    "alias_found": "EAN 4010105190991",
+    "specs": null,
+    "notes": "18596 CZK incl DPH, currently unable to supply",
+    "sources": [
+      {
+        "url": "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-190991-5-ks-1641437.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "puhy.cz"
+      },
+      {
+        "url": "https://elecena.pl/product/26063618/ramka-peha-by-honeywell-190991",
+        "page_type": "catalog",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "elecena.pl"
+      }
+    ]
+  },
+  "dr_price": 18596.0,
+  "dr_currency": "CZK",
+  "dr_price_source": "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-190991-5-ks-1641437.html",
+  "dr_category": "PEHA frame 5-pack",
+  "dr_image_url": "radwell.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.804675+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CATALOG",
+    "source_url": "No",
+    "category": "No",
+    "image_url": "radwell.com",
+    "price_type": "legacy hardware catalog number",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.radwell.com/",
+        "page_type": "catalog",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "dr_price_type": "legacy hardware catalog number",
+  "dr_sources": [
+    {
+      "url": "https://www.radwell.com/",
+      "page_type": "catalog",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ]
 }

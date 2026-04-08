@@ -530,5 +530,75 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.173763+00:00",
+    "source": "chatgpt",
+    "price": 47.7,
+    "currency": "CHF",
+    "source_url": "https://www.hlkshop.ch/de/resideo-temperaturfuhler-ktf00-65-2m-artnr-ktf00-65-2m",
+    "category": "temperature sensor",
+    "image_url": "â",
+    "price_type": "distributor",
+    "alias_found": "â",
+    "specs": "ÑÐµÐ¼Ð¿ÐµÑÐ°ÑÑÑÐ½ÑÐ¹ Ð´Ð°ÑÑÐ¸Ðº; Ð´Ð»Ð¸Ð½Ð° ÐºÐ°Ð±ÐµÐ»Ñ 2 Ð¼ (Ð¸Ð· ÐºÐ¾Ð´Ð° -2M); ÑÐµÐ½Ð° Ð½Ð° ÑÑÑÐ°Ð½Ð¸ÑÐµ CHF 47.70",
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.hlkshop.ch/de/resideo-temperaturfuhler-ktf00-65-2m-artnr-ktf00-65-2m",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "hlkshop.ch"
+      },
+      {
+        "url": "https://www.resideo.com/emea/en/search/?q=KTF00-65-2M",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "resideo.com"
+      }
+    ]
+  },
+  "dr_price": 47.7,
+  "dr_currency": "CHF",
+  "dr_price_source": "https://www.hlkshop.ch/de/resideo-temperaturfuhler-ktf00-65-2m-artnr-ktf00-65-2m",
+  "dr_image_url": "â",
+  "dr_category": "Pt1000; 2m cable; HVAC cable sensor",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.honeywell.com/",
+      "page_type": "manufacturer",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "honeywell.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:44:45.070304+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "TEMP SENSOR",
+    "source_url": "KTF00-50",
+    "category": "Pt1000; 2m cable; HVAC cable sensor",
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.honeywell.com/",
+        "page_type": "manufacturer",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "honeywell.com"
+      }
+    ]
+  }
 }

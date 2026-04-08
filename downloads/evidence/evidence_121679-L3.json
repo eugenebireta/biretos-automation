@@ -518,14 +518,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.026215+00:00",
+    "imported_at": "2026-04-08T18:40:17.030105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 242.0,
+    "currency": "AUD",
+    "source_url": "https://www.contractoressentials.com.au/products/honeywell-manual-aspirator-pump",
+    "category": "Gas detection aspirator pump",
+    "image_url": "https://s7d1.scene7.com/is/image/Honeywell65/GasAlertMicroClipXlX3",
+    "price_type": "distributor",
+    "alias_found": "MC-AS01",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Includes GST, in stock",
+    "sources": [
+      {
+        "url": "https://www.contractoressentials.com.au/products/honeywell-manual-aspirator-pump",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "contractoressentials.com.au"
+      },
+      {
+        "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/gas-and-flame-detection/portables/multi-gas/honeywell-bw-microclip-series-multi-gas-detector",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "automation.honeywell.com"
+      }
+    ]
+  },
+  "dr_price": 550.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.galco.com/",
+  "dr_image_url": "https://s7d1.scene7.com/is/image/Honeywell65/GasAlertMicroClipXlX3",
+  "dr_category": "Kit",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.750168+00:00",
+    "source": "gemini",
+    "price": 550.0,
+    "currency": "USD",
+    "source_url": "https://www.galco.com/",
+    "category": "Kit",
+    "image_url": "galco.com",
+    "price_type": "gray_market",
+    "alias_found": "Cable/Installation kit for TDC 3000 systems",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.galco.com/",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "galco.com"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.galco.com/",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "galco.com"
+    }
+  ]
 }

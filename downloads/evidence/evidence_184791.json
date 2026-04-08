@@ -592,5 +592,56 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.187764+00:00",
+    "source": "chatgpt",
+    "price": 369.0,
+    "currency": "EUR",
+    "source_url": "https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-biela-184791-2856810.html",
+    "category": "switch frame",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "â",
+    "specs": "Peha D 20.671.222.022; IP20; Ð¼ÐµÑÐ°Ð»Ð»; 10 ÑÑ",
+    "notes": "Ð¦ÐµÐ½Ð° ÑÐºÐ°Ð·Ð°Ð½Ð° Â«369,00 â¬ s DPHÂ» (Ð²ÐºÐ»ÑÑÐ°Ñ ÐÐÐ¡).",
+    "sources": [
+      {
+        "url": "https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-biela-184791-2856810.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "conrad.sk"
+      }
+    ]
+  },
+  "dr_price": 2046.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+  "dr_category": "Hardware",
+  "dr_price_type": "list_price",
+  "dr_sources": [
+    {
+      "url": "https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-biela-184791-2856810.html",
+      "page_type": "distributor",
+      "has_price": "yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "conrad.sk"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:44:45.087304+00:00",
+    "source": "gemini",
+    "price": 2046.0,
+    "currency": "USD",
+    "source_url": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+    "category": "Hardware",
+    "image_url": null,
+    "price_type": "list_price",
+    "alias_found": "Found in public records; General supply",
+    "specs": null,
+    "notes": ""
+  }
 }

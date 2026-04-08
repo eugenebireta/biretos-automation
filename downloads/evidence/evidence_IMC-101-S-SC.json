@@ -512,14 +512,81 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.014217+00:00",
+    "imported_at": "2026-04-08T18:40:17.022105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 404.26,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/401986911801",
+    "category": "Ethernet-to-fiber media converter",
+    "image_url": "prod-edam.honeywell.com",
+    "price_type": "gray_market",
+    "alias_found": "50135395-002; MOXA IMC-101-S-SC",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Honeywell qualified Moxa device",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/401986911801",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      },
+      {
+        "url": "https://www.teknihaus.com/imc-101-s-sc",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "teknihaus.com"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/pmt/hps/products/pmc/modular-systems/controledge-plc/pmt-hps-controledge-plc-specification-ce03-100-180-1.pdf",
+        "page_type": "datasheet_pdf",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "prod-edam.honeywell.com"
+      }
+    ]
+  },
+  "dr_price": 813.8,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/IMC-101-S-SC",
+  "dr_category": "Networking",
+  "dr_image_url": "radwell.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.692163+00:00",
+    "source": "gemini",
+    "price": 813.8,
+    "currency": "USD",
+    "source_url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/IMC-101-S-SC",
+    "category": "Networking",
+    "image_url": "radwell.com",
+    "price_type": "distributor",
+    "alias_found": "IMC101SSC",
+    "specs": null,
+    "notes": "Single-mode fiber media converter",
+    "sources": [
+      {
+        "url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/IMC-101-S-SC",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/IMC-101-S-SC",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ]
 }

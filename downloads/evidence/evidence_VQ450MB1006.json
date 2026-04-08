@@ -515,14 +515,65 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.008214+00:00",
+    "imported_at": "2026-04-08T18:40:17.018105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 544410.0,
+    "currency": "RUB",
+    "source_url": "https://shop.vitaprom.ru/shop/klapany-honeywell-dvojnye-elektromagnitnye/",
+    "category": "Gas combined valve",
+    "image_url": "shop.vitaprom.ru",
+    "price_type": "gray_market",
+    "alias_found": "534.322.210",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "In stock on catalog page",
+    "sources": [
+      {
+        "url": "https://shop.vitaprom.ru/shop/klapany-honeywell-dvojnye-elektromagnitnye/",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "shop.vitaprom.ru"
+      }
+    ]
+  },
+  "dr_price": 1275.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450",
+  "dr_category": "Combustion",
+  "dr_image_url": "ebay.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.673164+00:00",
+    "source": "gemini",
+    "price": 1275.0,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450",
+    "category": "Combustion",
+    "image_url": "ebay.com",
+    "price_type": "surplus",
+    "alias_found": "VQ450",
+    "specs": null,
+    "notes": "MB variant indicates specific flow/pressure adjustment",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ]
 }

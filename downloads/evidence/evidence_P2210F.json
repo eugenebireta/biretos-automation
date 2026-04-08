@@ -531,14 +531,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.028214+00:00",
+    "imported_at": "2026-04-08T18:40:17.031105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 42.99,
+    "currency": "GBP",
+    "source_url": "https://www.ebay.co.uk/itm/227222137857",
+    "category": "Monitor 22 inch",
+    "image_url": "dl.dell.com",
+    "price_type": "surplus",
+    "alias_found": "Dell P2210f",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "eBay UK, refurbished",
+    "sources": [
+      {
+        "url": "https://www.ebay.co.uk/itm/227222137857",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.co.uk"
+      },
+      {
+        "url": "https://dl.dell.com/manuals/all-products/esuprt_electronics/esuprt_display/dell-p2210-silver_user%27s%20guide_en-us.pdf",
+        "page_type": "datasheet_pdf",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "dl.dell.com"
+      }
+    ]
+  },
+  "dr_price": 45.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/itm/",
+  "dr_category": "Visualization",
+  "dr_image_url": "ebay.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.763675+00:00",
+    "source": "gemini",
+    "price": 45.0,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/",
+    "category": "Visualization",
+    "image_url": "ebay.com",
+    "price_type": "surplus",
+    "alias_found": "Dell P2210F",
+    "specs": null,
+    "notes": "22 inch monitor (Dell OEM) for operator stations",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/itm/",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ]
 }

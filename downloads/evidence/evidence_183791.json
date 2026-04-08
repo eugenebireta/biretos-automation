@@ -573,5 +573,66 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.186765+00:00",
+    "source": "chatgpt",
+    "price": 405.0,
+    "currency": "EUR",
+    "source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html",
+    "category": "switch frame",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "â",
+    "specs": "IP20; Ð¼Ð°ÑÐµÑÐ¸Ð°Ð»: Ð´ÐµÑÐµÐ²Ð¾; 10 ÑÑ; ÑÐ²ÐµÑ Ð±ÐµÐ»ÑÐ¹",
+    "notes": "Ð¦ÐµÐ½Ð° ÑÐºÐ°Ð·Ð°Ð½Ð° Â«405,00 â¬ Prix TTCÂ» (Ð½Ð° ÑÑÑÐ°Ð½Ð¸ÑÐµ).",
+    "sources": [
+      {
+        "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "conrad.fr"
+      }
+    ]
+  },
+  "dr_price": 88.23,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+  "dr_category": "Hardware",
+  "dr_price_type": "list_price",
+  "dr_sources": [
+    {
+      "url": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+      "page_type": "catalog",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "clarkcountynv.gov"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:44:45.087304+00:00",
+    "source": "gemini",
+    "price": 88.23,
+    "currency": "USD",
+    "source_url": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+    "category": "Hardware",
+    "image_url": null,
+    "price_type": "list_price",
+    "alias_found": "Found in public records; General supply",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+        "page_type": "catalog",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "clarkcountynv.gov"
+      }
+    ]
+  }
 }

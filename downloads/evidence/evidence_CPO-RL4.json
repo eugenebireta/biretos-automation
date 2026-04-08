@@ -566,14 +566,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.010215+00:00",
+    "imported_at": "2026-04-08T18:40:17.019107+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 740.0,
+    "currency": "EUR",
+    "source_url": "https://bg.wiautomation.com/honeywell/plc-systems/plc-systems/cporl4",
+    "category": "HVAC room controller BACnet",
+    "image_url": "radwell.co.uk",
+    "price_type": "gray_market",
+    "alias_found": "ControlPoint Room Controller",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "New, 12 months warranty",
+    "sources": [
+      {
+        "url": "https://bg.wiautomation.com/honeywell/plc-systems/plc-systems/cporl4",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "bg.wiautomation.com"
+      },
+      {
+        "url": "https://www.radwell.co.uk/Buy/HONEYWELL/HONEYWELL/CPO-RL4",
+        "page_type": "distributor",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.co.uk"
+      }
+    ]
+  },
+  "dr_price": 450.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.wi-automation.com/",
+  "dr_category": "Building Automation",
+  "dr_image_url": "wi-automation.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.677163+00:00",
+    "source": "gemini",
+    "price": 450.0,
+    "currency": "EUR",
+    "source_url": "https://www.wi-automation.com/",
+    "category": "Building Automation",
+    "image_url": "wi-automation.com",
+    "price_type": "gray_market",
+    "alias_found": "CentraLine",
+    "specs": null,
+    "notes": "CentraLine relay module for HVAC control",
+    "sources": [
+      {
+        "url": "https://www.wi-automation.com/",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "wi-automation.com"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.wi-automation.com/",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "wi-automation.com"
+    }
+  ]
 }

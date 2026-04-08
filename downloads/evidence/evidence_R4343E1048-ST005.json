@@ -544,5 +544,75 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.038104+00:00",
+    "source": "chatgpt",
+    "price": 472.62,
+    "currency": "EUR",
+    "source_url": "https://www.eboutique-richardvisav.fr/pieces-bruleurs-chaudieres/controleur-flamme/relais-industriel-r4343-e-1048-st-005-hon07108-honeywell.html",
+    "category": "Combustion flame relay",
+    "image_url": "ebay.com",
+    "price_type": "distributor",
+    "alias_found": "HON07108",
+    "specs": null,
+    "notes": "472.62 EUR HT, also 567.14 incl tax",
+    "sources": [
+      {
+        "url": "https://www.eboutique-richardvisav.fr/pieces-bruleurs-chaudieres/controleur-flamme/relais-industriel-r4343-e-1048-st-005-hon07108-honeywell.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "eboutique-richardvisav.fr"
+      },
+      {
+        "url": "https://www.ebay.com/itm/205916599815",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_price": 580.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.burnerparts.nl/",
+  "dr_category": "Combustion",
+  "dr_image_url": "burnerparts.nl",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.819676+00:00",
+    "source": "gemini",
+    "price": 580.0,
+    "currency": "EUR",
+    "source_url": "https://www.burnerparts.nl/",
+    "category": "Combustion",
+    "image_url": "burnerparts.nl",
+    "price_type": "gray_market",
+    "alias_found": "R4343E",
+    "specs": null,
+    "notes": "Flame relay switch for intermittent burners",
+    "sources": [
+      {
+        "url": "https://www.burnerparts.nl/",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "burnerparts.nl"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.burnerparts.nl/",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "burnerparts.nl"
+    }
+  ]
 }

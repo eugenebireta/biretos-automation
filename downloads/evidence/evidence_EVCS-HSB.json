@@ -575,14 +575,73 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.030214+00:00",
+    "imported_at": "2026-04-08T18:40:17.033105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 249.95,
+    "currency": "GBP",
+    "source_url": "https://www.thesafetycentre.co.uk/honeywell-evcs-hsb-disabled-refuge-intercom-outstation-type-b-red",
+    "category": "Fire EVCS Type B refuge outstation",
+    "image_url": "prod-edam.honeywell.com",
+    "price_type": "distributor",
+    "alias_found": "Morley VoCALL EVCS-HSB",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "249.95 excl VAT, 299.94 incl VAT, In stock",
+    "sources": [
+      {
+        "url": "https://www.thesafetycentre.co.uk/honeywell-evcs-hsb-disabled-refuge-intercom-outstation-type-b-red",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "thesafetycentre.co.uk"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/morley-ias-uk/hba-fire-HON-EVCS-TypeB-Outstation-2020.pdf",
+        "page_type": "datasheet_pdf",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "prod-edam.honeywell.com"
+      }
+    ]
+  },
+  "dr_price": 185.0,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.firealarmengineers.com/",
+  "dr_category": "Fire Safety",
+  "dr_image_url": "firealarmengineers.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.774676+00:00",
+    "source": "gemini",
+    "price": 185.0,
+    "currency": "GBP",
+    "source_url": "https://www.firealarmengineers.com/",
+    "category": "Fire Safety",
+    "image_url": "firealarmengineers.com",
+    "price_type": "gray_market",
+    "alias_found": "Morley-IAS",
+    "specs": null,
+    "notes": "Emergency Voice Communication System Handset",
+    "sources": [
+      {
+        "url": "https://www.firealarmengineers.com/",
+        "page_type": "forum",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "firealarmengineers.com"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.firealarmengineers.com/",
+      "page_type": "forum",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "firealarmengineers.com"
+    }
+  ]
 }

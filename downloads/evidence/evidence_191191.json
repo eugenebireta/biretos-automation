@@ -570,5 +570,64 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.035106+00:00",
+    "source": "chatgpt",
+    "price": null,
+    "currency": "UNKNOWN",
+    "source_url": "Irrelevant matches only (hex color)",
+    "category": "no",
+    "image_url": "colorhexa.com",
+    "price_type": "no",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.colorhexa.com/191191",
+        "page_type": "catalog",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "colorhexa.com"
+      }
+    ]
+  },
+  "dr_image_url": "radwell.com",
+  "dr_category": "No",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.796675+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CATALOG",
+    "source_url": "No",
+    "category": "No",
+    "image_url": "radwell.com",
+    "price_type": "legacy hardware catalog number",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.radwell.com/",
+        "page_type": "catalog",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "dr_sources": [
+    {
+      "url": "https://www.radwell.com/",
+      "page_type": "catalog",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ],
+  "dr_price_type": "legacy hardware catalog number"
 }

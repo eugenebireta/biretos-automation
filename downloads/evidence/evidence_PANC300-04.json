@@ -526,14 +526,65 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:13.996167+00:00",
+    "imported_at": "2026-04-08T18:40:17.016104+00:00",
     "source": "chatgpt",
     "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "currency": "HTTPS://TBANKROT.RU/ITEM?ID=7463584",
+    "source_url": "no",
+    "category": "C300 Panel",
+    "image_url": "Same auction lot as PANC300-03",
+    "price_type": "dcs panel c300",
+    "alias_found": null,
     "specs": null,
-    "notes": ""
-  }
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://tbankrot.ru/item?id=7463584",
+        "page_type": "marketplace",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "tbankrot.ru"
+      }
+    ]
+  },
+  "dr_image_url": "Same auction lot as PANC300-03",
+  "dr_category": "Control Module",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.658653+00:00",
+    "source": "gemini",
+    "price": 2800.0,
+    "currency": "USD",
+    "source_url": "https://www.nseautomation.com/",
+    "category": "Control Module",
+    "image_url": "nseautomation.com",
+    "price_type": "gray_market",
+    "alias_found": "8C-PCNT04",
+    "specs": null,
+    "notes": "Revised C300 module with potential memory upgrades",
+    "sources": [
+      {
+        "url": "https://www.nseautomation.com/",
+        "page_type": "catalog",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "nseautomation.com"
+      }
+    ]
+  },
+  "dr_price": 2800.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.nseautomation.com/",
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.nseautomation.com/",
+      "page_type": "catalog",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "nseautomation.com"
+    }
+  ]
 }

@@ -533,5 +533,66 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.408543+00:00",
+    "source": "chatgpt",
+    "price": 10.99,
+    "currency": "EUR",
+    "source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html",
+    "category": "rocker cover (wippe)",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "-8% Ð½Ð° ÑÑÑÐ°Ð½Ð¸ÑÐµ; ÑÐµÐ½Ð° ÑÐºÐ°Ð·Ð°Ð½Ð° ÐºÐ°Ðº Prix TTC",
+    "specs": "IP20; RAL 9005; Ð¿Ð»Ð°ÑÑÐ¸Ðº; 1 ÑÑ; ÑÐ²ÐµÑ: ÑÑÑÐ½ÑÐ¹",
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "www.conrad.fr"
+      }
+    ]
+  },
+  "dr_price": 10.99,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html",
+  "dr_category": "rocker cover (wippe)",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.de/sch/i.html?_nkw=%2237011%22+PEHA",
+      "page_type": "marketplace",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.de"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.341481+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "SWITCH",
+    "source_url": "Legacy PEHA; Check eBay.de for PEHA",
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.ebay.de/sch/i.html?_nkw=%2237011%22+PEHA",
+        "page_type": "marketplace",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.de"
+      }
+    ]
+  }
 }

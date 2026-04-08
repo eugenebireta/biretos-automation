@@ -512,14 +512,73 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.025214+00:00",
+    "imported_at": "2026-04-08T18:40:17.029105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 180.31,
+    "currency": "EUR",
+    "source_url": "https://www.andries24.de/Honeywell-Klappenanstelltrieb-S03-24-V-2-Pkt-mit-2-Endlagenschalter-S0324-2POS-SW1-guenstig-kaufen",
+    "category": "HVAC damper actuator",
+    "image_url": "prod-edam.honeywell.com",
+    "price_type": "distributor",
+    "alias_found": "S03 series actuator",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "180.31 EUR incl 19% USt",
+    "sources": [
+      {
+        "url": "https://www.andries24.de/Honeywell-Klappenanstelltrieb-S03-24-V-2-Pkt-mit-2-Endlagenschalter-S0324-2POS-SW1-guenstig-kaufen",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "andries24.de"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/bms-from-hco-030923/hbt-bms-en0b0641-ge51r0210.pdf",
+        "page_type": "datasheet_pdf",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "prod-edam.honeywell.com"
+      }
+    ]
+  },
+  "dr_price": 85.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.industry-mall.com/",
+  "dr_category": "Switchgear",
+  "dr_image_url": "industry-mall.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.745167+00:00",
+    "source": "gemini",
+    "price": 85.0,
+    "currency": "USD",
+    "source_url": "https://www.industry-mall.com/",
+    "category": "Switchgear",
+    "image_url": "industry-mall.com",
+    "price_type": "gray_market",
+    "alias_found": "2-position selector switch for control panels",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.industry-mall.com/",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "industry-mall.com"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.industry-mall.com/",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "industry-mall.com"
+    }
+  ]
 }

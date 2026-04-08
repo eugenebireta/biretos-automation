@@ -519,5 +519,75 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.036106+00:00",
+    "source": "chatgpt",
+    "price": 25.0,
+    "currency": "EUR",
+    "source_url": "https://www.intexys.fr/dell-750w-80-plus-platinum-f750e-s0.html",
+    "category": "Server PSU Dell 750W",
+    "image_url": "harddrivesdirect.com",
+    "price_type": "surplus",
+    "alias_found": "E750E-S0 / 0W0CTF",
+    "specs": null,
+    "notes": "25 EUR HT, 5 in stock, reconditioned 1yr warranty, min qty 2",
+    "sources": [
+      {
+        "url": "https://www.intexys.fr/dell-750w-80-plus-platinum-f750e-s0.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "intexys.fr"
+      },
+      {
+        "url": "https://www.harddrivesdirect.com/product_info.php?manufacturers_id=10&products_id=754124_F750E-S0",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "harddrivesdirect.com"
+      }
+    ]
+  },
+  "dr_price": 25.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.intexys.fr/dell-750w-80-plus-platinum-f750e-s0.html",
+  "dr_category": "Server PSU Dell 750W",
+  "dr_image_url": "burnerparts.nl",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.800675+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CATALOG",
+    "source_url": "Yes",
+    "category": "No",
+    "image_url": "burnerparts.nl",
+    "price_type": "flame sensor or monitor sub-assembly",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.burnerparts.nl/",
+        "page_type": "catalog",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "burnerparts.nl"
+      }
+    ]
+  },
+  "dr_price_type": "flame sensor or monitor sub-assembly",
+  "dr_sources": [
+    {
+      "url": "https://www.burnerparts.nl/",
+      "page_type": "catalog",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "burnerparts.nl"
+    }
+  ]
 }

@@ -530,14 +530,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.015215+00:00",
+    "imported_at": "2026-04-08T18:40:17.023106+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 156.55,
+    "currency": "EUR",
+    "source_url": "https://www.knxwarehouse.com/en/esylux-ep10427213.html",
+    "category": "KNX presence multisensor",
+    "image_url": "esylux.com",
+    "price_type": "distributor",
+    "alias_found": "ESYLUX PD-ATMO 360i/8 T KNX",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Excl. tax; also shown incl. tax",
+    "sources": [
+      {
+        "url": "https://www.knxwarehouse.com/en/esylux-ep10427213.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "knxwarehouse.com"
+      },
+      {
+        "url": "https://www.esylux.com/products/indoor-automation/presence-and-motion-detectors/atmo/ep10427213",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "esylux.com"
+      }
+    ]
+  },
+  "dr_price": 1890.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.classicautomation.com/Part/ep10427213",
+  "dr_category": "Processing",
+  "dr_image_url": "classicautomation.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.700162+00:00",
+    "source": "gemini",
+    "price": 1890.0,
+    "currency": "USD",
+    "source_url": "https://www.classicautomation.com/Part/ep10427213",
+    "category": "Processing",
+    "image_url": "classicautomation.com",
+    "price_type": "surplus",
+    "alias_found": "Honeywell EP Series processor board",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.classicautomation.com/Part/ep10427213",
+        "page_type": "catalog",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "classicautomation.com"
+      }
+    ]
+  },
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.classicautomation.com/Part/ep10427213",
+      "page_type": "catalog",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "classicautomation.com"
+    }
+  ]
 }

@@ -545,5 +545,66 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "weak"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.415545+00:00",
+    "source": "chatgpt",
+    "price": 6.69,
+    "currency": "USD",
+    "source_url": "https://www.tme.eu/en/details/cr-m024dc2/industrial-electromagnetic-relays/abb/1svr405611r1000/",
+    "category": "electromagnetic relay",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "ABB 1SVR405611R1000 / TME symbol CR-M024DC2",
+    "specs": "DPDT; Ucoil 24VDC; Icontacts max 12A; pricing per pcs (net/gross shown)",
+    "notes": "ÐÐ° ÑÑÑÐ°Ð½Ð¸ÑÐµ ÑÐºÐ°Ð·Ð°Ð½Ñ ÑÑÑÐ¿ÐµÐ½ÑÐ°ÑÑÐµ ÑÐµÐ½Ñ Ð¸ ÑÐ¿Ð°ÐºÐ¾Ð²ÐºÐ° 10 pcs",
+    "sources": [
+      {
+        "url": "https://www.tme.eu/en/details/cr-m024dc2/industrial-electromagnetic-relays/abb/1svr405611r1000/",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "www.tme.eu"
+      }
+    ]
+  },
+  "dr_price": 8.88,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/itm/383040790448",
+  "dr_category": "Relay",
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.kempstoncontrols.com/1SVR405611R1000/ABB/sku/224470",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "kempstoncontrols.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.347482+00:00",
+    "source": "gemini",
+    "price": 8.88,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/383040790448",
+    "category": "Relay",
+    "image_url": null,
+    "price_type": "surplus",
+    "alias_found": "1SVR405611R1000",
+    "specs": null,
+    "notes": "24VDC; 2 C/O; 12A; CR-M4SS (Socket)",
+    "sources": [
+      {
+        "url": "https://www.kempstoncontrols.com/1SVR405611R1000/ABB/sku/224470",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "kempstoncontrols.com"
+      }
+    ]
+  }
 }

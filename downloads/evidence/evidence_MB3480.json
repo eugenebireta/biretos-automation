@@ -532,14 +532,73 @@
   },
   "identity_level": "weak",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.013215+00:00",
+    "imported_at": "2026-04-08T18:40:17.021105+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 703.37,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/388702932359",
+    "category": "Industrial networking Modbus gateway",
+    "image_url": "moxa.com",
+    "price_type": "gray_market",
+    "alias_found": "MOXA MGate MB3480",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "eBay, condition New",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/388702932359",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      },
+      {
+        "url": "https://www.moxa.com/en/products/industrial-network-infrastructure/network-management-software/mxview-one-series",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "moxa.com"
+      }
+    ]
+  },
+  "dr_price": 1437.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/MGATE%20MB3480",
+  "dr_category": "Networking",
+  "dr_image_url": "radwell.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.686161+00:00",
+    "source": "gemini",
+    "price": 1437.0,
+    "currency": "USD",
+    "source_url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/MGATE%20MB3480",
+    "category": "Networking",
+    "image_url": "radwell.com",
+    "price_type": "distributor",
+    "alias_found": "MGATE MB3480",
+    "specs": null,
+    "notes": "4-port Modbus TCP Gateway (Moxa OEM)",
+    "sources": [
+      {
+        "url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/MGATE%20MB3480",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/MGATE%20MB3480",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ]
 }

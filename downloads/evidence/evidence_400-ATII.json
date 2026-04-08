@@ -531,14 +531,65 @@
   },
   "identity_level": "strong",
   "deep_research_chatgpt": {
-    "imported_at": "2026-04-08T13:56:14.024217+00:00",
+    "imported_at": "2026-04-08T18:40:17.028104+00:00",
     "source": "chatgpt",
-    "price": null,
-    "currency": null,
-    "source_url": null,
-    "category": null,
-    "image_url": null,
+    "price": 140.69,
+    "currency": "EUR",
+    "source_url": "https://www.senetic.de/product/400-ATII",
+    "category": "Server storage Dell SAS HDD",
+    "image_url": "senetic.de",
+    "price_type": "distributor",
+    "alias_found": "Dell PN 400-ATII",
     "specs": null,
-    "notes": ""
-  }
+    "notes": "Prices exkl/inkl MwSt, 3 units available",
+    "sources": [
+      {
+        "url": "https://www.senetic.de/product/400-ATII",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "senetic.de"
+      }
+    ]
+  },
+  "dr_price": 140.69,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.senetic.de/product/400-ATII",
+  "dr_category": "Server storage Dell SAS HDD",
+  "dr_image_url": "surplusindustrial.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.740161+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CATALOG",
+    "source_url": "No",
+    "category": "No",
+    "image_url": "surplusindustrial.com",
+    "price_type": "legacy transmitter/interface part code",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.surplusindustrial.com/",
+        "page_type": "catalog",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "surplusindustrial.com"
+      }
+    ]
+  },
+  "dr_price_type": "legacy transmitter/interface part code",
+  "dr_sources": [
+    {
+      "url": "https://www.surplusindustrial.com/",
+      "page_type": "catalog",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "surplusindustrial.com"
+    }
+  ]
 }
