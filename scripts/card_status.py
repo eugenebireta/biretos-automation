@@ -948,6 +948,15 @@ def _derive_simple_review_reasons(
 
 
 def _infer_identity_level(photo_result: dict, datasheet_result: dict) -> str:
+    # Prefer explicit structured match flags from extract_structured_pn_flags()
+    if photo_result.get("exact_structured_pn_match"):
+        return "strong"
+    struct_loc = str(photo_result.get("structured_pn_match_location", "")).strip().lower()
+    # Strip suffix-variant suffix so "title_suffix_variant" still maps to "title"
+    base_struct_loc = struct_loc.split("_suffix_variant")[0]
+    if base_struct_loc in _STRUCTURED_CONTEXTS:
+        return "strong"
+    # Legacy fallback: pn_match_location from PNMatchResult (alphanumeric body matches)
     location = str(photo_result.get("pn_match_location", "")).strip().lower()
     if location in _STRUCTURED_CONTEXTS or _has_exact_pdf_identity_evidence(datasheet_result):
         return "strong"
