@@ -171,7 +171,7 @@ class TestClaudeWebSearchProvider:
             text, model, cost = provider.call("test prompt")
 
         assert "confidence" in text
-        assert model == "claude-sonnet-4-6-20250514"
+        assert model == "claude-sonnet-4-5-20241022"
         assert cost > 0
 
 
