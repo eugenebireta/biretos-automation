@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 72
-transition_ts: "2026-04-08T22:30:00Z"
+transition_seq: 73
+transition_ts: "2026-04-09T00:00:00Z"
 
 ## Current
-active_task: "DEBT-CLOSURE-BATCH"
-task_id: "DEBT-CLOSURE-BATCH"
+active_task: "P0.5+P3-ORCHESTRATOR"
+task_id: "P0.5+P3-ORCHESTRATOR"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "DR import complete: 267 new result_*.json + 110 updated from 16 markdown files (GPT Compass + Claude deep-research). 625 training URLs in training_data/dr_url_training_2026-04-08.jsonl. 26/26 tests. Commit c069057. All 9 debts closed: PEHA reclass, card_status mismatches (8), Claude model fix, web search batch, DR import. Remaining: ambiguous_offer (6 SKU) deferred pending higher-confidence data."
+note: "P0.5+P3 shipped together (per critic consensus). P0.5: synthesizer ACTION_SEMI_AUDIT, SEMI pre-execution audit in main.py, audit_passed→ready FSM transition. P3: _get_retry_policy (LOW=1, SEMI=1, CORE=0), _build_retry_directive, auto-retry on acceptance/audit fail, critique injection in directive. core_gate_bridge: run_post_execution_audit_sync + extract_critique_text. 26 new deterministic tests, 1416/1416 pass. Commit 1d07105."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
