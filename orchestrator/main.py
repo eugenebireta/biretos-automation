@@ -175,6 +175,7 @@ def cmd_cycle(args: argparse.Namespace) -> None:
     lock_fh = _acquire_lock()
     if lock_fh is None:
         append_run({"ts": _now(), "event": "lock_busy",
+                     "status": "lock_busy",
                      "reason": "Another orchestrator instance holds the lock"})
         print("[orchestrator] lock_busy — another instance is running. Exiting.",
               file=sys.stderr)
@@ -214,6 +215,7 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
             manifest["last_verdict"] = None
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "packet_received",
+                        "status": "packet_received",
                         "state_before": "awaiting_execution", "state_after": "ready",
                         "trace_id": manifest.get("trace_id")})
             print("[orchestrator] Packet consumed. Ready for next cycle.")
@@ -262,8 +264,21 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
         manifest["last_verdict"] = "ESCALATE"
         save_manifest(manifest)
         append_run({"ts": _now(), "event": "advisor_escalation",
+                    "status": "escalated",
                     "reason": advisor_result.escalation_reason,
                     "trace_id": trace_id})
+        # Record experience for escalation
+        try:
+            import experience_writer as _ew
+            _ew.write_failure_experience(
+                trace_id=trace_id,
+                task_id=manifest.get("current_task_id", "unknown"),
+                risk_class=classification.risk_class if classification else "LOW",
+                failure_reason=f"advisor escalation: {advisor_result.escalation_reason}",
+                failure_stage="advisor",
+            )
+        except Exception:
+            pass  # experience writing should not block orchestrator
         print()
         print("=" * 60)
         print("ADVISOR ESCALATION — could not obtain valid verdict.")
@@ -295,6 +310,7 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
         manifest["fsm_state"] = "audit_in_progress"
         save_manifest(manifest)
         append_run({"ts": _now(), "event": "core_risk_gate_started",
+                    "status": "audit_in_progress",
                     "rule_trace": synth.rule_trace, "rationale": synth.rationale,
                     "trace_id": trace_id})
         print()
@@ -332,6 +348,7 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
             manifest["last_audit_result"] = audit_summary
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "core_risk_gate_complete",
+                        "status": new_verdict.lower() if new_verdict else "unknown",
                         "new_state": new_state, "verdict": new_verdict,
                         "trace_id": trace_id})
 
@@ -351,6 +368,7 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
             manifest["last_verdict"] = "AUDIT_FAILED"
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "core_risk_gate_error",
+                        "status": "audit_error",
                         "error": str(_audit_exc), "error_class": _err_class,
                         "trace_id": trace_id})
 
@@ -362,8 +380,21 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
         manifest["last_verdict"] = verdict_map[synth.action]
         save_manifest(manifest)
         append_run({"ts": _now(), "event": f"synth_{synth.action.lower()}",
+                    "status": f"synth_{synth.action.lower()}",
                     "rule_trace": synth.rule_trace, "rationale": synth.rationale,
                     "trace_id": trace_id})
+        # Record experience for synthesizer block
+        try:
+            import experience_writer as _ew
+            _ew.write_failure_experience(
+                trace_id=trace_id,
+                task_id=manifest.get("current_task_id", "unknown"),
+                risk_class=synth.final_risk or classification.risk_class,
+                failure_reason=f"synthesizer {synth.action}: {synth.rationale}",
+                failure_stage="synthesizer",
+            )
+        except Exception:
+            pass
         print()
         print("=" * 60)
         print(f"SYNTHESIZER: {synth.action}")
@@ -385,6 +416,7 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
     save_manifest(manifest)
 
     append_run({"ts": _now(), "event": "directive_written",
+                "status": "directive_written",
                 "state_before": "ready", "state_after": "awaiting_execution",
                 "trace_id": trace_id, "directive_hash": directive_hash})
 
@@ -453,13 +485,21 @@ def _run_synthesizer(classification, verdict, attempt_count: int,
 
 
 def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
-    """M4: run Claude Code autonomously and auto-collect packet."""
+    """M4: run Claude Code autonomously, verify, and record experience.
+
+    Control loop: executor → gate → acceptance check → experience record.
+    This closes the learning loop identified as P0 in audit v2.
+    """
     import json
     import executor_bridge as _eb
+    import acceptance_checker as _ac
+    import experience_writer as _ew
 
     timeout = int(cfg.get("executor_timeout_seconds", 600))
     run_pytest = bool(cfg.get("auto_pytest", False))
     base_commit = cfg.get("base_commit") or None
+    task_id = manifest.get("current_task_id", "unknown")
+    risk_class = manifest.get("_last_risk_class", "LOW")
 
     # Snapshot HEAD before executor runs — diff only executor's changes
     if not base_commit:
@@ -491,8 +531,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
 
         # Batch Quality Gate — deterministic check on execution packet
         import batch_quality_gate as _bqg
-        # Derive expected risk from last classification
-        _expected_risk = manifest.get("_last_risk_class", "LOW")
+        _expected_risk = risk_class
         gate_result = _bqg.check_packet(packet, expected_risk=_expected_risk)
 
         print(f"[orchestrator] Packet collected: "
@@ -501,28 +540,87 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
         print(f"[orchestrator] Batch gate: passed={gate_result.passed} "
               f"rule={gate_result.rule} auto_merge={gate_result.auto_merge_eligible}")
 
+        # --- ACCEPTANCE CHECK (P0: closes the control loop) ---
+        directive_text = ""
+        if DIRECTIVE_PATH.exists():
+            directive_text = DIRECTIVE_PATH.read_text(encoding="utf-8")
+        acceptance = _ac.check(
+            packet=packet,
+            directive_text=directive_text,
+            trace_id=trace_id,
+        )
+        print(f"[orchestrator] Acceptance: passed={acceptance.passed} "
+              f"drift={acceptance.drift_detected} "
+              f"checks={[c.check_id for c in acceptance.checks if not c.passed]}")
+
+        # --- EXPERIENCE RECORD (P0: trace-linked learning) ---
+        acceptance_checks_dicts = [
+            {"check_id": c.check_id, "passed": c.passed, "detail": c.detail}
+            for c in acceptance.checks
+        ]
+        exp_record = _ew.write_execution_experience(
+            trace_id=trace_id,
+            task_id=task_id,
+            risk_class=risk_class,
+            acceptance_passed=acceptance.passed,
+            acceptance_checks=acceptance_checks_dicts,
+            drift_detected=acceptance.drift_detected,
+            changed_files=packet.get("changed_files", []),
+            elapsed_seconds=exec_result.elapsed_seconds,
+            executor_status=exec_result.status,
+            gate_passed=gate_result.passed,
+            gate_rule=gate_result.rule,
+            out_of_scope_files=acceptance.out_of_scope_files,
+            correction_needed=not acceptance.passed,
+            correction_detail="drift: executor touched out-of-scope files"
+            if acceptance.drift_detected else None,
+        )
+        print(f"[orchestrator] Experience: verdict={exp_record.get('overall_verdict')} "
+              f"trace_id={trace_id}")
+
         if gate_result.passed:
-            manifest["fsm_state"] = "ready"
-            manifest["last_verdict"] = None
+            # Determine final verdict based on both gate and acceptance
+            if acceptance.passed:
+                manifest["fsm_state"] = "ready"
+                manifest["last_verdict"] = None
+            else:
+                manifest["fsm_state"] = "awaiting_owner_reply"
+                manifest["last_verdict"] = "ACCEPTANCE_FAILED"
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "auto_execute_completed",
-                        "state_before": "awaiting_execution", "state_after": "ready",
+                        "status": "pass" if acceptance.passed else "acceptance_failed",
+                        "state_before": "awaiting_execution",
+                        "state_after": manifest["fsm_state"],
                         "trace_id": trace_id,
                         "changed_files": len(packet.get("changed_files", [])),
                         "elapsed_seconds": exec_result.elapsed_seconds,
                         "gate_rule": gate_result.rule,
-                        "auto_merge": gate_result.auto_merge_eligible})
-            print("[orchestrator] FSM -> ready. Run main.py for next cycle.")
+                        "auto_merge": gate_result.auto_merge_eligible,
+                        "acceptance_passed": acceptance.passed,
+                        "drift_detected": acceptance.drift_detected})
+            if acceptance.passed:
+                print("[orchestrator] FSM -> ready. Run main.py for next cycle.")
+            else:
+                print()
+                print("=" * 60)
+                print("ACCEPTANCE CHECK FAILED (gate passed but executor drifted)")
+                for c in acceptance.checks:
+                    if not c.passed:
+                        print(f"  {c.check_id}: {c.detail}")
+                print("Resolve and set fsm_state=ready in manifest.json")
+                print("=" * 60)
         else:
             manifest["fsm_state"] = "awaiting_owner_reply"
             manifest["last_verdict"] = "BATCH_GATE_FAILED"
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "batch_gate_failed",
+                        "status": "gate_failed",
                         "state_before": "awaiting_execution",
                         "state_after": "awaiting_owner_reply",
                         "trace_id": trace_id,
                         "gate_rule": gate_result.rule,
-                        "gate_reason": gate_result.reason})
+                        "gate_reason": gate_result.reason,
+                        "acceptance_passed": acceptance.passed})
             print()
             print("=" * 60)
             print(f"BATCH GATE FAILED: {gate_result.rule}")
@@ -535,7 +633,14 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
         manifest["fsm_state"] = "error"
         manifest["last_verdict"] = "COLLECT_FAILED"
         save_manifest(manifest)
+        _ew.write_failure_experience(
+            trace_id=trace_id, task_id=task_id, risk_class=risk_class,
+            failure_reason="executor completed but packet collection returned None",
+            failure_stage="collect",
+            elapsed_seconds=exec_result.elapsed_seconds,
+        )
         append_run({"ts": _now(), "event": "collect_failed",
+                    "status": "collect_failed",
                     "trace_id": trace_id,
                     "reason": "executor completed but packet collection returned None",
                     "executor_status": exec_result.status})
@@ -551,10 +656,16 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
         manifest["fsm_state"] = "error"
         manifest["last_verdict"] = "EXECUTOR_FAILED"
         save_manifest(manifest)
+        _ew.write_failure_experience(
+            trace_id=trace_id, task_id=task_id, risk_class=risk_class,
+            failure_reason=f"executor {exec_result.status} exit_code={exec_result.exit_code}",
+            failure_stage="executor",
+            elapsed_seconds=exec_result.elapsed_seconds,
+        )
         append_run({"ts": _now(), "event": "auto_execute_failed",
+                    "status": "executor_failed",
                     "state_after": "error",
                     "trace_id": trace_id,
-                    "status": exec_result.status,
                     "exit_code": exec_result.exit_code,
                     "error_class": exec_result.error_class})
         print()
