@@ -265,19 +265,19 @@ class MockResearchProvider(ResearchProvider):
 def run_research_for_packet(
     packet_path: str,
     provider: Optional[ResearchProvider] = None,
+    use_web_search: bool = False,
 ) -> dict:
-    """Read a research packet, send to Claude API, save result.
+    """Read a research packet, send to LLM provider, save result.
 
     Args:
-        packet_path: Path to research_packet_{pn}.json
-        provider:    Override provider (for testing). Defaults to ClaudeResearchProvider.
+        packet_path:   Path to research_packet_{pn}.json
+        provider:      Override provider (for testing). None = auto-select.
+        use_web_search: If True, use WebSearchResearchOrchestrator (Gemini + Claude).
+                        If False, use ClaudeResearchProvider (original behaviour, no web).
 
     Returns:
         Result record dict.
     """
-    if provider is None:
-        provider = ClaudeResearchProvider()
-
     packet_path_obj = Path(packet_path)
     with open(packet_path_obj, encoding="utf-8") as f:
         packet = json.load(f)
@@ -287,6 +287,43 @@ def run_research_for_packet(
 
     check_budget()  # raises BudgetExceeded if over limit
 
+    # Auto-select provider
+    if provider is None:
+        if use_web_search:
+            try:
+                from research_providers import WebSearchResearchOrchestrator
+                orchestrator = WebSearchResearchOrchestrator()
+
+                def _check_budget_fn(estimated_cost=0.0):
+                    check_budget(estimated_cost)
+
+                web_result = orchestrator.research_packet(packet, check_budget_fn=_check_budget_fn)
+                cost = web_result.get("cost_usd", 0.0)
+                model_used = web_result.get("model", "unknown")
+                _record_spend(cost, model_used)
+
+                # Merge into standard result format
+                final_rec = web_result.get("final_recommendation") or {}
+                result = parse_research_response(
+                    web_result.get("response_raw", json.dumps(final_rec)),
+                    packet
+                )
+                result["model"] = model_used
+                result["cost_usd"] = cost
+                result["provider"] = web_result.get("provider", "unknown")
+                result["web_search_used"] = True
+
+                RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+                result_path = RESULTS_DIR / f"result_{pn_safe}.json"
+                result_path.write_text(
+                    json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8"
+                )
+                return result
+            except ImportError:
+                pass  # research_providers not available, fall through to default
+
+        provider = ClaudeResearchProvider()
+
     prompt = build_research_prompt(packet)
     response_text, model_used, cost = provider.call(prompt)
     _record_spend(cost, model_used)
@@ -294,6 +331,8 @@ def run_research_for_packet(
     result = parse_research_response(response_text, packet)
     result["model"] = model_used
     result["cost_usd"] = cost
+    result["provider"] = getattr(provider, "name", type(provider).__name__)
+    result["web_search_used"] = False
 
     # Save result
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -312,6 +351,7 @@ def run_batch_research(
     max_items: int = 50,
     priority_filter: Optional[str] = "high",
     provider: Optional[ResearchProvider] = None,
+    use_web_search: bool = False,
 ) -> dict:
     """Run research for top-N items from the research queue.
 
@@ -376,7 +416,9 @@ def run_batch_research(
         packet_path = item.get("packet_path", "")
 
         try:
-            result = run_research_for_packet(packet_path, provider=provider)
+            result = run_research_for_packet(
+                packet_path, provider=provider, use_web_search=use_web_search
+            )
             batch_results["success"] += 1
             batch_results["results"].append({
                 "pn": pn,
@@ -628,6 +670,10 @@ if __name__ == "__main__":
     run_p.add_argument("--max-items", type=int, default=50)
     run_p.add_argument("--priority", default="high", help="high|medium|low|all")
     run_p.add_argument("--mock", action="store_true", help="Use mock provider (no API)")
+    run_p.add_argument("--web-search", action="store_true",
+                       help="Use web search providers (Gemini grounding + Claude fallback)")
+    run_p.add_argument("--rerun", action="store_true",
+                       help="Re-run previously failed/low-confidence packets")
 
     sub.add_parser("audit", help="Audit research result quality")
     sub.add_parser("candidates", help="Show merge-ready candidates")
@@ -638,10 +684,27 @@ if __name__ == "__main__":
     if args.cmd == "run":
         provider = MockResearchProvider() if getattr(args, "mock", False) else None
         pfilter = None if args.priority == "all" else args.priority
+        use_web = getattr(args, "web_search", False)
+
+        if getattr(args, "rerun", False):
+            # Clear low-confidence results so they get re-run
+            if RESULTS_DIR.exists():
+                cleared = 0
+                for result_file in RESULTS_DIR.glob("result_*.json"):
+                    try:
+                        r = json.loads(result_file.read_text(encoding="utf-8"))
+                        if r.get("confidence", "high") in ("low", "unknown"):
+                            result_file.unlink()
+                            cleared += 1
+                    except Exception:
+                        pass
+                print(f"Cleared {cleared} low-confidence results for re-run")
+
         stats = run_batch_research(
             max_items=args.max_items,
             priority_filter=pfilter,
             provider=provider,
+            use_web_search=use_web,
         )
         print(f"Completed: {stats['success']}/{stats['total']}")
         if stats.get("budget_stop"):
