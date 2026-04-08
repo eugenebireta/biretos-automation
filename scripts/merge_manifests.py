@@ -115,6 +115,7 @@ def _finalize_output_row(row: dict[str, Any]) -> dict[str, Any]:
     return finalized
 
 
+
 def merge(
     first_pass: list[dict[str, Any]],
     second_pass: list[dict[str, Any]],

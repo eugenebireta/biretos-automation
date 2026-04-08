@@ -222,6 +222,7 @@ def test_merge_materializes_ambiguous_offer_for_semantic_component_page():
     assert merged[0]["review_required"] is True
 
 
+
 # ── Integration: run() with real files ───────────────────────────────────────
 
 def test_run_writes_jsonl(tmp_path):

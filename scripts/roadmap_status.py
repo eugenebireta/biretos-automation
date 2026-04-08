@@ -124,6 +124,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "1",
         "name": "Governance Executor",
+        "description": "Deterministic action dispatcher + idempotency layer for Core business mutations. Ensures every state change goes through governance pipeline.",
         "risk": "CORE",
         "roadmap_claimed": "IN_PROGRESS",
         "checks": [
@@ -140,6 +141,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "2",
         "name": "CI + Branch Protection",
+        "description": "GitHub Actions CI pipeline: runs pytest, Iron Fence guards, and Ruff on every push/PR to master.",
         "risk": "SEMI",
         "roadmap_claimed": "IN_PROGRESS",
         "checks": [
@@ -153,6 +155,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "2.5",
         "name": "Context Cortex",
+        "description": "PROJECT_DNA + CLAUDE.md — authoritative rule files that AI agents must read before any code change.",
         "risk": "SEMI",
         "roadmap_claimed": "DONE",
         "checks": [
@@ -163,6 +166,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "3",
         "name": "Reconciliation RC-2..RC-7",
+        "description": "Read-only verification engine that detects divergence between payment, shipment, stock, and document subsystems. FROZEN — Tier-1.",
         "risk": "CORE",
         "roadmap_claimed": "NOT_STARTED",
         "checks": [
@@ -178,6 +182,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "4",
         "name": "Alerting",
+        "description": "Telegram alert dispatcher with severity-based routing (CRITICAL/HIGH/WARNING). Sends operational alerts to configured chat.",
         "risk": "SEMI",
         "roadmap_claimed": "NOT_STARTED",
         "checks": [
@@ -192,6 +197,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "4.5",
         "name": "Observability Strategy",
+        "description": "Structured health-check functions (9 check_* methods) that verify subsystem integrity. Part of Tier-1 frozen Core.",
         "risk": "SEMI",
         "roadmap_claimed": "NOT_STARTED",
         "checks": [
@@ -203,6 +209,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "5",
         "name": "CDM Runtime Validation (Pydantic)",
+        "description": "Pydantic models for TaskIntent + Guardian veto-layer that blocks unsafe Core mutations. Guardian is NOT a budget gate — it validates business invariants before state changes.",
         "risk": "CORE",
         "roadmap_claimed": "PARTIAL",
         "checks": [
@@ -220,6 +227,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "5.5",
         "name": "Iron Fence (Core Freeze Guards)",
+        "description": "CI-enforced protection for 19 frozen Tier-1 files: SHA-256 hash lock, boundary grep guards (no Tier-3 importing Tier-1), migration DDL guard.",
         "risk": "SEMI",
         "roadmap_claimed": "PARTIAL",
         "checks": [
@@ -233,6 +241,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "6",
         "name": "Backoffice Task Engine",
+        "description": "Telegram-driven task management: permission checks, risk registry, action logging, rate limiting for NLU requests. NOT a budget tracker — rate_limiter controls request frequency, not API spend.",
         "risk": "CORE",
         "roadmap_claimed": "DONE",
         "checks": [
@@ -259,6 +268,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "7",
         "name": "AI Executive Assistant (NLU)",
+        "description": "Natural language interface for Telegram: intent parsing, confirmation flow, prompt injection guard, SLA tracking. Owner sends text commands, system executes via governance pipeline.",
         "risk": "CORE",
         "roadmap_claimed": "DONE",
         "checks": [
@@ -281,6 +291,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "8",
         "name": "Stability Gate",
+        "description": "Maintenance sweeper (reconciliation loop orchestrator), retention policy (TTL cleanup), and Telegram message router. Tier-1 frozen components.",
         "risk": "CORE",
         "roadmap_claimed": "MONITOR",
         "checks": [
@@ -294,6 +305,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "R1",
         "name": "Mass Catalog Pipeline",
+        "description": "Enrichment pipeline for 370 Honeywell SKUs: photo validation, price extraction, category mapping, InSales export. Code exists and works; enrichment of remaining SKUs is ongoing.",
         "risk": "SEMI",
         "roadmap_claimed": "ACTIVE",
         "checks": [
@@ -316,6 +328,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "R2",
         "name": "Telegram Export",
+        "description": "Export pipeline that sends catalog data to Telegram channels. Schema and routing scaffolded, full implementation pending.",
         "risk": "LOW",
         "roadmap_claimed": "SCAFFOLD",
         "checks": [
@@ -330,6 +343,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "R3",
         "name": "Lot Analyzer Engine",
+        "description": "Scoring and filtering engine for wholesale lot analysis: capital allocation, margin scoring, filter rules. Standalone pipeline, no Core dependencies.",
         "risk": "SEMI",
         "roadmap_claimed": "NOT_STARTED",
         "checks": [
@@ -345,6 +359,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "META",
         "name": "Meta Orchestrator",
+        "description": "AI task planning pipeline: intake → classifier (risk assessment) → advisor (Claude LLM) → synthesizer (deterministic rule engine) → directive writer. NOT an experience/learning system — it plans tasks.",
         "risk": "SEMI",
         "roadmap_claimed": "NOT_IN_ROADMAP",
         "checks": [
@@ -364,6 +379,7 @@ STAGES: list[dict[str, Any]] = [
     {
         "id": "AUDITOR",
         "name": "Governed AI Execution (auditor_system)",
+        "description": "Dual-critique code review system: Gemini (CRITIC) + Anthropic (JUDGE) audit AI-generated code changes. Quality gate blocks unsafe merges. NOT the same as Guardian (Stage 5) which guards runtime mutations.",
         "risk": "SEMI",
         "roadmap_claimed": "NOT_IN_ROADMAP",
         "checks": [
@@ -397,6 +413,7 @@ def evaluate_all() -> list[dict]:
         results.append({
             "id": stage["id"],
             "name": stage["name"],
+            "description": stage.get("description", ""),
             "risk": stage["risk"],
             "roadmap_claimed": stage["roadmap_claimed"],
             "actual_status": actual,
@@ -484,8 +501,14 @@ def print_table(results: list[dict]) -> None:
 
 def write_json(results: list[dict]) -> Path:
     payload = {
-        "schema_version": "roadmap_live_status_v1",
+        "schema_version": "roadmap_live_status_v2",
         "generated_at": datetime.now(timezone.utc).isoformat() + "Z",
+        "status_meaning": {
+            "DONE": "All code artifacts exist and tests pass. Does NOT mean business goal is achieved — only that implementation is complete.",
+            "PARTIAL": "Some code artifacts exist but the stage is incomplete.",
+            "NOT_STARTED": "No code artifacts found for this stage.",
+        },
+        "note": "This file is auto-generated by scripts/roadmap_status.py. Do not edit manually.",
         "stages": results,
     }
     OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
