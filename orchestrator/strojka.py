@@ -143,7 +143,18 @@ def parse_intent(user_text: str) -> dict:
 
 
 def create_manifest(task: dict) -> None:
-    """Write parsed task into orchestrator manifest."""
+    """Write parsed task into orchestrator manifest.
+
+    Also clears stale execution artifacts from previous tasks
+    so the classifier doesn't inherit old changed_files.
+    """
+    # Clean stale artifacts from previous task
+    for stale in ("last_execution_packet.json", "last_advisor_verdict.json",
+                   "last_escalation.json", "orchestrator_directive.md"):
+        p = ORCH_DIR / stale
+        if p.exists():
+            p.unlink()
+
     manifest = {
         "schema_version": "v1",
         "fsm_state": "ready",
