@@ -1,0 +1,36 @@
+# Deep Research: Honeywell TPPR-V-1030
+
+**Part Number:** TPPR-V-1030
+**Brand:** Honeywell
+**Product Name:** Модуль цифрового ввода Honeywell TPPR-V-1030
+**Category:** industrial product
+**Owner Price (RUB):** 142,340
+
+## Tasks
+- **PRICE:** Find current market price (any currency). Check authorized distributors.
+
+## Search Constraints
+These domains were already searched with zero useful results — skip them:
+- www.isssafety.com
+
+## Instructions
+Search for the EXACT part number "TPPR-V-1030" from "Honeywell". Focus on: manufacturer website, authorized distributors, industrial catalogs, PDF datasheets. Check the actual product page, not just search snippets.
+
+## Required Output
+Your response MUST end with this JSON block:
+```json
+{
+  "pn_confirmed": true/false,
+  "actual_brand": "Honeywell or sub-brand",
+  "product_name": "...",
+  "category": "...",
+  "price_per_unit": null or number,
+  "price_currency": "EUR/USD/GBP/RUB/...",
+  "price_source_url": "..." or null,
+  "image_url": "..." or null,
+  "datasheet_url": "..." or null,
+  "distributor_urls": ["..."],
+  "confidence": "high" | "medium" | "low",
+  "notes": "brief explanation"
+}
+```
