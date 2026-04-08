@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 70
-transition_ts: "2026-04-08T19:55:00Z"
+transition_seq: 71
+transition_ts: "2026-04-08T20:50:00Z"
 
 ## Current
-active_task: "DESIGN-AUTONOMY-ENGINE-V1"
-task_id: "DESIGN-AUTONOMY-ENGINE-V1"
-phase: COMPLETED
-status: COMPLETED_WAITING_REVIEW
-note: "Autonomy Engine v1 design doc written: Decision Classes D1-D5 with rollback strategies, AutoApprove rules engine (HE-1..HE-6 hard rules + Policy Pack soft rules), Policy Packs v1 YAML schema, approval batching logic, and 6 Autonomy KPIs. docs/design/autonomy_engine_v1.md created. No code implemented."
+active_task: "DEBT-CLOSURE-BATCH"
+task_id: "DEBT-CLOSURE-BATCH"
+phase: BUILDER
+status: ACTIVE
+note: "Debt closure batch: PEHA 8-SKU reclass confirmed (already correct), 8 policy_card_status mismatches reconciled, Claude model fixed to claude-sonnet-4-6, research_runner web search batch started (28 results so far, 11 admissible_public_price). Rate-limited on Claude API (30k tokens/min). DR prompts ready: 160 SKU in 20 batches."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
