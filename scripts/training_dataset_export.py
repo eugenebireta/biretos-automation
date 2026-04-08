@@ -1,10 +1,12 @@
 """training_dataset_export.py — Export shadow_log data as training datasets for local AI.
 
-4 dataset types:
+6 dataset types (Phase 4.1 expanded):
 1. price_extraction — (prompt, response_raw, pn, brand) → structured price output
 2. photo_verdict    — (image_url, pn, brand, page_title) → KEEP/REJECT + reason
 3. category_classification — (pn, title, page_class, brand) → correct_category
 4. search_strategy  — (pn, brand, family) → {queries_used, worked, failed}
+5. page_ranking     — (candidate_urls, ranked_result, method) → page rank decision
+6. unit_judge       — (price, currency, context_text) → unit_basis verdict
 
 Output: training_data/{dataset_name}.json (one file per dataset)
 
@@ -220,20 +222,47 @@ def export_search_strategy_dataset(shadow_dir: Path = _DEFAULT_SHADOW_DIR) -> li
     return dataset
 
 
+def export_jsonl_dataset(
+    jsonl_path: Path,
+    dataset_name: str,
+) -> list[dict]:
+    """Export a training_data JSONL file as a list of records."""
+    records = []
+    if not jsonl_path.exists():
+        return records
+    try:
+        with open(jsonl_path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    try:
+                        records.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        continue
+    except Exception:
+        pass
+    return records
+
+
 def export_all_datasets(
     output_dir: Path = _DEFAULT_OUTPUT_DIR,
     shadow_dir: Path = _DEFAULT_SHADOW_DIR,
     evidence_dir: Path = _DEFAULT_EVIDENCE_DIR,
 ) -> dict[str, int]:
-    """Export all 4 datasets to output_dir. Returns {dataset_name: count}."""
+    """Export all 6 datasets to output_dir. Returns {dataset_name: count}."""
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Core 4 datasets (from shadow_log)
     datasets = {
         "price_extraction": export_price_extraction_dataset(shadow_dir),
         "photo_verdict": export_photo_verdict_dataset(shadow_dir),
         "category_classification": export_category_classification_dataset(evidence_dir, shadow_dir),
         "search_strategy": export_search_strategy_dataset(shadow_dir),
     }
+
+    # Phase 4.1: 2 additional datasets (from training_data JSONL)
+    datasets["page_ranking"] = export_jsonl_dataset(output_dir / "page_ranking_examples.jsonl", "page_ranking")
+    datasets["unit_judge"] = export_jsonl_dataset(output_dir / "unit_judge_examples.jsonl", "unit_judge")
 
     stats: dict[str, int] = {}
     for name, records in datasets.items():
@@ -267,8 +296,15 @@ if __name__ == "__main__":
         evidence_dir=Path(args.evidence_dir),
     )
 
-    print("\n=== Training Dataset Export ===")
+    MIN_NEEDED = {
+        "price_extraction": 200, "photo_verdict": 50,
+        "category_classification": 100, "search_strategy": 50,
+        "page_ranking": 100, "unit_judge": 50,
+    }
+    print("\n=== Training Dataset Export (6-point) ===")
     for name, count in stats.items():
-        print(f"  {name:35s}: {count:4d} examples")
+        needed = MIN_NEEDED.get(name, 50)
+        status = "ready" if count >= needed else f"need {needed - count} more"
+        print(f"  {name:35s}: {count:4d} examples  [{status}]")
     print(f"  {'TOTAL':35s}: {sum(stats.values()):4d}")
     print(f"\nOutput: {args.output_dir}/")
