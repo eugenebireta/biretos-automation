@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 71
-transition_ts: "2026-04-08T20:50:00Z"
+transition_seq: 72
+transition_ts: "2026-04-08T22:30:00Z"
 
 ## Current
 active_task: "DEBT-CLOSURE-BATCH"
 task_id: "DEBT-CLOSURE-BATCH"
-phase: BUILDER
-status: ACTIVE
-note: "Debt closure batch: PEHA 8-SKU reclass confirmed (already correct), 8 policy_card_status mismatches reconciled, Claude model fixed to claude-sonnet-4-6, research_runner web search batch started (28 results so far, 11 admissible_public_price). Rate-limited on Claude API (30k tokens/min). DR prompts ready: 160 SKU in 20 batches."
+phase: COMPLETED_WAITING_REVIEW
+status: DONE
+note: "DR import complete: 267 new result_*.json + 110 updated from 16 markdown files (GPT Compass + Claude deep-research). 625 training URLs in training_data/dr_url_training_2026-04-08.jsonl. 26/26 tests. Commit c069057. All 9 debts closed: PEHA reclass, card_status mismatches (8), Claude model fix, web search batch, DR import. Remaining: ambiguous_offer (6 SKU) deferred pending higher-confidence data."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
