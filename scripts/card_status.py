@@ -15,6 +15,7 @@ _SOURCE_MATRIX_PATH = _CONFIG_DIR / "source_role_field_matrix_v1.json"
 _REVIEW_SCHEMA_PATH = _CONFIG_DIR / "review_reason_schema_v1.json"
 
 _PUBLISHABLE_PRICE = {"public_price", "rfq_only"}
+_PRICE_EXISTS = {"public_price", "rfq_only", "owner_price"}
 _STRUCTURED_CONTEXTS = {"jsonld", "title", "h1", "product_context"}
 _PDF_IDENTITY_ALLOWED_TIERS = {"official", "authorized"}
 
@@ -878,6 +879,10 @@ def _normalize_price_status(value: str) -> str:
         "": "no_price",
     }
     norm = aliases.get(norm, norm)
+    # owner_price is mapped to rfq_only for policy matching:
+    # it counts as "has price" (→ REVIEW_REQUIRED) but not as publishable market price
+    if norm == "owner_price":
+        return "rfq_only"
     if norm not in {"public_price", "rfq_only", "no_price"}:
         raise ValueError(f"Unsupported price_status: {value}")
     return norm

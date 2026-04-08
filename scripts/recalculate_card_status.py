@@ -20,6 +20,13 @@ if str(_scripts_dir) not in sys.path:
     sys.path.insert(0, str(_scripts_dir))
 
 from card_status import build_decision_record_v2_from_legacy_inputs
+from confidence import (
+    compute_pn_confidence,
+    compute_image_confidence,
+    compute_price_confidence,
+    compute_card_confidence,
+    confidence_label,
+)
 
 _DEFAULT_CHECKPOINT = Path(__file__).parent.parent / "downloads" / "checkpoint.json"
 _SPRINT_DIR = Path(__file__).parent.parent / "research_results" / "identity_sprint"
@@ -83,7 +90,17 @@ def _build_vision_verdict(bundle: dict) -> dict:
 
 
 def _build_price_result(bundle: dict) -> dict:
-    return dict(bundle.get("price", {}))
+    price = dict(bundle.get("price", {}))
+    # Owner price fallback: if no external price found but our_price_raw exists in xlsx,
+    # treat as owner_price — enough for REVIEW_REQUIRED but not AUTO_PUBLISH
+    price_status = price.get("price_status", "no_price_found")
+    if price_status in ("no_price_found", "", None):
+        our_price = bundle.get("our_price_raw", "")
+        if our_price and str(our_price).strip():
+            price["price_status"] = "owner_price"
+            price["price_source"] = "owner_xlsx"
+            price["price_confidence_note"] = "owner price from xlsx, not market validated"
+    return price
 
 
 def _build_datasheet_result(bundle: dict) -> dict:
@@ -155,12 +172,72 @@ def recalculate_all(
                 "status_after": new_status,
             })
 
+        # Recalculate confidence with correct structured_pn_match_location
+        try:
+            source_tier = price_result.get("source_tier", "unknown")
+            pn_loc = photo_result.get("structured_pn_match_location", "")
+            if not pn_loc and photo_result.get("exact_structured_pn_match"):
+                pn_loc = "jsonld"
+            if not pn_loc:
+                pn_loc = photo_result.get("pn_match_location", "")
+
+            price_status = price_result.get("price_status", "no_price_found")
+            photo_verdict = vision_verdict.get("verdict", "REJECT")
+
+            pn_c = compute_pn_confidence(
+                location=pn_loc,
+                is_numeric=bool(photo_result.get("pn_match_is_numeric", False)),
+                source_tier=source_tier,
+                brand_cooccurrence=bool(photo_result.get("brand_cooccurrence", True)),
+                brand_mismatch=bool(price_result.get("brand_mismatch")),
+                category_mismatch=bool(price_result.get("category_mismatch")),
+                suffix_conflict=bool(price_result.get("suffix_conflict")),
+            )
+            img_c = compute_image_confidence(
+                source_tier=photo_result.get("source_trust_tier", source_tier),
+                pn_match_confidence=pn_c,
+                is_banner=False,
+                is_stock_photo=bool(photo_result.get("stock_photo_flag")),
+                is_tiny=(photo_result.get("width", 999) < 150 or photo_result.get("height", 999) < 150),
+                jsonld_image=bool(photo_result.get("mpn_confirmed")),
+                brand_mismatch=bool(price_result.get("brand_mismatch")),
+                category_mismatch=bool(price_result.get("category_mismatch")),
+            )
+            price_c = compute_price_confidence(
+                source_tier=source_tier,
+                pn_match_confidence=pn_c,
+                price_status=price_status,
+                unit_basis=price_result.get("offer_unit_basis", "unknown"),
+                brand_mismatch=bool(price_result.get("brand_mismatch")),
+                category_mismatch=bool(price_result.get("category_mismatch")),
+            )
+            cc = compute_card_confidence(
+                pn_confidence=pn_c,
+                image_confidence=img_c,
+                price_confidence=price_c,
+                price_status=price_status,
+                photo_verdict=photo_verdict,
+            )
+            new_confidence = {
+                "pn_confidence": cc.pn_confidence,
+                "image_confidence": cc.image_confidence,
+                "price_confidence": cc.price_confidence,
+                "overall": cc.overall,
+                "overall_label": confidence_label(cc.overall),
+                "publishability": cc.publishability,
+                "notes": cc.notes,
+            }
+        except Exception as exc:
+            print(f"[WARN] {pn}: confidence recalc failed: {exc}")
+            new_confidence = bundle.get("confidence", {})
+
         if not dry_run:
             # Preserve boost signals already set by retrospective boost
             for key in ("identity_boost_signals", "identity_boost_source", "identity_boost_ts"):
                 if key in pdv2_before and key not in new_decision:
                     new_decision[key] = pdv2_before[key]
             bundle["policy_decision_v2"] = new_decision
+            bundle["confidence"] = new_confidence
 
     if not dry_run:
         checkpoint_path.write_text(

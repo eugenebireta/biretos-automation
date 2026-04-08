@@ -521,7 +521,13 @@ def build_evidence_bundle(
     confidence_block: dict = {}
     if _CONFIDENCE_AVAILABLE:
         source_tier = price_result.get("source_tier", "unknown")
-        pn_loc = photo_result.get("pn_match_location", "")
+        # Fix: prefer structured_pn_match_location from extract_structured_pn_flags()
+        # over legacy pn_match_location (which is often empty/"")
+        pn_loc = photo_result.get("structured_pn_match_location", "")
+        if not pn_loc and photo_result.get("exact_structured_pn_match"):
+            pn_loc = "jsonld"  # structured match found, default to high-confidence location
+        if not pn_loc:
+            pn_loc = photo_result.get("pn_match_location", "")  # legacy fallback
         pn_conf_raw = photo_result.get("pn_match_confidence", 0)
         pn_conf_norm = pn_conf_raw / 100.0 if pn_conf_raw > 1 else pn_conf_raw
 

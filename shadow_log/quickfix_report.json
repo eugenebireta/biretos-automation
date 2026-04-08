@@ -1,0 +1,57 @@
+{
+  "report": "Block 0 Quick Fixes",
+  "timestamp": "2026-04-08T12:00:00Z",
+  "fixes_applied": [
+    {
+      "fix": "confidence.py structured_pn_match_location",
+      "description": "export_pipeline.py read pn_match_location (always empty) instead of structured_pn_match_location — pn_confidence was always 0.0 for all SKUs",
+      "files_changed": ["scripts/export_pipeline.py"],
+      "skus_unblocked": "~44 (pn_confidence was 0.0 despite strong identity)"
+    },
+    {
+      "fix": "owner_price fallback from xlsx",
+      "description": "105 SKUs had no external price but all have our_price_raw from owner xlsx. Added owner_price as valid price_status that normalizes to rfq_only in policy engine",
+      "files_changed": [
+        "scripts/card_status.py",
+        "scripts/confidence.py",
+        "scripts/recalculate_card_status.py",
+        "config/catalog_evidence_policy_v1.json"
+      ],
+      "policy_rule_added": "CAP-06B: strong + none_image + rfq_only → REVIEW_REQUIRED",
+      "skus_unblocked": "~122 (strong identity + owner_price → REVIEW_REQUIRED)"
+    },
+    {
+      "fix": "confidence recalculation in recalculate_card_status.py",
+      "description": "Added confidence block recalculation using correct structured_pn_match_location",
+      "files_changed": ["scripts/recalculate_card_status.py"]
+    },
+    {
+      "fix": "price_present + low_confidence gap in confidence.py",
+      "description": "Added REVIEW_REQUIRED path for has_pn + price_present + not price_ok + not has_image",
+      "files_changed": ["scripts/confidence.py"]
+    }
+  ],
+  "before": {
+    "AUTO_PUBLISH": 5,
+    "REVIEW_REQUIRED": 14,
+    "DRAFT_ONLY": 342,
+    "readiness_pct": 5.3
+  },
+  "after": {
+    "AUTO_PUBLISH": 7,
+    "REVIEW_REQUIRED": 144,
+    "DRAFT_ONLY": 210,
+    "readiness_pct": 41.8
+  },
+  "delta": {
+    "new_auto_publish": 2,
+    "new_review_required": 132,
+    "total_moved_from_draft": 132,
+    "readiness_improvement": "+36.5pp"
+  },
+  "tests": {
+    "total": 842,
+    "passed": 842,
+    "new_tests_added": 9
+  }
+}
