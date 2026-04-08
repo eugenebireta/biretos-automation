@@ -37,10 +37,32 @@ Key deliverables:
 
 Total new tests: 121 (7+14+15+23+13+16+9+15+9). Full suite: 767/767 PASS.
 
+---
+
+## Web Search Integration Block
+
+**research_providers.py** — `GeminiResearchProvider` (gemini-2.5-flash + Google Search grounding,
+~$0.004/call), `ClaudeWebSearchProvider` (claude-sonnet-4-6 with web_search_20250305, ~$0.05/call),
+`WebSearchResearchOrchestrator` (Gemini first → stop at medium/high → Claude fallback on low only),
+`build_research_prompt()`, `_confidence_rank()`, `_parse_json_from_text()`.
+
+**research_runner.py** — Added `--web-search` flag (activates WebSearchResearchOrchestrator),
+`--rerun` flag (clears low-confidence results for retry), `use_web_search` param in
+`run_research_for_packet()` and `run_batch_research()`.
+
+**test_research_providers.py** — 29 tests covering all providers, orchestrator strategy
+(Gemini-high → no Claude, Gemini-low → Claude, both fail → error dict), prompt builder,
+JSON extraction, budget propagation.
+
+Budget worst-case: ($0.004 + $0.05) × 50 SKU = $2.70 (well within $10/day limit).
+
+Total suite after web search block: 1173/1173 PASS.
+
 ## Next
 
-Research runner web search integration (Gemini grounding + Claude web_search), then
-enrichment batch continuation for remaining ~280 SKU.
+Enrichment batch continuation (~175 new SKU from honeywell_insales_import.csv, 195 already
+checkpointed). After enrichment: research_runner --web-search --rerun for 37 failed high-priority
+SKUs, then training_dataset_export.py for updated training data stats.
 
 ---
 

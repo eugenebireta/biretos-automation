@@ -5,7 +5,7 @@ transition_seq: 68
 transition_ts: "2026-04-08T12:00:00Z"
 
 ## Current
-active_task: "R1 Revenue — Enrichment Improvements Batch v2 (9 blocks) + Research Web Search"
+active_task: "R1 Revenue — Enrichment Improvements Batch v2 + Research Web Search Integration"
 task_id: "R1-enrichment-improvements-v2"
 phase: BUILDER
 status: COMPLETED_WAITING_REVIEW
@@ -14,7 +14,7 @@ risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 now:
-  - step: "Enrichment Improvements Batch v2 — all 9 blocks complete"
+  - step: "Enrichment Improvements Batch v2 — all 9 blocks + web search integration complete"
     actions:
       - "Block 1: response_raw=None for API failures, 10k truncation cap, response_raw_present field — 7 tests"
       - "Block 2: extract_full_jsonld() — brand, mpn, gtin, dims, rating, seller, additionalProperty — 14 tests"
@@ -25,14 +25,13 @@ now:
       - "Block 7: conditional datasheets — auto-trigger for no_price/no_photo/category_mismatch — 9 tests"
       - "Block 8: training_dataset_export.py — 4 datasets, 938 examples exported — 15 tests"
       - "Block 9: correction_logger.py — 44 retrospective records (33 PEHA + 11 sanity) — 9 tests"
-      - "Total tests: 767/767 PASS (all enrichment tests)"
+      - "Web Search: GeminiResearchProvider + ClaudeWebSearchProvider + WebSearchResearchOrchestrator — 29 tests"
+      - "research_runner.py: --web-search and --rerun flags added"
+      - "Total: 1173/1173 PASS"
 known_gap: |
-  PEHA category fix: assembled_title correctly identifies PEHA items but expected_category
-  came from wrong xlsx data — 33 bundles updated deterministically, no re-pipeline needed.
-  PHOTO_NUMERIC_GUARD still blocks PEHA items (correct: numeric PN 153711 etc.)
-  Enrichment batch: budget-dependent, may not complete 301 SKU in single overnight run.
+  Enrichment batch continuation (~280 SKU) not yet run — next step.
   Research results in research_results/ — NOT merged to evidence without owner review.
-awaiting: "Enrichment batch completion + research batch completion; morning review of merge candidates"
+awaiting: "Enrichment batch continuation run, then research_runner --web-search --rerun for 37 failed SKUs"
 pr_number: 38
 now:
   - step: "Price scout resolution — suffix-variant PN matching, trust domain expansion, URL refresh for 6 ambiguous seeds"
