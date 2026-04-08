@@ -110,11 +110,24 @@ def _now() -> str:
 
 
 def _make_client(api_key: str | None = None):
-    """Create Anthropic client. Raises if SDK missing or key absent."""
+    """Create Anthropic client. Raises if SDK missing or key absent.
+
+    Key resolution order:
+      1. Explicit api_key argument
+      2. os.environ ANTHROPIC_API_KEY
+      3. auditor_system/config/.env.auditors (dotenv_values, per SPEC §20.8)
+    """
     import anthropic
     key = api_key or os.environ.get("ANTHROPIC_API_KEY", "")
     if not key:
-        raise ValueError("ANTHROPIC_API_KEY not set")
+        try:
+            from dotenv import dotenv_values
+            env_path = ROOT / "auditor_system" / "config" / ".env.auditors"
+            key = dotenv_values(env_path).get("ANTHROPIC_API_KEY", "")
+        except Exception:
+            pass
+    if not key:
+        raise ValueError("ANTHROPIC_API_KEY not set (checked os.environ and .env.auditors)")
     return anthropic.Anthropic(api_key=key)
 
 

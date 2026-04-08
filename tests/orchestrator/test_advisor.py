@@ -427,6 +427,10 @@ class TestCallEscalation:
 class TestCallMissingKey:
     def test_missing_key_escalates(self, tmp_path, monkeypatch):
         monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+        # Also block .env.auditors fallback
+        monkeypatch.setattr("advisor.dotenv_values", lambda *a, **kw: {}, raising=False)
+        import advisor as _adv
+        monkeypatch.setattr(_adv, "ROOT", tmp_path)  # no .env.auditors at tmp_path
         bundle = _make_bundle()
         result = call(bundle,
                       verdict_path=tmp_path / "verdict.json",
@@ -437,6 +441,8 @@ class TestCallMissingKey:
 
     def test_missing_key_warning_mentions_key(self, tmp_path, monkeypatch):
         monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+        import advisor as _adv
+        monkeypatch.setattr(_adv, "ROOT", tmp_path)  # no .env.auditors at tmp_path
         bundle = _make_bundle()
         result = call(bundle,
                       verdict_path=tmp_path / "verdict.json",

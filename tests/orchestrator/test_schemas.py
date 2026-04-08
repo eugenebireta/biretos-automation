@@ -62,18 +62,13 @@ def _valid_execution_packet():
 def _valid_advisor_verdict():
     return {
         "schema_version": "v1",
-        "next_step": {
-            "intent": "Add unit tests for ClaudeChatAdapter",
-            "scope": ["tests/enrichment/test_providers.py"],
-            "constraints": ["Mocked only, no live API"],
-            "acceptance_criteria": ["All tests pass"],
-            "estimated_complexity": "low",
-        },
-        "affected_tiers": ["Tier-3"],
-        "governance_route": "none",
+        "trace_id": "R1-PILOT-001",
         "risk_assessment": "LOW",
+        "governance_route": "none",
         "rationale": "Previous step completed cleanly. Tests are next.",
-        "needs_full_context": False,
+        "next_step": "Add unit tests for ClaudeChatAdapter covering idempotent re-runs.",
+        "scope": ["tests/enrichment/test_providers.py"],
+        "issued_at": "2026-04-08T10:00:00Z",
     }
 
 
@@ -265,30 +260,19 @@ class TestAdvisorVerdictSchema:
         v["risk_assessment"] = "low"  # must be uppercase
         assert not is_valid("advisor_verdict_v1", v)
 
-    def test_valid_complexity_values(self):
-        for c in ("low", "medium", "high"):
-            v = _valid_advisor_verdict()
-            v["next_step"]["estimated_complexity"] = c
-            assert is_valid("advisor_verdict_v1", v)
-
-    def test_invalid_complexity(self):
-        v = _valid_advisor_verdict()
-        v["next_step"]["estimated_complexity"] = "very_high"
-        assert not is_valid("advisor_verdict_v1", v)
-
     def test_missing_next_step(self):
         v = _valid_advisor_verdict()
         del v["next_step"]
         assert not is_valid("advisor_verdict_v1", v)
 
-    def test_empty_affected_tiers_invalid(self):
+    def test_empty_next_step_invalid(self):
         v = _valid_advisor_verdict()
-        v["affected_tiers"] = []
+        v["next_step"] = ""
         assert not is_valid("advisor_verdict_v1", v)
 
-    def test_invalid_tier_value(self):
+    def test_missing_trace_id_invalid(self):
         v = _valid_advisor_verdict()
-        v["affected_tiers"] = ["Tier-4"]
+        del v["trace_id"]
         assert not is_valid("advisor_verdict_v1", v)
 
     def test_extra_field_invalid(self):
@@ -296,10 +280,10 @@ class TestAdvisorVerdictSchema:
         v["confidence_score"] = 0.9  # rejected: AI-driven routing signal
         assert not is_valid("advisor_verdict_v1", v)
 
-    def test_empty_scope_invalid(self):
+    def test_empty_scope_valid(self):
         v = _valid_advisor_verdict()
-        v["next_step"]["scope"] = []
-        assert not is_valid("advisor_verdict_v1", v)
+        v["scope"] = []
+        assert is_valid("advisor_verdict_v1", v)
 
 
 # ---------------------------------------------------------------------------

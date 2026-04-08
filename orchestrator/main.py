@@ -326,7 +326,7 @@ def cmd_cycle(args: argparse.Namespace) -> None:
                 "state_before": "ready", "state_after": "awaiting_execution",
                 "trace_id": trace_id, "directive_hash": directive_hash})
 
-    print(f"[orchestrator] Directive written → {DIRECTIVE_PATH}")
+    print(f"[orchestrator] Directive written -> {DIRECTIVE_PATH}")
     print(f"[orchestrator] trace_id={trace_id}")
 
     # M4: auto-execute if enabled in config
@@ -421,7 +421,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
         print(f"[orchestrator] Packet collected: "
               f"files={len(packet.get('changed_files', []))} "
               f"tiers={packet.get('affected_tiers', [])}")
-        print("[orchestrator] FSM → ready. Run main.py for next cycle.")
+        print("[orchestrator] FSM -> ready. Run main.py for next cycle.")
     else:
         # Execution failed — keep FSM at awaiting_execution, report error
         append_run({"ts": _now(), "event": "auto_execute_failed",
