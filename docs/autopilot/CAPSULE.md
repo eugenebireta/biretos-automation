@@ -1,5 +1,51 @@
 # Task Capsule
 
+Task_ID: R1-enrichment-improvements-v2
+Risk: SEMI
+Date: 2026-04-08
+
+## Summary
+
+Enrichment Improvements Batch v2 — 9 sequential blocks, 9 commits, 767/767 tests PASS.
+
+Key deliverables:
+- **Block 1 — response_raw fix:** `shadow_log()` now uses `None` for API failures
+  (distinguishable from `""` empty). Adds `response_raw_present` + `response_raw_truncated`
+  fields. 10k char truncation cap.
+- **Block 2 — JSON-LD expansion:** `extract_full_jsonld()` captures brand, mpn, gtin13, gtin,
+  description (truncated 500), image, category, weight, dimensions, availability, seller,
+  aggregateRating, additionalProperty, price_valid_until. Stored in `bundle["jsonld_full"]`.
+- **Block 3 — Spec extraction:** `spec_extractor.py` — 3-strategy parser (2-col tables,
+  dl/dt/dd, spec-class divs). Replaces inline table-only parser. Caps at 100 specs/page.
+  Keys normalised to snake_case. `specs_status="found_from_page"` when found.
+- **Block 4 — Brand config registry:** YAML files in `config/brands/` for Honeywell, PEHA, Esser.
+  `brand_knowledge.py`: `load_brand_config()`, `get_product_family()`, `get_trusted_domains()`,
+  `get_datasheet_query()`, `get_search_hints()`. Sub-brand detection: 153711→PEHA, 804950→Esser.
+- **Block 5 — Multi-source prices:** `multi_source_prices.py` — optional SerpAPI distributor
+  search + cross-validation via price_sanity. Off by default. Never crashes pipeline.
+- **Block 6 — Brand experience writer:** `brand_experience_writer.py` — `BrandExperienceRecord`
+  dataclass + `write_brand_experience()`. Pipeline calls after save_checkpoint(). Salience:
+  correction=9, failed=7, success=4. Summary ≤200 chars.
+- **Block 7 — Conditional datasheets:** `find_datasheet()` auto-triggers for
+  no_price_found | NO_PHOTO | category_mismatch (not only --datasheets flag).
+- **Block 8 — Training dataset export:** `training_dataset_export.py` — 4 datasets:
+  price_extraction (723 examples), photo_verdict (146), category_classification (69),
+  search_strategy (0 until next enrichment run). 938 total. Output: `training_data/`.
+- **Block 9 — Correction logging:** `correction_logger.py` — `log_correction()` (salience=9),
+  `log_price_sanity_warning()` (salience=7). Retrospective: 33 PEHA corrections + 11 sanity
+  warnings = 44 records in shadow_log/experience_2026-04.jsonl.
+
+Total new tests: 121 (7+14+15+23+13+16+9+15+9). Full suite: 767/767 PASS.
+
+## Next
+
+Research runner web search integration (Gemini grounding + Claude web_search), then
+enrichment batch continuation for remaining ~280 SKU.
+
+---
+
+# Task Capsule (previous)
+
 Task_ID: R1-overnight-batch-1-2
 Risk: SEMI
 Date: 2026-04-08

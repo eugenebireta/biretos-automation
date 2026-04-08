@@ -1,5 +1,28 @@
 ---
 DATE: 2026-04-08
+TITLE: R1 Revenue — Enrichment Improvements Batch v2 (9 blocks)
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (seq 68, feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - fix: response_raw=None for API failures, response_raw_present + truncated fields
+  - feat: extract_full_jsonld() — brand, mpn, gtin, dims, rating, seller, additionalProperty
+  - feat: spec_extractor.py — 3-strategy HTML spec parser (tables, dl, spec divs)
+  - feat: YAML brand config registry — honeywell/peha/esser + brand_knowledge.py
+  - feat: multi_source_prices.py — optional distributor cross-validation (off by default)
+  - feat: brand_experience_writer.py — BrandExperienceRecord + pipeline integration
+  - feat: conditional datasheets — auto-trigger for no_price/no_photo/category_mismatch
+  - feat: training_dataset_export.py — 4 datasets, 938 examples exported
+  - feat: correction_logger.py — 44 retrospective records (33 PEHA + 11 sanity)
+TEST_EVIDENCE: 767/767 PASS (121 new tests across 9 blocks)
+KEY_FINDINGS:
+  - Training data: 938 examples (723 price_extraction, 146 photo_verdict, 69 category)
+  - Sub-brand detection working: 153711→PEHA, 804950→Esser, 1000106→Honeywell
+  - 44 retrospective correction/warning records with salience 7-9 for training
+  - Spec extraction active on all visited pages (3 strategies)
+  - JSON-LD full data now in bundle["jsonld_full"] (additive, non-breaking)
+
+---
+DATE: 2026-04-08
 TITLE: R1 Revenue — Overnight Batch 1+2 (price sanity + enrichment + research)
 RISK_LEVEL: SEMI
 STATUS: IN_PROGRESS (seq 67, feat/rev-r1-catalog, awaiting batch completion)

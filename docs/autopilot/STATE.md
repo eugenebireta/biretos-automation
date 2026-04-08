@@ -1,32 +1,31 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 67
-transition_ts: "2026-04-08T02:15:00Z"
+transition_seq: 68
+transition_ts: "2026-04-08T12:00:00Z"
 
 ## Current
-active_task: "R1 Revenue — Overnight Batch 1+2 (price sanity + enrichment continuation + research)"
-task_id: "R1-overnight-batch-1-2"
+active_task: "R1 Revenue — Enrichment Improvements Batch v2 (9 blocks) + Research Web Search"
+task_id: "R1-enrichment-improvements-v2"
 phase: BUILDER
-status: ACTIVE
+status: COMPLETED_WAITING_REVIEW
 phase_owner: "Agent/ClaudeCode"
 risk_level: SEMI
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
 now:
-  - step: "Overnight autonomous batch execution"
+  - step: "Enrichment Improvements Batch v2 — all 9 blocks complete"
     actions:
-      - "price_sanity.py: 5-rule validator (REJECT/WARNING/PASS) — 26 tests PASS"
-      - "photo_pipeline.py: sanity check integrated after price extraction"
-      - "Retrospective audit 69 SKU: PASS=31, WARNING=11 (1 AED genuine, 10 unsupported FX), REJECT=0"
-      - "Enrichment batch running background: ~79/370 at time of commit (1 SKU/min)"
-      - "Self-audit 10 sample SKU: 6 issues found, all category_mismatch pattern"
-      - "Category fix: 33 PEHA SKUs corrected (Вентиль/Детектор → Рамки/Клавиши/Диммеры PEHA), 30 price_now_admissible"
-      - "After category fix: DRAFT_ONLY=58, REVIEW_REQUIRED=11 (from 69 processed SKU)"
-      - "research_queue.py: emit packets for 69 DRAFT/REVIEW SKU (37 high, 32 low priority)"
-      - "research_runner.py: Claude API deep-research with budget guard, mock provider for tests"
-      - "Batch research running background: 37 high-priority SKUs via claude-haiku"
-      - "Total new tests: 69 (26 price_sanity + 20 research_queue + 23 research_runner), 646 PASS"
+      - "Block 1: response_raw=None for API failures, 10k truncation cap, response_raw_present field — 7 tests"
+      - "Block 2: extract_full_jsonld() — brand, mpn, gtin, dims, rating, seller, additionalProperty — 14 tests"
+      - "Block 3: spec_extractor.py — 3-strategy HTML parser (tables, dl, spec divs) — 15 tests"
+      - "Block 4: YAML brand config registry — honeywell/peha/esser + brand_knowledge.py — 23 tests"
+      - "Block 5: multi_source_prices.py — optional distributor cross-validation (off by default) — 13 tests"
+      - "Block 6: brand_experience_writer.py — BrandExperienceRecord + pipeline integration — 16 tests"
+      - "Block 7: conditional datasheets — auto-trigger for no_price/no_photo/category_mismatch — 9 tests"
+      - "Block 8: training_dataset_export.py — 4 datasets, 938 examples exported — 15 tests"
+      - "Block 9: correction_logger.py — 44 retrospective records (33 PEHA + 11 sanity) — 9 tests"
+      - "Total tests: 767/767 PASS (all enrichment tests)"
 known_gap: |
   PEHA category fix: assembled_title correctly identifies PEHA items but expected_category
   came from wrong xlsx data — 33 bundles updated deterministically, no re-pipeline needed.
