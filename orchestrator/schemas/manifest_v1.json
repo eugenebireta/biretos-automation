@@ -33,6 +33,7 @@
         "RUN_SPEC_GOVERNANCE", "ESCALATE_TO_OWNER",
         "ESCALATE", "BLOCKED",
         "AUDIT_PASSED", "AUDIT_FAILED", "AUDIT_INCONCLUSIVE",
+        "BATCH_GATE_FAILED",
         null
       ]
     },
@@ -44,6 +45,10 @@
     "pending_packet_id": { "type": ["string", "null"] },
     "deadline_at": { "type": ["string", "null"] },
     "default_option_id": { "type": ["string", "null"] },
-    "updated_at": { "type": "string" }
+    "updated_at": { "type": "string" },
+    "_last_risk_class": {
+      "type": ["string", "null"],
+      "description": "Risk class from last synthesizer run, used by batch quality gate"
+    }
   }
 }
