@@ -4,7 +4,6 @@
 **Brand:** Honeywell
 **Product Name:** Настольная трубка Honeywell EVCS-MS
 **Category:** industrial product
-**Owner Price (RUB):** 262,764
 
 ## Tasks
 - **PRICE:** Find current market price (any currency). Check authorized distributors.

@@ -168,7 +168,7 @@ def build_prompt(entry: dict, provider: str) -> str:
     name = entry["name"] or pn
     category = entry["category"] or "industrial product"
 
-    # Header
+    # Header — intentionally omit owner_price to prevent LLM parroting bias
     lines = [
         f"# Deep Research: {brand} {pn}",
         "",
@@ -176,7 +176,6 @@ def build_prompt(entry: dict, provider: str) -> str:
         f"**Brand:** {brand}",
         f"**Product Name:** {name}",
         f"**Category:** {category}",
-        f"**Owner Price (RUB):** {entry['owner_price_rub']:,.0f}" if entry["owner_price_rub"] else "",
         "",
     ]
 

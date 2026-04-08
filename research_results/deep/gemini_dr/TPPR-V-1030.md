@@ -4,7 +4,6 @@
 **Brand:** Honeywell
 **Product Name:** Модуль цифрового ввода Honeywell TPPR-V-1030
 **Category:** industrial product
-**Owner Price (RUB):** 142,340
 
 ## Tasks
 - **PRICE:** Find current market price (any currency). Check authorized distributors.

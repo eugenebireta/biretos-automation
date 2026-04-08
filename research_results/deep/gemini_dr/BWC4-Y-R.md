@@ -4,7 +4,6 @@
 **Brand:** Honeywell
 **Product Name:** Газоанализатор Honeywell BWC4 - O2, LEL, H2S, CO, Yellow, RU
 **Category:** industrial product
-**Owner Price (RUB):** 97,560
 
 ## Tasks
 - **PRICE:** Find current market price (any currency). Check authorized distributors.
