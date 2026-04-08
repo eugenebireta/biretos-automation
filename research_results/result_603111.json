@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_603111",
+  "entity_id": "603111",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA COMPACTA frame",
+    "description_ru": "UVP €2.58. For compact flush-mount installations. In stock 1-2 weeks",
+    "category_suggestion": "PEHA COMPACTA frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1.38,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.voltking.de/Peha-00603311-Compacta-Rahmen-3-fach-Einbau-Reinweiss",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.voltking.de/media/image/product/64030/sm/peha-00603111-compacta-rahmen-1-fach-einbau-reinweiss.jpg",
+    "specs": {
+      "raw": "COMPACTA; reinweiß RAL 9010; 60×60 mm; 1-gang; H+V mounting; halogen-free; glänzend; IP20",
+      "aliases": [
+        "00603111"
+      ]
+    },
+    "key_findings": [
+      "UVP €2.58. For compact flush-mount installations. In stock 1-2 weeks",
+      "Aliases: 00603111"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.voltking.de/Peha-00603311-Compacta-Rahmen-3-fach-Einbau-Reinweiss",
+        "type": "distributor",
+        "domain": "www.voltking.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.voltking.de/Peha-00603311-Compacta-Rahmen-3-fach-Einbau-Reinweiss",
+      "type": "distributor",
+      "domain": "www.voltking.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.995571+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

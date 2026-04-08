@@ -35,10 +35,28 @@
           "identity",
           "price_evidence"
         ]
+      },
+      {
+        "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189291-5-st-2856763.html` citeturn55view0",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентичность PN 189291 как рамки PEHA by Honeywell подтверждена одним авторитетным дистрибьютором (Conrad Elektronik), но отсутствуют официальные источники Honeywell и datasheet. Категория явно неправильна в текущем каталоге. Цена требует пересмотра. Необходимо получить официальное подтверждение от Honeywell или дополнительные источники для повышения уверенности."
+    "confidence_notes": "Идентичность PN 189291 как рамки PEHA by Honeywell подтверждена одним авторитетным дистрибьютором (Conrad Elektronik), но отсутствуют официальные источники Honeywell и datasheet. Категория явно неправильна в текущем каталоге. Цена требует пересмотра. Необходимо получить официальное подтверждение от Honeywell или дополнительные источники для повышения уверенности.",
+    "price_value": {
+      "amount": 443.95,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189291-5-st-2856763.html` citeturn55view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://asset.conrad.com/media10/isa/160267/c1/-/de/002856763PI01/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400` citeturn57view1"
   },
   "sources": [
     {
@@ -48,6 +66,16 @@
         "identity",
         "price_evidence"
       ]
+    },
+    {
+      "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189291-5-st-2856763.html` citeturn55view0",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
     }
   ],
   "confidence": "medium",
@@ -56,5 +84,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2270,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
 }

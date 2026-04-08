@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_815611",
+  "entity_id": "815611",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "central plate / cover",
+    "description_ru": "Есть официальный datasheet Honeywell EDAM по 00815611",
+    "category_suggestion": "central plate / cover",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 9.03,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.watt24.com/en/p/peha-zentralplatte-d-95.610.02-tv-na-00815611/` citeturn39search3",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "Product no. 815611; цена incl. VAT; поставка 1-2 дня",
+      "aliases": [
+        "00815611 (datasheet код)"
+      ]
+    },
+    "key_findings": [
+      "Есть официальный datasheet Honeywell EDAM по 00815611",
+      "Aliases: 00815611 (datasheet код)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.watt24.com/en/p/peha-zentralplatte-d-95.610.02-tv-na-00815611/` citeturn39search3",
+        "type": "distributor",
+        "domain": "www.watt24.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.watt24.com/en/p/peha-zentralplatte-d-95.610.02-tv-na-00815611/` citeturn39search3",
+      "type": "distributor",
+      "domain": "www.watt24.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.071746+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

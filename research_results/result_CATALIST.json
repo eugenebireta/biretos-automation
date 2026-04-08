@@ -1,0 +1,61 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CATALIST",
+  "entity_id": "CATALIST",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Unknown (not verified)",
+    "description_ru": "No product with PN \"CATALIST\" found anywhere. May be Honeywell partner program name or internal alias for Cisco Catalyst 3850 switch",
+    "category_suggestion": "Unknown (not verified)",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "—",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "Possibly internal shorthand for Cisco Catalyst resold by Honeywell"
+      ]
+    },
+    "key_findings": [
+      "No product with PN \"CATALIST\" found anywhere. May be Honeywell partner program name or internal alias for Cisco Catalyst 3850 switch",
+      "Aliases: Possibly internal shorthand for Cisco Catalyst resold by Honeywell"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: no, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.986062+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

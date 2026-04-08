@@ -1,0 +1,52 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_187091",
+  "entity_id": "187091",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 575.2,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.voelkner.de/products/7581680/PEHA-by-Honeywell-Rahmen-Rahmen-187091-10St..html` citeturn25search2",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "sources": [
+      {
+        "url": "`https://www.voelkner.de/products/7581680/PEHA-by-Honeywell-Rahmen-Rahmen-187091-10St..html` citeturn25search2",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://www.voelkner.de/products/7581680/PEHA-by-Honeywell-Rahmen-Rahmen-187091-10St..html` citeturn25search2",
+      "type": "distributor",
+      "domain": "www.voelkner.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:55:02.028814Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

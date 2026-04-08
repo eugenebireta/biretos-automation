@@ -1,0 +1,114 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_179951",
+  "entity_id": "179951",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Линейный сканер Honeywell D 20.486.702 LS (арт. 179951)",
+    "description_ru": "Линейный сканер штрих-кода Honeywell с артикулом 179951. По контексту наименования относится к семейству линейных (1D) сканеров Honeywell, однако точное подтверждение по данному номеру детали в открытых источниках не найдено.",
+    "category_suggestion": "Сканер штрих-кода (линейный, 1D)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 4158.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ustroystva-upravleniya-klimatom-zhalyuzi-zvukom/dinamik-peha-by-honeywell-nova-alyuminiy-179951` citeturn28search15",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {},
+    "key_findings": [
+      "Точный артикул 179951 Honeywell не найден ни на сайте производителя, ни у авторизованных дистрибьюторов в открытом доступе.",
+      "Внутренний номер 'D 20.486.702 LS' в открытых источниках также не индексируется.",
+      "Honeywell производит широкий спектр линейных (1D) сканеров: Eclipse 5145, Voyager 1200g/1250g, Hyperion 1300g, Granit 1280i — категория 'Сканер' / 'Линейный сканер штрих-кода' является корректной для продукции данного типа.",
+      "Предполагаемая категория 'Сканер' (Сканер штрих-кода) подтверждается контекстом наименования 'Линейный сканер' и брендом Honeywell.",
+      "Артикул 179951 может быть внутренним складским/дистрибьюторским номером, а не публичным OEM Part Number Honeywell."
+    ],
+    "ambiguities": [
+      "Номер 179951 не найден в официальных каталогах Honeywell или публичных базах дистрибьюторов — возможно, это внутренний артикул поставщика, а не оригинальный Part Number производителя.",
+      "Обозначение 'D 20.486.702 LS' не соответствует стандартной номенклатуре Honeywell (обычно используются буквенно-цифровые коды типа 1200G-2USB-1 и т.п.).",
+      "Не исключено, что продукт снят с производства или является региональной / OEM-версией.",
+      "Невозможно однозначно подтвердить точную модель, технические характеристики и цену без доступа к закрытым B2B-прайсам."
+    ],
+    "sources": [
+      {
+        "url": "https://automation.honeywell.com/us/en/products/productivity-solutions/barcode-scanners",
+        "type": "manufacturer",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://geksagon.ru/ru/catalogue/equipment/scanners/honeywell/",
+        "type": "distributor",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://tsd-expert.ru/products/skanery-shtrihkoda/skanery_shtrikhkoda_honeywell",
+        "type": "distributor",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "`https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ustroystva-upravleniya-klimatom-zhalyuzi-zvukom/dinamik-peha-by-honeywell-nova-alyuminiy-179951` citeturn28search15",
+        "type": "distributor",
+        "domain": "teslatorg.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Артикул 179951 не найден ни в одном публично доступном источнике — ни на сайте Honeywell, ни у дистрибьюторов (российских и международных), ни в базах данных запчастей. Категория 'Сканер' (линейный сканер штрих-кода) предположительно корректна исходя из текстового наименования продукта, однако это не подтверждено первичными источниками. Уверенность — низкая."
+  },
+  "sources": [
+    {
+      "url": "https://automation.honeywell.com/us/en/products/productivity-solutions/barcode-scanners",
+      "type": "manufacturer",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://geksagon.ru/ru/catalogue/equipment/scanners/honeywell/",
+      "type": "distributor",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://tsd-expert.ru/products/skanery-shtrihkoda/skanery_shtrikhkoda_honeywell",
+      "type": "distributor",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "`https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ustroystva-upravleniya-klimatom-zhalyuzi-zvukom/dinamik-peha-by-honeywell-nova-alyuminiy-179951` citeturn28search15",
+      "type": "distributor",
+      "domain": "teslatorg.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:54:20.306059Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3590,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

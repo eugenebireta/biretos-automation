@@ -1,0 +1,81 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5015A1169",
+  "entity_id": "V5015A1169",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "valve",
+    "description_ru": "Large industrial valve; quote-only through Honeywell distributors",
+    "category_suggestion": "valve",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 2893.38,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.emoteek.nl/Honeywell-V5015A1169-Flanged-mixing-valve-DN125",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-bms-v5015A1151-linear-control-valve-primaryimage",
+    "specs": {
+      "raw": "DN125; Kvs 220; 3-way flanged mixing; PN6; cast iron; 38mm stroke"
+    },
+    "key_findings": [
+      "Large industrial valve; quote-only through Honeywell distributors"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5015-v5329c-3-way-flanged-large-linear-mixing-valves-pn6",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.emoteek.nl/Honeywell-V5015A1169-Flanged-mixing-valve-DN125",
+        "type": "distributor",
+        "domain": "www.emoteek.nl",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: no, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5015-v5329c-3-way-flanged-large-linear-mixing-valves-pn6",
+      "type": "—",
+      "domain": "buildings.honeywell.com",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.emoteek.nl/Honeywell-V5015A1169-Flanged-mixing-valve-DN125",
+      "type": "distributor",
+      "domain": "www.emoteek.nl",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.952000+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

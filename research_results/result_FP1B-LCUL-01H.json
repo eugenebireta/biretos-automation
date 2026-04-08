@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FP1B-LCUL-01H",
+  "entity_id": "FP1B-LCUL-01H",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fiber optic pigtail",
+    "description_ru": "Siemon XGLO series. \"H\" = LSOH jacket. Price is for OFNR version; LSOH may be marginally higher.",
+    "category_suggestion": "Fiber optic pigtail",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 12.9,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.eelaf.com/web/image/product.template/18324/image_1920?unique=7c356d0",
+    "specs": {
+      "raw": "Simplex; 900µm; SM OS1/OS2 8.3/125µm; LC/UPC; 1m; LSOH-3C; IL ≤0.3dB; RL ≥55dB; 1310/1550nm; -40°C to +75°C",
+      "aliases": [
+        "FP1B-LCUL-01 (OFNR version)",
+        "Anixter #361705"
+      ]
+    },
+    "key_findings": [
+      "Siemon XGLO series. \"H\" = LSOH jacket. Price is for OFNR version; LSOH may be marginally higher.",
+      "Aliases: FP1B-LCUL-01 (OFNR version); Anixter #361705"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions",
+        "type": "distributor",
+        "domain": "www.eaccu-tech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions",
+      "type": "distributor",
+      "domain": "www.eaccu-tech.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.010122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

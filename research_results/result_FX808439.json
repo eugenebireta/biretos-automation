@@ -1,0 +1,68 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FX808439",
+  "entity_id": "FX808439",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "fire alarm accessory",
+    "description_ru": "",
+    "category_suggestion": "fire alarm accessory",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 432.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.esser-systems.com/fileadmin/dokumente/downloads/marketingmaterial/catalogues/Listino_ESSER_incendio_marzo_2024.pdf` citeturn17search0",
+      "price_type": "list_price"
+    },
+    "photo_url": "(Honeywell) Service drawer",
+    "specs": {
+      "raw": "позиция FX808439 присутствует в прайс‑листе с ценой 432.00 € citeturn17search0",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.esser-systems.com/fileadmin/dokumente/downloads/marketingmaterial/catalogues/Listino_ESSER_incendio_marzo_2024.pdf` citeturn17search0",
+        "type": "list_price",
+        "domain": "www.esser-systems.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.esser-systems.com/fileadmin/dokumente/downloads/marketingmaterial/catalogues/Listino_ESSER_incendio_marzo_2024.pdf` citeturn17search0",
+      "type": "list_price",
+      "domain": "www.esser-systems.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.043727+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

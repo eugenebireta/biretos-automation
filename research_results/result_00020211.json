@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_00020211",
+  "entity_id": "00020211",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Switch frame",
+    "description_ru": "Цена «inkl. 19% USt.» (вкл. НДС). citeturn25view0",
+    "category_suggestion": "Switch frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 5.97,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.voltking.de/Peha-00020211-Nova-Rahmen-2-fach-Reinweiss",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.voltking.de/media/image/product/63898/xs/peha-00020211-nova-rahmen-2-fach-reinweiss.jpg citeturn26view0",
+    "specs": {
+      "raw": "2‑fach; цвет Reinweiß; размеры 83×154 мм (в описании) citeturn25view0",
+      "aliases": [
+        "D 20.672.022 T / EAN 4010105020212 citeturn22search0"
+      ]
+    },
+    "key_findings": [
+      "Цена «inkl. 19% USt.» (вкл. НДС). citeturn25view0",
+      "Aliases: D 20.672.022 T / EAN 4010105020212 citeturn22search0"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.voltking.de/Peha-00020211-Nova-Rahmen-2-fach-Reinweiss",
+        "type": "distributor",
+        "domain": "www.voltking.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.voltking.de/Peha-00020211-Nova-Rahmen-2-fach-Reinweiss",
+      "type": "distributor",
+      "domain": "www.voltking.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.060235+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

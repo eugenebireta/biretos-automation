@@ -36,10 +36,26 @@
           "category",
           "price"
         ]
+      },
+      {
+        "url": "`https://www.puhy.cz/peha-by-honeywell-ramecek-ram-190991-5-ks-1641437.html` citeturn44search2",
+        "type": "distributor",
+        "domain": "www.puhy.cz",
+        "supports": [
+          "identity",
+          "price"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентификация как рамки (frame) подтверждена одним авторитетным дистрибьютором (Conrad.fr), но отсутствуют официальные datasheet Honeywell и фотографии продукта. Категория 'Аксессуары' уверена, но требуется уточнение точной подкатегории и технических параметров у производителя или официального дистрибьютора."
+    "confidence_notes": "Идентификация как рамки (frame) подтверждена одним авторитетным дистрибьютором (Conrad.fr), но отсутствуют официальные datasheet Honeywell и фотографии продукта. Категория 'Аксессуары' уверена, но требуется уточнение точной подкатегории и технических параметров у производителя или официального дистрибьютора.",
+    "price_value": {
+      "amount": 18596.0,
+      "currency": "CZK",
+      "unit_basis": "piece",
+      "source_url": "`https://www.puhy.cz/peha-by-honeywell-ramecek-ram-190991-5-ks-1641437.html` citeturn44search2",
+      "price_type": "distributor"
+    }
   },
   "sources": [
     {
@@ -50,6 +66,15 @@
         "category",
         "price"
       ]
+    },
+    {
+      "url": "`https://www.puhy.cz/peha-by-honeywell-ramecek-ram-190991-5-ks-1641437.html` citeturn44search2",
+      "type": "distributor",
+      "domain": "www.puhy.cz",
+      "supports": [
+        "identity",
+        "price"
+      ]
     }
   ],
   "confidence": "medium",
@@ -58,5 +83,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2137,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (1).md"
 }

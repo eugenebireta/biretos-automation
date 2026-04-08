@@ -1,0 +1,63 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5013R1099",
+  "entity_id": "V5013R1099",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "valve",
+    "description_ru": "V5013R series; £284.52 ex-VAT; Amazon UK £401.69; 4 in stock at Kempston",
+    "category_suggestion": "valve",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 284.52,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "DN50; Kvs 40; 3-way mixing; threaded ISO228; PN16; brass; 20mm stroke; 2-170°C"
+    },
+    "key_findings": [
+      "V5013R series; £284.52 ex-VAT; Amazon UK £401.69; 4 in stock at Kempston"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
+        "type": "distributor",
+        "domain": "www.kempstoncontrols.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
+      "type": "distributor",
+      "domain": "www.kempstoncontrols.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.949492+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+}

@@ -1,0 +1,53 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_272369098",
+  "entity_id": "272369098",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "unknown",
+    "description_ru": "Поиск PN приводит к нерелевантным результатам (например, идентификатор публикации), товарной страницы не найдено",
+    "category_suggestion": "unknown",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "Поиск PN приводит к нерелевантным результатам (например, идентификатор публикации), товарной страницы не найдено"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.semanticscholar.org/paper/c6b8716f34bf0103bbb4f9140f17411c2bf298cb` citeturn49search2",
+        "type": "unknown",
+        "domain": "www.semanticscholar.org",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.semanticscholar.org/paper/c6b8716f34bf0103bbb4f9140f17411c2bf298cb` citeturn49search2",
+      "type": "unknown",
+      "domain": "www.semanticscholar.org",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.067748+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

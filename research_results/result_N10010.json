@@ -1,0 +1,89 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_N10010",
+  "entity_id": "N10010",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "actuator",
+    "description_ru": "SmartAct N10 series; -SW2 variant at $294.81 (WiAutomation)",
+    "category_suggestion": "actuator",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 255.16,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-N10010-left",
+    "specs": {
+      "raw": "10 Nm; 24 VAC/DC; 0-10V/2-10V modulating; IP54; 90s/90°; non-spring return; damper area up to 2 m²",
+      "aliases": [
+        "MN7510A2001"
+      ]
+    },
+    "key_findings": [
+      "SmartAct N10 series; -SW2 variant at $294.81 (WiAutomation)",
+      "Aliases: MN7510A2001"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+        "type": "distributor",
+        "domain": "cappusa.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.spartansystems.co.uk/products/honeywell-sauter-smartact-push-button-motor-n10010",
+        "type": "distributor",
+        "domain": "www.spartansystems.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+      "type": "distributor",
+      "domain": "cappusa.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.spartansystems.co.uk/products/honeywell-sauter-smartact-push-button-motor-n10010",
+      "type": "distributor",
+      "domain": "www.spartansystems.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.946493+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

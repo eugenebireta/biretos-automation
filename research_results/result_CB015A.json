@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CB015A",
+  "entity_id": "CB015A",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Printer: HP Officejet Pro K8600",
+    "description_ru": "eBay, состояние “Used”, Buy It Now. citeturn31search1",
+    "category_suggestion": "Printer: HP Officejet Pro K8600",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 299.99,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.com/itm/117085947375` citeturn31search1",
+      "price_type": "surplus"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "HP Officejet Pro K8600 (CB015A)"
+      ]
+    },
+    "key_findings": [
+      "eBay, состояние “Used”, Buy It Now. citeturn31search1",
+      "Aliases: HP Officejet Pro K8600 (CB015A)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/117085947375` citeturn31search1",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.com/itm/117085947375` citeturn31search1",
+      "type": "surplus",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.022144+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

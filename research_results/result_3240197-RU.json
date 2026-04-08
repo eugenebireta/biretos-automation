@@ -5,9 +5,41 @@
   "research_reason": "no_price_lineage",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 13.98,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "(available on RSP Supply page)",
+    "sources": [
+      {
+        "url": "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx",
+        "type": "distributor",
+        "domain": "rspsupply.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx",
+      "type": "distributor",
+      "domain": "rspsupply.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:47:58.153566Z",
@@ -15,5 +47,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
 }

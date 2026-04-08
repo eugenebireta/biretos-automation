@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CM100600-RU",
+  "entity_id": "CM100600-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fastener (tray systems)",
+    "description_ru": "Суффикс -RU интерпретирован как региональный; в retail чаще CM100600. citeturn58search2turn58search1",
+    "category_suggestion": "Fastener (tray systems)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 74.28,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://www.rtk.by/catalog/.../gayka-m6-s-nasechkoy-up-200sht/",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "М6; насечка/антиоткручивание; упаковка 200 шт citeturn58search2",
+      "aliases": [
+        "CM100600 (без -RU)"
+      ]
+    },
+    "key_findings": [
+      "Суффикс -RU интерпретирован как региональный; в retail чаще CM100600. citeturn58search2turn58search1",
+      "Aliases: CM100600 (без -RU)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.rtk.by/catalog/.../gayka-m6-s-nasechkoy-up-200sht/",
+        "type": "distributor",
+        "domain": "www.rtk.by",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.rtk.by/catalog/.../gayka-m6-s-nasechkoy-up-200sht/",
+      "type": "distributor",
+      "domain": "www.rtk.by",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.060235+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

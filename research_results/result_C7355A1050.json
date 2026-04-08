@@ -1,0 +1,89 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_C7355A1050",
+  "entity_id": "C7355A1050",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "multisensor",
+    "description_ru": "Blackhawk Supply lists at $1,625.63; Radwell surplus $2,136; Kele discontinued",
+    "category_suggestion": "multisensor",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 500.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/116578744302",
+      "price_type": "gray_market"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/AmkAAeSw6UtperOY/s-l1600.jpg",
+    "specs": {
+      "raw": "PM2.5/PM10; CO2 NDIR 0-2000ppm; TVOC 0-5000ppb; temp; RH; RS-485 Modbus; 12-28VDC/18-27VAC; 130×130×45mm",
+      "aliases": [
+        "C7355A"
+      ]
+    },
+    "key_findings": [
+      "Blackhawk Supply lists at $1,625.63; Radwell surplus $2,136; Kele discontinued",
+      "Aliases: C7355A"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/116578744302",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/396121523060",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/itm/116578744302",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/396121523060",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.948491+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

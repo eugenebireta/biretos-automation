@@ -5,9 +5,41 @@
   "research_reason": "identity_weak",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 52.51,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://it.wiautomation.com/phoenix-contact/altri-prodotti/3240199-phoenix-contact-cd-60x80` citeturn41view2",
+      "price_type": "gray_market"
+    },
+    "price_assessment": "ambiguous_offer",
+    "photo_url": "`https://images.wiautomation.com/public/images/landing/anticipa/product/Y40tb6oVvw6lJ6uivtMYgvKjGvnyQz0hzyklhDb72gqUWZkBkdsnBCmOD3HV.jpg` citeturn44view1",
+    "sources": [
+      {
+        "url": "`https://it.wiautomation.com/phoenix-contact/altri-prodotti/3240199-phoenix-contact-cd-60x80` citeturn41view2",
+        "type": "gray_market",
+        "domain": "it.wiautomation.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "`https://it.wiautomation.com/phoenix-contact/altri-prodotti/3240199-phoenix-contact-cd-60x80` citeturn41view2",
+      "type": "gray_market",
+      "domain": "it.wiautomation.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:48:11.008976Z",
@@ -15,5 +47,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
 }

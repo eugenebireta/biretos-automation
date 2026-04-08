@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CR-P/M42",
+  "entity_id": "CR-P/M42",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Relay accessory",
+    "description_ru": "Продавец прямо указывает, что не является авторизованным дистрибьютором — учитывать как серый рынок. citeturn28view0",
+    "category_suggestion": "Relay accessory",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 18.75,
+      "currency": "AED",
+      "unit_basis": "piece",
+      "source_url": "https://ae.wiautomation.com/abb/general-automation/1svr405652r0000",
+      "price_type": "gray_market"
+    },
+    "photo_url": "https://images.wiautomation.com/public/images/landing/anticipa/product/13_11_2024_15_13_58_1SVR405652R0000.png citeturn29view0",
+    "specs": {
+      "raw": "CR‑P/M42; диод + LED; 6–24VDC (по описанию продавца) citeturn28view0",
+      "aliases": [
+        "1SVR405652R0000"
+      ]
+    },
+    "key_findings": [
+      "Продавец прямо указывает, что не является авторизованным дистрибьютором — учитывать как серый рынок. citeturn28view0",
+      "Aliases: 1SVR405652R0000"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://ae.wiautomation.com/abb/general-automation/1svr405652r0000",
+        "type": "gray_market",
+        "domain": "ae.wiautomation.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://ae.wiautomation.com/abb/general-automation/1svr405652r0000",
+      "type": "gray_market",
+      "domain": "ae.wiautomation.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.057235+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

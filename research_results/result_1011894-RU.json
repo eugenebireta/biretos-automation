@@ -5,9 +5,59 @@
   "research_reason": "identity_weak",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 71.5,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.workwear.co.uk/honeywell-1011894-titan-2-point-fall-arrest-safety-harness-with-positioning-belt.html",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/sps-hppe-brp900-1011894",
+    "sources": [
+      {
+        "url": "https://www.workwear.co.uk/honeywell-1011894-titan-2-point-fall-arrest-safety-harness-with-positioning-belt.html",
+        "type": "distributor",
+        "domain": "www.workwear.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ]
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "https://www.workwear.co.uk/honeywell-1011894-titan-2-point-fall-arrest-safety-harness-with-positioning-belt.html",
+      "type": "distributor",
+      "domain": "www.workwear.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:48:18.076341Z",
@@ -15,5 +65,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
 }

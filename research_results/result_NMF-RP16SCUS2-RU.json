@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_NMF-RP16SCUS2-RU",
+  "entity_id": "NMF-RP16SCUS2-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fiber optic patch panel",
+    "description_ru": "NIKOMAX brand. 3,568–3,771 RUB (~$38–41 USD). Premium version -TS-P1 costs ₽8,362–11,068. -RU = Russian CU-TR certified.",
+    "category_suggestion": "Fiber optic patch panel",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 3.568,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://e-kc.ru/cena/opticheskij-kross-nikomax-19-1u-ukomplektovannyj-na-16-portov-scupc16-odinarnykh-scupc-adapterov-eko48820-nikomaxnikolan-nmf-rp16scus2-ws-es-1u-gy",
+      "price_type": "distributor"
+    },
+    "photo_url": "(available on dssl.ru and e-kc.ru)",
+    "specs": {
+      "raw": "19\" 1U; 16× SC/UPC simplex; SM 9/125 OS2; steel 1mm; 405×210×44mm; 2350g; -10°C to +60°C",
+      "aliases": [
+        "NMF-RP16SCUS2-WS-ES-1U-GY (full PN)"
+      ]
+    },
+    "key_findings": [
+      "NIKOMAX brand. 3,568–3,771 RUB (~$38–41 USD). Premium version -TS-P1 costs ₽8,362–11,068. -RU = Russian CU-TR certified.",
+      "Aliases: NMF-RP16SCUS2-WS-ES-1U-GY (full PN)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://e-kc.ru/cena/opticheskij-kross-nikomax-19-1u-ukomplektovannyj-na-16-portov-scupc16-odinarnykh-scupc-adapterov-eko48820-nikomaxnikolan-nmf-rp16scus2-ws-es-1u-gy",
+        "type": "distributor",
+        "domain": "e-kc.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://e-kc.ru/cena/opticheskij-kross-nikomax-19-1u-ukomplektovannyj-na-16-portov-scupc16-odinarnykh-scupc-adapterov-eko48820-nikomaxnikolan-nmf-rp16scus2-ws-es-1u-gy",
+      "type": "distributor",
+      "domain": "e-kc.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.009122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

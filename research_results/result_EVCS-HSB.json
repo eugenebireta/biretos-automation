@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_EVCS-HSB",
+  "entity_id": "EVCS-HSB",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire/EVCS: Type B refuge outstation",
+    "description_ru": "На странице: £249.95 и £299.94 (inc VAT); “In stock”. citeturn35search11",
+    "category_suggestion": "Fire/EVCS: Type B refuge outstation",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 249.95,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "`https://www.thesafetycentre.co.uk/honeywell-evcs-hsb-disabled-refuge-intercom-outstation-type-b-red` citeturn35search11",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "Morley / Honeywell VoCALL EVCS-HSB"
+      ]
+    },
+    "key_findings": [
+      "На странице: £249.95 и £299.94 (inc VAT); “In stock”. citeturn35search11",
+      "Aliases: Morley / Honeywell VoCALL EVCS-HSB"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.thesafetycentre.co.uk/honeywell-evcs-hsb-disabled-refuge-intercom-outstation-type-b-red` citeturn35search11",
+        "type": "distributor",
+        "domain": "www.thesafetycentre.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.thesafetycentre.co.uk/honeywell-evcs-hsb-disabled-refuge-intercom-outstation-type-b-red` citeturn35search11",
+      "type": "distributor",
+      "domain": "www.thesafetycentre.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.025149+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

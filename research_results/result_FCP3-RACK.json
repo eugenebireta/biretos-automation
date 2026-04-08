@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FCP3-RACK",
+  "entity_id": "FCP3-RACK",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fiber optic patch panel",
+    "description_ru": "**NOT a Honeywell fire panel rack.** Siemon product. Also $84.73 at Energy Avenue. Discontinued per Anixter",
+    "category_suggestion": "Fiber optic patch panel",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 83.15,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "1U rack; 19\"; 6–72 ports (up to 288 fibers w/ MTP); fixed tray; 3 Quick-Pack openings; 1.01 lb",
+      "aliases": [
+        "CCP-FCP3-RACK (ShowMeCables)",
+        "related: FCP3-DWR (sliding tray)"
+      ]
+    },
+    "key_findings": [
+      "**NOT a Honeywell fire panel rack.** Siemon product. Also $84.73 at Energy Avenue. Discontinued per Anixter",
+      "Aliases: CCP-FCP3-RACK (ShowMeCables); related: FCP3-DWR (sliding tray)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions",
+        "type": "distributor",
+        "domain": "www.eaccu-tech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions",
+      "type": "distributor",
+      "domain": "www.eaccu-tech.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.989062+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

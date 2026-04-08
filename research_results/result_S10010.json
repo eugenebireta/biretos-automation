@@ -1,0 +1,68 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_S10010",
+  "entity_id": "S10010",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "damper actuator",
+    "description_ru": "Прайс‑лист даёт **527,00** как каталожную цену. citeturn52search8",
+    "category_suggestion": "damper actuator",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 527.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://vainsmon.es/wp-content/uploads/2025/01/catalogo-tarifa-honeywell-resideo-2025.pdf` citeturn52search8",
+      "price_type": "list_price"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "24 VAC ±20% / 24 VDC; потребление: 5 VA (удержание), 14 VA (движение); IP54; −40…+60°C (из даташита S10010/S20010) citeturn52search0",
+      "aliases": [
+        "S10010 (в прайсе)",
+        "семейство SmartAct"
+      ]
+    },
+    "key_findings": [
+      "Прайс‑лист даёт **527,00** как каталожную цену. citeturn52search8",
+      "Aliases: S10010 (в прайсе); семейство SmartAct"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://vainsmon.es/wp-content/uploads/2025/01/catalogo-tarifa-honeywell-resideo-2025.pdf` citeturn52search8",
+        "type": "list_price",
+        "domain": "vainsmon.es",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://vainsmon.es/wp-content/uploads/2025/01/catalogo-tarifa-honeywell-resideo-2025.pdf` citeturn52search8",
+      "type": "list_price",
+      "domain": "vainsmon.es",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.041659+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

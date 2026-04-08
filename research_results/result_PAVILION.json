@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_PAVILION",
+  "entity_id": "PAVILION",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Barcode scanner accessory",
+    "description_ru": "На открытии страницы цена может быть скрыта, но в выдаче фиксируется $258.72. citeturn65search0turn66view1",
+    "category_suggestion": "Barcode scanner accessory",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 258.72,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.touchwindow.com/p/PAV-2DSCAN.html",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "Part number для заказа: PAV-2DSCAN; MSRP $392; «Pavilion» как платформа citeturn65search0turn66view1",
+      "aliases": [
+        "PAV-2DSCAN citeturn66view1"
+      ]
+    },
+    "key_findings": [
+      "На открытии страницы цена может быть скрыта, но в выдаче фиксируется $258.72. citeturn65search0turn66view1",
+      "Aliases: PAV-2DSCAN citeturn66view1"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.touchwindow.com/p/PAV-2DSCAN.html",
+        "type": "distributor",
+        "domain": "www.touchwindow.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.touchwindow.com/p/PAV-2DSCAN.html",
+      "type": "distributor",
+      "domain": "www.touchwindow.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.062747+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

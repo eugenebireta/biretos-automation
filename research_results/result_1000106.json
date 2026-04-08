@@ -5,9 +5,59 @@
   "research_reason": "identity_weak",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 53.75,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "sources": [
+      {
+        "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+        "type": "distributor",
+        "domain": "www.amazon.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.modern-eastern.com/en/home/honeywell-earplugs-304l-large-Box-of-100-pairs-1000106",
+        "type": "distributor",
+        "domain": "www.modern-eastern.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "photo_url": "https://www.modern-eastern.com/content/product_images/8808176105869.jpg"
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+      "type": "distributor",
+      "domain": "www.amazon.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.modern-eastern.com/en/home/honeywell-earplugs-304l-large-Box-of-100-pairs-1000106",
+      "type": "distributor",
+      "domain": "www.modern-eastern.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:48:00.050763Z",
@@ -15,5 +65,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
 }

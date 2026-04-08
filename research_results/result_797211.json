@@ -1,0 +1,86 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_797211",
+  "entity_id": "797211",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA frame",
+    "description_ru": "Dialog Exclusiv 2-gang frame; gold series special-order only",
+    "category_suggestion": "PEHA frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1066.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://aelektro.ru/catalog/ramki/2-postovye/ramka-2-posta-honeywell-dialog-exclusiv-chernyi-797211",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "81×157mm; deep black RAL 9005/gold inlay; thermoplastic halogen-free; IP20",
+      "aliases": [
+        "D 95.572.19.61",
+        "00797211"
+      ]
+    },
+    "key_findings": [
+      "Dialog Exclusiv 2-gang frame; gold series special-order only",
+      "Aliases: D 95.572.19.61; 00797211"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.schaltertresen.de/Peha/DIALOG-Programm/Dialog-exclusiv-Kombi-Rahmen.html",
+        "type": "list_price",
+        "domain": "www.schaltertresen.de",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://aelektro.ru/catalog/ramki/2-postovye/ramka-2-posta-honeywell-dialog-exclusiv-chernyi-797211",
+        "type": "distributor",
+        "domain": "aelektro.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.schaltertresen.de/Peha/DIALOG-Programm/Dialog-exclusiv-Kombi-Rahmen.html",
+      "type": "list_price",
+      "domain": "www.schaltertresen.de",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://aelektro.ru/catalog/ramki/2-postovye/ramka-2-posta-honeywell-dialog-exclusiv-chernyi-797211",
+      "type": "distributor",
+      "domain": "aelektro.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.973646+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

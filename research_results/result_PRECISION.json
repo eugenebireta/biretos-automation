@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_PRECISION",
+  "entity_id": "PRECISION",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Precision component",
+    "description_ru": "PN=PRECISION трактован как внутренний ярлык на серию/категорию; конкретный MPN нужен для точной закупки. citeturn65search9",
+    "category_suggestion": "Precision component",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 83.91,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.mouser.com/c/passive-components/potentiometers-trimmers-rheostats/precision-potentiometers/?m=Honeywell",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "Пример позиции: SA1CB1A103; цена 83.91€ при 250 шт citeturn65search9",
+      "aliases": [
+        "SA1CB1A103 citeturn65search9"
+      ]
+    },
+    "key_findings": [
+      "PN=PRECISION трактован как внутренний ярлык на серию/категорию; конкретный MPN нужен для точной закупки. citeturn65search9",
+      "Aliases: SA1CB1A103 citeturn65search9"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mouser.com/c/passive-components/potentiometers-trimmers-rheostats/precision-potentiometers/?m=Honeywell",
+        "type": "distributor",
+        "domain": "www.mouser.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.mouser.com/c/passive-components/potentiometers-trimmers-rheostats/precision-potentiometers/?m=Honeywell",
+      "type": "distributor",
+      "domain": "www.mouser.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.062747+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

@@ -1,0 +1,63 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_604411",
+  "entity_id": "604411",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "switch box / wall box",
+    "description_ru": "Есть datasheet PDF с деталями (Compacta Isolierdose flach)",
+    "category_suggestion": "switch box / wall box",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 2.68,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.voelkner.de/products/7579916/PEHA-by-Honeywell-604411-Schalterdose-1St..html` citeturn49search1",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "Schalterdose; IP20; ключевые слова: Installationsdose; цена incl. MwSt."
+    },
+    "key_findings": [
+      "Есть datasheet PDF с деталями (Compacta Isolierdose flach)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.voelkner.de/products/7579916/PEHA-by-Honeywell-604411-Schalterdose-1St..html` citeturn49search1",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.voelkner.de/products/7579916/PEHA-by-Honeywell-604411-Schalterdose-1St..html` citeturn49search1",
+      "type": "distributor",
+      "domain": "www.voelkner.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.074858+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

@@ -187,20 +187,24 @@ def check(
                         f" expected '{task_id_from_directive}')"
                     )
         if violating_files:
-            raise ValueError(
-                f"A5:TASK_ID_INTEGRITY VIOLATED — executor created/modified files "
-                f"whose names contain a task_id token that differs from the directive. "
-                f"Expected task_id='{task_id_from_directive}'. "
-                f"Violations ({len(violating_files)}): {violating_files}"
-            )
-        checks.append(AcceptanceCheck(
-            check_id="A5:TASK_ID_INTEGRITY",
-            passed=True,
-            detail=(
-                f"all {len(all_files)} files use correct task_id"
-                f" '{task_id_from_directive}'"
-            ),
-        ))
+            checks.append(AcceptanceCheck(
+                check_id="A5:TASK_ID_INTEGRITY",
+                passed=False,
+                detail=(
+                    f"{len(violating_files)} file(s) reference wrong task_id "
+                    f"(expected '{task_id_from_directive}'): "
+                    f"{violating_files[:5]}"
+                ),
+            ))
+        else:
+            checks.append(AcceptanceCheck(
+                check_id="A5:TASK_ID_INTEGRITY",
+                passed=True,
+                detail=(
+                    f"all {len(all_files)} files use correct task_id"
+                    f" '{task_id_from_directive}'"
+                ),
+            ))
     else:
         checks.append(AcceptanceCheck(
             check_id="A5:TASK_ID_INTEGRITY",

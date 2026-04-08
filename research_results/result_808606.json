@@ -1,0 +1,68 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_808606",
+  "entity_id": "808606",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "fire alarm I/O transponder",
+    "description_ru": "",
+    "category_suggestion": "fire alarm I/O transponder",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 221.34,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.brandmelde-shop.de/esser-808606-esserbus-koppler-iq8fct-xs` citeturn46view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "14–42 VDC; relay 30 VDC/1 A; IP30; −20…+70°C; клеммы до 2.5 мм²; ток покоя ~45 µA @19V; габариты 90×93×23 мм citeturn46view0",
+      "aliases": [
+        "Priosafe: 190.00 € (цена отображается, но «Not Available For Sale») citeturn46view1"
+      ]
+    },
+    "key_findings": [
+      "Aliases: Priosafe: 190.00 € (цена отображается, но «Not Available For Sale») citeturn46view1"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.brandmelde-shop.de/esser-808606-esserbus-koppler-iq8fct-xs` citeturn46view0",
+        "type": "distributor",
+        "domain": "www.brandmelde-shop.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.brandmelde-shop.de/esser-808606-esserbus-koppler-iq8fct-xs` citeturn46view0",
+      "type": "distributor",
+      "domain": "www.brandmelde-shop.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.042728+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

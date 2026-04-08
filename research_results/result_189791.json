@@ -35,10 +35,28 @@
           "category",
           "price"
         ]
+      },
+      {
+        "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189791-5-st-2856757.html` citeturn27search3",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентификация PN 189791 как электроустановочной рамки подтверждена Conrad.fr. Однако критическое несоответствие между текущим названием ('Детектор пламени') и фактическим продуктом (рамка) указывает на серьёзную ошибку в каталоге. Требуется проверка источника исходных данных и возможное разделение двух разных PN."
+    "confidence_notes": "Идентификация PN 189791 как электроустановочной рамки подтверждена Conrad.fr. Однако критическое несоответствие между текущим названием ('Детектор пламени') и фактическим продуктом (рамка) указывает на серьёзную ошибку в каталоге. Требуется проверка источника исходных данных и возможное разделение двух разных PN.",
+    "price_value": {
+      "amount": 261.95,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189791-5-st-2856757.html` citeturn27search3",
+      "price_type": "distributor"
+    },
+    "photo_url": "—"
   },
   "sources": [
     {
@@ -49,6 +67,16 @@
         "category",
         "price"
       ]
+    },
+    {
+      "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189791-5-st-2856757.html` citeturn27search3",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
     }
   ],
   "confidence": "medium",
@@ -57,5 +85,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2217,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
 }

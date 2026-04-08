@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FUSE-6.3A-5X20",
+  "entity_id": "FUSE-6.3A-5X20",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fuse",
+    "description_ru": "Цена видна на карточке товара (розница). citeturn4search0",
+    "category_suggestion": "Fuse",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 4.25,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://kosmodrom.com.ua/predochranitel-steklyannyy-6-3a-250v-5h20mm/",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "6.3A; 250V; 5×20 mm (стеклянный) citeturn4search0",
+      "aliases": [
+        "Fuse 6.3A 5×20"
+      ]
+    },
+    "key_findings": [
+      "Цена видна на карточке товара (розница). citeturn4search0",
+      "Aliases: Fuse 6.3A 5×20"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://kosmodrom.com.ua/predochranitel-steklyannyy-6-3a-250v-5h20mm/",
+        "type": "distributor",
+        "domain": "kosmodrom.com.ua",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://kosmodrom.com.ua/predochranitel-steklyannyy-6-3a-250v-5h20mm/",
+      "type": "distributor",
+      "domain": "kosmodrom.com.ua",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.056234+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

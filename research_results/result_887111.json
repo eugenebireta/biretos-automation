@@ -1,0 +1,63 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_887111",
+  "entity_id": "887111",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "rocker cover (wippe)",
+    "description_ru": "Цена из листинга марки; карточка товара не выделена отдельно в этом прогоне",
+    "category_suggestion": "rocker cover (wippe)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 11.95,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/marken/peha-by-honeywell.html` citeturn40search3",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "листинг бренда показывает цену и статус доставки"
+    },
+    "key_findings": [
+      "Цена из листинга марки; карточка товара не выделена отдельно в этом прогоне"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.conrad.ch/de/marken/peha-by-honeywell.html` citeturn40search3",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.conrad.ch/de/marken/peha-by-honeywell.html` citeturn40search3",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.070748+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

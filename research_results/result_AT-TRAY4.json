@@ -1,0 +1,68 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_AT-TRAY4",
+  "entity_id": "AT-TRAY4",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "rack mounting tray",
+    "description_ru": "",
+    "category_suggestion": "rack mounting tray",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 74.99,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.bechtle.com/ch-en/shop/allied-telesis-at-tray4-media-converter--154194--p` citeturn23search2",
+      "price_type": "distributor"
+    },
+    "photo_url": "AT RKMT J14",
+    "specs": {
+      "raw": "4‑slot media converter rack mounting bracket; указан «Gross price» CHF 81.06 incl. VAT citeturn23search2",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.bechtle.com/ch-en/shop/allied-telesis-at-tray4-media-converter--154194--p` citeturn23search2",
+        "type": "distributor",
+        "domain": "www.bechtle.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.bechtle.com/ch-en/shop/allied-telesis-at-tray4-media-converter--154194--p` citeturn23search2",
+      "type": "distributor",
+      "domain": "www.bechtle.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.042728+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

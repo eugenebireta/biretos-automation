@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_PCD3.W340",
+  "entity_id": "PCD3.W340",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PLC I/O: analog input module",
+    "description_ru": "eBay.de: показаны цены incl. MwSt. и exkl. MwSt. citeturn20search3",
+    "category_suggestion": "PLC I/O: analog input module",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 339.15,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.de/itm/205173519196` citeturn20search3",
+      "price_type": "gray_market"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "Saia PCD3.W340 / PCD3W340"
+      ]
+    },
+    "key_findings": [
+      "eBay.de: показаны цены incl. MwSt. и exkl. MwSt. citeturn20search3",
+      "Aliases: Saia PCD3.W340 / PCD3W340"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.de/itm/205173519196` citeturn20search3",
+        "type": "gray_market",
+        "domain": "www.ebay.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.de/itm/205173519196` citeturn20search3",
+      "type": "gray_market",
+      "domain": "www.ebay.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.020636+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

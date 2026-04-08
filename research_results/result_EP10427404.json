@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_EP10427404",
+  "entity_id": "EP10427404",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "KNX presence detector",
+    "description_ru": "Цена: €96,97 Excl. tax; также показана цена incl. tax. citeturn23search3",
+    "category_suggestion": "KNX presence detector",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 96.97,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.knxwarehouse.com/en/esylux-ep10427404.html` citeturn23search3",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "ESYLUX PD-C 360i/8 KNX UP"
+      ]
+    },
+    "key_findings": [
+      "Цена: €96,97 Excl. tax; также показана цена incl. tax. citeturn23search3",
+      "Aliases: ESYLUX PD-C 360i/8 KNX UP"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.knxwarehouse.com/en/esylux-ep10427404.html` citeturn23search3",
+        "type": "distributor",
+        "domain": "www.knxwarehouse.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.knxwarehouse.com/en/esylux-ep10427404.html` citeturn23search3",
+      "type": "distributor",
+      "domain": "www.knxwarehouse.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.023147+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

@@ -1,0 +1,85 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5013R1057",
+  "entity_id": "V5013R1057",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "valve",
+    "description_ru": "V5013R series; also ₹10,000 on IndiaMART",
+    "category_suggestion": "valve",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 224.3,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.mkwheatingcontrols.co.uk/honeywell-v5013r1057-port-valve-body-p-1683.html",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://5.imimg.com/data5/SELLER/Default/2025/1/482329451/OC/FT/IM/2838750/v5013r1057-honeywell-valve-500x500.jpg",
+    "specs": {
+      "raw": "DN20; Kvs 6.3; 3-way mixing; threaded ISO228; PN16; brass; 20mm stroke; 2-170°C"
+    },
+    "key_findings": [
+      "V5013R series; also ₹10,000 on IndiaMART"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mkwheatingcontrols.co.uk/honeywell-v5013r1057-port-valve-body-p-1683.html",
+        "type": "distributor",
+        "domain": "www.mkwheatingcontrols.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.bolasystems.com/three-way-control-valve-honeywell-v5013r1057-dn-20",
+        "type": "distributor",
+        "domain": "www.bolasystems.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.mkwheatingcontrols.co.uk/honeywell-v5013r1057-port-valve-body-p-1683.html",
+      "type": "distributor",
+      "domain": "www.mkwheatingcontrols.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.bolasystems.com/three-way-control-valve-honeywell-v5013r1057-dn-20",
+      "type": "distributor",
+      "domain": "www.bolasystems.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.949492+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

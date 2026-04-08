@@ -1,0 +1,89 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_39611",
+  "entity_id": "39611",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA rocker switch",
+    "description_ru": "Nova Brillance; 12 in stock at PEHAstore; reduced from €11.28 list price",
+    "category_suggestion": "PEHA rocker switch",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 5.64,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.pehastore.de/20-545-192.html",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://cdn.webshopapp.com/shops/291379/files/436455501/900x900x2/peha-wippe-2-fach-nova-brillance-tiefschwarz-20545.jpg",
+    "specs": {
+      "raw": "2-gang rocker; deep black RAL 9005; for series switches Art. 515/515 T; IP20",
+      "aliases": [
+        "D 20.545.192",
+        "00039611",
+        "EAN 4010105039610"
+      ]
+    },
+    "key_findings": [
+      "Nova Brillance; 12 in stock at PEHAstore; reduced from €11.28 list price",
+      "Aliases: D 20.545.192; 00039611; EAN 4010105039610"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.pehastore.de/20-545-192.html",
+        "type": "distributor",
+        "domain": "www.pehastore.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.pehastore.de/20-545-192.html",
+      "type": "distributor",
+      "domain": "www.pehastore.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.976647+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

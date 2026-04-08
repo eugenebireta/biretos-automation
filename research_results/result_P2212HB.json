@@ -1,0 +1,68 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_P2212HB",
+  "entity_id": "P2212HB",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "monitor",
+    "description_ru": "",
+    "category_suggestion": "monitor",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 61.31,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.galador.eu/0-product/21426429-del-dell-p2212hb-22-fhd-grade-ab-working-unboxed-refurbished` citeturn22search7",
+      "price_type": "surplus"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "Grade AB; working; refurbished; цена на странице 61.31 € citeturn22search7",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.galador.eu/0-product/21426429-del-dell-p2212hb-22-fhd-grade-ab-working-unboxed-refurbished` citeturn22search7",
+        "type": "surplus",
+        "domain": "www.galador.eu",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.galador.eu/0-product/21426429-del-dell-p2212hb-22-fhd-grade-ab-working-unboxed-refurbished` citeturn22search7",
+      "type": "surplus",
+      "domain": "www.galador.eu",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.052231+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

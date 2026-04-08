@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_36146-RU",
+  "entity_id": "36146-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "water filter (fine filter)",
+    "description_ru": "Есть разброс цен по рынку (пример: 39 200 ₽ на другом магазине). citeturn9view1",
+    "category_suggestion": "water filter (fine filter)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 42000.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://santehmoskva.ru/tovar/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam-f76s-1-1-4-aam/` citeturn9view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://santehmoskva.ru/upload/iblock/ea5/k5nz4su78szn7as54fubl819ui3tr2k3.jpg` citeturn10view0",
+    "specs": {
+      "raw": "модель: F76S‑1 1/4 AAM; цена 42 000 ₽ citeturn9view0",
+      "aliases": [
+        "36146 (без -RU)"
+      ]
+    },
+    "key_findings": [
+      "Есть разброс цен по рынку (пример: 39 200 ₽ на другом магазине). citeturn9view1",
+      "Aliases: 36146 (без -RU)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://santehmoskva.ru/tovar/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam-f76s-1-1-4-aam/` citeturn9view0",
+        "type": "distributor",
+        "domain": "santehmoskva.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://santehmoskva.ru/tovar/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam-f76s-1-1-4-aam/` citeturn9view0",
+      "type": "distributor",
+      "domain": "santehmoskva.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.048730+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

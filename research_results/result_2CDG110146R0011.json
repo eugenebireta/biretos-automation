@@ -1,0 +1,72 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_2CDG110146R0011",
+  "entity_id": "2CDG110146R0011",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 353.43,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "https://cdn.productimages.abb.com/9PAA00000098026_400x400.jpg",
+    "sources": [
+      {
+        "url": "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm",
+        "type": "distributor",
+        "domain": "industry-electronics.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/286835761982",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm",
+      "type": "distributor",
+      "domain": "industry-electronics.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/286835761982",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:05:05.584867Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

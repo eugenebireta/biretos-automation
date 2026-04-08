@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FX808363",
+  "entity_id": "FX808363",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm PSU extension",
+    "description_ru": "Net EUR; pre-order at walde.ee",
+    "category_suggestion": "Fire alarm PSU extension",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 945.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.esser-systems.com/productimages/system-flexes-control/power-supply-expansion//fx808363-power-supply-extension-24-v12-ah_Inherited_product_pic_300_300_BMFX8083_63xxx_GEPE_SF3C_01.jpg",
+    "specs": {
+      "raw": "230VAC; 24VDC out; max 6A; 150W add'l; 4×12V/12Ah batt; 450×320×185mm; 6.2kg",
+      "aliases": [
+        "FX808363.IN (FM)"
+      ]
+    },
+    "key_findings": [
+      "Net EUR; pre-order at walde.ee",
+      "Aliases: FX808363.IN (FM)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+      "type": "distributor",
+      "domain": "walde.ee",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.963513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

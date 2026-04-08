@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CR-MH",
+  "entity_id": "CR-MH",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Relay accessory",
+    "description_ru": "Цена «incl. MwSt.» на швейцарской витрине. citeturn33view0",
+    "category_suggestion": "Relay accessory",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 0.59,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "https://www.eibabo.ch/abb/kunststoffhalter-fuer-cr-m-sockel-cr-mh-eb10742700",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.eibabo.ch/media/image/7f/64/01/EB10742700mXiqM1W59UOl3.jpg citeturn34view0",
+    "specs": {
+      "raw": "CR‑MH; 1SVR405659R1000; держатель (Haltebügel) citeturn33view0",
+      "aliases": [
+        "1SVR405659R1000"
+      ]
+    },
+    "key_findings": [
+      "Цена «incl. MwSt.» на швейцарской витрине. citeturn33view0",
+      "Aliases: 1SVR405659R1000"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.eibabo.ch/abb/kunststoffhalter-fuer-cr-m-sockel-cr-mh-eb10742700",
+        "type": "distributor",
+        "domain": "www.eibabo.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.eibabo.ch/abb/kunststoffhalter-fuer-cr-m-sockel-cr-mh-eb10742700",
+      "type": "distributor",
+      "domain": "www.eibabo.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.057235+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

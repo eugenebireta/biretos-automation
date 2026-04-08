@@ -36,10 +36,26 @@
           "category_correction",
           "price_reference"
         ]
+      },
+      {
+        "url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html` citeturn27search0",
+        "type": "distributor",
+        "domain": "www.conrad.fr",
+        "supports": [
+          "identity",
+          "price"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентичность продукта как декоративной рамки подтверждена одним авторитетным дистрибьютором (Conrad.nl), но отсутствуют официальные источники Honeywell и datasheet. Категория явно неправильна в текущем каталоге. Цена в xlsx может быть ошибочной из-за неправильной категоризации. Требуется переклассификация и переверка источника цены."
+    "confidence_notes": "Идентичность продукта как декоративной рамки подтверждена одним авторитетным дистрибьютором (Conrad.nl), но отсутствуют официальные источники Honeywell и datasheet. Категория явно неправильна в текущем каталоге. Цена в xlsx может быть ошибочной из-за неправильной категоризации. Требуется переклассификация и переверка источника цены.",
+    "price_value": {
+      "amount": 405.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html` citeturn27search0",
+      "price_type": "distributor"
+    }
   },
   "sources": [
     {
@@ -50,6 +66,15 @@
         "category_correction",
         "price_reference"
       ]
+    },
+    {
+      "url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html` citeturn27search0",
+      "type": "distributor",
+      "domain": "www.conrad.fr",
+      "supports": [
+        "identity",
+        "price"
+      ]
     }
   ],
   "confidence": "medium",
@@ -58,5 +83,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2261,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
 }

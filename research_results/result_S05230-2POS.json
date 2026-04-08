@@ -1,0 +1,83 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_S05230-2POS",
+  "entity_id": "S05230-2POS",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "actuator",
+    "description_ru": "SmartAct S05 spring-return; all distributors require login/RFQ",
+    "category_suggestion": "actuator",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 352.79,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.bolasystems.com/three-way-damper-actuator-honeywell-s05230-2pos",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "5 Nm; 230 VAC; spring return; 2-position; IP54; 45s runtime; <25s spring return; 3.2 kg; 247×100×75mm",
+      "aliases": [
+        "MS4105 series (US)"
+      ]
+    },
+    "key_findings": [
+      "SmartAct S05 spring-return; all distributors require login/RFQ",
+      "Aliases: MS4105 series (US)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.resideo.com/emea/en/products/comfort/hydronic-valves-and-actuators/hydronic-valve-actuators/s05230-2pos-damper-actuator-5-nm-2-pt-230-vac-s05230-2pos/",
+        "type": "—",
+        "domain": "www.resideo.com",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://www.bolasystems.com/three-way-damper-actuator-honeywell-s05230-2pos",
+        "type": "distributor",
+        "domain": "www.bolasystems.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.resideo.com/emea/en/products/comfort/hydronic-valves-and-actuators/hydronic-valve-actuators/s05230-2pos-damper-actuator-5-nm-2-pt-230-vac-s05230-2pos/",
+      "type": "—",
+      "domain": "www.resideo.com",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://www.bolasystems.com/three-way-damper-actuator-honeywell-s05230-2pos",
+      "type": "distributor",
+      "domain": "www.bolasystems.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.948491+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

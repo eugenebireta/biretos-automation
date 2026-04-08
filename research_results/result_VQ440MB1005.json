@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_VQ440MB1005",
+  "entity_id": "VQ440MB1005",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Газовый комбинированный клапан",
+    "description_ru": "Страница: “Цена: 510180 ₽”; указано “Оплата по счету без НДС” и “с НДС (+30%)”. citeturn19view0",
+    "category_suggestion": "Газовый комбинированный клапан",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 510180.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://shop.vitaprom.ru/products/honeywell_vq440mb1005/` citeturn19view0",
+      "price_type": "gray_market"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "534.322.235"
+      ]
+    },
+    "key_findings": [
+      "Страница: “Цена: 510180 ₽”; указано “Оплата по счету без НДС” и “с НДС (+30%)”. citeturn19view0",
+      "Aliases: 534.322.235"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://shop.vitaprom.ru/products/honeywell_vq440mb1005/` citeturn19view0",
+        "type": "gray_market",
+        "domain": "shop.vitaprom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://shop.vitaprom.ru/products/honeywell_vq440mb1005/` citeturn19view0",
+      "type": "gray_market",
+      "domain": "shop.vitaprom.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.020636+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

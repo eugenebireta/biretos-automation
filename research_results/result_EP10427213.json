@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_EP10427213",
+  "entity_id": "EP10427213",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "KNX presence/multisensor",
+    "description_ru": "Цена указана как “€156,55 Excl. tax”; также показана цена incl. tax. citeturn22search0",
+    "category_suggestion": "KNX presence/multisensor",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 156.55,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.knxwarehouse.com/en/esylux-ep10427213.html` citeturn22search0",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "ESYLUX PD-ATMO 360i/8 T KNX (GTIN 4015120427213)"
+      ]
+    },
+    "key_findings": [
+      "Цена указана как “€156,55 Excl. tax”; также показана цена incl. tax. citeturn22search0",
+      "Aliases: ESYLUX PD-ATMO 360i/8 T KNX (GTIN 4015120427213)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.knxwarehouse.com/en/esylux-ep10427213.html` citeturn22search0",
+        "type": "distributor",
+        "domain": "www.knxwarehouse.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.knxwarehouse.com/en/esylux-ep10427213.html` citeturn22search0",
+      "type": "distributor",
+      "domain": "www.knxwarehouse.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.020636+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

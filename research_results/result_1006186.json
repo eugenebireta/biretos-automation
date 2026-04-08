@@ -1,0 +1,91 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_1006186",
+  "entity_id": "1006186",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "earplugs",
+    "description_ru": "Bag of 200 pairs; refill for HL400 dispenser; TWD 1,794 ≈ USD 55–58; in stock RS Taiwan",
+    "category_suggestion": "earplugs",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1794.0,
+      "currency": "TWD",
+      "unit_basis": "piece",
+      "source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://media.rs-online.com/image/upload/F1040922-01",
+    "specs": {
+      "raw": "SNR 33dB; polyurethane foam; uncorded; disposable; large; bullet/tapered; EN 352-2",
+      "aliases": [
+        "Bilsom 303L",
+        "Howard Leight 303L",
+        "RS 104-0922"
+      ]
+    },
+    "key_findings": [
+      "Bag of 200 pairs; refill for HL400 dispenser; TWD 1,794 ≈ USD 55–58; in stock RS Taiwan",
+      "Aliases: Bilsom 303L; Howard Leight 303L; RS 104-0922"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+        "type": "distributor",
+        "domain": "twen.rs-online.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.alive-sr.com/prod/303LBOXFOAMRED/",
+        "type": "distributor",
+        "domain": "www.alive-sr.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+      "type": "distributor",
+      "domain": "twen.rs-online.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.alive-sr.com/prod/303LBOXFOAMRED/",
+      "type": "distributor",
+      "domain": "www.alive-sr.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.978644+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

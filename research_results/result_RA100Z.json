@@ -1,0 +1,72 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_RA100Z",
+  "entity_id": "RA100Z",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Remote LED annunciator",
+    "description_ru": "System Sensor / Honeywell. Also $22.83 Next Security; $26.99 Protegis; €69 Credex EU. Replaces RA400Z.",
+    "category_suggestion": "Remote LED annunciator",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 21.29,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2",
+      "price_type": "distributor"
+    },
+    "photo_url": "(available on Amazon and Credex pages)",
+    "specs": {
+      "raw": "18–32 VDC (intelligent) / 3.1–32 VDC (full); red + green LEDs; single gang mount; UL Listed",
+      "aliases": [
+        "RA400Z (predecessor)",
+        "RA100ZA (Canadian)",
+        "System Sensor RA100Z",
+        "Notifier RA100Z"
+      ]
+    },
+    "key_findings": [
+      "System Sensor / Honeywell. Also $22.83 Next Security; $26.99 Protegis; €69 Credex EU. Replaces RA400Z.",
+      "Aliases: RA400Z (predecessor); RA100ZA (Canadian); System Sensor RA100Z; Notifier RA100Z"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2",
+        "type": "distributor",
+        "domain": "www.amazon.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2",
+      "type": "distributor",
+      "domain": "www.amazon.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.010122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

@@ -32,6 +32,7 @@ DIRECTIVE_PATH = ORCH_DIR / "orchestrator_directive.md"
 PACKET_PATH = ORCH_DIR / "last_execution_packet.json"
 RUNS_PATH = ORCH_DIR / "runs.jsonl"
 LOCK_PATH = ORCH_DIR / "orchestrator.lock"
+RUNS_DIR = ORCH_DIR / "runs"
 
 
 # ---------------------------------------------------------------------------
@@ -74,6 +75,28 @@ def _release_lock(fh):
     except Exception:
         pass
 
+def _ensure_run_dir(trace_id: str) -> Path:
+    """Create and return per-run directory for artifacts isolation."""
+    run_dir = RUNS_DIR / trace_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+    return run_dir
+
+
+def _save_manifest_atomic(updates: dict) -> None:
+    """Briefly lock → load manifest → apply updates → save → unlock.
+
+    Used for state transitions when the main file lock is NOT held
+    (e.g., error recovery during unlocked cycle work).
+    """
+    lock_fh = _acquire_lock()
+    try:
+        manifest = load_manifest()
+        manifest.update(updates)
+        save_manifest(manifest)
+    finally:
+        _release_lock(lock_fh)
+
+
 DEFAULT_MANIFEST = {
     "schema_version": "v1",
     "fsm_state": "ready",
@@ -99,6 +122,10 @@ FSM_TRANSITIONS: dict[tuple[str, str], str] = {
     ("ready",                 "directive_written"):  "awaiting_execution",
     ("ready",                 "task_completed"):     "completed",
     ("ready",                 "error_detected"):     "error",
+    ("processing",            "directive_written"):  "awaiting_execution",
+    ("processing",            "error_detected"):     "error",
+    ("processing",            "escalated"):          "awaiting_owner_reply",
+    ("processing",            "cycle_start"):        "processing",
     ("awaiting_execution",    "packet_received"):    "ready",
     ("awaiting_execution",    "error_detected"):     "error",
     ("awaiting_execution",    "cycle_start"):        "awaiting_execution",
@@ -171,7 +198,16 @@ def cmd_init(args: argparse.Namespace) -> None:
 
 
 def cmd_cycle(args: argparse.Namespace) -> None:
-    # P0-1: single-run guard — prevent concurrent manifest overwrites
+    """Run one orchestrator cycle with narrow file-lock scope.
+
+    Phase 1: Brief lock — check state, handle parked states, or
+             claim the cycle (ready → processing).
+    Phase 2: Execute cycle WITHOUT holding file lock.
+             The "processing" FSM state prevents concurrent starts.
+    """
+    # ---------------------------------------------------------------
+    # Phase 1: Brief lock — state check + claim
+    # ---------------------------------------------------------------
     lock_fh = _acquire_lock()
     if lock_fh is None:
         append_run({"ts": _now(), "event": "lock_busy",
@@ -181,55 +217,95 @@ def cmd_cycle(args: argparse.Namespace) -> None:
               file=sys.stderr)
         return
 
+    manifest = None
+    ready_to_proceed = False
     try:
-        _cmd_cycle_inner(args)
+        manifest = load_manifest()
+        state = manifest.get("fsm_state", "ready")
+
+        _sprint_goal_warning(manifest)
+        print(f"[orchestrator] state={state} task={manifest.get('current_task_id','(none)')}")
+
+        if state == "completed":
+            print("[orchestrator] Task completed. Set new task_id and sprint_goal to start next.")
+            return
+
+        if state == "error":
+            print("[orchestrator] In error state. Resolve and set fsm_state=ready in manifest.json.")
+            return
+
+        if state == "awaiting_owner_reply":
+            print("[orchestrator] Awaiting owner reply. Check escalation packet and respond.")
+            return
+
+        if state == "processing":
+            append_run({"ts": _now(), "event": "cycle_busy",
+                        "status": "cycle_busy",
+                        "reason": "Previous cycle still in progress"})
+            print("[orchestrator] cycle_busy — previous cycle still running. Exiting.",
+                  file=sys.stderr)
+            return
+
+        if state == "awaiting_execution":
+            if PACKET_PATH.exists():
+                packet = json.loads(PACKET_PATH.read_text(encoding="utf-8"))
+                print(f"[orchestrator] Packet found: status={packet.get('status')} "
+                      f"files={len(packet.get('changed_files', []))}")
+                manifest["fsm_state"] = "ready"
+                manifest["last_verdict"] = None
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "packet_received",
+                            "status": "packet_received",
+                            "state_before": "awaiting_execution", "state_after": "ready",
+                            "trace_id": manifest.get("trace_id")})
+                print("[orchestrator] Packet consumed. Ready for next cycle.")
+            else:
+                print(f"[orchestrator] Awaiting execution. Directive at: {DIRECTIVE_PATH}")
+                print("[orchestrator] Run: cat orchestrator/orchestrator_directive.md | claude -p")
+                print("[orchestrator] Then: python orchestrator/collect_packet.py "
+                      f"--trace-id {manifest.get('trace_id', '<trace_id>')}")
+            return
+
+        # state == "ready": claim the cycle → processing
+        manifest["fsm_state"] = "processing"
+        save_manifest(manifest)
+        ready_to_proceed = True
     finally:
         _release_lock(lock_fh)
 
-
-def _cmd_cycle_inner(args: argparse.Namespace) -> None:
-    manifest = load_manifest()
-    state = manifest.get("fsm_state", "ready")
-
-    _sprint_goal_warning(manifest)
-    print(f"[orchestrator] state={state} task={manifest.get('current_task_id','(none)')}")
-
-    if state == "completed":
-        print("[orchestrator] Task completed. Set new task_id and sprint_goal to start next.")
+    if not ready_to_proceed:
         return
 
-    if state == "error":
-        print("[orchestrator] In error state. Resolve and set fsm_state=ready in manifest.json.")
-        return
+    # ---------------------------------------------------------------
+    # Phase 2: Execute cycle WITHOUT holding file lock.
+    # "processing" state is the logical lock — prevents concurrent starts.
+    # ---------------------------------------------------------------
+    try:
+        _cmd_cycle_inner(args, manifest)
+    except Exception as exc:
+        _save_manifest_atomic({
+            "fsm_state": "error",
+            "last_verdict": "CYCLE_ERROR",
+        })
+        append_run({"ts": _now(), "event": "cycle_error",
+                    "status": "cycle_error",
+                    "error": str(exc)[:200]})
+        print(f"[orchestrator] CYCLE ERROR: {exc}", file=sys.stderr)
 
-    if state == "awaiting_owner_reply":
-        print("[orchestrator] Awaiting owner reply. Check escalation packet and respond.")
-        return
 
-    if state == "awaiting_execution":
-        if PACKET_PATH.exists():
-            packet = json.loads(PACKET_PATH.read_text(encoding="utf-8"))
-            print(f"[orchestrator] Packet found: status={packet.get('status')} "
-                  f"files={len(packet.get('changed_files', []))}")
-            manifest["fsm_state"] = "ready"
-            manifest["last_verdict"] = None
-            save_manifest(manifest)
-            append_run({"ts": _now(), "event": "packet_received",
-                        "status": "packet_received",
-                        "state_before": "awaiting_execution", "state_after": "ready",
-                        "trace_id": manifest.get("trace_id")})
-            print("[orchestrator] Packet consumed. Ready for next cycle.")
-        else:
-            print(f"[orchestrator] Awaiting execution. Directive at: {DIRECTIVE_PATH}")
-            print("[orchestrator] Run: cat orchestrator/orchestrator_directive.md | claude -p")
-            print("[orchestrator] Then: python orchestrator/collect_packet.py "
-                  f"--trace-id {manifest.get('trace_id', '<trace_id>')}")
-        return
+def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
+    """Main cycle work. Called WITHOUT file lock held.
 
-    # state == "ready": run intake + classify + write directive
+    manifest["fsm_state"] is "processing" on entry.
+    """
+    # state == "ready" equivalent — manifest already loaded and claimed
     trace_id = f"orch_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}_{uuid.uuid4().hex[:6]}"
     manifest["trace_id"] = trace_id
     manifest["attempt_count"] = manifest.get("attempt_count", 0) + 1
+
+    # P1: create per-run directory for artifact isolation
+    run_dir = _ensure_run_dir(trace_id)
+    manifest["_run_dir"] = str(run_dir)
 
     # M1: load context bundle
     bundle = _run_intake()
@@ -407,6 +483,9 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
 
     # PROCEED — build directive with synthesizer-approved scope
     directive = _build_directive(manifest, trace_id, bundle, classification, verdict, synth)
+
+    # P1: write to per-run dir + legacy path (backward compat)
+    (run_dir / "directive.md").write_text(directive, encoding="utf-8")
     DIRECTIVE_PATH.write_text(directive, encoding="utf-8")
 
     directive_hash = hashlib.sha256(directive.encode()).hexdigest()[:12]
@@ -417,10 +496,11 @@ def _cmd_cycle_inner(args: argparse.Namespace) -> None:
 
     append_run({"ts": _now(), "event": "directive_written",
                 "status": "directive_written",
-                "state_before": "ready", "state_after": "awaiting_execution",
-                "trace_id": trace_id, "directive_hash": directive_hash})
+                "state_before": "processing", "state_after": "awaiting_execution",
+                "trace_id": trace_id, "directive_hash": directive_hash,
+                "run_dir": str(run_dir)})
 
-    print(f"[orchestrator] Directive written -> {DIRECTIVE_PATH}")
+    print(f"[orchestrator] Directive written -> {run_dir / 'directive.md'}")
     print(f"[orchestrator] trace_id={trace_id}")
 
     # M4: auto-execute if enabled in config
@@ -526,7 +606,11 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
 
     # P0-3: Separate three outcomes: success, collect failure, executor failure
     if exec_result.status == "completed" and packet is not None:
-        # Write packet
+        # P1: write packet to per-run dir + legacy path
+        run_dir_str = manifest.get("_run_dir")
+        if run_dir_str:
+            run_packet = Path(run_dir_str) / "packet.json"
+            run_packet.write_text(json.dumps(packet, indent=2, ensure_ascii=False), encoding="utf-8")
         PACKET_PATH.write_text(json.dumps(packet, indent=2, ensure_ascii=False), encoding="utf-8")
 
         # Batch Quality Gate — deterministic check on execution packet
@@ -540,9 +624,14 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
         print(f"[orchestrator] Batch gate: passed={gate_result.passed} "
               f"rule={gate_result.rule} auto_merge={gate_result.auto_merge_eligible}")
 
-        # --- ACCEPTANCE CHECK (P0: closes the control loop) ---
+        # --- ACCEPTANCE CHECK (P0a: closes the deterministic control loop) ---
         directive_text = ""
-        if DIRECTIVE_PATH.exists():
+        # P1: prefer directive from per-run dir
+        _run_dir_str = manifest.get("_run_dir")
+        _run_directive = Path(_run_dir_str) / "directive.md" if _run_dir_str else None
+        if _run_directive and _run_directive.exists():
+            directive_text = _run_directive.read_text(encoding="utf-8")
+        elif DIRECTIVE_PATH.exists():
             directive_text = DIRECTIVE_PATH.read_text(encoding="utf-8")
         acceptance = _ac.check(
             packet=packet,

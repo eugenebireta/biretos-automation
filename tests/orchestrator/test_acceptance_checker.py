@@ -151,3 +151,44 @@ class TestAcceptanceChecker:
         }
         result = ac.check(packet, SAMPLE_DIRECTIVE, "trace_009")
         assert len(result.scope_from_directive) == 3
+
+    def test_a5_task_id_integrity_violation_returns_check_not_raises(self):
+        """A5 violation must return AcceptanceCheck(passed=False), NOT raise ValueError."""
+        packet = {
+            "changed_files": ["catalog/peha_reclassify_8sku.py"],
+            "created_files": ["output_WRONG-TASK-ID_report.py"],
+            "affected_tiers": ["Tier-3"],
+            "test_results": None,
+        }
+        # Must NOT raise — returns AcceptanceResult with A5 failed
+        result = ac.check(packet, SAMPLE_DIRECTIVE, "trace_a5_fail")
+        assert result.passed is False
+        a5 = [c for c in result.checks if c.check_id == "A5:TASK_ID_INTEGRITY"][0]
+        assert a5.passed is False
+        assert "WRONG-TASK-ID" in a5.detail
+
+    def test_a5_matching_task_id_passes(self):
+        """Files with the correct task_id token should pass A5."""
+        packet = {
+            "changed_files": ["catalog/peha_reclassify_8sku.py"],
+            "created_files": ["output_TEST-TASK_report.py"],
+            "affected_tiers": ["Tier-3"],
+            "test_results": None,
+        }
+        result = ac.check(packet, SAMPLE_DIRECTIVE, "trace_a5_pass")
+        a5 = [c for c in result.checks if c.check_id == "A5:TASK_ID_INTEGRITY"][0]
+        assert a5.passed is True
+
+    def test_a5_no_task_id_in_directive_skips(self):
+        """If directive has no task_id, A5 is skipped (passes by default)."""
+        directive_no_task = "## Scope\n- foo.py\n## Constraints\n"
+        packet = {
+            "changed_files": ["foo.py"],
+            "created_files": ["output_SOME-RANDOM-ID_file.py"],
+            "affected_tiers": ["Tier-3"],
+            "test_results": None,
+        }
+        result = ac.check(packet, directive_no_task, "trace_a5_skip")
+        a5 = [c for c in result.checks if c.check_id == "A5:TASK_ID_INTEGRITY"][0]
+        assert a5.passed is True
+        assert "skipped" in a5.detail

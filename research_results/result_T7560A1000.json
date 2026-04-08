@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_T7560A1000",
+  "entity_id": "T7560A1000",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Digital wall module / thermostat",
+    "description_ru": "DISCONTINUED. Replaced by T7560A1026. For Excel 5000/10/50..800 systems. $730 new (Radwell); $634 Radwell packaging; $576 refurb.",
+    "category_suggestion": "Digital wall module / thermostat",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 576.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.radwell.com/fr-FR/Buy/HONEYWELL/HONEYWELL/T7560A1000",
+      "price_type": "surplus"
+    },
+    "photo_url": "(available on Radwell page)",
+    "specs": {
+      "raw": "24 VAC; 2 VA; 50/60Hz; 20K NTC sensor; 0–40°C range; LCD; 104×99×30mm; configurable fan speed; °C/°F selectable",
+      "aliases": [
+        "T7560A1026 (replacement)",
+        "T7560A1000-AIR2"
+      ]
+    },
+    "key_findings": [
+      "DISCONTINUED. Replaced by T7560A1026. For Excel 5000/10/50..800 systems. $730 new (Radwell); $634 Radwell packaging; $576 refurb.",
+      "Aliases: T7560A1026 (replacement); T7560A1000-AIR2"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.radwell.com/fr-FR/Buy/HONEYWELL/HONEYWELL/T7560A1000",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.radwell.com/fr-FR/Buy/HONEYWELL/HONEYWELL/T7560A1000",
+      "type": "surplus",
+      "domain": "www.radwell.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.013636+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

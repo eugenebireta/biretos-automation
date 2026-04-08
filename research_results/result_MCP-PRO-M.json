@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_MCP-PRO-M",
+  "entity_id": "MCP-PRO-M",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "manual fire alarm call point",
+    "description_ru": "В прайсе встречаются цены в RUB и частично в EUR на другие позиции",
+    "category_suggestion": "manual fire alarm call point",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1265.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf` citeturn36view1",
+      "price_type": "list_price"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "красный пластик; настенная установка; цена в прайс-листе производителя/бренда",
+      "aliases": [
+        "ИП535-8М (локальное обозначение)"
+      ]
+    },
+    "key_findings": [
+      "В прайсе встречаются цены в RUB и частично в EUR на другие позиции",
+      "Aliases: ИП535-8М (локальное обозначение)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf` citeturn36view1",
+        "type": "list_price",
+        "domain": "systemsensor.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf` citeturn36view1",
+      "type": "list_price",
+      "domain": "systemsensor.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.067748+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

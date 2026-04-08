@@ -1,0 +1,104 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_240W",
+  "entity_id": "240W",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Не найдено",
+    "description_ru": "Артикул «240W» компании Honeywell не идентифицирован ни на официальном сайте производителя, ни у авторизованных дистрибьюторов. Возможно, это неполный номер детали, опечатка или внутренний код.",
+    "category_suggestion": "not determined",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "No Honeywell product with the standalone part number '240W' was found on honeywell.com, buildings.honeywell.com, aerospace.honeywell.com, or any authorized distributor (Grainger, PartsTown, SupplyHouse, etc.).",
+      "Search results for 'Honeywell 240W' returned only products where '240W' describes a wattage rating or output power, not a standalone Honeywell part number (e.g., Honeywell HN-IA240 is a 240W power amplifier with PN 'HN-IA240', not '240W').",
+      "Honeywell's Building Automation division has an 'MA 240' mixing amplifier (240W) under the Esser brand, but its part number is 'MA 240', not '240W'.",
+      "The Honeywell Aviator Hi-Fi Speaker produces 240W output but is a consumer product with no industrial PN '240W'.",
+      "No datasheet, distributor listing, or manufacturer catalog page for Honeywell PN exactly equal to '240W' was located across multiple targeted searches.",
+      "Part number '240W' may be incomplete, truncated, mistyped, or represent a suffix/power descriptor appended to a base part number rather than a standalone SKU."
+    ],
+    "ambiguities": [
+      "'240W' is a very common wattage descriptor (240 Watts) across many Honeywell product lines; it is almost certainly not a standalone part number but may be a fragment or suffix of a longer Honeywell SKU.",
+      "If the requester's source listed '240W' as a part number, it may have been extracted incorrectly from a longer code such as 'HN-IA240', 'MA-240', 'HE240', or a model number with '240W' as a variant suffix.",
+      "Honeywell operates multiple distinct business divisions (Building Automation / Esser, Aerospace, Process, Sensing); the part number may be valid in one specific division catalog not publicly indexed."
+    ],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/bi-directional-amplifiers/power-amplifiers/ma-240-mixing-amplifiers-240w",
+        "type": "manufacturer",
+        "supports": [
+          "identity — ruled out: MA 240 is the PN, not 240W"
+        ]
+      },
+      {
+        "url": "https://pentasecurity.in/wp-content/uploads/2022/11/Series_Datasheet_HN_-_IA240_V3.pdf",
+        "type": "datasheet",
+        "supports": [
+          "identity — ruled out: HN-IA240 is the PN for the 240W power amplifier, not '240W'"
+        ]
+      },
+      {
+        "url": "https://www.grainger.com",
+        "type": "distributor",
+        "supports": [
+          "identity — no product with exact PN '240W' found in Honeywell catalog on Grainger"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "After multiple targeted searches across official Honeywell websites, authorized distributors, and datasheet repositories, no product with the exact standalone part number '240W' attributed to Honeywell was found. The low confidence reflects the absence of any confirming evidence. The part number is almost certainly either incomplete, a wattage descriptor rather than a true SKU, or belongs to a restricted/internal catalog not publicly accessible. Recommend verifying the full part number with the original source or Honeywell's regional sales/support."
+  },
+  "sources": [
+    {
+      "url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/bi-directional-amplifiers/power-amplifiers/ma-240-mixing-amplifiers-240w",
+      "type": "manufacturer",
+      "supports": [
+        "identity — ruled out: MA 240 is the PN, not 240W"
+      ]
+    },
+    {
+      "url": "https://pentasecurity.in/wp-content/uploads/2022/11/Series_Datasheet_HN_-_IA240_V3.pdf",
+      "type": "datasheet",
+      "supports": [
+        "identity — ruled out: HN-IA240 is the PN for the 240W power amplifier, not '240W'"
+      ]
+    },
+    {
+      "url": "https://www.grainger.com",
+      "type": "distributor",
+      "supports": [
+        "identity — no product with exact PN '240W' found in Honeywell catalog on Grainger"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:01:52.651074Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3812,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

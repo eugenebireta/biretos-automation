@@ -35,10 +35,26 @@
           "identity",
           "category_correction"
         ]
+      },
+      {
+        "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html` citeturn56view1",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентичность подтверждена одним российским дистрибьютором, но отсутствует поддержка от официальных источников Honeywell. Категория явно ошибочна (детектор пламени vs. рамка для розеток). Требуется корректировка названия и категории в каталоге. Цена не подтверждена независимыми источниками."
+    "confidence_notes": "Идентичность подтверждена одним российским дистрибьютором, но отсутствует поддержка от официальных источников Honeywell. Категория явно ошибочна (детектор пламени vs. рамка для розеток). Требуется корректировка названия и категории в каталоге. Цена не подтверждена независимыми источниками.",
+    "price_value": {
+      "amount": 359.95,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html` citeturn56view1",
+      "price_type": "distributor"
+    }
   },
   "sources": [
     {
@@ -48,6 +64,15 @@
         "identity",
         "category_correction"
       ]
+    },
+    {
+      "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html` citeturn56view1",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price"
+      ]
     }
   ],
   "confidence": "medium",
@@ -56,5 +81,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2350,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
 }

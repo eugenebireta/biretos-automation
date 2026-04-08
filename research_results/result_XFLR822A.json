@@ -1,0 +1,72 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_XFLR822A",
+  "entity_id": "XFLR822A",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "BAS analog output module",
+    "description_ru": "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket.",
+    "category_suggestion": "BAS analog output module",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 1.037,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/XFLR822AU",
+      "price_type": "surplus"
+    },
+    "photo_url": "(available on Radwell page)",
+    "specs": {
+      "raw": "8 analog outputs w/ HOA switches; LonWorks bus; Neuron 3120; 160mA; 24V; 110×90×93mm; DIN-rail; MTBF 13.7yr",
+      "aliases": [
+        "XFLR822AU",
+        "XFL822A",
+        "XFR822A",
+        "XF822A"
+      ]
+    },
+    "key_findings": [
+      "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket.",
+      "Aliases: XFLR822AU; XFL822A; XFR822A; XF822A"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/XFLR822AU",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/XFLR822AU",
+      "type": "surplus",
+      "domain": "www.radwell.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.014636+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

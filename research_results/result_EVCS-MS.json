@@ -1,0 +1,62 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_EVCS-MS",
+  "entity_id": "EVCS-MS",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "мастер-трубка (handset) системы EVCS / Disabled Refuge",
+    "description_ru": "На странице также указана цена с НДС: £1,908.00 (inc VAT). citeturn10view0turn11view0",
+    "category_suggestion": "мастер-трубка (handset) системы EVCS / Disabled Refuge",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1590.0,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.powerpointfiredirect.co.uk/mor-evcs-ms-3059-p.asp"
+    },
+    "photo_url": "https://www.powerpointfiredirect.co.uk/acatalog/mor-evcs-ms.jpg",
+    "specs": {},
+    "key_findings": [
+      "На странице также указана цена с НДС: £1,908.00 (inc VAT). citeturn10view0turn11view0"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.powerpointfiredirect.co.uk/mor-evcs-ms-3059-p.asp",
+        "type": "distributor",
+        "domain": "www.powerpointfiredirect.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.powerpointfiredirect.co.uk/mor-evcs-ms-3059-p.asp",
+      "type": "distributor",
+      "domain": "www.powerpointfiredirect.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.339394+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report.md"
+}

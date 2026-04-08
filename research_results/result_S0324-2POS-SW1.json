@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_S0324-2POS-SW1",
+  "entity_id": "S0324-2POS-SW1",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "HVAC damper actuator",
+    "description_ru": "Цена 180,31 € incl. 19% USt (плюс доставка). citeturn32search5",
+    "category_suggestion": "HVAC damper actuator",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 180.31,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.andries24.de/Honeywell-Klappenanstelltrieb-S03-24-V-2-Pkt-mit-2-Endlagenschalter-S0324-2POS-SW1-guenstig-kaufen` citeturn32search5",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "S03 series actuator"
+      ]
+    },
+    "key_findings": [
+      "Цена 180,31 € incl. 19% USt (плюс доставка). citeturn32search5",
+      "Aliases: S03 series actuator"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.andries24.de/Honeywell-Klappenanstelltrieb-S03-24-V-2-Pkt-mit-2-Endlagenschalter-S0324-2POS-SW1-guenstig-kaufen` citeturn32search5",
+        "type": "distributor",
+        "domain": "www.andries24.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.andries24.de/Honeywell-Klappenanstelltrieb-S03-24-V-2-Pkt-mit-2-Endlagenschalter-S0324-2POS-SW1-guenstig-kaufen` citeturn32search5",
+      "type": "distributor",
+      "domain": "www.andries24.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.023147+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_P600",
+  "entity_id": "P600",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "building automation controller",
+    "description_ru": "В исходном списке PN без «CP‑»; здесь зафиксирован как практический алиас‑кандидат, но требуются подтверждающие кросс‑рефы. citeturn48search0",
+    "category_suggestion": "building automation controller",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 76.49,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.com/itm/326480360407` citeturn48search0",
+      "price_type": "surplus"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "по лоту: «HONEYWELL NIAGARA TRIDIUM 600 SERIES PROCESSOR CP‑600»; condition used citeturn48search0",
+      "aliases": [
+        "CP‑600 (в названии лота)"
+      ]
+    },
+    "key_findings": [
+      "В исходном списке PN без «CP‑»; здесь зафиксирован как практический алиас‑кандидат, но требуются подтверждающие кросс‑рефы. citeturn48search0",
+      "Aliases: CP‑600 (в названии лота)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/326480360407` citeturn48search0",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.com/itm/326480360407` citeturn48search0",
+      "type": "surplus",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.049727+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

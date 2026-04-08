@@ -1,0 +1,92 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_1011994",
+  "entity_id": "1011994",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "hearing protection",
+    "description_ru": "⚠️ DISCONTINUED at several retailers; limited remaining stock",
+    "category_suggestion": "hearing protection",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 11.7,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ferguson.com/product/howard-leight-l1n-leightning-safety-earmuff-with-neckband-nrr25-h1011994/_/R-4299460",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/sps-hppe-brp900-1010922",
+    "specs": {
+      "raw": "NRR 25dB; neckband; steel headband; snap-in cushions; Air Flow Control tech; ANSI S3.19",
+      "aliases": [
+        "Leightning L1N",
+        "Howard Leight L1N",
+        "1011994-H5 (case)",
+        "ASIN B000NU60N8"
+      ]
+    },
+    "key_findings": [
+      "⚠️ DISCONTINUED at several retailers; limited remaining stock",
+      "Aliases: Leightning L1N; Howard Leight L1N; 1011994-H5 (case); ASIN B000NU60N8"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ferguson.com/product/howard-leight-l1n-leightning-safety-earmuff-with-neckband-nrr25-h1011994/_/R-4299460",
+        "type": "distributor",
+        "domain": "www.ferguson.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/177847011062",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.ferguson.com/product/howard-leight-l1n-leightning-safety-earmuff-with-neckband-nrr25-h1011994/_/R-4299460",
+      "type": "distributor",
+      "domain": "www.ferguson.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/177847011062",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.980647+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

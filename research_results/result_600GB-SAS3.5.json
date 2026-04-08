@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_600GB-SAS3.5",
+  "entity_id": "600GB-SAS3.5",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Server HDD: 600GB SAS 3.5\"",
+    "description_ru": "Страница: 32.43 CHF incl. 8.1% USt; “gebraucht”, 90 дней гарантии. citeturn30search9",
+    "category_suggestion": "Server HDD: 600GB SAS 3.5\"",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 32.43,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://variotrade.ch/HP-600GB-SAS-15K-rpm-6Gb-s-35-HDD-fuer-HP-Workstation-Server-ohne-Rahmen-gebraucht-90-Tage-Garantie` citeturn30search9",
+      "price_type": "surplus"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "623391-001_REF (ref)"
+      ]
+    },
+    "key_findings": [
+      "Страница: 32.43 CHF incl. 8.1% USt; “gebraucht”, 90 дней гарантии. citeturn30search9",
+      "Aliases: 623391-001_REF (ref)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://variotrade.ch/HP-600GB-SAS-15K-rpm-6Gb-s-35-HDD-fuer-HP-Workstation-Server-ohne-Rahmen-gebraucht-90-Tage-Garantie` citeturn30search9",
+        "type": "surplus",
+        "domain": "variotrade.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://variotrade.ch/HP-600GB-SAS-15K-rpm-6Gb-s-35-HDD-fuer-HP-Workstation-Server-ohne-Rahmen-gebraucht-90-Tage-Garantie` citeturn30search9",
+      "type": "surplus",
+      "domain": "variotrade.ch",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.022144+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

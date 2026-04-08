@@ -1,0 +1,65 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_23511",
+  "entity_id": "23511",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": null,
+    "description_ru": null,
+    "category_suggestion": null,
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 5.15,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/marken/peha-by-honeywell.html` citeturn40search3",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "No public information found for Honeywell part number 23511.",
+      "No product category, description, similar part numbers, price, photo, or specifications could be identified through web search."
+    ],
+    "ambiguities": [
+      "The part number 23511 for Honeywell does not appear to be a publicly listed or commonly distributed product.",
+      "It is possible this is an internal component, an obsolete part, or a part number used in a specific, non-publicized system."
+    ],
+    "sources": [
+      {
+        "url": "`https://www.conrad.ch/de/marken/peha-by-honeywell.html` citeturn40search3",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "high",
+    "confidence_notes": "Multiple targeted web searches for 'Honeywell 23511' and related terms (e.g., 'sensor', 'Датчик', 'datasheet', 'distributor') yielded no relevant product information, datasheets, or distributor listings. This indicates the product is not publicly documented or available through standard online channels."
+  },
+  "sources": [
+    {
+      "url": "`https://www.conrad.ch/de/marken/peha-by-honeywell.html` citeturn40search3",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "high",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:59:16.104693Z",
+  "provider": "gemini_grounding",
+  "model": "gemini-2.5-flash",
+  "raw_response_length": 1090,
+  "cost_usd": 0.004,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

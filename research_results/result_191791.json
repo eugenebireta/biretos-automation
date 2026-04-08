@@ -35,10 +35,28 @@
           "category",
           "price_evidence"
         ]
+      },
+      {
+        "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-191791-5-st-2856771.html` citeturn56view0",
+        "type": "distributor",
+        "domain": "www.conrad.at",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентификация как рамки для выключателей подтверждена одним авторитетным дистрибьютором (Conrad), но отсутствует прямое подтверждение от Honeywell. Категория 'Электроустановочные изделия' определена с высокой уверенностью на основе типа продукта. Низкая уверенность в полных спецификациях из-за отсутствия официального datasheet."
+    "confidence_notes": "Идентификация как рамки для выключателей подтверждена одним авторитетным дистрибьютором (Conrad), но отсутствует прямое подтверждение от Honeywell. Категория 'Электроустановочные изделия' определена с высокой уверенностью на основе типа продукта. Низкая уверенность в полных спецификациях из-за отсутствия официального datasheet.",
+    "price_value": {
+      "amount": 425.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-191791-5-st-2856771.html` citeturn56view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://asset.conrad.com/media10/isa/160267/c1/-/de/002856771PI01/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400` citeturn57view2"
   },
   "sources": [
     {
@@ -49,6 +67,16 @@
         "category",
         "price_evidence"
       ]
+    },
+    {
+      "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-191791-5-st-2856771.html` citeturn56view0",
+      "type": "distributor",
+      "domain": "www.conrad.at",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
     }
   ],
   "confidence": "medium",
@@ -57,5 +85,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2248,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
 }

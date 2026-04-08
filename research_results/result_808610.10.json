@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_808610.10",
+  "entity_id": "808610.10",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm transponder",
+    "description_ru": "Also $578.16 on another eBay listing; .10B = bare PCB",
+    "category_suggestion": "Fire alarm transponder",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 560.5,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/375268691103",
+      "price_type": "surplus"
+    },
+    "photo_url": "https://www.esser-systems.com/productimages/transponders/esserbus//80861010-esserbus-transponder-12-relays-8-bit_Inherited_product_pic_300_300_BM808610_10xxx_PLFR_SF3C_00.jpg",
+    "specs": {
+      "raw": "esserbus; 12 relays; 30VDC/1A per relay; max 100/FACP; VdS; EN54-17/18",
+      "aliases": [
+        "808610.10B (PCB only)"
+      ]
+    },
+    "key_findings": [
+      "Also $578.16 on another eBay listing; .10B = bare PCB",
+      "Aliases: 808610.10B (PCB only)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/375268691103",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/itm/375268691103",
+      "type": "surplus",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.965514+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

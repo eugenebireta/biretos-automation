@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_7508001857",
+  "entity_id": "7508001857",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Interface / terminal block",
+    "description_ru": "Страница показывает unit price и price breaks. citeturn34search1",
+    "category_suggestion": "Interface / terminal block",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 578.183559,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ibselectronics.com/part/weidmuller/7508001857/2552242/` citeturn34search1",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "WEIDMULLER 7508001857"
+      ]
+    },
+    "key_findings": [
+      "Страница показывает unit price и price breaks. citeturn34search1",
+      "Aliases: WEIDMULLER 7508001857"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ibselectronics.com/part/weidmuller/7508001857/2552242/` citeturn34search1",
+        "type": "distributor",
+        "domain": "www.ibselectronics.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ibselectronics.com/part/weidmuller/7508001857/2552242/` citeturn34search1",
+      "type": "distributor",
+      "domain": "www.ibselectronics.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.019637+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

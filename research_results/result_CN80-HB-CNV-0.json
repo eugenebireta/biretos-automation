@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CN80-HB-CNV-0",
+  "entity_id": "CN80-HB-CNV-0",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Barcode scanner charging base",
+    "description_ru": "Honeywell Dolphin CN80 accessory. MSRP $500.92; $350.18 at Logiscenter. Field-convertible for future 80 Series.",
+    "category_suggestion": "Barcode scanner charging base",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 222.99,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "http://www.zones.com/site/product/index.html?id=105872390",
+      "price_type": "distributor"
+    },
+    "photo_url": "(available on Logiscenter / Zones pages)",
+    "specs": {
+      "raw": "USB 3.0 Type A/B; 1x CN80 + 1x spare battery; power supply included; power cord separate",
+      "aliases": [
+        "CN80-HB-CNV-1 (w/ US cord)",
+        "HSM-CN80HBCNV0"
+      ]
+    },
+    "key_findings": [
+      "Honeywell Dolphin CN80 accessory. MSRP $500.92; $350.18 at Logiscenter. Field-convertible for future 80 Series.",
+      "Aliases: CN80-HB-CNV-1 (w/ US cord); HSM-CN80HBCNV0"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "http://www.zones.com/site/product/index.html?id=105872390",
+        "type": "distributor",
+        "domain": "www.zones.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "http://www.zones.com/site/product/index.html?id=105872390",
+      "type": "distributor",
+      "domain": "www.zones.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.006122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

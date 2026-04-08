@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_XJ1-00-07000000",
+  "entity_id": "XJ1-00-07000000",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Industrial label printer",
+    "description_ru": "Discontinued (no replacement). Retail $3,081.05. Also €2,070.26 at Bauer-PK. Die-cast metal, forklift-mountable",
+    "category_suggestion": "Industrial label printer",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 2310.79,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "Direct thermal; 203 DPI; 5 IPS; 4\" max width; 128MB Flash; 64MB DRAM; Serial/Ethernet/USB; DPL/ZPL/PL-Z emulation",
+      "aliases": [
+        "Honeywell MP Compact 4 Mobile Mark III",
+        "Datamax-O'Neil Compact4"
+      ]
+    },
+    "key_findings": [
+      "Discontinued (no replacement). Retail $3,081.05. Also €2,070.26 at Bauer-PK. Die-cast metal, forklift-mountable",
+      "Aliases: Honeywell MP Compact 4 Mobile Mark III; Datamax-O'Neil Compact4"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000",
+        "type": "distributor",
+        "domain": "shop.peaktech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000",
+      "type": "distributor",
+      "domain": "shop.peaktech.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.988065+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

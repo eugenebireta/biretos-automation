@@ -5,9 +5,41 @@
   "research_reason": "category_mismatch",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 63.95,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-162211-1-st-2856628.html` citeturn56view3",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "`https://asset.conrad.com/media10/isa/160267/c1/-/de/002856628PI01/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400` citeturn57view4",
+    "sources": [
+      {
+        "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-162211-1-st-2856628.html` citeturn56view3",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-162211-1-st-2856628.html` citeturn56view3",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:49:23.759344Z",
@@ -15,5 +47,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
 }

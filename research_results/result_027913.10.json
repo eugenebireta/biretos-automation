@@ -5,9 +5,31 @@
   "research_reason": "identity_weak",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "photo_url": "https://www.security.honeywell.de/prodisPictures/Picture_Database/Picture_Line_NA/Sub_product/Product_Picture/Web_Large_Pic/ZK027913_xxxxx_GZPE_SF3C.jpg",
+    "sources": [
+      {
+        "url": "https://www.security.honeywell.de/en/products/7966150/intrusion-alarm-technology/readers/luminaxs/mifare-desfire-rs-485-and-clockdata/027913.10/",
+        "type": "—",
+        "domain": "www.security.honeywell.de",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ]
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "https://www.security.honeywell.de/en/products/7966150/intrusion-alarm-technology/readers/luminaxs/mifare-desfire-rs-485-and-clockdata/027913.10/",
+      "type": "—",
+      "domain": "www.security.honeywell.de",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:47:54.258648Z",
@@ -15,5 +37,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
 }

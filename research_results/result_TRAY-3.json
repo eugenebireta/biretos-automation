@@ -1,0 +1,59 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_TRAY-3",
+  "entity_id": "TRAY-3",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "unknown",
+    "description_ru": "Нужен якорь: устройство/семейство (принтер? панель? комплект?).",
+    "category_suggestion": "unknown",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "raw": "В выдаче «TRAY‑3» в основном встречается как часть названия («Tray 3») без привязки к конкретному Honeywell PN. citeturn22search0turn23search10",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Нужен якорь: устройство/семейство (принтер? панель? комплект?).",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.047728+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

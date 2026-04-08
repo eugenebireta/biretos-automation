@@ -1,0 +1,68 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_KTF00-65-2M",
+  "entity_id": "KTF00-65-2M",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "temperature sensor",
+    "description_ru": "",
+    "category_suggestion": "temperature sensor",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 47.7,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.hlkshop.ch/de/resideo-temperaturfuhler-ktf00-65-2m-artnr-ktf00-65-2m` citeturn13view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "температурный датчик; длина кабеля 2 м (из кода -2M); цена на странице CHF 47.70 citeturn13view0",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.hlkshop.ch/de/resideo-temperaturfuhler-ktf00-65-2m-artnr-ktf00-65-2m` citeturn13view0",
+        "type": "distributor",
+        "domain": "www.hlkshop.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.hlkshop.ch/de/resideo-temperaturfuhler-ktf00-65-2m-artnr-ktf00-65-2m` citeturn13view0",
+      "type": "distributor",
+      "domain": "www.hlkshop.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.043727+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

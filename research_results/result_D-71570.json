@@ -1,0 +1,85 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_D-71570",
+  "entity_id": "D-71570",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "not a discrete part",
+    "description_ru": "⚠️ D-71570 is Murrelektronik's factory postal code; appears on labels of many products; need specific sub-PN",
+    "category_suggestion": "not a discrete part",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 111.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/393384141377",
+      "price_type": "gray_market"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/l7sAAOSwW5ZaGlL6/s-l500.jpg",
+    "specs": {
+      "raw": "N/A — this is a location code, not a part number",
+      "aliases": [
+        "Murrelektronik factory code (D-71570 Oppenweiler)"
+      ]
+    },
+    "key_findings": [
+      "⚠️ D-71570 is Murrelektronik's factory postal code; appears on labels of many products; need specific sub-PN",
+      "Aliases: Murrelektronik factory code (D-71570 Oppenweiler)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/393384141377",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/393384141377",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.981644+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

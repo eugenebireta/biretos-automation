@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_1012541",
+  "entity_id": "1012541",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PPE earmuffs (helmet mount)",
+    "description_ru": "Цена указана «39,00 € TTC (39,00 € HT)» на странице. citeturn34view0",
+    "category_suggestion": "PPE earmuffs (helmet mount)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 39.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html` citeturn34view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://preprod.equipementprotectionindividuelle.fr/2567-cart_default/coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.jpg` citeturn35view0",
+    "specs": {
+      "raw": "SNR 31; H 30/M 29/L 24; адаптеры 3711/3712/3721; EN352‑3 (в описании) citeturn34view0",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Цена указана «39,00 € TTC (39,00 € HT)» на странице. citeturn34view0",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html` citeturn34view0",
+        "type": "distributor",
+        "domain": "preprod.equipementprotectionindividuelle.fr",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html` citeturn34view0",
+      "type": "distributor",
+      "domain": "preprod.equipementprotectionindividuelle.fr",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.046727+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

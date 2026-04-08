@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_600GB-SAS2.5",
+  "entity_id": "600GB-SAS2.5",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Server HDD: 600GB SAS 2.5\"",
+    "description_ru": "eBay, состояние “Used”, Buy It Now. citeturn29search1",
+    "category_suggestion": "Server HDD: 600GB SAS 2.5\"",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 33.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.com/itm/197700455960` citeturn29search1",
+      "price_type": "surplus"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "HPE 600GB 10K 12G SAS 2.5 SFF"
+      ]
+    },
+    "key_findings": [
+      "eBay, состояние “Used”, Buy It Now. citeturn29search1",
+      "Aliases: HPE 600GB 10K 12G SAS 2.5 SFF"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/197700455960` citeturn29search1",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.com/itm/197700455960` citeturn29search1",
+      "type": "surplus",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.021638+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

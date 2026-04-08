@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FX808332",
+  "entity_id": "FX808332",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm loop card",
+    "description_ru": "Net EUR; also ~$302 on eBay (open box)",
+    "category_suggestion": "Fire alarm loop card",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 505.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.esser-systems.com/productimages/industrial-solution-fm-approved/modules-for-flexes-system//fx808332-loop-card-esserbusesserbus-plus-module-gi-for-flexes-control-1_Inherited_product_pic_300_300_BMFX8083_32xxx_GEPE_SF3C_00.jpg",
+    "specs": {
+      "raw": "24V DC; 127 devices/loop; 3.5km loop; 27×93×112mm; 140g; galvanic isolation; VdS, FM",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Net EUR; also ~$302 on eBay (open box)",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+      "type": "distributor",
+      "domain": "walde.ee",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.962513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

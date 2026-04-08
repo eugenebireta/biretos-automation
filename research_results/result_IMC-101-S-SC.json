@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_IMC-101-S-SC",
+  "entity_id": "IMC-101-S-SC",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Industrial networking: Ethernet-to-fiber media converter",
+    "description_ru": "В Honeywell-документации IMC-101-S-SC фигурирует как “Qualified Moxa…”. citeturn20search0 Цена взята с eBay-листинга. citeturn21search12",
+    "category_suggestion": "Industrial networking: Ethernet-to-fiber media converter",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 404.26,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.com/itm/401986911801` citeturn21search12",
+      "price_type": "gray_market"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "Honeywell internal: 50135395-002",
+        "MOXA IMC-101-S-SC"
+      ]
+    },
+    "key_findings": [
+      "В Honeywell-документации IMC-101-S-SC фигурирует как “Qualified Moxa…”. citeturn20search0 Цена взята с eBay-листинга. citeturn21search12",
+      "Aliases: Honeywell internal: 50135395-002; MOXA IMC-101-S-SC"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/401986911801` citeturn21search12",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.com/itm/401986911801` citeturn21search12",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.019637+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

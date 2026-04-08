@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FO-WBI-12A-GY",
+  "entity_id": "FO-WBI-12A-GY",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "fiber optic wall box / distribution box",
+    "description_ru": "В исходном списке «Honeywell», но рынок/карточки уводят в Hyperline. citeturn1view1",
+    "category_suggestion": "fiber optic wall box / distribution box",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 4770.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://enex.market/products/FO-WBI-12A-GY?meta=tag%3DFiber%2BOptic%2BDistribution%2BBox` citeturn1view1",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://enex.market/images/products/FO-WBI-12A-GY.webp` citeturn3view0",
+    "specs": {
+      "raw": "цена 4 770 ₽; позиционируется как Hyperline FO‑WBI‑12A‑GY citeturn1view1turn0search8",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "В исходном списке «Honeywell», но рынок/карточки уводят в Hyperline. citeturn1view1",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://enex.market/products/FO-WBI-12A-GY?meta=tag%3DFiber%2BOptic%2BDistribution%2BBox` citeturn1view1",
+        "type": "distributor",
+        "domain": "enex.market",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://enex.market/products/FO-WBI-12A-GY?meta=tag%3DFiber%2BOptic%2BDistribution%2BBox` citeturn1view1",
+      "type": "distributor",
+      "domain": "enex.market",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.049727+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

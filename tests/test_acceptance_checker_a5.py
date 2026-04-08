@@ -3,7 +3,7 @@ tests/test_acceptance_checker_a5.py — deterministic unit tests for A5 check.
 
 Covers:
   - Passing case: no task_id token conflict in changed/created files
-  - Violation case: created file contains a different task_id token → raises ValueError
+  - Violation case: created file contains a different task_id token → AcceptanceCheck(passed=False)
   - Directive without task_id: A5 is skipped (passed=True)
   - created_files and changed_files both scanned
 
@@ -94,46 +94,47 @@ def test_a5_passes_when_filename_contains_correct_task_id():
 # Violation case: created file carries a DIFFERENT task_id token
 # ---------------------------------------------------------------------------
 
-def test_a5_raises_on_wrong_task_id_in_created_file():
+def test_a5_fails_on_wrong_task_id_in_created_file():
     packet = {
         **_BASE_PACKET,
         "changed_files": ["orchestrator/acceptance_checker.py"],
         # This file name contains RECLASSIFY-PEHA-8SKU — wrong task_id
         "created_files": ["catalog/RECLASSIFY-PEHA-8SKU_output.json"],
     }
-    with pytest.raises(ValueError) as exc_info:
-        check(
-            packet=packet,
-            directive_text=_DIRECTIVE_WITH_TASK_ID,
-            trace_id="orch_test_001",
-            idempotency_key="test_a5_violation",
-        )
-    msg = str(exc_info.value)
-    assert "A5:TASK_ID_INTEGRITY VIOLATED" in msg
-    assert "RECLASSIFY-PEHA-8SKU" in msg
-    assert "A5-TASK-ID-CHECK" in msg
+    # Must NOT raise — returns AcceptanceCheck(passed=False) instead
+    result: AcceptanceResult = check(
+        packet=packet,
+        directive_text=_DIRECTIVE_WITH_TASK_ID,
+        trace_id="orch_test_001",
+        idempotency_key="test_a5_violation",
+    )
+    assert result.passed is False
+    a5 = _find_check(result, "A5:TASK_ID_INTEGRITY")
+    assert a5.passed is False
+    assert "RECLASSIFY-PEHA-8SKU" in a5.detail
 
 
 # ---------------------------------------------------------------------------
 # Violation case: wrong task_id in a changed_file basename
 # ---------------------------------------------------------------------------
 
-def test_a5_raises_on_wrong_task_id_in_changed_file():
+def test_a5_fails_on_wrong_task_id_in_changed_file():
     packet = {
         **_BASE_PACKET,
         "changed_files": ["results/OTHER-TASK-ONE_report.json"],
         "created_files": [],
     }
-    with pytest.raises(ValueError) as exc_info:
-        check(
-            packet=packet,
-            directive_text=_DIRECTIVE_WITH_TASK_ID,
-            trace_id="orch_test_001",
-            idempotency_key="test_a5_violation_changed",
-        )
-    msg = str(exc_info.value)
-    assert "A5:TASK_ID_INTEGRITY VIOLATED" in msg
-    assert "OTHER-TASK-ONE" in msg
+    # Must NOT raise — returns AcceptanceCheck(passed=False) instead
+    result: AcceptanceResult = check(
+        packet=packet,
+        directive_text=_DIRECTIVE_WITH_TASK_ID,
+        trace_id="orch_test_001",
+        idempotency_key="test_a5_violation_changed",
+    )
+    assert result.passed is False
+    a5 = _find_check(result, "A5:TASK_ID_INTEGRITY")
+    assert a5.passed is False
+    assert "OTHER-TASK-ONE" in a5.detail
 
 
 # ---------------------------------------------------------------------------

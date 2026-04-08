@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CWSS-RB-S8",
+  "entity_id": "CWSS-RB-S8",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "sounder beacon",
+    "description_ru": "На RU‑странице фото есть, цена «по запросу». citeturn4view0turn1view0",
+    "category_suggestion": "sounder beacon",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 65.41,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "`https://www.acornfiresecurity.com/products/kac-cwss-rb-s8-sounder-beacon-wall-white-red-base-shallow-backbox-95db-32-tone?variant=17250455482451` citeturn1view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://armosystems.ru/upload/iblock/ca6/cwss-rb_0.jpg` citeturn5view0",
+    "specs": {
+      "raw": "Wall; base red; shallow backbox; 95 dB; «£65.41 + VAT» citeturn1view0",
+      "aliases": [
+        "KAC CWSS‑RB‑S8"
+      ]
+    },
+    "key_findings": [
+      "На RU‑странице фото есть, цена «по запросу». citeturn4view0turn1view0",
+      "Aliases: KAC CWSS‑RB‑S8"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.acornfiresecurity.com/products/kac-cwss-rb-s8-sounder-beacon-wall-white-red-base-shallow-backbox-95db-32-tone?variant=17250455482451` citeturn1view0",
+        "type": "distributor",
+        "domain": "www.acornfiresecurity.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.acornfiresecurity.com/products/kac-cwss-rb-s8-sounder-beacon-wall-white-red-base-shallow-backbox-95db-32-tone?variant=17250455482451` citeturn1view0",
+      "type": "distributor",
+      "domain": "www.acornfiresecurity.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.048730+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

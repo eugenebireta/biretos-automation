@@ -1,0 +1,88 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_DCPSU-24-1.3",
+  "entity_id": "DCPSU-24-1.3",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "power supply",
+    "description_ru": "Honeywell Fema / Trend Controls; back-order 19–20 day lead; also 2.5A and 4A variants available",
+    "category_suggestion": "power supply",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 116.3,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.kempstoncontrols.co.uk/DCPSU-24-1-3/Honeywell-Fema/sku/2915648",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "100–240VAC input; 24VDC 1.3A output; DIN rail 35mm; IP20; -25 to +55°C; 54×89×59mm",
+      "aliases": [
+        "Honeywell Fema DCPSU-24 series",
+        "Trend Controls"
+      ]
+    },
+    "key_findings": [
+      "Honeywell Fema / Trend Controls; back-order 19–20 day lead; also 2.5A and 4A variants available",
+      "Aliases: Honeywell Fema DCPSU-24 series; Trend Controls"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.kempstoncontrols.co.uk/DCPSU-24-1-3/Honeywell-Fema/sku/2915648",
+        "type": "distributor",
+        "domain": "www.kempstoncontrols.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.radwell.co.uk/Buy/HONEYWELL/HONEYWELL/DCPSU-24-1.3",
+        "type": "surplus",
+        "domain": "www.radwell.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.kempstoncontrols.co.uk/DCPSU-24-1-3/Honeywell-Fema/sku/2915648",
+      "type": "distributor",
+      "domain": "www.kempstoncontrols.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.radwell.co.uk/Buy/HONEYWELL/HONEYWELL/DCPSU-24-1.3",
+      "type": "surplus",
+      "domain": "www.radwell.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.983062+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

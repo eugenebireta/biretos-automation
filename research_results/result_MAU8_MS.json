@@ -1,0 +1,59 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_MAU8/MS",
+  "entity_id": "MAU8/MS",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "fitting",
+    "description_ru": "OBSOLETE — discontinued by Honeywell; Honeywell FEMA brand",
+    "category_suggestion": "fitting",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "raw": "G1/4\" thread; brass body; NBR O-ring; 8mm pipe connection; TARIC 9032200090",
+      "aliases": [
+        "Mouser PN 785-MAU8/MS"
+      ]
+    },
+    "key_findings": [
+      "OBSOLETE — discontinued by Honeywell; Honeywell FEMA brand",
+      "Aliases: Mouser PN 785-MAU8/MS"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mouser.com/ProductDetail/Honeywell/MAU8-MS?qs=iGCpDQK01Mr5TOE9PXY48A%3D%3D",
+        "type": "—",
+        "domain": "www.mouser.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.mouser.com/ProductDetail/Honeywell/MAU8-MS?qs=iGCpDQK01Mr5TOE9PXY48A%3D%3D",
+      "type": "—",
+      "domain": "www.mouser.com",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.956005+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+}

@@ -1,0 +1,71 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_RIC-F-LCU24-01C",
+  "entity_id": "RIC-F-LCU24-01C",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fiber optic adapter plate",
+    "description_ru": "**NOT a Honeywell fire panel.** Siemon product. $389 new at Radwell; $1,718.79/12-pack at eAccu-Tech (~$143/unit)",
+    "category_suggestion": "Fiber optic adapter plate",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 296.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.radwell.com/en-US/Buy/CORNING/CORNING/RIC-F-LCU24-01C",
+      "price_type": "surplus"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "Quick-Pack 6 quad LC adapter plate; 24 fibers; LC/UPC; blue adapter; ceramic sleeve",
+      "aliases": [
+        "Siemon/Corning Cable Systems",
+        "SKU 25280286 (Graybar)",
+        "Newark 31AJ3242"
+      ]
+    },
+    "key_findings": [
+      "**NOT a Honeywell fire panel.** Siemon product. $389 new at Radwell; $1,718.79/12-pack at eAccu-Tech (~$143/unit)",
+      "Aliases: Siemon/Corning Cable Systems; SKU 25280286 (Graybar); Newark 31AJ3242"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.radwell.com/en-US/Buy/CORNING/CORNING/RIC-F-LCU24-01C",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.radwell.com/en-US/Buy/CORNING/CORNING/RIC-F-LCU24-01C",
+      "type": "surplus",
+      "domain": "www.radwell.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.987063+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

@@ -5,9 +5,41 @@
   "research_reason": "identity_weak",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 56.155,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.digikey.com/en/products/detail/phoenix-contact/3240357/2641146` citeturn43view0",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "`https://mm.digikey.com/Volume0/opasdata/d220001/derivates/1/200/303/454/3240357_sml.jpg` citeturn44view0",
+    "sources": [
+      {
+        "url": "`https://www.digikey.com/en/products/detail/phoenix-contact/3240357/2641146` citeturn43view0",
+        "type": "distributor",
+        "domain": "www.digikey.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "`https://www.digikey.com/en/products/detail/phoenix-contact/3240357/2641146` citeturn43view0",
+      "type": "distributor",
+      "domain": "www.digikey.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:48:30.134269Z",
@@ -15,5 +47,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
 }

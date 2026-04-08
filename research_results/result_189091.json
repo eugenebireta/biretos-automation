@@ -1,0 +1,143 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_189091",
+  "entity_id": "189091",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Детектор пламени Honeywell 189091 (D 20.673.222.192)",
+    "description_ru": "Детектор пламени промышленного применения от Honeywell. Точная идентификация по номеру детали 189091 и коду D 20.673.222.192 не подтверждена ни одним публично доступным источником.",
+    "category_suggestion": "Детектор пламени (Flame Detector)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 478.95,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.voelkner.de/index.php?file=info&mp=products&offer=0&products_id=7581753&ref=43` citeturn56view2",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://asset.re-in.de/isa/160267/c1/-/de/002856830PI00/PEHA-by-Honeywell-Rahmen-Rahmen-Schwarz-189091-5St..webp?align=center&ex=500&ey=500&format=WEBP&quality=95&x=500&y=500` citeturn57view3",
+    "specs": {},
+    "key_findings": [
+      "Точный артикул 189091 от Honeywell не найден ни на официальном сайте Honeywell, ни у авторизованных дистрибьюторов, ни в базах данных даташитов.",
+      "Ссылочный код D 20.673.222.192 также не обнаружен ни в одном публично доступном онлайн-источнике.",
+      "Honeywell производит широкую линейку детекторов пламени (серии C7xxx, FSL100, FS20X, FS24X, SS2, SS4 и Satronic IRD/UVD), однако номер 189091 не фигурирует ни в одном из этих семейств в открытом доступе.",
+      "Satronic (торговая марка Honeywell из Швейцарии) выпускает датчики пламени (IRD 1010, MZ 770S, UVD 970), у которых артикулы имеют иной формат — 5-значные числа типа 16501, 16502, 59074.",
+      "Категория 'Детектор' (детектор пламени) является правдоподобной для данного бренда и описания, но не может быть подтверждена без верифицированных данных по артикулу.",
+      "Возможно, артикул 189091 является внутренним кодом OEM, региональным SKU или устаревшим/снятым с производства изделием."
+    ],
+    "ambiguities": [
+      "Артикул 189091 не подтверждён ни одним публичным источником — возможно, это внутренний/OEM/региональный код.",
+      "Код D 20.673.222.192 не идентифицирован — может быть кодом таможенного классификатора, внутренним кодом каталога или кодом конкретного рынка.",
+      "Неизвестно, относится ли изделие к линейке промышленных детекторов пламени Honeywell Process или к линейке Satronic для управления горелками.",
+      "Категория 'Детектор' правдоподобна, но не может быть официально подтверждена без верифицированного источника по данному артикулу."
+    ],
+    "sources": [
+      {
+        "url": "https://process.honeywell.com/us/en/products/thermal-solutions/burner-management-systems/flame-detectors",
+        "type": "manufacturer",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/gas-and-flame-detection/fixed-gas-and-flame-detection/fixed-flame-detectors",
+        "type": "manufacturer",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://honeywell-rf.ru/catalog/datchiki_honeywell/promyshlennye_detektory_plameni_honeywell/",
+        "type": "distributor",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://satronic-honeywell.com/",
+        "type": "distributor",
+        "supports": [
+          "brand_family_context"
+        ]
+      },
+      {
+        "url": "https://www.sertequi.com/back/imagensProd/ird1010.pdf",
+        "type": "datasheet",
+        "supports": [
+          "part_number_format_reference"
+        ]
+      },
+      {
+        "url": "`https://www.voelkner.de/index.php?file=info&mp=products&offer=0&products_id=7581753&ref=43` citeturn56view2",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Артикул 189091 и код D 20.673.222.192 не обнаружены ни на официальном сайте Honeywell, ни у авторизованных дистрибьюторов, ни в базах даташитов в ходе нескольких целевых поисковых запросов. Категория 'Детектор пламени' является правдоподобной исходя из описания и известных продуктовых линеек Honeywell, однако без верификации по артикулу уверенность оценивается как низкая. Рекомендуется обратиться непосредственно в Honeywell или к авторизованному региональному дистрибьютору с указанием полного артикула и кода D 20.673.222.192 для точной идентификации."
+  },
+  "sources": [
+    {
+      "url": "https://process.honeywell.com/us/en/products/thermal-solutions/burner-management-systems/flame-detectors",
+      "type": "manufacturer",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/gas-and-flame-detection/fixed-gas-and-flame-detection/fixed-flame-detectors",
+      "type": "manufacturer",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://honeywell-rf.ru/catalog/datchiki_honeywell/promyshlennye_detektory_plameni_honeywell/",
+      "type": "distributor",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://satronic-honeywell.com/",
+      "type": "distributor",
+      "supports": [
+        "brand_family_context"
+      ]
+    },
+    {
+      "url": "https://www.sertequi.com/back/imagensProd/ird1010.pdf",
+      "type": "datasheet",
+      "supports": [
+        "part_number_format_reference"
+      ]
+    },
+    {
+      "url": "`https://www.voelkner.de/index.php?file=info&mp=products&offer=0&products_id=7581753&ref=43` citeturn56view2",
+      "type": "distributor",
+      "domain": "www.voelkner.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:58:07.801140Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3954,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

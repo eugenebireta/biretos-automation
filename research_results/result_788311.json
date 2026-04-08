@@ -1,0 +1,86 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_788311",
+  "entity_id": "788311",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA frame",
+    "description_ru": "Dialog Exclusiv 3-gang frame; gold variants are made-to-order; \"auf Anfrage\" in 2013 Bildpreisliste",
+    "category_suggestion": "PEHA frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1217.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://kirishi.aelektro.ru/catalog/ramki/3-postovye/ramka-3-posta-honeywell-dialog-exclusiv-bezhevyi-788311",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://kirishi.aelektro.ru/content/photo/full/P788311_img1.jpg",
+    "specs": {
+      "raw": "81×228mm; white/gold metallic inlay; thermoplastic halogen-free; IP20",
+      "aliases": [
+        "D 95.573.03.61",
+        "00788311"
+      ]
+    },
+    "key_findings": [
+      "Dialog Exclusiv 3-gang frame; gold variants are made-to-order; \"auf Anfrage\" in 2013 Bildpreisliste",
+      "Aliases: D 95.573.03.61; 00788311"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.pehastore.de/schalterprogramme/dialog/dialog-exclusiv-weiss-gold/abdeckrahmen/",
+        "type": "list_price",
+        "domain": "www.pehastore.de",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://kirishi.aelektro.ru/catalog/ramki/3-postovye/ramka-3-posta-honeywell-dialog-exclusiv-bezhevyi-788311",
+        "type": "distributor",
+        "domain": "kirishi.aelektro.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.pehastore.de/schalterprogramme/dialog/dialog-exclusiv-weiss-gold/abdeckrahmen/",
+      "type": "list_price",
+      "domain": "www.pehastore.de",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://kirishi.aelektro.ru/catalog/ramki/3-postovye/ramka-3-posta-honeywell-dialog-exclusiv-bezhevyi-788311",
+      "type": "distributor",
+      "domain": "kirishi.aelektro.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.972639+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

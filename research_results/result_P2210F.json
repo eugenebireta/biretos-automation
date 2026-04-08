@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_P2210F",
+  "entity_id": "P2210F",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Monitor (22\")",
+    "description_ru": "eBay UK: “£42.99”, refurbished. citeturn39search3",
+    "category_suggestion": "Monitor (22\")",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 42.99,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.co.uk/itm/227222137857` citeturn39search3",
+      "price_type": "surplus"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "Dell P2210f"
+      ]
+    },
+    "key_findings": [
+      "eBay UK: “£42.99”, refurbished. citeturn39search3",
+      "Aliases: Dell P2210f"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.co.uk/itm/227222137857` citeturn39search3",
+        "type": "surplus",
+        "domain": "www.ebay.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.co.uk/itm/227222137857` citeturn39search3",
+      "type": "surplus",
+      "domain": "www.ebay.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.025149+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

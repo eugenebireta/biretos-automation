@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FX808341",
+  "entity_id": "FX808341",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm network card",
+    "description_ru": "Net EUR; 7 in stock at walde.ee",
+    "category_suggestion": "Fire alarm network card",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 651.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://walde.ee/en/media/catalog/product/cache/1fe9b4ecd35ca55ca6ac1f6b4cf9abcf/F/X/FX808341_1012_58a19dd1e81c12_07258394_fx808341-network-card-essernet-module-500-kbd-for-flexes-control_product_pic_800_800_00105681_0_jpg_658.jpg",
+    "specs": {
+      "raw": "essernet protocol; 500kBd communication speed; for FlexES Control",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Net EUR; 7 in stock at walde.ee",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+      "type": "distributor",
+      "domain": "walde.ee",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.962513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

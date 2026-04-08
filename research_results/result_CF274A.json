@@ -1,0 +1,71 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CF274A",
+  "entity_id": "CF274A",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Mono laser printer",
+    "description_ru": "**HP printer, NOT Honeywell.** $877.10 OEM new, $745.54 recertified, $570.12 refurbished. Discontinued",
+    "category_suggestion": "Mono laser printer",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 570.12,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.partshere.com/online/detail.asp?partno=CF274A",
+      "price_type": "surplus"
+    },
+    "photo_url": "https://www.partshere.com/HPPictures/?partno=CF274A",
+    "specs": {
+      "raw": "1200×1200 DPI; A4; 33 ppm; auto duplex; 128MB RAM; USB 2.0; 250-sheet tray",
+      "aliases": [
+        "CF274A-MPS",
+        "CF274A-R",
+        "HP LaserJet Pro 400 M401d"
+      ]
+    },
+    "key_findings": [
+      "**HP printer, NOT Honeywell.** $877.10 OEM new, $745.54 recertified, $570.12 refurbished. Discontinued",
+      "Aliases: CF274A-MPS; CF274A-R; HP LaserJet Pro 400 M401d"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.partshere.com/online/detail.asp?partno=CF274A",
+        "type": "surplus",
+        "domain": "www.partshere.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.partshere.com/online/detail.asp?partno=CF274A",
+      "type": "surplus",
+      "domain": "www.partshere.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.988065+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

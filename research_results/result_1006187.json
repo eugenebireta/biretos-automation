@@ -38,10 +38,36 @@
           "specs_partial",
           "price"
         ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+        "type": "distributor",
+        "domain": "www.alive-sr.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентичность PN 1006187 как Honeywell 303S-YEL/WHT подтверждена на уровне дистрибьютора. Базовые спецификации (размер, SNR, количество) найдены. Однако отсутствует официальный datasheet производителя и детальные технические параметры. Цена доступна на публичном сайте дистрибьютора, что позволяет оценить её как admissible_public_price."
+    "confidence_notes": "Идентичность PN 1006187 как Honeywell 303S-YEL/WHT подтверждена на уровне дистрибьютора. Базовые спецификации (размер, SNR, количество) найдены. Однако отсутствует официальный datasheet производителя и детальные технические параметры. Цена доступна на публичном сайте дистрибьютора, что позволяет оценить её как admissible_public_price.",
+    "price_value": {
+      "amount": 44.48,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.alive-sr.com/images/303SBOXFOAMBLUE.jpg"
   },
   "sources": [
     {
@@ -53,6 +79,24 @@
         "specs_partial",
         "price"
       ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+      "type": "distributor",
+      "domain": "www.alive-sr.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
     }
   ],
   "confidence": "medium",
@@ -61,5 +105,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2137,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (8).md"
 }

@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CM010610",
+  "entity_id": "CM010610",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fastener (tray systems)",
+    "description_ru": "На странице указано «цена с учётом НДС». citeturn62view0",
+    "category_suggestion": "Fastener (tray systems)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 7.15,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://shop220.ru/cm010610-vint-s-krestoobraznym-shlitsem-m6h10.htm",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://shop220.ru/images/data/cat/53824_big.jpg citeturn63view0",
+    "specs": {
+      "raw": "M6; длина 10 мм; класс прочности 4.8 (по карточке) citeturn62view0",
+      "aliases": [
+        "CM010610"
+      ]
+    },
+    "key_findings": [
+      "На странице указано «цена с учётом НДС». citeturn62view0",
+      "Aliases: CM010610"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://shop220.ru/cm010610-vint-s-krestoobraznym-shlitsem-m6h10.htm",
+        "type": "distributor",
+        "domain": "shop220.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://shop220.ru/cm010610-vint-s-krestoobraznym-shlitsem-m6h10.htm",
+      "type": "distributor",
+      "domain": "shop220.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.060235+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

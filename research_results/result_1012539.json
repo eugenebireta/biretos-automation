@@ -1,0 +1,89 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_1012539",
+  "entity_id": "1012539",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "hearing protection",
+    "description_ru": "Also on eBay at €16.79 (new condition); helmet adapters 3711/3712/3721",
+    "category_suggestion": "hearing protection",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 14.02,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.safety5000.com/hearing-protection-c16/ear-defenders-c39/honeywell-howard-leight-leightning-l1h-snr-26-db-grey-helmet-mounted-ear-muff-defender-p254",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/WBgAAOSw4F5aDH0q/s-l300.jpg",
+    "specs": {
+      "raw": "SNR 26dB; helmet-mounted; steel wire arms; snap-in cushions; EN 352",
+      "aliases": [
+        "Leightning L1H",
+        "Howard Leight L1H",
+        "Arco 211005"
+      ]
+    },
+    "key_findings": [
+      "Also on eBay at €16.79 (new condition); helmet adapters 3711/3712/3721",
+      "Aliases: Leightning L1H; Howard Leight L1H; Arco 211005"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.safety5000.com/hearing-protection-c16/ear-defenders-c39/honeywell-howard-leight-leightning-l1h-snr-26-db-grey-helmet-mounted-ear-muff-defender-p254",
+        "type": "distributor",
+        "domain": "www.safety5000.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/272241478308",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.safety5000.com/hearing-protection-c16/ear-defenders-c39/honeywell-howard-leight-leightning-l1h-snr-26-db-grey-helmet-mounted-ear-muff-defender-p254",
+      "type": "distributor",
+      "domain": "www.safety5000.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/272241478308",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.980647+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}
