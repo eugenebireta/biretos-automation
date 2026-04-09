@@ -311,28 +311,13 @@ def run_post_execution_audit_sync(
             "risk_class": risk_class,
         }, ensure_ascii=False))
 
-        # --- Tier 3: Opus CLI filter ($0, subscription) ---
-        # Not a governance verdict — just a filter: "is this worth escalating?"
-        print(f"[audit] Sonnet found {critical_count} critical issue(s) — "
-              f"running Opus CLI filter (subscription)...")
-        cli_filter = run_cli_prescreen_sync(
-            packet=packet,
-            directive_text=directive_text,
-            trace_id=trace_id,
-            risk_class=risk_class,
-            retry_count=0,
-        )
-        opus_cli_confirms_critical = not cli_filter["passed"]
-        logger.info(json.dumps({
-            "trace_id": trace_id,
-            "outcome": "opus_cli_filter_complete",
-            "confirms_critical": opus_cli_confirms_critical,
-            "cli_verdict": cli_filter["verdict"],
-        }, ensure_ascii=False))
+        # Sonnet/Gemini found critical issues → escalate based on risk class.
+        # No CLI filter here — CLI has conflict of interest (same brain as executor).
+        # API critical verdict is never overridden by non-API entity.
 
-        if opus_cli_confirms_critical and risk_class == "CORE":
-            # --- Tier 4: Opus API ($3.60) — CORE only, final authoritative verdict ---
-            print("[audit] Opus CLI confirmed critical — escalating to Opus API (CORE task)...")
+        if risk_class == "CORE":
+            # CORE: escalate to Opus API for authoritative second opinion
+            print(f"[audit] Sonnet found {critical_count} critical — escalating to Opus API (CORE)...")
             opus_auditor = AnthropicAuditor(
                 model=anthropic_escalation, api_key=secrets["ANTHROPIC_API_KEY"],
             )
@@ -354,21 +339,14 @@ def run_post_execution_audit_sync(
                     "opus_verdict": opus_verdicts[0].verdict.value,
                     "still_critical": has_critical,
                 }, ensure_ascii=False))
-        elif opus_cli_confirms_critical:
-            # SEMI: Opus CLI confirmed → BLOCKED (no Opus API spend for SEMI)
-            escalated = True
-            escalation_tier = "opus_cli"
-            logger.info(json.dumps({
-                "trace_id": trace_id,
-                "outcome": "semi_blocked_by_opus_cli",
-            }, ensure_ascii=False))
         else:
-            # Opus CLI disagrees with Sonnet → Sonnet was likely too strict, pass
-            has_critical = False
-            escalation_tier = "opus_cli_override"
+            # SEMI: critical from API → owner review (no auto-PASS, no Opus API spend)
+            escalated = True
+            escalation_tier = "owner_review"
             logger.info(json.dumps({
                 "trace_id": trace_id,
-                "outcome": "opus_cli_overrides_sonnet_critical",
+                "outcome": "semi_critical_to_owner",
+                "critical_count": critical_count,
             }, ensure_ascii=False))
 
     # --- Build ProtocolRun-compatible result ---
@@ -496,15 +474,15 @@ def run_cli_prescreen_sync(
     trace_id: str,
     risk_class: str,
     retry_count: int,
-    max_passes: int = 3,
 ) -> dict:
     """
-    Multi-pass CLI pre-screening audit ($0, subscription).
+    Single-pass CLI pre-screening with structured Chain-of-Thought ($0, subscription).
 
-    Runs up to max_passes self-verification rounds via `claude -p`.
-    Only reports "passed" if ALL passes agree the result is clean.
-    This ensures the subscription-based check is thorough before
-    escalating to the paid API audit.
+    Uses one pass with built-in self-critique (devil's advocate pattern)
+    instead of multiple passes of the same LLM confirming itself.
+
+    This is NOT a governance verdict — it's a fast filter to decide whether
+    to retry (with critique) or escalate to the paid API audit.
 
     Returns:
         {
@@ -512,83 +490,53 @@ def run_cli_prescreen_sync(
             "verdict": "prescreen_pass" | "prescreen_fail" | "prescreen_skip",
             "critique": str,
             "tier": "cli_prescreen",
-            "passes_run": int,
-            "passes_passed": int,
         }
     """
     changed_files = packet.get("changed_files") or []
     test_results = packet.get("test_results") or {}
 
-    base_context = (
+    prompt = (
+        "You are a strict code quality auditor. Review this execution result.\n\n"
         f"Task (retry #{retry_count}, risk: {risk_class})\n"
         f"Changed files ({len(changed_files)}): {', '.join(changed_files[:15])}\n"
-        f"Tests: passed={test_results.get('passed', '?')} failed={test_results.get('failed', '?')}\n"
-        f"Directive:\n{directive_text[:1500]}"
+        f"Tests: passed={test_results.get('passed', '?')} "
+        f"failed={test_results.get('failed', '?')}\n"
+        f"Directive:\n{directive_text[:1500]}\n\n"
+        "Follow this exact analysis chain:\n"
+        "1. List ALL potential problems you see (scope violations, missing tests, "
+        "regressions, policy violations, unsafe patterns)\n"
+        "2. For each problem, play devil's advocate: is this a real issue or a "
+        "false alarm? What evidence supports/contradicts it?\n"
+        "3. Keep only problems that survived step 2\n\n"
+        "Output ONLY a JSON object:\n"
+        '{"passed": true/false, "issues": ["surviving issue 1", ...], '
+        '"summary": "one line verdict"}\n\n'
+        "PASS only if: tests pass, changes scoped to declared files, "
+        "no regressions, no policy violations."
     )
 
-    pass_results = []
-    all_issues = []
-
-    for pass_num in range(1, max_passes + 1):
-        if pass_num == 1:
-            prompt = (
-                "You are a strict code quality auditor. Review this execution result.\n\n"
-                f"{base_context}\n\n"
-                "Output ONLY JSON: {\"passed\": true/false, \"issues\": [\"...\"], \"summary\": \"one line\"}\n"
-                "Pass = tests pass, changes scoped to declared files, no regressions. Be strict."
-            )
-        else:
-            # Subsequent passes review their own prior findings
-            prior = "\n".join(f"- Pass {i+1}: {'PASS' if r else 'FAIL'}" for i, r in enumerate(pass_results))
-            issues_text = "\n".join(f"- {iss}" for iss in all_issues[-10:]) if all_issues else "(none)"
-            prompt = (
-                f"You are a strict code quality auditor. This is verification pass #{pass_num}.\n\n"
-                f"{base_context}\n\n"
-                f"Prior passes:\n{prior}\n"
-                f"Issues found so far:\n{issues_text}\n\n"
-                "Re-verify independently. Are there REAL issues or were prior findings false positives?\n"
-                "Output ONLY JSON: {\"passed\": true/false, \"issues\": [\"...\"], \"summary\": \"one line\"}"
-            )
-
-        data = _cli_single_pass(prompt)
-        if data is None:
-            logger.warning("cli_prescreen: pass %d failed to parse, skipping", pass_num)
-            continue
-
-        passed = bool(data.get("passed", True))
-        issues = data.get("issues", [])
-        pass_results.append(passed)
-        all_issues.extend(issues)
-
-        logger.info(json.dumps({
-            "trace_id": trace_id,
-            "outcome": "cli_prescreen_pass",
-            "pass_num": pass_num,
-            "passed": passed,
-            "issues_count": len(issues),
-        }, ensure_ascii=False))
-
-        # Early exit: if pass says FAIL, no need to keep checking
-        if not passed:
-            break
-
-    if not pass_results:
-        # All passes failed to parse → skip (don't block)
+    data = _cli_single_pass(prompt)
+    if data is None:
+        logger.warning("cli_prescreen: failed to parse CLI response")
         return {"passed": True, "verdict": "prescreen_skip", "critique": "",
-                "tier": "cli_prescreen", "passes_run": 0, "passes_passed": 0}
+                "tier": "cli_prescreen"}
 
-    # ALL passes must agree "passed" for the prescreen to pass
-    passes_passed = sum(1 for r in pass_results if r)
-    all_passed = all(pass_results)
-    critique = "\n".join(f"- {iss}" for iss in all_issues) if all_issues else ""
+    passed = bool(data.get("passed", True))
+    issues = data.get("issues", [])
+    critique = "\n".join(f"- {iss}" for iss in issues) if issues else ""
+
+    logger.info(json.dumps({
+        "trace_id": trace_id,
+        "outcome": "cli_prescreen_complete",
+        "passed": passed,
+        "issues_count": len(issues),
+    }, ensure_ascii=False))
 
     return {
-        "passed": all_passed,
-        "verdict": "prescreen_pass" if all_passed else "prescreen_fail",
+        "passed": passed,
+        "verdict": "prescreen_pass" if passed else "prescreen_fail",
         "critique": critique,
         "tier": "cli_prescreen",
-        "passes_run": len(pass_results),
-        "passes_passed": passes_passed,
     }
 
 

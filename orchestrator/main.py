@@ -1286,14 +1286,11 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                             risk_class=risk_class,
                             retry_count=retry_count,
                         )
-                        passes_run = prescreen.get("passes_run", 0)
-                        passes_passed = prescreen.get("passes_passed", 0)
-                        print(f"[orchestrator] CLI pre-screen: {prescreen['verdict']} "
-                              f"({passes_passed}/{passes_run} passes OK)")
+                        print(f"[orchestrator] CLI pre-screen: {prescreen['verdict']}")
                         if prescreen["passed"]:
-                            # All CLI passes confirmed clean → escalate to API audit
+                            # CLI pre-screen clean → escalate to API audit
                             use_api_audit = True
-                            print("[orchestrator] All CLI passes CLEAN — escalating to Sonnet API audit")
+                            print("[orchestrator] CLI pre-screen CLEAN — escalating to Sonnet API audit")
                         else:
                             # CLI found issues → use critique for retry, skip expensive API
                             audit_verdict = "needs_owner_review"
