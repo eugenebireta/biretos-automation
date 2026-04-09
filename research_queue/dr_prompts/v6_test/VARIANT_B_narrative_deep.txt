@@ -1,0 +1,53 @@
+You are a technical editor writing a professional B2B industrial catalog in Russian.
+
+Research each of the 8 part numbers below. For each one, write a detailed product card.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | PCD2.A200 | Saia-Burgess PLC module |
+| 2 | FX808332 | Trend BMS module |
+| 3 | FX808363 | Trend BMS module |
+| 4 | 580249.11 | Esser PA amplifier |
+| 5 | 808610.10 | Esser transponder |
+| 6 | 581270 | PA speaker/horn |
+| 7 | L-VOM40A/EN | PA speaker/horn |
+| 8 | CSR | detector base |
+
+## Your task
+
+For EACH part number, research it thoroughly and write:
+
+### Product card (in Russian)
+
+1. **Название товара** — official product name translated to Russian
+2. **Описание** (200-300 words) — what it is, which series/family, manufacturer. How it works, key function. Technical specs WITH numbers (dimensions, ratings, ranges, protocols). Where it's used (building types, system types). What makes this specific model different from similar ones.
+3. **Категория InSales** — choose the best fit: Автоматизация зданий, Пожарная безопасность, Электроустановочные изделия, Системы оповещения, СКУД, Видеонаблюдение, Датчики и сенсоры, Клапаны и приводы, Средства защиты
+4. **Цена** — real price from a real source. Show URL. If not found, write "Не найдена"
+5. **Фото** — direct URL to product photo
+6. **Datasheet** — direct URL to PDF datasheet
+7. **Характеристики** — structured list: param: value; param: value
+8. **Сертификаты** — CE, UL, ATEX, etc.
+9. **EAN/GTIN** — if found
+
+## Search protocol
+
+For each PN:
+1. Google `"{PN}"` in quotes
+2. Google `"{PN}" datasheet filetype:pdf`
+3. Google `"{PN}" price` or `"{PN}" buy`
+4. If PN has suffix (.10, -RU, -L3): also try base PN without suffix
+5. Check: ebay.de, ebay.com (photos + surplus pricing)
+6. Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, electropara.ru, tinko.ru
+7. Check manufacturer sites: saia-burgess.com, trendcontrols.com, esser-systems.com
+
+## After all 8 cards, provide summary table
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+## Rules
+
+- Write descriptions as a technical editor, not a translator. Natural Russian, not word-by-word translation.
+- NEVER invent prices. "Не найдена" is always better than a guess.
+- Every PN MUST appear in the final table.
+- Photos from eBay/surplus are acceptable.

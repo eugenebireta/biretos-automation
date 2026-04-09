@@ -15,10 +15,19 @@
         "file": "dr_prompt_generator.py",
         "purpose": "Generate Gemini Deep Research prompts from evidence data",
         "triggers": ["промты для DR", "generate prompts", "какие SKU без данных", "uncovered SKUs"],
-        "usage": "python scripts/dr_prompt_generator.py --version v6 --dry-run",
+        "usage": "python scripts/dr_prompt_generator.py --version v7 --dry-run",
         "inputs": ["downloads/evidence/evidence_*.json"],
         "outputs": ["research_queue/dr_prompts/{version}/"],
-        "critical_rule": "Product hints come ONLY from assembled_title in evidence — NEVER invented"
+        "evidence_fields_used": [
+          "assembled_title (hint derivation)",
+          "content.seed_name (Excel description — passed to DR)",
+          "our_price_raw (reference price RUB — passed to DR)",
+          "brand"
+        ],
+        "evidence_fields_NOT_used": [
+          "expected_category (UNRELIABLE — known wrong for many items)"
+        ],
+        "critical_rule": "Hints from assembled_title + seed_name from Excel. Reference price from our_price_raw. NEVER expected_category."
       },
       "dr_results_import": {
         "file": "dr_results_import.py",

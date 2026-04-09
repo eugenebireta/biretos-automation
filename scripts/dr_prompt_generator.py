@@ -2,9 +2,16 @@
 """
 DR Prompt Generator — generates Deep Research prompts for uncovered SKUs.
 
-CRITICAL RULE: Product hints come ONLY from assembled_title in evidence files.
-Never use expected_category — it is known to be systematically wrong
-(e.g., PEHA frames labeled as "Датчик", "Вентиль", "Модуль").
+CRITICAL RULES:
+1. Product hints come from seed_name + assembled_title in evidence files.
+2. Reference price comes from our_price_raw (Excel) — passed to DR as validation anchor.
+3. Never use expected_category — it is known to be systematically wrong.
+4. product_type from Excel is TRUSTED and used for hints.
+
+Data field reliability (evidence files):
+  TRUSTED: seed_name, our_price_raw, brand, content.product_type, content.site_placement
+  DERIVED: assembled_title (simplified, less info than seed_name)
+  UNRELIABLE: expected_category (DO NOT USE as product hint)
 
 Usage:
     python scripts/dr_prompt_generator.py [--version v3] [--force]
@@ -196,6 +203,9 @@ def load_uncovered_skus() -> list:
             continue
 
         title = data.get("assembled_title", "")
+        seed_name = data.get("content", {}).get("seed_name", "") or data.get("name", "")
+        our_price_raw = data.get("our_price_raw", "")
+        product_type = data.get("content", {}).get("product_type", "")
 
         # SAFETY CHECK: Verify we're using assembled_title, not expected_category
         expected_cat = data.get("expected_category", "")
@@ -206,9 +216,21 @@ def load_uncovered_skus() -> list:
             print(f"  WARNING: {pn} has PEHA in title but hint={hint}", file=sys.stderr)
             hint = "PEHA electrical accessory"  # Force correct
 
+        # Build rich description from seed_name (more descriptive than assembled_title)
+        excel_description = seed_name if seed_name != title else ""
+
+        # Format reference price
+        ref_price = ""
+        if our_price_raw and str(our_price_raw).strip():
+            ref_price = str(our_price_raw).replace(",", ".").strip()
+
         uncovered.append({
             "pn": pn,
             "assembled_title": title,
+            "seed_name": seed_name,
+            "excel_description": excel_description,
+            "ref_price_rub": ref_price,
+            "product_type": product_type,
             "expected_category_DO_NOT_USE": expected_cat,  # Kept for audit trail only
             "hint": hint,
         })
@@ -222,7 +244,9 @@ def generate_chatgpt_prompt(batch: list, batch_num: int) -> str:
     """Generate ChatGPT Deep Research prompt (Gray Market Analyst role)."""
     rows = []
     for i, sku in enumerate(batch, 1):
-        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} |")
+        excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
+        ref_price = sku.get("ref_price_rub", "") or ""
+        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} | {excel_desc} | {ref_price} |")
 
     table = "\n".join(rows)
     count = len(batch)
@@ -262,11 +286,14 @@ These {count} part numbers are from Honeywell sub-brands: Esser (fire safety), P
 
 {tips_text}
 
-## {count} Part Numbers
+## {count} Part Numbers (with reference data from our database)
 
-| # | PN | Expected Type |
-|---|-----|--------------|
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
 {table}
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
 
 ## What I need back
 
@@ -306,10 +333,12 @@ Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog
 
 
 def generate_gemini_prompt(batch: list, batch_num: int) -> str:
-    """Generate Gemini Deep Research prompt (v6: narrative + structured tables)."""
+    """Generate Gemini Deep Research prompt (v7: narrative + structured tables + reference data)."""
     rows = []
     for i, sku in enumerate(batch, 1):
-        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} |")
+        excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
+        ref_price = sku.get("ref_price_rub", "") or ""
+        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} | {excel_desc} | {ref_price} |")
 
     table = "\n".join(rows)
     count = len(batch)
@@ -355,11 +384,14 @@ For each part number:
 
 {context_text}
 
-## Part Numbers
+## Part Numbers (with reference data from our database)
 
-| # | PN | Product Hint |
-|---|-----|-------------|
+| # | PN | Product Hint | Excel Description | Ref Price (RUB) |
+|---|-----|-------------|-------------------|-----------------|
 {table}
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find (not as the answer).
 
 ## Required output
 
@@ -369,7 +401,7 @@ For each part number:
 Группируй по категориям. Для каждого товара напиши 100-200 слов:
 - Что это, серия/семейство, производитель
 - Принцип работы, ключевая функция
-- Технические характеристики с числами (размеры, номиналы, диапазоны)
+- Технические характеристики с числами (размеры, вес, номиналы, диапазоны температур, IP-рейтинг)
 - Где применяется (типы объектов, систем)
 - Чем отличается данная модификация
 
@@ -380,14 +412,15 @@ For each part number:
 
 **Table 1 -- Product data (ALL {count} rows, every PN must appear)**
 
-| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 5-7 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 
 - Every input PN MUST have a row, even if price is "Not found"
 - NEVER invent prices
-- Description: 3-5 предложений на русском языке
+- Description: 5-7 предложений на русском языке — что это, как работает, где применяется, ключевые характеристики
+- Key Specs MUST include: dimensions (mm), weight (kg), operating temperature range, IP rating, voltage/power where applicable
 
-**Table 2 -- Sources visited (ALL {count} PNs)**
+**Table 2 -- Sources visited (ALL {count} PNs, 2-4 URLs each)**
 
 | Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
 |---|---|---|---|---|---|---|
@@ -402,6 +435,7 @@ For each part number:
 - Narrative descriptions and Table 1 descriptions MUST be in Russian.
 - Any currency accepted (EUR, USD, GBP, RUB, CHF).
 - Surplus/eBay photos are acceptable.
+- Key Specs MUST include physical dimensions and weight where available.
 """
 
 
@@ -409,7 +443,9 @@ def generate_claude_prompt(batch: list, batch_num: int) -> str:
     """Generate Claude Deep Research prompt (contextual/personal style)."""
     rows = []
     for i, sku in enumerate(batch, 1):
-        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} |")
+        excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
+        ref_price = sku.get("ref_price_rub", "") or ""
+        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} | {excel_desc} | {ref_price} |")
 
     table = "\n".join(rows)
     count = len(batch)
@@ -450,11 +486,14 @@ I'm building a product catalog for an industrial parts reseller. I need real-wor
 - Many codes have aliases under different Honeywell sub-brand names
 - Try: "{{PN}}" in quotes, sub-brand + PN, PN without leading zeros
 
-## {count} Part Numbers
+## {count} Part Numbers (with reference data from our database)
 
-| # | PN | Expected Type |
-|---|-----|--------------|
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
 {table}
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
 
 ## What I need back
 
@@ -603,7 +642,13 @@ def main():
         "generated_at": datetime.now().isoformat(),
         "version": args.version,
         "total_uncovered": len(skus),
-        "source": "assembled_title (NEVER expected_category)",
+        "source_fields": [
+            "assembled_title (product hint derivation)",
+            "seed_name (Excel description — passed to DR as context)",
+            "our_price_raw (Excel reference price — passed to DR as validation anchor)",
+            "brand",
+            "NEVER expected_category",
+        ],
         "families": {k: len(v) for k, v in families.items()},
         "batches": {},
     }
