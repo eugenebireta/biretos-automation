@@ -8,7 +8,7 @@
     "identity_confirmed": true,
     "brand": "unknown",
     "title_ru": "Damper actuator (spring return)",
-    "description_ru": "Цена 180,31 € incl. 19% USt (плюс доставка). citeturn32search5",
+    "description_ru": "Пружинный привод для воздушных заслонок с двухпозиционным управлением «открыто-закрыто». Обладает крутящим моментом 3Нм и обеспечивает гарантированный возврат заслонки в безопасное положение. Включает один встроенный вспомогательный переключатель.",
     "category_suggestion": "HVAC damper actuator",
     "price_assessment": "admissible_public_price",
     "price_value": {
@@ -94,7 +94,8 @@
         "description": "",
         "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
       }
-    ]
+    ],
+    "datasheet_url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/catalogs/bms-from-hco-030923/hbt-bms-en3b0260-ge51r0120.pdf"
   },
   "sources": [
     {
@@ -119,10 +120,10 @@
   "confidence": "medium",
   "parse_error": "",
   "timestamp": "2026-04-08T21:08:40.023147+00:00",
-  "provider": "dr_claude",
+  "provider": "dr_gemini",
   "model": "claude-opus-4",
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+  "dr_source_file": "batch_gemini_v8_nodesc_b1.json"
 }

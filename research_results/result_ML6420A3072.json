@@ -8,7 +8,7 @@
     "identity_confirmed": true,
     "brand": "unknown",
     "title_ru": "линейный электропривод 600 N, 24 VAC, ход 20 мм (для линейных клапанов)",
-    "description_ru": "Цена на Bola Systems указана без НДС; на странице также дан вариант с НДС 21%. citeturn23view0turn29view0",
+    "description_ru": "Линейный электрический привод с усилием 600Н для управления седельными клапанами в системах ОВиК. Поддерживает трехпозиционное управление и имеет ход штока 20 мм. Работает от переменного тока 24В и отличается высокой надежностью при эксплуатации в котельных.",
     "category_suggestion": "линейный электропривод 600 N, 24 VAC, ход 20 мм (для линейных клапанов)",
     "price_assessment": "admissible_public_price",
     "price_value": {
@@ -18,7 +18,7 @@
       "source_url": "https://www.bolasystems.com/actuator-for-honeywell-control-valve-ml6420a3072-600n-24vac"
     },
     "photo_url": "https://digitalassets.resideo.com/damroot/RDEDesktop/10019/ml6420age02cohres.jpg",
-    "specs": {},
+    "specs": "Force: 600N; Stroke: 20mm; Power: 24VAC; IP Rating: IP54; Weight: 1.46kg",
     "key_findings": [
       "Цена на Bola Systems указана без НДС; на странице также дан вариант с НДС 21%. citeturn23view0turn29view0"
     ],
@@ -97,7 +97,8 @@
         "description": "",
         "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
       }
-    ]
+    ],
+    "datasheet_url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/engineering-specifications/77-5315.pdf"
   },
   "sources": [
     {
@@ -124,10 +125,10 @@
   "confidence": "medium",
   "parse_error": "",
   "timestamp": "2026-04-08T21:08:40.341392+00:00",
-  "provider": "dr_claude",
+  "provider": "dr_gemini",
   "model": "claude-opus-4",
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+  "dr_source_file": "batch_gemini_v8_nodesc_b1.json"
 }
