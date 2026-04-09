@@ -2,4 +2,8 @@
 line-length = 120
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["E402", "E501"]
+# Template/prompt strings contain intentionally long lines
+"orchestrator/strojka.py" = ["E501"]
+"scripts/research_providers.py" = ["E501"]
+# Test data strings and fixture dicts with long URLs/values
+"tests/enrichment/test_dr_results_import.py" = ["E501"]

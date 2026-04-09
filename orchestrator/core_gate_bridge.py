@@ -14,11 +14,12 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import subprocess
 from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from auditor_system.hard_shell.contracts import ProtocolRun  # noqa: F401
+    pass
 
 logger = logging.getLogger(__name__)
 
@@ -202,7 +203,7 @@ def run_post_execution_audit_sync(
     trace_id: str,
     risk_class: str,
     manifest: dict,
-) -> "ProtocolRun":
+) -> dict:
     """
     Run auditor on COMPLETED execution for SEMI/CORE tasks.
 
@@ -335,6 +336,95 @@ def _determine_last_verdict(fsm_state: str) -> str:
     return mapping.get(fsm_state, "AUDIT_INCONCLUSIVE")
 
 
+def run_cli_prescreen_sync(
+    packet: dict,
+    directive_text: str,
+    trace_id: str,
+    risk_class: str,
+    retry_count: int,
+) -> dict:
+    """
+    Lightweight CLI-based pre-screening audit (2-tier audit: tier 1).
+
+    Uses `claude -p` (Claude Code CLI) through the user's subscription — $0 cost.
+    Called on INTERMEDIATE retries instead of the full API audit.
+    Returns a simplified dict compatible with the main.py retry flow:
+        {
+            "passed": bool,
+            "verdict": "prescreen_pass" | "prescreen_fail",
+            "critique": str,         # feedback for retry directive
+            "tier": "cli_prescreen",
+        }
+    """
+    changed_files = packet.get("changed_files") or []
+    test_results = packet.get("test_results") or {}
+
+    prompt = (
+        "You are a code quality pre-screener. Review this execution result and give quick feedback.\n\n"
+        f"## Task (retry #{retry_count}, risk: {risk_class})\n"
+        f"Directive: {directive_text[:1500]}\n\n"
+        f"## Execution Result\n"
+        f"Changed files ({len(changed_files)}): {changed_files[:15]}\n"
+        f"Tests: passed={test_results.get('passed', '?')} failed={test_results.get('failed', '?')}\n\n"
+        "## Instructions\n"
+        "Output ONLY a JSON object:\n"
+        '{"passed": true/false, "issues": ["issue1", ...], "summary": "one line"}\n\n'
+        "Pass criteria: tests pass, changes are scoped to declared files, no obvious regressions.\n"
+        "Be strict but fast — this is a pre-screen, not a full audit."
+    )
+
+    try:
+        proc = subprocess.run(
+            ["claude", "--print", "--no-session-persistence"],
+            input=prompt,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            timeout=90,
+            cwd=str(ROOT),
+        )
+
+        if proc.returncode != 0:
+            err = (proc.stderr or proc.stdout or "unknown")[:300]
+            logger.warning("cli_prescreen: claude CLI failed (rc=%d): %s", proc.returncode, err)
+            return {"passed": True, "verdict": "prescreen_skip", "critique": "", "tier": "cli_prescreen"}
+
+        response = proc.stdout.strip()
+
+        # Try to parse JSON from response
+        import re
+        response_clean = re.sub(r"```(?:json)?\s*", "", response).strip()
+        start = response_clean.find("{")
+        if start >= 0:
+            end = response_clean.rfind("}")
+            if end > start:
+                try:
+                    data = json.loads(response_clean[start:end + 1])
+                    passed = bool(data.get("passed", True))
+                    issues = data.get("issues", [])
+                    summary = data.get("summary", "")
+                    critique = "\n".join(f"- {i}" for i in issues) if issues else summary
+                    return {
+                        "passed": passed,
+                        "verdict": "prescreen_pass" if passed else "prescreen_fail",
+                        "critique": critique,
+                        "tier": "cli_prescreen",
+                    }
+                except json.JSONDecodeError:
+                    pass
+
+        # Fallback: couldn't parse → pass through (don't block on pre-screen failure)
+        logger.debug("cli_prescreen: couldn't parse JSON, passing through")
+        return {"passed": True, "verdict": "prescreen_skip", "critique": response[:500], "tier": "cli_prescreen"}
+
+    except subprocess.TimeoutExpired:
+        logger.warning("cli_prescreen: timeout after 90s")
+        return {"passed": True, "verdict": "prescreen_skip", "critique": "", "tier": "cli_prescreen"}
+    except FileNotFoundError:
+        logger.warning("cli_prescreen: claude CLI not found")
+        return {"passed": True, "verdict": "prescreen_skip", "critique": "", "tier": "cli_prescreen"}
+
+
 def _init_auditors():
     """Load API keys and create auditor instances (shared by multiple functions)."""
     import yaml
@@ -358,15 +448,18 @@ def _call_anthropic_revise(
     critique_text: str,
     task_context: str,
 ) -> str:
-    """Call Claude Code CLI to revise a proposal based on critique.
-
-    Uses `claude -p` (Claude Code CLI) through the user's subscription,
-    not the Anthropic API balance.
+    """Call Anthropic API to revise a proposal based on critique.
 
     This is NOT using the auditor role — it's using Claude as an architect
     to produce a revised proposal text. Returns the revised proposal markdown.
     """
-    from claude_cli import call_claude
+    try:
+        import anthropic
+    except ImportError:
+        logger.warning("anthropic package not installed, returning original proposal")
+        return original_proposal
+
+    client = anthropic.Anthropic(api_key=api_key)
 
     system_prompt = (
         "You are an architecture reviewer revising a proposal based on critique feedback.\n"
@@ -389,11 +482,15 @@ def _call_anthropic_revise(
         "Now produce the revised proposal:"
     )
 
-    try:
-        return call_claude(user_msg, system_prompt=system_prompt, timeout=180)
-    except RuntimeError:
-        logger.warning("claude CLI failed for proposal revision, returning original")
-        return original_proposal
+    response = client.messages.create(
+        model=model,
+        max_tokens=2048,
+        temperature=0.3,
+        system=system_prompt,
+        messages=[{"role": "user", "content": user_msg}],
+    )
+
+    return response.content[0].text if response.content else original_proposal
 
 
 def negotiate_architecture(

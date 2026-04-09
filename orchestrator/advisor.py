@@ -1,8 +1,7 @@
 """
-advisor.py — Claude Advisor: calls Claude Code CLI, structured JSON verdict.
+advisor.py — Claude Advisor: single API call, structured JSON verdict.
 
-M2: Calls `claude -p` (Claude Code CLI) with ContextBundle, returns AdvisorVerdict.
-Uses the user's Claude Code subscription (not API balance).
+M2: Calls Claude API with ContextBundle, returns AdvisorVerdict.
 
 Error chain:
   1. Call with full context → parse JSON from response
@@ -19,21 +18,24 @@ No FSM mutations — caller (main.py) owns state transitions.
 from __future__ import annotations
 
 import json
-import logging
+import os
+import random
 import re
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any  # noqa: F401
-
-from claude_cli import call_claude
-
-logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
 
-DEFAULT_CLI_TIMEOUT = 120  # seconds — advisor prompts are small, 2 min is plenty
+DEFAULT_MODEL = "claude-sonnet-4-6"
+OPUS_MODEL = "claude-opus-4-6"
+DEFAULT_MAX_TOKENS = 1024
+DEFAULT_TIMEOUT = 60
+
+# Risk levels that trigger Opus API instead of Sonnet
+_OPUS_RISK_LEVELS = {"SEMI", "CORE"}
 
 _SYSTEM_PROMPT = """\
 You are a task advisor for the Biretos Automation project.
@@ -107,13 +109,73 @@ def _load_config() -> dict:
     return {}
 
 
+def _load_models_config() -> dict:
+    """Load model names from auditor_system/config/models.yaml."""
+    try:
+        import yaml
+        models_path = ROOT / "auditor_system" / "config" / "models.yaml"
+        if models_path.exists():
+            return yaml.safe_load(models_path.read_text(encoding="utf-8")) or {}
+    except Exception:
+        pass
+    return {}
+
+
+def _select_model(risk: str, config: dict) -> str:
+    """Select API model based on risk level.
+
+    LOW  → Sonnet (cheap, fast, sufficient for routine tasks)
+    SEMI → Opus (needs deeper reasoning for financial/Tier-2 tasks)
+    CORE → Opus (critical tasks need best model)
+
+    Model names come from auditor_system/config/models.yaml.
+    Falls back to hardcoded defaults if config unavailable.
+    """
+    # Check if config has explicit advisor_model override
+    if config.get("advisor_model"):
+        return config["advisor_model"]
+
+    models_cfg = _load_models_config()
+    builder_cfg = models_cfg.get("builder", {})
+
+    risk_upper = (risk or "LOW").upper()
+    if risk_upper in _OPUS_RISK_LEVELS:
+        model_name = builder_cfg.get("escalation", "opus")
+        # Map short name → API model ID
+        if model_name == "opus":
+            return OPUS_MODEL
+        return model_name
+    else:
+        model_name = builder_cfg.get("default", "sonnet")
+        if model_name == "sonnet":
+            return DEFAULT_MODEL
+        return model_name
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def _call_cli(prompt: str, system_prompt: str, timeout: int) -> str:
-    """Call Claude Code CLI. Delegates to shared claude_cli.call_claude."""
-    return call_claude(prompt, system_prompt=system_prompt, timeout=timeout)
+def _make_client(api_key: str | None = None):
+    """Create Anthropic client. Raises if SDK missing or key absent.
+
+    Key resolution order:
+      1. Explicit api_key argument
+      2. os.environ ANTHROPIC_API_KEY
+      3. auditor_system/config/.env.auditors (dotenv_values, per SPEC §20.8)
+    """
+    import anthropic
+    key = api_key or os.environ.get("ANTHROPIC_API_KEY", "")
+    if not key:
+        try:
+            from dotenv import dotenv_values
+            env_path = ROOT / "auditor_system" / "config" / ".env.auditors"
+            key = dotenv_values(env_path).get("ANTHROPIC_API_KEY", "")
+        except Exception:
+            pass
+    if not key:
+        raise ValueError("ANTHROPIC_API_KEY not set (checked os.environ and .env.auditors)")
+    return anthropic.Anthropic(api_key=key)
 
 
 def _extract_json(text: str) -> dict:
@@ -171,6 +233,47 @@ def _build_full_user_prompt(bundle) -> str:
     return bundle.to_advisor_prompt_context()
 
 
+_API_MAX_RETRIES = 2
+_API_BACKOFF_SECONDS = [2, 5]
+
+
+def _is_retriable(exc: Exception) -> bool:
+    """Check if an API exception is transient and worth retrying."""
+    exc_name = type(exc).__name__
+    # Anthropic SDK transient errors
+    if exc_name in ("APITimeoutError", "APIConnectionError",
+                     "InternalServerError", "RateLimitError",
+                     "OverloadedError"):
+        return True
+    # httpx transport errors
+    if "timeout" in str(exc).lower() or "connection" in str(exc).lower():
+        return True
+    return False
+
+
+def _call_api(client, model: str, user_prompt: str,
+              max_tokens: int, timeout: int) -> str:
+    """Make the API call with retry + backoff + jitter. Returns raw text."""
+    last_exc = None
+    for attempt in range(_API_MAX_RETRIES + 1):
+        try:
+            response = client.messages.create(
+                model=model,
+                max_tokens=max_tokens,
+                system=_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_prompt}],
+                timeout=timeout,
+            )
+            return response.content[0].text
+        except Exception as e:
+            last_exc = e
+            if attempt < _API_MAX_RETRIES and _is_retriable(e):
+                delay = _API_BACKOFF_SECONDS[attempt] + random.uniform(0, 1)
+                time.sleep(delay)
+                continue
+            raise
+    raise last_exc  # unreachable but satisfies type checker
+
 
 def _write_verdict_file(verdict: AdvisorVerdict, path: Path | None = None) -> None:
     path = path or ORCH_DIR / "last_advisor_verdict.json"
@@ -215,35 +318,55 @@ def call(
     config: dict | None = None,
     verdict_path: Path | None = None,
     escalation_path: Path | None = None,
-    _call_fn=None,  # injectable for tests — replaces _call_cli
+    _client=None,  # injectable for tests
 ) -> AdvisorResult:
     """
-    Call Claude Advisor via Claude Code CLI (`claude -p`).
+    Call Claude Advisor with the given ContextBundle.
 
-    Uses the user's Claude Code subscription (not API balance).
-    Model selection is handled by Claude Code settings (user controls via /model).
+    Model selection by risk (from models.yaml):
+      LOW  → Sonnet (fast, cheap)
+      SEMI → Opus API (deeper reasoning)
+      CORE → Opus API (critical tasks)
 
     Returns AdvisorResult with verdict (or None + escalated=True on failure).
     Writes last_advisor_verdict.json on success.
     Writes last_escalation.json on escalation.
     """
     cfg = config if config is not None else _load_config()
-    timeout = int(cfg.get("advisor_timeout_seconds", DEFAULT_CLI_TIMEOUT))
-    call_fn = _call_fn or _call_cli
+    # Risk-based model selection: SEMI/CORE → Opus, LOW → Sonnet
+    bundle_risk = getattr(bundle, "risk_assessment", None) or "LOW"
+    model = _select_model(bundle_risk, cfg)
+    max_tokens = int(cfg.get("advisor_max_tokens", DEFAULT_MAX_TOKENS))
+    timeout = int(cfg.get("advisor_timeout_seconds", DEFAULT_TIMEOUT))
 
     warnings: list[str] = []
+
+    try:
+        client = _client if _client is not None else _make_client(api_key)
+    except ValueError as e:
+        return AdvisorResult(
+            verdict=None,
+            escalated=True,
+            escalation_reason=str(e),
+            attempt_count=0,
+            warnings=[str(e)],
+        )
+
     trace_id = getattr(bundle, "trace_id", "") or "unknown"
 
-    print(f"[advisor] channel=cli trace_id={trace_id}")
+    # Log model selection
+    model_short = "opus" if "opus" in model else "sonnet"
+    print(f"[advisor] model={model_short} ({model}) risk={bundle_risk}")
 
     # --- Attempt 1: full context ---
     raw1 = ""
     try:
         user_prompt = _build_full_user_prompt(bundle)
-        raw1 = call_fn(user_prompt, _SYSTEM_PROMPT, timeout)
+        raw1 = _call_api(client, model, user_prompt, max_tokens, timeout)
         data = _extract_json(raw1)
         errs = _validate_verdict_dict(data, trace_id)
         if not errs:
+            # Patch issued_at if missing
             if not data.get("issued_at"):
                 data["issued_at"] = _now()
             verdict = AdvisorVerdict(
@@ -271,7 +394,7 @@ def call(
             sprint_goal=getattr(bundle, "sprint_goal", "(not set)"),
             task_id=getattr(bundle, "task_id", "(unknown)"),
         )
-        raw2 = call_fn(simplified, _SYSTEM_PROMPT, timeout)
+        raw2 = _call_api(client, model, simplified, max_tokens, timeout)
         data = _extract_json(raw2)
         errs = _validate_verdict_dict(data, trace_id)
         if not errs:

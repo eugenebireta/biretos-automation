@@ -81,6 +81,19 @@ def _release_lock(fh):
     except Exception:
         pass
 
+def _notify_park(manifest: dict) -> None:
+    """Fire-and-forget Telegram park notification. Never raises."""
+    try:
+        import telegram_notifier as _tg
+        _tg.notify_park(
+            manifest.get("fsm_state", ""),
+            manifest.get("park_reason", ""),
+            manifest.get("current_task_id"),
+        )
+    except Exception:
+        pass
+
+
 def _ensure_run_dir(trace_id: str) -> Path:
     """Create and return per-run directory for artifacts isolation."""
     run_dir = RUNS_DIR / trace_id
@@ -485,6 +498,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
             append_run({"ts": _now(), "event": "budget_hard_stop",
                         "status": "parked_budget_daily",
                         "reason": _park_reason, "trace_id": trace_id})
+            _notify_park(manifest)
             return
 
         if budget_status["run_exceeded"]:
@@ -500,6 +514,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
             append_run({"ts": _now(), "event": "budget_hard_stop",
                         "status": "parked_budget_run",
                         "reason": _park_reason, "trace_id": trace_id})
+            _notify_park(manifest)
             return
 
         if _run_pct >= 0.8:
@@ -555,6 +570,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
     if advisor_result.escalated:
         manifest["fsm_state"] = "awaiting_owner_reply"
         manifest["last_verdict"] = "ESCALATE"
+        manifest["park_reason"] = f"#advisor_escalation: {advisor_result.escalation_reason[:200]}"
         save_manifest(manifest)
         append_run({"ts": _now(), "event": "advisor_escalation",
                     "status": "escalated",
@@ -579,6 +595,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
         print("Check orchestrator/last_escalation.json and resolve.")
         print("After resolving: set fsm_state=ready in manifest.json")
         print("=" * 60)
+        _notify_park(manifest)
         return
 
     verdict = advisor_result.verdict
@@ -710,6 +727,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                 # No convergence — BLOCKED_BY_CONSENSUS
                 manifest["fsm_state"] = "blocked_by_consensus"
                 manifest["last_verdict"] = "BLOCKED_BY_CONSENSUS"
+                manifest["park_reason"] = "#consensus: architect-critic did not converge"
                 manifest["last_audit_result"] = negotiate_summary
                 manifest["_negotiate_result"] = {
                     "converged": False,
@@ -734,6 +752,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                     json.dumps(negotiate_result["history"], indent=2, ensure_ascii=False),
                     encoding="utf-8",
                 )
+                _notify_park(manifest)
                 return  # blocked — stop here
 
         except Exception as _audit_exc:
@@ -741,11 +760,13 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
             print(f"[orchestrator] NEGOTIATE BLOCKED: {_err_class}: {_audit_exc}")
             manifest["fsm_state"] = "blocked"
             manifest["last_verdict"] = "AUDIT_FAILED"
+            manifest["park_reason"] = f"#blocker: negotiate error — {_err_class}"
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "core_negotiate_error",
                         "status": "audit_error",
                         "error": str(_audit_exc), "error_class": _err_class,
                         "trace_id": trace_id})
+            _notify_park(manifest)
             return  # error — stop here
         # If converged: fall through to directive building below
 
@@ -817,6 +838,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
             else:
                 manifest["fsm_state"] = "blocked"
                 manifest["last_verdict"] = "SCOPE_REJECTED"
+                manifest["park_reason"] = "#blocker: scope review rejected — critical issues found"
                 save_manifest(manifest)
                 append_run({"ts": _now(), "event": "semi_scope_review_rejected",
                             "status": "scope_rejected",
@@ -826,6 +848,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                 for c in scope_result["concerns"][:5]:
                     print(f"  - {c[:120]}")
                 print("[orchestrator] Resolve scope issues or use 'approve' to override.")
+                _notify_park(manifest)
                 return
 
         except Exception as _audit_exc:
@@ -843,6 +866,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
         verdict_map = {"ESCALATE": "ESCALATE", "BLOCKED": "BLOCKED", "NO_OP": "ESCALATE"}
         manifest["fsm_state"] = "awaiting_owner_reply"
         manifest["last_verdict"] = verdict_map[synth.action]
+        manifest["park_reason"] = f"#synth_{synth.action.lower()}: {synth.rationale[:200]}"
         save_manifest(manifest)
         append_run({"ts": _now(), "event": f"synth_{synth.action.lower()}",
                     "status": f"synth_{synth.action.lower()}",
@@ -868,6 +892,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
             print(f"Stripped Tier-1/2 files: {synth.stripped_files}")
         print("After resolving: set fsm_state=ready in manifest.json")
         print("=" * 60)
+        _notify_park(manifest)
         return
 
     # PROCEED (or SEMI_AUDIT after audit pass) — build directive with synthesizer-approved scope
@@ -1245,56 +1270,45 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
             critique_history = _load_critique_history(run_dir)
 
             if acceptance.passed and risk_class in ("SEMI", "CORE"):
-                print("[orchestrator] SEMI/CORE -- running post-execution audit...")
-                try:
-                    from core_gate_bridge import (
-                        run_post_execution_audit_sync,
-                        extract_critique_text,
-                        _determine_fsm_state,
-                    )
-                    audit_result = run_post_execution_audit_sync(
-                        packet=packet,
-                        directive_text=directive_text,
-                        trace_id=trace_id,
-                        risk_class=risk_class,
-                        manifest=manifest,
-                    )
-                    audit_verdict = _determine_fsm_state(audit_result)
-                    audit_critique_text = extract_critique_text(audit_result)
+                # --- 2-TIER AUDIT: CLI pre-screen on retries, API audit on final ---
+                is_final_attempt = (retry_count >= max_retries) or (retry_count == 0)
+                use_api_audit = is_final_attempt
 
-                    # P3.1: accumulate critique
-                    critique_history = _append_critique_history(
-                        run_dir, retry_count, audit_result, audit_critique_text
-                    )
-
-                    manifest["last_audit_result"] = {
-                        "run_id": audit_result.run_id,
-                        "gate_passed": audit_result.quality_gate.passed
-                        if audit_result.quality_gate else None,
-                        "approval_route": audit_result.approval_route.value
-                        if audit_result.approval_route else None,
-                        "verdict": audit_verdict,
-                        "critique_rounds": len(critique_history),
-                    }
-                    print(f"[orchestrator] Post-exec audit: verdict={audit_verdict} "
-                          f"run_id={audit_result.run_id} "
-                          f"critique_rounds={len(critique_history)}")
-                    # P7: record auditor cost
+                if not use_api_audit:
+                    # TIER 1: CLI pre-screen (free, subscription)
+                    print(f"[orchestrator] SEMI/CORE -- CLI pre-screen (retry {retry_count}/{max_retries})...")
                     try:
-                        _bt.record_call(
-                            trace_id=trace_id, provider="google",
-                            model="gemini-2.5-pro", stage="auditor",
-                            call_seq=_budget_seq,
+                        from core_gate_bridge import run_cli_prescreen_sync
+                        prescreen = run_cli_prescreen_sync(
+                            packet=packet,
+                            directive_text=directive_text,
+                            trace_id=trace_id,
+                            risk_class=risk_class,
+                            retry_count=retry_count,
                         )
-                        _budget_seq += 1
-                    except Exception:
-                        pass
-                except Exception as exc:
-                    # Post-audit is MANDATORY for SEMI/CORE — retry once, then block
-                    print(f"[orchestrator] Post-exec audit ERROR: {exc}")
-                    _post_audit_retried = False
+                        print(f"[orchestrator] CLI pre-screen: verdict={prescreen['verdict']}")
+                        if prescreen["passed"]:
+                            # Pre-screen passed → promote to API audit for final verdict
+                            use_api_audit = True
+                            print("[orchestrator] Pre-screen PASSED — escalating to API audit for final verdict")
+                        else:
+                            # Pre-screen failed → use critique for retry, skip expensive API
+                            audit_verdict = "needs_owner_review"
+                            audit_critique_text = prescreen.get("critique", "CLI pre-screen rejected")
+                            print("[orchestrator] Pre-screen FAILED — skipping API audit, using CLI critique for retry")
+                    except Exception as exc:
+                        print(f"[orchestrator] CLI pre-screen error: {exc} — falling back to API audit")
+                        use_api_audit = True
+
+                if use_api_audit and audit_verdict is None:
+                    # TIER 2: Full API audit (Gemini + Anthropic, independent)
+                    print("[orchestrator] SEMI/CORE -- running API post-execution audit...")
                     try:
-                        print("[orchestrator] Retrying post-exec audit (1/1)...")
+                        from core_gate_bridge import (
+                            run_post_execution_audit_sync,
+                            extract_critique_text,
+                            _determine_fsm_state,
+                        )
                         audit_result = run_post_execution_audit_sync(
                             packet=packet,
                             directive_text=directive_text,
@@ -1304,33 +1318,78 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         )
                         audit_verdict = _determine_fsm_state(audit_result)
                         audit_critique_text = extract_critique_text(audit_result)
+
+                        # P3.1: accumulate critique
                         critique_history = _append_critique_history(
                             run_dir, retry_count, audit_result, audit_critique_text
                         )
+
                         manifest["last_audit_result"] = {
                             "run_id": audit_result.run_id,
                             "gate_passed": audit_result.quality_gate.passed
                             if audit_result.quality_gate else None,
+                            "approval_route": audit_result.approval_route.value
+                            if audit_result.approval_route else None,
                             "verdict": audit_verdict,
                             "critique_rounds": len(critique_history),
                         }
-                        print(f"[orchestrator] Post-exec audit retry OK: verdict={audit_verdict}")
-                        _post_audit_retried = True
-                    except Exception as retry_exc:
-                        print(f"[orchestrator] Post-exec audit retry FAILED: {retry_exc}")
+                        print(f"[orchestrator] Post-exec audit: verdict={audit_verdict} "
+                              f"run_id={audit_result.run_id} "
+                              f"critique_rounds={len(critique_history)}")
+                        # P7: record auditor cost
+                        try:
+                            _bt.record_call(
+                                trace_id=trace_id, provider="google",
+                                model="gemini-2.5-pro", stage="auditor",
+                                call_seq=_budget_seq,
+                            )
+                            _budget_seq += 1
+                        except Exception:
+                            pass
+                    except Exception as exc:
+                        # Post-audit is MANDATORY for SEMI/CORE — retry once, then block
+                        print(f"[orchestrator] Post-exec audit ERROR: {exc}")
+                        _post_audit_retried = False
+                        try:
+                            print("[orchestrator] Retrying post-exec audit (1/1)...")
+                            audit_result = run_post_execution_audit_sync(
+                                packet=packet,
+                                directive_text=directive_text,
+                                trace_id=trace_id,
+                                risk_class=risk_class,
+                                manifest=manifest,
+                            )
+                            audit_verdict = _determine_fsm_state(audit_result)
+                            audit_critique_text = extract_critique_text(audit_result)
+                            critique_history = _append_critique_history(
+                                run_dir, retry_count, audit_result, audit_critique_text
+                            )
+                            manifest["last_audit_result"] = {
+                                "run_id": audit_result.run_id,
+                                "gate_passed": audit_result.quality_gate.passed
+                                if audit_result.quality_gate else None,
+                                "verdict": audit_verdict,
+                                "critique_rounds": len(critique_history),
+                            }
+                            print(f"[orchestrator] Post-exec audit retry OK: verdict={audit_verdict}")
+                            _post_audit_retried = True
+                        except Exception as retry_exc:
+                            print(f"[orchestrator] Post-exec audit retry FAILED: {retry_exc}")
 
-                    if not _post_audit_retried:
-                        # Both attempts failed — block, do NOT continue without audit
-                        manifest["fsm_state"] = "blocked"
-                        manifest["last_verdict"] = "POST_AUDIT_FAILED"
-                        save_manifest(manifest)
-                        append_run({"ts": _now(), "event": "post_audit_mandatory_block",
-                                    "status": "blocked",
-                                    "error": str(exc),
-                                    "trace_id": trace_id})
-                        print("[orchestrator] BLOCKED: post-exec audit mandatory for "
-                              f"{risk_class} but failed twice. Owner review required.")
-                        return
+                        if not _post_audit_retried:
+                            # Both attempts failed — block, do NOT continue without audit
+                            manifest["fsm_state"] = "blocked"
+                            manifest["last_verdict"] = "POST_AUDIT_FAILED"
+                            manifest["park_reason"] = "#blocker: post-exec audit failed twice — owner review required"
+                            save_manifest(manifest)
+                            append_run({"ts": _now(), "event": "post_audit_mandatory_block",
+                                        "status": "blocked",
+                                        "error": str(exc),
+                                        "trace_id": trace_id})
+                            print("[orchestrator] BLOCKED: post-exec audit mandatory for "
+                                  f"{risk_class} but failed twice. Owner review required.")
+                            _notify_park(manifest)
+                            return
 
             # --- P3.1: CONSENSUS CHECK ---
             min_approvals = int(cfg.get("critique_min_approvals", 2))
@@ -1394,6 +1453,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     manifest["fsm_state"] = "blocked"
                     manifest["last_verdict"] = "AUDIT_BLOCKED"
                     manifest["park_reason"] = "#blocker: auditor blocked — owner review required"
+                    _notify_park(manifest)
                 elif retry_count < max_retries:
                     # B10: revert executor commits before retry
                     _revert_to_base(base_commit, trace_id)
@@ -1424,6 +1484,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     manifest["fsm_state"] = "awaiting_owner_reply"
                     manifest["last_verdict"] = "AUDIT_FAILED"
                     manifest["park_reason"] = f"#blocker_loop: audit failed after {retry_count} retries"
+                    _notify_park(manifest)
 
             else:
                 # Acceptance failed
@@ -1460,6 +1521,8 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                 else:
                     manifest["fsm_state"] = "awaiting_owner_reply"
                     manifest["last_verdict"] = "ACCEPTANCE_FAILED"
+                    manifest["park_reason"] = "#acceptance_failed: executor drifted from directive"
+                    _notify_park(manifest)
 
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "auto_execute_completed",
@@ -1531,6 +1594,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
 
             manifest["fsm_state"] = "awaiting_owner_reply"
             manifest["last_verdict"] = "BATCH_GATE_FAILED"
+            manifest["park_reason"] = f"#batch_gate_failed: {gate_result.reason[:200]}"
             save_manifest(manifest)
             append_run({"ts": _now(), "event": "batch_gate_failed",
                         "status": "gate_failed",
@@ -1540,6 +1604,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         "gate_rule": gate_result.rule,
                         "gate_reason": gate_result.reason,
                         "acceptance_passed": acceptance.passed})
+            _notify_park(manifest)
             print()
             print("=" * 60)
             print(f"BATCH GATE FAILED: {gate_result.rule}")

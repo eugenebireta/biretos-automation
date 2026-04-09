@@ -105,10 +105,22 @@ def _load_env() -> dict:
 
 # ── Telegram commands ───────────────────────────────────────────────────
 
+def _save_chat_id(chat_id: int) -> None:
+    """Persist TELEGRAM_OWNER_CHAT_ID to .env.telegram so notifier can push without bot."""
+    env_path = ORCH_DIR / ".env.telegram"
+    if not env_path.exists():
+        return
+    lines = env_path.read_text(encoding="utf-8").splitlines()
+    new_lines = [ln for ln in lines if not ln.strip().startswith("TELEGRAM_OWNER_CHAT_ID=")]
+    new_lines.append(f"TELEGRAM_OWNER_CHAT_ID={chat_id}")
+    env_path.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+
+
 async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     global OWNER_CHAT_ID
     if OWNER_CHAT_ID is None:
         OWNER_CHAT_ID = update.effective_chat.id
+        _save_chat_id(OWNER_CHAT_ID)
         _pc(f"Owner registered: {update.effective_user.first_name} (chat_id={OWNER_CHAT_ID})")
     await update.message.reply_text(
         "ИИ-Стройка на связи.\n\n"
@@ -325,7 +337,6 @@ async def cmd_run(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 _pc(f"  {line}")
                 lines.append(line)
         proc.wait(timeout=600)
-        output = "\n".join(lines)
         # Re-read manifest for result
         if MANIFEST_PATH.exists():
             m2 = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
@@ -350,28 +361,54 @@ async def cmd_run(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 # ── Owner reply to escalation ──────────────────────────────────────────
 
 async def _handle_owner_reply(update: Update, text: str) -> bool:
-    """Handle 'ок/да/нет' replies to pending escalations. Returns True if handled."""
+    """Handle owner replies to pending escalations or decisions. Returns True if handled."""
     if not MANIFEST_PATH.exists():
         return False
     m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     state = m.get("fsm_state", "")
+    lower = text.lower().strip()
 
-    if state not in ("awaiting_owner_reply", "error", "blocked", "blocked_by_consensus"):
+    # --- Structured A/B/C decision reply ---
+    pending = m.get("pending_decision")
+    if pending and isinstance(pending, dict):
+        options = pending.get("options", {})
+        # Match single letter or "A", "b", etc.
+        reply_key = text.strip().upper()
+        if reply_key in options:
+            m["owner_decision"] = reply_key
+            m["owner_decision_text"] = options[reply_key]
+            m.pop("pending_decision", None)
+            m["fsm_state"] = "ready"
+            m["updated_at"] = datetime.now(timezone.utc).isoformat()
+            MANIFEST_PATH.write_text(
+                json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8"
+            )
+            _pc(f"Owner decision: {reply_key} = {options[reply_key]}")
+            await update.message.reply_text(
+                f"Принято: {reply_key} — {options[reply_key]}\n\n"
+                f"Стройка продолжит при следующем запуске."
+            )
+            return True
+
+    # --- Simple ок/нет for park states ---
+    park_states = ("awaiting_owner_reply", "error", "blocked", "blocked_by_consensus",
+                   "parked_budget_daily", "parked_budget_run", "parked_api_outage")
+    if state not in park_states:
         return False
 
-    lower = text.lower().strip()
     if lower in ("ок", "ok", "да", "yes", "го", "давай"):
         m["fsm_state"] = "ready"
         m["last_verdict"] = None
+        m.pop("park_reason", None)
         m["updated_at"] = datetime.now(timezone.utc).isoformat()
         MANIFEST_PATH.write_text(
             json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8"
         )
-        _pc(f"Owner approved escalation -> fsm_state=ready")
+        _pc("Owner approved -> fsm_state=ready")
         await update.message.reply_text("Принято. Стройка продолжит при следующем запуске.")
         return True
     elif lower in ("нет", "no", "стоп", "stop"):
-        _pc(f"Owner rejected escalation — fsm stays at {state}")
+        _pc(f"Owner rejected — fsm stays at {state}")
         await update.message.reply_text("Понял. Задача остаётся на паузе.")
         return True
 
@@ -407,12 +444,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         return
 
     # ── Run strojka ─────────────────────────────────────────────────
-    _pc(f"")
+    _pc("")
     _pc(f"{'='*60}")
     _pc(f"ЗАДАЧА: {task_text}")
     _pc(f"{'='*60}")
 
-    await update.message.reply_text(f"Принял. Работаю...")
+    await update.message.reply_text("Принял. Работаю...")
 
     try:
         env = _load_env()

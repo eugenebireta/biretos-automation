@@ -1,7 +1,7 @@
 """
 test_advisor.py — deterministic unit tests for orchestrator/advisor.py
 
-All CLI calls are mocked via _call_fn — no live subprocess, no API key required.
+All API calls are mocked — no live network, no Anthropic key required.
 """
 from __future__ import annotations
 
@@ -12,9 +12,12 @@ import pytest
 from advisor import (
     AdvisorResult,
     _extract_json,
+    _select_model,
     _validate_verdict_dict,
     _build_full_user_prompt,
     call,
+    DEFAULT_MODEL,
+    OPUS_MODEL,
 )
 
 
@@ -62,14 +65,13 @@ def _good_verdict_json(trace_id="orch_20260407T120000Z_abc123") -> str:
     })
 
 
-def _make_call_fn(response_text: str):
-    """Create a mock _call_fn that returns response_text."""
-    return MagicMock(return_value=response_text)
-
-
-def _make_call_fn_sequence(responses: list[str]):
-    """Create a mock _call_fn that returns different text on each call."""
-    return MagicMock(side_effect=responses)
+def _make_client_mock(response_text: str):
+    """Create a mock Anthropic client that returns response_text."""
+    msg = MagicMock()
+    msg.content = [MagicMock(text=response_text)]
+    client = MagicMock()
+    client.messages.create.return_value = msg
+    return client
 
 
 # ---------------------------------------------------------------------------
@@ -163,8 +165,8 @@ class TestValidateVerdictDict:
 class TestCallSuccess:
     def test_returns_advisor_result(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(_good_verdict_json())
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -172,8 +174,8 @@ class TestCallSuccess:
 
     def test_verdict_not_none_on_success(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(_good_verdict_json())
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -181,8 +183,8 @@ class TestCallSuccess:
 
     def test_escalated_false_on_success(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(_good_verdict_json())
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -190,8 +192,8 @@ class TestCallSuccess:
 
     def test_attempt_count_1_on_first_success(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(_good_verdict_json())
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -199,8 +201,8 @@ class TestCallSuccess:
 
     def test_verdict_fields_populated(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(_good_verdict_json())
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -212,9 +214,9 @@ class TestCallSuccess:
 
     def test_verdict_file_written_on_success(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
+        client = _make_client_mock(_good_verdict_json())
         vpath = tmp_path / "verdict.json"
-        call(bundle, _call_fn=call_fn,
+        call(bundle, _client=client,
              verdict_path=vpath,
              escalation_path=tmp_path / "esc.json",
              config={})
@@ -225,9 +227,9 @@ class TestCallSuccess:
 
     def test_no_escalation_file_on_success(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
+        client = _make_client_mock(_good_verdict_json())
         espath = tmp_path / "esc.json"
-        call(bundle, _call_fn=call_fn,
+        call(bundle, _client=client,
              verdict_path=tmp_path / "verdict.json",
              escalation_path=espath,
              config={})
@@ -236,8 +238,8 @@ class TestCallSuccess:
     def test_json_with_prose_accepted(self, tmp_path):
         bundle = _make_bundle()
         prose_response = "Sure, here is my analysis:\n" + _good_verdict_json()
-        call_fn = _make_call_fn(prose_response)
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(prose_response)
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -246,8 +248,8 @@ class TestCallSuccess:
     def test_json_in_markdown_fence_accepted(self, tmp_path):
         bundle = _make_bundle()
         fenced = f"```json\n{_good_verdict_json()}\n```"
-        call_fn = _make_call_fn(fenced)
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(fenced)
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -260,8 +262,14 @@ class TestCallSuccess:
 class TestCallRetry:
     def test_success_on_attempt_2(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn_sequence(["not json at all", _good_verdict_json()])
-        result = call(bundle, _call_fn=call_fn,
+        # First response: not valid JSON; second: good
+        msg1 = MagicMock()
+        msg1.content = [MagicMock(text="not json at all")]
+        msg2 = MagicMock()
+        msg2.content = [MagicMock(text=_good_verdict_json())]
+        client = MagicMock()
+        client.messages.create.side_effect = [msg1, msg2]
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -271,8 +279,13 @@ class TestCallRetry:
 
     def test_warning_recorded_on_first_fail(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn_sequence(["garbage", _good_verdict_json()])
-        result = call(bundle, _call_fn=call_fn,
+        msg1 = MagicMock()
+        msg1.content = [MagicMock(text="garbage")]
+        msg2 = MagicMock()
+        msg2.content = [MagicMock(text=_good_verdict_json())]
+        client = MagicMock()
+        client.messages.create.side_effect = [msg1, msg2]
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -280,9 +293,14 @@ class TestCallRetry:
 
     def test_verdict_file_written_on_attempt_2(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn_sequence(["bad", _good_verdict_json()])
+        msg1 = MagicMock()
+        msg1.content = [MagicMock(text="bad")]
+        msg2 = MagicMock()
+        msg2.content = [MagicMock(text=_good_verdict_json())]
+        client = MagicMock()
+        client.messages.create.side_effect = [msg1, msg2]
         vpath = tmp_path / "verdict.json"
-        call(bundle, _call_fn=call_fn,
+        call(bundle, _client=client,
              verdict_path=vpath,
              escalation_path=tmp_path / "esc.json",
              config={})
@@ -290,9 +308,15 @@ class TestCallRetry:
 
     def test_invalid_schema_triggers_retry(self, tmp_path):
         bundle = _make_bundle()
+        # First response: JSON but wrong schema (missing fields)
         bad_json = json.dumps({"schema_version": "v1", "trace_id": "x"})
-        call_fn = _make_call_fn_sequence([bad_json, _good_verdict_json()])
-        result = call(bundle, _call_fn=call_fn,
+        msg1 = MagicMock()
+        msg1.content = [MagicMock(text=bad_json)]
+        msg2 = MagicMock()
+        msg2.content = [MagicMock(text=_good_verdict_json())]
+        client = MagicMock()
+        client.messages.create.side_effect = [msg1, msg2]
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -306,8 +330,8 @@ class TestCallRetry:
 class TestCallEscalation:
     def test_escalated_true_on_both_fail(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn("not json at all")
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock("not json at all")
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -315,8 +339,8 @@ class TestCallEscalation:
 
     def test_verdict_none_on_escalation(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn("bad")
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock("bad")
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -324,9 +348,9 @@ class TestCallEscalation:
 
     def test_escalation_file_written(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn("bad")
+        client = _make_client_mock("bad")
         espath = tmp_path / "esc.json"
-        call(bundle, _call_fn=call_fn,
+        call(bundle, _client=client,
              verdict_path=tmp_path / "verdict.json",
              escalation_path=espath,
              config={})
@@ -334,9 +358,9 @@ class TestCallEscalation:
 
     def test_escalation_file_has_trace_id(self, tmp_path):
         bundle = _make_bundle(trace_id="orch_20260407_abc")
-        call_fn = _make_call_fn("not json")
+        client = _make_client_mock("not json")
         espath = tmp_path / "esc.json"
-        call(bundle, _call_fn=call_fn,
+        call(bundle, _client=client,
              verdict_path=tmp_path / "verdict.json",
              escalation_path=espath,
              config={})
@@ -345,9 +369,9 @@ class TestCallEscalation:
 
     def test_escalation_file_has_idempotency_key(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn("not json")
+        client = _make_client_mock("not json")
         espath = tmp_path / "esc.json"
-        call(bundle, _call_fn=call_fn,
+        call(bundle, _client=client,
              verdict_path=tmp_path / "verdict.json",
              escalation_path=espath,
              config={})
@@ -356,8 +380,8 @@ class TestCallEscalation:
 
     def test_escalation_reason_in_result(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn("not json")
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock("not json")
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -365,18 +389,19 @@ class TestCallEscalation:
 
     def test_no_verdict_file_on_escalation(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn("not json")
+        client = _make_client_mock("not json")
         vpath = tmp_path / "verdict.json"
-        call(bundle, _call_fn=call_fn,
+        call(bundle, _client=client,
              verdict_path=vpath,
              escalation_path=tmp_path / "esc.json",
              config={})
         assert not vpath.exists()
 
-    def test_cli_exception_triggers_escalation(self, tmp_path):
+    def test_api_exception_triggers_escalation(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = MagicMock(side_effect=RuntimeError("claude CLI timeout"))
-        result = call(bundle, _call_fn=call_fn,
+        client = MagicMock()
+        client.messages.create.side_effect = Exception("network error")
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -385,12 +410,42 @@ class TestCallEscalation:
 
     def test_attempt_count_2_on_escalation(self, tmp_path):
         bundle = _make_bundle()
-        call_fn = _make_call_fn("bad json")
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock("bad json")
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
         assert result.attempt_count == 2
+
+
+# ---------------------------------------------------------------------------
+# call() — missing API key
+# ---------------------------------------------------------------------------
+class TestCallMissingKey:
+    def test_missing_key_escalates(self, tmp_path, monkeypatch):
+        monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+        # Also block .env.auditors fallback
+        monkeypatch.setattr("advisor.dotenv_values", lambda *a, **kw: {}, raising=False)
+        import advisor as _adv
+        monkeypatch.setattr(_adv, "ROOT", tmp_path)  # no .env.auditors at tmp_path
+        bundle = _make_bundle()
+        result = call(bundle,
+                      verdict_path=tmp_path / "verdict.json",
+                      escalation_path=tmp_path / "esc.json",
+                      config={})
+        assert result.escalated is True
+        assert result.verdict is None
+
+    def test_missing_key_warning_mentions_key(self, tmp_path, monkeypatch):
+        monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+        import advisor as _adv
+        monkeypatch.setattr(_adv, "ROOT", tmp_path)  # no .env.auditors at tmp_path
+        bundle = _make_bundle()
+        result = call(bundle,
+                      verdict_path=tmp_path / "verdict.json",
+                      escalation_path=tmp_path / "esc.json",
+                      config={})
+        assert any("key" in w.lower() or "ANTHROPIC" in w for w in result.warnings)
 
 
 # ---------------------------------------------------------------------------
@@ -409,8 +464,8 @@ class TestCallIssuedAt:
             "scope": [],
             "issued_at": "",
         })
-        call_fn = _make_call_fn(verdict_without_ts)
-        result = call(bundle, _call_fn=call_fn,
+        client = _make_client_mock(verdict_without_ts)
+        result = call(bundle, _client=client,
                       verdict_path=tmp_path / "verdict.json",
                       escalation_path=tmp_path / "esc.json",
                       config={})
@@ -419,40 +474,89 @@ class TestCallIssuedAt:
 
 
 # ---------------------------------------------------------------------------
-# call() — call_fn receives correct prompts
+# _select_model — risk-based model selection
 # ---------------------------------------------------------------------------
-class TestCallPromptContent:
-    def test_full_context_passed_on_attempt_1(self, tmp_path):
-        bundle = _make_bundle(sprint_goal="Test Goal")
-        call_fn = _make_call_fn(_good_verdict_json())
-        call(bundle, _call_fn=call_fn,
-             verdict_path=tmp_path / "v.json",
-             escalation_path=tmp_path / "e.json",
-             config={})
-        # call_fn was called with (prompt, system_prompt, timeout)
-        prompt_arg = call_fn.call_args_list[0][0][0]
-        assert "Test Goal" in prompt_arg
+class TestSelectModel:
+    def test_low_risk_returns_sonnet(self):
+        assert _select_model("LOW", {}) == DEFAULT_MODEL
 
-    def test_simplified_prompt_on_attempt_2(self, tmp_path):
-        bundle = _make_bundle(task_id="MY-TASK-42")
-        call_fn = _make_call_fn_sequence(["bad", _good_verdict_json()])
-        call(bundle, _call_fn=call_fn,
-             verdict_path=tmp_path / "v.json",
-             escalation_path=tmp_path / "e.json",
-             config={})
-        # Second call should use simplified prompt with task_id
-        prompt_arg = call_fn.call_args_list[1][0][0]
-        assert "MY-TASK-42" in prompt_arg
+    def test_semi_risk_returns_opus(self):
+        assert _select_model("SEMI", {}) == OPUS_MODEL
 
-    def test_system_prompt_passed_to_call_fn(self, tmp_path):
+    def test_core_risk_returns_opus(self):
+        assert _select_model("CORE", {}) == OPUS_MODEL
+
+    def test_config_override_wins(self):
+        """Explicit advisor_model in config overrides risk-based selection."""
+        assert _select_model("CORE", {"advisor_model": "claude-haiku-4-5-20251001"}) == "claude-haiku-4-5-20251001"
+
+    def test_empty_risk_defaults_to_sonnet(self):
+        assert _select_model("", {}) == DEFAULT_MODEL
+
+    def test_none_risk_defaults_to_sonnet(self):
+        assert _select_model(None, {}) == DEFAULT_MODEL
+
+    def test_lowercase_risk_works(self):
+        """Risk from various sources may be lowercase."""
+        assert _select_model("semi", {}) == OPUS_MODEL
+        assert _select_model("core", {}) == OPUS_MODEL
+        assert _select_model("low", {}) == DEFAULT_MODEL
+
+
+class TestModelSelectionInCall:
+    def test_low_risk_uses_sonnet(self, tmp_path):
+        """LOW risk bundle → Sonnet model used in API call."""
         bundle = _make_bundle()
-        call_fn = _make_call_fn(_good_verdict_json())
-        call(bundle, _call_fn=call_fn,
+        bundle.risk_assessment = "LOW"
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
              verdict_path=tmp_path / "v.json",
              escalation_path=tmp_path / "e.json",
              config={})
-        system_arg = call_fn.call_args_list[0][0][1]
-        assert "task advisor" in system_arg
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "sonnet" in model_used
+
+    def test_semi_risk_uses_opus(self, tmp_path):
+        """SEMI risk bundle → Opus model used in API call."""
+        bundle = _make_bundle()
+        bundle.risk_assessment = "SEMI"
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
+             verdict_path=tmp_path / "v.json",
+             escalation_path=tmp_path / "e.json",
+             config={})
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "opus" in model_used
+
+    def test_core_risk_uses_opus(self, tmp_path):
+        """CORE risk bundle → Opus model used in API call."""
+        bundle = _make_bundle()
+        bundle.risk_assessment = "CORE"
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
+             verdict_path=tmp_path / "v.json",
+             escalation_path=tmp_path / "e.json",
+             config={})
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "opus" in model_used
+
+    def test_no_risk_attr_defaults_sonnet(self, tmp_path):
+        """Bundle without risk_assessment → defaults to Sonnet."""
+        bundle = _make_bundle()
+        # MagicMock won't have risk_assessment unless set
+        if hasattr(bundle, 'risk_assessment'):
+            del bundle.risk_assessment
+        client = _make_client_mock(_good_verdict_json())
+        call(bundle, _client=client,
+             verdict_path=tmp_path / "v.json",
+             escalation_path=tmp_path / "e.json",
+             config={})
+        model_used = client.messages.create.call_args.kwargs.get(
+            "model", client.messages.create.call_args[1].get("model", ""))
+        assert "sonnet" in model_used
 
 
 # ---------------------------------------------------------------------------

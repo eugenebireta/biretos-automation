@@ -1,18 +1,18 @@
 """
-providers/anthropic_auditor.py — Claude auditor via Claude Code CLI.
+providers/anthropic_auditor.py — Anthropic Messages API (SPEC §20.8).
 
-Routes all Claude audit calls through `claude -p` (Claude Code CLI),
-using the user's $200/mo subscription instead of API balance.
+IMPORTANT (SPEC §20.8):
+  Builder (Claude Code) works WITHOUT ANTHROPIC_API_KEY in env → Max subscription.
+  Auditor (this module) is called WITH ANTHROPIC_API_KEY → API billing (pay-per-use).
+  These are DIFFERENT environments. If ANTHROPIC_API_KEY leaks to Claude Code env →
+  it switches to API billing. NEVER use load_dotenv() or os.environ for this key.
 
-Previously used Anthropic Messages API directly (SPEC §20.8).
-Switched to CLI to eliminate per-token API costs for auditor calls.
+API key passed directly to client from dotenv_values("auditor_system/config/.env.auditors").
+System prompt built dynamically from ContextAssembler context (SPEC §19.4).
 """
 from __future__ import annotations
 
 import logging
-import re
-import sys
-from pathlib import Path
 from typing import Any
 
 from ..hard_shell.contracts import AuditVerdict, TaskPack
@@ -23,19 +23,14 @@ from .openai_auditor import _build_system_prompt, _build_user_prompt
 
 logger = logging.getLogger(__name__)
 
-# Ensure orchestrator dir is on path for claude_cli import
-_ORCH_DIR = str(Path(__file__).resolve().parent.parent.parent / "orchestrator")
-if _ORCH_DIR not in sys.path:
-    sys.path.insert(0, _ORCH_DIR)
-
 
 class AnthropicAuditor(AuditorProvider):
     """
-    Auditor using Claude Code CLI (`claude -p`).
+    Auditor using Anthropic Messages API.
+    API key passed directly — NOT from os.environ (SPEC §20.8).
 
-    All calls go through the user's Claude Code subscription,
-    not the Anthropic API balance. The api_key parameter is kept
-    for interface compatibility but is not used for CLI calls.
+    Response parsing: JSON extracted from text content with fallback on
+    markdown code fences.
     """
 
     auditor_id = "anthropic"
@@ -47,10 +42,15 @@ class AnthropicAuditor(AuditorProvider):
         max_tokens: int = 2048,
         temperature: float = 0.2,
     ):
-        # api_key kept for interface compat but not used (CLI uses subscription)
+        if not api_key:
+            raise ValueError("AnthropicAuditor: api_key is required (SPEC §20.8)")
         self.model = model
+        self._api_key = api_key  # NEVER log (DNA §7)
         self._max_tokens = max_tokens
         self._temperature = temperature
+        # Lazy import to avoid import errors when anthropic not installed
+        import anthropic
+        self._client = anthropic.AsyncAnthropic(api_key=api_key)
 
     def _extract_json(self, text: str) -> str:
         """
@@ -64,6 +64,7 @@ class AnthropicAuditor(AuditorProvider):
             return text
 
         # Try markdown code fence: ```json ... ```
+        import re
         fence_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
         if fence_match:
             return fence_match.group(1)
@@ -84,24 +85,26 @@ class AnthropicAuditor(AuditorProvider):
         stage: str,
     ) -> AuditVerdict:
         system_prompt = _build_system_prompt(context)
-        # Add JSON instruction since CLI output is free-form text
+        # Anthropic: add JSON instruction to user prompt since no Structured Outputs
         user_prompt = (
             _build_user_prompt(proposal, task, stage, context)
             + "\n\nReturn ONLY a JSON object matching the schema above. No prose outside JSON."
         )
 
         logger.info(
-            "anthropic_auditor: calling CLI task_id=%s stage=%s",
-            task.task_id, stage,
+            "anthropic_auditor: calling API model=%s task_id=%s stage=%s",
+            self.model, task.task_id, stage,
         )
 
-        from claude_cli import call_claude_async
-        raw_text = await call_claude_async(
-            user_prompt,
-            system_prompt=system_prompt,
-            timeout=180,  # auditor prompts can be large
+        response = await self._client.messages.create(
+            model=self.model,
+            max_tokens=self._max_tokens,
+            system=system_prompt,
+            messages=[{"role": "user", "content": user_prompt}],
+            temperature=self._temperature,
         )
 
+        raw_text = response.content[0].text if response.content else ""
         logger.info(
             "anthropic_auditor: response received task_id=%s stage=%s len=%d",
             task.task_id, stage, len(raw_text),
