@@ -41,9 +41,9 @@ MODEL_PRICING = {
     "gpt-4o-mini":           {"input": 0.15, "output": 0.60},
 }
 
-# Default budget limits
-DEFAULT_DAILY_BUDGET_USD = 10.0
-DEFAULT_PER_RUN_BUDGET_USD = 2.0
+# Default budget limits (owner-approved: $5/day hard, $0.50/run soft→hard)
+DEFAULT_DAILY_BUDGET_USD = 5.0
+DEFAULT_PER_RUN_BUDGET_USD = 0.50
 
 
 def _log_path(dt: Optional[datetime] = None) -> Path:

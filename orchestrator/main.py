@@ -463,17 +463,50 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
     run_dir = _ensure_run_dir(trace_id)
     manifest["_run_dir"] = str(run_dir)
 
-    # P7: budget check before starting
+    # P7: budget check before starting — hard stop on exceeded limits
     _budget_call_seq = 0
     try:
         import budget_tracker as _bt
         budget_status = _bt.check_budget(trace_id)
-        if not budget_status["within_budget"]:
-            logger.warning("Budget exceeded: daily=%.2f/%.2f run=%.2f/%.2f",
-                           budget_status["daily_cost"], budget_status["daily_limit"],
+        _daily_lim = budget_status["daily_limit"] or 1.0
+        _run_lim = budget_status["per_run_limit"] or 1.0
+        _run_pct = budget_status["trace_cost"] / _run_lim
+
+        if budget_status["daily_exceeded"]:
+            _park_reason = (
+                f"#budget_daily: daily hard stop "
+                f"${budget_status['daily_cost']:.2f}/${budget_status['daily_limit']:.2f}"
+            )
+            logger.warning("BUDGET DAILY EXCEEDED — parking task: %s", _park_reason)
+            print(f"[orchestrator] BUDGET HARD STOP: {_park_reason}")
+            manifest["fsm_state"] = "parked_budget_daily"
+            manifest["park_reason"] = _park_reason
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "budget_hard_stop",
+                        "status": "parked_budget_daily",
+                        "reason": _park_reason, "trace_id": trace_id})
+            return
+
+        if budget_status["run_exceeded"]:
+            _park_reason = (
+                f"#budget_run: per-run hard stop "
+                f"${budget_status['trace_cost']:.4f}/${budget_status['per_run_limit']:.2f}"
+            )
+            logger.warning("BUDGET RUN EXCEEDED — parking task: %s", _park_reason)
+            print(f"[orchestrator] BUDGET HARD STOP: {_park_reason}")
+            manifest["fsm_state"] = "parked_budget_run"
+            manifest["park_reason"] = _park_reason
+            save_manifest(manifest)
+            append_run({"ts": _now(), "event": "budget_hard_stop",
+                        "status": "parked_budget_run",
+                        "reason": _park_reason, "trace_id": trace_id})
+            return
+
+        if _run_pct >= 0.8:
+            logger.warning("Per-run budget at %.0f%%: $%.4f/$%.2f",
+                           _run_pct * 100,
                            budget_status["trace_cost"], budget_status["per_run_limit"])
-            print(f"[orchestrator] WARNING: budget limit approached "
-                  f"(daily=${budget_status['daily_cost']:.2f}/${budget_status['daily_limit']:.2f})")
+            print(f"[orchestrator] BUDGET WARNING: {_run_pct:.0%} of run limit used")
     except Exception as _bt_exc:
         logger.debug("Budget tracker unavailable: %s", _bt_exc)
 
@@ -777,7 +810,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                             "trace_id": trace_id})
                 print(f"[orchestrator] Scope review PASSED: {scope_result['auditor_verdicts']}")
                 if scope_result["concerns"]:
-                    print(f"[orchestrator] Concerns (non-blocking):")
+                    print("[orchestrator] Concerns (non-blocking):")
                     for c in scope_result["concerns"][:5]:
                         print(f"  - {c[:120]}")
                 # Fall through to directive building
@@ -1218,7 +1251,6 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         run_post_execution_audit_sync,
                         extract_critique_text,
                         _determine_fsm_state,
-                        _determine_last_verdict,
                     )
                     audit_result = run_post_execution_audit_sync(
                         packet=packet,
@@ -1354,13 +1386,14 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         manifest["last_verdict"] = None
                         manifest["retry_count"] = 0
                         manifest.pop("_retry_reason", None)
-                        print(f"[orchestrator] Retries exhausted but last audit PASSED -- accepting")
+                        print("[orchestrator] Retries exhausted but last audit PASSED -- accepting")
                 elif audit_verdict == "blocked":
                     # B10: revert executor commits before blocking
                     _revert_to_base(base_commit, trace_id)
                     # Auditor blocked — escalate, no retry
                     manifest["fsm_state"] = "blocked"
                     manifest["last_verdict"] = "AUDIT_BLOCKED"
+                    manifest["park_reason"] = "#blocker: auditor blocked — owner review required"
                 elif retry_count < max_retries:
                     # B10: revert executor commits before retry
                     _revert_to_base(base_commit, trace_id)
@@ -1390,6 +1423,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     # Retries exhausted — owner review
                     manifest["fsm_state"] = "awaiting_owner_reply"
                     manifest["last_verdict"] = "AUDIT_FAILED"
+                    manifest["park_reason"] = f"#blocker_loop: audit failed after {retry_count} retries"
 
             else:
                 # Acceptance failed
@@ -1812,7 +1846,7 @@ def cmd_approve(args: argparse.Namespace) -> None:
     print(f"[orchestrator] APPROVED: {old_state} -> ready")
     print(f"  task: {manifest.get('current_task_id')}")
     print(f"  reason: {args.reason}")
-    print(f"  Run 'python orchestrator/main.py' to continue cycle.")
+    print("  Run 'python orchestrator/main.py' to continue cycle.")
 
 
 def cmd_reject(args: argparse.Namespace) -> None:
@@ -1836,7 +1870,7 @@ def cmd_reject(args: argparse.Namespace) -> None:
                 "trace_id": manifest.get("trace_id")})
     print(f"[orchestrator] REJECTED: {task_id}")
     print(f"  reason: {args.reason}")
-    print(f"  State reset to IDLE. Enqueue new task or run cycle.")
+    print("  State reset to IDLE. Enqueue new task or run cycle.")
 
 
 def cmd_status(args: argparse.Namespace) -> None:

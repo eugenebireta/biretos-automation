@@ -18,7 +18,6 @@ import json
 import sys
 import os
 from datetime import datetime, timezone, date
-from pathlib import Path
 from unittest.mock import patch
 
 import pytest
@@ -322,3 +321,38 @@ class TestCheckBudget:
         import budget_tracker as bt
         result = bt.check_budget("t1", records=[])
         assert result["within_budget"] is True
+
+    def test_default_daily_limit_is_five(self):
+        import budget_tracker as bt
+        assert bt.DEFAULT_DAILY_BUDGET_USD == 5.0
+
+    def test_default_per_run_limit_is_fifty_cents(self):
+        import budget_tracker as bt
+        assert bt.DEFAULT_PER_RUN_BUDGET_USD == 0.50
+
+    def test_daily_hard_stop_threshold(self):
+        """Daily limit $5 — $5.01 should exceed."""
+        import budget_tracker as bt
+        now = datetime.now(timezone.utc)
+        records = [{"trace_id": "t1", "cost_usd": 5.01, "ts": now.isoformat()}]
+        result = bt.check_budget("t1", records=records)
+        assert result["daily_exceeded"] is True
+        assert result["within_budget"] is False
+
+    def test_per_run_80_pct_still_within(self):
+        """$0.40 out of $0.50 = 80% — still within_budget (soft warning territory)."""
+        import budget_tracker as bt
+        now = datetime.now(timezone.utc)
+        records = [{"trace_id": "t1", "cost_usd": 0.40, "ts": now.isoformat()}]
+        result = bt.check_budget("t1", records=records)
+        assert result["within_budget"] is True
+        assert result["run_exceeded"] is False
+
+    def test_per_run_hard_stop_at_100_pct(self):
+        """$0.51 out of $0.50 — hard stop."""
+        import budget_tracker as bt
+        now = datetime.now(timezone.utc)
+        records = [{"trace_id": "t1", "cost_usd": 0.51, "ts": now.isoformat()}]
+        result = bt.check_budget("t1", records=records)
+        assert result["run_exceeded"] is True
+        assert result["within_budget"] is False
