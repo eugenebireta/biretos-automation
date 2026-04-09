@@ -1,0 +1,90 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- These are from various Honeywell sub-brands. Search on eBay, Radwell, IndiaMART, AliExpress, Conrad.de, specialist suppliers.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different Honeywell sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | XJ1-00-07000000 [also: XJ1.00.07000000, XJ10007000000] | printer | Мобильный принтер Honeywell MP Compact 4 XJ1-00-07000000 | 233209.17 |
+| 2 | MAU8/MS | Honeywell Резьба | Внешняя резьба с уплотнительным кольцом MAU8/MS | 6547.55 |
+| 3 | 65UL3J | Honeywell Светодиодная | Светодиодная панель LED 65UL3J-E | 122100.00 |
+| 4 | IP | IP phone | IP-телефон | 0.00 |
+| 5 | 36299-RU [also: 36299.RU, 36299RU] | adapter | Адаптер RRC Honeywell 36299-RU, 400x200мм | 4161.50 |
+| 6 | RIC-F-BLNK-01 [also: RIC.F.BLNK.01, RICFBLNK01] | blank plate | Заглушка RIC-F-BLNK-01 | 349.00 |
+| 7 | 583491A | cable | Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый | 1041.21 |
+| 8 | HCM-4-2U [also: HCM.4.2U, HCM42U] | cable organizer | Органайзер для кабелей HCM-4-2U | 9290.50 |
+| 9 | 027913.10 [also: 27913.10, 027913-10, 02791310] | card reader | Считыватель карт luminAXS mifareD RS485 | 34276.71 |
+| 10 | 3240197-RU [also: 3240197.RU, 3240197RU] | channel module | Кабельный канал 3240197-RU | 1808.89 |
+| 11 | 240W | charger | Зарядное устройство Honeywell 240W | 1756.00 |
+| 12 | CN80-HB-CNV-0 [also: CN80.HB.CNV.0, CN80HBCNV0] | charging base | База для зарядки Honeywell CN80-HB-CNV-0 | 26030.40 |
+| 13 | 033588.17 [also: 33588.17, 033588-17, 03358817] | connector | Шарнирное соединение для настенного монтажа | 3025.82 |
+| 14 | CR-M4LC [also: CR.M4LC, CRM4LC] | connector | Коннектор для реле Honeywell CR-M4LC | 1152.00 |
+| 15 | LUX | converter | Конвертер LUX | 0.00 |
+| 16 | 42511 | device | Устройство Honeywell D 20.677.192-Z | 1134.90 |
+| 17 | 57511 | device | Устройство Honeywell D 20.677.702-Z | 1367.10 |
+| 18 | 788600 | enclosure | Корпус для накладного монтажа, серый 788600 | 806.65 |
+| 19 | M200E-SMB [also: M200E.SMB, M200ESMB] | enclosure | Корпус настенной установки M200E-SMB | 792.68 |
+| 20 | PW5K1ENC3E | enclosure | Корпус удаленного монтажа PW-5000 TILE MOUNT REMOTE ENCLOSURE EU V | 33409.70 |
+| 21 | NMF-RP16SCUS2-RU [also: NMF.RP16SCUS2.RU, NMFRP16SCUS2RU] | fiber patch panel | Оптический кросс Honeywell NMF-RP16SCUS2-RU | 3048.50 |
+| 22 | FP1B-LCUL-01H [also: FP1B.LCUL.01H, FP1BLCUL01H] | fiber pigtail | Пигтейл Honeywell FP1B-LCUL-01H | 588.00 |
+| 23 | P400-RU [also: P400.RU, P400RU] | graphics card | Видеокарта NVIDIA Quadro P400-RU | 12231.00 |
+| 24 | RA100Z | indicator | Выносной индикатор RA100Z | 3241.04 |
+| 25 | 129625-L3 [also: 129625.L3, 129625L3] | kit | Набор для подключения Honeywell GasAlert Series IR 129625-L3 | 55352.00 |
+| 26 | AT-MMC200LX [also: AT.MMC200LX, ATMMC200LX] | media converter | Медиаконвертер Allied Telesis AT-MMC200LX | 12908.75 |
+| 27 | 010130.10 [also: 10130.10, 010130-10, 01013010] | module | Модуль 4DG/2OP BUS-2/BUS-1 s.m. | 13288.04 |
+| 28 | 203-183-420 [also: 203.183.420, 203183420] | module | Модуль WLAN Honeywell INWL01c | 1084.16 |
+| 29 | 804905 | module | Электронный модуль IQ8MCP 804905 | 6387.92 |
+| 30 | T7560A1000 | module | Цифровой настенный модуль Honeywell T7560A1000 | 12996.83 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

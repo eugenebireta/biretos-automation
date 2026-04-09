@@ -1,0 +1,70 @@
+I need you to research market prices for 10 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- These are from various Honeywell sub-brands. Search on eBay, Radwell, IndiaMART, AliExpress, Conrad.de, specialist suppliers.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different Honeywell sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 10 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | 7910180000 | terminal | Клемма отключения WTR4 без STB 7910180000 | 165.06 |
+| 2 | 1631930000 | terminal block | Клеммный блок Weidmüller 1631930000 SCHT 5S PA66 BG | 520.30 |
+| 3 | 50017460-001/U [also: 50017460.001/U, 50017460001/U] | transformer | Трансформатор Honeywell 50017460-001/U, 230-120-24/24V | 14960.00 |
+| 4 | H3D1F1X | IP camera | Купольная IP камера H3D1F1X | 1629.76 |
+| 5 | H4W4GR1Y | IP camera | Внешняя купольная IP камера 4MP H4W4GR1Y | 72974.88 |
+| 6 | H4W4PER2 | IP camera | IP камера RUG DOM 4MP H.265 H4W4PER2 | 19447.12 |
+| 7 | HBL6GR2 | IP camera | Камера видеонаблюдения HBL6GR2 | 0.00 |
+| 8 | GLATRON | monitor | Монитор GLATRON | 0.00 |
+| 9 | P2422H | monitor | Монитор P2422H | 8928.00 |
+| 10 | SDM-S93 [also: SDM.S93, SDMS93] | monitor | Монитор SDM-S93 | 713.00 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 10 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

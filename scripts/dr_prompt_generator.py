@@ -348,20 +348,16 @@ Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog
 
 
 def generate_gemini_prompt(batch: list, batch_num: int) -> str:
-    """Generate Gemini Deep Research prompt (v7: narrative + structured tables + reference data)."""
+    """Generate Gemini Deep Research prompt (v8-table: SHORT prompt, table-first, no narrative).
+
+    IMPORTANT: Gemini has two modes. Long/rich prompts trigger 'analytics mode' which
+    produces narrative without parseable tables. Short prompts trigger 'table mode' which
+    gives structured data with prices, URLs, photos. We want TABLE MODE for catalog enrichment.
+    Keep this prompt SHORT. Do NOT add Excel descriptions or reference prices here.
+    """
     rows = []
     for i, sku in enumerate(batch, 1):
-        excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
-        ref_price = sku.get("ref_price_rub", "") or ""
-        # Add subbrand if available and different from main brand
-        subbrand = sku.get("subbrand", "")
-        hint_col = sku["hint"]
-        if subbrand and subbrand.lower() not in hint_col.lower():
-            hint_col = f"{hint_col} ({subbrand})"
-        # Add pn_variants as aliases
-        variants = sku.get("pn_variants", [])
-        alias_note = f" [also: {', '.join(variants[:3])}]" if variants else ""
-        rows.append(f"| {i} | {sku['pn']}{alias_note} | {hint_col} | {excel_desc} | {ref_price} |")
+        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} |")
 
     table = "\n".join(rows)
     count = len(batch)
@@ -390,75 +386,35 @@ def generate_gemini_prompt(batch: list, batch_num: int) -> str:
 
     context_text = "\n".join(context_lines)
 
-    return f"""Research {count} industrial part numbers for a professional B2B catalog.
-You will produce BOTH a narrative technical review AND structured data tables.
+    return f"""Research {count} industrial part numbers. Fill the table below with real data from the internet.
 
-## Search protocol
+| # | PN | Product Hint |
+|---|-----|-------------|
+{table}
 
-For each part number:
-1. Google `"{{PN}}"` in quotes -- identify the product
-2. Google `"{{PN}}" datasheet` -- find official documentation
-3. If nothing: remove suffix (`.10`, `-RU`, `-L3`, `/U`) and retry
-4. If still nothing: add brand prefix (`Honeywell {{PN}}`, `PEHA {{PN}}`, `Esser {{PN}}`)
-5. Check eBay (ebay.de + ebay.com) for photos and surplus pricing
-6. Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, electropara.ru, tinko.ru
-
-## Product context
+## Search instructions
 
 {context_text}
 
-## Part Numbers (with reference data from our database)
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
 
-| # | PN | Product Hint | Excel Description | Ref Price (RUB) |
-|---|-----|-------------|-------------------|-----------------|
-{table}
+## Output: ONE table with ALL {count} rows
 
-"Excel Description" is our internal product name — use it to identify the product correctly.
-"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find (not as the answer).
-
-## Required output
-
-### Part 1: Technical review (Russian narrative)
-
-Напиши связный технический обзор на русском языке, охватывающий все {count} товаров.
-Группируй по категориям. Для каждого товара напиши 100-200 слов:
-- Что это, серия/семейство, производитель
-- Принцип работы, ключевая функция
-- Технические характеристики с числами (размеры, вес, номиналы, диапазоны температур, IP-рейтинг)
-- Где применяется (типы объектов, систем)
-- Чем отличается данная модификация
-
-Пиши как технический редактор профессионального каталога.
-Используй естественный русский язык, НЕ буквальный перевод.
-
-### Part 2: Structured tables
-
-**Table 1 -- Product data (ALL {count} rows, every PN must appear)**
-
-| Part Number | Brand | Product Name (Russian) | Description (Russian, 5-7 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 
-- Every input PN MUST have a row, even if price is "Not found"
-- NEVER invent prices
-- Description: 5-7 предложений на русском языке — что это, как работает, где применяется, ключевые характеристики
-- Key Specs MUST include: dimensions (mm), weight (kg), operating temperature range, IP rating, voltage/power where applicable
-
-**Table 2 -- Sources visited (ALL {count} PNs, 2-4 URLs each)**
-
-| Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
-|---|---|---|---|---|---|---|
-
-2-4 real URLs per PN. Even for "not found" items, show where you searched.
-
-## Rules
-
-- NEVER invent or estimate prices. "Not found" is always better than a guess.
-- Every PN MUST appear in Table 1 and Table 2.
-- Russian prices (RUB) from vseinstrumenti.ru, lemanapro.ru are HIGH PRIORITY.
-- Narrative descriptions and Table 1 descriptions MUST be in Russian.
-- Any currency accepted (EUR, USD, GBP, RUB, CHF).
-- Surplus/eBay photos are acceptable.
-- Key Specs MUST include physical dimensions and weight where available.
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available
 """
 
 

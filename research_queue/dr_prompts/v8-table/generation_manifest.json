@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-04-09T14:41:36.888324",
+  "version": "v8-table",
+  "total_uncovered": 160,
+  "source_fields": [
+    "assembled_title (product hint derivation)",
+    "seed_name (Excel description — passed to DR as context)",
+    "our_price_raw (Excel reference price — passed to DR as validation anchor)",
+    "brand",
+    "NEVER expected_category"
+  ],
+  "families": {
+    "Other": 57,
+    "HVAC/valves": 30,
+    "Fire safety/PA": 12,
+    "Security/video": 7,
+    "PEHA electrical": 25,
+    "BMS controllers": 12,
+    "PPE safety": 9,
+    "Power/electrical": 8
+  },
+  "batches": {
+    "chatgpt": {
+      "count": 6,
+      "batch_size": 30,
+      "files": [
+        "chatgpt_batch1_30skus.txt",
+        "chatgpt_batch2_30skus.txt",
+        "chatgpt_batch3_30skus.txt",
+        "chatgpt_batch4_30skus.txt",
+        "chatgpt_batch5_30skus.txt",
+        "chatgpt_batch6_10skus.txt"
+      ]
+    },
+    "gemini": {
+      "count": 8,
+      "batch_size": 20,
+      "files": [
+        "gemini_batch1_20skus.txt",
+        "gemini_batch2_20skus.txt",
+        "gemini_batch3_20skus.txt",
+        "gemini_batch4_20skus.txt",
+        "gemini_batch5_20skus.txt",
+        "gemini_batch6_20skus.txt",
+        "gemini_batch7_20skus.txt",
+        "gemini_batch8_20skus.txt"
+      ]
+    },
+    "claude": {
+      "count": 6,
+      "batch_size": 30,
+      "files": [
+        "claude_batch1_30skus.txt",
+        "claude_batch2_30skus.txt",
+        "claude_batch3_30skus.txt",
+        "claude_batch4_30skus.txt",
+        "claude_batch5_30skus.txt",
+        "claude_batch6_10skus.txt"
+      ]
+    }
+  }
+}
