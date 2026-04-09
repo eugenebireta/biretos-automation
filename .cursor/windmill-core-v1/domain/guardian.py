@@ -14,13 +14,21 @@ Usage:
 """
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, FrozenSet
+from typing import TYPE_CHECKING, Any, Callable, Dict, FrozenSet, Optional, Union
+
+from pydantic import ValidationError
 
 from .cdm_models import ActionSnapshot, TaskIntent
 
 if TYPE_CHECKING:
     from .backoffice_rate_limiter import RateLimitResult
     from .assistant_models import ConfirmationPending
+
+# ---------------------------------------------------------------------------
+# Injectable alert dispatch (stub in tests, wired to alert_dispatcher in prod)
+# ---------------------------------------------------------------------------
+
+_dispatch_alert_fn: Optional[Callable[[Dict[str, Any]], Any]] = None
 
 # ---------------------------------------------------------------------------
 # Whitelists
@@ -68,13 +76,47 @@ class GuardianVeto(Exception):
 # ---------------------------------------------------------------------------
 
 
-def guard_task_intent(intent: TaskIntent) -> None:
+def _notify_validation_failure(
+    *,
+    trace_id: str,
+    intent_type: str,
+    error: ValidationError,
+) -> None:
+    """Dispatch WARNING-level alert on Pydantic ValidationError if wired."""
+    if _dispatch_alert_fn is not None:
+        _dispatch_alert_fn(
+            {
+                "check_code": "GUARDIAN-VALIDATION",
+                "entity_type": "guardian",
+                "entity_id": intent_type,
+                "severity": "WARNING",
+                "verdict_snapshot": {"reason": str(error)},
+                "sweep_trace_id": trace_id,
+            }
+        )
+
+
+def guard_task_intent(intent: Union[TaskIntent, Dict[str, Any]]) -> None:
     """
     Hardcoded invariant checks for TaskIntent.
 
     Raises GuardianVeto when any invariant is violated.
     Called by dispatch_action() BEFORE any side-effects.
+
+    Accepts a raw dict — validates via Pydantic and dispatches a WARNING
+    alert on ValidationError before re-raising.
     """
+    if isinstance(intent, dict):
+        try:
+            intent = TaskIntent(**intent)
+        except ValidationError as exc:
+            _notify_validation_failure(
+                trace_id=intent.get("trace_id", ""),
+                intent_type=f"TaskIntent({intent.get('action_type', '?')})",
+                error=exc,
+            )
+            raise
+
     if intent.action_type not in ALLOWED_ACTION_TYPES:
         raise GuardianVeto(
             reason=f"action_type '{intent.action_type}' is not in ALLOWED_ACTION_TYPES",
@@ -121,16 +163,30 @@ def guard_nlu_confirmation(pending: "ConfirmationPending") -> None:
         )
 
 
-def guard_action_snapshot(snapshot: ActionSnapshot) -> None:
+def guard_action_snapshot(snapshot: Union[ActionSnapshot, Dict[str, Any]]) -> None:
     """
     Hardcoded invariant checks for ActionSnapshot.
 
     Raises GuardianVeto when any invariant is violated.
     Called by governance_executor BEFORE leaf worker execution.
 
+    Accepts a raw dict — validates via Pydantic and dispatches a WARNING
+    alert on ValidationError before re-raising.
+
     Note: leaf_worker_type is already constrained to Literal["cdek_shipment"]
     by Pydantic.  The check here is defense-in-depth for future expansion.
     """
+    if isinstance(snapshot, dict):
+        try:
+            snapshot = ActionSnapshot(**snapshot)
+        except ValidationError as exc:
+            _notify_validation_failure(
+                trace_id="",
+                intent_type=f"ActionSnapshot({snapshot.get('leaf_worker_type', '?')})",
+                error=exc,
+            )
+            raise
+
     if not snapshot.external_idempotency_key:
         raise GuardianVeto(
             reason="external_idempotency_key must be non-empty (INV-IDEM)",

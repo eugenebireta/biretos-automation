@@ -64,6 +64,8 @@ _CHECK_CODE_LABELS: Dict[str, str] = {
     # Batch alert codes
     "L3-A": "Batch alert (L3-A)",
     "L3-D": "Batch alert (L3-D)",
+    # Guardian validation (5.3)
+    "GUARDIAN-VALIDATION": "Pydantic validation failure in Guardian",
 }
 
 
