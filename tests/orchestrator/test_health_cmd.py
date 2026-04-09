@@ -1,9 +1,9 @@
-"""Tests for 'python orchestrator/main.py health' subcommand."""
+"""Tests for 'python orchestrator/main.py health' subcommand — 3 deterministic tests."""
 from __future__ import annotations
 
 import os
 import sys
-from unittest.mock import patch
+from unittest import mock
 
 import pytest
 
@@ -14,57 +14,65 @@ for _p in (_root, _orch_dir):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-import main as orch_main
+import health_check as _hc  # noqa: E402 — preload for patching
+import main as orch_main  # noqa: E402
 
 
-def _make_result(healthy: bool, checks: list[dict]) -> dict:
-    return {"healthy": healthy, "checks": checks}
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def _make_health_result(all_pass: bool) -> dict:
+    """Build a fake run_health_check return value."""
+    checks = [
+        {"name": "manifest_valid", "ok": True, "detail": "OK"},
+        {"name": "config_loadable", "ok": True, "detail": "2 schemas available"},
+        {"name": "auditor_keys_present", "ok": all_pass, "detail": "All auditor keys present" if all_pass else "Missing env vars: ['GEMINI_API_KEY']"},
+        {"name": "queue_readable", "ok": True, "detail": "No queue file (empty queue)"},
+    ]
+    return {"healthy": all_pass, "checks": checks}
 
 
-ALL_PASS = _make_result(True, [
-    {"name": "manifest_valid", "ok": True, "detail": "OK"},
-    {"name": "config_loadable", "ok": True, "detail": "2 schemas available"},
-    {"name": "auditor_keys_present", "ok": True, "detail": "All auditor keys present"},
-    {"name": "queue_readable", "ok": True, "detail": "No queue file (empty queue)"},
-])
-
-ONE_FAIL = _make_result(False, [
-    {"name": "manifest_valid", "ok": True, "detail": "OK"},
-    {"name": "config_loadable", "ok": False, "detail": "Import failed: no module"},
-    {"name": "auditor_keys_present", "ok": True, "detail": "All auditor keys present"},
-    {"name": "queue_readable", "ok": True, "detail": "0 tasks in queue"},
-])
+# We need to patch at the module path used by cmd_health's lazy import.
+# cmd_health does: from orchestrator.health_check import run_health_check
+# So we patch on the health_check module object which is the same as orchestrator.health_check.
+_PATCH_TARGET = "health_check.run_health_check"
 
 
-class _FakeArgs:
-    pass
+# ---------------------------------------------------------------------------
+# Tests
+# ---------------------------------------------------------------------------
 
 
-@patch("health_check.run_health_check", return_value=ALL_PASS)
-def test_health_all_pass_exits_zero(mock_hc, capsys):
-    """All checks pass -> prints report, no SystemExit."""
-    orch_main.cmd_health(_FakeArgs())
+def test_health_all_pass_exits_zero(capsys):
+    """When all checks pass, health prints report and exits 0 (no exception)."""
+    result = _make_health_result(all_pass=True)
+    with mock.patch(_PATCH_TARGET, return_value=result):
+        orch_main.cmd_health(mock.MagicMock())
     out = capsys.readouterr().out
-    assert "All checks passed" in out
+    assert "HEALTHY" in out
+    assert "FAIL" not in out
     assert "[PASS]" in out
 
 
-@patch("health_check.run_health_check", return_value=ONE_FAIL)
-def test_health_one_fail_exits_one(mock_hc, capsys):
-    """One check fails -> prints report and exits with code 1."""
-    with pytest.raises(SystemExit) as exc_info:
-        orch_main.cmd_health(_FakeArgs())
+def test_health_one_fail_exits_one(capsys):
+    """When any check fails, health exits with code 1."""
+    result = _make_health_result(all_pass=False)
+    with mock.patch(_PATCH_TARGET, return_value=result):
+        with pytest.raises(SystemExit) as exc_info:
+            orch_main.cmd_health(mock.MagicMock())
     assert exc_info.value.code == 1
     out = capsys.readouterr().out
+    assert "UNHEALTHY" in out
     assert "[FAIL]" in out
-    assert "Some checks failed" in out
 
 
-@patch("health_check.run_health_check", return_value=ALL_PASS)
-def test_health_output_contains_check_names_and_details(mock_hc, capsys):
-    """Output contains each check's name and detail string."""
-    orch_main.cmd_health(_FakeArgs())
+def test_health_output_contains_check_names_and_details(capsys):
+    """Output includes each check's name and detail string."""
+    result = _make_health_result(all_pass=True)
+    with mock.patch(_PATCH_TARGET, return_value=result):
+        orch_main.cmd_health(mock.MagicMock())
     out = capsys.readouterr().out
-    for check in ALL_PASS["checks"]:
+    for check in result["checks"]:
         assert check["name"] in out
         assert check["detail"] in out

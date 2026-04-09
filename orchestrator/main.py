@@ -1861,20 +1861,21 @@ def cmd_status(args: argparse.Namespace) -> None:
 
 
 def cmd_health(args: argparse.Namespace) -> None:
-    """Run all health checks and print a formatted report."""
+    """Run all health checks and print formatted report. Exit 1 if any fail."""
     from health_check import run_health_check
 
-    trace_id = f"health_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
+    trace_id = f"health_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}_{uuid.uuid4().hex[:6]}"
     result = run_health_check(trace_id=trace_id)
 
+    print("=== Orchestrator Health Report ===")
     for check in result["checks"]:
         status = "PASS" if check["ok"] else "FAIL"
         print(f"  [{status}] {check['name']}: {check['detail']}")
 
     if result["healthy"]:
-        print("\nAll checks passed.")
+        print("Overall: HEALTHY")
     else:
-        print("\nSome checks failed.")
+        print("Overall: UNHEALTHY")
         sys.exit(1)
 
 
