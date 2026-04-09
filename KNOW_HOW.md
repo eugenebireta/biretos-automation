@@ -20,3 +20,13 @@ Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
 2026-04-09 #rule orchestrator: manifest.json itself triggers A4:SCOPE drift because orchestrator writes to it during execution. Known false positive.
 2026-04-09 #rule orchestrator: auto_pytest was FALSE until 2026-04-09 (commit 36eca4e). All executor commits before this date were NOT auto-tested. G4/A3 gates were bypassed.
 2026-04-09 #bug orchestrator: B10 revert gap -- git reset --soft left staged new files on disk. Fix: add git restore --staged before checkout+clean. Verified: staged executor files gone after fix, HEAD restored, status clean.
+2026-04-09 #rule pre-commit: install with `pip install pre-commit` then `pre-commit install`. Config at .pre-commit-config.yaml — runs ruff check --select E,W,F on every commit.
+
+## Pre-commit Setup
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+This installs the Ruff linter hook (`.pre-commit-config.yaml`). On every `git commit`, Ruff runs `ruff check --select E,W,F` over staged files. To run manually: `pre-commit run --all-files`.
