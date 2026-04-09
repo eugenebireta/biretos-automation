@@ -21,7 +21,8 @@ Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
 2026-04-09 #rule orchestrator: auto_pytest was FALSE until 2026-04-09 (commit 36eca4e). All executor commits before this date were NOT auto-tested. G4/A3 gates were bypassed.
 2026-04-09 #bug orchestrator: B10 revert gap -- git reset --soft left staged new files on disk. Fix: add git restore --staged before checkout+clean. Verified: staged executor files gone after fix, HEAD restored, status clean.
 2026-04-09 #rule pre-commit: install with `pip install pre-commit` then `pre-commit install`. Config at .pre-commit-config.yaml — runs ruff check --select E,W,F on every commit.
-2026-04-09 #rule orchestrator: A4:SCOPE_COMPLIANCE uses EXACT repo-relative path matching (not basename). Directive scope must specify full paths (e.g. `orchestrator/guardian.py` not `guardian.py`). Mismatch causes drift rejection and revert.
+2026-04-09 #bug orchestrator: A4:SCOPE_COMPLIANCE used EXACT path matching only. Fix: added basename fallback -- scope `guardian.py` now matches `orchestrator/guardian.py`. Full-path and prefix matching unchanged.
+2026-04-09 #bug orchestrator: collect_packet pytest parser returned 0/0 because `-q --no-header` suppresses summary line. Fix: removed `-q --no-header`, increased timeout 120s->300s.
 
 ## Pre-commit Setup
 
