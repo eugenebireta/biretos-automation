@@ -30,11 +30,28 @@ All scripts support `--dry-run` — use it first.
 
 See `memory/reference_operations_map.md` for the full task→script mapping.
 
-## KNOW-HOW PROTOCOL (mandatory)
+## Управление неявными знаниями (KNOW_HOW.md)
 
-Before work: read `KNOW_HOW.md` for platform quirks, data rules, known bugs.
-After work: if you discovered a platform behavior, data rule, or bug, append one line to `KNOW_HOW.md`.
-Format: `YYYY-MM-DD #tag scope: fact`. Don't duplicate `scripts/MANIFEST.json`.
+Код документирует себя сам через `git log`. Файл `KNOW_HOW.md` предназначен СТРОГО
+для фиксации внешних и неявных знаний, которые невозможно вывести из исходного кода.
+
+ТВОЯ ОБЯЗАННОСТЬ:
+Если в процессе диалога, анализа данных или дебага ты обнаруживаешь новую критическую
+информацию, ты должен САМОСТОЯТЕЛЬНО предложить записать её в `KNOW_HOW.md`.
+
+ЧТО ПИШЕМ:
+- `#platform` — неочевидное поведение внешних платформ (API, лимиты, переключения режимов LLM)
+- `#rule` — доменные правила и специфика данных (форматы PN, суффиксы, мусор в лотах)
+- `#bug` — плавающие ошибки, связанные с окружением или грязными данными
+- `#data_quirk` — аномалии в данных поставщиков (кодировки, мусор, неожиданные форматы), влияющие на парсинг или качество
+
+СТРОГО ЗАПРЕЩЕНО писать:
+- Изменения в коде (добавление функций, рефакторинг, фиксы)
+- Изменение конфигураций (включение флагов, настройки)
+- Структуру директорий и архитектуру (это README или архитектурные доки)
+- Инструкции по установке инструментов (это README)
+
+Формат: `YYYY-MM-DD | #тег | scope: Суть и почему это важно`
 
 ## VERIFICATION REMINDER
 

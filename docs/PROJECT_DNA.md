@@ -245,6 +245,7 @@ Naming convention:
 - AI Executor = governed assistant, not trusted operator
 - Execution Risk Classes (LOW/SEMI/CORE) определяют допуск (см. CLAUDE.md)
 - Tracked guards must be versioned in repo, not only in .git/hooks
+- KNOW_HOW capture: агент обязан фиксировать в KNOW_HOW.md только внешний/эмпирический know-how (#platform, #rule, #bug, #data_quirk), не выводимый из кода и способный повлиять на следующие решения. git = код, KNOW_HOW.md = выжимка.
 - Task Brief Required: каждая задача длительностью >5 bounded batches
   обязана иметь Task Brief (config/TASK_BRIEF_<name>.md) до начала
   активной разработки. Агенты обязаны прочитать brief перед каждым
