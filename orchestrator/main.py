@@ -193,6 +193,46 @@ def _sprint_goal_warning(manifest: dict) -> None:
             pass
 
 
+def _try_queue_advance(manifest: dict) -> None:
+    """P2: Auto-advance to next queued task after clean completion.
+
+    Called at end of cmd_cycle. Only advances when:
+      - fsm_state == "ready"
+      - last_verdict is None (clean completion)
+      - auto_execute is True in config
+      - Next task is LOW risk (SEMI/CORE need owner review first)
+    """
+    cfg = _load_config()
+    auto_execute = bool(cfg.get("auto_execute", False))
+
+    # Re-read manifest (may have been updated by _run_executor_bridge)
+    manifest = load_manifest()
+
+    if manifest.get("fsm_state") != "ready" or manifest.get("last_verdict") is not None:
+        return
+
+    try:
+        import task_queue as _tq
+        next_task = _tq.try_auto_advance(manifest, auto_execute=auto_execute)
+    except Exception as exc:
+        logger.warning("Task queue auto-advance failed: %s", exc)
+        return
+
+    if next_task is None:
+        return
+
+    save_manifest(manifest)
+    append_run({"ts": _now(), "event": "queue_auto_advance",
+                "status": "auto_advanced",
+                "new_task_id": next_task["task_id"],
+                "new_risk": next_task.get("risk_class", "LOW"),
+                "queue_remaining": _tq.queue_depth()})
+    print(f"\n[orchestrator] AUTO-ADVANCE → {next_task['task_id']} "
+          f"(risk={next_task.get('risk_class', 'LOW')})")
+    print(f"[orchestrator] Sprint goal: {next_task.get('sprint_goal', '')[:80]}")
+    print(f"[orchestrator] Queue remaining: {_tq.queue_depth()}")
+
+
 def cmd_init(args: argparse.Namespace) -> None:
     if MANIFEST_PATH.exists() and not args.force:
         print("[orchestrator] manifest.json already exists. Use --force to overwrite.")
@@ -309,6 +349,8 @@ def cmd_cycle(args: argparse.Namespace) -> None:
     # ---------------------------------------------------------------
     try:
         _cmd_cycle_inner(args, manifest)
+        # P2: After clean cycle, try auto-advance to next queued task
+        _try_queue_advance(manifest)
     except Exception as exc:
         _save_manifest_atomic({
             "fsm_state": "error",
@@ -888,6 +930,18 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     manifest["last_verdict"] = None
                     manifest["retry_count"] = 0
                     manifest.pop("_retry_reason", None)
+                    # P2: try auto-advance to next queued task
+                    try:
+                        import task_queue as _tq
+                        advanced = _tq.try_auto_advance(
+                            manifest, auto_execute=cfg.get("auto_execute", False)
+                        )
+                        if advanced:
+                            print(f"[orchestrator] P2 AUTO-ADVANCE → {advanced['task_id']}")
+                            print(f"[orchestrator] Sprint goal: {advanced['sprint_goal'][:80]}")
+                            print(f"[orchestrator] Queue remaining: {_tq.queue_depth()}")
+                    except Exception as _tq_exc:
+                        logger.warning("task_queue auto-advance failed: %s", _tq_exc)
                 elif audit_verdict == "blocked":
                     # Auditor blocked — escalate, no retry
                     manifest["fsm_state"] = "blocked"
@@ -1241,6 +1295,36 @@ def cmd_classify(args: argparse.Namespace) -> None:
             print(f"  - {r}")
 
 
+def cmd_enqueue(args: argparse.Namespace) -> None:
+    """P2: Add a task to the queue."""
+    import task_queue as _tq
+    entry = _tq.enqueue(
+        task_id=args.task_id,
+        sprint_goal=args.sprint_goal,
+        risk_class=getattr(args, "risk", "LOW"),
+        priority=getattr(args, "priority", 0),
+    )
+    print(f"[orchestrator] Enqueued: {entry['task_id']} "
+          f"(risk={entry['risk_class']}, priority={entry['priority']})")
+    print(f"[orchestrator] Queue depth: {_tq.queue_depth()}")
+
+
+def cmd_queue(args: argparse.Namespace) -> None:
+    """P2: Show the task queue."""
+    import task_queue as _tq
+    queue = sorted(_tq.load_queue(), key=_tq._sort_key)
+    if not queue:
+        print("[orchestrator] Task queue is empty.")
+        return
+    print(f"{'#':<3} {'TASK_ID':<30} {'RISK':<6} {'PRI':<4} SPRINT_GOAL")
+    print("-" * 80)
+    for i, t in enumerate(queue, 1):
+        goal = t.get("sprint_goal", "")[:40]
+        print(f"{i:<3} {t.get('task_id', ''):<30} "
+              f"{t.get('risk_class', ''):<6} {t.get('priority', 0):<4} {goal}")
+    print(f"\nTotal: {len(queue)} task(s)")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Meta Orchestrator — run-once cycle")
     sub = parser.add_subparsers(dest="cmd")
@@ -1251,6 +1335,15 @@ def main() -> None:
     sub.add_parser("show-directive", help="Print last directive")
     sub.add_parser("classify", help="Classify risk of last execution packet")
 
+    # P2: Queue subcommands
+    p_enqueue = sub.add_parser("enqueue", help="Add a task to the queue")
+    p_enqueue.add_argument("task_id", help="Unique task identifier")
+    p_enqueue.add_argument("sprint_goal", help="What to accomplish")
+    p_enqueue.add_argument("--risk", default="LOW", choices=["LOW", "SEMI", "CORE"])
+    p_enqueue.add_argument("--priority", type=int, default=0, help="Higher = picked first")
+
+    sub.add_parser("queue", help="Show task queue")
+
     args = parser.parse_args()
 
     if args.cmd == "init":
@@ -1259,6 +1352,10 @@ def main() -> None:
         cmd_show_directive(args)
     elif args.cmd == "classify":
         cmd_classify(args)
+    elif args.cmd == "enqueue":
+        cmd_enqueue(args)
+    elif args.cmd == "queue":
+        cmd_queue(args)
     else:
         cmd_cycle(args)
 
