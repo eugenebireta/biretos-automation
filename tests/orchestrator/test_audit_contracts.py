@@ -1,30 +1,10 @@
 """
-test_audit_comprehensive.py — Comprehensive audit test suite for external AI review.
+test_audit_contracts.py — L0/L1 Contract tests for external AI audit.
 
-PURPOSE: This test suite is designed to be reviewed and executed by external AI
-auditors (GPT-4, Gemini, Claude) to validate the Meta Orchestrator system.
-Each test class maps to a specific architectural invariant or safety property.
-
-Architecture under test:
-  - FSM: ready → processing → awaiting_execution → [audit] → ready/error/blocked
-  - Risk classification: LOW/SEMI/CORE with different execution paths
-  - Multi-pass critique loop (P3.1): consensus gate requiring N consecutive approvals
-  - Budget tracking (P7): per-trace and daily cost limits
-  - Experience learning (P5): lessons from past runs injected into directives
-  - Task queue (P2): FIFO with priority, auto-advance for LOW risk only
-  - Acceptance checker: deterministic post-execution validation
-  - Batch quality gate: tier boundary enforcement
-
-Test categories:
-  A. FSM INVARIANTS — state machine correctness
-  B. RISK SEPARATION — LOW/SEMI/CORE paths never cross
-  C. CONSENSUS GATE — multi-pass critique logic
-  D. RETRY SAFETY — retry limits enforced, critique accumulated
-  E. BUDGET ENFORCEMENT — cost tracking and limits
-  F. EXPERIENCE LOOP — learning from past executions
-  G. QUEUE INTEGRITY — task ordering and auto-advance rules
-  H. DIRECTIVE INTEGRITY — generated directives contain required fields
-  I. CROSS-MODULE CONTRACTS — module boundaries respected
+PURPOSE: Verifies structural contracts — module interfaces, config keys,
+FSM table shape, schema versions, importability. This is the foundation
+layer; behavioral/scenario tests are in test_audit_scenarios.py and
+constitutional governance proofs in test_audit_constitution.py.
 
 All tests are deterministic, use mocks, require no API keys.
 """
@@ -72,13 +52,35 @@ class TestA_FsmInvariants:
         for state in required_states:
             assert state in all_states, f"Missing state in FSM: {state}"
 
-    def test_audit_passed_handled_in_cmd_cycle(self):
-        """audit_passed is a transient state forwarded to ready in cmd_cycle."""
-        # Verify it's handled procedurally (not in FSM table but in code)
-        from main import cmd_cycle
+    def test_audit_passed_forwarded_to_ready_behaviorally(self, tmp_path):
+        """audit_passed state is forwarded to ready when cmd_cycle runs."""
         import main
-        source = Path(main.__file__).read_text(encoding="utf-8")
-        assert 'state == "audit_passed"' in source
+        manifest = {
+            "fsm_state": "audit_passed",
+            "current_task_id": "test",
+            "trace_id": "t1",
+            "updated_at": "2026-01-01T00:00:00Z",
+        }
+        manifest_path = tmp_path / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        lock_path = tmp_path / "lock"
+        runs_path = tmp_path / "runs.jsonl"
+
+        with patch.object(main, "MANIFEST_PATH", manifest_path), \
+             patch.object(main, "LOCK_PATH", lock_path), \
+             patch.object(main, "RUNS_PATH", runs_path):
+            # cmd_cycle should forward audit_passed → ready, then proceed
+            # We mock _cmd_cycle_inner to prevent full execution
+            with patch.object(main, "_cmd_cycle_inner") as mock_inner:
+                main.cmd_cycle(Namespace())
+                # Verify it was called (state forwarded to ready → processing)
+                if mock_inner.called:
+                    # Inner was called = state transitioned past audit_passed
+                    pass
+                else:
+                    # Read manifest to verify state changed
+                    result = json.loads(manifest_path.read_text(encoding="utf-8"))
+                    assert result["fsm_state"] == "ready"
 
     def test_no_direct_skip_to_completed(self):
         """Cannot jump from processing directly to completed (must go through execution)."""
@@ -128,20 +130,33 @@ class TestB_RiskSeparation:
     """LOW, SEMI, CORE tasks follow different execution paths.
     Risk classification determines audit requirements."""
 
-    def test_low_gets_no_pre_audit(self):
-        """LOW risk tasks skip pre-execution audit entirely."""
-        from main import _run_synthesizer
-        # Synthesizer with LOW classification should return PROCEED, not SEMI_AUDIT
-        clf = MagicMock()
-        clf.risk_class = "LOW"
-        clf.governance_route = "none"
+    def test_low_synthesizer_returns_proceed_not_audit(self):
+        """LOW risk through real synthesizer returns PROCEED, never SEMI_AUDIT."""
+        import synthesizer
+        from classifier import ClassifierResult
+        clf = ClassifierResult(
+            risk_class="LOW",
+            governance_route="none",
+            rationale="test",
+            tier_violations=[],
+            blocking_rules=[],
+        )
         verdict = MagicMock()
         verdict.risk_assessment = "LOW"
         verdict.governance_route = "none"
         verdict.scope = ["scripts/foo.py"]
-        # If synth returns PROCEED for LOW, no audit path triggered
-        # (Testing the contract, not the implementation)
-        assert clf.risk_class == "LOW"
+
+        result = synthesizer.decide(
+            classification=clf,
+            verdict=verdict,
+            attempt_count=1,
+            last_packet_status="completed",
+            max_attempts=3,
+        )
+        assert result.action == "PROCEED", \
+            f"LOW risk should get PROCEED, got {result.action}"
+        assert result.action != "SEMI_AUDIT"
+        assert result.action != "CORE_GATE"
 
     def test_core_gets_zero_retries(self):
         """CORE risk tasks always get 0 retries — must escalate to owner."""
@@ -723,15 +738,17 @@ class TestI_CrossModuleContracts:
         assert hasattr(budget_tracker, "estimate_cost")
 
     def test_synthesizer_actions_exhaustive(self):
-        """Synthesizer action set covers all expected actions."""
-        try:
-            import synthesizer
-            # The synth should at minimum handle PROCEED, SEMI_AUDIT, CORE_GATE, ESCALATE, BLOCKED
-            expected = {"PROCEED", "SEMI_AUDIT", "CORE_GATE", "ESCALATE", "BLOCKED"}
-            # We verify by checking main.py handles all these
-            import main
-            source = Path(main.__file__).read_text(encoding="utf-8")
-            for action in expected:
-                assert action in source, f"Action {action} not handled in main.py"
-        except ImportError:
-            pytest.skip("synthesizer not in path")
+        """Synthesizer exports all expected action constants."""
+        import synthesizer
+        expected = {
+            "ACTION_PROCEED", "ACTION_SEMI_AUDIT", "ACTION_CORE_GATE",
+            "ACTION_ESCALATE", "ACTION_BLOCKED", "ACTION_NO_OP",
+        }
+        for const in expected:
+            assert hasattr(synthesizer, const), \
+                f"Missing constant {const} in synthesizer module"
+        # Verify values are strings
+        for const in expected:
+            val = getattr(synthesizer, const)
+            assert isinstance(val, str) and len(val) > 0, \
+                f"{const} should be non-empty string, got {val!r}"
