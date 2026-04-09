@@ -1860,6 +1860,25 @@ def cmd_status(args: argparse.Namespace) -> None:
         print("Queue Depth:    N/A (task_queue unavailable)")
 
 
+def cmd_health(args: argparse.Namespace) -> None:
+    """Run all health checks and print formatted report. Exit 1 if any fail."""
+    from health_check import run_health_check
+
+    trace_id = f"health_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}_{uuid.uuid4().hex[:6]}"
+    result = run_health_check(trace_id=trace_id)
+
+    print("=== Orchestrator Health Report ===")
+    for check in result["checks"]:
+        status = "PASS" if check["ok"] else "FAIL"
+        print(f"  [{status}] {check['name']}: {check['detail']}")
+
+    if result["healthy"]:
+        print("Overall: HEALTHY")
+    else:
+        print("Overall: UNHEALTHY")
+        sys.exit(1)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Meta Orchestrator — run-once cycle")
     sub = parser.add_subparsers(dest="cmd")
@@ -1886,6 +1905,7 @@ def main() -> None:
     p_reject.add_argument("--reason", default="owner_rejected", help="Rejection reason")
 
     sub.add_parser("status", help="Show current manifest state")
+    sub.add_parser("health", help="Run health checks and print report")
 
     args = parser.parse_args()
 
@@ -1905,6 +1925,8 @@ def main() -> None:
         cmd_reject(args)
     elif args.cmd == "status":
         cmd_status(args)
+    elif args.cmd == "health":
+        cmd_health(args)
     else:
         cmd_cycle(args)
 
