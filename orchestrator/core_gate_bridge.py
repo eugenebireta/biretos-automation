@@ -161,9 +161,9 @@ def run_post_execution_audit_sync(
     from auditor_system.runner_factory import create_review_runner
 
     # Build proposal text from execution results
-    changed_files = packet.get("changed_files", [])
-    test_results = packet.get("test_results", {})
-    affected_tiers = packet.get("affected_tiers", [])
+    changed_files = packet.get("changed_files") or []
+    test_results = packet.get("test_results") or {}
+    affected_tiers = packet.get("affected_tiers") or []
 
     proposal_text = (
         f"## Post-Execution Review\n\n"

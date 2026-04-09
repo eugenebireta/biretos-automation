@@ -830,7 +830,7 @@ def write_evidence_bundles(bundles: list[dict], evidence_dir: Path) -> None:
 _BASE_FIELDS = [
     "Артикул", "Название", "Бренд", "Изображение",
     "Цена", "Валюта", "Статус цены", "Статус наличия",
-    "Описание", "Источник описания", "Размещение на сайте", "Тип товара",
+    "Описание", "Описание развёрнутое", "Источник описания", "Размещение на сайте", "Тип товара",
     "Статус изображения", "Статус карточки", "Причины проверки",
 ]
 
@@ -887,6 +887,7 @@ def write_insales_export(
             "Статус цены":        price.get("price_status", ""),
             "Статус наличия":     price.get("stock_status", ""),
             "Описание":           (content.get("description") or "")[:500],
+            "Описание развёрнутое": (content.get("description_long_ru") or "")[:2000],
             "Источник описания":  content.get("description_source", ""),
             "Размещение на сайте": content.get("site_placement", ""),
             "Тип товара":         content.get("product_type", ""),

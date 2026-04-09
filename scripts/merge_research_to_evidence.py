@@ -178,6 +178,13 @@ def merge_one(pn: str, dry_run: bool = False) -> dict:
         dr["sources"] = sources
         fields_added.append("dr_sources")
 
+    # Propagate description_ru → content.description_long_ru for Excel export
+    desc_long = dr.get("description_ru", "")
+    if desc_long and isinstance(evidence.get("content"), dict):
+        if _is_empty(evidence["content"].get("description_long_ru")):
+            evidence["content"]["description_long_ru"] = desc_long
+            fields_added.append("content.description_long_ru")
+
     # merge metadata
     if fields_added:
         dr["merge_ts"] = datetime.now(timezone.utc).isoformat()

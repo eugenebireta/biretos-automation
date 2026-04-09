@@ -26,6 +26,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# Ensure project root is in sys.path so auditor_system and other top-level packages resolve
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 ORCH_DIR = ROOT / "orchestrator"
 MANIFEST_PATH = ORCH_DIR / "manifest.json"
 DIRECTIVE_PATH = ORCH_DIR / "orchestrator_directive.md"
@@ -333,7 +336,30 @@ def cmd_cycle(args: argparse.Namespace) -> None:
                       f"--trace-id {manifest.get('trace_id', '<trace_id>')}")
             return
 
-        # state == "ready": claim the cycle → processing
+        # state == "ready": if IDLE, try to pull next task from queue
+        if manifest.get("current_task_id") in (None, "", "IDLE"):
+            try:
+                import task_queue as _tq
+                next_task = _tq.peek_next()
+                if next_task:
+                    manifest["current_task_id"] = next_task["task_id"]
+                    manifest["current_sprint_goal"] = next_task.get("sprint_goal", "")
+                    manifest["_last_risk_class"] = next_task.get("risk_class", "LOW")
+                    _tq.dequeue()
+                    append_run({"ts": _now(), "event": "queue_dequeue_on_idle",
+                                "status": "dequeued",
+                                "task_id": next_task["task_id"],
+                                "risk_class": next_task.get("risk_class", "LOW")})
+                    print(f"[orchestrator] Dequeued from queue: {next_task['task_id']} "
+                          f"(risk={next_task.get('risk_class', 'LOW')})")
+                else:
+                    print("[orchestrator] IDLE and queue empty. Nothing to do.")
+                    return
+            except Exception as _q_exc:
+                print(f"[orchestrator] Queue check failed: {_q_exc}")
+                return
+
+        # claim the cycle → processing
         manifest["fsm_state"] = "processing"
         save_manifest(manifest)
         ready_to_proceed = True
@@ -549,7 +575,28 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
 
     # P0.5: SEMI_AUDIT — pre-execution auditor review for SEMI risk tasks
     _semi_audit_critique = None
-    if synth.action == "SEMI_AUDIT":
+    # Check if owner already approved this task (bypass SEMI_AUDIT loop)
+    _owner_approved = False
+    try:
+        import json as _json_check
+        _runs_lines = RUNS_PATH.read_text(encoding="utf-8").strip().split("\n") if RUNS_PATH.exists() else []
+        for _line in reversed(_runs_lines[-10:]):
+            _ev = _json_check.loads(_line)
+            if (_ev.get("event") == "owner_approved"
+                    and _ev.get("task_id") == manifest.get("current_task_id")):
+                _owner_approved = True
+                break
+    except Exception:
+        pass
+
+    if synth.action == "SEMI_AUDIT" and _owner_approved:
+        print("[orchestrator] Owner already approved this SEMI task — skipping re-audit.")
+        append_run({"ts": _now(), "event": "semi_audit_owner_bypass",
+                    "status": "owner_approved_bypass",
+                    "trace_id": trace_id,
+                    "task_id": manifest.get("current_task_id")})
+        # Fall through to directive building (same as audit_passed)
+    elif synth.action == "SEMI_AUDIT":
         manifest["fsm_state"] = "audit_in_progress"
         save_manifest(manifest)
         append_run({"ts": _now(), "event": "semi_risk_audit_started",
@@ -1557,6 +1604,72 @@ def cmd_queue(args: argparse.Namespace) -> None:
     print(f"\nTotal: {len(queue)} task(s)")
 
 
+def cmd_approve(args: argparse.Namespace) -> None:
+    """Owner approves a blocked/needs_owner_review task → back to ready."""
+    manifest = load_manifest()
+    state = manifest.get("fsm_state", "ready")
+    allowed = ("blocked", "needs_owner_review", "awaiting_owner_reply", "error")
+    if state not in allowed:
+        print(f"[orchestrator] Cannot approve: fsm_state={state} (must be one of {allowed})")
+        return
+
+    old_state = state
+    manifest["fsm_state"] = "ready"
+    manifest["last_verdict"] = None
+    manifest["attempt_count"] = 0
+    save_manifest(manifest)
+    append_run({"ts": _now(), "event": "owner_approved",
+                "status": "approved",
+                "state_before": old_state, "state_after": "ready",
+                "reason": args.reason,
+                "task_id": manifest.get("current_task_id"),
+                "trace_id": manifest.get("trace_id")})
+    print(f"[orchestrator] APPROVED: {old_state} -> ready")
+    print(f"  task: {manifest.get('current_task_id')}")
+    print(f"  reason: {args.reason}")
+    print(f"  Run 'python orchestrator/main.py' to continue cycle.")
+
+
+def cmd_reject(args: argparse.Namespace) -> None:
+    """Owner rejects task → reset to IDLE."""
+    manifest = load_manifest()
+    state = manifest.get("fsm_state", "ready")
+    task_id = manifest.get("current_task_id", "")
+
+    manifest["fsm_state"] = "ready"
+    manifest["current_task_id"] = "IDLE"
+    manifest["current_sprint_goal"] = "(rejected, waiting for next task)"
+    manifest["last_verdict"] = None
+    manifest["attempt_count"] = 0
+    manifest["retry_count"] = 0
+    save_manifest(manifest)
+    append_run({"ts": _now(), "event": "owner_rejected",
+                "status": "rejected",
+                "state_before": state, "state_after": "ready",
+                "rejected_task_id": task_id,
+                "reason": args.reason,
+                "trace_id": manifest.get("trace_id")})
+    print(f"[orchestrator] REJECTED: {task_id}")
+    print(f"  reason: {args.reason}")
+    print(f"  State reset to IDLE. Enqueue new task or run cycle.")
+
+
+def cmd_status(args: argparse.Namespace) -> None:
+    """Show current orchestrator state."""
+    manifest = load_manifest()
+    print(f"FSM State:    {manifest.get('fsm_state')}")
+    print(f"Task ID:      {manifest.get('current_task_id')}")
+    print(f"Sprint Goal:  {manifest.get('current_sprint_goal', '')[:80]}")
+    print(f"Trace ID:     {manifest.get('trace_id')}")
+    print(f"Attempts:     {manifest.get('attempt_count', 0)}")
+    print(f"Retries:      {manifest.get('retry_count', 0)}")
+    print(f"Last Verdict: {manifest.get('last_verdict')}")
+    print(f"Risk Class:   {manifest.get('_last_risk_class')}")
+    audit = manifest.get("last_audit_result")
+    if audit:
+        print(f"Last Audit:   verdict={audit.get('verdict')} gate={audit.get('gate_passed')}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Meta Orchestrator — run-once cycle")
     sub = parser.add_subparsers(dest="cmd")
@@ -1576,6 +1689,14 @@ def main() -> None:
 
     sub.add_parser("queue", help="Show task queue")
 
+    p_approve = sub.add_parser("approve", help="Approve blocked/needs_owner_review task → ready")
+    p_approve.add_argument("--reason", default="owner_approved", help="Approval reason")
+
+    p_reject = sub.add_parser("reject", help="Reject and reset task → ready with new goal")
+    p_reject.add_argument("--reason", default="owner_rejected", help="Rejection reason")
+
+    sub.add_parser("status", help="Show current manifest state")
+
     args = parser.parse_args()
 
     if args.cmd == "init":
@@ -1588,6 +1709,12 @@ def main() -> None:
         cmd_enqueue(args)
     elif args.cmd == "queue":
         cmd_queue(args)
+    elif args.cmd == "approve":
+        cmd_approve(args)
+    elif args.cmd == "reject":
+        cmd_reject(args)
+    elif args.cmd == "status":
+        cmd_status(args)
     else:
         cmd_cycle(args)
 
