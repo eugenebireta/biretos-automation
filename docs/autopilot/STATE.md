@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 75
-transition_ts: "2026-04-09T12:00:00Z"
+transition_seq: 76
+transition_ts: "2026-04-09T14:00:00Z"
 
 ## Current
-active_task: "P2-WIRING+AUDIT-V4"
-task_id: "P2-WIRING+AUDIT-V4"
+active_task: "P4-TELEGRAM-QUEUE"
+task_id: "P4-TELEGRAM-QUEUE"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "P2 wired into main.py: _try_queue_advance() auto-advances LOW tasks, cmd_enqueue/cmd_queue CLI subcommands. Audit v4: score 53→66 (+13), 4/5 blockers resolved. FSM audit_in_progress/blocked parked guards added. 5 integration dry-run tests (SEMI audit flow, retry injection, queue advance). 1480+ tests pass. All critic priorities DONE (P1.5, P1, P0.5+P3, P2)."
+note: "P4 Telegram queue management shipped. telegram_bot.py: /queue (show queue), /enqueue <id> <goal> [SEMI|CORE] (add task), /pop (dequeue next), /confirm (SEMI/CORE owner confirm + manifest update), /run (trigger one main.py cycle). /start + /help updated. sys.path wired for task_queue import. 23 new deterministic tests (all mocked — no Telegram API, no subprocess). 1503/1503 pass. Audit v4 score: 66/100 (was 53). P4 threshold: 65+ reached."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]

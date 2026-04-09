@@ -40,6 +40,10 @@ ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
 MANIFEST_PATH = ORCH_DIR / "manifest.json"
 
+# Add orchestrator to path for task_queue import
+if str(ORCH_DIR) not in sys.path:
+    sys.path.insert(0, str(ORCH_DIR))
+
 # Console logging — full technical detail on PC
 logging.basicConfig(
     format="%(asctime)s %(message)s",
@@ -108,11 +112,13 @@ async def cmd_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         _pc(f"Owner registered: {update.effective_user.first_name} (chat_id={OWNER_CHAT_ID})")
     await update.message.reply_text(
         "ИИ-Стройка на связи.\n\n"
-        "Напиши задачу, например:\n"
-        "  Стройка: добавить тесты для batch gate\n\n"
-        "Команды:\n"
-        "  /status — текущий статус\n"
-        "  /help — справка"
+        "Быстрый старт:\n"
+        "  /enqueue <id> <цель> — добавить задачу в очередь\n"
+        "  /queue — посмотреть очередь\n"
+        "  /run — запустить один цикл\n\n"
+        "Или напрямую:\n"
+        "  Стройка: <задача>\n\n"
+        "  /help — все команды"
     )
 
 
@@ -120,11 +126,18 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not _is_owner(update):
         return
     await update.message.reply_text(
-        "Стройка: <задача> — запустить\n"
+        "Стройка: <задача> — запустить задачу напрямую\n"
         "ок / да — одобрить эскалацию\n"
-        "нет — отклонить\n"
-        "/status — статус манифеста\n"
-        "/help — эта справка"
+        "нет — отклонить\n\n"
+        "Очередь задач:\n"
+        "  /enqueue <id> <цель> [SEMI|CORE] — добавить задачу\n"
+        "  /queue — показать очередь\n"
+        "  /pop — достать следующую задачу\n"
+        "  /confirm — подтвердить SEMI/CORE задачу\n\n"
+        "Оркестратор:\n"
+        "  /run — запустить один цикл main.py\n"
+        "  /status — текущий статус манифеста\n"
+        "  /help — эта справка"
     )
 
 
@@ -145,6 +158,193 @@ async def cmd_status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         f"Цель: {goal}\n"
         f"Вердикт: {verdict}"
     )
+
+
+# ── Queue management commands ──────────────────────────────────────────
+
+async def cmd_queue(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Show current task queue."""
+    if not _is_owner(update):
+        return
+    try:
+        import task_queue as tq
+        queue = sorted(tq.load_queue(), key=tq._sort_key)
+        if not queue:
+            await update.message.reply_text("Очередь пуста.")
+            return
+        lines = [f"Очередь ({len(queue)} задач):"]
+        for i, t in enumerate(queue, 1):
+            risk = t.get("risk_class", "LOW")
+            pri = t.get("priority", 0)
+            goal = t.get("sprint_goal", "")[:60]
+            lines.append(f"{i}. [{risk}] {t.get('task_id','')} (pri={pri})\n   {goal}")
+        await update.message.reply_text("\n".join(lines))
+    except Exception as e:
+        await update.message.reply_text(f"Ошибка: {e}")
+
+
+async def cmd_enqueue(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """/enqueue <task_id> <goal...> [SEMI|CORE]"""
+    if not _is_owner(update):
+        return
+    args = context.args or []
+    if len(args) < 2:
+        await update.message.reply_text(
+            "Использование: /enqueue <task_id> <цель> [SEMI|CORE]\n"
+            "Пример: /enqueue fix-auth Починить авторизацию SEMI"
+        )
+        return
+    task_id = args[0]
+    # Last arg may be risk class
+    risk_class = "LOW"
+    goal_parts = args[1:]
+    if goal_parts and goal_parts[-1].upper() in ("LOW", "SEMI", "CORE"):
+        risk_class = goal_parts[-1].upper()
+        goal_parts = goal_parts[:-1]
+    sprint_goal = " ".join(goal_parts)
+    if not sprint_goal:
+        sprint_goal = task_id
+    try:
+        import task_queue as tq
+        entry = tq.enqueue(task_id, sprint_goal, risk_class=risk_class)
+        depth = tq.queue_depth()
+        await update.message.reply_text(
+            f"Добавлено в очередь.\n"
+            f"ID: {entry['task_id']}\n"
+            f"Риск: {entry['risk_class']}\n"
+            f"Цель: {entry['sprint_goal'][:100]}\n"
+            f"Позиция в очереди: {depth}"
+        )
+        _pc(f"Enqueued from Telegram: {task_id} ({risk_class})")
+    except ValueError as e:
+        await update.message.reply_text(f"Ошибка: {e}")
+    except Exception as e:
+        await update.message.reply_text(f"Ошибка: {e}")
+
+
+async def cmd_pop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Manually dequeue and show next task."""
+    if not _is_owner(update):
+        return
+    try:
+        import task_queue as tq
+        task = tq.dequeue()
+        if task is None:
+            await update.message.reply_text("Очередь пуста.")
+            return
+        remaining = tq.queue_depth()
+        await update.message.reply_text(
+            f"Задача извлечена.\n"
+            f"ID: {task['task_id']}\n"
+            f"Риск: {task.get('risk_class','LOW')}\n"
+            f"Цель: {task.get('sprint_goal','')[:150]}\n"
+            f"Осталось в очереди: {remaining}"
+        )
+        _pc(f"Popped from queue via Telegram: {task['task_id']}")
+    except Exception as e:
+        await update.message.reply_text(f"Ошибка: {e}")
+
+
+async def cmd_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Confirm SEMI/CORE task — sets manifest to allow auto-advance."""
+    if not _is_owner(update):
+        return
+    if not MANIFEST_PATH.exists():
+        await update.message.reply_text("Манифест не найден.")
+        return
+    try:
+        import task_queue as tq
+        m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+        next_task = tq.peek_next()
+        if next_task is None:
+            await update.message.reply_text("Очередь пуста — нечего подтверждать.")
+            return
+        risk = next_task.get("risk_class", "LOW")
+        if risk == "LOW":
+            await update.message.reply_text(
+                f"Задача {next_task['task_id']} уже LOW — подтверждение не нужно. "
+                "Используй /run для запуска."
+            )
+            return
+        # Dequeue and set as current task in manifest
+        task = tq.dequeue()
+        m["current_task_id"] = task["task_id"]
+        m["current_sprint_goal"] = task["sprint_goal"]
+        m["_last_risk_class"] = task["risk_class"]
+        m["attempt_count"] = 0
+        m["retry_count"] = 0
+        m.pop("_retry_reason", None)
+        m["last_verdict"] = None
+        m["last_audit_result"] = None
+        m["fsm_state"] = "ready"
+        m["updated_at"] = datetime.now(timezone.utc).isoformat()
+        MANIFEST_PATH.write_text(json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8")
+        await update.message.reply_text(
+            f"Подтверждено.\n"
+            f"Задача: {task['task_id']} ({risk})\n"
+            f"Цель: {task.get('sprint_goal','')[:150]}\n"
+            f"Манифест обновлён. Используй /run для запуска."
+        )
+        _pc(f"Confirmed {risk} task via Telegram: {task['task_id']}")
+    except Exception as e:
+        await update.message.reply_text(f"Ошибка: {e}")
+
+
+async def cmd_run(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Trigger one orchestrator cycle (main.py)."""
+    if not _is_owner(update):
+        return
+    if not MANIFEST_PATH.exists():
+        await update.message.reply_text("Манифест не найден. Используй /enqueue и /confirm.")
+        return
+    m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    state = m.get("fsm_state", "?")
+    if state not in ("ready", "awaiting_execution"):
+        await update.message.reply_text(
+            f"Оркестратор не в состоянии ready (текущий: {state}).\n"
+            "Для ошибок/эскалаций используй 'ок' или 'нет'."
+        )
+        return
+    await update.message.reply_text(f"Запускаю цикл... (задача: {m.get('current_task_id','?')})")
+    try:
+        env = _load_env()
+        proc = subprocess.Popen(
+            [sys.executable, str(ORCH_DIR / "main.py")],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            cwd=str(ROOT),
+            env=env,
+        )
+        lines = []
+        for line in proc.stdout:
+            line = line.rstrip()
+            if line:
+                _pc(f"  {line}")
+                lines.append(line)
+        proc.wait(timeout=600)
+        output = "\n".join(lines)
+        # Re-read manifest for result
+        if MANIFEST_PATH.exists():
+            m2 = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+            new_state = m2.get("fsm_state", "?")
+            verdict = m2.get("last_verdict") or "—"
+            await update.message.reply_text(
+                f"Цикл завершён.\n"
+                f"Состояние: {new_state}\n"
+                f"Вердикт: {verdict}\n"
+                f"Задача: {m2.get('current_task_id','?')}"
+            )
+        else:
+            await update.message.reply_text("Цикл завершён. Посмотри результат на ПК.")
+        _pc(f"Run cycle via Telegram complete: exit={proc.returncode}")
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        await update.message.reply_text("Таймаут (10 мин). Посмотри на ПК.")
+    except Exception as e:
+        await update.message.reply_text(f"Ошибка запуска: {e}")
 
 
 # ── Owner reply to escalation ──────────────────────────────────────────
@@ -354,6 +554,12 @@ def main():
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("status", cmd_status))
+    # P4: Queue management
+    app.add_handler(CommandHandler("queue", cmd_queue))
+    app.add_handler(CommandHandler("enqueue", cmd_enqueue))
+    app.add_handler(CommandHandler("pop", cmd_pop))
+    app.add_handler(CommandHandler("confirm", cmd_confirm))
+    app.add_handler(CommandHandler("run", cmd_run))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     app.run_polling(drop_pending_updates=True)
