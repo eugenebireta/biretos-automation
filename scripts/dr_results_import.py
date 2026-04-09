@@ -263,7 +263,58 @@ def _build_result_json(row: dict[str, str], provider: str, source_file: str) -> 
 
 
 # ---------------------------------------------------------------------------
-# Parse Table 2 — visited URLs for training data
+# Parse Table 2 (new format) — Documents found
+# ---------------------------------------------------------------------------
+
+def _parse_documents_table(text: str, source_file: str) -> dict[str, list[dict]]:
+    """Parse documents table from new 3-table DR format.
+
+    Returns dict: {pn: [{url, doc_type, language, description}]}
+    """
+    lines = text.splitlines()
+    doc_table_start = None
+    for i, line in enumerate(lines):
+        lower = line.lower()
+        if ("table 2" in lower or "documents found" in lower or "document url" in lower):
+            doc_table_start = i
+            break
+
+    if doc_table_start is None:
+        return {}
+
+    rows = _parse_table_rows(lines[doc_table_start:])
+    results: dict[str, list[dict]] = {}
+
+    for row in rows:
+        # Support both "Part Number" and "PN" as key
+        pn = _clean_value(row.get("Part Number", "") or row.get("PN", ""))
+        url = _clean_value(row.get("Document URL", "") or row.get("URL", ""))
+        if not pn or not url or _is_not_found(url):
+            continue
+        if not url.startswith("http"):
+            continue
+
+        doc_type = _clean_value(row.get("Document Type", "") or row.get("Type", "Document"))
+        language = _clean_value(row.get("Language", ""))
+        description = _clean_value(row.get("Description", "") or row.get("Desc", ""))
+
+        if _is_not_found(doc_type):
+            doc_type = "Document"
+
+        entry = {
+            "url": url,
+            "doc_type": doc_type,
+            "language": language if not _is_not_found(language) else "",
+            "description": description if not _is_not_found(description) else "",
+            "source_file": source_file,
+        }
+        results.setdefault(pn, []).append(entry)
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# Parse Table 3 (new) / Table 2 (old) — visited URLs for training data
 # ---------------------------------------------------------------------------
 
 def _parse_table2_rows(text: str, source_file: str, provider: str) -> list[dict]:
@@ -284,18 +335,24 @@ def _parse_table2_rows(text: str, source_file: str, provider: str) -> list[dict]
 
     results = []
     for row in rows:
-        pn = _clean_value(row.get("PN", ""))
-        url = _clean_value(row.get("URL", ""))
+        # Support both old format (PN) and new format (Part Number)
+        pn = _clean_value(row.get("PN", "") or row.get("Part Number", ""))
+        url = _clean_value(row.get("URL", "") or row.get("Page URL", ""))
         if not pn or not url or _is_not_found(url):
             continue
+        if not url.startswith("http"):
+            continue
+
+        has_docs_raw = _clean_value(row.get("Has_Documents", "") or row.get("Has Documents", "")).lower()
 
         entry = {
             "pn": pn,
             "url": url,
-            "page_type": _clean_value(row.get("Page_Type", "")),
-            "has_price": _clean_value(row.get("Has_Price", "")).lower() == "yes",
-            "has_specs": _clean_value(row.get("Has_Specs", "")).lower() == "yes",
-            "has_photo": _clean_value(row.get("Has_Photo", "")).lower() == "yes",
+            "page_type": _clean_value(row.get("Page_Type", "") or row.get("Page Type", "")),
+            "has_price": _clean_value(row.get("Has_Price", "") or row.get("Has Price", "")).lower() in ("yes", "да", "true"),
+            "has_specs": _clean_value(row.get("Has_Specs", "") or row.get("Has Specs", "")).lower() in ("yes", "да", "true"),
+            "has_photo": _clean_value(row.get("Has_Photo", "") or row.get("Has Photo", "")).lower() in ("yes", "да", "true"),
+            "has_documents": has_docs_raw in ("yes", "да", "true"),
             "domain": _clean_value(row.get("Domain", "")),
             "source_file": source_file,
             "provider": provider,
@@ -416,7 +473,26 @@ def import_file(
             )
         stats["written"] += 1
 
-    # --- Table 2: visited URLs for training ---
+    # --- Documents table (new 3-table format: Table 2 = documents) ---
+    doc_map = _parse_documents_table(text, filename)
+    if doc_map and not dry_run:
+        for pn, docs in doc_map.items():
+            pn_safe = re.sub(r"[^\w\.\-]", "_", pn)
+            out_path = results_dir / f"result_{pn_safe}.json"
+            if out_path.exists():
+                try:
+                    r = json.loads(out_path.read_text(encoding="utf-8"))
+                    existing_docs = r.get("final_recommendation", {}).get("documents", [])
+                    existing_urls = {d.get("url") for d in existing_docs}
+                    added = [d for d in docs if d.get("url") not in existing_urls]
+                    if added:
+                        r.setdefault("final_recommendation", {}).setdefault("documents", []).extend(added)
+                        out_path.write_text(json.dumps(r, ensure_ascii=False, indent=2), encoding="utf-8")
+                except Exception:
+                    pass
+    stats["docs"] = sum(len(v) for v in doc_map.values())
+
+    # --- Sources/URLs table (Table 3 in new format, Table 2 in old format) ---
     url_rows = _parse_table2_rows(text, filename, provider)
     if url_rows:
         training_dir.mkdir(parents=True, exist_ok=True)
