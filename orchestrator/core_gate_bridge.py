@@ -156,7 +156,7 @@ def run_scope_review_sync(task_pack, scope_text: str = ""):
         verdicts = []
         for auditor in auditors:
             try:
-                verdict = await auditor.critique(task_pack, scope_text)
+                verdict = await auditor.critique(scope_text, task_pack, context={})
                 verdicts.append(verdict)
             except Exception as exc:
                 logger.warning("scope_review: auditor %s failed: %s",

@@ -233,7 +233,7 @@ def _try_queue_advance(manifest: dict) -> None:
                 "new_task_id": next_task["task_id"],
                 "new_risk": next_task.get("risk_class", "LOW"),
                 "queue_remaining": _tq.queue_depth()})
-    print(f"\n[orchestrator] AUTO-ADVANCE → {next_task['task_id']} "
+    print(f"\n[orchestrator] AUTO-ADVANCE -> {next_task['task_id']} "
           f"(risk={next_task.get('risk_class', 'LOW')})")
     print(f"[orchestrator] Sprint goal: {next_task.get('sprint_goal', '')[:80]}")
     print(f"[orchestrator] Queue remaining: {_tq.queue_depth()}")
@@ -321,7 +321,7 @@ def cmd_cycle(args: argparse.Namespace) -> None:
                         "status": "audit_passed_forwarded",
                         "state_before": "audit_passed", "state_after": "ready",
                         "trace_id": manifest.get("trace_id")})
-            print("[orchestrator] audit_passed → ready (directive build next)")
+            print("[orchestrator] audit_passed -> ready (directive build next)")
             # fall through to ready processing below
 
         if state == "awaiting_execution":
@@ -512,7 +512,27 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
     print(f"[orchestrator] synth action={synth.action} final_risk={synth.final_risk} "
           f"scope={len(synth.approved_scope)} rules={synth.rule_trace}")
 
-    if synth.action == "CORE_GATE":
+    # Check if owner already approved this task (bypass CORE_GATE/SEMI_AUDIT loop)
+    _owner_approved = False
+    try:
+        _runs_lines = RUNS_PATH.read_text(encoding="utf-8").strip().split("\n") if RUNS_PATH.exists() else []
+        for _line in reversed(_runs_lines[-20:]):
+            _ev = json.loads(_line)
+            if (_ev.get("event") == "owner_approved"
+                    and _ev.get("task_id") == manifest.get("current_task_id")):
+                _owner_approved = True
+                break
+    except Exception:
+        pass
+
+    if synth.action == "CORE_GATE" and _owner_approved:
+        print("[orchestrator] Owner already approved this CORE task -- skipping negotiate_architecture.")
+        append_run({"ts": _now(), "event": "core_negotiate_owner_bypass",
+                    "status": "owner_approved_bypass",
+                    "trace_id": trace_id,
+                    "task_id": manifest.get("current_task_id")})
+        # Fall through to directive building
+    elif synth.action == "CORE_GATE":
         # Phase 2: Pre-exec architectural convergence loop (Dual Consensus)
         # Critic (Gemini) reviews proposal, Architect (Anthropic) revises.
         # No code review here — code doesn't exist yet.
@@ -643,19 +663,6 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
 
     # P0.5: SEMI_AUDIT — pre-execution auditor review for SEMI risk tasks
     _semi_audit_critique = None
-    # Check if owner already approved this task (bypass SEMI_AUDIT loop)
-    _owner_approved = False
-    try:
-        import json as _json_check
-        _runs_lines = RUNS_PATH.read_text(encoding="utf-8").strip().split("\n") if RUNS_PATH.exists() else []
-        for _line in reversed(_runs_lines[-10:]):
-            _ev = _json_check.loads(_line)
-            if (_ev.get("event") == "owner_approved"
-                    and _ev.get("task_id") == manifest.get("current_task_id")):
-                _owner_approved = True
-                break
-    except Exception:
-        pass
 
     if synth.action == "SEMI_AUDIT" and _owner_approved:
         print("[orchestrator] Owner already approved this SEMI task — skipping re-audit.")
@@ -1329,7 +1336,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                             manifest, auto_execute=cfg.get("auto_execute", False)
                         )
                         if advanced:
-                            print(f"[orchestrator] P2 AUTO-ADVANCE → {advanced['task_id']}")
+                            print(f"[orchestrator] P2 AUTO-ADVANCE -> {advanced['task_id']}")
                             print(f"[orchestrator] Sprint goal: {advanced['sprint_goal'][:80]}")
                             print(f"[orchestrator] Queue remaining: {_tq.queue_depth()}")
                     except Exception as _tq_exc:
