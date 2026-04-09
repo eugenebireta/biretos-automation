@@ -1,4 +1,5 @@
 # JUDGE — Финальный вердикт
+<!-- version: 1.0 | updated: 2026-04-09 | changelog: initial -->
 
 ## Цель
 

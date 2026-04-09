@@ -1,4 +1,5 @@
 # AUDITOR — Пост-аудит результата
+<!-- version: 1.2 | updated: 2026-04-09 | changelog: added KNOW_HOW monopoly + #tooling rule -->
 
 ## Цель
 

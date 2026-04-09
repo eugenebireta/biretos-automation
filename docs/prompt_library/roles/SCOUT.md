@@ -1,4 +1,5 @@
 # SCOUT — Разведка перед началом задачи
+<!-- version: 1.1 | updated: 2026-04-09 | changelog: added KNOW_HOW exception for external systems -->
 
 ## Цель
 
