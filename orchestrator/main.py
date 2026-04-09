@@ -1391,19 +1391,6 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     manifest["fsm_state"] = "awaiting_owner_reply"
                     manifest["last_verdict"] = "AUDIT_FAILED"
 
-                # Auto-advance on clean success
-                if manifest.get("fsm_state") == "ready" and manifest.get("last_verdict") is None:
-                    try:
-                        import task_queue as _tq
-                        advanced = _tq.try_auto_advance(
-                            manifest, auto_execute=cfg.get("auto_execute", False)
-                        )
-                        if advanced:
-                            print(f"[orchestrator] P2 AUTO-ADVANCE -> {advanced['task_id']}")
-                            print(f"[orchestrator] Sprint goal: {advanced['sprint_goal'][:80]}")
-                            print(f"[orchestrator] Queue remaining: {_tq.queue_depth()}")
-                    except Exception as _tq_exc:
-                        logger.warning("task_queue auto-advance failed: %s", _tq_exc)
             else:
                 # Acceptance failed
                 retry_reason = (
@@ -1454,6 +1441,21 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         "drift_detected": acceptance.drift_detected,
                         "retry_count": manifest.get("retry_count", 0),
                         "audit_verdict": audit_verdict})
+
+            # --- B13 fix: Auto-advance on clean success (all risk levels) ---
+            if manifest.get("fsm_state") == "ready" and manifest.get("last_verdict") is None:
+                try:
+                    import task_queue as _tq
+                    advanced = _tq.try_auto_advance(
+                        manifest, auto_execute=cfg.get("auto_execute", False)
+                    )
+                    if advanced:
+                        save_manifest(manifest)
+                        print(f"[orchestrator] P2 AUTO-ADVANCE -> {advanced['task_id']}")
+                        print(f"[orchestrator] Sprint goal: {advanced['sprint_goal'][:80]}")
+                        print(f"[orchestrator] Queue remaining: {_tq.queue_depth()}")
+                except Exception as _tq_exc:
+                    logger.warning("task_queue auto-advance failed: %s", _tq_exc)
 
             # --- AUTO RE-EXECUTE on retry ---
             if manifest.get("last_verdict") in ("RETRY_SCHEDULED", "AUDIT_RETRY_SCHEDULED"):
