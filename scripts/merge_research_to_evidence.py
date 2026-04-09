@@ -185,6 +185,21 @@ def merge_one(pn: str, dry_run: bool = False) -> dict:
             evidence["content"]["description_long_ru"] = desc_long
             fields_added.append("content.description_long_ru")
 
+    # Propagate provider/model from result (top-level, not final_recommendation) into evidence DR block
+    provider_added = False
+    if result.get("provider") and _is_empty(dr.get("provider")):
+        dr["provider"] = result["provider"]
+        provider_added = True
+    if result.get("model") and _is_empty(dr.get("model")):
+        dr["model"] = result["model"]
+        provider_added = True
+    if result.get("dr_source_file") and _is_empty(dr.get("source_file")):
+        dr["source_file"] = result["dr_source_file"]
+        provider_added = True
+    if provider_added:
+        evidence["deep_research"] = dr
+        fields_added.append("dr_provider")
+
     # merge metadata
     if fields_added:
         dr["merge_ts"] = datetime.now(timezone.utc).isoformat()

@@ -113,8 +113,11 @@ def _is_not_found(v: str) -> bool:
 # ---------------------------------------------------------------------------
 
 def _determine_provider(filename: str) -> str:
-    if "compass_artifact" in filename.lower():
+    fn = filename.lower()
+    if "compass_artifact" in fn:
         return "dr_gpt"
+    if "deep-research-report" in fn or "gemini" in fn:
+        return "dr_gemini"
     return "dr_claude"
 
 
