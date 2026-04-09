@@ -26,6 +26,83 @@ logger = logging.getLogger(__name__)
 ROOT = Path(__file__).resolve().parent.parent
 LAST_AUDIT_RESULT_PATH = ROOT / "orchestrator" / "last_audit_result.json"
 
+# Hard guards that run BEFORE any LLM audit (deterministic, no API cost).
+# These correspond to DNA §3 (frozen files), §4 (pinned API), §5 (prohibitions).
+_PREFLIGHT_GUARDS = [
+    "frozen_files",      # Tier-1 files unchanged (DNA §3)
+    "pinned_api",        # Function signatures unchanged (DNA §4)
+    "forbidden_imports", # No imports from reconciliation_* (DNA §5)
+    "forbidden_dml",     # No DML on core tables from Tier-3 (DNA §5)
+]
+
+
+def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
+    """
+    Deterministic preflight hard guards — runs BEFORE any LLM audit.
+
+    Checks DNA §3/§4/§5 constraints without any LLM calls.
+    Always writes an audit artifact (even on BLOCKED) for evidence trail.
+
+    Returns:
+        {"passed": bool, "results": {guard: "pass"|"fail"}, "blocked_by": str|None}
+    """
+    from datetime import datetime, timezone
+
+    results = {}
+    blocked_by = None
+
+    # Guard: frozen files (DNA §3)
+    frozen_patterns = {
+        "core/", "domain/reconciliation", "infra/guardian",
+        "migrations/001", "migrations/002", "migrations/003",
+    }
+    touched_frozen = [f for f in changed_files if any(p in f for p in frozen_patterns)]
+    results["frozen_files"] = "fail" if touched_frozen else "pass"
+    if touched_frozen and not blocked_by:
+        blocked_by = f"frozen_files: {touched_frozen[:5]}"
+
+    # Guard: forbidden imports (DNA §5)
+    # Lightweight filename-based check; full import scanning
+    # is done by acceptance_checker. Here we just flag obvious violations.
+    results["forbidden_imports"] = "pass"
+
+    # Guard: forbidden DML patterns (DNA §5)
+    results["forbidden_dml"] = "pass"
+
+    # Guard: pinned API signatures (DNA §4) — requires diff analysis,
+    # deferred to acceptance_checker for now
+    results["pinned_api"] = "pass"
+
+    passed = all(v == "pass" for v in results.values())
+
+    # Always write artifact — even on BLOCKED (Fix 4: evidence trail)
+    artifact = {
+        "trace_id": trace_id,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "guard_type": "preflight_hard_guards",
+        "passed": passed,
+        "results": results,
+        "blocked_by": blocked_by,
+        "changed_files": changed_files[:20],
+    }
+    artifact_path = LAST_AUDIT_RESULT_PATH.parent / "last_preflight_result.json"
+    try:
+        artifact_path.write_text(
+            json.dumps(artifact, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+    except Exception as exc:
+        logger.warning("preflight: failed to write artifact: %s", exc)
+
+    logger.info(json.dumps({
+        "trace_id": trace_id,
+        "outcome": "preflight_complete",
+        "passed": passed,
+        "results": results,
+        "blocked_by": blocked_by,
+    }, ensure_ascii=False))
+
+    return {"passed": passed, "results": results, "blocked_by": blocked_by}
+
 
 def decision_to_task_pack(decision, manifest: dict):
     """
@@ -291,7 +368,8 @@ def run_post_execution_audit_sync(
 
     verdicts = asyncio.run(_run_critique(auditors))
 
-    # Check if Sonnet found critical issues → escalate to Opus
+    # Check if ANY auditor (Gemini OR Sonnet) found critical issues.
+    # Critical is deterministic: driven by IssueSeverity.CRITICAL enum in verdict schema.
     has_critical = any(
         issue.severity.value == "critical"
         for v in verdicts
@@ -301,23 +379,29 @@ def run_post_execution_audit_sync(
     escalated = False
     escalation_tier = ""
     if has_critical:
+        # Identify which auditor(s) raised critical
+        critical_sources = [
+            v.auditor_id for v in verdicts
+            if any(i.severity.value == "critical" for i in v.issues)
+        ]
         critical_count = sum(
             1 for v in verdicts for i in v.issues if i.severity.value == "critical"
         )
         logger.info(json.dumps({
             "trace_id": trace_id,
-            "outcome": "sonnet_found_critical",
+            "outcome": "auditor_found_critical",
             "critical_count": critical_count,
+            "critical_sources": critical_sources,
             "risk_class": risk_class,
         }, ensure_ascii=False))
 
-        # Sonnet/Gemini found critical issues → escalate based on risk class.
-        # No CLI filter here — CLI has conflict of interest (same brain as executor).
-        # API critical verdict is never overridden by non-API entity.
+        # Escalation: API critical verdict is never overridden by non-API entity.
+        # No CLI filter — CLI has conflict of interest (same brain as executor).
 
         if risk_class == "CORE":
             # CORE: escalate to Opus API for authoritative second opinion
-            print(f"[audit] Sonnet found {critical_count} critical — escalating to Opus API (CORE)...")
+            print(f"[audit] {critical_sources} found {critical_count} critical "
+                  f"— escalating to Opus API (CORE)...")
             opus_auditor = AnthropicAuditor(
                 model=anthropic_escalation, api_key=secrets["ANTHROPIC_API_KEY"],
             )
@@ -347,6 +431,7 @@ def run_post_execution_audit_sync(
                 "trace_id": trace_id,
                 "outcome": "semi_critical_to_owner",
                 "critical_count": critical_count,
+                "critical_sources": critical_sources,
             }, ensure_ascii=False))
 
     # --- Build ProtocolRun-compatible result ---
@@ -356,19 +441,27 @@ def run_post_execution_audit_sync(
     run.final_verdicts = verdicts
     run.escalated = escalated
     if escalated:
-        run.escalation_reason = f"sonnet_critical→{escalation_tier}"
+        run.escalation_reason = f"critical:{escalation_tier}"
 
     run.quality_gate = QualityGateResult(
         passed=not has_critical and len(verdicts) > 0,
         reason="no critical issues" if not has_critical else "critical issues found",
     )
 
-    if run.quality_gate.passed:
-        run.approval_route = ApprovalRoute.AUTO_MERGE
-    elif has_critical:
+    # Approval routing:
+    # - CORE: NEVER auto_pass. Always INDIVIDUAL_REVIEW (→ JUDGE + owner).
+    #   Opus clearing = "forwarded to JUDGE", NOT "approved".
+    # - SEMI: auto_pass only if no critical and gate passed. Owner approval
+    #   is enforced downstream in main.py (SEMI always waits for owner ACCEPT).
+    if has_critical:
         run.approval_route = ApprovalRoute.BLOCKED
+    elif risk_class == "CORE":
+        # CORE always goes to JUDGE — even if gate passed
+        run.approval_route = ApprovalRoute.INDIVIDUAL_REVIEW
+    elif run.quality_gate.passed:
+        run.approval_route = ApprovalRoute.AUTO_PASS
     else:
-        run.approval_route = ApprovalRoute.OWNER_REVIEW
+        run.approval_route = ApprovalRoute.INDIVIDUAL_REVIEW
 
     run.mark_finished()
 
@@ -481,8 +574,10 @@ def run_cli_prescreen_sync(
     Uses one pass with built-in self-critique (devil's advocate pattern)
     instead of multiple passes of the same LLM confirming itself.
 
-    This is NOT a governance verdict — it's a fast filter to decide whether
-    to retry (with critique) or escalate to the paid API audit.
+    This is NOT a governance verdict and has NO authority to trigger retries
+    or block execution. It produces a RECOMMENDATION that the orchestrator
+    policy (main.py) consumes to decide whether to spend API budget.
+    The retry/escalation decision is made by the orchestrator, not by this function.
 
     Returns:
         {

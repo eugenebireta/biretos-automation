@@ -1270,7 +1270,27 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
             critique_history = _load_critique_history(run_dir)
 
             if acceptance.passed and risk_class in ("SEMI", "CORE"):
-                # --- 2-TIER AUDIT: CLI pre-screen on retries, API audit on final ---
+                # --- PREFLIGHT HARD GUARDS (deterministic, no LLM) ---
+                try:
+                    from core_gate_bridge import run_preflight_guards
+                    preflight = run_preflight_guards(
+                        changed_files=packet.get("changed_files", []),
+                        trace_id=trace_id,
+                    )
+                    if not preflight["passed"]:
+                        print(f"[orchestrator] PREFLIGHT BLOCKED: {preflight['blocked_by']}")
+                        manifest["fsm_state"] = "blocked"
+                        manifest["last_verdict"] = "PREFLIGHT_BLOCKED"
+                        manifest["park_reason"] = f"#blocker: {preflight['blocked_by']}"
+                        save_manifest(manifest)
+                        append_run({"ts": _now(), "event": "preflight_blocked",
+                                    "blocked_by": preflight["blocked_by"],
+                                    "trace_id": trace_id})
+                        return
+                except Exception as exc:
+                    print(f"[orchestrator] Preflight guard error (non-fatal): {exc}")
+
+                # --- AUDIT OVERLAY: CLI pre-screen on retries, API audit on final ---
                 is_final_attempt = (retry_count >= max_retries) or (retry_count == 0)
                 use_api_audit = is_final_attempt
 
