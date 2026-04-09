@@ -13,9 +13,10 @@ builder:
 
 auditors:
   gemini: "gemini-3.1-pro-preview"        # Google Gemini API — CRITIC role
-  anthropic: "claude-opus-4-6"            # Anthropic Messages API — JUDGE role (Opus 4.6 max)
+  anthropic: "claude-sonnet-4-6"           # Anthropic Messages API — JUDGE role (default: Sonnet)
+  anthropic_escalation: "claude-opus-4-6"  # Escalation: Opus — only when Sonnet finds critical issues
   # openai: "gpt-4o"                      # DISABLED — quota exhausted
-  # Внимание: auditor (API) ≠ builder (подписка). Разные окружения.
+  # 3-tier audit cost: CLI($0) → Sonnet($0.18) → Opus($3.60, only if critical)
 
 effort:
   low: "low"

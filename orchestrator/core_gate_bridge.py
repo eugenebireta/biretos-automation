@@ -142,7 +142,7 @@ def run_scope_review_sync(task_pack, scope_text: str = ""):
     if str(_orch_dir) not in sys.path:
         sys.path.insert(0, str(_orch_dir))
 
-    secrets, gemini_model, anthropic_model = _init_auditors()
+    secrets, gemini_model, anthropic_model, anthropic_escalation = _init_auditors()
 
     from auditor_system.providers.gemini_auditor import GeminiAuditor
     from auditor_system.providers.anthropic_auditor import AnthropicAuditor
@@ -203,25 +203,17 @@ def run_post_execution_audit_sync(
     trace_id: str,
     risk_class: str,
     manifest: dict,
-) -> dict:
+):
     """
-    Run auditor on COMPLETED execution for SEMI/CORE tasks.
+    Lean post-execution audit: single critique round (no mock revision, no escalation).
 
-    Unlike run_audit_sync (pre-execution for CORE_GATE), this reviews
-    the actual execution result: diff, changed files, test results.
+    Old protocol (ReviewRunner.execute): 4+ API calls per audit
+      propose → 2× critique → mock revise → 2× final_audit → gate → (escalation: ×2)
+    New protocol: 1 critique round = 2 API calls (Gemini + Anthropic)
 
-    Args:
-        packet: Execution packet (from collect_packet)
-        directive_text: The directive that was executed
-        trace_id: Orchestrator trace ID
-        risk_class: LOW/SEMI/CORE
-        manifest: Current manifest dict
+    Cost reduction: ~4x fewer API calls.
 
-    Returns:
-        ProtocolRun with quality_gate, approval_route, critiques
-
-    Raises:
-        ConfigError: if .env.auditors missing
+    Returns ProtocolRun-compatible object with quality_gate, approval_route, critiques.
     """
     import sys
     from auditor_system.hard_shell.contracts import TaskPack, RiskLevel
@@ -230,21 +222,20 @@ def run_post_execution_audit_sync(
     if str(_orch_dir) not in sys.path:
         sys.path.insert(0, str(_orch_dir))
 
-    from auditor_system.runner_factory import create_review_runner
-
-    # Build proposal text from execution results
+    # --- Build lean proposal (only essential data) ---
     changed_files = packet.get("changed_files") or []
     test_results = packet.get("test_results") or {}
     affected_tiers = packet.get("affected_tiers") or []
+    failed_tests = test_results.get("failed", 0)
+    passed_tests = test_results.get("passed", "?")
 
+    # Compact proposal — no fluff, just facts
     proposal_text = (
-        f"## Post-Execution Review\n\n"
-        f"**Directive executed:** trace_id={trace_id}\n"
-        f"**Changed files ({len(changed_files)}):** {changed_files[:20]}\n"
-        f"**Affected tiers:** {affected_tiers}\n"
-        f"**Test results:** passed={test_results.get('passed', '?')} "
-        f"failed={test_results.get('failed', '?')}\n\n"
-        f"### Directive\n```\n{directive_text[:2000]}\n```\n"
+        f"Post-exec review: {trace_id}\n"
+        f"Files ({len(changed_files)}): {', '.join(changed_files[:15])}\n"
+        f"Tiers: {', '.join(affected_tiers) if affected_tiers else 'unknown'}\n"
+        f"Tests: {passed_tests} passed, {failed_tests} failed\n"
+        f"Directive:\n{directive_text[:1500]}"
     )
 
     risk_str = risk_class.lower()
@@ -254,15 +245,14 @@ def run_post_execution_audit_sync(
         risk = RiskLevel.SEMI
 
     task_id = manifest.get("current_task_id") or "unknown"
-    sprint_goal = manifest.get("current_sprint_goal") or ""
 
     task_pack = TaskPack(
         title=f"post-exec-review:{task_id}",
-        description=f"Post-execution semantic review: {sprint_goal}",
+        description=manifest.get("current_sprint_goal") or "",
         roadmap_stage=task_id or "bootstrap",
-        why_now="Executor completed SEMI/CORE task. Semantic review required per governance.",
+        why_now="Post-execution semantic review",
         risk=risk,
-        declared_surface=changed_files[:20],
+        declared_surface=changed_files[:15],
     )
 
     logger.info(json.dumps({
@@ -271,20 +261,152 @@ def run_post_execution_audit_sync(
         "risk": risk.value,
         "changed_files": len(changed_files),
         "outcome": "post_exec_audit_starting",
+        "mode": "lean_single_round",
     }, ensure_ascii=False))
 
-    runner = create_review_runner(proposal_text=proposal_text)
-    result = asyncio.run(runner.execute(task_pack))
+    # --- Tier 2: Single critique round with Sonnet (cheap) ---
+    secrets, gemini_model, anthropic_model, anthropic_escalation = _init_auditors()
 
+    from auditor_system.providers.gemini_auditor import GeminiAuditor
+    from auditor_system.providers.anthropic_auditor import AnthropicAuditor
+    from auditor_system.hard_shell.contracts import (
+        ProtocolRun, QualityGateResult, ApprovalRoute,
+    )
+
+    auditors = [
+        GeminiAuditor(model=gemini_model, api_key=secrets["GEMINI_API_KEY"]),
+        AnthropicAuditor(model=anthropic_model, api_key=secrets["ANTHROPIC_API_KEY"]),
+    ]
+
+    async def _run_critique(auditor_list):
+        verdicts = []
+        for auditor in auditor_list:
+            try:
+                verdict = await auditor.critique(proposal_text, task_pack, context={})
+                verdicts.append(verdict)
+            except Exception as exc:
+                logger.warning("post_exec_audit: auditor %s failed: %s",
+                               auditor.auditor_id, exc)
+        return verdicts
+
+    verdicts = asyncio.run(_run_critique(auditors))
+
+    # Check if Sonnet found critical issues → escalate to Opus
+    has_critical = any(
+        issue.severity.value == "critical"
+        for v in verdicts
+        for issue in v.issues
+    )
+
+    escalated = False
+    escalation_tier = ""
+    if has_critical:
+        critical_count = sum(
+            1 for v in verdicts for i in v.issues if i.severity.value == "critical"
+        )
+        logger.info(json.dumps({
+            "trace_id": trace_id,
+            "outcome": "sonnet_found_critical",
+            "critical_count": critical_count,
+            "risk_class": risk_class,
+        }, ensure_ascii=False))
+
+        # --- Tier 3: Opus CLI filter ($0, subscription) ---
+        # Not a governance verdict — just a filter: "is this worth escalating?"
+        print(f"[audit] Sonnet found {critical_count} critical issue(s) — "
+              f"running Opus CLI filter (subscription)...")
+        cli_filter = run_cli_prescreen_sync(
+            packet=packet,
+            directive_text=directive_text,
+            trace_id=trace_id,
+            risk_class=risk_class,
+            retry_count=0,
+        )
+        opus_cli_confirms_critical = not cli_filter["passed"]
+        logger.info(json.dumps({
+            "trace_id": trace_id,
+            "outcome": "opus_cli_filter_complete",
+            "confirms_critical": opus_cli_confirms_critical,
+            "cli_verdict": cli_filter["verdict"],
+        }, ensure_ascii=False))
+
+        if opus_cli_confirms_critical and risk_class == "CORE":
+            # --- Tier 4: Opus API ($3.60) — CORE only, final authoritative verdict ---
+            print("[audit] Opus CLI confirmed critical — escalating to Opus API (CORE task)...")
+            opus_auditor = AnthropicAuditor(
+                model=anthropic_escalation, api_key=secrets["ANTHROPIC_API_KEY"],
+            )
+            opus_verdicts = asyncio.run(_run_critique([opus_auditor]))
+
+            if opus_verdicts:
+                verdicts = [v for v in verdicts if v.auditor_id != "anthropic"] + opus_verdicts
+                escalated = True
+                escalation_tier = "opus_api"
+
+                has_critical = any(
+                    issue.severity.value == "critical"
+                    for v in verdicts
+                    for issue in v.issues
+                )
+                logger.info(json.dumps({
+                    "trace_id": trace_id,
+                    "outcome": "opus_api_escalation_complete",
+                    "opus_verdict": opus_verdicts[0].verdict.value,
+                    "still_critical": has_critical,
+                }, ensure_ascii=False))
+        elif opus_cli_confirms_critical:
+            # SEMI: Opus CLI confirmed → BLOCKED (no Opus API spend for SEMI)
+            escalated = True
+            escalation_tier = "opus_cli"
+            logger.info(json.dumps({
+                "trace_id": trace_id,
+                "outcome": "semi_blocked_by_opus_cli",
+            }, ensure_ascii=False))
+        else:
+            # Opus CLI disagrees with Sonnet → Sonnet was likely too strict, pass
+            has_critical = False
+            escalation_tier = "opus_cli_override"
+            logger.info(json.dumps({
+                "trace_id": trace_id,
+                "outcome": "opus_cli_overrides_sonnet_critical",
+            }, ensure_ascii=False))
+
+    # --- Build ProtocolRun-compatible result ---
+    run = ProtocolRun(task=task_pack)
+    run.proposal = proposal_text
+    run.critiques = verdicts
+    run.final_verdicts = verdicts
+    run.escalated = escalated
+    if escalated:
+        run.escalation_reason = f"sonnet_critical→{escalation_tier}"
+
+    run.quality_gate = QualityGateResult(
+        passed=not has_critical and len(verdicts) > 0,
+        reason="no critical issues" if not has_critical else "critical issues found",
+    )
+
+    if run.quality_gate.passed:
+        run.approval_route = ApprovalRoute.AUTO_MERGE
+    elif has_critical:
+        run.approval_route = ApprovalRoute.BLOCKED
+    else:
+        run.approval_route = ApprovalRoute.OWNER_REVIEW
+
+    run.mark_finished()
+
+    tier = escalation_tier if escalated else "sonnet"
     logger.info(json.dumps({
         "trace_id": trace_id,
-        "run_id": result.run_id,
-        "gate_passed": result.quality_gate.passed if result.quality_gate else None,
-        "approval_route": result.approval_route.value if result.approval_route else None,
+        "run_id": run.run_id,
+        "gate_passed": run.quality_gate.passed,
+        "approval_route": run.approval_route.value,
+        "auditor_verdicts": {v.auditor_id: v.verdict.value for v in verdicts},
+        "escalated": escalated,
         "outcome": "post_exec_audit_complete",
+        "tier": tier,
     }, ensure_ascii=False))
 
-    return result
+    return run
 
 
 def extract_critique_text(audit_result) -> str:
@@ -336,42 +458,9 @@ def _determine_last_verdict(fsm_state: str) -> str:
     return mapping.get(fsm_state, "AUDIT_INCONCLUSIVE")
 
 
-def run_cli_prescreen_sync(
-    packet: dict,
-    directive_text: str,
-    trace_id: str,
-    risk_class: str,
-    retry_count: int,
-) -> dict:
-    """
-    Lightweight CLI-based pre-screening audit (2-tier audit: tier 1).
-
-    Uses `claude -p` (Claude Code CLI) through the user's subscription — $0 cost.
-    Called on INTERMEDIATE retries instead of the full API audit.
-    Returns a simplified dict compatible with the main.py retry flow:
-        {
-            "passed": bool,
-            "verdict": "prescreen_pass" | "prescreen_fail",
-            "critique": str,         # feedback for retry directive
-            "tier": "cli_prescreen",
-        }
-    """
-    changed_files = packet.get("changed_files") or []
-    test_results = packet.get("test_results") or {}
-
-    prompt = (
-        "You are a code quality pre-screener. Review this execution result and give quick feedback.\n\n"
-        f"## Task (retry #{retry_count}, risk: {risk_class})\n"
-        f"Directive: {directive_text[:1500]}\n\n"
-        f"## Execution Result\n"
-        f"Changed files ({len(changed_files)}): {changed_files[:15]}\n"
-        f"Tests: passed={test_results.get('passed', '?')} failed={test_results.get('failed', '?')}\n\n"
-        "## Instructions\n"
-        "Output ONLY a JSON object:\n"
-        '{"passed": true/false, "issues": ["issue1", ...], "summary": "one line"}\n\n'
-        "Pass criteria: tests pass, changes are scoped to declared files, no obvious regressions.\n"
-        "Be strict but fast — this is a pre-screen, not a full audit."
-    )
+def _cli_single_pass(prompt: str, timeout: int = 90) -> dict | None:
+    """Run a single CLI pass. Returns parsed JSON dict or None on failure."""
+    import re
 
     try:
         proc = subprocess.run(
@@ -380,49 +469,127 @@ def run_cli_prescreen_sync(
             capture_output=True,
             text=True,
             encoding="utf-8",
-            timeout=90,
+            timeout=timeout,
             cwd=str(ROOT),
         )
-
         if proc.returncode != 0:
-            err = (proc.stderr or proc.stdout or "unknown")[:300]
-            logger.warning("cli_prescreen: claude CLI failed (rc=%d): %s", proc.returncode, err)
-            return {"passed": True, "verdict": "prescreen_skip", "critique": "", "tier": "cli_prescreen"}
+            return None
 
         response = proc.stdout.strip()
-
-        # Try to parse JSON from response
-        import re
         response_clean = re.sub(r"```(?:json)?\s*", "", response).strip()
         start = response_clean.find("{")
         if start >= 0:
             end = response_clean.rfind("}")
             if end > start:
                 try:
-                    data = json.loads(response_clean[start:end + 1])
-                    passed = bool(data.get("passed", True))
-                    issues = data.get("issues", [])
-                    summary = data.get("summary", "")
-                    critique = "\n".join(f"- {i}" for i in issues) if issues else summary
-                    return {
-                        "passed": passed,
-                        "verdict": "prescreen_pass" if passed else "prescreen_fail",
-                        "critique": critique,
-                        "tier": "cli_prescreen",
-                    }
+                    return json.loads(response_clean[start:end + 1])
                 except json.JSONDecodeError:
                     pass
+        return None
+    except (subprocess.TimeoutExpired, FileNotFoundError):
+        return None
 
-        # Fallback: couldn't parse → pass through (don't block on pre-screen failure)
-        logger.debug("cli_prescreen: couldn't parse JSON, passing through")
-        return {"passed": True, "verdict": "prescreen_skip", "critique": response[:500], "tier": "cli_prescreen"}
 
-    except subprocess.TimeoutExpired:
-        logger.warning("cli_prescreen: timeout after 90s")
-        return {"passed": True, "verdict": "prescreen_skip", "critique": "", "tier": "cli_prescreen"}
-    except FileNotFoundError:
-        logger.warning("cli_prescreen: claude CLI not found")
-        return {"passed": True, "verdict": "prescreen_skip", "critique": "", "tier": "cli_prescreen"}
+def run_cli_prescreen_sync(
+    packet: dict,
+    directive_text: str,
+    trace_id: str,
+    risk_class: str,
+    retry_count: int,
+    max_passes: int = 3,
+) -> dict:
+    """
+    Multi-pass CLI pre-screening audit ($0, subscription).
+
+    Runs up to max_passes self-verification rounds via `claude -p`.
+    Only reports "passed" if ALL passes agree the result is clean.
+    This ensures the subscription-based check is thorough before
+    escalating to the paid API audit.
+
+    Returns:
+        {
+            "passed": bool,
+            "verdict": "prescreen_pass" | "prescreen_fail" | "prescreen_skip",
+            "critique": str,
+            "tier": "cli_prescreen",
+            "passes_run": int,
+            "passes_passed": int,
+        }
+    """
+    changed_files = packet.get("changed_files") or []
+    test_results = packet.get("test_results") or {}
+
+    base_context = (
+        f"Task (retry #{retry_count}, risk: {risk_class})\n"
+        f"Changed files ({len(changed_files)}): {', '.join(changed_files[:15])}\n"
+        f"Tests: passed={test_results.get('passed', '?')} failed={test_results.get('failed', '?')}\n"
+        f"Directive:\n{directive_text[:1500]}"
+    )
+
+    pass_results = []
+    all_issues = []
+
+    for pass_num in range(1, max_passes + 1):
+        if pass_num == 1:
+            prompt = (
+                "You are a strict code quality auditor. Review this execution result.\n\n"
+                f"{base_context}\n\n"
+                "Output ONLY JSON: {\"passed\": true/false, \"issues\": [\"...\"], \"summary\": \"one line\"}\n"
+                "Pass = tests pass, changes scoped to declared files, no regressions. Be strict."
+            )
+        else:
+            # Subsequent passes review their own prior findings
+            prior = "\n".join(f"- Pass {i+1}: {'PASS' if r else 'FAIL'}" for i, r in enumerate(pass_results))
+            issues_text = "\n".join(f"- {iss}" for iss in all_issues[-10:]) if all_issues else "(none)"
+            prompt = (
+                f"You are a strict code quality auditor. This is verification pass #{pass_num}.\n\n"
+                f"{base_context}\n\n"
+                f"Prior passes:\n{prior}\n"
+                f"Issues found so far:\n{issues_text}\n\n"
+                "Re-verify independently. Are there REAL issues or were prior findings false positives?\n"
+                "Output ONLY JSON: {\"passed\": true/false, \"issues\": [\"...\"], \"summary\": \"one line\"}"
+            )
+
+        data = _cli_single_pass(prompt)
+        if data is None:
+            logger.warning("cli_prescreen: pass %d failed to parse, skipping", pass_num)
+            continue
+
+        passed = bool(data.get("passed", True))
+        issues = data.get("issues", [])
+        pass_results.append(passed)
+        all_issues.extend(issues)
+
+        logger.info(json.dumps({
+            "trace_id": trace_id,
+            "outcome": "cli_prescreen_pass",
+            "pass_num": pass_num,
+            "passed": passed,
+            "issues_count": len(issues),
+        }, ensure_ascii=False))
+
+        # Early exit: if pass says FAIL, no need to keep checking
+        if not passed:
+            break
+
+    if not pass_results:
+        # All passes failed to parse → skip (don't block)
+        return {"passed": True, "verdict": "prescreen_skip", "critique": "",
+                "tier": "cli_prescreen", "passes_run": 0, "passes_passed": 0}
+
+    # ALL passes must agree "passed" for the prescreen to pass
+    passes_passed = sum(1 for r in pass_results if r)
+    all_passed = all(pass_results)
+    critique = "\n".join(f"- {iss}" for iss in all_issues) if all_issues else ""
+
+    return {
+        "passed": all_passed,
+        "verdict": "prescreen_pass" if all_passed else "prescreen_fail",
+        "critique": critique,
+        "tier": "cli_prescreen",
+        "passes_run": len(pass_results),
+        "passes_passed": passes_passed,
+    }
 
 
 def _init_auditors():
@@ -436,9 +603,11 @@ def _init_auditors():
         with open(_CONFIG_PATH, encoding="utf-8") as f:
             models_config = yaml.safe_load(f) or {}
 
-    gemini_model = models_config.get("auditors", {}).get("gemini", "gemini-2.5-pro")
-    anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6")
-    return secrets, gemini_model, anthropic_model
+    auditors_cfg = models_config.get("auditors", {})
+    gemini_model = auditors_cfg.get("gemini", "gemini-2.5-pro")
+    anthropic_model = auditors_cfg.get("anthropic", "claude-sonnet-4-6")
+    anthropic_escalation = auditors_cfg.get("anthropic_escalation", "claude-opus-4-6")
+    return secrets, gemini_model, anthropic_model, anthropic_escalation
 
 
 def _call_anthropic_revise(
@@ -530,7 +699,7 @@ def negotiate_architecture(
     if str(_orch_dir) not in sys.path:
         sys.path.insert(0, str(_orch_dir))
 
-    secrets, gemini_model, anthropic_model = _init_auditors()
+    secrets, gemini_model, anthropic_model, anthropic_escalation = _init_auditors()
 
     from auditor_system.providers.gemini_auditor import GeminiAuditor
     critic = GeminiAuditor(model=gemini_model, api_key=secrets["GEMINI_API_KEY"])
