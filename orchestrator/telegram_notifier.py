@@ -32,6 +32,9 @@ logger = logging.getLogger(__name__)
 # Injectable for tests — replaces HTTP send
 _send_fn: Optional[object] = None
 
+# Dedup: remember last sent message to avoid spamming owner with repeats
+_last_sent_hash: Optional[str] = None
+
 
 def _load_config() -> tuple[str | None, str | None]:
     """Load (token, chat_id) from .env.telegram. Returns (None, None) if missing."""
@@ -87,8 +90,15 @@ def notify_park(
     """Notify owner when orchestrator parks a task.
 
     Translates technical state to plain Russian, sends to Telegram.
+    Deduplicates: same (state, reason, task) won't be sent twice in a row.
     Returns True if message was sent successfully.
     """
+    global _last_sent_hash
+    import hashlib
+    dedup_key = hashlib.md5(f"{fsm_state}|{park_reason}|{task_id}".encode()).hexdigest()
+    if dedup_key == _last_sent_hash:
+        logger.debug("telegram_notifier: dedup skip (same park state)")
+        return True  # already sent
     try:
         from decision_translator import translate_park
         msg = translate_park(fsm_state, park_reason, task_id)
@@ -97,7 +107,10 @@ def notify_park(
         task_info = f"\nЗадача: {task_id}" if task_id else ""
         msg = f"Задача поставлена на паузу.{task_info}\n\nПричина: {park_reason[:200]}"
 
-    return send(msg)
+    ok = send(msg)
+    if ok:
+        _last_sent_hash = dedup_key
+    return ok
 
 
 def notify_decision(
