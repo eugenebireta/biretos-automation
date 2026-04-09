@@ -356,7 +356,7 @@ async def _handle_owner_reply(update: Update, text: str) -> bool:
     m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     state = m.get("fsm_state", "")
 
-    if state not in ("awaiting_owner_reply", "error"):
+    if state not in ("awaiting_owner_reply", "error", "blocked", "blocked_by_consensus"):
         return False
 
     lower = text.lower().strip()

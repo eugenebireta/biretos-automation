@@ -350,6 +350,15 @@ class TestCoreGateBlock:
         run_dir = tmp_path / "runs" / "test"
         run_dir.mkdir(parents=True, exist_ok=True)
 
+        negotiate_result = {
+            "converged": False,
+            "proposal": "test proposal",
+            "iterations": 3,
+            "history": [{"attempt": 1, "verdict": "reject", "concerns": ["test"]}],
+            "final_verdict": "reject",
+            "auditor_verdicts": {"gemini": "reject"},
+        }
+
         patches = _patch_paths(main, paths)
         patches += [
             patch.object(main, "_run_intake", return_value=bundle),
@@ -361,16 +370,14 @@ class TestCoreGateBlock:
             }),
             patch.object(main, "_ensure_run_dir", return_value=run_dir),
             patch("core_gate_bridge.decision_to_task_pack", return_value=MagicMock()),
-            patch("core_gate_bridge.run_audit_sync", return_value=audit_result),
-            patch("core_gate_bridge._determine_fsm_state", return_value="blocked"),
-            patch("core_gate_bridge._determine_last_verdict", return_value="AUDIT_BLOCKED"),
+            patch("core_gate_bridge.negotiate_architecture", return_value=negotiate_result),
         ]
 
         with _apply_patches(patches):
             main._cmd_cycle_inner(Namespace(), manifest)
 
-        assert manifest["fsm_state"] == "blocked"
-        assert manifest["last_verdict"] == "AUDIT_BLOCKED"
+        assert manifest["fsm_state"] == "blocked_by_consensus"
+        assert manifest["last_verdict"] == "BLOCKED_BY_CONSENSUS"
 
         output = capsys.readouterr().out
         assert "CORE RISK" in output

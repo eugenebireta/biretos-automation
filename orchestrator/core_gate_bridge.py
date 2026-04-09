@@ -141,18 +141,7 @@ def run_scope_review_sync(task_pack, scope_text: str = ""):
     if str(_orch_dir) not in sys.path:
         sys.path.insert(0, str(_orch_dir))
 
-    from auditor_system.runner_factory import _load_secrets_safe, _CONFIG_PATH
-    import yaml
-
-    secrets = _load_secrets_safe()
-
-    models_config = {}
-    if _CONFIG_PATH.exists():
-        with open(_CONFIG_PATH, encoding="utf-8") as f:
-            models_config = yaml.safe_load(f) or {}
-
-    gemini_model = models_config.get("auditors", {}).get("gemini", "gemini-2.5-pro")
-    anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6")
+    secrets, gemini_model, anthropic_model = _init_auditors()
 
     from auditor_system.providers.gemini_auditor import GeminiAuditor
     from auditor_system.providers.anthropic_auditor import AnthropicAuditor
@@ -344,6 +333,232 @@ def _determine_last_verdict(fsm_state: str) -> str:
         "needs_owner_review": "AUDIT_INCONCLUSIVE",
     }
     return mapping.get(fsm_state, "AUDIT_INCONCLUSIVE")
+
+
+def _init_auditors():
+    """Load API keys and create auditor instances (shared by multiple functions)."""
+    import yaml
+    from auditor_system.runner_factory import _load_secrets_safe, _CONFIG_PATH
+
+    secrets = _load_secrets_safe()
+    models_config = {}
+    if _CONFIG_PATH.exists():
+        with open(_CONFIG_PATH, encoding="utf-8") as f:
+            models_config = yaml.safe_load(f) or {}
+
+    gemini_model = models_config.get("auditors", {}).get("gemini", "gemini-2.5-pro")
+    anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6")
+    return secrets, gemini_model, anthropic_model
+
+
+def _call_anthropic_revise(
+    api_key: str,
+    model: str,
+    original_proposal: str,
+    critique_text: str,
+    task_context: str,
+) -> str:
+    """Call Anthropic API to revise a proposal based on critique.
+
+    This is NOT using the auditor role — it's using Claude as an architect
+    to produce a revised proposal text. Returns the revised proposal markdown.
+    """
+    try:
+        import anthropic
+    except ImportError:
+        logger.warning("anthropic package not installed, returning original proposal")
+        return original_proposal
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    system_prompt = (
+        "You are an architecture reviewer revising a proposal based on critique feedback.\n"
+        "Your job: take the original proposal and the critic's structured feedback,\n"
+        "then produce an IMPROVED version of the proposal that addresses all critical\n"
+        "and warning-level issues raised by the critic.\n\n"
+        "Rules:\n"
+        "1. Output ONLY the revised proposal in Markdown format.\n"
+        "2. Do NOT argue with the critic — address their concerns.\n"
+        "3. If a concern is about missing information, add it.\n"
+        "4. If a concern is about risk, add mitigation steps.\n"
+        "5. Keep the same structure as the original proposal.\n"
+        "6. Mark what changed with [REVISED] tags so the critic can see updates.\n"
+    )
+
+    user_msg = (
+        f"## Task Context\n{task_context}\n\n"
+        f"## Original Proposal\n{original_proposal}\n\n"
+        f"## Critic Feedback (address ALL issues below)\n{critique_text}\n\n"
+        "Now produce the revised proposal:"
+    )
+
+    response = client.messages.create(
+        model=model,
+        max_tokens=2048,
+        temperature=0.3,
+        system=system_prompt,
+        messages=[{"role": "user", "content": user_msg}],
+    )
+
+    return response.content[0].text if response.content else original_proposal
+
+
+def negotiate_architecture(
+    task_pack,
+    initial_proposal: str,
+    task_context: str = "",
+    max_attempts: int = 3,
+) -> dict:
+    """
+    Pre-execution architectural convergence loop (Phase 2: Dual Consensus).
+
+    Runs a negotiate loop between Architect (Anthropic/Claude) and Critic (Gemini):
+      1. Critic reviews proposal (scope, risk, architecture — NOT code)
+      2. If approved → converged
+      3. If reject/concerns with critical issues → Architect revises
+      4. Repeat up to max_attempts
+      5. If no convergence → BLOCKED_BY_CONSENSUS
+
+    Args:
+        task_pack: TaskPack instance
+        initial_proposal: The architectural proposal text to review
+        task_context: Additional context for the architect revision
+        max_attempts: Maximum number of critique→revise iterations
+
+    Returns:
+        {
+            "converged": bool,
+            "proposal": str,           # final (possibly revised) proposal
+            "iterations": int,          # how many rounds ran
+            "history": list[dict],      # per-round {attempt, verdict, concerns, revised}
+            "final_verdict": str,       # "approve" | "concerns" | "reject"
+            "auditor_verdicts": dict,   # last round's verdicts
+        }
+    """
+    import sys
+    _orch_dir = Path(__file__).resolve().parent
+    if str(_orch_dir) not in sys.path:
+        sys.path.insert(0, str(_orch_dir))
+
+    secrets, gemini_model, anthropic_model = _init_auditors()
+
+    from auditor_system.providers.gemini_auditor import GeminiAuditor
+    critic = GeminiAuditor(model=gemini_model, api_key=secrets["GEMINI_API_KEY"])
+
+    proposal = initial_proposal
+    history = []
+    converged = False
+    last_verdicts = {}
+
+    for attempt in range(max_attempts):
+        logger.info(json.dumps({
+            "trace_id": getattr(task_pack, "title", "?"),
+            "outcome": "negotiate_round_start",
+            "attempt": attempt + 1,
+            "max_attempts": max_attempts,
+        }, ensure_ascii=False))
+
+        # --- Step 1: Critic reviews proposal ---
+        try:
+            verdict = asyncio.run(
+                critic.critique(proposal, task_pack, context={})
+            )
+        except Exception as exc:
+            logger.error("negotiate_architecture: critic failed on attempt %d: %s",
+                         attempt + 1, exc)
+            history.append({
+                "attempt": attempt + 1,
+                "verdict": "error",
+                "error": str(exc),
+                "revised": False,
+            })
+            continue
+
+        last_verdicts = {critic.auditor_id: verdict.verdict.value}
+
+        # Extract structured concerns
+        concerns = []
+        has_critical = False
+        for issue in verdict.issues:
+            if issue.severity.value == "critical":
+                has_critical = True
+            concerns.append(
+                f"[{issue.severity.value}] {issue.area}: {issue.description}"
+            )
+
+        round_info = {
+            "attempt": attempt + 1,
+            "verdict": verdict.verdict.value,
+            "summary": verdict.summary,
+            "concerns": concerns,
+            "critical_count": verdict.critical_count,
+            "warning_count": verdict.warning_count,
+            "revised": False,
+        }
+
+        # --- Step 2: Check if converged ---
+        if verdict.verdict.value == "approve" or (
+            verdict.verdict.value == "concerns" and not has_critical
+        ):
+            # Proposal Consensus: approve or concerns-without-critical = converged
+            round_info["revised"] = False
+            history.append(round_info)
+            converged = True
+            logger.info(json.dumps({
+                "trace_id": getattr(task_pack, "title", "?"),
+                "outcome": "negotiate_converged",
+                "attempt": attempt + 1,
+                "verdict": verdict.verdict.value,
+            }, ensure_ascii=False))
+            break
+
+        # --- Step 3: Critic rejected — Architect revises ---
+        critique_text = f"Verdict: {verdict.verdict.value}\nSummary: {verdict.summary}\n\n"
+        critique_text += "Issues:\n"
+        for c in concerns:
+            critique_text += f"  - {c}\n"
+
+        try:
+            revised = _call_anthropic_revise(
+                api_key=secrets["ANTHROPIC_API_KEY"],
+                model=anthropic_model,
+                original_proposal=proposal,
+                critique_text=critique_text,
+                task_context=task_context,
+            )
+            proposal = revised
+            round_info["revised"] = True
+        except Exception as exc:
+            logger.error("negotiate_architecture: architect revision failed: %s", exc)
+            round_info["revision_error"] = str(exc)
+
+        history.append(round_info)
+
+        logger.info(json.dumps({
+            "trace_id": getattr(task_pack, "title", "?"),
+            "outcome": "negotiate_round_complete",
+            "attempt": attempt + 1,
+            "verdict": verdict.verdict.value,
+            "revised": round_info["revised"],
+            "concerns_count": len(concerns),
+        }, ensure_ascii=False))
+
+    if not converged:
+        logger.warning(json.dumps({
+            "trace_id": getattr(task_pack, "title", "?"),
+            "outcome": "negotiate_blocked_by_consensus",
+            "iterations": len(history),
+            "max_attempts": max_attempts,
+        }, ensure_ascii=False))
+
+    return {
+        "converged": converged,
+        "proposal": proposal,
+        "iterations": len(history),
+        "history": history,
+        "final_verdict": history[-1]["verdict"] if history else "no_rounds",
+        "auditor_verdicts": last_verdicts,
+    }
 
 
 if __name__ == "__main__":

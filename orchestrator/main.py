@@ -144,6 +144,9 @@ FSM_TRANSITIONS: dict[tuple[str, str], str] = {
     ("audit_in_progress",     "cycle_start"):        "audit_in_progress",
     ("blocked",               "owner_replied"):      "ready",
     ("blocked",               "cycle_start"):        "blocked",
+    # Phase 2: blocked_by_consensus — needs owner override
+    ("blocked_by_consensus",  "owner_replied"):      "ready",
+    ("blocked_by_consensus",  "cycle_start"):        "blocked_by_consensus",
 }
 
 
@@ -290,6 +293,11 @@ def cmd_cycle(args: argparse.Namespace) -> None:
 
         if state == "blocked":
             print("[orchestrator] Blocked by auditor. Owner review required.")
+            return
+
+        if state == "blocked_by_consensus":
+            print("[orchestrator] Blocked: Critic and Architect could not converge.")
+            print("[orchestrator] Use 'approve' to override, or resolve and set fsm_state=ready.")
             return
 
         if state == "audit_in_progress":
@@ -505,68 +513,128 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
           f"scope={len(synth.approved_scope)} rules={synth.rule_trace}")
 
     if synth.action == "CORE_GATE":
-        # Automated dual-audit via CORE_GATE bridge (infra/acceleration-bootstrap Task 5)
+        # Phase 2: Pre-exec architectural convergence loop (Dual Consensus)
+        # Critic (Gemini) reviews proposal, Architect (Anthropic) revises.
+        # No code review here — code doesn't exist yet.
         manifest["fsm_state"] = "audit_in_progress"
         save_manifest(manifest)
-        append_run({"ts": _now(), "event": "core_risk_gate_started",
+        append_run({"ts": _now(), "event": "core_negotiate_started",
                     "status": "audit_in_progress",
                     "rule_trace": synth.rule_trace, "rationale": synth.rationale,
                     "trace_id": trace_id})
         print()
         print("=" * 60)
-        print("CORE RISK — launching automated auditor_system review...")
+        print("CORE RISK -- architectural convergence (negotiate_architecture)")
         print(f"Rationale: {synth.rationale}")
         print("=" * 60)
 
         try:
             import core_gate_bridge as _cgb
             task_pack = _cgb.decision_to_task_pack(synth, manifest)
-            audit_result = _cgb.run_audit_sync(task_pack)
 
-            new_state  = _cgb._determine_fsm_state(audit_result)
-            new_verdict = _cgb._determine_last_verdict(new_state)
-
-            # Persist compact audit summary
-            audit_summary = {
-                "run_id":         audit_result.run_id,
-                "ts":             _now(),
-                "fsm_state":      new_state,
-                "verdict":        new_verdict,
-                "gate_passed":    audit_result.quality_gate.passed if audit_result.quality_gate else None,
-                "approval_route": audit_result.approval_route.value if audit_result.approval_route else None,
-                "escalated":      audit_result.escalated,
-                "trace_id":       trace_id,
-            }
-            LAST_AUDIT_RESULT_PATH = ORCH_DIR / "last_audit_result.json"
-            LAST_AUDIT_RESULT_PATH.write_text(
-                json.dumps(audit_summary, indent=2, ensure_ascii=False), encoding="utf-8"
+            # Build proposal from advisor verdict + synth context
+            initial_proposal = (
+                f"## Architectural Proposal: {manifest.get('current_task_id', 'unknown')}\n\n"
+                f"**Sprint Goal:** {manifest.get('current_sprint_goal', '')}\n"
+                f"**Risk:** {synth.final_risk}\n"
+                f"**Rationale:** {synth.rationale}\n\n"
+                f"### Scope ({len(synth.approved_scope)} files)\n"
+            )
+            for f in synth.approved_scope[:20]:
+                initial_proposal += f"- {f}\n"
+            initial_proposal += (
+                f"\n### Advisor Guidance\n"
+                f"- Next step: {verdict.next_step}\n"
+                f"- Governance route: {verdict.governance_route}\n"
+                f"- Risk assessment: {verdict.risk_assessment}\n"
             )
 
-            manifest["fsm_state"]        = new_state
-            manifest["last_verdict"]     = new_verdict
-            manifest["last_audit_result"] = audit_summary
-            save_manifest(manifest)
-            append_run({"ts": _now(), "event": "core_risk_gate_complete",
-                        "status": new_verdict.lower() if new_verdict else "unknown",
-                        "new_state": new_state, "verdict": new_verdict,
-                        "trace_id": trace_id})
+            task_context = (
+                f"Task: {manifest.get('current_task_id', 'unknown')}\n"
+                f"Sprint: {manifest.get('current_sprint_goal', '')}\n"
+                f"Risk class: {synth.final_risk}\n"
+            )
 
-            print(f"[orchestrator] Audit complete: state={new_state} verdict={new_verdict}")
-            if new_state == "audit_passed":
-                print("[orchestrator] Audit PASSED — ready to proceed to builder.")
-            elif new_state == "blocked":
-                print("[orchestrator] Audit FAILED — task blocked. See last_audit_result.json")
+            negotiate_result = _cgb.negotiate_architecture(
+                task_pack=task_pack,
+                initial_proposal=initial_proposal,
+                task_context=task_context,
+                max_attempts=int(cfg.get("negotiate_max_attempts", 3)),
+            )
+
+            # Persist negotiation result
+            negotiate_summary = {
+                "ts":              _now(),
+                "converged":       negotiate_result["converged"],
+                "iterations":      negotiate_result["iterations"],
+                "final_verdict":   negotiate_result["final_verdict"],
+                "auditor_verdicts": negotiate_result["auditor_verdicts"],
+                "trace_id":        trace_id,
+            }
+            (ORCH_DIR / "last_audit_result.json").write_text(
+                json.dumps(negotiate_summary, indent=2, ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            if negotiate_result["converged"]:
+                manifest["fsm_state"] = "audit_passed"
+                manifest["last_verdict"] = "AUDIT_PASSED"
+                manifest["last_audit_result"] = negotiate_summary
+                manifest["_negotiate_result"] = {
+                    "converged": True,
+                    "iterations": negotiate_result["iterations"],
+                    "final_verdict": negotiate_result["final_verdict"],
+                }
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "core_negotiate_converged",
+                            "status": "audit_passed",
+                            "iterations": negotiate_result["iterations"],
+                            "trace_id": trace_id})
+                print(f"[orchestrator] Convergence achieved in "
+                      f"{negotiate_result['iterations']} iteration(s)")
+                print("[orchestrator] Audit PASSED -- ready to proceed to builder.")
+
+                # Save the approved proposal to run dir for executor reference
+                approved_proposal_path = run_dir / "approved_proposal.md"
+                approved_proposal_path.write_text(
+                    negotiate_result["proposal"], encoding="utf-8"
+                )
             else:
-                print("[orchestrator] Audit INCONCLUSIVE — owner review required.")
+                # No convergence — BLOCKED_BY_CONSENSUS
+                manifest["fsm_state"] = "blocked_by_consensus"
+                manifest["last_verdict"] = "BLOCKED_BY_CONSENSUS"
+                manifest["last_audit_result"] = negotiate_summary
+                manifest["_negotiate_result"] = {
+                    "converged": False,
+                    "iterations": negotiate_result["iterations"],
+                    "final_verdict": negotiate_result["final_verdict"],
+                    "history": negotiate_result["history"][-1] if negotiate_result["history"] else {},
+                }
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "core_negotiate_blocked",
+                            "status": "blocked_by_consensus",
+                            "iterations": negotiate_result["iterations"],
+                            "final_verdict": negotiate_result["final_verdict"],
+                            "trace_id": trace_id})
+                print(f"[orchestrator] BLOCKED BY CONSENSUS after "
+                      f"{negotiate_result['iterations']} iteration(s)")
+                print("[orchestrator] Critic and Architect could not converge.")
+                print("[orchestrator] Owner review required. Use 'approve' to override.")
+
+                # Save negotiation history for owner review
+                history_path = run_dir / "negotiate_history.json"
+                history_path.write_text(
+                    json.dumps(negotiate_result["history"], indent=2, ensure_ascii=False),
+                    encoding="utf-8",
+                )
 
         except Exception as _audit_exc:
-            # ConfigError (missing .env.auditors) or any other failure
             _err_class = type(_audit_exc).__name__
-            print(f"[orchestrator] AUDIT BLOCKED: {_err_class}: {_audit_exc}")
-            manifest["fsm_state"]    = "blocked"
+            print(f"[orchestrator] NEGOTIATE BLOCKED: {_err_class}: {_audit_exc}")
+            manifest["fsm_state"] = "blocked"
             manifest["last_verdict"] = "AUDIT_FAILED"
             save_manifest(manifest)
-            append_run({"ts": _now(), "event": "core_risk_gate_error",
+            append_run({"ts": _now(), "event": "core_negotiate_error",
                         "status": "audit_error",
                         "error": str(_audit_exc), "error_class": _err_class,
                         "trace_id": trace_id})
@@ -1646,7 +1714,7 @@ def cmd_approve(args: argparse.Namespace) -> None:
     """Owner approves a blocked/needs_owner_review task → back to ready."""
     manifest = load_manifest()
     state = manifest.get("fsm_state", "ready")
-    allowed = ("blocked", "needs_owner_review", "awaiting_owner_reply", "error")
+    allowed = ("blocked", "blocked_by_consensus", "needs_owner_review", "awaiting_owner_reply", "error")
     if state not in allowed:
         print(f"[orchestrator] Cannot approve: fsm_state={state} (must be one of {allowed})")
         return

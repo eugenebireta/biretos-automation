@@ -20,7 +20,8 @@
       "enum": [
         "ready", "processing", "awaiting_execution", "awaiting_owner_reply",
         "completed", "error",
-        "audit_in_progress", "audit_passed", "blocked", "needs_owner_review"
+        "audit_in_progress", "audit_passed", "blocked", "needs_owner_review",
+        "blocked_by_consensus"
       ]
     },
     "current_sprint_goal": { "type": "string" },
@@ -38,7 +39,8 @@
         "RUN_SPEC_GOVERNANCE", "ESCALATE_TO_OWNER",
         "ESCALATE", "BLOCKED", "RETRY_SCHEDULED",
         "AUDIT_PASSED", "AUDIT_FAILED", "AUDIT_INCONCLUSIVE",
-        "BATCH_GATE_FAILED",
+        "BATCH_GATE_FAILED", "BLOCKED_BY_CONSENSUS", "POST_AUDIT_FAILED",
+        "SCOPE_APPROVED", "SCOPE_REJECTED",
         null
       ]
     },
@@ -62,6 +64,10 @@
     "_semi_audit_critique": {
       "type": ["string", "null"],
       "description": "P0.5: critique text from SEMI pre-execution audit"
+    },
+    "_negotiate_result": {
+      "type": ["object", "null"],
+      "description": "Phase 2: result of negotiate_architecture convergence loop"
     }
   }
 }
