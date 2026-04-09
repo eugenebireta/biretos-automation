@@ -1,0 +1,82 @@
+I am building a professional industrial equipment catalog in Russian language.
+For each part number below, your MAIN task is to create a detailed technical
+article about the product. Finding prices is secondary -- understanding the
+product deeply is primary.
+
+## Your workflow for EACH part number
+
+1. **IDENTIFY**: What exactly is this product? What series/family? What manufacturer?
+2. **UNDERSTAND**: How does it work? What problem does it solve? What systems does it integrate with?
+3. **DESCRIBE**: Write a rich technical description in Russian (see format below)
+4. **DOCUMENT**: Find datasheet PDFs, photos, specifications
+5. **PRICE**: Find current market price if available (any currency)
+
+## Brand context (use this to guide your search)
+
+These products come from the Honeywell ecosystem of brands:
+- **Honeywell Micro Switch** -- Professional toggle switches and accessories (sealing boots, guards, levers). PN format: 5-6 digits (101411, 109411). These are switch protection accessories (IP67/IP68 boots), NOT lockout/tagout devices. Search: mouser.com, digikey.com, newark.com, ebay.com
+- **Honeywell Building Tech** -- HVAC valves (V5xxx), actuators (ML6xxx), thermostats (T7xxx). Search: carrier.com, radwell.com, indiamart.com, prolinkpro.ru
+- **Honeywell Thermal Solutions** -- Flame detectors, UV sensors, burner controls. Search: customer.honeywell.com, combustion911.com
+- **Honeywell Safety** -- PPE, gas detectors (BW), ear protection (Howard Leight). Search: grainger.com, amazon.com, rsgroup.com
+
+Russian price sources (HIGH PRIORITY): vseinstrumenti.ru, lemanapro.ru, etm.ru, bionic.spb.ru
+
+## Part Numbers
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 101411 | Honeywell Micro Switch accessory |
+| 2 | 104011 | Honeywell Micro Switch accessory |
+| 3 | 109411 | Honeywell Micro Switch accessory |
+| 4 | 125711 | Honeywell Micro Switch accessory |
+| 5 | 127411 | Honeywell Micro Switch accessory |
+| 6 | 129464N/U | Honeywell flame detector component |
+| 7 | 153711 | Honeywell HVAC valve |
+| 8 | 1000106 | Honeywell safety PPE |
+
+## Output -- TWO sections
+
+### SECTION 1: Narrative technical review (REQUIRED)
+
+Write a single cohesive technical article in Russian covering all 8 products.
+Group products by category/family. For each product, write 100-250 words explaining:
+- What it is, what series/family it belongs to
+- Physical principle of operation or key function
+- Main technical specifications with real numbers
+- Where and how it is used (types of facilities, systems, applications)
+- What makes this specific model/modification special
+- Compatibility with other components
+
+Write as a technical editor for a professional industrial catalog.
+Use natural Russian, NOT literal translation from English.
+Include specific numbers: dimensions, ratings, temperature ranges, standards.
+
+Example of good product description:
+"Системы контроля пламени: Мониторинг процессов горения. Артикул 129464N/U — это ультрафиолетовая (УФ) чувствительная трубка, предназначенная для работы в составе детекторов пламени серий C7035 и C7061. Физический принцип работы данного компонента основан на способности газа внутри трубки ионизироваться под воздействием УФ-излучения, возникающего в процессе горения топлива..."
+
+### SECTION 2: Structured data tables
+
+**Table 1 -- Product data (ALL 8 rows)**
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+- **Description (Russian, 3-5 sentences)**: concise version of the narrative above. 3-5 sentences.
+- Every input PN MUST have a row, even if price is "Not found"
+- NEVER invent prices
+
+**Table 2 -- Sources visited (ALL 8 PNs)**
+
+| Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
+|---|---|---|---|---|---|---|
+
+List 2-4 real URLs per PN. Even for "not found" items, show where you searched.
+
+## Rules
+
+- Description quality is MORE important than finding prices
+- Any currency accepted (EUR, USD, GBP, RUB, CHF)
+- Russian prices are high priority
+- Surplus/eBay photos are acceptable
+- If exact PN not found, search without suffix (.10, -RU, -L3, /U)
+- If product has an alias (different PN), mention it and search that too
