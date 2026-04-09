@@ -230,7 +230,12 @@ def _revert_to_base(base_commit: str | None, trace_id: str) -> bool:
             print(f"[orchestrator] B10: git reset failed: {reset.stderr}", file=sys.stderr)
             return False
 
-        # Discard all staged/unstaged changes
+        # Unstage all staged changes (including new files added by executor).
+        # git reset --soft leaves new executor files staged; restore --staged
+        # moves them back to untracked so git clean can remove them.
+        _sp.run(["git", "restore", "--staged", "."], capture_output=True,
+                text=True, cwd=str(ROOT))
+        # Discard unstaged modifications to tracked files
         _sp.run(["git", "checkout", "--", "."], capture_output=True,
                 text=True, cwd=str(ROOT))
         # Clean untracked files created by executor (exclude orchestrator/runs/)

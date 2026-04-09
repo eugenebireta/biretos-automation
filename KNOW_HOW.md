@@ -18,3 +18,5 @@ Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
 2026-04-09 #bug export_pipeline: 5 DR fields (price, currency, title_ru, description_ru, image_url) were not exported. Fix: added all 5 columns.
 2026-04-09 #bug price_extraction: PN 00020211 fails 37x with RuntimeError, provider=openai model=claude-haiku-4-5 parse_success=false. Needs investigation.
 2026-04-09 #rule orchestrator: manifest.json itself triggers A4:SCOPE drift because orchestrator writes to it during execution. Known false positive.
+2026-04-09 #rule orchestrator: auto_pytest was FALSE until 2026-04-09 (commit 36eca4e). All executor commits before this date were NOT auto-tested. G4/A3 gates were bypassed.
+2026-04-09 #bug orchestrator: B10 revert gap -- git reset --soft left staged new files on disk. Fix: add git restore --staged before checkout+clean. Verified: staged executor files gone after fix, HEAD restored, status clean.

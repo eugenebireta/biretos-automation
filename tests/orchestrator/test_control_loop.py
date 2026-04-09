@@ -184,6 +184,53 @@ class TestControlLoopDrift:
         assert saved_runs[0]["drift_detected"] is True
 
 
+class TestB10RevertStagedFiles:
+    """B10 fix: staged new files from executor must be removed after revert.
+
+    Before fix: git reset --soft left new files staged; git checkout/clean
+    did not remove them. Fix adds git restore --staged before clean.
+    Verified manually 2026-04-09: after fix, staged executor files are gone
+    after _revert_to_base (HEAD restored, files off disk, git status clean).
+    """
+
+    def test_revert_early_return_when_head_equals_base(self, tmp_path):
+        """_revert_to_base returns True immediately when HEAD == base_commit."""
+        import subprocess
+        import main
+
+        base = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], text=True, cwd=str(
+                Path(__file__).resolve().parent.parent.parent
+            )
+        ).strip()
+        # When base == HEAD, nothing to revert — should return True without error
+        result = main._revert_to_base(base, "test-early-return")
+        assert result is True
+
+    def test_revert_sequence_includes_restore_staged(self, tmp_path):
+        """_revert_to_base source must call git restore --staged before git clean.
+
+        This is the B10 fix: restore --staged unstages executor new files so
+        git clean can remove them from disk.
+        """
+        from pathlib import Path as _Path
+        src_path = _Path(__file__).resolve().parent.parent.parent / "orchestrator" / "main.py"
+        source = src_path.read_text(encoding="utf-8")
+        func_start = source.index("def _revert_to_base(")
+        func_end = source.index("\ndef ", func_start + 1)
+        func_src = source[func_start:func_end]
+
+        assert '"git", "restore"' in func_src and '"--staged"' in func_src, (
+            "B10 fix missing: _revert_to_base must call 'git restore --staged' "
+            "to unstage new executor files before git clean removes them"
+        )
+        restore_pos = func_src.index('"git", "restore"')
+        clean_pos = func_src.index('"git", "clean"')
+        assert restore_pos < clean_pos, (
+            "git restore --staged must appear before git clean in _revert_to_base"
+        )
+
+
 class TestControlLoopExecutorFailed:
     """Test when executor itself fails."""
 
