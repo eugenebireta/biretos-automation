@@ -597,83 +597,83 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                     "task_id": manifest.get("current_task_id")})
         # Fall through to directive building (same as audit_passed)
     elif synth.action == "SEMI_AUDIT":
+        # Pre-exec = scope/risk review ONLY (no code exists yet, no MockBuilder)
         manifest["fsm_state"] = "audit_in_progress"
         save_manifest(manifest)
-        append_run({"ts": _now(), "event": "semi_risk_audit_started",
+        append_run({"ts": _now(), "event": "semi_scope_review_started",
                     "status": "audit_in_progress",
-                    "rule_trace": synth.rule_trace, "rationale": synth.rationale,
+                    "rule_trace": synth.rule_trace,
                     "trace_id": trace_id})
         print()
         print("=" * 60)
-        print("SEMI RISK — launching pre-execution auditor review...")
-        print(f"Rationale: {synth.rationale}")
+        print("SEMI RISK -- scope/risk review (no code yet, code review is post-exec)")
+        print(f"Scope: {synth.approved_scope}")
         print("=" * 60)
 
         try:
             import core_gate_bridge as _cgb
             task_pack = _cgb.decision_to_task_pack(synth, manifest)
-            proposal_text = (
-                f"## SEMI Risk Pre-Execution Review\n\n"
+            scope_text = (
+                f"## Scope/Risk Review (pre-execution)\n\n"
                 f"Task: {manifest.get('current_task_id', 'unknown')}\n"
                 f"Sprint Goal: {manifest.get('current_sprint_goal', '')}\n"
                 f"Scope ({len(synth.approved_scope)} files): {synth.approved_scope[:20]}\n"
-                f"Rationale: {synth.rationale}\n"
-                f"Rule trace: {synth.rule_trace}\n"
+                f"Risk: {synth.final_risk}\n"
+                f"Rule trace: {synth.rule_trace}\n\n"
+                f"**Question: Is this scope safe? Are any Tier-1/Tier-2 files at risk?**\n"
+                f"**Do NOT review code — code does not exist yet. Only review scope and risk.**\n"
             )
-            audit_result = _cgb.run_audit_sync(task_pack, proposal_text=proposal_text)
-            new_state = _cgb._determine_fsm_state(audit_result)
-            new_verdict = _cgb._determine_last_verdict(new_state)
-            _semi_audit_critique = _cgb.extract_critique_text(audit_result)
+            scope_result = _cgb.run_scope_review_sync(task_pack, scope_text=scope_text)
 
             audit_summary = {
-                "run_id": audit_result.run_id,
                 "ts": _now(),
-                "fsm_state": new_state,
-                "verdict": new_verdict,
-                "gate_passed": audit_result.quality_gate.passed if audit_result.quality_gate else None,
-                "approval_route": audit_result.approval_route.value if audit_result.approval_route else None,
-                "escalated": audit_result.escalated,
+                "fsm_state": "audit_passed" if scope_result["passed"] else "blocked",
+                "verdict": "SCOPE_APPROVED" if scope_result["passed"] else "SCOPE_REJECTED",
+                "concerns": scope_result["concerns"][:10],
+                "auditor_verdicts": scope_result["auditor_verdicts"],
                 "trace_id": trace_id,
-                "audit_type": "semi_pre_execution",
+                "audit_type": "semi_scope_review",
             }
-            LAST_AUDIT_RESULT_PATH = ORCH_DIR / "last_audit_result.json"
-            LAST_AUDIT_RESULT_PATH.write_text(
+            (ORCH_DIR / "last_audit_result.json").write_text(
                 json.dumps(audit_summary, indent=2, ensure_ascii=False), encoding="utf-8"
             )
             manifest["last_audit_result"] = audit_summary
 
-            if new_state == "audit_passed":
-                # Audit passed → continue to directive building (fall through below)
-                manifest["_semi_audit_critique"] = _semi_audit_critique
+            if scope_result["passed"]:
                 save_manifest(manifest)
-                append_run({"ts": _now(), "event": "semi_risk_audit_passed",
-                            "status": "audit_passed", "trace_id": trace_id})
-                print(f"[orchestrator] SEMI audit PASSED — building directive.")
+                append_run({"ts": _now(), "event": "semi_scope_review_passed",
+                            "status": "scope_approved",
+                            "auditor_verdicts": scope_result["auditor_verdicts"],
+                            "trace_id": trace_id})
+                print(f"[orchestrator] Scope review PASSED: {scope_result['auditor_verdicts']}")
+                if scope_result["concerns"]:
+                    print(f"[orchestrator] Concerns (non-blocking):")
+                    for c in scope_result["concerns"][:5]:
+                        print(f"  - {c[:120]}")
+                # Fall through to directive building
             else:
-                manifest["fsm_state"] = new_state
-                manifest["last_verdict"] = new_verdict
+                manifest["fsm_state"] = "blocked"
+                manifest["last_verdict"] = "SCOPE_REJECTED"
                 save_manifest(manifest)
-                append_run({"ts": _now(), "event": "semi_risk_audit_complete",
-                            "status": new_verdict.lower(), "new_state": new_state,
-                            "verdict": new_verdict, "trace_id": trace_id})
-                print(f"[orchestrator] SEMI audit: state={new_state} verdict={new_verdict}")
-                if new_state == "blocked":
-                    print("[orchestrator] Audit FAILED — task blocked. See last_audit_result.json")
-                else:
-                    print("[orchestrator] Audit INCONCLUSIVE — owner review required.")
+                append_run({"ts": _now(), "event": "semi_scope_review_rejected",
+                            "status": "scope_rejected",
+                            "concerns": scope_result["concerns"][:5],
+                            "trace_id": trace_id})
+                print("[orchestrator] Scope review REJECTED (critical issues in scope):")
+                for c in scope_result["concerns"][:5]:
+                    print(f"  - {c[:120]}")
+                print("[orchestrator] Resolve scope issues or use 'approve' to override.")
                 return
 
         except Exception as _audit_exc:
             _err_class = type(_audit_exc).__name__
-            print(f"[orchestrator] SEMI AUDIT BLOCKED: {_err_class}: {_audit_exc}")
-            manifest["fsm_state"] = "blocked"
-            manifest["last_verdict"] = "AUDIT_FAILED"
-            save_manifest(manifest)
-            append_run({"ts": _now(), "event": "semi_risk_audit_error",
-                        "status": "audit_error",
+            print(f"[orchestrator] Scope review ERROR: {_err_class}: {_audit_exc}")
+            # Scope review failure is not blocking — proceed with warning
+            append_run({"ts": _now(), "event": "semi_scope_review_error",
+                        "status": "scope_review_error",
                         "error": str(_audit_exc), "error_class": _err_class,
                         "trace_id": trace_id})
-            return
+            print("[orchestrator] Proceeding without scope review (post-exec audit is mandatory).")
         # If we reach here: SEMI audit passed, fall through to directive building
 
     if synth.action in ("ESCALATE", "BLOCKED", "NO_OP"):
@@ -1126,9 +1126,47 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     except Exception:
                         pass
                 except Exception as exc:
+                    # Post-audit is MANDATORY for SEMI/CORE — retry once, then block
                     print(f"[orchestrator] Post-exec audit ERROR: {exc}")
-                    print("[orchestrator] Continuing without audit result.")
-                    audit_verdict = None
+                    _post_audit_retried = False
+                    try:
+                        print("[orchestrator] Retrying post-exec audit (1/1)...")
+                        audit_result = run_post_execution_audit_sync(
+                            packet=packet,
+                            directive_text=directive_text,
+                            trace_id=trace_id,
+                            risk_class=risk_class,
+                            manifest=manifest,
+                        )
+                        audit_verdict = _determine_fsm_state(audit_result)
+                        audit_critique_text = extract_critique_text(audit_result)
+                        critique_history = _append_critique_history(
+                            run_dir, retry_count, audit_result, audit_critique_text
+                        )
+                        manifest["last_audit_result"] = {
+                            "run_id": audit_result.run_id,
+                            "gate_passed": audit_result.quality_gate.passed
+                            if audit_result.quality_gate else None,
+                            "verdict": audit_verdict,
+                            "critique_rounds": len(critique_history),
+                        }
+                        print(f"[orchestrator] Post-exec audit retry OK: verdict={audit_verdict}")
+                        _post_audit_retried = True
+                    except Exception as retry_exc:
+                        print(f"[orchestrator] Post-exec audit retry FAILED: {retry_exc}")
+
+                    if not _post_audit_retried:
+                        # Both attempts failed — block, do NOT continue without audit
+                        manifest["fsm_state"] = "blocked"
+                        manifest["last_verdict"] = "POST_AUDIT_FAILED"
+                        save_manifest(manifest)
+                        append_run({"ts": _now(), "event": "post_audit_mandatory_block",
+                                    "status": "blocked",
+                                    "error": str(exc),
+                                    "trace_id": trace_id})
+                        print("[orchestrator] BLOCKED: post-exec audit mandatory for "
+                              f"{risk_class} but failed twice. Owner review required.")
+                        return
 
             # --- P3.1: CONSENSUS CHECK ---
             min_approvals = int(cfg.get("critique_min_approvals", 2))

@@ -125,6 +125,88 @@ def run_audit_sync(task_pack, proposal_text: str = ""):
     return result
 
 
+def run_scope_review_sync(task_pack, scope_text: str = ""):
+    """
+    Lightweight pre-execution scope/risk review.
+
+    Unlike run_audit_sync (full 2-round protocol with MockBuilder),
+    this runs a SINGLE round of critique on the scope/risk proposal.
+    No builder revision, no second round — just: "is this scope safe?"
+
+    Returns a simplified result dict (not full ProtocolRun):
+        {passed: bool, concerns: list[str], auditor_verdicts: dict}
+    """
+    import sys
+    _orch_dir = Path(__file__).resolve().parent
+    if str(_orch_dir) not in sys.path:
+        sys.path.insert(0, str(_orch_dir))
+
+    from auditor_system.runner_factory import _load_secrets_safe, _CONFIG_PATH
+    import yaml
+
+    secrets = _load_secrets_safe()
+
+    models_config = {}
+    if _CONFIG_PATH.exists():
+        with open(_CONFIG_PATH, encoding="utf-8") as f:
+            models_config = yaml.safe_load(f) or {}
+
+    gemini_model = models_config.get("auditors", {}).get("gemini", "gemini-2.5-pro")
+    anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6")
+
+    from auditor_system.providers.gemini_auditor import GeminiAuditor
+    from auditor_system.providers.anthropic_auditor import AnthropicAuditor
+
+    auditors = [
+        GeminiAuditor(model=gemini_model, api_key=secrets["GEMINI_API_KEY"]),
+        AnthropicAuditor(model=anthropic_model, api_key=secrets["ANTHROPIC_API_KEY"]),
+    ]
+
+    # Single critique round — no builder, no revision
+    async def _run():
+        verdicts = []
+        for auditor in auditors:
+            try:
+                verdict = await auditor.critique(task_pack, scope_text)
+                verdicts.append(verdict)
+            except Exception as exc:
+                logger.warning("scope_review: auditor %s failed: %s",
+                               auditor.auditor_id, exc)
+        return verdicts
+
+    verdicts = asyncio.run(_run())
+
+    # Simple pass logic: no critical issues = pass
+    concerns = []
+    has_critical = False
+    auditor_verdicts = {}
+    for v in verdicts:
+        auditor_verdicts[v.auditor_id] = v.verdict.value
+        for issue in v.issues:
+            if issue.severity.value == "critical":
+                has_critical = True
+            concerns.append(f"[{v.auditor_id}/{issue.severity.value}] {issue.description}")
+
+    passed = not has_critical and len(verdicts) > 0
+
+    logger.info(
+        json.dumps({
+            "trace_id": getattr(task_pack, "title", "?"),
+            "outcome": "scope_review_complete",
+            "passed": passed,
+            "auditor_count": len(verdicts),
+            "concern_count": len(concerns),
+        }, ensure_ascii=False)
+    )
+
+    return {
+        "passed": passed,
+        "concerns": concerns,
+        "auditor_verdicts": auditor_verdicts,
+        "verdict_count": len(verdicts),
+    }
+
+
 def run_post_execution_audit_sync(
     packet: dict,
     directive_text: str,

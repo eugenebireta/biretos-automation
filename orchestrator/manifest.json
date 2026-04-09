@@ -1,17 +1,29 @@
 {
   "schema_version": "v1",
   "fsm_state": "ready",
-  "current_sprint_goal": "(waiting for next task from queue)",
-  "current_task_id": "IDLE",
-  "trace_id": "orch_20260408T202825Z_48ecb0",
-  "attempt_count": 0,
+  "current_sprint_goal": "Create .github/scripts/apply_branch_protection.sh that uses gh api to set branch protection on master: require PR reviews, require CI status check (pytest), block direct push. Then add a CI job in .github/workflows/ci.yml that runs the script on workflow_dispatch. Target files: .github/scripts/apply_branch_protection.sh, .github/workflows/ci.yml",
+  "current_task_id": "STAGE-2.2-BRANCH-PROTECTION",
+  "trace_id": "orch_20260409T103100Z_9b9afb",
+  "attempt_count": 1,
   "last_verdict": null,
-  "last_directive_hash": "e82c1ed53300",
+  "last_directive_hash": "b6f42bde8ad9",
   "pending_packet_id": null,
   "deadline_at": null,
   "default_option_id": null,
-  "updated_at": "2026-04-09T00:22:35.997785+00:00",
-  "last_audit_result": null,
-  "_last_risk_class": "LOW",
-  "retry_count": 0
+  "updated_at": "2026-04-09T10:34:42.828833+00:00",
+  "last_audit_result": {
+    "run_id": "run_12d0aafbab7c",
+    "ts": "2026-04-09T10:32:42.769020+00:00",
+    "fsm_state": "audit_passed",
+    "verdict": "AUDIT_PASSED",
+    "gate_passed": true,
+    "approval_route": "batch_approval",
+    "escalated": true,
+    "trace_id": "orch_20260409T103100Z_9b9afb",
+    "audit_type": "semi_pre_execution"
+  },
+  "_last_risk_class": "SEMI",
+  "retry_count": 0,
+  "_run_dir": "D:\\BIRETOS\\projects\\biretos-automation\\orchestrator\\runs\\orch_20260409T103100Z_9b9afb",
+  "_semi_audit_critique": "[gemini] The proposal describes the intended changes but omits the actual code implementation for the script and workflow. Furthermore, it fails to address the elevated token permissions required to modify branch protection rules via the GitHub API.\n  - [IssueSeverity.WARNING] The proposal lacks the actual bash script and YAML code, making it impossible to audit the exact 'gh api' payload, error handling, or workflow syntax.\n  - [IssueSeverity.WARNING] Setting branch protection requires 'administration: write' permissions. The proposal does not specify how the GITHUB_TOKEN will be scoped in ci.yml to allow these changes, which will cause the API call to fail by default.\n[anthropic] The proposal describes intent but contains no actual code to audit. The described scope (.github/scripts/apply_branch_protection.sh and .github/workflows/ci.yml) is appropriate and touches no prohibited surfaces, but without seeing the concrete implementation I cannot verify correctness, safety, or completeness.\n  - [IssueSeverity.WARNING] No actual file contents or diffs were provided in the proposal. I cannot verify that the shell script properly handles errors (set -euo pipefail), avoids logging secrets (e.g., GITHUB_TOKEN), or that the CI workflow correctly scopes permissions. Resubmit with full file contents for both .github/scripts/apply_branch_protection.sh and .github/workflows/ci.yml.\n  - [IssueSeverity.WARNING] The script will need a GitHub token with admin permissions to set branch protection. Ensure the workflow uses a scoped secret (not GITHUB_TOKEN if it lacks admin rights) and that the token is never echoed or logged. Cannot verify without code.\n  - [IssueSeverity.INFO] No policy violations detected in the declared scope. Neither file touches reconciliation tables, domain modules, revenue tables, or any frozen surfaces. The mutation surface is CI/DevOps infrastructure only.\n  - [IssueSeverity.INFO] When the implementation is provided, verify: (1) the shell script uses 'set -euo pipefail', (2) the gh api call uses PUT /repos/{owner}/{repo}/branches/{branch}/protection with correct JSON payload, (3) workflow_dispatch trigger has appropriate access controls, (4) the CI job specifies minimal permissions (e.g., contents: read, administration: write).\n[gemini final] AuditVerdictValue.CONCERNS: The conceptual proposal aligns with the task requirements, but the actual code payload is missing from the submission. Additionally, updating branch protection via GitHub Actions requires a privileged token, as the default GITHUB_TOKEN lacks repository administration permissions.\n[anthropic final] AuditVerdictValue.CONCERNS: No actual code diff or file contents were provided in the 'REVISED_PROPOSAL' section — only a one-line placeholder stating 'Mock revision: addressed 2 critique(s) from auditors.' Without concrete file contents for .github/scripts/apply_branch_protection.sh and .github/workflows/ci.yml, it is impossible to verify correctness, safety, or policy compliance."
 }
