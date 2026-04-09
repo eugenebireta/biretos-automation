@@ -30,6 +30,12 @@ All scripts support `--dry-run` — use it first.
 
 See `memory/reference_operations_map.md` for the full task→script mapping.
 
+## KNOW-HOW PROTOCOL (mandatory)
+
+Before work: read `KNOW_HOW.md` for platform quirks, data rules, known bugs.
+After work: if you discovered a platform behavior, data rule, or bug, append one line to `KNOW_HOW.md`.
+Format: `YYYY-MM-DD #tag scope: fact`. Don't duplicate `scripts/MANIFEST.json`.
+
 ## VERIFICATION REMINDER
 
 Before changing code, define the verification path first.
