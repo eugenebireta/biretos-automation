@@ -1,0 +1,49 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 210213 | PEHA electrical accessory |
+| 2 | 311513 | PEHA electrical accessory |
+| 3 | 604411 | PEHA electrical accessory |
+| 4 | 816713 | PEHA electrical accessory |
+| 5 | 902591 | PEHA electrical accessory |
+| 6 | 1012541 | hearing protection (PPE) |
+| 7 | 304L | earplugs (PPE) |
+| 8 | FUSE-2A-5X20-RU | fuse |
+| 9 | FUSE-6.3A-5X20 | fuse |
+| 10 | D-71570 | fuse |
+| 11 | 13960 | power supply |
+| 12 | F750E-S0 | power supply unit |
+| 13 | KCD2090XI | monitor |
+| 14 | LCD | monitor |
+| 15 | P2210F | monitor |
+| 16 | P2212HB | monitor |
+| 17 | P2213T | monitor |
+| 18 | P2421D | monitor |
+| 19 | U2410F | monitor |
+| 20 | U2412M | monitor |
+
+## Search instructions
+
+- **PEHA by Honeywell** -- German electrical installation (frames, switches, sockets, inserts). Suffix `.10`=white, `.20`=cream. Search: ebay.de, conrad.de, voelkner.de, electropara.ru
+- **Honeywell Safety / Howard Leight** -- PPE: ear plugs, harnesses, gas detectors. Search: grainger.com, amazon.com, rsgroup.com
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

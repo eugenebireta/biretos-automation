@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | MB3480 | Honeywell Шлюз |
+| 2 | 2SM-3.0-SCU-SCU-1 | Honeywell Шнур |
+| 3 | 2SM-3.0-SCU-SCU-15 | Honeywell Шнур |
+| 4 | CAB-010-SC-SM | adapter |
+| 5 | 280870645 | cable |
+| 6 | CABLE-0.22-8T | cable |
+| 7 | SC-SCDUPLEX9/125-1 | cable |
+| 8 | SC-SCDUPLEX9/125-2 | cable |
+| 9 | SC-SCDUPLEX9/125-5 | cable |
+| 10 | SCDUPLEX9/125-10 | cable |
+| 11 | SCDUPLEX9/125-15 | cable |
+| 12 | 3240248 | channel module |
+| 13 | 3240605 | channel module |
+| 14 | EDA61K-HB-2 | charger |
+| 15 | SK8115 | docking station |
+| 16 | P600 | graphics card |
+| 17 | 7508001857 | module |
+| 18 | 7508001858 | module |
+| 19 | 7508002114 | module |
+| 20 | PANC300-03 | panel |
+
+## Search instructions
+
+- Various Honeywell sub-brands. Search: eBay, Radwell, IndiaMART, Conrad.de, specialist suppliers
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

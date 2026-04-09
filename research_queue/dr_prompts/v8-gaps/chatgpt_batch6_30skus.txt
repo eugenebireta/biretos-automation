@@ -1,0 +1,83 @@
+You are a Senior Procurement Intelligence Analyst specializing in Gray Market and Industrial Surplus sourcing for Honeywell ecosystem parts. Your job is to find real, purchasable prices that normal search engines miss.
+
+## Context
+
+These 30 part numbers are from Honeywell sub-brands: Esser (fire safety), PEHA (electrical switches), Morley-IAS (fire detection), Honeywell Building Technologies (HVAC), and others. Many are European market items.
+
+## Key search tricks for these specific parts
+
+- PEHA: German electrical accessories (frames, switches, sockets). Search "PEHA {code}" on ebay.de, conrad.de, voelkner.de, elektroversand.de
+- Codes with dots like 010130.10 are PEHA — the suffix .10/.20 is a color variant, search without it too
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | 3240197 | channel module | Кабельный канал 3240197 | 1808.90 |
+| 2 | 3240199 | channel module | Кабельный канал 3240199 | 3159.72 |
+| 3 | 3240348 | channel module | Кабельный канал 3240348 | 3818.36 |
+| 4 | 3240357 | channel module | Кабельный канал 3240357 | 4618.21 |
+| 5 | 805590 | charging base | База извещателя стандартная 805590 | 810.28 |
+| 6 | 033588.17 [also: 33588.17, 033588-17, 03358817] | connector | Шарнирное соединение для настенного монтажа | 3025.82 |
+| 7 | PIP-003 [also: PIP.003, PIP003] | connector | Союзное соединение ASD SOCKET UNION 25MM PK10 PIP-003 | 3083.85 |
+| 8 | LUX | converter | Конвертер LUX | 0.00 |
+| 9 | 42511 | device | Устройство Honeywell D 20.677.192-Z | 1134.90 |
+| 10 | 57511 | device | Устройство Honeywell D 20.677.702-Z | 1367.10 |
+| 11 | PW5K1ENC3E | enclosure | Корпус удаленного монтажа PW-5000 TILE MOUNT REMOTE ENCLOSURE EU V | 33409.70 |
+| 12 | BWC4-Y-R [also: BWC4.Y.R, BWC4YR] | gas detector | Газоанализатор Honeywell BWC4 - O2, LEL, H2S, CO, Yellow, RU | 97560.26 |
+| 13 | P400-RU [also: P400.RU, P400RU] | graphics card | Видеокарта NVIDIA Quadro P400-RU | 12231.00 |
+| 14 | 129625-L3 [also: 129625.L3, 129625L3] | kit | Набор для подключения Honeywell GasAlert Series IR 129625-L3 | 55352.00 |
+| 15 | IMC-101-S-SC [also: IMC.101.S.SC, IMC101SSC] | media converter | Промышленный медиаконвертер IMC-101-S-SC | 41122.33 |
+| 16 | A133230-00 [also: A133230.00, A13323000] | module | Коммуникационный модуль Honeywell STRAALH.COMMMK2, BISON., STAND. | 23011.39 |
+| 17 | T7560A1000 | module | Цифровой настенный модуль Honeywell T7560A1000 | 12996.83 |
+| 18 | TPPR-V-1030 [also: TPPR.V.1030, TPPRV1030] | module | Модуль цифрового ввода Honeywell TPPR-V-1030 | 142340.50 |
+| 19 | CATALIST | network switch | Свитч Honeywell CATALIST | 0.00 |
+| 20 | 788013.40.RU [also: 788013-40-RU, 78801340RU] | panel | Панель управления пожаротушением Exting. control panel 8010, RU | 169951.00 |
+| 21 | RIC-F-LCU24-01C [also: RIC.F.LCU24.01C, RICFLCU2401C] | panel | Панель Quick-Pack RIC-F-LCU24-01C | 15363.43 |
+| 22 | CF274A | printer | Принтер Honeywell CF274A | 6164.00 |
+| 23 | PHASER | printer | Принтер PHASER | 0.00 |
+| 24 | DTI6 | sensor | Датчик давления Honeywell DTI6 | 7096.00 |
+| 25 | T7460A1018 | sensor | Комнатный датчик PT1000 Honeywell T7460A1018 | 8086.28 |
+| 26 | MZ-PCWS84 [also: MZ.PCWS84, MZPCWS84] | workstation | Рабочая станция HP Z4 G4 RAID1 TOWER | 43032.00 |
+| 27 | 106511 | PEHA AURA socket | Датчик температуры D 20.6511.02 OKS | 452.50 |
+| 28 | 773211 | PEHA DIALOG frame | Датчик D 95.572.70.60 | 1484.09 |
+| 29 | 00020211 [also: 0020211, 020211, 20211] | PEHA NOVA frame | Датчик температуры D 20.672.022 T | 0.00 |
+| 30 | 162211 | PEHA AURA frame | Термостатический вентиль Honeywell D 20.572.150.21 | 3654.40 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "valve actuator"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler to know where to look for each type of product.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

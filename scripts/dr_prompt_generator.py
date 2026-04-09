@@ -181,8 +181,17 @@ def group_by_family(skus: list) -> dict:
     return dict(families)
 
 
-def load_uncovered_skus() -> list:
-    """Load evidence files and return SKUs without DR data."""
+def load_uncovered_skus(gap_mode: str = None) -> list:
+    """Load evidence files and return SKUs needing DR data.
+
+    Args:
+        gap_mode: None = truly uncovered (no DR at all).
+                  "no_image" = has DR but missing dr_image_url.
+                  "no_price" = has DR but missing dr_price.
+                  "no_title" = has DR but missing deep_research.title_ru.
+                  "no_desc"  = has DR but missing deep_research.description_ru.
+                  "weak"     = any of the above gaps.
+    """
     files = glob.glob(os.path.join(EVIDENCE_DIR, "evidence_*.json"))
     uncovered = []
 
@@ -198,9 +207,33 @@ def load_uncovered_skus() -> list:
         if not pn:
             continue
 
-        has_dr = bool(data.get("deep_research_chatgpt") or data.get("deep_research_gemini"))
-        if has_dr:
-            continue
+        # Check actual DR data fields (fixed: was checking wrong keys)
+        dr = data.get("deep_research", {})
+        has_dr = bool(dr or data.get("dr_price") or data.get("dr_image_url") or data.get("dr_category"))
+
+        if gap_mode is None:
+            # Original mode: only truly uncovered SKUs
+            if has_dr:
+                continue
+        else:
+            # Gap mode: find SKUs WITH DR but missing specific fields
+            if not has_dr:
+                continue  # Skip truly uncovered — they need full DR, not gap fill
+            has_image = bool(data.get("dr_image_url"))
+            has_price = bool(data.get("dr_price"))
+            has_title = bool(dr.get("title_ru"))
+            has_desc = bool(dr.get("description_ru"))
+
+            if gap_mode == "no_image" and has_image:
+                continue
+            elif gap_mode == "no_price" and has_price:
+                continue
+            elif gap_mode == "no_title" and has_title:
+                continue
+            elif gap_mode == "no_desc" and has_desc:
+                continue
+            elif gap_mode == "weak" and has_image and has_price and has_title and has_desc:
+                continue
 
         title = data.get("assembled_title", "")
         seed_name = data.get("content", {}).get("seed_name", "") or data.get("name", "")
@@ -561,11 +594,14 @@ def main():
     parser.add_argument("--version", default="v3", help="Prompt version (default: v3)")
     parser.add_argument("--force", action="store_true", help="Overwrite existing prompts")
     parser.add_argument("--dry-run", action="store_true", help="Show what would be generated")
+    parser.add_argument("--gaps", choices=["no_image", "no_price", "no_title", "no_desc", "weak"],
+                        default=None, help="Target specific quality gaps instead of uncovered SKUs")
     args = parser.parse_args()
 
-    print(f"Loading uncovered SKUs from {EVIDENCE_DIR}...")
-    skus = load_uncovered_skus()
-    print(f"Found {len(skus)} uncovered SKUs")
+    gap_label = f" (gap: {args.gaps})" if args.gaps else ""
+    print(f"Loading SKUs from {EVIDENCE_DIR}{gap_label}...")
+    skus = load_uncovered_skus(gap_mode=args.gaps)
+    print(f"Found {len(skus)} SKUs needing DR{gap_label}")
 
     if not skus:
         print("No uncovered SKUs found. Nothing to generate.")

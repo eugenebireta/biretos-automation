@@ -1,0 +1,91 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- Some are **Esser** fire safety components (detectors, transponders, PA speakers). Search on brandmelde-shop.de, tinko.ru, nseautomation.com.
+- Some are **Honeywell HVAC** valves and actuators. Search on industrial suppliers, Radwell, IndiaMART.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different Honeywell sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | PCD2.A200 [also: PCD2-A200, PCD2A200] | Saia-Burgess PLC module | Модуль цифрового вывода PCD2.A200 | 127600.00 |
+| 2 | PCD3.M3360 [also: PCD3-M3360, PCD3M3360] | Saia-Burgess PLC module | Процессорный блок PCD3.M3360 | 140268.00 |
+| 3 | PCD3.W340 [also: PCD3-W340, PCD3W340] | Saia-Burgess PLC module | Универсальный аналоговый входной модуль PCD3.W340 | 35477.00 |
+| 4 | PCD7.L500 [also: PCD7-L500, PCD7L500] | Saia-Burgess PLC module | Блок питания PCD7.L500 | 17600.00 |
+| 5 | FX808338 | Trend BMS module | Дополнительный корпус FlexES FX808338 | 11552.38 |
+| 6 | FX808430.18R [also: FX808430-18R, FX80843018R] | Trend BMS module | Тяжелый ящик FX808430.18R | 189150.71 |
+| 7 | FX808439 | Trend BMS module | Сервисный ящик, 1 HU FX808439 | 6244.57 |
+| 8 | LEONARDO-OT [also: LEONARDO.OT, LEONARDOOT] | fire detector | Дымо-тепловой извещатель Leonardo-OT | 1056.00 |
+| 9 | MCP-PRO-M [also: MCP.PRO.M, MCPPROM] | fire detector | Ручной извещатель MCP-PRO-M | 607.20 |
+| 10 | PROFI-O [also: PROFI.O, PROFIO] | fire detector | Дымовой извещатель PROFI-O | 2187.68 |
+| 11 | 580249.11 [also: 580249-11, 58024911] | Esser PA amplifier | Усилитель Honeywell 580249.11, 4XD500, Версия 1.1 | 376592.44 |
+| 12 | 808606 | Esser transponder | Транспондер пожарный Esserbus IQ8FCT XS 808606 | 6981.92 |
+| 13 | 808610.10 [also: 808610-10, 80861010] | Esser transponder | Транспондер Esserbus 12 реле 808610.10 | 23371.04 |
+| 14 | 808621 | Esser transponder | Транспондер шины IQ8FCT LP 808621 | 12605.12 |
+| 15 | 581263 | PA speaker/horn | Потолочный громкоговоритель Honeywell 581263, 6 Вт | 1324.29 |
+| 16 | 581276 | PA speaker/horn | Настенный громкоговоритель Honeywell 581276, 10 Вт | 12745.04 |
+| 17 | L-VOM40A/EN [also: L.VOM40A/EN, LVOM40A/EN] | PA speaker/horn | Громкоговоритель L-VOM40A/EN | 0.00 |
+| 18 | CSR | detector base | Основание неглубокое красное Honeywell CSR | 1353.15 |
+| 19 | CWR | detector base | Основание глубокое IP65 красное Honeywell CWR | 2034.09 |
+| 20 | 6500-LRK [also: 6500.LRK, 6500LRK] | fire detector | Линейный извещатель ACCESS BEAM CONV/L REFLECTOR 75M-100M | 10517.91 |
+| 21 | BS-420G2 [also: BS.420G2, BS420G2] | fire detector | Пожарный извещатель Autronica BS 420G2 | 117501.00 |
+| 22 | ML6420A3072 | actuator | Электрический линейный привод ML6420A3072 | 105996.60 |
+| 23 | S10010 | actuator | Привод заслонки 10NM 24V S10010 | 8870.00 |
+| 24 | V5016A1101 | valve | Двухходовой клапан Honeywell V5016A1101 | 63165.00 |
+| 25 | VR420VA1004-0000 [also: VR420VA1004.0000, VR420VA10040000] | valve | Комбинированный газовый клапан Honeywell VR420VA1004-0000 | 115744.61 |
+| 26 | VSOF-320-4.0 [also: VSOF-320-4-0, VSOF.320.4.0, VSOF32040] | valve | Трехходовой клапан Honeywell VSOF-320-4.0 | 24588.00 |
+| 27 | HVAC23C5 | HVAC inverter | Инвертор HVAC NXL 11KW/400V/23A/IP54 HVAC23C5 | 265202.00 |
+| 28 | HVAC31C5 | HVAC inverter | Инвертор HVAC NXL 15KW/400V/31A/IP54 HVAC31C5 | 330186.67 |
+| 29 | HVAC46C5 | HVAC inverter | Инвертор NXL HVAC 22KW/400V/46A/IP54 | 448615.00 |
+| 30 | ML6425A3014 | actuator | Привод с возвратной пружиной Honeywell ML6425A3014 | 50917.25 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

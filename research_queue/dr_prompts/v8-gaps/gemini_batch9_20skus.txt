@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | PW5K1ENC3E | enclosure |
+| 2 | BWC4-Y-R | gas detector |
+| 3 | P400-RU | graphics card |
+| 4 | 129625-L3 | kit |
+| 5 | IMC-101-S-SC | media converter |
+| 6 | A133230-00 | module |
+| 7 | T7560A1000 | module |
+| 8 | TPPR-V-1030 | module |
+| 9 | CATALIST | network switch |
+| 10 | 788013.40.RU | panel |
+| 11 | RIC-F-LCU24-01C | panel |
+| 12 | CF274A | printer |
+| 13 | PHASER | printer |
+| 14 | DTI6 | sensor |
+| 15 | T7460A1018 | sensor |
+| 16 | MZ-PCWS84 | workstation |
+| 17 | 106511 | PEHA AURA socket |
+| 18 | 773211 | PEHA DIALOG frame |
+| 19 | 00020211 | PEHA NOVA frame |
+| 20 | 162211 | PEHA AURA frame |
+
+## Search instructions
+
+- **PEHA by Honeywell** -- German electrical installation (frames, switches, sockets, inserts). Suffix `.10`=white, `.20`=cream. Search: ebay.de, conrad.de, voelkner.de, electropara.ru
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

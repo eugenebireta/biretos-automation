@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | V5050A1090 | valve |
+| 2 | V5050A1116 | valve |
+| 3 | V5328A1005 | valve |
+| 4 | V5328A1047 | valve |
+| 5 | V5329A1004 | valve |
+| 6 | V5329A1046 | valve |
+| 7 | V5329A1053 | valve |
+| 8 | V5329C1059 | valve |
+| 9 | V5329C1083 | valve |
+| 10 | V5832A1046 | valve |
+| 11 | VQ440MB1005 | valve |
+| 12 | VQ450MA1015 | valve |
+| 13 | VQ450MB1006 | valve |
+| 14 | VR420AB1002-0000 | valve |
+| 15 | 121679-L3 | Honeywell Аспиратор |
+| 16 | CM010610 | Honeywell Винт |
+| 17 | CM100600-RU | Honeywell Гайка |
+| 18 | KZDS | Honeywell Гильза |
+| 19 | CR-P/M42 | Honeywell Диод |
+| 20 | 600GB-SAS2.5 | Honeywell Жесткий |
+
+## Search instructions
+
+- **Honeywell Building Tech** -- HVAC valves (V5xxx), actuators (ML6xxx, N05xxx), thermostats (T7xxx). Search: carrier.com, radwell.com, indiamart.com, prolinkpro.ru
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

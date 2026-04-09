@@ -1,0 +1,83 @@
+You are a Senior Procurement Intelligence Analyst specializing in Gray Market and Industrial Surplus sourcing for Honeywell ecosystem parts. Your job is to find real, purchasable prices that normal search engines miss.
+
+## Context
+
+These 30 part numbers are from Honeywell sub-brands: Esser (fire safety), PEHA (electrical switches), Morley-IAS (fire detection), Honeywell Building Technologies (HVAC), and others. Many are European market items.
+
+## Key search tricks for these specific parts
+
+- V5xxx/ML6xxx are Honeywell HVAC valves and actuators. Search on industrial suppliers, RadWell, IndiaMART
+- N05xxx/N10xxx/S05xxx/S10xxx are Honeywell valve actuators (Sauter or Honeywell)
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | N0524-SW2 [also: N0524.SW2, N0524SW2] | actuator | Привод заслонки Honeywell N0524-SW2 | 16371.50 |
+| 2 | N34230 | actuator | Привод заслонки Honeywell N34230 | 21412.00 |
+| 3 | S0324-2POS-SW1 [also: S0324.2POS.SW1, S03242POSSW1] | actuator | Привод заслонки S0324-2POS-SW1 | 18182.50 |
+| 4 | S05230-2POS [also: S05230.2POS, S052302POS] | actuator | Привод заслонки S05230-2POS | 12467.00 |
+| 5 | S10010-SW2 [also: S10010.SW2, S10010SW2] | actuator | Привод заслонки 10NM 24V с двумя переключателями S10010-SW2 | 17428.50 |
+| 6 | C7355A1050 | multisensor | Мультисенсор настенный Honeywell C7355A1050 | 182410.00 |
+| 7 | FT6960-60 [also: FT6960.60, FT696060] | thermostat | Термостат защиты от замерзания Honeywell FT6960-60 | 27186.57 |
+| 8 | V5011R1000 | valve | Двухходовой клапан Honeywell V5011R1000 | 14969.00 |
+| 9 | V5013R1099 | valve | Трехходовой клапан Honeywell V5013R1099 | 26083.14 |
+| 10 | V5015A1151 | valve | Трехходовой клапан Honeywell V5015A1151 | 106598.00 |
+| 11 | V5050A1090 | valve | Трехходовой клапан Honeywell V5050A1090 | 193916.92 |
+| 12 | V5050A1116 | valve | Трехходовой клапан Honeywell V5050A1116 | 110387.00 |
+| 13 | V5328A1005 | valve | Двухходовой клапан Honeywell V5328A1005 | 77177.00 |
+| 14 | V5328A1047 | valve | Двухходовой клапан Honeywell V5328A1047 | 77177.00 |
+| 15 | V5329A1004 | valve | Трехходовой клапан Honeywell V5329A1004 | 35041.80 |
+| 16 | V5329A1046 | valve | Трехходовой клапан Honeywell V5329A1046 | 42299.40 |
+| 17 | V5329A1053 | valve | Трехходовой клапан Honeywell V5329A1053 | 53526.00 |
+| 18 | V5329C1059 | valve | Трехходовой клапан Honeywell V5329C1059 | 43659.90 |
+| 19 | V5329C1083 | valve | Трехходовой клапан Honeywell V5329C1083 | 65092.40 |
+| 20 | V5832A1046 | valve | Двухходовой клапан Honeywell V5832A1046 | 8239.95 |
+| 21 | VQ440MB1005 | valve | Комбинированный клапан Honeywell VQ440MB1005 | 30630.80 |
+| 22 | VQ450MA1015 | valve | Комбинированный клапан Honeywell VQ450MA1015 | 66313.00 |
+| 23 | VQ450MB1006 | valve | Комбинированный клапан Honeywell VQ450MB1006 | 64861.87 |
+| 24 | VR420AB1002-0000 [also: VR420AB1002.0000, VR420AB10020000] | valve | Комбинированный газовый клапан Honeywell VR420AB1002-0000 | 109988.00 |
+| 25 | 121679-L3 [also: 121679.L3, 121679L3] | Honeywell Аспиратор | Ручной аспиратор Honeywell 121679-L3 | 17168.64 |
+| 26 | CM010610 | Honeywell Винт | Винт с квадратной головкой Honeywell CM010610 | 4.09 |
+| 27 | CM100600-RU [also: CM100600.RU, CM100600RU] | Honeywell Гайка | Гайка с защитой от раскручивания Honeywell CM100600-RU | 3.60 |
+| 28 | KZDS | Honeywell Гильза | Термоусадочная гильза KZDS | 6.98 |
+| 29 | CR-P/M42 [also: CR.P/M42, CRP/M42] | Honeywell Диод | Защитный диод Honeywell CR-P/M42 | 98.00 |
+| 30 | 600GB-SAS2.5 [also: 600GB-SAS2-5, 600GB.SAS2.5, 600GBSAS25] | Honeywell Жесткий | Жесткий диск Honeywell 600GB-SAS2.5, 600 GB SAS 10K | 27720.00 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "valve actuator"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler to know where to look for each type of product.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

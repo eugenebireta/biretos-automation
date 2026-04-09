@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | PANC300-04 | panel |
+| 2 | CB015A | printer |
+| 3 | COLOR | printer |
+| 4 | EASY | rack cabinet |
+| 5 | EP10425882 | sensor |
+| 6 | EP10427213 | sensor |
+| 7 | EP10427404 | sensor |
+| 8 | KTF00-65-2M | sensor |
+| 9 | МЕТРОВ | cable |
+| 10 | XFLR822A | module |
+| 11 | XFLR824A | module |
+| 12 | FO-WBI-12A-GY | Honeywell Бокс |
+| 13 | 400-ATII | Honeywell Жесткий |
+| 14 | BF-HWC4-PN16-0125 | Honeywell Задвижка |
+| 15 | 704960 | Honeywell Запасное |
+| 16 | RMK400AP-IV | Honeywell Комплект |
+| 17 | ROL15-2761-04 | Honeywell Комплект |
+| 18 | CWSS-RB-S8 | Honeywell Маяк |
+| 19 | EVCS-HSB | Honeywell Пульт |
+| 20 | RDU300504 | Honeywell Редуктор |
+
+## Search instructions
+
+- Various Honeywell sub-brands. Search: eBay, Radwell, IndiaMART, Conrad.de, specialist suppliers
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

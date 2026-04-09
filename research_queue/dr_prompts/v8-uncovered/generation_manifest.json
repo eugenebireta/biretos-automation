@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-04-09T14:56:05.755619",
+  "version": "v8-uncovered",
+  "total_uncovered": 8,
+  "source_fields": [
+    "assembled_title (product hint derivation)",
+    "seed_name (Excel description — passed to DR as context)",
+    "our_price_raw (Excel reference price — passed to DR as validation anchor)",
+    "brand",
+    "NEVER expected_category"
+  ],
+  "families": {
+    "Other": 4,
+    "PEHA electrical": 2,
+    "Power/electrical": 2
+  },
+  "batches": {
+    "chatgpt": {
+      "count": 1,
+      "batch_size": 30,
+      "files": [
+        "chatgpt_batch1_8skus.txt"
+      ]
+    },
+    "gemini": {
+      "count": 1,
+      "batch_size": 20,
+      "files": [
+        "gemini_batch1_8skus.txt"
+      ]
+    },
+    "claude": {
+      "count": 1,
+      "batch_size": 30,
+      "files": [
+        "claude_batch1_8skus.txt"
+      ]
+    }
+  }
+}

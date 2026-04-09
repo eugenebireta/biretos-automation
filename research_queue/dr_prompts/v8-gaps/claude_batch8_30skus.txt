@@ -1,0 +1,90 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- Many are **PEHA** brand — German electrical accessories (frames, rocker switches, sockets, inserts). These are NOT fire sensors. Search on ebay.de, conrad.de, voelkner.de, elektroversand.de.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different Honeywell sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | 179433 | PEHA NOVA frame | Модуль MP3 Honeywell D 20.673.022 W | 13032.00 |
+| 2 | 183791 | PEHA NOVA frame | Модуль управления Honeywell D 20.671.201.022 | 3348.82 |
+| 3 | 184791 | PEHA NOVA frame | Детектор пламени Honeywell D 20.671.222.022 | 3348.81 |
+| 4 | 185091 | PEHA NOVA frame | Детектор пламени Honeywell D 20.671.223.192 | 3348.85 |
+| 5 | 185191 | PEHA NOVA frame | Детектор пламени Honeywell D 20.671.240.192 | 1917.12 |
+| 6 | 185491 | PEHA NOVA frame | Детектор пламени Honeywell D 20.671.243.022 | 1917.14 |
+| 7 | 185891 | PEHA NOVA frame | Детектор пламени Honeywell D 20.672.201.022 | 5525.23 |
+| 8 | 187091 | PEHA NOVA frame | Детектор пламени Honeywell D 20.672.222.702 | 5581.97 |
+| 9 | 187591 | PEHA NOVA frame | Детектор пламени Honeywell D 20.672.243.022 | 3348.83 |
+| 10 | 188091 | PEHA NOVA frame | Детектор пламени Honeywell D 20.673.201.702 | 9348.10 |
+| 11 | 189091 | PEHA NOVA frame | Детектор пламени Honeywell D 20.673.222.192 | 9291.30 |
+| 12 | 189291 | PEHA NOVA frame | Детектор пламени Honeywell D 20.673.223.192 | 9291.30 |
+| 13 | 189791 | PEHA NOVA frame | Детектор пламени Honeywell D 20.673.244.192 | 5469.29 |
+| 14 | 190191 | PEHA NOVA frame | Детектор пламени Honeywell D 20.674.201.702 | 12697.00 |
+| 15 | 190891 | PEHA NOVA frame | Детектор пламени Honeywell D 20.674.220.192 | 11817.67 |
+| 16 | 190991 | PEHA NOVA frame | Детектор пламени Honeywell D 20.674.220.702 | 11874.00 |
+| 17 | 191091 | PEHA NOVA frame | Детектор пламени Honeywell D 20.674.221.192 | 12641.00 |
+| 18 | 191191 | PEHA NOVA frame | Детектор пламени Honeywell D 20.674.222.022 | 12641.00 |
+| 19 | 191591 | PEHA NOVA frame | Детектор пламени Honeywell D 20.674.240.192 | 7521.67 |
+| 20 | 191791 | PEHA NOVA frame | Детектор пламени Honeywell D 20.674.242.702 | 7589.00 |
+| 21 | 20511 | PEHA NOVA frame | Датчик Honeywell D 20.675.022 T | 3654.50 |
+| 22 | 35111 | PEHA NOVA frame | Датчик давления D 20.671.192 T | 625.93 |
+| 23 | 179951 | PEHA NOVA insert | Линейный сканер Honeywell D 20.486.702 LS | 5445.00 |
+| 24 | 27711 | PEHA NOVA insert | Датчик Honeywell D 20.610.022 AT | 1318.20 |
+| 25 | 29011 | PEHA NOVA insert | Датчик Honeywell D 20.610.022 UAE/2 NA | 825.00 |
+| 26 | 23511 | PEHA NOVA rocker switch | Датчик Honeywell D 20.540.022 GLK | 448.70 |
+| 27 | 37011 | PEHA NOVA rocker switch | Устройство Honeywell D 20.530.192 | 841.60 |
+| 28 | 38511 | PEHA NOVA rocker switch | Устройство Honeywell D 20.540.192 GLK | 467.10 |
+| 29 | 157413 | PEHA electrical accessory | Термостатический вентиль Honeywell D 20.810.70 HR | 1318.20 |
+| 30 | 190511 | PEHA electrical accessory | Детектор пламени Honeywell D 515 | 902.70 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables
