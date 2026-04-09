@@ -3,6 +3,7 @@
 <!-- DO NOT REVERT THIS FORMAT. Architectural decision: PROJECT_DNA.md §9, CLAUDE.md §NEVER. -->
 <!-- НЕ добавлять: изменения кода, конфигов, инструкции установки, pipeline order. -->
 <!-- Только: внешние платформы, доменные правила данных, environment баги, аномалии данных. -->
+<!-- TECH DEBT: при 50+ записях — добавить AUDITOR code check: числа требуют shell output в коммите. -->
 
 Формат: `YYYY-MM-DD | #тег | scope: Суть и почему это важно`
 Tags: #platform, #bug, #rule, #data_quirk
