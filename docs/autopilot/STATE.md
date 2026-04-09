@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 79
-transition_ts: "2026-04-09T19:00:00Z"
+transition_seq: 80
+transition_ts: "2026-04-09T20:00:00Z"
 
 ## Current
-active_task: "ENRICHMENT-MERGE"
-task_id: "ENRICHMENT-MERGE"
+active_task: "P6-FULL-CYCLE-INTEGRATION"
+task_id: "P6-FULL-CYCLE-INTEGRATION"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "Merge research_results → evidence: 314/338 cards enriched. merge_research_to_evidence.py: additive merge of title_ru (270), description_ru (176 after garbage cleanup), specs (242), dr_price (97 new admissible), dr_image_url (128 new), dr_category (138 new), identity_confirmed (270), key_findings (270), sources (292). Policy: skip identity_confirmed=False, skip garbage desc (citeturn+PUA unicode filter). 87 garbage descriptions cleaned. 34 tests. 1571/1571 pass."
+note: "P6 full-cycle integration tests. 14 scenarios covering complete _cmd_cycle_inner pipeline: LOW happy path, SEMI consensus retry, CORE gate block, advisor escalation, synth escalate, executor failure, collect failure, batch gate failure, 5 FSM entry guards, experience lesson injection. 580/580 orchestrator tests pass. Also in this session: P3.1 multi-pass critique loop (config-driven retries, critique accumulation, consensus gate)."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
