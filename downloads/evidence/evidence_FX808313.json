@@ -280,7 +280,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Корпус",
-    "seed_name": "Корпус для расширения батареи FX808313"
+    "seed_name": "Корпус для расширения батареи FX808313",
+    "description_long_ru": "Net price excl. VAT; ESSER FlexES Control, NOT Trend BMS"
   },
   "trace": {
     "pn_match_location": "",
@@ -482,8 +483,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.664828+00:00",
-    "merge_source": "result_FX808313.json"
+    "merge_ts": "2026-04-09T12:01:24.921256+00:00",
+    "merge_source": "result_FX808313.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "Fire alarm battery housing",
   "dr_image_url": "https://www.esser-systems.com/productimages/system-flexes-control/power-supply-expansion//fx808313-battery-extension-housing-for-2-x-12-v24-ah_Inherited_product_pic_300_300_BMFX8083_13xxx_GEPE_SF3C_00.jpg",

@@ -345,7 +345,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Мотор",
-    "seed_name": "Мотор Modutrol M7294Q1015/U"
+    "seed_name": "Мотор Modutrol M7294Q1015/U",
+    "description_long_ru": "Amazon $2,845.56; in stock at SupplyHouse; Galco also stocks"
   },
   "trace": {
     "pn_match_location": "",
@@ -569,8 +570,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.684828+00:00",
-    "merge_source": "result_M7294Q1015_U.json"
+    "merge_ts": "2026-04-09T12:01:24.952015+00:00",
+    "merge_source": "result_M7294Q1015_U.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (6).md"
   },
   "dr_category": "valve actuator motor",
   "dr_image_url": "https://cdn.epartsservices.com/d/HONEYWELL/m7164a1017-1.jpg",

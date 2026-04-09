@@ -341,7 +341,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Сетевая карта",
-    "seed_name": "Сетевая карта Honeywell NE-NICS02"
+    "seed_name": "Сетевая карта Honeywell NE-NICS02",
+    "description_long_ru": "Honeywell Experion PKS DCS part. Quote-only via gray-market resellers. ~3 kg shipping weight"
   },
   "trace": {
     "pn_match_location": "",
@@ -555,8 +556,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.695828+00:00",
-    "merge_source": "result_NE-NICS02.json"
+    "merge_ts": "2026-04-09T12:01:24.967531+00:00",
+    "merge_source": "result_NE-NICS02.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (7).md"
   },
   "dr_category": "Network interface card",
   "dr_image_url": "—",

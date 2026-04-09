@@ -354,7 +354,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Карта",
-    "seed_name": "Сетевая карта essernet модуль FX808341"
+    "seed_name": "Сетевая карта essernet модуль FX808341",
+    "description_long_ru": "Net EUR; 7 in stock at walde.ee"
   },
   "trace": {
     "pn_match_location": "",
@@ -569,8 +570,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.666829+00:00",
-    "merge_source": "result_FX808341.json"
+    "merge_ts": "2026-04-09T12:01:24.925770+00:00",
+    "merge_source": "result_FX808341.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "Fire alarm network card",
   "dr_image_url": "https://walde.ee/en/media/catalog/product/cache/1fe9b4ecd35ca55ca6ac1f6b4cf9abcf/F/X/FX808341_1012_58a19dd1e81c12_07258394_fx808341-network-card-essernet-module-500-kbd-for-flexes-control_product_pic_800_800_00105681_0_jpg_658.jpg",

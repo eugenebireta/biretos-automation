@@ -304,7 +304,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Устройство",
-    "seed_name": "D 95.6511.02 SI"
+    "seed_name": "D 95.6511.02 SI",
+    "description_long_ru": "Dialog SCHUKO socket; widely available €4–6; VDE 0620 compliant"
   },
   "trace": {
     "pn_match_location": "",
@@ -530,8 +531,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.627777+00:00",
-    "merge_source": "result_820611.json"
+    "merge_ts": "2026-04-09T12:01:24.867654+00:00",
+    "merge_source": "result_820611.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
   },
   "dr_category": "PEHA socket",
   "dr_image_url": "https://kursk.aelektro.ru/content/photo/full/P820611_img1.jpg",

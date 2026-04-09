@@ -337,7 +337,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Заглушка",
-    "seed_name": "Заглушка RIC-F-BLNK-01"
+    "seed_name": "Заглушка RIC-F-BLNK-01",
+    "description_long_ru": "Siemon product sold via ADI (Honeywell ecosystem); also $9.95 eBay surplus"
   },
   "trace": {
     "pn_match_location": "",
@@ -553,8 +554,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.714827+00:00",
-    "merge_source": "result_RIC-F-BLNK-01.json"
+    "merge_ts": "2026-04-09T12:01:24.993060+00:00",
+    "merge_source": "result_RIC-F-BLNK-01.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "blank plate",
   "dr_image_url": "https://i.ebayimg.com/images/g/5SsAAOSwB09YK2AC/s-l1600.jpg",

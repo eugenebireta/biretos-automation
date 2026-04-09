@@ -305,7 +305,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Кабель",
-    "seed_name": "Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый"
+    "seed_name": "Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый",
+    "description_long_ru": "Esser by Honeywell; VARIODYN D1 voice alarm system; fire safety distributor quote only"
   },
   "trace": {
     "pn_match_location": "",
@@ -519,8 +520,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.605771+00:00",
-    "merge_source": "result_583491A.json"
+    "merge_ts": "2026-04-09T12:01:24.838128+00:00",
+    "merge_source": "result_583491A.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "cable",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-583491a-variodyn-d1-cat5-patch-cable-0-5-m-green-dom-to-ampl-primaryimage"

@@ -327,7 +327,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Модуль",
-    "seed_name": "Модуль цифрового вывода PCD2.A200"
+    "seed_name": "Модуль цифрового вывода PCD2.A200",
+    "description_long_ru": "Used condition; also RUB 11,482 refurb at wiautomation.com"
   },
   "trace": {
     "pn_match_location": "",
@@ -542,8 +543,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.704829+00:00",
-    "merge_source": "result_PCD2.A200.json"
+    "merge_ts": "2026-04-09T12:01:24.979041+00:00",
+    "merge_source": "result_PCD2.A200.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "PLC digital output module",
   "dr_image_url": "https://www.all4sps.com/media/image/product/558586/md/497501-001_saia-burgess-digital-output-module-pcd2a200-used-us.jpg"

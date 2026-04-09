@@ -348,7 +348,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Кабель",
-    "seed_name": "Оптический кабель SC-SCDuplex9/125 5m"
+    "seed_name": "Оптический кабель SC-SCDuplex9/125 5m",
+    "description_long_ru": "Запись в листинге (page4) соответствует ценнику 486.00 руб рядом с товаром"
   },
   "trace": {
     "pn_match_location": "",
@@ -623,7 +624,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.720829+00:00",
-    "merge_source": "result_SC-SCDUPLEX9_125-5.json"
+    "merge_ts": "2026-04-09T12:01:25.000563+00:00",
+    "merge_source": "result_SC-SCDUPLEX9_125-5.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

@@ -320,7 +320,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Панель",
-    "seed_name": "Панель Quick-Pack RIC-F-LCU24-01C"
+    "seed_name": "Панель Quick-Pack RIC-F-LCU24-01C",
+    "description_long_ru": "**NOT a Honeywell fire panel.** Siemon product. $389 new at Radwell; $1,718.79/12-pack at eAccu-Tech (~$143/unit)"
   },
   "trace": {
     "pn_match_location": "",
@@ -537,8 +538,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.714827+00:00",
-    "merge_source": "result_RIC-F-LCU24-01C.json"
+    "merge_ts": "2026-04-09T12:01:24.993060+00:00",
+    "merge_source": "result_RIC-F-LCU24-01C.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Fiber optic adapter plate",
   "dr_image_url": "—"

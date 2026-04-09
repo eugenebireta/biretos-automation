@@ -302,7 +302,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Системы безопасности",
     "product_type": "Модуль",
-    "seed_name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m."
+    "seed_name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
+    "description_long_ru": "Модуль 010130.10 предназначен для расширения охранных панелей MB-Secure или MB12/24/48/100/256 plus посредством подключения по шине BUS. Обеспечивает 4 входа групп детекторов с функцией сброса и 2 транзисторных выхода (макс. 30 В пост. тока / 50 мА на выход), совместим с любой панелью стандарта BUS-2 или BUS-1."
   },
   "trace": {
     "pn_match_location": "",
@@ -550,8 +551,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.540704+00:00",
-    "merge_source": "result_010130.10.json"
+    "merge_ts": "2026-04-09T12:01:24.764025+00:00",
+    "merge_source": "result_010130.10.json",
+    "provider": "claude_web_search",
+    "model": "claude-sonnet-4-6",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "Охранная сигнализация — шинные модули расширения (интрузионные системы безопасности)",
   "dr_image_url": "https://honeywell.roteiv-shop.de/media/e7/ff/12/1774609009/art_18651.jpg?ts=1774609009",

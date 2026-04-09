@@ -332,7 +332,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Накладной датчик SF00-B54"
+    "seed_name": "Накладной датчик SF00-B54",
+    "description_long_ru": "Also £112.00 at hvac-sanitary.co.uk; $92.39 new-open box on eBay. Honeywell Switzerland"
   },
   "trace": {
     "pn_match_location": "",
@@ -547,8 +548,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.723829+00:00",
-    "merge_source": "result_SF00-B54.json"
+    "merge_ts": "2026-04-09T12:01:25.004570+00:00",
+    "merge_source": "result_SF00-B54.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Strap-on temperature sensor",
   "dr_image_url": "—",

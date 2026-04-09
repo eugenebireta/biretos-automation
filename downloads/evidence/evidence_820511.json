@@ -320,7 +320,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Устройство",
-    "seed_name": "D 95.575.02"
+    "seed_name": "D 95.575.02",
+    "description_long_ru": "Страница-профиль без цены (требует запроса)"
   },
   "trace": {
     "pn_match_location": "",
@@ -590,8 +591,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.626771+00:00",
-    "merge_source": "result_820511.json"
+    "merge_ts": "2026-04-09T12:01:24.867654+00:00",
+    "merge_source": "result_820511.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   },
   "dr_category": "switch frame"
 }

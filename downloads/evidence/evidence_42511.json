@@ -345,7 +345,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Устройство",
-    "seed_name": "Устройство Honeywell D 20.677.192-Z"
+    "seed_name": "Устройство Honeywell D 20.677.192-Z",
+    "description_long_ru": "Matches automotive parts (Febi Bilstein, Wix Oil Filter) and hand tools (Estwing chisel). No Honeywell/industrial match found. Needs manufacturer info."
   },
   "trace": {
     "pn_match_location": "",
@@ -558,8 +559,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.599770+00:00",
-    "merge_source": "result_42511.json"
+    "merge_ts": "2026-04-09T12:01:24.832127+00:00",
+    "merge_source": "result_42511.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "Device (unidentified)"
 }

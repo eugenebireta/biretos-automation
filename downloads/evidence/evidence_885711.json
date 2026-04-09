@@ -382,7 +382,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Извещатель",
-    "seed_name": "Тепловой извещатель Esser D 95.610.02 KTU"
+    "seed_name": "Тепловой извещатель Esser D 95.610.02 KTU",
+    "description_long_ru": "В рамках текущего прогона не удалось зафиксировать страницу с видимой ценой"
   },
   "trace": {
     "pn_match_location": "",
@@ -661,7 +662,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.631776+00:00",
-    "merge_source": "result_885711.json"
+    "merge_ts": "2026-04-09T12:01:24.872162+00:00",
+    "merge_source": "result_885711.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

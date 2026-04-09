@@ -336,7 +336,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Системы безопасности",
     "product_type": "Громкоговоритель",
-    "seed_name": "Громкоговоритель L-VOM40A/EN"
+    "seed_name": "Громкоговоритель L-VOM40A/EN",
+    "description_long_ru": "Discontinued at Steinigke; possibly end-of-life"
   },
   "trace": {
     "pn_match_location": "",
@@ -554,8 +555,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.680828+00:00",
-    "merge_source": "result_L-VOM40A_EN.json"
+    "merge_ts": "2026-04-09T12:01:24.943504+00:00",
+    "merge_source": "result_L-VOM40A_EN.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "PA outdoor column speaker",
   "dr_image_url": "https://media.steinigke.de/images/7640p/10/80710004a.webp"

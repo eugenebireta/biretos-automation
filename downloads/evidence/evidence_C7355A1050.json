@@ -326,7 +326,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Мультисенсор",
-    "seed_name": "Мультисенсор настенный Honeywell C7355A1050"
+    "seed_name": "Мультисенсор настенный Honeywell C7355A1050",
+    "description_long_ru": "Blackhawk Supply lists at $1,625.63; Radwell surplus $2,136; Kele discontinued"
   },
   "trace": {
     "pn_match_location": "",
@@ -551,8 +552,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.638775+00:00",
-    "merge_source": "result_C7355A1050.json"
+    "merge_ts": "2026-04-09T12:01:24.881673+00:00",
+    "merge_source": "result_C7355A1050.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (6).md"
   },
   "dr_category": "multisensor",
   "dr_image_url": "https://i.ebayimg.com/images/g/AmkAAeSw6UtperOY/s-l1600.jpg"

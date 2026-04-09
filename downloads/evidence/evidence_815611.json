@@ -343,7 +343,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Устройство",
-    "seed_name": "D 95.610.02 TV NA"
+    "seed_name": "D 95.610.02 TV NA",
+    "description_long_ru": "Есть официальный datasheet Honeywell EDAM по 00815611"
   },
   "trace": {
     "pn_match_location": "",
@@ -618,7 +619,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.625770+00:00",
-    "merge_source": "result_815611.json"
+    "merge_ts": "2026-04-09T12:01:24.864654+00:00",
+    "merge_source": "result_815611.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

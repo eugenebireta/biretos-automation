@@ -316,7 +316,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Привод",
-    "seed_name": "Привод заслонки Honeywell N05230-2POS"
+    "seed_name": "Привод заслонки Honeywell N05230-2POS",
+    "description_long_ru": "SmartAct N05 series; EUR price excl. VAT; also £138.12 at mytub.co.uk"
   },
   "trace": {
     "pn_match_location": "",
@@ -536,8 +537,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.691829+00:00",
-    "merge_source": "result_N05230-2POS.json"
+    "merge_ts": "2026-04-09T12:01:24.963531+00:00",
+    "merge_source": "result_N05230-2POS.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (6).md"
   },
   "dr_category": "actuator",
   "dr_image_url": "https://i.ebayimg.com/images/g/03cAAOSw4dVmwt~5/s-l500.jpg",

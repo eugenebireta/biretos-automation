@@ -315,7 +315,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Адаптер",
-    "seed_name": "Адаптер RRC Honeywell 36299-RU, 400x200мм"
+    "seed_name": "Адаптер RRC Honeywell 36299-RU, 400x200мм",
+    "description_long_ru": "No Honeywell/Resideo product matches; -RU suffix = Russian market; may be regional-only catalog"
   },
   "trace": {
     "pn_match_location": "",
@@ -521,8 +522,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.594770+00:00",
-    "merge_source": "result_36299-RU.json"
+    "merge_ts": "2026-04-09T12:01:24.826616+00:00",
+    "merge_source": "result_36299-RU.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "adapter"
 }

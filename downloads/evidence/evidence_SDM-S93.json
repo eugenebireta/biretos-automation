@@ -371,7 +371,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Монитор",
-    "seed_name": "Монитор SDM-S93"
+    "seed_name": "Монитор SDM-S93",
+    "description_long_ru": "Sony StylePro series; discontinued ~2003; used only; also $79.99 at DougDeals; $99.99 at BuffaloComputerParts; ErgoBright auto-brightness"
   },
   "trace": {
     "pn_match_location": "",
@@ -587,8 +588,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.723829+00:00",
-    "merge_source": "result_SDM-S93.json"
+    "merge_ts": "2026-04-09T12:01:25.003571+00:00",
+    "merge_source": "result_SDM-S93.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
   },
   "dr_category": "Monitor",
   "dr_image_url": "https://c1.neweggimages.com/productimage/nb640/24-006-069-06.jpg"

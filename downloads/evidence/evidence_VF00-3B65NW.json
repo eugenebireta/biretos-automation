@@ -330,7 +330,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Погружной датчик Honeywell VF00-3B65NW"
+    "seed_name": "Погружной датчик Honeywell VF00-3B65NW",
+    "description_long_ru": "~$21 USD equiv. Also ₽5,593 at nt-rt.ru. Related VF20-3B65NW is £42.20 at Kempston Controls"
   },
   "trace": {
     "pn_match_location": "",
@@ -545,8 +546,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.745867+00:00",
-    "merge_source": "result_VF00-3B65NW.json"
+    "merge_ts": "2026-04-09T12:01:25.029100+00:00",
+    "merge_source": "result_VF00-3B65NW.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Immersion temperature sensor",
   "dr_image_url": "—",

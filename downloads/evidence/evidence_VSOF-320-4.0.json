@@ -361,7 +361,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Клапан",
-    "seed_name": "Трехходовой клапан Honeywell VSOF-320-4.0"
+    "seed_name": "Трехходовой клапан Honeywell VSOF-320-4.0",
+    "description_long_ru": "Sibling VSOF-320-2.5 priced €72.10 at heiz24.de; for fan coil units"
   },
   "trace": {
     "pn_match_location": "",
@@ -578,8 +579,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.749870+00:00",
-    "merge_source": "result_VSOF-320-4.0.json"
+    "merge_ts": "2026-04-09T12:01:25.034607+00:00",
+    "merge_source": "result_VSOF-320-4.0.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "valve",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-VSMF-320-4-0-left"

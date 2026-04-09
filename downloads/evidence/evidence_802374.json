@@ -327,7 +327,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Извещатель",
-    "seed_name": "Комбинированный извещатель O²T мультисенсорный 802374"
+    "seed_name": "Комбинированный извещатель O²T мультисенсорный 802374",
+    "description_long_ru": "Clearance price (was €37.91); also €89.90 on eBay"
   },
   "trace": {
     "pn_match_location": "",
@@ -543,8 +544,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.620773+00:00",
-    "merge_source": "result_802374.json"
+    "merge_ts": "2026-04-09T12:01:24.857144+00:00",
+    "merge_source": "result_802374.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "Multisensor fire detector",
   "dr_image_url": "https://www.orbitadigital.com/317909-large_default/esser-802374-iq8-multi-sensory-o2t-detector.jpg",

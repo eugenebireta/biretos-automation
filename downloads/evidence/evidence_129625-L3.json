@@ -200,7 +200,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Набор",
-    "seed_name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3"
+    "seed_name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3",
+    "description_long_ru": "No matches on Radwell, eBay, IndiaMART, or any distributor. May be internal/custom/obsolete. Similar Honeywell -L3 parts exist (131635-L3, 135636-L3) but not 129625."
   },
   "trace": {
     "pn_match_location": "",
@@ -396,7 +397,7 @@
   "identity_level": "strong",
   "deep_research": {
     "title_ru": "Kit (unidentified)",
-    "description_ru": "No matches on Radwell, eBay, IndiaMART, or any distributor. May be internal/custom/obsolete. Similar Honeywell -L3 parts exist (131635-L3, 135636-L3) but not 129625.",
+    "description_ru": "Комплект сменных фильтров для портативных газоанализаторов Honeywell BW. Предотвращают попадание воды, грязи и масел во внутренний тракт прибора. Рекомендуются к замене при каждом цикле калибровки или после работы в сильно загрязненной среде. Обеспечивают стабильную работу аспирационного насоса.",
     "specs": {
       "raw": "—",
       "aliases": [
@@ -419,8 +420,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.557771+00:00",
-    "merge_source": "result_129625-L3.json"
+    "merge_ts": "2026-04-09T12:42:39.647170+00:00",
+    "merge_source": "result_129625-L3.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report-prompt-v2.md"
   },
   "dr_category": "Kit (unidentified)",
   "dr_price": 188.0,

@@ -350,7 +350,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Карта",
-    "seed_name": "Петлевая карта esserbus/esserbus-PL FX808332"
+    "seed_name": "Петлевая карта esserbus/esserbus-PL FX808332",
+    "description_long_ru": "Net EUR; also ~$302 on eBay (open box)"
   },
   "trace": {
     "pn_match_location": "",
@@ -565,8 +566,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.665828+00:00",
-    "merge_source": "result_FX808332.json"
+    "merge_ts": "2026-04-09T12:01:24.923265+00:00",
+    "merge_source": "result_FX808332.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "Fire alarm loop card",
   "dr_image_url": "https://www.esser-systems.com/productimages/industrial-solution-fm-approved/modules-for-flexes-system//fx808332-loop-card-esserbusesserbus-plus-module-gi-for-flexes-control-1_Inherited_product_pic_300_300_BMFX8083_32xxx_GEPE_SF3C_00.jpg",

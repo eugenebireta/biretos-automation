@@ -340,7 +340,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Блок питания",
-    "seed_name": "Блок питания Honeywell DCPSU-24-1.3"
+    "seed_name": "Блок питания Honeywell DCPSU-24-1.3",
+    "description_long_ru": "Honeywell Fema / Trend Controls; back-order 19–20 day lead; also 2.5A and 4A variants available"
   },
   "trace": {
     "pn_match_location": "",
@@ -569,8 +570,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.650829+00:00",
-    "merge_source": "result_DCPSU-24-1.3.json"
+    "merge_ts": "2026-04-09T12:01:24.899183+00:00",
+    "merge_source": "result_DCPSU-24-1.3.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
   },
   "dr_category": "power supply",
   "dr_image_url": "—",

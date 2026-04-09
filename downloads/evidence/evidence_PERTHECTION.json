@@ -334,7 +334,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленные сканеры",
     "product_type": "Сканер",
-    "seed_name": "Сканер PERTHECTION"
+    "seed_name": "Сканер PERTHECTION",
+    "description_long_ru": "В доступных источниках PN как слово/бренд не дал однозначной карточки товара/цены."
   },
   "trace": {
     "pn_match_location": "",
@@ -585,7 +586,10 @@
       "В доступных источниках PN как слово/бренд не дал однозначной карточки товара/цены.",
       "Aliases: —"
     ],
-    "merge_ts": "2026-04-09T08:32:14.707830+00:00",
-    "merge_source": "result_PERTHECTION.json"
+    "merge_ts": "2026-04-09T12:01:24.982550+00:00",
+    "merge_source": "result_PERTHECTION.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (4).md"
   }
 }

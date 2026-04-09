@@ -379,7 +379,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Модуль",
-    "seed_name": "Аналоговый выходной модуль Honeywell XFLR822A"
+    "seed_name": "Аналоговый выходной модуль Honeywell XFLR822A",
+    "description_long_ru": "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket."
   },
   "trace": {
     "pn_match_location": "",
@@ -600,8 +601,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.752868+00:00",
-    "merge_source": "result_XFLR822A.json"
+    "merge_ts": "2026-04-09T12:01:25.036607+00:00",
+    "merge_source": "result_XFLR822A.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "BAS analog output module",
   "dr_image_url": "(available on Radwell page)"

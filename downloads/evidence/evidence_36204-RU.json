@@ -329,7 +329,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Соединитель",
-    "seed_name": "Перекрестный соединитель 200x80мм 36204-RU"
+    "seed_name": "Перекрестный соединитель 200x80мм 36204-RU",
+    "description_long_ru": "Для добора нужен контекст (семейство/регион/категория)."
   },
   "trace": {
     "pn_match_location": "",
@@ -590,7 +591,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.593773+00:00",
-    "merge_source": "result_36204-RU.json"
+    "merge_ts": "2026-04-09T12:01:24.825608+00:00",
+    "merge_source": "result_36204-RU.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (2).md"
   }
 }

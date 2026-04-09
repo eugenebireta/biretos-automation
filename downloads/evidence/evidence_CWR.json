@@ -321,7 +321,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Основание",
-    "seed_name": "Основание глубокое IP65 красное Honeywell CWR"
+    "seed_name": "Основание глубокое IP65 красное Honeywell CWR",
+    "description_long_ru": "Короткий код; без расшифровки/контекста Honeywell (BOM/каталог) цену не зафиксировал."
   },
   "trace": {
     "pn_match_location": "",
@@ -584,7 +585,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T09:26:07.061987+00:00",
-    "merge_source": "result_CWR.json"
+    "merge_ts": "2026-04-09T12:01:24.897185+00:00",
+    "merge_source": "result_CWR.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (3).md"
   }
 }

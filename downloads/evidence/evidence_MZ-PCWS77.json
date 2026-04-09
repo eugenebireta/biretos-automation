@@ -351,7 +351,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Рабочая станция",
-    "seed_name": "Рабочая станция Dell R7920XL RAID1 RACK"
+    "seed_name": "Рабочая станция Dell R7920XL RAID1 RACK",
+    "description_long_ru": "**NOT Morley fire workstation.** Honeywell Experion PKS platform. End of Sale Q3 2024. Honeywell-channel only"
   },
   "trace": {
     "pn_match_location": "",
@@ -565,8 +566,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.689827+00:00",
-    "merge_source": "result_MZ-PCWS77.json"
+    "merge_ts": "2026-04-09T12:01:24.959019+00:00",
+    "merge_source": "result_MZ-PCWS77.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (7).md"
   },
   "dr_category": "Industrial DCS workstation",
   "dr_image_url": "—",

@@ -302,7 +302,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Панель",
-    "seed_name": "Панель дистанционной индикации Loop LED 804791"
+    "seed_name": "Панель дистанционной индикации Loop LED 804791",
+    "description_long_ru": "Esser by Honeywell, System IQ8Control fire alarm. Regular price €1,049. Also used by Valeo (automotive) — context matters"
   },
   "trace": {
     "pn_match_location": "",
@@ -517,8 +518,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.620773+00:00",
-    "merge_source": "result_804791.json"
+    "merge_ts": "2026-04-09T12:01:24.858144+00:00",
+    "merge_source": "result_804791.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "LED indicator panel",
   "dr_image_url": "https://www.esser-systems.com/productimages/display-and-operating-units/system-iq8control//804791-loop-led-remote-indicator-panel-for-32-messages_Inherited_product_pic_300_300_BM804791_xxxxx_GZPE_SF3C_00.jpg",

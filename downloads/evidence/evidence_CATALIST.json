@@ -323,7 +323,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Свитч",
-    "seed_name": "Свитч Honeywell CATALIST"
+    "seed_name": "Свитч Honeywell CATALIST",
+    "description_long_ru": "No product with PN \"CATALIST\" found anywhere. May be Honeywell partner program name or internal alias for Cisco Catalyst 3850 switch"
   },
   "trace": {
     "pn_match_location": "",
@@ -537,8 +538,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.640776+00:00",
-    "merge_source": "result_CATALIST.json"
+    "merge_ts": "2026-04-09T12:01:24.886674+00:00",
+    "merge_source": "result_CATALIST.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Unknown (not verified)",
   "dr_image_url": "—"

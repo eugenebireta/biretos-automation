@@ -322,7 +322,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Датчик давления Honeywell DTI6"
+    "seed_name": "Датчик давления Honeywell DTI6",
+    "description_long_ru": "**CORRECTION: NOT a duct temperature sensor** — it is a Honeywell FEMA differential pressure transmitter for liquids/gas"
   },
   "trace": {
     "pn_match_location": "",
@@ -539,8 +540,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.651830+00:00",
-    "merge_source": "result_DTI6.json"
+    "merge_ts": "2026-04-09T12:01:24.901694+00:00",
+    "merge_source": "result_DTI6.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Differential pressure transmitter",
   "dr_image_url": "https://preview1.assetsadobe.com/is/image/Honeywell65/hon-ba-bms-dti10-left"

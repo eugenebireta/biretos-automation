@@ -347,7 +347,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Сплайс-бокс",
-    "seed_name": "Сплайс-бокс Honeywell TRAY-3"
+    "seed_name": "Сплайс-бокс Honeywell TRAY-3",
+    "description_long_ru": "Нужен якорь: устройство/семейство (принтер? панель? комплект?)."
   },
   "trace": {
     "pn_match_location": "",
@@ -629,7 +630,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.730832+00:00",
-    "merge_source": "result_TRAY-3.json"
+    "merge_ts": "2026-04-09T12:01:25.011073+00:00",
+    "merge_source": "result_TRAY-3.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (2).md"
   }
 }

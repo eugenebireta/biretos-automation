@@ -362,7 +362,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Датчик D 701 DO F"
+    "seed_name": "Датчик D 701 DO F",
+    "description_long_ru": "Есть datasheet PDF с деталями (Compacta Isolierdose flach)"
   },
   "trace": {
     "pn_match_location": "",
@@ -648,7 +649,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.608770+00:00",
-    "merge_source": "result_604411.json"
+    "merge_ts": "2026-04-09T12:01:24.841634+00:00",
+    "merge_source": "result_604411.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

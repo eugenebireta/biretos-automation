@@ -281,7 +281,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленные сканеры",
     "product_type": "Рукоять",
-    "seed_name": "Пистолетная рукоять для ТСД Honeywell EDA61K-SH-DC"
+    "seed_name": "Пистолетная рукоять для ТСД Honeywell EDA61K-SH-DC",
+    "description_long_ru": "MSRP $237.77. Also $130.88 (ShopBLT), $152.67 (BarcodeDiscount). Parent EDA61K is EOL; CK62 is successor"
   },
   "trace": {
     "pn_match_location": "",
@@ -484,8 +485,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.653828+00:00",
-    "merge_source": "result_EDA61K-SH-DC.json"
+    "merge_ts": "2026-04-09T12:01:24.905701+00:00",
+    "merge_source": "result_EDA61K-SH-DC.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Pistol grip scan handle",
   "dr_image_url": "https://s7d1.scene7.com/is/image/Honeywell65/sps-ppr-eda61k-mobile-computer",

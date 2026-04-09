@@ -368,7 +368,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Принтер",
-    "seed_name": "Принтер PHASER"
+    "seed_name": "Принтер PHASER",
+    "description_long_ru": "No connection to Honeywell found. \"Phaser\" is Xerox product line. Need specific model number"
   },
   "trace": {
     "pn_match_location": "",
@@ -582,8 +583,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.707830+00:00",
-    "merge_source": "result_PHASER.json"
+    "merge_ts": "2026-04-09T12:01:24.983549+00:00",
+    "merge_source": "result_PHASER.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Printer (Xerox brand line)",
   "dr_image_url": "—"

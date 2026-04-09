@@ -322,7 +322,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Ящик",
-    "seed_name": "Сервисный ящик, 1 HU FX808439"
+    "seed_name": "Сервисный ящик, 1 HU FX808439",
+    "description_long_ru": "No price found online; sold through authorized Esser distributors only"
   },
   "trace": {
     "pn_match_location": "",
@@ -605,7 +606,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.670829+00:00",
-    "merge_source": "result_FX808439.json"
+    "merge_ts": "2026-04-09T12:42:13.414894+00:00",
+    "merge_source": "result_FX808439.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (2).md",
+    "description_ru": "No price found online; sold through authorized Esser distributors only"
   }
 }

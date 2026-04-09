@@ -334,7 +334,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленные сканеры",
     "product_type": "База",
-    "seed_name": "База для зарядки Honeywell CN80-HB-CNV-0"
+    "seed_name": "База для зарядки Honeywell CN80-HB-CNV-0",
+    "description_long_ru": "Honeywell Dolphin CN80 accessory. MSRP $500.92; $350.18 at Logiscenter. Field-convertible for future 80 Series."
   },
   "trace": {
     "pn_match_location": "",
@@ -550,8 +551,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.643828+00:00",
-    "merge_source": "result_CN80-HB-CNV-0.json"
+    "merge_ts": "2026-04-09T12:01:24.890671+00:00",
+    "merge_source": "result_CN80-HB-CNV-0.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "Barcode scanner charging base",
   "dr_image_url": "(available on Logiscenter / Zones pages)",

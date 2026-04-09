@@ -342,7 +342,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Привод",
-    "seed_name": "Привод клапана Honeywell ML6421A3005"
+    "seed_name": "Привод клапана Honeywell ML6421A3005",
+    "description_long_ru": "For V5011/V5013/V5016A/V5025 valves"
   },
   "trace": {
     "pn_match_location": "",
@@ -557,8 +558,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.687830+00:00",
-    "merge_source": "result_ML6421A3005.json"
+    "merge_ts": "2026-04-09T12:01:24.956019+00:00",
+    "merge_source": "result_ML6421A3005.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "Valve actuator",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-bms-ml6421a1017-linear-valve-actuator-primaryimage",

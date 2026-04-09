@@ -378,7 +378,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Настенный датчик температуры Honeywell T7560B1008"
+    "seed_name": "Настенный датчик температуры Honeywell T7560B1008",
+    "description_long_ru": "Electronic wall module with LCD. T7560B includes humidity sensor vs T7560A"
   },
   "trace": {
     "pn_match_location": "",
@@ -594,8 +595,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.728832+00:00",
-    "merge_source": "result_T7560B1008.json"
+    "merge_ts": "2026-04-09T12:01:25.008570+00:00",
+    "merge_source": "result_T7560B1008.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Temp & humidity wall module",
   "dr_image_url": "—",

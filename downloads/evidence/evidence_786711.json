@@ -367,7 +367,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Датчик D 95.610.03 UAE/1-N"
+    "seed_name": "Датчик D 95.610.03 UAE/1-N",
+    "description_long_ru": "Voelkner показывает матрицу скидок по количеству"
   },
   "trace": {
     "pn_match_location": "",
@@ -653,7 +654,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.613771+00:00",
-    "merge_source": "result_786711.json"
+    "merge_ts": "2026-04-09T12:01:24.850636+00:00",
+    "merge_source": "result_786711.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

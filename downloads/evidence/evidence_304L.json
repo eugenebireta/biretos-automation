@@ -282,7 +282,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
     "product_type": "Беруши",
-    "seed_name": "Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS"
+    "seed_name": "Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS",
+    "description_long_ru": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар."
   },
   "trace": {
     "pn_match_location": "",
@@ -558,8 +559,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.583771+00:00",
-    "merge_source": "result_304L.json"
+    "merge_ts": "2026-04-09T12:01:24.812590+00:00",
+    "merge_source": "result_304L.json",
+    "provider": "claude_web_search",
+    "model": "claude-sonnet-4-6",
+    "source_file": "deep-research-report (8).md"
   },
   "dr_category": "Средства индивидуальной защиты (СИЗ) — Защита слуха / Беруши одноразовые",
   "dr_image_url": "https://www.modern-eastern.com/content/product_images/8808176105869.jpg"

@@ -326,7 +326,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Видеонаблюдение",
     "product_type": "Камера",
-    "seed_name": "Камера видеонаблюдения HBL6GR2"
+    "seed_name": "Камера видеонаблюдения HBL6GR2",
+    "description_long_ru": "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine"
   },
   "trace": {
     "pn_match_location": "",
@@ -539,8 +540,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.673828+00:00",
-    "merge_source": "result_HBL6GR2.json"
+    "merge_ts": "2026-04-09T12:01:24.933994+00:00",
+    "merge_source": "result_HBL6GR2.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (9).md"
   },
   "dr_category": "IP camera (bullet)",
   "dr_image_url": "(available on A1 Security Cameras and JMAC product pages)",

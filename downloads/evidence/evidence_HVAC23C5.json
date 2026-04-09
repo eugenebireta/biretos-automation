@@ -362,7 +362,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Инвертор",
-    "seed_name": "Инвертор HVAC NXL 11KW/400V/23A/IP54 HVAC23C5"
+    "seed_name": "Инвертор HVAC NXL 11KW/400V/23A/IP54 HVAC23C5",
+    "description_long_ru": "Honeywell NXL series (Vacon-designed)"
   },
   "trace": {
     "pn_match_location": "",
@@ -580,8 +581,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.675828+00:00",
-    "merge_source": "result_HVAC23C5.json"
+    "merge_ts": "2026-04-09T12:01:24.934993+00:00",
+    "merge_source": "result_HVAC23C5.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "HVAC inverter (VFD)",
   "dr_price": 1.324,

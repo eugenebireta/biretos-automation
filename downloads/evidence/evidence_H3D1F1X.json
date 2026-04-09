@@ -357,7 +357,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Видеонаблюдение",
     "product_type": "Камера",
-    "seed_name": "Купольная IP камера H3D1F1X"
+    "seed_name": "Купольная IP камера H3D1F1X",
+    "description_long_ru": "Honeywell equIP series; discontinued/legacy; PAL variant (X suffix); c-tac listing may be expired (404); superseded by 30/35/60 Series"
   },
   "trace": {
     "pn_match_location": "",
@@ -577,8 +578,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.672829+00:00",
-    "merge_source": "result_H3D1F1X.json"
+    "merge_ts": "2026-04-09T12:01:24.931996+00:00",
+    "merge_source": "result_H3D1F1X.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
   },
   "dr_category": "IP camera (indoor mini dome)",
   "dr_image_url": "https://www.amazon.com/Honeywell-H3D1F1-Network-Indoor-Minidome/dp/B00FD08RLG (sibling NTSC model)",

@@ -332,7 +332,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Монитор",
-    "seed_name": "Монитор P2422H"
+    "seed_name": "Монитор P2422H",
+    "description_long_ru": "Dell P-Series Professional; EOL — replaced by P2425H; also $66.98 refurbished (PCLiquidations); €166.57 on Dell.com Ireland; 3-year warranty"
   },
   "trace": {
     "pn_match_location": "",
@@ -560,8 +561,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.700828+00:00",
-    "merge_source": "result_P2422H.json"
+    "merge_ts": "2026-04-09T12:01:24.976042+00:00",
+    "merge_source": "result_P2422H.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (9).md"
   },
   "dr_category": "Monitor",
   "dr_image_url": "(Dell product page: https://www.dell.com/en-us/shop/dell-24-monitor-p2422h/apd/210-bbcc/monitors-monitor-accessories)",

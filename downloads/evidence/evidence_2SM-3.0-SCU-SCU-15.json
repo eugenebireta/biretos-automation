@@ -340,7 +340,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Шнур",
-    "seed_name": "Оптический соединительный шнур Honeywell 2SM-3.0-SCU-SCU-15"
+    "seed_name": "Оптический соединительный шнур Honeywell 2SM-3.0-SCU-SCU-15",
+    "description_long_ru": "Код «-15» у Optcom соответствует 1,5м (а не 15м)"
   },
   "trace": {
     "pn_match_location": "",
@@ -615,7 +616,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.583771+00:00",
-    "merge_source": "result_2SM-3.0-SCU-SCU-15.json"
+    "merge_ts": "2026-04-09T12:01:24.811590+00:00",
+    "merge_source": "result_2SM-3.0-SCU-SCU-15.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

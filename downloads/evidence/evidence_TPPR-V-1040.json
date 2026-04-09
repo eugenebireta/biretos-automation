@@ -373,7 +373,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Модуль",
-    "seed_name": "Модуль цифрового ввода Honeywell TPPR-V-1040"
+    "seed_name": "Модуль цифрового ввода Honeywell TPPR-V-1040",
+    "description_long_ru": "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified."
   },
   "trace": {
     "pn_match_location": "",
@@ -590,8 +591,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.729832+00:00",
-    "merge_source": "result_TPPR-V-1040.json"
+    "merge_ts": "2026-04-09T12:01:25.010570+00:00",
+    "merge_source": "result_TPPR-V-1040.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "Relay output module (gas detection)",
   "dr_image_url": "(available on ISS Safety page)",

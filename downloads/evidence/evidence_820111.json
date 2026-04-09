@@ -365,7 +365,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Устройство",
-    "seed_name": "D 95.571.02"
+    "seed_name": "D 95.571.02",
+    "description_long_ru": "На странице есть старая цена 5.99€ и новая 4.29€"
   },
   "trace": {
     "pn_match_location": "",
@@ -651,7 +652,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.626771+00:00",
-    "merge_source": "result_820111.json"
+    "merge_ts": "2026-04-09T12:01:24.866654+00:00",
+    "merge_source": "result_820111.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

@@ -323,7 +323,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Оптический кросс",
-    "seed_name": "Оптический кросс Honeywell NMF-RP16SCUS2-RU"
+    "seed_name": "Оптический кросс Honeywell NMF-RP16SCUS2-RU",
+    "description_long_ru": "NIKOMAX brand. 3,568–3,771 RUB (~$38–41 USD). Premium version -TS-P1 costs ₽8,362–11,068. -RU = Russian CU-TR certified."
   },
   "trace": {
     "pn_match_location": "",
@@ -538,8 +539,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.695828+00:00",
-    "merge_source": "result_NMF-RP16SCUS2-RU.json"
+    "merge_ts": "2026-04-09T12:01:24.968533+00:00",
+    "merge_source": "result_NMF-RP16SCUS2-RU.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "Fiber optic patch panel",
   "dr_image_url": "(available on dssl.ru and e-kc.ru)",

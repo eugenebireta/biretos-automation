@@ -329,7 +329,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Медиаконвертер",
-    "seed_name": "Медиаконвертер Allied Telesis AT-MMC200LX"
+    "seed_name": "Медиаконвертер Allied Telesis AT-MMC200LX",
+    "description_long_ru": "Allied Telesis MMC series. Backordered at Redcorp. SHI marks as EOL. eBay gray market units from China available."
   },
   "trace": {
     "pn_match_location": "",
@@ -545,8 +546,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.635776+00:00",
-    "merge_source": "result_AT-MMC200LX.json"
+    "merge_ts": "2026-04-09T12:01:24.878162+00:00",
+    "merge_source": "result_AT-MMC200LX.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "Fiber media converter",
   "dr_image_url": "(available on CDW and Allied Telesis pages)",

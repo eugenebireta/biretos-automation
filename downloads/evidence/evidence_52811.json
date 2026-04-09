@@ -345,7 +345,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Устройство",
-    "seed_name": "Устройство Honeywell D 20.534.702"
+    "seed_name": "Устройство Honeywell D 20.534.702",
+    "description_long_ru": "Nova Tangenta; only Russian price found (~€12–13 equivalent); page returned 404 on fetch"
   },
   "trace": {
     "pn_match_location": "",
@@ -568,8 +569,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.600771+00:00",
-    "merge_source": "result_52811.json"
+    "merge_ts": "2026-04-09T12:01:24.833128+00:00",
+    "merge_source": "result_52811.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
   },
   "dr_category": "PEHA rocker switch",
   "dr_image_url": "—",

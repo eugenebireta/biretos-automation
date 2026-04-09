@@ -339,7 +339,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Кабель",
-    "seed_name": "Оптический кабель SCDUPLEX9/125-10"
+    "seed_name": "Оптический кабель SCDUPLEX9/125-10",
+    "description_long_ru": "Цена 596.00 руб указана в листинге page4"
   },
   "trace": {
     "pn_match_location": "",
@@ -614,7 +615,10 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.721828+00:00",
-    "merge_source": "result_SCDUPLEX9_125-10.json"
+    "merge_ts": "2026-04-09T12:01:25.001568+00:00",
+    "merge_source": "result_SCDUPLEX9_125-10.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
   }
 }

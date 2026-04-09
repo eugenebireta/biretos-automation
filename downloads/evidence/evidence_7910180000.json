@@ -325,7 +325,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Клемма",
-    "seed_name": "Клемма отключения WTR4 без STB 7910180000"
+    "seed_name": "Клемма отключения WTR4 без STB 7910180000",
+    "description_long_ru": "Weidmüller WTR 4 series; also $3.73/ea at Kempston (MOQ 50); $3.00/ea bulk on eBay; Romania origin"
   },
   "trace": {
     "pn_match_location": "",
@@ -551,8 +552,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.618770+00:00",
-    "merge_source": "result_7910180000.json"
+    "merge_ts": "2026-04-09T12:01:24.855144+00:00",
+    "merge_source": "result_7910180000.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (9).md"
   },
   "dr_category": "Test-disconnect terminal",
   "dr_image_url": "https://i.ebayimg.com/images/g/hjkAAOSwFepl5aRH/s-l1600.jpg",

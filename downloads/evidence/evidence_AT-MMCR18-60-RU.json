@@ -315,7 +315,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Шасси",
-    "seed_name": "Шасси Allied Telesis AT-MMCR18-60-RU"
+    "seed_name": "Шасси Allied Telesis AT-MMCR18-60-RU",
+    "description_long_ru": "Allied Telesis product. -RU = Russian variant. MSRP $1,250. Also $903.99 (Zoro), $745.93 (ShopBLT), $799.99 (NetworkHardwares)"
   },
   "trace": {
     "pn_match_location": "",
@@ -531,8 +532,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.635776+00:00",
-    "merge_source": "result_AT-MMCR18-60-RU.json"
+    "merge_ts": "2026-04-09T12:01:24.879163+00:00",
+    "merge_source": "result_AT-MMCR18-60-RU.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Media converter rack chassis",
   "dr_image_url": "—",

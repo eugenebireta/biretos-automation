@@ -330,7 +330,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Трансформатор",
-    "seed_name": "Трансформатор Honeywell 50017460-001/U, 230-120-24/24V"
+    "seed_name": "Трансформатор Honeywell 50017460-001/U, 230-120-24/24V",
+    "description_long_ru": "Honeywell Modutrol IV Series 2 & 3; current production; also $137.29 at Blackhawk Supply; $173.11 on Amazon"
   },
   "trace": {
     "pn_match_location": "",
@@ -557,8 +558,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.600771+00:00",
-    "merge_source": "result_50017460-001_U.json"
+    "merge_ts": "2026-04-09T12:01:24.832127+00:00",
+    "merge_source": "result_50017460-001_U.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (9).md"
   },
   "dr_category": "Internal transformer kit",
   "dr_image_url": "(available on Zoro and eBay product pages)",

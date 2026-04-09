@@ -378,7 +378,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Модуль",
-    "seed_name": "Модуль с 6 реле Honeywell XFLR824A"
+    "seed_name": "Модуль с 6 реле Honeywell XFLR824A",
+    "description_long_ru": "DISCONTINUED. Same family as XFLR822A. XFR824A (Panel Bus variant) at $339.74 on WiAutomation. From $291 for XFLR824AU at Radwell."
   },
   "trace": {
     "pn_match_location": "",
@@ -599,8 +600,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.752868+00:00",
-    "merge_source": "result_XFLR824A.json"
+    "merge_ts": "2026-04-09T12:01:25.037607+00:00",
+    "merge_source": "result_XFLR824A.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
   },
   "dr_category": "BAS relay output module",
   "dr_image_url": "(available on Cochrane Supply page)"

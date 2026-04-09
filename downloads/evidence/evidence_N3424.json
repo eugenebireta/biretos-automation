@@ -315,7 +315,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Привод",
-    "seed_name": "Привод заслонки Honeywell N3424"
+    "seed_name": "Привод заслонки Honeywell N3424",
+    "description_long_ru": "SmartAct N34 series; 24V variant of N34230"
   },
   "trace": {
     "pn_match_location": "",
@@ -539,8 +540,11 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T08:32:14.694830+00:00",
-    "merge_source": "result_N3424.json"
+    "merge_ts": "2026-04-09T12:01:24.967531+00:00",
+    "merge_source": "result_N3424.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (6).md"
   },
   "dr_category": "actuator",
   "dr_image_url": "https://i.ebayimg.com/images/g/CBYAAOSwtxpj9rrY/s-l1600.jpg",
