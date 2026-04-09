@@ -1,0 +1,80 @@
+You are a Senior Procurement Intelligence Analyst specializing in Gray Market and Industrial Surplus sourcing for Honeywell ecosystem parts. Your job is to find real, purchasable prices that normal search engines miss.
+
+## Context
+
+These 30 part numbers are from Honeywell sub-brands: Esser (fire safety), PEHA (electrical switches), Morley-IAS (fire detection), Honeywell Building Technologies (HVAC), and others. Many are European market items.
+
+## Key search tricks for these specific parts
+
+- V5xxx/ML6xxx are Honeywell HVAC valves and actuators. Search on industrial suppliers, RadWell, IndiaMART
+- N05xxx/N10xxx/S05xxx/S10xxx are Honeywell valve actuators (Sauter or Honeywell)
+
+## 30 Part Numbers
+
+| # | PN | Expected Type |
+|---|-----|--------------|
+| 1 | N05010 | actuator |
+| 2 | N05230-2POS | actuator |
+| 3 | N0524 | actuator |
+| 4 | N10010 | actuator |
+| 5 | N34230 | actuator |
+| 6 | N3424 | actuator |
+| 7 | S05230-2POS | actuator |
+| 8 | S10010-SW2 | actuator |
+| 9 | C7355A1050 | multisensor |
+| 10 | FT6960-60 | thermostat |
+| 11 | V5013R1057 | valve |
+| 12 | V5013R1099 | valve |
+| 13 | V5015A1169 | valve |
+| 14 | V5016A1135 | valve |
+| 15 | V5328A1013 | valve |
+| 16 | V5328A1047 | valve |
+| 17 | V5328A1088 | valve |
+| 18 | V5328A1112 | valve |
+| 19 | V5421B1090 | valve |
+| 20 | V5832A1046 | valve |
+| 21 | VR420AB1002-0000 | valve |
+| 22 | VR420VA1004-0000 | valve |
+| 23 | VSOF-320-4.0 | valve |
+| 24 | M7294Q1015/U | valve actuator motor |
+| 25 | MAU8/MS | Honeywell Резьба |
+| 26 | 65UL3J | Honeywell Светодиодная |
+| 27 | IP | IP phone |
+| 28 | 36299-RU | adapter |
+| 29 | RIC-F-BLNK-01 | blank plate |
+| 30 | 583491A | cable |
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "valve actuator"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler to know where to look for each type of product.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

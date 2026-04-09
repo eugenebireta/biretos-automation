@@ -1,0 +1,84 @@
+Research 20 industrial part numbers for a professional B2B catalog.
+You will produce BOTH a narrative technical review AND structured data tables.
+
+## Search protocol
+
+For each part number:
+1. Google `"{PN}"` in quotes -- identify the product
+2. Google `"{PN}" datasheet` -- find official documentation
+3. If nothing: remove suffix (`.10`, `-RU`, `-L3`, `/U`) and retry
+4. If still nothing: add brand prefix (`Honeywell {PN}`, `PEHA {PN}`, `Esser {PN}`)
+5. Check eBay (ebay.de + ebay.com) for photos and surplus pricing
+6. Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, electropara.ru, tinko.ru
+
+## Product context
+
+- **PEHA by Honeywell** -- German electrical installation (frames, switches, sockets, inserts). Suffix `.10`=white, `.20`=cream. Search: ebay.de, conrad.de, voelkner.de, electropara.ru
+- **Honeywell Safety / Howard Leight** -- PPE: ear plugs, harnesses, gas detectors. Search: grainger.com, amazon.com, rsgroup.com
+
+## Part Numbers
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 788311 | PEHA DIALOG frame |
+| 2 | 797211 | PEHA DIALOG frame |
+| 3 | 336011 | PEHA DIALOG insert |
+| 4 | 777911 | PEHA DIALOG insert |
+| 5 | 775611 | PEHA DIALOG socket |
+| 6 | 820611 | PEHA DIALOG socket |
+| 7 | 29313 | PEHA NOVA center plate |
+| 8 | 20511 | PEHA NOVA frame |
+| 9 | 35211 | PEHA NOVA frame |
+| 10 | 29011 | PEHA NOVA insert |
+| 11 | 22811 | PEHA NOVA rocker switch |
+| 12 | 38511 | PEHA NOVA rocker switch |
+| 13 | 39611 | PEHA NOVA rocker switch |
+| 14 | 52811 | PEHA NOVA rocker switch |
+| 15 | 54611 | PEHA NOVA rocker switch |
+| 16 | 193111 | PEHA push button |
+| 17 | 1000106 | earplugs (PPE) |
+| 18 | 1006186 | earplugs (PPE) |
+| 19 | 1006187 | earplugs (PPE) |
+| 20 | 304L | earplugs (PPE) |
+
+## Required output
+
+### Part 1: Technical review (Russian narrative)
+
+Напиши связный технический обзор на русском языке, охватывающий все 20 товаров.
+Группируй по категориям. Для каждого товара напиши 100-200 слов:
+- Что это, серия/семейство, производитель
+- Принцип работы, ключевая функция
+- Технические характеристики с числами (размеры, номиналы, диапазоны)
+- Где применяется (типы объектов, систем)
+- Чем отличается данная модификация
+
+Пиши как технический редактор профессионального каталога.
+Используй естественный русский язык, НЕ буквальный перевод.
+
+### Part 2: Structured tables
+
+**Table 1 -- Product data (ALL 20 rows, every PN must appear)**
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+- Every input PN MUST have a row, even if price is "Not found"
+- NEVER invent prices
+- Description: 3-5 предложений на русском языке
+
+**Table 2 -- Sources visited (ALL 20 PNs)**
+
+| Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
+|---|---|---|---|---|---|---|
+
+2-4 real URLs per PN. Even for "not found" items, show where you searched.
+
+## Rules
+
+- NEVER invent or estimate prices. "Not found" is always better than a guess.
+- Every PN MUST appear in Table 1 and Table 2.
+- Russian prices (RUB) from vseinstrumenti.ru, lemanapro.ru are HIGH PRIORITY.
+- Narrative descriptions and Table 1 descriptions MUST be in Russian.
+- Any currency accepted (EUR, USD, GBP, RUB, CHF).
+- Surplus/eBay photos are acceptable.
