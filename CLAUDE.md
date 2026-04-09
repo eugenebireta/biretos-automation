@@ -12,6 +12,24 @@ If the user message is a short liveness check or tiny conversational prompt
 
 This override applies only to that single liveness/conversational turn.
 
+## SCRIPT AWARENESS (mandatory pre-flight)
+
+Before doing ANY of these tasks manually, FIRST check `scripts/MANIFEST.json`
+and run the existing script:
+
+- Generating DR prompts → `scripts/dr_prompt_generator.py`
+- Importing DR results → `scripts/dr_results_import.py`
+- Merging to evidence → `scripts/merge_research_to_evidence.py`
+- Downloading documents → `scripts/download_documents.py`
+- Exporting to CSV/Excel → `scripts/export_pipeline.py`
+- Any enrichment/catalog task → `ls scripts/` and grep for keywords FIRST
+
+**NEVER write ad-hoc Python for tasks that existing scripts already handle.**
+**NEVER invent product data — always pull from evidence files.**
+All scripts support `--dry-run` — use it first.
+
+See `memory/reference_operations_map.md` for the full task→script mapping.
+
 ## VERIFICATION REMINDER
 
 Before changing code, define the verification path first.
