@@ -145,11 +145,18 @@ def merge_one(pn: str, dry_run: bool = False) -> dict:
         dr["title_ru"] = title_ru.strip()
         fields_added.append("title_ru")
 
-    # description_ru
+    # description_ru — overwrite if new is good and old is empty/garbage/much shorter
     desc_ru = fr.get("description_ru", "")
-    if not _is_empty(desc_ru) and not _is_garbage_description(desc_ru) and _is_empty(dr.get("description_ru")):
-        dr["description_ru"] = desc_ru.strip()
-        fields_added.append("description_ru")
+    old_desc = dr.get("description_ru", "")
+    if not _is_empty(desc_ru) and not _is_garbage_description(desc_ru):
+        should_write = (
+            _is_empty(old_desc)
+            or _is_garbage_description(old_desc)
+            or (len(desc_ru) > len(old_desc) * 1.5)
+        )
+        if should_write:
+            dr["description_ru"] = desc_ru.strip()
+            fields_added.append("description_ru")
 
     # specs
     specs = fr.get("specs", {})

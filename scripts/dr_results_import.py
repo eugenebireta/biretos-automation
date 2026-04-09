@@ -515,12 +515,16 @@ def import_file(
                         ex_rec["datasheet_url"] = new_rec["datasheet_url"]
                         changed = True
 
-                    if not ex_rec.get("title_ru") and new_rec.get("title_ru"):
-                        ex_rec["title_ru"] = new_rec["title_ru"]
+                    old_title = ex_rec.get("title_ru", "")
+                    new_title = new_rec.get("title_ru", "")
+                    if new_title and (not old_title or len(new_title) > len(old_title) * 1.5):
+                        ex_rec["title_ru"] = new_title
                         changed = True
 
-                    if not ex_rec.get("description_ru") and new_rec.get("description_ru"):
-                        ex_rec["description_ru"] = new_rec["description_ru"]
+                    old_desc = ex_rec.get("description_ru", "")
+                    new_desc = new_rec.get("description_ru", "")
+                    if new_desc and (not old_desc or len(new_desc) > len(old_desc) * 1.5):
+                        ex_rec["description_ru"] = new_desc
                         changed = True
 
                     # Add sources from DR that aren't already there
