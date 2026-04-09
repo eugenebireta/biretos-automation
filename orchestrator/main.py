@@ -1163,6 +1163,16 @@ def _build_directive(
     scope_lines = "\n".join(f"- {f}" for f in scope_source) or "- (no scope specified)"
     constraints_lines = "\n".join(f"- {c}" for c in bundle.dna_constraints)
 
+    # P5: Lessons from past experience
+    experience_section = ""
+    try:
+        import experience_reader as _er
+        lessons = _er.get_lessons_for_task(task_id, risk_class=classification.risk_class)
+        if lessons:
+            experience_section = lessons + "\n"
+    except Exception as exc:
+        logger.warning("Experience reader failed: %s", exc)
+
     # P3: retry annotation
     retry_section = ""
     if retry_context or retry_count > 0:
@@ -1191,7 +1201,7 @@ generated_at: {_now()}
 risk_class: {classification.risk_class}  governance_route: {classification.governance_route}
 advisor_risk: {verdict.risk_assessment}  advisor_route: {verdict.governance_route}
 scope_source: {scope_note}
-{retry_section}{audit_section}
+{retry_section}{audit_section}{experience_section}
 ## Sprint Goal
 {sprint_goal}
 

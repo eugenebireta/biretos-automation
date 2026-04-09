@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 76
-transition_ts: "2026-04-09T14:00:00Z"
+transition_seq: 77
+transition_ts: "2026-04-09T16:00:00Z"
 
 ## Current
-active_task: "P4-TELEGRAM-QUEUE"
-task_id: "P4-TELEGRAM-QUEUE"
+active_task: "P5-EXPERIENCE-READER"
+task_id: "P5-EXPERIENCE-READER"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "P4 Telegram queue management shipped. telegram_bot.py: /queue (show queue), /enqueue <id> <goal> [SEMI|CORE] (add task), /pop (dequeue next), /confirm (SEMI/CORE owner confirm + manifest update), /run (trigger one main.py cycle). /start + /help updated. sys.path wired for task_queue import. 23 new deterministic tests (all mocked — no Telegram API, no subprocess). 1503/1503 pass. Audit v4 score: 66/100 (was 53). P4 threshold: 65+ reached."
+note: "P5 experience reader closes the learning loop. experience_reader.py: _load_experience_records (schema v1 filter), get_task_history, get_failure_patterns (drift rate, common OOS files, common failures), get_lessons_for_task (task-specific + global patterns → markdown for directive injection). Wired into _build_directive: lessons auto-injected before Sprint Goal. Also: P2 wiring (cmd_enqueue/cmd_queue CLI, _try_queue_advance, blocked/audit_in_progress parked guards), audit v4 (score 53→66), 5 integration dry-run tests. 16 new experience reader tests + 5 integration tests. 1519/1519 pass."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
