@@ -1830,19 +1830,26 @@ def cmd_reject(args: argparse.Namespace) -> None:
 
 
 def cmd_status(args: argparse.Namespace) -> None:
-    """Show current orchestrator state."""
+    """Show current orchestrator state (read-only, no side effects)."""
     manifest = load_manifest()
-    print(f"FSM State:    {manifest.get('fsm_state')}")
-    print(f"Task ID:      {manifest.get('current_task_id')}")
-    print(f"Sprint Goal:  {manifest.get('current_sprint_goal', '')[:80]}")
-    print(f"Trace ID:     {manifest.get('trace_id')}")
-    print(f"Attempts:     {manifest.get('attempt_count', 0)}")
-    print(f"Retries:      {manifest.get('retry_count', 0)}")
-    print(f"Last Verdict: {manifest.get('last_verdict')}")
-    print(f"Risk Class:   {manifest.get('_last_risk_class')}")
+    print(f"FSM State:      {manifest.get('fsm_state', 'N/A')}")
+    print(f"Task ID:        {manifest.get('current_task_id', 'N/A')}")
+    print(f"Sprint Goal:    {manifest.get('current_sprint_goal', '')[:80]}")
+    print(f"Trace ID:       {manifest.get('trace_id', 'N/A')}")
+    print(f"Attempt Count:  {manifest.get('attempt_count', 0)}")
+    print(f"Retry Count:    {manifest.get('retry_count', 0)}")
+    print(f"Last Verdict:   {manifest.get('last_verdict', 'N/A')}")
+    print(f"Risk Class:     {manifest.get('_last_risk_class', 'N/A')}")
+    print(f"Updated At:     {manifest.get('updated_at', 'N/A')}")
     audit = manifest.get("last_audit_result")
     if audit:
-        print(f"Last Audit:   verdict={audit.get('verdict')} gate={audit.get('gate_passed')}")
+        print(f"Last Audit:     verdict={audit.get('verdict')} gate={audit.get('gate_passed')}")
+    # Queue depth — safe import, no side effects
+    try:
+        import task_queue as _tq
+        print(f"Queue Depth:    {_tq.queue_depth()}")
+    except Exception:
+        print("Queue Depth:    N/A (task_queue unavailable)")
 
 
 def main() -> None:
