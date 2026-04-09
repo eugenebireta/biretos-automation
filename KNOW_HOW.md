@@ -16,3 +16,5 @@ Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
 2026-04-09 #rule research-runner: Haiku-only without web access gives 0 merge candidates — need web grounding
 2026-04-09 #bug dr_prompt_generator: v6 used expected_category as hint — wrong for 33+ PEHA. Fix: use assembled_title only.
 2026-04-09 #bug export_pipeline: 5 DR fields (price, currency, title_ru, description_ru, image_url) were not exported. Fix: added all 5 columns.
+2026-04-09 #bug price_extraction: PN 00020211 fails 37x with RuntimeError, provider=openai model=claude-haiku-4-5 parse_success=false. Needs investigation.
+2026-04-09 #rule orchestrator: manifest.json itself triggers A4:SCOPE drift because orchestrator writes to it during execution. Known false positive.

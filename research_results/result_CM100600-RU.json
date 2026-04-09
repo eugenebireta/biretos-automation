@@ -18,7 +18,7 @@
       "source_url": "https://www.rtk.by/catalog/.../gayka-m6-s-nasechkoy-up-200sht/",
       "price_type": "distributor"
     },
-    "photo_url": null,
+    "photo_url": "—",
     "specs": {
       "raw": "М6; насечка/антиоткручивание; упаковка 200 шт citeturn58search2",
       "aliases": [
@@ -39,10 +39,50 @@
           "identity",
           "price"
         ]
+      },
+      {
+        "url": "https://anbik.ru/metalcabellotky/item-2485/",
+        "type": "distributor",
+        "domain": "anbik.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes."
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://anbik.ru/metalcabellotky/item-2485/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.dkcmarket.ru/cm100600.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://satro-paladin.com/catalog/product/43608/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.dkc.ru/en/catalog/210/CM100600/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ]
   },
   "sources": [
     {
@@ -52,6 +92,16 @@
       "supports": [
         "identity",
         "price"
+      ]
+    },
+    {
+      "url": "https://anbik.ru/metalcabellotky/item-2485/",
+      "type": "distributor",
+      "domain": "anbik.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
       ]
     }
   ],
@@ -63,5 +113,5 @@
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "deep-research-report (4).md"
+  "dr_source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
 }

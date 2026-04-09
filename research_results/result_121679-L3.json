@@ -8,7 +8,7 @@
     "identity_confirmed": true,
     "brand": "unknown",
     "title_ru": "Gas detection accessory: manual aspirator pump",
-    "description_ru": "Цена: $242.00 AUD “Includes GST”; на складе. citeturn33search4",
+    "description_ru": "Комплект для ручного забора проб воздуха, совместимый с портативными газоанализаторами MicroClip XL и X3. Позволяет проводить мониторинг загазованности в колодцах и замкнутых пространствах перед входом персонала.25",
     "category_suggestion": "Gas detection accessory: manual aspirator pump",
     "price_assessment": "admissible_public_price",
     "price_value": {
@@ -39,11 +39,43 @@
           "price",
           "photo"
         ]
+      },
+      {
+        "url": "https://www.instrumart.com/products/21380/honeywell-hand-aspirator-kit",
+        "type": "—",
+        "domain": "www.instrumart.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
       }
     ],
     "confidence": "medium",
     "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: yes, Category: yes.",
-    "datasheet_url": ".pdf)"
+    "datasheet_url": ".pdf)",
+    "documents": [
+      {
+        "url": "https://www.instrumart.com/products/21380/honeywell-hand-aspirator-kit",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.instrumart.com/products/21360/honeywell-hand-aspirator",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.mallory.com/2567170/product/bw-technologies-by-honeywell-127605-l3",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ]
   },
   "sources": [
     {
@@ -53,6 +85,15 @@
       "supports": [
         "identity",
         "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.instrumart.com/products/21380/honeywell-hand-aspirator-kit",
+      "type": "—",
+      "domain": "www.instrumart.com",
+      "supports": [
+        "identity",
         "photo"
       ]
     }
@@ -65,5 +106,5 @@
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "deep-research-report-prompt-v3.md"
+  "dr_source_file": "deep-research-report-prompt-v1.md"
 }

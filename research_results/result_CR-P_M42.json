@@ -7,7 +7,7 @@
   "final_recommendation": {
     "identity_confirmed": true,
     "brand": "unknown",
-    "title_ru": "Relay accessory",
+    "title_ru": "Relay diode + LED module",
     "description_ru": "Продавец прямо указывает, что не является авторизованным дистрибьютором — учитывать как серый рынок. citeturn28view0",
     "category_suggestion": "Relay accessory",
     "price_assessment": "ambiguous_offer",
@@ -40,16 +40,87 @@
           "price",
           "photo"
         ]
+      },
+      {
+        "url": "https://www.kempstoncontrols.com/1SVR405652R0000/ABB/sku/387552",
+        "type": "distributor",
+        "domain": "www.kempstoncontrols.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "low",
-    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://new.abb.com/products/1SVR405652R0000/cr-p-m-42",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.electricautomationnetwork.com/en/abb/cr-p-m-42-pluggable-module-diode-and-led-red-6-24vdc-a1-a2-abb-cr-p-m42-1svr405652r0000",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.santaclarasystems.com/abb/cr-p-m-42",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://store.lydey.com/products/1SVR405652R0000",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://rspsupply.com/p-127207-abb-1svr405652r0000-pluggable-module-cr-pm-42.aspx",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://us.rs-online.com/product/abb/1svr405652r0000/70318862/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.kempstoncontrols.com/1SVR405652R0000/ABB/sku/387552",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ]
   },
   "sources": [
     {
       "url": "https://ae.wiautomation.com/abb/general-automation/1svr405652r0000",
       "type": "gray_market",
       "domain": "ae.wiautomation.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.kempstoncontrols.com/1SVR405652R0000/ABB/sku/387552",
+      "type": "distributor",
+      "domain": "www.kempstoncontrols.com",
       "supports": [
         "identity",
         "price",
@@ -65,5 +136,5 @@
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "deep-research-report (4).md"
+  "dr_source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
 }
