@@ -1943,7 +1943,7 @@ def cmd_status(args: argparse.Namespace) -> None:
     manifest = load_manifest()
     print(f"FSM State:      {manifest.get('fsm_state', 'N/A')}")
     print(f"Task ID:        {manifest.get('current_task_id', 'N/A')}")
-    print(f"Sprint Goal:    {manifest.get('current_sprint_goal', '')[:80]}")
+    print(f"Sprint Goal:    {(manifest.get('current_sprint_goal') or '')[:80]}")
     print(f"Trace ID:       {manifest.get('trace_id', 'N/A')}")
     print(f"Attempt Count:  {manifest.get('attempt_count', 0)}")
     print(f"Retry Count:    {manifest.get('retry_count', 0)}")
