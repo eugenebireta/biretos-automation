@@ -451,14 +451,19 @@ def run_post_execution_audit_sync(
     # Approval routing:
     # - CORE: NEVER auto_pass. Always INDIVIDUAL_REVIEW (→ JUDGE + owner).
     #   Opus clearing = "forwarded to JUDGE", NOT "approved".
-    # - SEMI: auto_pass only if no critical and gate passed. Owner approval
-    #   is enforced downstream in main.py (SEMI always waits for owner ACCEPT).
+    # - SEMI: NEVER auto_pass. Always BATCH_APPROVAL (→ owner ACCEPT).
+    #   Per Master Plan: "SEMI: commit/merge только с owner approval".
+    # - LOW: auto_pass if gate passed.
     if has_critical:
         run.approval_route = ApprovalRoute.BLOCKED
     elif risk_class == "CORE":
         # CORE always goes to JUDGE — even if gate passed
         run.approval_route = ApprovalRoute.INDIVIDUAL_REVIEW
+    elif risk_class == "SEMI":
+        # SEMI always needs owner ACCEPT — never auto-pass
+        run.approval_route = ApprovalRoute.BATCH_APPROVAL
     elif run.quality_gate.passed:
+        # LOW with clean gate — auto pass
         run.approval_route = ApprovalRoute.AUTO_PASS
     else:
         run.approval_route = ApprovalRoute.INDIVIDUAL_REVIEW
