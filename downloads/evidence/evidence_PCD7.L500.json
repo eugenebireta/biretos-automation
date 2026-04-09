@@ -539,5 +539,38 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PLC power supply module",
+    "description_ru": "Also €98.74 list price (2020 SBC price list)",
+    "specs": {
+      "raw": "110–240VAC in; 24VDC/700mA out; max 15 RAIL/SAFE modules; 90g",
+      "aliases": [
+        "PCD7L500"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also €98.74 list price (2020 SBC price list)",
+      "Aliases: PCD7L500"
+    ],
+    "sources": [
+      {
+        "url": "https://bmsplus-shop.com/shop/pcd7-l500/",
+        "type": "distributor",
+        "domain": "bmsplus-shop.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.706828+00:00",
+    "merge_source": "result_PCD7.L500.json"
+  },
+  "dr_category": "PLC power supply module",
+  "dr_price": 181.0,
+  "dr_currency": "CHF",
+  "dr_price_source": "https://bmsplus-shop.com/shop/pcd7-l500/"
 }

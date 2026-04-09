@@ -536,5 +536,34 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "VR420 series; VA variant; Suner EU lists with stock TBC",
+    "specs": {
+      "raw": "Servo-combi gas valve; Class A; DN20; 230V AC; dual valves; built-in pressure regulator; EN 126/161",
+      "aliases": [
+        "VR420VA1004"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "VR420 series; VA variant; Suner EU lists with stock TBC",
+      "Aliases: VR420VA1004"
+    ],
+    "sources": [
+      {
+        "url": "https://www.suner.eu/en/products/vr420va1004-0000-dn20-230v-honeywell-valve-9477/",
+        "type": "—",
+        "domain": "www.suner.eu",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.749870+00:00",
+    "merge_source": "result_VR420VA1004-0000.json"
+  },
+  "dr_category": "valve"
 }

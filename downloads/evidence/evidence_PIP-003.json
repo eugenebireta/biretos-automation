@@ -582,5 +582,34 @@
         "domain": "honeywell.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "fire detection accessory (pipe fitting)",
+    "specs": {
+      "raw": "«25mm Socket Union (Pack of 10)»; цена £34.02 (в карточке) citeturn1view3",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена на странице указана как «£34.02» (VAT‑формат зависит от продавца). citeturn1view3",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "`https://dema.net/vesda-xtralis-pip-003-25mm-socket-union-pack-of-10.html` citeturn1view3",
+        "type": "distributor",
+        "domain": "dema.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.708828+00:00",
+    "merge_source": "result_PIP-003.json"
   }
 }

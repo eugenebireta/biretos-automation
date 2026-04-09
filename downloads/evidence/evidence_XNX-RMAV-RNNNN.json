@@ -523,5 +523,41 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "Gas detection transmitter",
+    "description_ru": "Honeywell XNX Universal Transmitter. £516 is base (no sensor); w/ catalytic £1,407; w/ IR £1,806. R=relay, R=CU-TR cert. Transmitter-only; sensor separate.",
+    "specs": {
+      "raw": "HART 4-20mA; 5×M25 entries; aluminum IP66/NEMA4X; 16-32V DC; -40°C to +65°C; 370×280×180mm; ATEX/IECEx/UL/CSA",
+      "aliases": [
+        "XNX-RMAV-NNNNN (base, no relay)",
+        "XNX-RMAV-NNCB1 (w/ catalytic sensor)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell XNX Universal Transmitter. £516 is base (no sensor); w/ catalytic £1,407; w/ IR £1,806. R=relay, R=CU-TR cert. Transmitter-only; sensor separate.",
+      "Aliases: XNX-RMAV-NNNNN (base, no relay); XNX-RMAV-NNCB1 (w/ catalytic sensor)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.safetygearstore.co.uk/honeywell-xnx-xnx-rmav-nnnnn-universal-transmitter",
+        "type": "distributor",
+        "domain": "www.safetygearstore.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.754867+00:00",
+    "merge_source": "result_XNX-RMAV-RNNNN.json"
+  },
+  "dr_category": "Gas detection transmitter",
+  "dr_image_url": "https://www.safetygearstore.co.uk/images/thumbs/0005727_honeywell-xnx-xnx-rmav-nnnnn-universal-transmitter_600.png",
+  "dr_price": 516.0,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.safetygearstore.co.uk/honeywell-xnx-xnx-rmav-nnnnn-universal-transmitter"
 }

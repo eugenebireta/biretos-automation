@@ -587,5 +587,32 @@
       "has_photo": "",
       "domain": "ebay.com"
     }
-  ]
+  ],
+  "deep_research": {
+    "title_ru": "Server HDD: 600GB SAS 3.5\"",
+    "specs": {
+      "aliases": [
+        "623391-001_REF (ref)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Страница: 32.43 CHF incl. 8.1% USt; “gebraucht”, 90 дней гарантии. citeturn30search9",
+      "Aliases: 623391-001_REF (ref)"
+    ],
+    "sources": [
+      {
+        "url": "`https://variotrade.ch/HP-600GB-SAS-15K-rpm-6Gb-s-35-HDD-fuer-HP-Workstation-Server-ohne-Rahmen-gebraucht-90-Tage-Garantie` citeturn30search9",
+        "type": "surplus",
+        "domain": "variotrade.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.606771+00:00",
+    "merge_source": "result_600GB-SAS3.5.json"
+  }
 }

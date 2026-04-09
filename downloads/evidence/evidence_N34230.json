@@ -523,5 +523,43 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "actuator",
+    "description_ru": "SmartAct N34 series; EUR excl. VAT; primarily European market",
+    "specs": {
+      "raw": "34 Nm; 230 VAC; floating/2-position; IP54; damper area up to 7.8 m²; shaft 10-27mm round / 10-18mm square"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "SmartAct N34 series; EUR excl. VAT; primarily European market"
+    ],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/servomoteurs-de-clapet-dair-n34230-honeywell-actionneur-de-volet-34-nm-230-vac-2-3-pts/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.emoteek.nl/Honeywell-N34230-Damper-actuator-Esser-832624-origineel",
+        "type": "distributor",
+        "domain": "www.emoteek.nl",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.693828+00:00",
+    "merge_source": "result_N34230.json"
+  },
+  "dr_category": "actuator",
+  "dr_price": 521.82,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://emoteek.net/en/product/servomoteurs-de-clapet-dair-n34230-honeywell-actionneur-de-volet-34-nm-230-vac-2-3-pts/"
 }

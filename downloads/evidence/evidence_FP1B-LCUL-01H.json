@@ -507,5 +507,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fiber optic pigtail",
+    "description_ru": "Siemon XGLO series. \"H\" = LSOH jacket. Price is for OFNR version; LSOH may be marginally higher.",
+    "specs": {
+      "raw": "Simplex; 900µm; SM OS1/OS2 8.3/125µm; LC/UPC; 1m; LSOH-3C; IL ≤0.3dB; RL ≥55dB; 1310/1550nm; -40°C to +75°C",
+      "aliases": [
+        "FP1B-LCUL-01 (OFNR version)",
+        "Anixter #361705"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Siemon XGLO series. \"H\" = LSOH jacket. Price is for OFNR version; LSOH may be marginally higher.",
+      "Aliases: FP1B-LCUL-01 (OFNR version); Anixter #361705"
+    ],
+    "sources": [
+      {
+        "url": "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions",
+        "type": "distributor",
+        "domain": "www.eaccu-tech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.660830+00:00",
+    "merge_source": "result_FP1B-LCUL-01H.json"
+  },
+  "dr_category": "Fiber optic pigtail",
+  "dr_image_url": "https://www.eelaf.com/web/image/product.template/18324/image_1920?unique=7c356d0",
+  "dr_price": 12.9,
+  "dr_currency": "USD",
+  "dr_price_source": "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions"
 }

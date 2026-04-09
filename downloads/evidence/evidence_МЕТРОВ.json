@@ -543,5 +543,34 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "Cable (generic descriptor)",
+    "description_ru": "Russian word meaning \"meters\"; a unit of measure, not a discrete part number. Likely a BOM descriptor for cable sold by the meter.",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Russian word meaning \"meters\"; a unit of measure, not a discrete part number. Likely a BOM descriptor for cable sold by the meter.",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.754867+00:00",
+    "merge_source": "result_МЕТРОВ.json"
+  },
+  "dr_category": "Cable (generic descriptor)"
 }

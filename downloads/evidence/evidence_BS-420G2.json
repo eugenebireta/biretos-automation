@@ -506,5 +506,38 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire & gas alarm panel",
+    "description_ru": "NOT Honeywell — Autronica (Carrier group); also $2,500 used on eBay",
+    "specs": {
+      "raw": "Autronica AutroSafe 4; 12 modules; 2×Ethernet; SIL2; EN54-2; 19.84 lbs; Norway",
+      "aliases": [
+        "116-BS-420G2",
+        "116-KIT-BS-420G2"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "NOT Honeywell — Autronica (Carrier group); also $2,500 used on eBay",
+      "Aliases: 116-BS-420G2; 116-KIT-BS-420G2"
+    ],
+    "sources": [
+      {
+        "url": "https://www.radwell.com/Buy/AUTRONICA/AUTRONICA/116-KIT-BS-420G2",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.637776+00:00",
+    "merge_source": "result_BS-420G2.json"
+  },
+  "dr_category": "Fire & gas alarm panel",
+  "dr_image_url": "https://i.ebayimg.com/images/g/SLgAAOSworVnm3QW/s-l1600.jpg"
 }

@@ -491,5 +491,51 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PEHA socket",
+    "description_ru": "Dialog SCHUKO socket; widely available €4–6; VDE 0620 compliant",
+    "specs": {
+      "raw": "250V; 16A; 1 socket; plug-in terminals; pure white RAL 9010; IP20; halogen-free",
+      "aliases": [
+        "D 95.6511.02 SI",
+        "00820611",
+        "EAN 4010105820614"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Dialog SCHUKO socket; widely available €4–6; VDE 0620 compliant",
+      "Aliases: D 95.6511.02 SI; 00820611; EAN 4010105820614"
+    ],
+    "sources": [
+      {
+        "url": "https://www.heiz24.de/PEHA-D-95651102-00820011-Dialogue-socket-outlet-SCHUKO-pure-white-NEW",
+        "type": "distributor",
+        "domain": "www.heiz24.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://kursk.aelektro.ru/catalog/rozetki/elektricheskie/rozetka-honeywell-dialog-skrytyi-montazh-s-zazemleniem-so-shtorkami-aluminii-820611",
+        "type": "distributor",
+        "domain": "kursk.aelektro.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.627777+00:00",
+    "merge_source": "result_820611.json"
+  },
+  "dr_category": "PEHA socket",
+  "dr_image_url": "https://kursk.aelektro.ru/content/photo/full/P820611_img1.jpg",
+  "dr_price": 4.77,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.heiz24.de/PEHA-D-95651102-00820011-Dialogue-socket-outlet-SCHUKO-pure-white-NEW"
 }

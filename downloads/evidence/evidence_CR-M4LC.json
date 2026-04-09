@@ -510,5 +510,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Relay socket",
+    "description_ru": "ABB CR-M series. Also £7.11 GBP at Electrika UK. Min order qty 10.",
+    "specs": {
+      "raw": "Spring terminals; for 2c/o or 4c/o CR-M relay; 31×42.5×95mm; 0.075 kg; DIN rail mount",
+      "aliases": [
+        "1SVR405651R3200",
+        "CR-M4LS (screw variant)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "ABB CR-M series. Also £7.11 GBP at Electrika UK. Min order qty 10.",
+      "Aliases: 1SVR405651R3200; CR-M4LS (screw variant)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.logic-control.com/abb-controls-1svr405651r3200",
+        "type": "distributor",
+        "domain": "www.logic-control.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.646827+00:00",
+    "merge_source": "result_CR-M4LC.json"
+  },
+  "dr_category": "Relay socket",
+  "dr_image_url": "https://images.onetimepim.com/acc-102/images/2cdc291002s0015_720x540.jpg",
+  "dr_price": 11.28,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.logic-control.com/abb-controls-1svr405651r3200"
 }

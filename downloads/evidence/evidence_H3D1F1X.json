@@ -548,5 +548,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "IP camera (indoor mini dome)",
+    "description_ru": "Honeywell equIP series; discontinued/legacy; PAL variant (X suffix); c-tac listing may be expired (404); superseded by 30/35/60 Series",
+    "specs": {
+      "raw": "720p 1280×720; 1/4\" CMOS; 3.3–12mm VFAI lens; 25fps PAL; H.264/MJPEG; dual stream; PoE 802.3af / 24VAC; ONVIF Profile S; 3\" minidome",
+      "aliases": [
+        "H3D1F1 (NTSC version)",
+        "HD3MDIP (predecessor)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell equIP series; discontinued/legacy; PAL variant (X suffix); c-tac listing may be expired (404); superseded by 30/35/60 Series",
+      "Aliases: H3D1F1 (NTSC version); HD3MDIP (predecessor)"
+    ],
+    "sources": [
+      {
+        "url": "https://c-tac.com/H3D1F1X-DEKOM",
+        "type": "distributor",
+        "domain": "c-tac.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.672829+00:00",
+    "merge_source": "result_H3D1F1X.json"
+  },
+  "dr_category": "IP camera (indoor mini dome)",
+  "dr_image_url": "https://www.amazon.com/Honeywell-H3D1F1-Network-Indoor-Minidome/dp/B00FD08RLG (sibling NTSC model)",
+  "dr_price": 266.99,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://c-tac.com/H3D1F1X-DEKOM"
 }

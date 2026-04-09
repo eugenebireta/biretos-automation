@@ -633,5 +633,37 @@
         "domain": "balticnetworks.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "Fiber optic patch cord",
+    "specs": {
+      "raw": "Single Mode; длина 1.5 м; диаметр 0.9 мм; SC/UPC↔SC/UPC; цвет жёлтый citeturn51view0",
+      "aliases": [
+        "SM 9/125",
+        "SC/UPC",
+        "900um",
+        "1.5m"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена на странице дана «per unit»; есть скидки от количества. citeturn51view0",
+      "Aliases: SM 9/125; SC/UPC; 900um; 1.5m"
+    ],
+    "sources": [
+      {
+        "url": "https://www.digitec.ch/en/s1/product/extralink-patchcord-scupc-scupc-sm-simplex-900um-15m-150-m-network-cables-35548404",
+        "type": "distributor",
+        "domain": "www.digitec.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.725829+00:00",
+    "merge_source": "result_SM-0.9-SC-UPC-1.5.json"
   }
 }

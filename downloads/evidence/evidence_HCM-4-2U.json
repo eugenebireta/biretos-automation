@@ -507,5 +507,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Horizontal cable manager",
+    "description_ru": "Siemon RouteIT series. $59.60 at Energy Avenue; $85 on eBay for -D variant. Also available in gray.",
+    "specs": {
+      "raw": "19\" width; 2U (3.5\"H); 4\" finger depth; single-sided w/ dual-hinge cover; 48+ Cat6A cables; 2.9 lb; black",
+      "aliases": [
+        "HCM-4-2U-D (double-sided variant)",
+        "Anixter #899909"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Siemon RouteIT series. $59.60 at Energy Avenue; $85 on eBay for -D variant. Also available in gray.",
+      "Aliases: HCM-4-2U-D (double-sided variant); Anixter #899909"
+    ],
+    "sources": [
+      {
+        "url": "http://www.eaccu-tech.com/siemon/hcm-4-2u-siemon-solutions/",
+        "type": "distributor",
+        "domain": "www.eaccu-tech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.674827+00:00",
+    "merge_source": "result_HCM-4-2U.json"
+  },
+  "dr_category": "Horizontal cable manager",
+  "dr_image_url": "https://i.ebayimg.com/images/g/zyYAAOSw5hBmmWmt/s-l1600.jpg",
+  "dr_price": 59.03,
+  "dr_currency": "USD",
+  "dr_price_source": "http://www.eaccu-tech.com/siemon/hcm-4-2u-siemon-solutions/"
 }

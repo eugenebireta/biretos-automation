@@ -528,5 +528,36 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Network interface card",
+    "description_ru": "Honeywell Experion PKS DCS part. Quote-only via gray-market resellers. ~3 kg shipping weight",
+    "specs": {
+      "raw": "1000 Dual NIC PCIe; dual port STP; Gigabit Ethernet; for Experion PKS FTE",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell Experion PKS DCS part. Quote-only via gray-market resellers. ~3 kg shipping weight",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "https://process.honeywell.com/us/en/products/control-and-supervisory-systems/distributed-control-systems-dcs/experion-pks/infrastructure/fault-tolerant-ethernet",
+        "type": "—",
+        "domain": "process.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.695828+00:00",
+    "merge_source": "result_NE-NICS02.json"
+  },
+  "dr_category": "Network interface card",
+  "dr_image_url": "—"
 }

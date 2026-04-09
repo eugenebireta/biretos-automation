@@ -559,5 +559,27 @@
     "image_url": null,
     "specs": null,
     "notes": "24V 600N linear, from DK price list 2019"
+  },
+  "deep_research": {
+    "title_ru": "линейный электропривод 600 N, 24 VAC, ход 20 мм (для линейных клапанов)",
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена на Bola Systems указана без НДС; на странице также дан вариант с НДС 21%. citeturn23view0turn29view0"
+    ],
+    "sources": [
+      {
+        "url": "https://www.bolasystems.com/actuator-for-honeywell-control-valve-ml6420a3072-600n-24vac",
+        "type": "distributor",
+        "domain": "www.bolasystems.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.686830+00:00",
+    "merge_source": "result_ML6420A3072.json"
   }
 }

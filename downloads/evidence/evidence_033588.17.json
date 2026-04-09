@@ -367,5 +367,37 @@
     "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
     "policy_card_status_fix_ts": "2026-04-08T20:28:35.502680+00:00"
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Connector (ABB)",
+    "description_ru": "ABB product, not Vanderbilt/Honeywell. Details gated behind ABB inquiry form. .17 suffix likely denotes variant.",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "033588",
+        "ABB code 7B033588"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "ABB product, not Vanderbilt/Honeywell. Details gated behind ABB inquiry form. .17 suffix likely denotes variant.",
+      "Aliases: 033588; ABB code 7B033588"
+    ],
+    "sources": [
+      {
+        "url": "https://new.abb.com/products/7B033588/033588",
+        "type": "—",
+        "domain": "new.abb.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.542772+00:00",
+    "merge_source": "result_033588.17.json"
+  },
+  "dr_category": "Connector (ABB)",
+  "dr_image_url": "https://cdn.productimages.abb.com/9PAA00000071734_400x400.jpg"
 }

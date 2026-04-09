@@ -501,5 +501,50 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "IP camera (bullet)",
+    "description_ru": "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine",
+    "specs": {
+      "raw": "6MP 3072×2048; 1/1.8\" CMOS; 4.1–16.4mm MFZ F1.53; digital WDR; 50m IR; H.265/H.264; PoE+; IP67; IK10; 128GB SD; face detection; people counting",
+      "aliases": [
+        "HBL6GR2-LPR (with license plate recognition)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine",
+      "Aliases: HBL6GR2-LPR (with license plate recognition)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html",
+        "type": "distributor",
+        "domain": "www.neobits.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm",
+        "type": "distributor",
+        "domain": "www.jmac.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.673828+00:00",
+    "merge_source": "result_HBL6GR2.json"
+  },
+  "dr_category": "IP camera (bullet)",
+  "dr_image_url": "(available on A1 Security Cameras and JMAC product pages)",
+  "dr_price": 1982.49,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html"
 }

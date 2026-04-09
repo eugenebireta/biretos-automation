@@ -634,5 +634,32 @@
       "has_photo": "",
       "domain": "wi-automation.com"
     }
-  ]
+  ],
+  "deep_research": {
+    "title_ru": "HVAC/Building: room controller (BACnet MS/TP)",
+    "specs": {
+      "aliases": [
+        "ControlPoint Room Controller"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Цена 740,00 €; указано “New - 12 Months Warranty”. citeturn16search7",
+      "Aliases: ControlPoint Room Controller"
+    ],
+    "sources": [
+      {
+        "url": "`https://bg.wiautomation.com/honeywell/plc-systems/plc-systems/cporl4` citeturn16search7",
+        "type": "gray_market",
+        "domain": "bg.wiautomation.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.645828+00:00",
+    "merge_source": "result_CPO-RL4.json"
+  }
 }

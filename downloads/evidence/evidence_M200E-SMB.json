@@ -517,5 +517,40 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire alarm surface mount box",
+    "description_ru": "System Sensor / Honeywell. Also £9.92 at Acorn Fire; €9.90 at Endevoronline. LPCB, VdS, BOSEC approved.",
+    "specs": {
+      "raw": "IP30; plastic; for M200/M700/TC800/MI-XXX modules; tri-colour LEDs; decade address switches",
+      "aliases": [
+        "M200E-SMB-KO (w/ knockouts)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "System Sensor / Honeywell. Also £9.92 at Acorn Fire; €9.90 at Endevoronline. LPCB, VdS, BOSEC approved.",
+      "Aliases: M200E-SMB-KO (w/ knockouts)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944",
+        "type": "distributor",
+        "domain": "www.thefirealarmstore.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.683829+00:00",
+    "merge_source": "result_M200E-SMB.json"
+  },
+  "dr_category": "Fire alarm surface mount box",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-m200e-smb-surface-mounting-box-base-primaryimage",
+  "dr_price": 8.82,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944"
 }

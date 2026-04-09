@@ -531,5 +531,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Detector base",
+    "description_ru": "Very generic PN; likely Morley-IAS MOR.CSR; limited data",
+    "specs": {
+      "raw": "Standard detector base; Morley-IAS brand; conventional type",
+      "aliases": [
+        "MOR.CSR"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Very generic PN; likely Morley-IAS MOR.CSR; limited data",
+      "Aliases: MOR.CSR"
+    ],
+    "sources": [
+      {
+        "url": "https://unicat.msf.org/cat/product/95627",
+        "type": "—",
+        "domain": "unicat.msf.org",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.648827+00:00",
+    "merge_source": "result_CSR.json"
+  },
+  "dr_category": "Detector base"
 }

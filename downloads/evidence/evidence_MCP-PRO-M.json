@@ -614,5 +614,34 @@
         "domain": "notifier.com.au"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "manual fire alarm call point",
+    "description_ru": "В прайсе встречаются цены в RUB и частично в EUR на другие позиции",
+    "specs": {
+      "raw": "красный пластик; настенная установка; цена в прайс-листе производителя/бренда",
+      "aliases": [
+        "ИП535-8М (локальное обозначение)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "В прайсе встречаются цены в RUB и частично в EUR на другие позиции",
+      "Aliases: ИП535-8М (локальное обозначение)"
+    ],
+    "sources": [
+      {
+        "url": "`https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf` citeturn36view1",
+        "type": "list_price",
+        "domain": "systemsensor.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.686830+00:00",
+    "merge_source": "result_MCP-PRO-M.json"
   }
 }

@@ -521,5 +521,49 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "V5016A series; Stock On Fire lists quote-only",
+    "specs": {
+      "raw": "2-way flanged; pressure-balanced; PN16; for high differential pressure / district heating",
+      "aliases": [
+        "Honeywell Alerton V5016A1135"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "V5016A series; Stock On Fire lists quote-only",
+      "Aliases: Honeywell Alerton V5016A1135"
+    ],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5016-series-2-way-flanged-pressure-balanced-large-linear-valves-pn16",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.oumanshop.com/product/v5016a1135/",
+        "type": "distributor",
+        "domain": "www.oumanshop.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.736833+00:00",
+    "merge_source": "result_V5016A1135.json"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://stockonfire.com/wp-content/uploads/2025/07/V5016A1135.jpg",
+  "dr_price": 2838.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.oumanshop.com/product/v5016a1135/"
 }

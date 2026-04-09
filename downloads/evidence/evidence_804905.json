@@ -516,5 +516,43 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire alarm MCP module",
+    "description_ru": "ESSER by Honeywell. Electronic module w/ isolator for manual call points. Requires separate housing (704900 red / 704901 blue). Made in Germany.",
+    "specs": {
+      "raw": "8–42V DC; 45µA quiescent; 9mA alarm; 133×133×36mm; 236g; IP44 w/ housing; EN 54-11 Type B; esserbus protocol",
+      "aliases": [
+        "IQ8MCP",
+        "804906 (w/ relay)",
+        "804955 (small)",
+        "804971 (complete small)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "ESSER by Honeywell. Electronic module w/ isolator for manual call points. Requires separate housing (704900 red / 704901 blue). Made in Germany.",
+      "Aliases: IQ8MCP; 804906 (w/ relay); 804955 (small); 804971 (complete small)"
+    ],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.621771+00:00",
+    "merge_source": "result_804905.json"
+  },
+  "dr_category": "Fire alarm MCP module",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-704900-primaryimage",
+  "dr_price": 81.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser"
 }

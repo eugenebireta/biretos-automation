@@ -618,5 +618,33 @@
         "domain": "classicautomation.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "Precision component",
+    "specs": {
+      "raw": "Пример позиции: SA1CB1A103; цена 83.91€ при 250 шт citeturn65search9",
+      "aliases": [
+        "SA1CB1A103 citeturn65search9"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "PN=PRECISION трактован как внутренний ярлык на серию/категорию; конкретный MPN нужен для точной закупки. citeturn65search9",
+      "Aliases: SA1CB1A103 citeturn65search9"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mouser.com/c/passive-components/potentiometers-trimmers-rheostats/precision-potentiometers/?m=Honeywell",
+        "type": "distributor",
+        "domain": "www.mouser.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.709828+00:00",
+    "merge_source": "result_PRECISION.json"
   }
 }

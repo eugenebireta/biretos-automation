@@ -626,5 +626,30 @@
         "domain": "equipt.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "rocker cover (wippe)",
+    "description_ru": "Цена из листинга марки; карточка товара не выделена отдельно в этом прогоне",
+    "specs": {
+      "raw": "листинг бренда показывает цену и статус доставки"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена из листинга марки; карточка товара не выделена отдельно в этом прогоне"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.conrad.ch/de/marken/peha-by-honeywell.html` citeturn40search3",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.632776+00:00",
+    "merge_source": "result_887111.json"
   }
 }

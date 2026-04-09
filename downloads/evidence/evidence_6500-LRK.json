@@ -511,5 +511,38 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Beam detector reflector kit",
+    "description_ru": "Also €168.06 at elettronew.com; £218.60 at acornfiresecurity.com",
+    "specs": {
+      "raw": "3 reflectors (0.4×0.4m each); extends beam range 70→100m; for 6500RE/NFXI-BEAM",
+      "aliases": [
+        "BEAM-LRK"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also €168.06 at elettronew.com; £218.60 at acornfiresecurity.com",
+      "Aliases: BEAM-LRK"
+    ],
+    "sources": [
+      {
+        "url": "https://evidence.lv/en/conventional-fire-alarm-systems/conventional-detectors/reflektoru-komplekts-3-gab.html",
+        "type": "distributor",
+        "domain": "evidence.lv",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.609771+00:00",
+    "merge_source": "result_6500-LRK.json"
+  },
+  "dr_category": "Beam detector reflector kit",
+  "dr_price": 165.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://evidence.lv/en/conventional-fire-alarm-systems/conventional-detectors/reflektoru-komplekts-3-gab.html"
 }

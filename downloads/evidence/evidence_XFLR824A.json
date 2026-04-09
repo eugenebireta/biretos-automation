@@ -568,5 +568,40 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "BAS relay output module",
+    "description_ru": "DISCONTINUED. Same family as XFLR822A. XFR824A (Panel Bus variant) at $339.74 on WiAutomation. From $291 for XFLR824AU at Radwell.",
+    "specs": {
+      "raw": "6 relay outputs w/ HOA switches; LonWorks 2-wire; 140mA; 110×90×93mm; DIN-rail; MTBF 13.7yr; LonMark compliant",
+      "aliases": [
+        "XFLR824AU",
+        "XFL824A",
+        "XFR824A",
+        "XF824A"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "DISCONTINUED. Same family as XFLR822A. XFR824A (Panel Bus variant) at $339.74 on WiAutomation. From $291 for XFLR824AU at Radwell.",
+      "Aliases: XFLR824AU; XFL824A; XFR824A; XF824A"
+    ],
+    "sources": [
+      {
+        "url": "https://picclick.fr/Honeywell-Xflr824-A-Xflr824A-Rqans1-392307979488.html",
+        "type": "surplus",
+        "domain": "picclick.fr",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.752868+00:00",
+    "merge_source": "result_XFLR824A.json"
+  },
+  "dr_category": "BAS relay output module",
+  "dr_image_url": "(available on Cochrane Supply page)"
 }

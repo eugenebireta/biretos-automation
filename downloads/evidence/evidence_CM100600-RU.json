@@ -591,5 +591,33 @@
     "alias_found": null,
     "specs": null,
     "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "Fastener (tray systems)",
+    "specs": {
+      "raw": "М6; насечка/антиоткручивание; упаковка 200 шт citeturn58search2",
+      "aliases": [
+        "CM100600 (без -RU)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Суффикс -RU интерпретирован как региональный; в retail чаще CM100600. citeturn58search2turn58search1",
+      "Aliases: CM100600 (без -RU)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rtk.by/catalog/.../gayka-m6-s-nasechkoy-up-200sht/",
+        "type": "distributor",
+        "domain": "www.rtk.by",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.643828+00:00",
+    "merge_source": "result_CM100600-RU.json"
   }
 }

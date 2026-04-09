@@ -426,5 +426,50 @@
     "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
     "policy_card_status_fix_ts": "2026-04-08T20:28:35.505678+00:00"
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "hearing protection",
+    "description_ru": "Preorder, 1–2 week lead; compatible with Hygiene Kit 1011998",
+    "specs": {
+      "raw": "NRR 28dB; headband; hi-visibility green earcups; steel wire; EN 352",
+      "aliases": [
+        "Leightning L1HHV",
+        "Howard Leight L1HHV"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Preorder, 1–2 week lead; compatible with Hygiene Kit 1011998",
+      "Aliases: Leightning L1HHV; Howard Leight L1HHV"
+    ],
+    "sources": [
+      {
+        "url": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html",
+        "type": "distributor",
+        "domain": "lsgindustrial.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.lightshineuae.com/honeywell-high-visibility-earmuffs-1015021.html",
+        "type": "distributor",
+        "domain": "www.lightshineuae.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.550771+00:00",
+    "merge_source": "result_1015021.json"
+  },
+  "dr_category": "hearing protection",
+  "dr_image_url": "https://cdn.lightshineuae.com/thumbs/1015021-500.jpg",
+  "dr_price": 36.14,
+  "dr_currency": "USD",
+  "dr_price_source": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html"
 }

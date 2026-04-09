@@ -606,5 +606,34 @@
         "domain": "kempstoncontrols.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "electromagnetic relay",
+    "description_ru": "На странице указаны ступенчатые цены и упаковка 10 pcs",
+    "specs": {
+      "raw": "DPDT; Ucoil 24VDC; Icontacts max 12A; pricing per pcs (net/gross shown)",
+      "aliases": [
+        "ABB 1SVR405611R1000 / TME symbol CR-M024DC2"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "На странице указаны ступенчатые цены и упаковка 10 pcs",
+      "Aliases: ABB 1SVR405611R1000 / TME symbol CR-M024DC2"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.tme.eu/en/details/cr-m024dc2/industrial-electromagnetic-relays/abb/1svr405611r1000/` citeturn46search4",
+        "type": "distributor",
+        "domain": "www.tme.eu",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.646827+00:00",
+    "merge_source": "result_CR-M024DC2.json"
   }
 }

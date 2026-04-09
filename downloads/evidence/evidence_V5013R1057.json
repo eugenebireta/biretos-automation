@@ -558,5 +558,46 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "V5013R series; also ₹10,000 on IndiaMART",
+    "specs": {
+      "raw": "DN20; Kvs 6.3; 3-way mixing; threaded ISO228; PN16; brass; 20mm stroke; 2-170°C"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "V5013R series; also ₹10,000 on IndiaMART"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mkwheatingcontrols.co.uk/honeywell-v5013r1057-port-valve-body-p-1683.html",
+        "type": "distributor",
+        "domain": "www.mkwheatingcontrols.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.bolasystems.com/three-way-control-valve-honeywell-v5013r1057-dn-20",
+        "type": "distributor",
+        "domain": "www.bolasystems.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.732834+00:00",
+    "merge_source": "result_V5013R1057.json"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://5.imimg.com/data5/SELLER/Default/2025/1/482329451/OC/FT/IM/2838750/v5013r1057-honeywell-valve-500x500.jpg",
+  "dr_price": 224.3,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.mkwheatingcontrols.co.uk/honeywell-v5013r1057-port-valve-body-p-1683.html"
 }

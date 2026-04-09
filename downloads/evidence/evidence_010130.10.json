@@ -489,5 +489,73 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Модуль 4 групп детекторов / 2 выхода BUS-2/BUS-1 (накладной монтаж)",
+    "description_ru": "Модуль 010130.10 предназначен для расширения охранных панелей MB-Secure или MB12/24/48/100/256 plus посредством подключения по шине BUS. Обеспечивает 4 входа групп детекторов с функцией сброса и 2 транзисторных выхода (макс. 30 В пост. тока / 50 мА на выход), совместим с любой панелью стандарта BUS-2 или BUS-1.",
+    "specs": {
+      "part_number": "010130.10",
+      "product_name": "4DG/2OP Module BUS-2/BUS-1 s.m. (surface mount)",
+      "german_name": "4-Meldergruppen/2-Ausgangsmodul BUS-2/BUS-1 ap",
+      "detector_group_inputs": 4,
+      "input_feature": "Reset function; supports hardwired/conventional detectors (contacts, passive glass breakage sensors)",
+      "outputs": 2,
+      "output_type": "Active low transistor outputs",
+      "output_max_voltage": "30 V DC",
+      "output_max_current": "50 mA per output",
+      "bus_compatibility": "BUS-2 and BUS-1 compatible panels",
+      "compatible_panels": "MB-Secure, MB12, MB24, MB48, MB100, MB256 plus",
+      "5_input_mode": "Supports 5-Input module mode; can replace 013130.xx modules",
+      "power_supply": "From module bus or external power supply depending on application",
+      "approval": "G109010 (IDT), Class C EN 50131-3, Grade 3, Class II",
+      "mounting": "Surface mount (ap / s.m.)",
+      "status": "Current (listed on active Honeywell Commercial Security website)"
+    },
+    "identity_confirmed": true,
+    "confidence": "high",
+    "key_findings": [
+      "Identity fully confirmed: Honeywell PN 010130.10 is the '4DG/2OP Module BUS-2/BUS-1 s.m.' (4 Detector Groups / 2 Outputs Module, surface mount), listed on the official Honeywell Commercial Security Germany website.",
+      "Product family: Intrusion Alarm Technology → Connection Modules → BUS Modules → BUS-2/BUS-1 series.",
+      "Part number status: CURRENT — actively listed on the Honeywell manufacturer product portal (security.honeywell.de) as of the search date.",
+      "The module is certified to EN 50131-3 Grade 3, Class II (IDT approval G109010), indicating a high-grade commercial intrusion security standard.",
+      "Compatible with Honeywell MB-Secure and MB12/24/48/100/256 plus intrusion control panels.",
+      "Supports 5-Input module operating mode as a drop-in replacement for 013130.xx series modules.",
+      "Also confirmed by authorized German distributor ROTEIV (honeywell.roteiv-shop.de) and ADI Global Czech Republic (adiglobal.cz) under the same part number and description.",
+      "No public pricing found on any indexed source; this is a B2B/trade-channel product."
+    ],
+    "sources": [
+      {
+        "url": "https://www.security.honeywell.de/en/products/7796956/intrusion-alarm-technology/connection-modules/bus-moduls/bus-2bus-1/010130.10/",
+        "type": "manufacturer",
+        "supports": [
+          "identity",
+          "specs",
+          "status",
+          "product_family"
+        ]
+      },
+      {
+        "url": "https://honeywell.roteiv-shop.de/alarmanlagen-einbruchmeldetechnik/einbruchmelder-kontakte-schalter-schaltmodule/bus-anschluss-relais-schaltmodule/18651/honeywell-010130.10-4-meldergruppen/2-ausgangsmodul-bus-2/bus-1-ap",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://adiglobal.cz/en/produkty180:18161810/4dg-2op-module-bus-2-bus-1-s-m",
+        "type": "distributor",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.540704+00:00",
+    "merge_source": "result_010130.10.json"
+  },
+  "dr_category": "Охранная сигнализация — шинные модули расширения (интрузионные системы безопасности)",
+  "dr_image_url": "https://honeywell.roteiv-shop.de/media/e7/ff/12/1774609009/art_18651.jpg?ts=1774609009",
+  "dr_price": 204.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://honeywell.roteiv-shop.de/alarmanlagen-einbruchmeldetechnik/einbruchmelder-kontakte-schalter-schaltmodule/bus-anschluss-relais-schaltmodule/18651/honeywell-010130.10-4-meldergruppen/2-ausgangsmodul-bus-2/bus-1-ap"
 }

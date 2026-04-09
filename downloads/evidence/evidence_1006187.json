@@ -376,5 +376,56 @@
     "policy_card_status_historical": "REVIEW_REQUIRED",
     "policy_card_status_mismatch": false
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Беруши поролоновые 303S-YEL/WHT (упаковка 200 пар)",
+    "description_ru": "Одноразовые поролоновые беруши Honeywell 303S предназначены для защиты слуха в условиях производственного шума. Обеспечивают звукоизоляцию SNR 33 дБ. Поставляются в упаковке по 200 пар.",
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "PN 1006187 подтвержден как Honeywell 303S-YEL/WHT foam earplug refill pack на WorkWear Express",
+      "Продукт: поролоновые беруши (foam earplugs), упаковка 200 пар",
+      "SNR (Sound Noise Reduction): 33 дБ",
+      "Размер: Small (малый)",
+      "Цвет: желтый/белый (YEL/WHT)",
+      "Публичная цена доступна на сайте дистрибьютора WorkWear Express"
+    ],
+    "sources": [
+      {
+        "url": "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33?srsltid=AfmBOooCDhimF5IpXiU1ge0c5tyaF8U8Vz981j7ybLx1UaEOgw41ESXj",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "product_name",
+          "specs_partial",
+          "price"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+        "type": "distributor",
+        "domain": "www.alive-sr.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.544770+00:00",
+    "merge_source": "result_1006187.json"
+  },
+  "dr_category": "Средства защиты органов слуха / Беруши",
+  "dr_image_url": "https://www.alive-sr.com/images/303SBOXFOAMBLUE.jpg",
+  "dr_price": 44.48,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/"
 }

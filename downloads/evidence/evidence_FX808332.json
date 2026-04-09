@@ -537,5 +537,40 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire alarm loop card",
+    "description_ru": "Net EUR; also ~$302 on eBay (open box)",
+    "specs": {
+      "raw": "24V DC; 127 devices/loop; 3.5km loop; 27×93×112mm; 140g; galvanic isolation; VdS, FM",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Net EUR; also ~$302 on eBay (open box)",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.665828+00:00",
+    "merge_source": "result_FX808332.json"
+  },
+  "dr_category": "Fire alarm loop card",
+  "dr_image_url": "https://www.esser-systems.com/productimages/industrial-solution-fm-approved/modules-for-flexes-system//fx808332-loop-card-esserbusesserbus-plus-module-gi-for-flexes-control-1_Inherited_product_pic_300_300_BMFX8083_32xxx_GEPE_SF3C_00.jpg",
+  "dr_price": 505.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes"
 }

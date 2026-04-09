@@ -638,5 +638,30 @@
         "domain": "sec.gov"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "switch frame",
+    "description_ru": "На странице указана скидка -5% и статус «нет в наличии»",
+    "specs": {
+      "raw": "81x81 мм; материал термопласт; серия DIALOG (по заголовку); цена со скидкой"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "На странице указана скидка -5% и статус «нет в наличии»"
+    ],
+    "sources": [
+      {
+        "url": "`https://liveinlight.ru/ramki/ramki-1-post/ramka-1-post-peha-by-honeywell-dialog-bronzovyy-2` citeturn38search4",
+        "type": "distributor",
+        "domain": "liveinlight.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.595770+00:00",
+    "merge_source": "result_369111.json"
   }
 }

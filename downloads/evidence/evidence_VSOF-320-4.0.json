@@ -551,5 +551,36 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "Sibling VSOF-320-2.5 priced €72.10 at heiz24.de; for fan coil units",
+    "specs": {
+      "raw": "DN20; Kvs 4.0; 3-way bypass; PN16; G3/4 ext thread; flat seal; 2.5mm stroke; close-off 100 kPa",
+      "aliases": [
+        "VSMF-320-4.0 (modulating version)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Sibling VSOF-320-2.5 priced €72.10 at heiz24.de; for fan coil units",
+      "Aliases: VSMF-320-4.0 (modulating version)"
+    ],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/vs-series-3-way-short-stroke-linear-mixing-valves-flat-seal-pn16",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.749870+00:00",
+    "merge_source": "result_VSOF-320-4.0.json"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-VSMF-320-4-0-left"
 }

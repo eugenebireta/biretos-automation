@@ -560,5 +560,42 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Relay output module (gas detection)",
+    "description_ru": "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified.",
+    "specs": {
+      "raw": "4-ch relay; 4× SPCO; 24V DC aux; 0–25mA; IP20; 35×99.5×114.5mm; DIN-rail; 2.5mm² max wire",
+      "aliases": [
+        "Related: TPPR-V-1000",
+        "TPPR-V-1010",
+        "TPPR-V-1030"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified.",
+      "Aliases: Related: TPPR-V-1000; TPPR-V-1010; TPPR-V-1030"
+    ],
+    "sources": [
+      {
+        "url": "https://www.jjstech.com/tppr-v-1040.html",
+        "type": "distributor",
+        "domain": "www.jjstech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.729832+00:00",
+    "merge_source": "result_TPPR-V-1040.json"
+  },
+  "dr_category": "Relay output module (gas detection)",
+  "dr_image_url": "(available on ISS Safety page)",
+  "dr_price": 900.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.jjstech.com/tppr-v-1040.html"
 }

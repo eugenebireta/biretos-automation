@@ -541,5 +541,41 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "Industrial label printer",
+    "description_ru": "Discontinued (no replacement). Retail $3,081.05. Also €2,070.26 at Bauer-PK. Die-cast metal, forklift-mountable",
+    "specs": {
+      "raw": "Direct thermal; 203 DPI; 5 IPS; 4\" max width; 128MB Flash; 64MB DRAM; Serial/Ethernet/USB; DPL/ZPL/PL-Z emulation",
+      "aliases": [
+        "Honeywell MP Compact 4 Mobile Mark III",
+        "Datamax-O'Neil Compact4"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Discontinued (no replacement). Retail $3,081.05. Also €2,070.26 at Bauer-PK. Die-cast metal, forklift-mountable",
+      "Aliases: Honeywell MP Compact 4 Mobile Mark III; Datamax-O'Neil Compact4"
+    ],
+    "sources": [
+      {
+        "url": "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000",
+        "type": "distributor",
+        "domain": "shop.peaktech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.753867+00:00",
+    "merge_source": "result_XJ1-00-07000000.json"
+  },
+  "dr_category": "Industrial label printer",
+  "dr_image_url": "—",
+  "dr_price": 2310.79,
+  "dr_currency": "USD",
+  "dr_price_source": "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000"
 }

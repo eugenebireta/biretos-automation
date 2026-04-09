@@ -532,5 +532,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Converter (generic)",
+    "description_ru": "\"LUX\" too generic. Could be Honeywell LLO light sensor, Lux Products thermostat brand, or Lux Power solar inverter. Needs manufacturer context.",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "\"LUX\" too generic. Could be Honeywell LLO light sensor, Lux Products thermostat brand, or Lux Power solar inverter. Needs manufacturer context.",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.683829+00:00",
+    "merge_source": "result_LUX.json"
+  },
+  "dr_category": "Converter (generic)"
 }

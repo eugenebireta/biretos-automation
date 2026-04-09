@@ -517,5 +517,40 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Immersion temperature sensor",
+    "description_ru": "~$21 USD equiv. Also ₽5,593 at nt-rt.ru. Related VF20-3B65NW is £42.20 at Kempston Controls",
+    "specs": {
+      "raw": "Pt1000; 300 mm probe; IP65; -40…+150°C; compatible wells: WB300 (brass), WS300 (SS); R½ ISO PN25",
+      "aliases": [
+        "VF01/VF10/VF20 series variants"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "~$21 USD equiv. Also ₽5,593 at nt-rt.ru. Related VF20-3B65NW is £42.20 at Kempston Controls",
+      "Aliases: VF01/VF10/VF20 series variants"
+    ],
+    "sources": [
+      {
+        "url": "https://www.energoprime.ru/catalog/honeywell/datchiki-temperatury/vf00-3b65nw/",
+        "type": "distributor",
+        "domain": "www.energoprime.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.745867+00:00",
+    "merge_source": "result_VF00-3B65NW.json"
+  },
+  "dr_category": "Immersion temperature sensor",
+  "dr_image_url": "—",
+  "dr_price": 1932.0,
+  "dr_currency": "RUB",
+  "dr_price_source": "https://www.energoprime.ru/catalog/honeywell/datchiki-temperatury/vf00-3b65nw/"
 }

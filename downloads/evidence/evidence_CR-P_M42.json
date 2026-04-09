@@ -710,5 +710,34 @@
         "domain": "ebay.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "Relay accessory",
+    "specs": {
+      "raw": "CR‑P/M42; диод + LED; 6–24VDC (по описанию продавца) citeturn28view0",
+      "aliases": [
+        "1SVR405652R0000"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Продавец прямо указывает, что не является авторизованным дистрибьютором — учитывать как серый рынок. citeturn28view0",
+      "Aliases: 1SVR405652R0000"
+    ],
+    "sources": [
+      {
+        "url": "https://ae.wiautomation.com/abb/general-automation/1svr405652r0000",
+        "type": "gray_market",
+        "domain": "ae.wiautomation.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.648827+00:00",
+    "merge_source": "result_CR-P_M42.json"
   }
 }

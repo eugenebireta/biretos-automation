@@ -520,5 +520,32 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "V5328A series; confirmed in Honeywell datasheet EN0B-0291GE51",
+    "specs": {
+      "raw": "DN20; Kvs 4.0; 2-way flanged linear; PN16; steel body; 20mm stroke"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "V5328A series; confirmed in Honeywell datasheet EN0B-0291GE51"
+    ],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5328-series-2-way-flanged-large-linear-valves-pn16",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.739831+00:00",
+    "merge_source": "result_V5328A1047.json"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-V5328A1054-left"
 }

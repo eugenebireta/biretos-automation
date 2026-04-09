@@ -500,5 +500,50 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "actuator",
+    "description_ru": "SmartAct N05 series; Blackhawk Supply lists at $139.50",
+    "specs": {
+      "raw": "5 Nm; 24 VAC/DC; floating (3-point); IP54; 110s/90°; 450g; non-spring return",
+      "aliases": [
+        "MN6105A1011"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "SmartAct N05 series; Blackhawk Supply lists at $139.50",
+      "Aliases: MN6105A1011"
+    ],
+    "sources": [
+      {
+        "url": "https://blackhawksupply.com/products/honeywell-mn6105a1011-u-damper-actuator-non-spring-return-44-lb-in-5-nm-floating-control-24-vac-dc-15-20-50-60-hz-n0524",
+        "type": "distributor",
+        "domain": "blackhawksupply.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/254404670317",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.692827+00:00",
+    "merge_source": "result_N0524.json"
+  },
+  "dr_category": "actuator",
+  "dr_image_url": "https://ia.cappusa.com/vvZilxchZPot6j0RMbFh9my7bSZplYReGXDoAMj-/honeywell-commercial-mn6105a1011-mn6120a1002-316x585.jpg",
+  "dr_price": 144.69,
+  "dr_currency": "USD",
+  "dr_price_source": "https://blackhawksupply.com/products/honeywell-mn6105a1011-u-damper-actuator-non-spring-return-44-lb-in-5-nm-floating-control-24-vac-dc-15-20-50-60-hz-n0524"
 }

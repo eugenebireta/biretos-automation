@@ -566,5 +566,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "HVAC inverter (VFD)",
+    "description_ru": "Listed at Kempston Controls; login/quote required",
+    "specs": {
+      "raw": "15kW; 31A; 380–500V 3ph; IP54; EMC class C; 144×391×214mm; 8.1kg; 0–320Hz output",
+      "aliases": [
+        "NXL HVAC 31C5"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Listed at Kempston Controls; login/quote required",
+      "Aliases: NXL HVAC 31C5"
+    ],
+    "sources": [
+      {
+        "url": "https://www.kempstoncontrols.com/HVAC31C5/Honeywell-Fema/sku/872687",
+        "type": "—",
+        "domain": "www.kempstoncontrols.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.675828+00:00",
+    "merge_source": "result_HVAC31C5.json"
+  },
+  "dr_category": "HVAC inverter (VFD)"
 }

@@ -521,5 +521,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Barcode scanner charging base",
+    "description_ru": "Honeywell Dolphin CN80 accessory. MSRP $500.92; $350.18 at Logiscenter. Field-convertible for future 80 Series.",
+    "specs": {
+      "raw": "USB 3.0 Type A/B; 1x CN80 + 1x spare battery; power supply included; power cord separate",
+      "aliases": [
+        "CN80-HB-CNV-1 (w/ US cord)",
+        "HSM-CN80HBCNV0"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell Dolphin CN80 accessory. MSRP $500.92; $350.18 at Logiscenter. Field-convertible for future 80 Series.",
+      "Aliases: CN80-HB-CNV-1 (w/ US cord); HSM-CN80HBCNV0"
+    ],
+    "sources": [
+      {
+        "url": "http://www.zones.com/site/product/index.html?id=105872390",
+        "type": "distributor",
+        "domain": "www.zones.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.643828+00:00",
+    "merge_source": "result_CN80-HB-CNV-0.json"
+  },
+  "dr_category": "Barcode scanner charging base",
+  "dr_image_url": "(available on Logiscenter / Zones pages)",
+  "dr_price": 222.99,
+  "dr_currency": "USD",
+  "dr_price_source": "http://www.zones.com/site/product/index.html?id=105872390"
 }

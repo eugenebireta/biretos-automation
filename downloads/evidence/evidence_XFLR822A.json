@@ -569,5 +569,40 @@
     "call_state": "feature_flag_off",
     "error": "",
     "llm_request_id": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "BAS analog output module",
+    "description_ru": "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket.",
+    "specs": {
+      "raw": "8 analog outputs w/ HOA switches; LonWorks bus; Neuron 3120; 160mA; 24V; 110×90×93mm; DIN-rail; MTBF 13.7yr",
+      "aliases": [
+        "XFLR822AU",
+        "XFL822A",
+        "XFR822A",
+        "XF822A"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket.",
+      "Aliases: XFLR822AU; XFL822A; XFR822A; XF822A"
+    ],
+    "sources": [
+      {
+        "url": "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/XFLR822AU",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.752868+00:00",
+    "merge_source": "result_XFLR822A.json"
+  },
+  "dr_category": "BAS analog output module",
+  "dr_image_url": "(available on Radwell page)"
 }

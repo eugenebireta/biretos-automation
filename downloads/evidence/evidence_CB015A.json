@@ -583,5 +583,32 @@
       "has_photo": "",
       "domain": "nseautomation.com"
     }
-  ]
+  ],
+  "deep_research": {
+    "title_ru": "Printer: HP Officejet Pro K8600",
+    "specs": {
+      "aliases": [
+        "HP Officejet Pro K8600 (CB015A)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "eBay, состояние “Used”, Buy It Now. citeturn31search1",
+      "Aliases: HP Officejet Pro K8600 (CB015A)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/117085947375` citeturn31search1",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.641776+00:00",
+    "merge_source": "result_CB015A.json"
+  }
 }

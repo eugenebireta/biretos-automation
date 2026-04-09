@@ -580,5 +580,22 @@
   },
   "dr_price": 450.0,
   "dr_currency": "USD",
-  "dr_price_source": "https://prod-edata.honeywell.com/"
+  "dr_price_source": "https://prod-edata.honeywell.com/",
+  "deep_research": {
+    "title_ru": "—",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "Возможные совпадения: «Color» в названиях термостатов/клавиатур"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "В выдаче встречаются товары с «Color» в названии (например, термостаты/кейпады), но PN=COLOR как артикул не подтверждён. citeturn60search3turn60search5",
+      "Aliases: Возможные совпадения: «Color» в названиях термостатов/клавиатур"
+    ],
+    "merge_ts": "2026-04-09T08:32:14.644828+00:00",
+    "merge_source": "result_COLOR.json"
+  }
 }

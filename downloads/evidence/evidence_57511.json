@@ -520,5 +520,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Device (unidentified)",
+    "description_ru": "Matches automotive parts (Wix filter, Four Seasons A/C compressor). No Honeywell/industrial product identified. Needs manufacturer context.",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Matches automotive parts (Wix filter, Four Seasons A/C compressor). No Honeywell/industrial product identified. Needs manufacturer context.",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.602771+00:00",
+    "merge_source": "result_57511.json"
+  },
+  "dr_category": "Device (unidentified)"
 }

@@ -512,5 +512,51 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Test-disconnect terminal",
+    "description_ru": "Weidmüller WTR 4 series; also $3.73/ea at Kempston (MOQ 50); $3.00/ea bulk on eBay; Romania origin",
+    "specs": {
+      "raw": "500V IEC / 400V UL; 32A; 4mm² (AWG 22–10); 6.1mm width; screw connection; DIN rail TS 35; -50°C to +120°C; UL94 V-0; Wemid thermoplastic; dark beige",
+      "aliases": [
+        "RS 383-0129",
+        "Distrelec 304-29-051"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Weidmüller WTR 4 series; also $3.73/ea at Kempston (MOQ 50); $3.00/ea bulk on eBay; Romania origin",
+      "Aliases: RS 383-0129; Distrelec 304-29-051"
+    ],
+    "sources": [
+      {
+        "url": "https://export.rsdelivers.com/product/weidmuller/7910180000/weidmuller-7910180000-wtr-series-disconnect-block/3830129",
+        "type": "distributor",
+        "domain": "export.rsdelivers.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.radwell.ca/Buy/WEIDMULLER/WEIDMULLER/WTR%204?parentitemid=1121092",
+        "type": "surplus",
+        "domain": "www.radwell.ca",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.618770+00:00",
+    "merge_source": "result_7910180000.json"
+  },
+  "dr_category": "Test-disconnect terminal",
+  "dr_image_url": "https://i.ebayimg.com/images/g/hjkAAOSwFepl5aRH/s-l1600.jpg",
+  "dr_price": 3.641,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://export.rsdelivers.com/product/weidmuller/7910180000/weidmuller-7910180000-wtr-series-disconnect-block/3830129"
 }

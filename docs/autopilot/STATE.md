@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 78
-transition_ts: "2026-04-09T18:00:00Z"
+transition_seq: 79
+transition_ts: "2026-04-09T19:00:00Z"
 
 ## Current
-active_task: "P3.1-MULTIPASS-CRITIQUE"
-task_id: "P3.1-MULTIPASS-CRITIQUE"
+active_task: "ENRICHMENT-MERGE"
+task_id: "ENRICHMENT-MERGE"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "P3.1 multi-pass critique loop. Config-driven retry limits (max_retries_low/semi: 3), critique history accumulation in per-run critique_history.json, consensus gate requiring critique_min_approvals (2) consecutive audit passes. Retry directives inject full accumulated critique history. 4 new helpers: _load_critique_history, _append_critique_history, _format_accumulated_critiques, _check_critique_consensus. 23 new/updated tests. 566/566 orchestrator tests pass."
+note: "Merge research_results → evidence: 314/338 cards enriched. merge_research_to_evidence.py: additive merge of title_ru (270), description_ru (176 after garbage cleanup), specs (242), dr_price (97 new admissible), dr_image_url (128 new), dr_category (138 new), identity_confirmed (270), key_findings (270), sources (292). Policy: skip identity_confirmed=False, skip garbage desc (citeturn+PUA unicode filter). 87 garbage descriptions cleaned. 34 tests. 1571/1571 pass."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]

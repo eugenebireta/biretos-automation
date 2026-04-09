@@ -594,5 +594,30 @@
         "domain": "ebay.de"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "rocker cover (wippe)",
+    "description_ru": "-8% на странице; цена указана как Prix TTC",
+    "specs": {
+      "raw": "IP20; RAL 9005; пластик; 1 шт; цвет: чёрный"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "-8% на странице; цена указана как Prix TTC"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html` citeturn47search8",
+        "type": "distributor",
+        "domain": "www.conrad.fr",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.596771+00:00",
+    "merge_source": "result_37011.json"
   }
 }

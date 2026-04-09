@@ -588,5 +588,34 @@
         "domain": "fs.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "fiber optic patch cord",
+    "description_ru": "Код «-15» у Optcom соответствует 1,5м (а не 15м)",
+    "specs": {
+      "raw": "см. строку #7 (тот же товар); гарантия 36 мес (на странице)",
+      "aliases": [
+        "эквивалентное написание: 2SM-3.0-SC/UPC-SC/UPC, 1,5м"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Код «-15» у Optcom соответствует 1,5м (а не 15м)",
+      "Aliases: эквивалентное написание: 2SM-3.0-SC/UPC-SC/UPC, 1,5м"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-15m.html` citeturn13view0",
+        "type": "distributor",
+        "domain": "www.optcom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.583771+00:00",
+    "merge_source": "result_2SM-3.0-SCU-SCU-15.json"
   }
 }

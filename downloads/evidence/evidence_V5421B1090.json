@@ -547,5 +547,46 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade",
+    "specs": {
+      "raw": "DN200; Kvs 3460; PN6/10/16; wafer flange; 2-way butterfly; ductile iron GGG40; max DP 3bar"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade"
+    ],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/226662421193",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.744867+00:00",
+    "merge_source": "result_V5421B1090.json"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://i.ebayimg.com/images/g/zZ8AAOSwmZFn4RHv/s-l1600.jpg",
+  "dr_price": 1038.16,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/"
 }

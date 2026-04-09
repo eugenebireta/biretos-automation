@@ -518,5 +518,43 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire alarm enclosure",
+    "description_ru": "ESSER by Honeywell. SAR 50.35 ≈ $13.43 USD. European distributors require login for pricing.",
+    "specs": {
+      "raw": "189×131×47mm; surface-mount plastic; grey; for 808610/11/13/14 esserbus transponders; VdS certified",
+      "aliases": [
+        "788600.10",
+        "788650 (white)",
+        "788601 (flush grey)",
+        "788651 (flush white)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "ESSER by Honeywell. SAR 50.35 ≈ $13.43 USD. European distributors require login for pricing.",
+      "Aliases: 788600.10; 788650 (white); 788601 (flush grey); 788651 (flush white)"
+    ],
+    "sources": [
+      {
+        "url": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html",
+        "type": "distributor",
+        "domain": "electric-house.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.617771+00:00",
+    "merge_source": "result_788600.json"
+  },
+  "dr_category": "Fire alarm enclosure",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-788600-primaryimage",
+  "dr_price": 50.35,
+  "dr_currency": "SAR",
+  "dr_price_source": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html"
 }

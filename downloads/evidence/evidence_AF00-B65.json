@@ -516,5 +516,42 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Outdoor temperature sensor",
+    "description_ru": "Honeywell Connected Building. Price excl. VAT. EAN 4046911076709",
+    "specs": {
+      "raw": "Pt1000; -40…+70°C; ±0.3°C accuracy; IP65; 2-wire; time constant ≤3 min; polycarbonate UL94-V0",
+      "aliases": [
+        "AF00-B54 (IP54 version)",
+        "AF10-B65 (NTC 10k)",
+        "AF20-B65 (NTC 20k)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell Connected Building. Price excl. VAT. EAN 4046911076709",
+      "Aliases: AF00-B54 (IP54 version); AF10-B65 (NTC 10k); AF20-B65 (NTC 20k)"
+    ],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.634775+00:00",
+    "merge_source": "result_AF00-B65.json"
+  },
+  "dr_category": "Outdoor temperature sensor",
+  "dr_image_url": "—",
+  "dr_price": 75.12,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/"
 }

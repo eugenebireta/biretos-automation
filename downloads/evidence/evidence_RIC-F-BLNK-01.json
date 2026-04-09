@@ -524,5 +524,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "blank plate",
+    "description_ru": "Siemon product sold via ADI (Honeywell ecosystem); also $9.95 eBay surplus",
+    "specs": {
+      "raw": "Fiber optic blank adapter plate; black; Quick-Pack latch; for Siemon FCP3/SWIC3/RIC3; UPC 700416278191",
+      "aliases": [
+        "Newark 45Y9940",
+        "G4-RICFBLNK1 (ADI)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Siemon product sold via ADI (Honeywell ecosystem); also $9.95 eBay surplus",
+      "Aliases: Newark 45Y9940; G4-RICFBLNK1 (ADI)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.energyavenue.com/product/detail/3265186/siemon-ric-f-blnk-01",
+        "type": "distributor",
+        "domain": "www.energyavenue.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.714827+00:00",
+    "merge_source": "result_RIC-F-BLNK-01.json"
+  },
+  "dr_category": "blank plate",
+  "dr_image_url": "https://i.ebayimg.com/images/g/5SsAAOSwB09YK2AC/s-l1600.jpg",
+  "dr_price": 2.64,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.energyavenue.com/product/detail/3265186/siemon-ric-f-blnk-01"
 }

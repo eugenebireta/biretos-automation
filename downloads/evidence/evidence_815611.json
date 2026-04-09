@@ -591,5 +591,34 @@
         "domain": "galco.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "central plate / cover",
+    "description_ru": "Есть официальный datasheet Honeywell EDAM по 00815611",
+    "specs": {
+      "raw": "Product no. 815611; цена incl. VAT; поставка 1-2 дня",
+      "aliases": [
+        "00815611 (datasheet код)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Есть официальный datasheet Honeywell EDAM по 00815611",
+      "Aliases: 00815611 (datasheet код)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.watt24.com/en/p/peha-zentralplatte-d-95.610.02-tv-na-00815611/` citeturn39search3",
+        "type": "distributor",
+        "domain": "www.watt24.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.625770+00:00",
+    "merge_source": "result_815611.json"
   }
 }

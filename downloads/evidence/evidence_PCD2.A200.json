@@ -514,5 +514,37 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PLC digital output module",
+    "description_ru": "Used condition; also RUB 11,482 refurb at wiautomation.com",
+    "specs": {
+      "raw": "4 relays; 250VAC/2A; 90×60×10mm; weight 0.1kg; origin CH",
+      "aliases": [
+        "PCD2A200"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Used condition; also RUB 11,482 refurb at wiautomation.com",
+      "Aliases: PCD2A200"
+    ],
+    "sources": [
+      {
+        "url": "https://www.all4sps.com/SAIA-BURGESS-DIGITAL-OUTPUT-MODULE-PCD2A200-USED-US_1",
+        "type": "surplus",
+        "domain": "www.all4sps.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.704829+00:00",
+    "merge_source": "result_PCD2.A200.json"
+  },
+  "dr_category": "PLC digital output module",
+  "dr_image_url": "https://www.all4sps.com/media/image/product/558586/md/497501-001_saia-burgess-digital-output-module-pcd2a200-used-us.jpg"
 }

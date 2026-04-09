@@ -582,5 +582,34 @@
         "domain": "bhphotovideo.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "Signal cable (security)",
+    "specs": {
+      "raw": "8 жил; лужёная медь; 8×7/0.22 мм; сопротивление 6.73 Ω/300 м citeturn47view0",
+      "aliases": [
+        "8×0.22 (100 м)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "PN интерпретирован как «0.22 мм² × 8 жил»; суффикс 8T в открытом retail не стандартизирован. citeturn47view0",
+      "Aliases: 8×0.22 (100 м)"
+    ],
+    "sources": [
+      {
+        "url": "https://chime.com.ua/viatec-kabel-8x022-buhta-signalnogo-kabelya-8x022-100-m",
+        "type": "distributor",
+        "domain": "chime.com.ua",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.639774+00:00",
+    "merge_source": "result_CABLE-0.22-8T.json"
   }
 }

@@ -581,5 +581,34 @@
         "domain": "ebay.co.uk"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "socket insert (SCHUKO)",
+    "description_ru": "Доступность указана (34 items immediate)",
+    "specs": {
+      "raw": "16A; 250V; product number 106511; цена incl. VAT",
+      "aliases": [
+        "00106511 (ordering code)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Доступность указана (34 items immediate)",
+      "Aliases: 00106511 (ordering code)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.watt24.com/en/p/peha-schuko-steckdose-rws-16a-250v-2-pol.-d-20.6511.02-oks-00106511/` citeturn38search7",
+        "type": "distributor",
+        "domain": "www.watt24.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.554771+00:00",
+    "merge_source": "result_106511.json"
   }
 }

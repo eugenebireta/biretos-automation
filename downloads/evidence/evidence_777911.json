@@ -507,5 +507,48 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PEHA insert",
+    "description_ru": "Not found online; 777xxx series = Dialog Exclusiv braun/gold; \"9\" position doesn't match standard frame numbering",
+    "specs": {
+      "raw": "Color likely braun/gold based on 777xxx series pattern",
+      "aliases": [
+        "00777911 (assumed)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Not found online; 777xxx series = Dialog Exclusiv braun/gold; \"9\" position doesn't match standard frame numbering",
+      "Aliases: 00777911 (assumed)"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://volzhsk.aelektro.ru/catalog/rozetki/elektricheskie/nakladka-honeywell-dialog-na-3-razema-tv-temno-korichnevyi-777911",
+        "type": "distributor",
+        "domain": "volzhsk.aelektro.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.613771+00:00",
+    "merge_source": "result_777911.json"
+  },
+  "dr_category": "PEHA insert",
+  "dr_image_url": "https://volzhsk.aelektro.ru/content/photo/full/P777911_img1.jpg",
+  "dr_price": 496.0,
+  "dr_currency": "RUB",
+  "dr_price_source": "https://volzhsk.aelektro.ru/catalog/rozetki/elektricheskie/nakladka-honeywell-dialog-na-3-razema-tv-temno-korichnevyi-777911"
 }

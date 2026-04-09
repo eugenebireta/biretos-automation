@@ -614,5 +614,34 @@
         "domain": "blackbox.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "fiber optic patch cord",
+    "description_ru": "Оптические коды у Honeywell часто выглядят как внутренние обозначения длины/коннекторов",
+    "specs": {
+      "raw": "SM 9/125 (G.652.C); SC/UPC-SC/UPC; LSZH; 1310/1550 нм; длина 1,5 м",
+      "aliases": [
+        "Вероятный алиас: 2SM-3.0-SC/UPC-SC/UPC 1,5м"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Оптические коды у Honeywell часто выглядят как внутренние обозначения длины/коннекторов",
+      "Aliases: Вероятный алиас: 2SM-3.0-SC/UPC-SC/UPC 1,5м"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-15m.html` citeturn13view0turn31search1",
+        "type": "distributor",
+        "domain": "www.optcom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.722828+00:00",
+    "merge_source": "result_SCDUPLEX9_125-15.json"
   }
 }

@@ -553,5 +553,38 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "HVAC inverter (VFD)",
+    "description_ru": "Honeywell NXL series (Vacon-designed)",
+    "specs": {
+      "raw": "11kW; 23A; 380–500V 3ph; IP54; EMC class C; 144×391×214mm; 8.1kg; 0–320Hz output",
+      "aliases": [
+        "NXL HVAC 23C5"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell NXL series (Vacon-designed)",
+      "Aliases: NXL HVAC 23C5"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/hvac23c5-11kw-ip54-hvac-inverter-23-amps-product-298665",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.675828+00:00",
+    "merge_source": "result_HVAC23C5.json"
+  },
+  "dr_category": "HVAC inverter (VFD)",
+  "dr_price": 1.324,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.mytub.co.uk/hvac23c5-11kw-ip54-hvac-inverter-23-amps-product-298665"
 }

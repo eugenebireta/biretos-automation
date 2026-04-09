@@ -331,5 +331,52 @@
     "policy_card_status_historical": "REVIEW_REQUIRED",
     "policy_card_status_mismatch": false
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "earplugs",
+    "description_ru": "Bag of 200 pairs; refill for HL400 dispenser; TWD 1,794 ≈ USD 55–58; in stock RS Taiwan",
+    "specs": {
+      "raw": "SNR 33dB; polyurethane foam; uncorded; disposable; large; bullet/tapered; EN 352-2",
+      "aliases": [
+        "Bilsom 303L",
+        "Howard Leight 303L",
+        "RS 104-0922"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Bag of 200 pairs; refill for HL400 dispenser; TWD 1,794 ≈ USD 55–58; in stock RS Taiwan",
+      "Aliases: Bilsom 303L; Howard Leight 303L; RS 104-0922"
+    ],
+    "sources": [
+      {
+        "url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+        "type": "distributor",
+        "domain": "twen.rs-online.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.alive-sr.com/prod/303LBOXFOAMRED/",
+        "type": "distributor",
+        "domain": "www.alive-sr.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.544770+00:00",
+    "merge_source": "result_1006186.json"
+  },
+  "dr_category": "earplugs",
+  "dr_image_url": "https://media.rs-online.com/image/upload/F1040922-01",
+  "dr_price": 1794.0,
+  "dr_currency": "TWD",
+  "dr_price_source": "https://twen.rs-online.com/web/p/ear-plugs/1040922"
 }

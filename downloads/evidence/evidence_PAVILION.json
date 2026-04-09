@@ -590,5 +590,33 @@
     "alias_found": "HP Pavilion",
     "specs": null,
     "notes": "HP Pavilion OEM; Software Node; Legacy"
+  },
+  "deep_research": {
+    "title_ru": "Barcode scanner accessory",
+    "specs": {
+      "raw": "Part number для заказа: PAV-2DSCAN; MSRP $392; «Pavilion» как платформа citeturn65search0turn66view1",
+      "aliases": [
+        "PAV-2DSCAN citeturn66view1"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "На открытии страницы цена может быть скрыта, но в выдаче фиксируется $258.72. citeturn65search0turn66view1",
+      "Aliases: PAV-2DSCAN citeturn66view1"
+    ],
+    "sources": [
+      {
+        "url": "https://www.touchwindow.com/p/PAV-2DSCAN.html",
+        "type": "distributor",
+        "domain": "www.touchwindow.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.703830+00:00",
+    "merge_source": "result_PAVILION.json"
   }
 }

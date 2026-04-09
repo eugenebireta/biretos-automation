@@ -515,5 +515,42 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Electronic pressure transmitter",
+    "description_ru": "Honeywell FEMA Smart SN series. Price excl. VAT. RoHS compliant",
+    "specs": {
+      "raw": "G1/2; 4–20mA (3-wire) / 0-10V; 0–10 bar; IP67; ±0.5% FS; microprocessor; 100ms cycle",
+      "aliases": [
+        "PTSRB0101A2 (2-wire)",
+        "PTSRB0161V3 (0-16 bar)",
+        "PTSRB0041V3 (0-4 bar)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell FEMA Smart SN series. Price excl. VAT. RoHS compliant",
+      "Aliases: PTSRB0101A2 (2-wire); PTSRB0161V3 (0-16 bar); PTSRB0041V3 (0-4 bar)"
+    ],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.711829+00:00",
+    "merge_source": "result_PTSRB0101V3.json"
+  },
+  "dr_category": "Electronic pressure transmitter",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-bms-pthrb0401a2-smart-sn-hmi-electronic-pressure-transmitter-primaryimage",
+  "dr_price": 815.33,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/"
 }

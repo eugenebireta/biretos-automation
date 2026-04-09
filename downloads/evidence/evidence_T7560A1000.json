@@ -515,5 +515,38 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Digital wall module / thermostat",
+    "description_ru": "DISCONTINUED. Replaced by T7560A1026. For Excel 5000/10/50..800 systems. $730 new (Radwell); $634 Radwell packaging; $576 refurb.",
+    "specs": {
+      "raw": "24 VAC; 2 VA; 50/60Hz; 20K NTC sensor; 0–40°C range; LCD; 104×99×30mm; configurable fan speed; °C/°F selectable",
+      "aliases": [
+        "T7560A1026 (replacement)",
+        "T7560A1000-AIR2"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "DISCONTINUED. Replaced by T7560A1026. For Excel 5000/10/50..800 systems. $730 new (Radwell); $634 Radwell packaging; $576 refurb.",
+      "Aliases: T7560A1026 (replacement); T7560A1000-AIR2"
+    ],
+    "sources": [
+      {
+        "url": "https://www.radwell.com/fr-FR/Buy/HONEYWELL/HONEYWELL/T7560A1000",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.727832+00:00",
+    "merge_source": "result_T7560A1000.json"
+  },
+  "dr_category": "Digital wall module / thermostat",
+  "dr_image_url": "(available on Radwell page)"
 }

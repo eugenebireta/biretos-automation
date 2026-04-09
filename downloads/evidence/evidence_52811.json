@@ -532,5 +532,48 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PEHA rocker switch",
+    "description_ru": "Nova Tangenta; only Russian price found (~€12–13 equivalent); page returned 404 on fetch",
+    "specs": {
+      "raw": "2-gang; aluminium color 702; arrow symbols up/down for blind/shutter control",
+      "aliases": [
+        "00052811"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Nova Tangenta; only Russian price found (~€12–13 equivalent); page returned 404 on fetch",
+      "Aliases: 00052811"
+    ],
+    "sources": [
+      {
+        "url": "https://magelectric.ru/catalog/3843/92260",
+        "type": "distributor",
+        "domain": "magelectric.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.600771+00:00",
+    "merge_source": "result_52811.json"
+  },
+  "dr_category": "PEHA rocker switch",
+  "dr_image_url": "—",
+  "dr_price": 1267.43,
+  "dr_currency": "RUB",
+  "dr_price_source": "https://magelectric.ru/catalog/3843/92260"
 }

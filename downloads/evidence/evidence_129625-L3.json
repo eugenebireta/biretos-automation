@@ -393,5 +393,34 @@
     "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
     "policy_card_status_fix_ts": "2026-04-08T20:28:35.506678+00:00"
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Kit (unidentified)",
+    "description_ru": "No matches on Radwell, eBay, IndiaMART, or any distributor. May be internal/custom/obsolete. Similar Honeywell -L3 parts exist (131635-L3, 135636-L3) but not 129625.",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "No matches on Radwell, eBay, IndiaMART, or any distributor. May be internal/custom/obsolete. Similar Honeywell -L3 parts exist (131635-L3, 135636-L3) but not 129625.",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.557771+00:00",
+    "merge_source": "result_129625-L3.json"
+  },
+  "dr_category": "Kit (unidentified)"
 }

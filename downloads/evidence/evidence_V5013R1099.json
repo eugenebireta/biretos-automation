@@ -561,5 +561,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "V5013R series; £284.52 ex-VAT; Amazon UK £401.69; 4 in stock at Kempston",
+    "specs": {
+      "raw": "DN50; Kvs 40; 3-way mixing; threaded ISO228; PN16; brass; 20mm stroke; 2-170°C"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "V5013R series; £284.52 ex-VAT; Amazon UK £401.69; 4 in stock at Kempston"
+    ],
+    "sources": [
+      {
+        "url": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
+        "type": "distributor",
+        "domain": "www.kempstoncontrols.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.733831+00:00",
+    "merge_source": "result_V5013R1099.json"
+  },
+  "dr_category": "valve",
+  "dr_price": 284.52,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788"
 }

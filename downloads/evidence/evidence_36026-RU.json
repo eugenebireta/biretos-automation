@@ -567,5 +567,33 @@
     "alias_found": null,
     "specs": null,
     "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "vehicle body part (collision)",
+    "specs": {
+      "raw": "«Cena brutto: 84,88 zł» incl. 23% VAT (по странице) citeturn50search5",
+      "aliases": [
+        "36026 (без -RU)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "В исходном списке ожидается Honeywell; на практике «‑ru» в URL используется как языковой маркер, а не Honeywell‑суффикс. citeturn50search5",
+      "Aliases: 36026 (без -RU)"
+    ],
+    "sources": [
+      {
+        "url": "`https://krakowparts.pl/AG-36026-ru` citeturn50search5",
+        "type": "distributor",
+        "domain": "krakowparts.pl",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.592773+00:00",
+    "merge_source": "result_36026-RU.json"
   }
 }

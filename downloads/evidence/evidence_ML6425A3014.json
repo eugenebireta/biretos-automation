@@ -516,5 +516,38 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Valve actuator (spring return)",
+    "description_ru": "Also €1,127.62 at heiz24.de; fail-safe spring return",
+    "specs": {
+      "raw": "230VAC; 600N; 20mm stroke; 108s drive/15s spring return; IP54; DIN EN 14597",
+      "aliases": [
+        "ML7425A3014 (modulating ver.)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also €1,127.62 at heiz24.de; fail-safe spring return",
+      "Aliases: ML7425A3014 (modulating ver.)"
+    ],
+    "sources": [
+      {
+        "url": "https://lafipa.lv/en/produkti/siltumapgade-en/automation-control-systems/valve-actuators/ml6425a3014-2/",
+        "type": "distributor",
+        "domain": "lafipa.lv",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.688829+00:00",
+    "merge_source": "result_ML6425A3014.json"
+  },
+  "dr_category": "Valve actuator (spring return)",
+  "dr_price": 721.17,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://lafipa.lv/en/produkti/siltumapgade-en/automation-control-systems/valve-actuators/ml6425a3014-2/"
 }

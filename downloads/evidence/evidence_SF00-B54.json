@@ -519,5 +519,40 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Strap-on temperature sensor",
+    "description_ru": "Also £112.00 at hvac-sanitary.co.uk; $92.39 new-open box on eBay. Honeywell Switzerland",
+    "specs": {
+      "raw": "Pt1000; -30…+110°C; IP54; max wiring 200m; 80.8×55.3×42 mm",
+      "aliases": [
+        "SF00-B54-R (updated reference)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also £112.00 at hvac-sanitary.co.uk; $92.39 new-open box on eBay. Honeywell Switzerland",
+      "Aliases: SF00-B54-R (updated reference)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-sf00-b54-strap-on-water-temp-sensor-product-742802",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.723829+00:00",
+    "merge_source": "result_SF00-B54.json"
+  },
+  "dr_category": "Strap-on temperature sensor",
+  "dr_image_url": "—",
+  "dr_price": 27.76,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.mytub.co.uk/honeywell-sf00-b54-strap-on-water-temp-sensor-product-742802"
 }

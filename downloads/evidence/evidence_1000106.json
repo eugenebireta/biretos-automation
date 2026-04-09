@@ -460,5 +460,35 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "confidence": "low",
+    "sources": [
+      {
+        "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+        "type": "distributor",
+        "domain": "www.amazon.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.modern-eastern.com/en/home/honeywell-earplugs-304l-large-Box-of-100-pairs-1000106",
+        "type": "distributor",
+        "domain": "www.modern-eastern.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.543772+00:00",
+    "merge_source": "result_1000106.json"
+  },
+  "dr_image_url": "https://www.modern-eastern.com/content/product_images/8808176105869.jpg",
+  "dr_price": 53.75,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI"
 }

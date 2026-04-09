@@ -514,5 +514,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Multisensor fire detector",
+    "description_ru": "Clearance price (was €37.91); also €89.90 on eBay",
+    "specs": {
+      "raw": "8–42V DC; optical+thermal; Ø117×62mm; IP42; EN54-7/5; heat response 79–88°C; Germany",
+      "aliases": [
+        "O2T 802374",
+        "802374.IN (FM)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Clearance price (was €37.91); also €89.90 on eBay",
+      "Aliases: O2T 802374; 802374.IN (FM)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.orbitadigital.com/en/fire/esser/28749-esser-802374-iq8-multi-sensory-o2t-detector.html",
+        "type": "distributor",
+        "domain": "www.orbitadigital.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.620773+00:00",
+    "merge_source": "result_802374.json"
+  },
+  "dr_category": "Multisensor fire detector",
+  "dr_image_url": "https://www.orbitadigital.com/317909-large_default/esser-802374-iq8-multi-sensory-o2t-detector.jpg",
+  "dr_price": 24.64,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.orbitadigital.com/en/fire/esser/28749-esser-802374-iq8-multi-sensory-o2t-detector.html"
 }

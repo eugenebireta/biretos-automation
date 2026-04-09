@@ -542,5 +542,42 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "IP camera (outdoor dome)",
+    "description_ru": "Honeywell equIP series; Y suffix = AI analytics (face detection, people counting, heatmap); Dahua OEM; price is for V variant — exact Y variant login-gated",
+    "specs": {
+      "raw": "4MP 2688×1520; 1/3\" CMOS; 2.7–13.5mm MFZ F1.6; 140dB WDR; 60m IR (3 LEDs); H.265/H.264; PoE+ 802.3at; IP67; IK10; -40°C to 60°C; 256GB SD; heater; Ø159×118mm; 1.12kg",
+      "aliases": [
+        "H4W4GR1V",
+        "H4W4GR1",
+        "Dahua IPC-HDBW5421EP-ZH (OEM base)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell equIP series; Y suffix = AI analytics (face detection, people counting, heatmap); Dahua OEM; price is for V variant — exact Y variant login-gated",
+      "Aliases: H4W4GR1V; H4W4GR1; Dahua IPC-HDBW5421EP-ZH (OEM base)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.a1securitycameras.com/honeywell-h4w4gr1v-4mp-wdr-ir-h-265-rugged-dome-ip-security-camera.html",
+        "type": "distributor",
+        "domain": "www.a1securitycameras.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.672829+00:00",
+    "merge_source": "result_H4W4GR1Y.json"
+  },
+  "dr_category": "IP camera (outdoor dome)",
+  "dr_image_url": "(available on A1 Security Cameras product page)",
+  "dr_price": 825.78,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.a1securitycameras.com/honeywell-h4w4gr1v-4mp-wdr-ir-h-265-rugged-dome-ip-security-camera.html"
 }

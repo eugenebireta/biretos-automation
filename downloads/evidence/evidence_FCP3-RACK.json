@@ -523,5 +523,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fiber optic patch panel",
+    "description_ru": "**NOT a Honeywell fire panel rack.** Siemon product. Also $84.73 at Energy Avenue. Discontinued per Anixter",
+    "specs": {
+      "raw": "1U rack; 19\"; 6–72 ports (up to 288 fibers w/ MTP); fixed tray; 3 Quick-Pack openings; 1.01 lb",
+      "aliases": [
+        "CCP-FCP3-RACK (ShowMeCables)",
+        "related: FCP3-DWR (sliding tray)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "**NOT a Honeywell fire panel rack.** Siemon product. Also $84.73 at Energy Avenue. Discontinued per Anixter",
+      "Aliases: CCP-FCP3-RACK (ShowMeCables); related: FCP3-DWR (sliding tray)"
+    ],
+    "sources": [
+      {
+        "url": "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions",
+        "type": "distributor",
+        "domain": "www.eaccu-tech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.658828+00:00",
+    "merge_source": "result_FCP3-RACK.json"
+  },
+  "dr_category": "Fiber optic patch panel",
+  "dr_image_url": "—",
+  "dr_price": 83.15,
+  "dr_currency": "USD",
+  "dr_price_source": "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions"
 }

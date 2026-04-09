@@ -583,5 +583,32 @@
       "has_photo": "",
       "domain": "ebay.com"
     }
-  ]
+  ],
+  "deep_research": {
+    "title_ru": "Monitor (QHD)",
+    "specs": {
+      "aliases": [
+        "Dell P2421D"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "eBay product page: “Price: $55.98”, Buy It Now, condition Used. citeturn37view1",
+      "Aliases: Dell P2421D"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/p/11037729110` citeturn37view1",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.699828+00:00",
+    "merge_source": "result_P2421D.json"
+  }
 }

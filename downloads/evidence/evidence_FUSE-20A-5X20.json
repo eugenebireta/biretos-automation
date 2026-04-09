@@ -586,5 +586,34 @@
       }
     ]
   },
-  "dr_image_url": "20A; 5x20mm; Glass; Standard cartridge"
+  "dr_image_url": "20A; 5x20mm; Glass; Standard cartridge",
+  "deep_research": {
+    "title_ru": "fuse",
+    "description_ru": "Цена в рублях; листинг показывает две позиции FUSE 20A 5x20 (разные остатки)",
+    "specs": {
+      "raw": "5x20; 20A; цена в листинге; наличие отображается",
+      "aliases": [
+        "В листинге обозначен как “FUSE 20A 5x20”"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена в рублях; листинг показывает две позиции FUSE 20A 5x20 (разные остатки)",
+      "Aliases: В листинге обозначен как “FUSE 20A 5x20”"
+    ],
+    "sources": [
+      {
+        "url": "`https://xn--80aimyafcf.xn--p1ai/passivye-komponenty/page-409/?items_per_page=24&layout=products_without_options&sort_by=product&sort_order=desc` citeturn52search3",
+        "type": "distributor",
+        "domain": "xn--80aimyafcf.xn--p1ai",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.662828+00:00",
+    "merge_source": "result_FUSE-20A-5X20.json"
+  }
 }

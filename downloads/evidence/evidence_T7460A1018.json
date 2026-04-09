@@ -562,5 +562,37 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Temperature wall module",
+    "description_ru": "For Excel 10/50–800 controllers. May be obsolete. Gray-market price — treat with caution",
+    "specs": {
+      "raw": "PT1000; 0–50°C; IP30; 16–22 AWG; max 1000 ft wire; 6°–40°C operating",
+      "aliases": [
+        "Part of T7460A/B/C/D/E/F family"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "For Excel 10/50–800 controllers. May be obsolete. Gray-market price — treat with caution",
+      "Aliases: Part of T7460A/B/C/D/E/F family"
+    ],
+    "sources": [
+      {
+        "url": "https://okmarts.com/honeywell-sensor-t7460a1018.html",
+        "type": "gray_market",
+        "domain": "okmarts.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.727832+00:00",
+    "merge_source": "result_T7460A1018.json"
+  },
+  "dr_category": "Temperature wall module",
+  "dr_image_url": "—"
 }

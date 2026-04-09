@@ -659,5 +659,34 @@
       }
     ]
   },
-  "dr_image_url": "https://i.ebayimg.com/images/g/8C0AAOSwNAFjUUx~/s-l1600.jpg"
+  "dr_image_url": "https://i.ebayimg.com/images/g/8C0AAOSwNAFjUUx~/s-l1600.jpg",
+  "deep_research": {
+    "title_ru": "damper actuator",
+    "specs": {
+      "raw": "24 VAC ±20% / 24 VDC; потребление: 5 VA (удержание), 14 VA (движение); IP54; −40…+60°C (из даташита S10010/S20010) citeturn52search0",
+      "aliases": [
+        "S10010 (в прайсе)",
+        "семейство SmartAct"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Прайс‑лист даёт **527,00** как каталожную цену. citeturn52search8",
+      "Aliases: S10010 (в прайсе); семейство SmartAct"
+    ],
+    "sources": [
+      {
+        "url": "`https://vainsmon.es/wp-content/uploads/2025/01/catalogo-tarifa-honeywell-resideo-2025.pdf` citeturn52search8",
+        "type": "list_price",
+        "domain": "vainsmon.es",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.718827+00:00",
+    "merge_source": "result_S10010.json"
+  }
 }

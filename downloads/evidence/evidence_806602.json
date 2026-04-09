@@ -586,5 +586,33 @@
     "alias_found": null,
     "specs": null,
     "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "unknown",
+    "description_ru": "Если это внутренний код Honeywell — без контекста срывается в «общие» артикулы других отраслей.",
+    "specs": {
+      "raw": "Найден нерелевантный шум: автозапчасти/инструментальные коды; подтверждённой Honeywell‑карточки с ценой нет. citeturn45search9turn45search0",
+      "aliases": [
+        "шум: «806602» авто‑детали"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Если это внутренний код Honeywell — без контекста срывается в «общие» артикулы других отраслей.",
+      "Aliases: шум: «806602» авто‑детали"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.622773+00:00",
+    "merge_source": "result_806602.json"
   }
 }

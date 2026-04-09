@@ -510,5 +510,40 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fiber optic patch panel",
+    "description_ru": "NIKOMAX brand. 3,568–3,771 RUB (~$38–41 USD). Premium version -TS-P1 costs ₽8,362–11,068. -RU = Russian CU-TR certified.",
+    "specs": {
+      "raw": "19\" 1U; 16× SC/UPC simplex; SM 9/125 OS2; steel 1mm; 405×210×44mm; 2350g; -10°C to +60°C",
+      "aliases": [
+        "NMF-RP16SCUS2-WS-ES-1U-GY (full PN)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "NIKOMAX brand. 3,568–3,771 RUB (~$38–41 USD). Premium version -TS-P1 costs ₽8,362–11,068. -RU = Russian CU-TR certified.",
+      "Aliases: NMF-RP16SCUS2-WS-ES-1U-GY (full PN)"
+    ],
+    "sources": [
+      {
+        "url": "https://e-kc.ru/cena/opticheskij-kross-nikomax-19-1u-ukomplektovannyj-na-16-portov-scupc16-odinarnykh-scupc-adapterov-eko48820-nikomaxnikolan-nmf-rp16scus2-ws-es-1u-gy",
+        "type": "distributor",
+        "domain": "e-kc.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.695828+00:00",
+    "merge_source": "result_NMF-RP16SCUS2-RU.json"
+  },
+  "dr_category": "Fiber optic patch panel",
+  "dr_image_url": "(available on dssl.ru and e-kc.ru)",
+  "dr_price": 3.568,
+  "dr_currency": "RUB",
+  "dr_price_source": "https://e-kc.ru/cena/opticheskij-kross-nikomax-19-1u-ukomplektovannyj-na-16-portov-scupc16-odinarnykh-scupc-adapterov-eko48820-nikomaxnikolan-nmf-rp16scus2-ws-es-1u-gy"
 }

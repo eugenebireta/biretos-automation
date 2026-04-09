@@ -531,5 +531,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "fitting",
+    "description_ru": "OBSOLETE — discontinued by Honeywell; Honeywell FEMA brand",
+    "specs": {
+      "raw": "G1/4\" thread; brass body; NBR O-ring; 8mm pipe connection; TARIC 9032200090",
+      "aliases": [
+        "Mouser PN 785-MAU8/MS"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "OBSOLETE — discontinued by Honeywell; Honeywell FEMA brand",
+      "Aliases: Mouser PN 785-MAU8/MS"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mouser.com/ProductDetail/Honeywell/MAU8-MS?qs=iGCpDQK01Mr5TOE9PXY48A%3D%3D",
+        "type": "—",
+        "domain": "www.mouser.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.684828+00:00",
+    "merge_source": "result_MAU8_MS.json"
+  },
+  "dr_category": "fitting"
 }

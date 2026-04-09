@@ -519,5 +519,53 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Monitor",
+    "description_ru": "Dell P-Series Professional; EOL — replaced by P2425H; also $66.98 refurbished (PCLiquidations); €166.57 on Dell.com Ireland; 3-year warranty",
+    "specs": {
+      "raw": "23.8\" IPS; 1920×1080 FHD @ 60Hz; 250cd/m²; 1000:1; 5ms GTG; 99% sRGB; DP 1.2 + HDMI 1.4 + VGA; 4× USB 3.2 Gen 1; VESA 100×100mm; 3.39kg panel; tilt/swivel/pivot/height",
+      "aliases": [
+        "DRFYT",
+        "210-BBCC",
+        "210-AZYX",
+        "PN8HN"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Dell P-Series Professional; EOL — replaced by P2425H; also $66.98 refurbished (PCLiquidations); €166.57 on Dell.com Ireland; 3-year warranty",
+      "Aliases: DRFYT; 210-BBCC; 210-AZYX; PN8HN"
+    ],
+    "sources": [
+      {
+        "url": "https://www.walmart.com/ip/Dell-P2422H-24-23-8-Viewable-1920-x-1080-Full-HD-IPS-VGA-DisplayPort-HDMI-USB-3-2-VESA-Swivel-Tilt-Height-Adjust-LED-Backlit-Monitor/1552350429",
+        "type": "marketplace",
+        "domain": "www.walmart.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/236701754470",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.700828+00:00",
+    "merge_source": "result_P2422H.json"
+  },
+  "dr_category": "Monitor",
+  "dr_image_url": "(Dell product page: https://www.dell.com/en-us/shop/dell-24-monitor-p2422h/apd/210-bbcc/monitors-monitor-accessories)",
+  "dr_price": 190.88,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.walmart.com/ip/Dell-P2422H-24-23-8-Viewable-1920-x-1080-Full-HD-IPS-VGA-DisplayPort-HDMI-USB-3-2-VESA-Swivel-Tilt-Height-Adjust-LED-Backlit-Monitor/1552350429"
 }

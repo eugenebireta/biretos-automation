@@ -494,5 +494,35 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "confidence": "low",
+    "sources": [
+      {
+        "url": "https://www.amazon.de/00193111-Grundelement-Steckklemmen-Unterputz-Programme-Schlie%C3%9Fer/dp/B000UWESZG",
+        "type": "distributor",
+        "domain": "www.amazon.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/256573207202",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.574771+00:00",
+    "merge_source": "result_193111.json"
+  },
+  "dr_image_url": "—",
+  "dr_price": 10.5,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.amazon.de/00193111-Grundelement-Steckklemmen-Unterputz-Programme-Schlie%C3%9Fer/dp/B000UWESZG"
 }

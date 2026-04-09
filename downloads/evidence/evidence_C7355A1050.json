@@ -513,5 +513,47 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "multisensor",
+    "description_ru": "Blackhawk Supply lists at $1,625.63; Radwell surplus $2,136; Kele discontinued",
+    "specs": {
+      "raw": "PM2.5/PM10; CO2 NDIR 0-2000ppm; TVOC 0-5000ppb; temp; RH; RS-485 Modbus; 12-28VDC/18-27VAC; 130×130×45mm",
+      "aliases": [
+        "C7355A"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Blackhawk Supply lists at $1,625.63; Radwell surplus $2,136; Kele discontinued",
+      "Aliases: C7355A"
+    ],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/116578744302",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/396121523060",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.638775+00:00",
+    "merge_source": "result_C7355A1050.json"
+  },
+  "dr_category": "multisensor",
+  "dr_image_url": "https://i.ebayimg.com/images/g/AmkAAeSw6UtperOY/s-l1600.jpg"
 }

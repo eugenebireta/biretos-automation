@@ -454,5 +454,40 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire alarm control panel",
+    "description_ru": "Net EUR; FACP FlexES FX18; HMI sold separately",
+    "specs": {
+      "raw": "230VAC; 18 loops; 2,286 addresses; USB; RS485; TTY; VdS; EN54",
+      "aliases": [
+        "ESSER-FX808397"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Net EUR; FACP FlexES FX18; HMI sold separately",
+      "Aliases: ESSER-FX808397"
+    ],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.668828+00:00",
+    "merge_source": "result_FX808397.json"
+  },
+  "dr_category": "Fire alarm control panel",
+  "dr_image_url": "https://www.esser-systems.com/productimages/system-flexes-control/flexes-control//fx808397-facp-flexes-control-fx18-18-loops_Inherited_product_pic_300_300_BMFX8083_95xxx_GEPE_SF3C_00.jpg",
+  "dr_price": 3.929,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes"
 }

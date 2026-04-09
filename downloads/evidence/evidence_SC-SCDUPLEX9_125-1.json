@@ -585,5 +585,34 @@
         "domain": "newark.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "fiber optic patch cord",
+    "description_ru": "На странице показаны розничная/оптовая цены и НДС",
+    "specs": {
+      "raw": "SM 9/125; SC/UPC-SC/UPC; LSZH; цена розница 380 руб; НДС 20%",
+      "aliases": [
+        "Алиас: 2SM-3.0-SC/UPC-SC/UPC, 1м"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "На странице показаны розничная/оптовая цены и НДС",
+      "Aliases: Алиас: 2SM-3.0-SC/UPC-SC/UPC, 1м"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-1m.html` citeturn11view0",
+        "type": "distributor",
+        "domain": "www.optcom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.719829+00:00",
+    "merge_source": "result_SC-SCDUPLEX9_125-1.json"
   }
 }

@@ -594,5 +594,33 @@
         "domain": "radwell.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "Printer spare part",
+    "specs": {
+      "raw": "Part #: 346-314S-001; «LCD, panel assy spare PM 23/43»; MSRP указан citeturn64search15",
+      "aliases": [
+        "346-314S-001 citeturn64search15"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "PN=LCD трактован как внутренний ярлык «LCD spare part»; прямого «LCD» как MPN не найдено. citeturn64search15",
+      "Aliases: 346-314S-001 citeturn64search15"
+    ],
+    "sources": [
+      {
+        "url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+        "type": "list_price",
+        "domain": "www.thermalprintersupplies.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.682829+00:00",
+    "merge_source": "result_LCD.json"
   }
 }

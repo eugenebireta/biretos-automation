@@ -621,5 +621,30 @@
         "domain": "credexalarmsystems.eu"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "mounting bracket",
+    "description_ru": "В том же прайсе есть RMK400AP (белый) 415р",
+    "specs": {
+      "raw": "аксессуар для пожарных извещателей; цена в прайс-листе"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "В том же прайсе есть RMK400AP (белый) 415р"
+    ],
+    "sources": [
+      {
+        "url": "`https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf` citeturn36view0",
+        "type": "list_price",
+        "domain": "systemsensor.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.715828+00:00",
+    "merge_source": "result_RMK400AP-IV.json"
   }
 }

@@ -599,5 +599,32 @@
       "has_photo": "",
       "domain": "ebay.com"
     }
-  ]
+  ],
+  "deep_research": {
+    "title_ru": "Monitor (22\")",
+    "specs": {
+      "aliases": [
+        "Dell P2210f"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "eBay UK: “£42.99”, refurbished. citeturn39search3",
+      "Aliases: Dell P2210f"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.ebay.co.uk/itm/227222137857` citeturn39search3",
+        "type": "surplus",
+        "domain": "www.ebay.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.697828+00:00",
+    "merge_source": "result_P2210F.json"
+  }
 }

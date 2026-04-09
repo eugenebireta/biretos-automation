@@ -564,5 +564,34 @@
         "domain": "classicautomation.com"
       }
     ]
-  }
+  },
+  "deep_research": {
+    "title_ru": "switch frame",
+    "description_ru": "Страница-профиль без цены (требует запроса)",
+    "specs": {
+      "raw": "SKU: 820511; указано “5 Frame” без цены",
+      "aliases": [
+        "00820511 (frame)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Страница-профиль без цены (требует запроса)",
+      "Aliases: 00820511 (frame)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.inwest.ge/product-page/peha-by-honeywell-sockets-switches-00820511-1` citeturn53view1",
+        "type": "unknown",
+        "domain": "www.inwest.ge",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.626771+00:00",
+    "merge_source": "result_820511.json"
+  },
+  "dr_category": "switch frame"
 }

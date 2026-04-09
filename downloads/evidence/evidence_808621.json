@@ -506,5 +506,38 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire control transponder",
+    "description_ru": "Net EUR; also €179 on another walde.ee page",
+    "specs": {
+      "raw": "Loop powered 14–42V DC; relay 16A/230VAC; IP65; integrated isolator; 127 dev/loop",
+      "aliases": [
+        "IQ8FCT LP"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Net EUR; also €179 on another walde.ee page",
+      "Aliases: IQ8FCT LP"
+    ],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/esser-iq8fct-lp-transponder",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.624771+00:00",
+    "merge_source": "result_808621.json"
+  },
+  "dr_category": "Fire control transponder",
+  "dr_price": 169.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://walde.ee/en/esser-iq8fct-lp-transponder"
 }

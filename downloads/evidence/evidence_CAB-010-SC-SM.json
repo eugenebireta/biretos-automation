@@ -568,5 +568,34 @@
     "alias_found": null,
     "specs": null,
     "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "Fiber adapter",
+    "specs": {
+      "raw": "корпус пластик; втулка керамика; -20…+70°C; 15×9.4×27.4 мм; 4.8 г; >1000 циклов citeturn53view0",
+      "aliases": [
+        "CAB-010 (SC/UPC SM)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "На странице есть розница и опт «с НДС». citeturn53view0",
+      "Aliases: CAB-010 (SC/UPC SM)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.optcom.ru/catalog/ADAPTER/adaptery-FC-SC-ST-LC-rozetki/CAB-010.html",
+        "type": "distributor",
+        "domain": "www.optcom.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.638775+00:00",
+    "merge_source": "result_CAB-010-SC-SM.json"
   }
 }

@@ -589,5 +589,29 @@
   "dr_price": 71.61,
   "dr_currency": "USD",
   "dr_price_source": "https://www.radwell.com/Buy/DELL/DELL/SK-8115",
-  "dr_category": "Keyboard"
+  "dr_category": "Keyboard",
+  "deep_research": {
+    "title_ru": "computer keyboard",
+    "description_ru": "Поиск по Honeywell даёт нерелевантные совпадения; вероятно сторонний PN",
+    "specs": {
+      "raw": "на странице Radwell указаны характеристики (5V, 100mA, USB), но цена не отображена в сниппете"
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Поиск по Honeywell даёт нерелевантные совпадения; вероятно сторонний PN"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.radwell.com/Buy/DELL/DELL/SK-8115` citeturn50search3",
+        "type": "unknown",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.724828+00:00",
+    "merge_source": "result_SK8115.json"
+  }
 }

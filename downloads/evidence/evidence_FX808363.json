@@ -513,5 +513,40 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire alarm PSU extension",
+    "description_ru": "Net EUR; pre-order at walde.ee",
+    "specs": {
+      "raw": "230VAC; 24VDC out; max 6A; 150W add'l; 4×12V/12Ah batt; 450×320×185mm; 6.2kg",
+      "aliases": [
+        "FX808363.IN (FM)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Net EUR; pre-order at walde.ee",
+      "Aliases: FX808363.IN (FM)"
+    ],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.667829+00:00",
+    "merge_source": "result_FX808363.json"
+  },
+  "dr_category": "Fire alarm PSU extension",
+  "dr_image_url": "https://www.esser-systems.com/productimages/system-flexes-control/power-supply-expansion//fx808363-power-supply-extension-24-v12-ah_Inherited_product_pic_300_300_BMFX8083_63xxx_GEPE_SF3C_01.jpg",
+  "dr_price": 945.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes"
 }

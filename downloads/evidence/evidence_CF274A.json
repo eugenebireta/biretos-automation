@@ -532,5 +532,39 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Mono laser printer",
+    "description_ru": "**HP printer, NOT Honeywell.** $877.10 OEM new, $745.54 recertified, $570.12 refurbished. Discontinued",
+    "specs": {
+      "raw": "1200×1200 DPI; A4; 33 ppm; auto duplex; 128MB RAM; USB 2.0; 250-sheet tray",
+      "aliases": [
+        "CF274A-MPS",
+        "CF274A-R",
+        "HP LaserJet Pro 400 M401d"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "**HP printer, NOT Honeywell.** $877.10 OEM new, $745.54 recertified, $570.12 refurbished. Discontinued",
+      "Aliases: CF274A-MPS; CF274A-R; HP LaserJet Pro 400 M401d"
+    ],
+    "sources": [
+      {
+        "url": "https://www.partshere.com/online/detail.asp?partno=CF274A",
+        "type": "surplus",
+        "domain": "www.partshere.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.641776+00:00",
+    "merge_source": "result_CF274A.json"
+  },
+  "dr_category": "Mono laser printer",
+  "dr_image_url": "https://www.partshere.com/HPPictures/?partno=CF274A"
 }

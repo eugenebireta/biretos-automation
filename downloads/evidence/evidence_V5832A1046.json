@@ -531,5 +531,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "V5832A compact valve for fan coils; Bola Systems has 5 in stock; price behind login",
+    "specs": {
+      "raw": "DN15; Kvs 1.0; PN16; G thread external; 6.5mm stroke; 2-way; brass; equal % flow",
+      "aliases": [
+        "Valve insert spare: 0902808"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "V5832A compact valve for fan coils; Bola Systems has 5 in stock; price behind login",
+      "Aliases: Valve insert spare: 0902808"
+    ],
+    "sources": [
+      {
+        "url": "https://www.bolasystems.com/two-way-control-valve-honeywell-v5832a1046-dn-15-1-m3-h",
+        "type": "—",
+        "domain": "www.bolasystems.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.744867+00:00",
+    "merge_source": "result_V5832A1046.json"
+  },
+  "dr_category": "valve"
 }

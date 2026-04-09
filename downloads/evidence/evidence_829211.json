@@ -647,5 +647,34 @@
         "domain": "classicautomation.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "switch frame (2-gang)",
+    "description_ru": "Источник — специализированный магазин (Heiz24), не официальный производитель",
+    "specs": {
+      "raw": "EAN 4010105829211; RAL1013 упомянут; цена incl. 19% VAT",
+      "aliases": [
+        "00829211 (ordering code)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Источник — специализированный магазин (Heiz24), не официальный производитель",
+      "Aliases: 00829211 (ordering code)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.heiz24.de/PEHA-D-9557203-Dialogue-frame-2gang-white-5-00829211-NEW` citeturn45search4",
+        "type": "distributor",
+        "domain": "www.heiz24.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.629777+00:00",
+    "merge_source": "result_829211.json"
   }
 }

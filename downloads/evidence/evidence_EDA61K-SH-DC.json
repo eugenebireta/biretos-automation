@@ -455,5 +455,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Pistol grip scan handle",
+    "description_ru": "MSRP $237.77. Also $130.88 (ShopBLT), $152.67 (BarcodeDiscount). Parent EDA61K is EOL; CK62 is successor",
+    "specs": {
+      "raw": "Scan handle for ScanPal EDA61K; dockable with homebase; pistol-grip form factor",
+      "aliases": [
+        "HSM-EDA61KSHDC",
+        "W125766233"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "MSRP $237.77. Also $130.88 (ShopBLT), $152.67 (BarcodeDiscount). Parent EDA61K is EOL; CK62 is successor",
+      "Aliases: HSM-EDA61KSHDC; W125766233"
+    ],
+    "sources": [
+      {
+        "url": "https://www.amazon.com/Honeywell-dockable-homebase-W125766233-EDA61K-SH-DC/dp/B08F46Z3HH",
+        "type": "marketplace",
+        "domain": "www.amazon.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.653828+00:00",
+    "merge_source": "result_EDA61K-SH-DC.json"
+  },
+  "dr_category": "Pistol grip scan handle",
+  "dr_image_url": "https://s7d1.scene7.com/is/image/Honeywell65/sps-ppr-eda61k-mobile-computer",
+  "dr_price": 99.99,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.amazon.com/Honeywell-dockable-homebase-W125766233-EDA61K-SH-DC/dp/B08F46Z3HH"
 }

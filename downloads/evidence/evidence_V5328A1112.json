@@ -528,5 +528,46 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "V5328A series; also listed on eBay Germany (expired)",
+    "specs": {
+      "raw": "DN80; Kvs 100; 2-way flanged linear; PN16; steel/cast iron body; 20mm stroke"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "V5328A series; also listed on eBay Germany (expired)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-v5328a-1112-80mm-2port-mphw-cv-100-product-301846",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/226716997147",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.740834+00:00",
+    "merge_source": "result_V5328A1112.json"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-V5328A1112-left",
+  "dr_price": 1290.54,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.mytub.co.uk/honeywell-v5328a-1112-80mm-2port-mphw-cv-100-product-301846"
 }

@@ -565,5 +565,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Temp & humidity wall module",
+    "description_ru": "Electronic wall module with LCD. T7560B includes humidity sensor vs T7560A",
+    "specs": {
+      "raw": "NTC 20K ohm + humidity; 13°C–29°C range; LCD display; 105×100×21 mm; for XL10 controllers",
+      "aliases": [
+        "T7560A (temp-only variant)",
+        "T7460-LONJACK (accessory)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Electronic wall module with LCD. T7560B includes humidity sensor vs T7560A",
+      "Aliases: T7560A (temp-only variant); T7460-LONJACK (accessory)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-t7560b1008-sensor-tempr-and-humidty-product-308663",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.728832+00:00",
+    "merge_source": "result_T7560B1008.json"
+  },
+  "dr_category": "Temp & humidity wall module",
+  "dr_image_url": "—",
+  "dr_price": 329.56,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.mytub.co.uk/honeywell-t7560b1008-sensor-tempr-and-humidty-product-308663"
 }

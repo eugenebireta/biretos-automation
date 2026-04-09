@@ -516,5 +516,37 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Fire alarm transponder",
+    "description_ru": "Also $578.16 on another eBay listing; .10B = bare PCB",
+    "specs": {
+      "raw": "esserbus; 12 relays; 30VDC/1A per relay; max 100/FACP; VdS; EN54-17/18",
+      "aliases": [
+        "808610.10B (PCB only)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Also $578.16 on another eBay listing; .10B = bare PCB",
+      "Aliases: 808610.10B (PCB only)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/375268691103",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.624771+00:00",
+    "merge_source": "result_808610.10.json"
+  },
+  "dr_category": "Fire alarm transponder",
+  "dr_image_url": "https://www.esser-systems.com/productimages/transponders/esserbus//80861010-esserbus-transponder-12-relays-8-bit_Inherited_product_pic_300_300_BM808610_10xxx_PLFR_SF3C_00.jpg"
 }

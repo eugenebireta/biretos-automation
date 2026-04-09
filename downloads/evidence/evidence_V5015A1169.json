@@ -526,5 +526,44 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "Large industrial valve; quote-only through Honeywell distributors",
+    "specs": {
+      "raw": "DN125; Kvs 220; 3-way flanged mixing; PN6; cast iron; 38mm stroke"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Large industrial valve; quote-only through Honeywell distributors"
+    ],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5015-v5329c-3-way-flanged-large-linear-mixing-valves-pn6",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.emoteek.nl/Honeywell-V5015A1169-Flanged-mixing-valve-DN125",
+        "type": "distributor",
+        "domain": "www.emoteek.nl",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.734832+00:00",
+    "merge_source": "result_V5015A1169.json"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-bms-v5015A1151-linear-control-valve-primaryimage",
+  "dr_price": 2893.38,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.emoteek.nl/Honeywell-V5015A1169-Flanged-mixing-valve-DN125"
 }

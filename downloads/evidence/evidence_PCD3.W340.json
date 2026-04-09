@@ -651,5 +651,32 @@
       "has_photo": "",
       "domain": "sps-service.eu"
     }
-  ]
+  ],
+  "deep_research": {
+    "title_ru": "PLC I/O: analog input module",
+    "specs": {
+      "aliases": [
+        "Saia PCD3.W340 / PCD3W340"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "eBay.de: показаны цены incl. MwSt. и exkl. MwSt. citeturn20search3",
+      "Aliases: Saia PCD3.W340 / PCD3W340"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.ebay.de/itm/205173519196` citeturn20search3",
+        "type": "gray_market",
+        "domain": "www.ebay.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.705828+00:00",
+    "merge_source": "result_PCD3.W340.json"
+  }
 }

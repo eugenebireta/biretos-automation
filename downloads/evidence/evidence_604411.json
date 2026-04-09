@@ -625,5 +625,30 @@
         "domain": "nseautomation.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "switch box / wall box",
+    "description_ru": "Есть datasheet PDF с деталями (Compacta Isolierdose flach)",
+    "specs": {
+      "raw": "Schalterdose; IP20; ключевые слова: Installationsdose; цена incl. MwSt."
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Есть datasheet PDF с деталями (Compacta Isolierdose flach)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.voelkner.de/products/7579916/PEHA-by-Honeywell-604411-Schalterdose-1St..html` citeturn49search1",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.608770+00:00",
+    "merge_source": "result_604411.json"
   }
 }

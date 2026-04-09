@@ -516,5 +516,41 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Surface mount box",
+    "description_ru": "System Sensor (Honeywell). Original ivory discontinued, replaced by SMB500-WH. Also $16.59–$24.79 at firealarm.com",
+    "specs": {
+      "raw": "4-inch surface mount box; plastic; for System Sensor modules",
+      "aliases": [
+        "SMB-500",
+        "SMB500-WH (current white replacement)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "System Sensor (Honeywell). Original ivory discontinued, replaced by SMB500-WH. Also $16.59–$24.79 at firealarm.com",
+      "Aliases: SMB-500; SMB500-WH (current white replacement)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/166363978925",
+        "type": "marketplace",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.725829+00:00",
+    "merge_source": "result_SMB500.json"
+  },
+  "dr_category": "Surface mount box",
+  "dr_image_url": "https://i.ebayimg.com/images/g/M8gAAOSwWcZlHvUc/s-l1600.jpg",
+  "dr_price": 15.98,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/itm/166363978925"
 }

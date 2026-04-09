@@ -457,5 +457,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PLC CPU module",
+    "description_ru": "Quote-only at all4sps.com and marvo.com",
+    "specs": {
+      "raw": "Ethernet TCP/IP; web+FTP server; 512KB program; 128MB flash; USB; RS-485; up to 1024 I/O; 640g",
+      "aliases": [
+        "PCD3M3360"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Quote-only at all4sps.com and marvo.com",
+      "Aliases: PCD3M3360"
+    ],
+    "sources": [
+      {
+        "url": "https://www.all4sps.com/SAIA-PCD3-PROCESSOR-UNIT-PCD3M3360_1",
+        "type": "—",
+        "domain": "www.all4sps.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.705828+00:00",
+    "merge_source": "result_PCD3.M3360.json"
+  },
+  "dr_category": "PLC CPU module"
 }

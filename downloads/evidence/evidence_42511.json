@@ -532,5 +532,34 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Device (unidentified)",
+    "description_ru": "Matches automotive parts (Febi Bilstein, Wix Oil Filter) and hand tools (Estwing chisel). No Honeywell/industrial match found. Needs manufacturer info.",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Matches automotive parts (Febi Bilstein, Wix Oil Filter) and hand tools (Estwing chisel). No Honeywell/industrial match found. Needs manufacturer info.",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.599770+00:00",
+    "merge_source": "result_42511.json"
+  },
+  "dr_category": "Device (unidentified)"
 }

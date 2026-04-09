@@ -538,5 +538,36 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Industrial DCS workstation",
+    "description_ru": "**NOT Morley fire workstation.** Honeywell Experion PKS platform. End of Sale Q3 2024. Honeywell-channel only",
+    "specs": {
+      "raw": "2U rack-mount; RAID1; dual video; 16GB RAM; Win 10 IoT Enterprise LTSC; Experion PKS R530/R520/R51x",
+      "aliases": [
+        "Dell Precision R7920XL (base platform)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "**NOT Morley fire workstation.** Honeywell Experion PKS platform. End of Sale Q3 2024. Honeywell-channel only",
+      "Aliases: Dell Precision R7920XL (base platform)"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.689827+00:00",
+    "merge_source": "result_MZ-PCWS77.json"
+  },
+  "dr_category": "Industrial DCS workstation",
+  "dr_image_url": "—"
 }

@@ -456,5 +456,111 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Honeywell Howard Leight Bilsom 304L — Одноразовые беруши на шнурке (размер L)",
+    "description_ru": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар.",
+    "specs": {
+      "model_name": "Bilsom 304L",
+      "manufacturer_part_number": "1000106",
+      "product_family": "Bilsom 300 Series",
+      "type": "Corded disposable earplugs",
+      "size": "Large (L)",
+      "material": "Polyurethane foam",
+      "shape": "Bullet / tapered (conical)",
+      "color": "Yellow and white (Leight Stripe)",
+      "SNR": "33 dB",
+      "standard": "EN 352-2:2002",
+      "PVC_free": true,
+      "cord": "Yes — corded",
+      "reusability": "Single use / disposable",
+      "pack_size": "Box of 100 pairs",
+      "applications": "Agriculture, automotive, aviation, construction, chemical, defence, energy, food industry, foundry, mining, petrochemical, welding, and more"
+    },
+    "identity_confirmed": true,
+    "confidence": "high",
+    "key_findings": [
+      "Part number '304L' is the Honeywell Howard Leight Bilsom 304L — a corded disposable earplug in size Large, part of the Bilsom 300 Series PPE product family.",
+      "The internal Honeywell catalog/material number (SKU) for this product is 1000106.",
+      "Product is confirmed as CURRENT and actively listed on both the Honeywell SPS support portal (official datasheet hosted at sps-support.honeywell.com) and multiple authorized distributors worldwide.",
+      "Key specification: SNR 33 dB, compliant with EN 352-2:2002, polyurethane foam, corded, size L, yellow/white coloring, PVC-free.",
+      "One distributor (O'Sullivan Hygiene Supplies, IE) listed price of €28.00 per box of 100 pairs, though marked as 'unavailable' at time of search — treat as indicative/reference price only.",
+      "No Russian-language official Honeywell page found; Russian description synthesized from confirmed English-language product data.",
+      "No direct product image URL could be reliably extracted from search results."
+    ],
+    "sources": [
+      {
+        "url": "https://sps-support.honeywell.com/s/article/1000106-Bilsom-304L-Datasheet-in-English",
+        "type": "manufacturer",
+        "supports": [
+          "identity",
+          "product_family",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.amazon.com/Honeywell-Howard-Leight-Bullet-Shaped-1000106/dp/B006GCNBYI",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs",
+          "availability"
+        ]
+      },
+      {
+        "url": "https://www.arco.co.uk/Web-Taxonomy/Personal-Protective-Equipment/Earplugs-and-Ear-Defenders/Earplugs/Honeywell-Howard-Leight-Bilsom-304L-Corded-Disposable-Earplugs-(Box-of-100-Pairs/p/PIMM00000000023790",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.osullivanhygienesupplies.com/store/p100/HONEYWELL_Howard_Leight_Bilsom_304L_Corded_Ear_Plug_SNR_33_dB_(Box_of_100).html",
+        "type": "distributor",
+        "supports": [
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "http://www.shahsales.com/product-details.php?id=376",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+        "type": "distributor",
+        "domain": "www.amazon.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.modern-eastern.com/en/home/honeywell-earplugs-304l-large-Box-of-100-pairs-1000106",
+        "type": "distributor",
+        "domain": "www.modern-eastern.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.583771+00:00",
+    "merge_source": "result_304L.json"
+  },
+  "dr_category": "Средства индивидуальной защиты (СИЗ) — Защита слуха / Беруши одноразовые",
+  "dr_image_url": "https://www.modern-eastern.com/content/product_images/8808176105869.jpg"
 }

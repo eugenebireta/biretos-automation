@@ -551,5 +551,43 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Remote LED annunciator",
+    "description_ru": "System Sensor / Honeywell. Also $22.83 Next Security; $26.99 Protegis; €69 Credex EU. Replaces RA400Z.",
+    "specs": {
+      "raw": "18–32 VDC (intelligent) / 3.1–32 VDC (full); red + green LEDs; single gang mount; UL Listed",
+      "aliases": [
+        "RA400Z (predecessor)",
+        "RA100ZA (Canadian)",
+        "System Sensor RA100Z",
+        "Notifier RA100Z"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "System Sensor / Honeywell. Also $22.83 Next Security; $26.99 Protegis; €69 Credex EU. Replaces RA400Z.",
+      "Aliases: RA400Z (predecessor); RA100ZA (Canadian); System Sensor RA100Z; Notifier RA100Z"
+    ],
+    "sources": [
+      {
+        "url": "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2",
+        "type": "distributor",
+        "domain": "www.amazon.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.713827+00:00",
+    "merge_source": "result_RA100Z.json"
+  },
+  "dr_category": "Remote LED annunciator",
+  "dr_image_url": "(available on Amazon and Credex pages)",
+  "dr_price": 21.29,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2"
 }

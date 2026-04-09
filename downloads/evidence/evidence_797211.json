@@ -506,5 +506,49 @@
     "error": "",
     "llm_request_id": ""
   },
-  "identity_level": "strong"
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PEHA frame",
+    "description_ru": "Dialog Exclusiv 2-gang frame; gold series special-order only",
+    "specs": {
+      "raw": "81×157mm; deep black RAL 9005/gold inlay; thermoplastic halogen-free; IP20",
+      "aliases": [
+        "D 95.572.19.61",
+        "00797211"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Dialog Exclusiv 2-gang frame; gold series special-order only",
+      "Aliases: D 95.572.19.61; 00797211"
+    ],
+    "sources": [
+      {
+        "url": "https://www.schaltertresen.de/Peha/DIALOG-Programm/Dialog-exclusiv-Kombi-Rahmen.html",
+        "type": "list_price",
+        "domain": "www.schaltertresen.de",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://aelektro.ru/catalog/ramki/2-postovye/ramka-2-posta-honeywell-dialog-exclusiv-chernyi-797211",
+        "type": "distributor",
+        "domain": "aelektro.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T08:32:14.618770+00:00",
+    "merge_source": "result_797211.json"
+  },
+  "dr_category": "PEHA frame",
+  "dr_image_url": "—",
+  "dr_price": 1066.0,
+  "dr_currency": "RUB",
+  "dr_price_source": "https://aelektro.ru/catalog/ramki/2-postovye/ramka-2-posta-honeywell-dialog-exclusiv-chernyi-797211"
 }
