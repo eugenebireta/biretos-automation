@@ -7,8 +7,36 @@ on:
   pull_request:
     branches:
       - master
+  workflow_dispatch:
+    inputs:
+      apply_branch_protection:
+        description: "Apply branch protection rules to master"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 jobs:
+  apply-branch-protection:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.apply_branch_protection == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply branch protection
+        env:
+          GH_TOKEN: ${{ secrets.BRANCH_PROTECTION_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::BRANCH_PROTECTION_TOKEN secret is not set. This must be a PAT with administration:write scope."
+            exit 1
+          fi
+          bash .github/scripts/apply_branch_protection.sh
+
   tests:
     runs-on: ubuntu-latest
     env:
