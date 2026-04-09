@@ -1,5 +1,5 @@
 """
-Tests for orchestrator guardian -> alert_dispatcher ValidationError wiring (STAGE-5.3).
+Tests for guardian -> alert_dispatcher ValidationError wiring (STAGE-5.3).
 
 trace_id: orch_20260409T170046Z_cfaeb8
 idempotency_key: stage-5.3-guardian-alert-dispatch-test-001
@@ -11,12 +11,10 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-# Ensure orchestrator/ is importable (guardian.py does `import alert_dispatcher`)
-_orch_dir = str(Path(__file__).resolve().parent.parent / "orchestrator")
-if _orch_dir not in sys.path:
-    sys.path.insert(0, _orch_dir)
-
-import pytest
+# Ensure repo root is importable (guardian.py and alert_dispatcher.py live there)
+_root = str(Path(__file__).resolve().parent.parent)
+if _root not in sys.path:
+    sys.path.insert(0, _root)
 
 import alert_dispatcher
 import guardian
@@ -48,7 +46,7 @@ class TestGuardTaskIntentValidationAlert:
         alert_dispatcher._dispatch_fn = self._original
 
     def test_missing_required_fields_dispatches_warning(self):
-        """Missing trace_id/task_id/intent_type → ValidationError → alert dispatched."""
+        """Missing trace_id/task_id/intent_type -> ValidationError -> alert dispatched."""
         captured, fn = _capture_dispatch()
         alert_dispatcher._dispatch_fn = fn
 
@@ -70,7 +68,7 @@ class TestGuardTaskIntentValidationAlert:
         result = guardian.guard_task_intent({
             "trace_id": "test-trace-abc",
             "intent_type": "cdek_shipment",
-            # missing task_id → ValidationError
+            # missing task_id -> ValidationError
         })
 
         assert result is None
@@ -79,7 +77,7 @@ class TestGuardTaskIntentValidationAlert:
         assert captured[0]["intent_type"] == "cdek_shipment"
 
     def test_valid_dict_no_alert(self):
-        """Valid payload → returns TaskIntent, no alert dispatched."""
+        """Valid payload -> returns TaskIntent, no alert dispatched."""
         captured, fn = _capture_dispatch()
         alert_dispatcher._dispatch_fn = fn
 
@@ -107,7 +105,7 @@ class TestGuardActionSnapshotValidationAlert:
         alert_dispatcher._dispatch_fn = self._original
 
     def test_missing_required_fields_dispatches_warning(self):
-        """Missing fields → ValidationError → alert dispatched."""
+        """Missing fields -> ValidationError -> alert dispatched."""
         captured, fn = _capture_dispatch()
         alert_dispatcher._dispatch_fn = fn
 
@@ -128,7 +126,7 @@ class TestGuardActionSnapshotValidationAlert:
         result = guardian.guard_action_snapshot({
             "trace_id": "snap-trace-1",
             "action_type": "shipment_update",
-            # missing idempotency_key → ValidationError
+            # missing idempotency_key -> ValidationError
         })
 
         assert result is None
@@ -137,7 +135,7 @@ class TestGuardActionSnapshotValidationAlert:
         assert captured[0]["intent_type"] == "shipment_update"
 
     def test_valid_dict_no_alert(self):
-        """Valid payload → returns ActionSnapshot, no alert dispatched."""
+        """Valid payload -> returns ActionSnapshot, no alert dispatched."""
         captured, fn = _capture_dispatch()
         alert_dispatcher._dispatch_fn = fn
 
