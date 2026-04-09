@@ -112,11 +112,11 @@ def _resolve_base_commit() -> str:
     return "HEAD~1"
 
 
-def run_pytest(timeout: int = 120) -> dict | None:
+def run_pytest(timeout: int = 300) -> dict | None:
     """Run pytest and return {passed, failed, skipped, error} or None on timeout/crash."""
     try:
         result = subprocess.run(
-            [sys.executable, "-m", "pytest", "--tb=no", "-q", "--no-header"],
+            [sys.executable, "-m", "pytest", "--tb=no"],
             capture_output=True, text=True, cwd=ROOT, timeout=timeout
         )
         return _parse_pytest_output(result.stdout + result.stderr)

@@ -145,15 +145,18 @@ def check(
         for changed in changed_files:
             in_scope = False
             for scope_path in scope_files:
-                # Normalize: allow prefix matching (scope says "catalog/" means anything under it)
-                if changed == scope_path or changed.startswith(scope_path.rstrip("/") + "/"):
+                # Exact match (full path)
+                if changed == scope_path:
                     in_scope = True
                     break
-                # Also allow if scope is a file and changed matches
-                if scope_path.endswith(".py") or scope_path.endswith(".json") or scope_path.endswith(".md"):
-                    if changed == scope_path:
-                        in_scope = True
-                        break
+                # Prefix match (scope says "catalog/" means anything under it)
+                if changed.startswith(scope_path.rstrip("/") + "/"):
+                    in_scope = True
+                    break
+                # Basename fallback: scope "guardian.py" matches "orchestrator/guardian.py"
+                if "/" not in scope_path and changed.endswith("/" + scope_path):
+                    in_scope = True
+                    break
             if not in_scope:
                 out_of_scope.append(changed)
 
