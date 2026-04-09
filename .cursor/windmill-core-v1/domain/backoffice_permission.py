@@ -20,6 +20,7 @@ _INTENT_PERMISSION: dict[str, Permission] = {
     "check_payment": Permission.CHECK_PAYMENT,
     "get_tracking":  Permission.GET_TRACKING,
     "get_waybill":   Permission.GET_WAYBILL,
+    "send_invoice":  Permission.SEND_INVOICE,
 }
 
 SUPPORTED_INTENTS: frozenset[str] = frozenset(_INTENT_PERMISSION)

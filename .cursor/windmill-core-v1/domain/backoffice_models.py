@@ -27,7 +27,7 @@ class Permission(str, Enum):
     CHECK_PAYMENT = "check_payment"
     GET_TRACKING  = "get_tracking"
     GET_WAYBILL   = "get_waybill"
-    # send_invoice deferred to RFQ-email phase
+    SEND_INVOICE  = "send_invoice"
 
 
 ROLE_PERMISSIONS: Dict[EmployeeRole, FrozenSet[Permission]] = {
@@ -35,16 +35,19 @@ ROLE_PERMISSIONS: Dict[EmployeeRole, FrozenSet[Permission]] = {
         Permission.CHECK_PAYMENT,
         Permission.GET_TRACKING,
         Permission.GET_WAYBILL,
+        Permission.SEND_INVOICE,
     }),
     EmployeeRole.MANAGER: frozenset({
         Permission.CHECK_PAYMENT,
         Permission.GET_TRACKING,
         Permission.GET_WAYBILL,
+        Permission.SEND_INVOICE,
     }),
     EmployeeRole.ADMIN: frozenset({
         Permission.CHECK_PAYMENT,
         Permission.GET_TRACKING,
         Permission.GET_WAYBILL,
+        Permission.SEND_INVOICE,
     }),
 }
 
@@ -63,6 +66,7 @@ INTENT_RISK: Dict[str, RiskLevel] = {
     "check_payment": RiskLevel.LOW,
     "get_tracking":  RiskLevel.LOW,
     "get_waybill":   RiskLevel.MEDIUM,
+    "send_invoice":  RiskLevel.HIGH,
 }
 
 

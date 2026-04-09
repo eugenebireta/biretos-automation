@@ -104,6 +104,7 @@ from side_effects.shopware_product_worker import execute_shopware_product_sync
 from telegram_router import route_update, extract_chat_id_from_update
 from dispatch_action import dispatch_action
 from policy_hash import current_policy_context, upsert_config_snapshot
+import ru_worker.review_case_manual_flow as review_case_manual_flow
 try:
     from idempotency import sweep_expired_locks
 except ImportError:
@@ -366,7 +367,60 @@ def _format_nlu_confirm_error(action: Dict[str, Any], result: Dict[str, Any]) ->
     if intent_type == "check_payment":
         return "Не удалось проверить оплату. Попробуйте ещё раз чуть позже."
 
+    if intent_type == "send_invoice":
+        if "requires_insales_order_id" in lowered:
+            return "Для выставления счёта нужен явный номер заказа. Напишите, например: выставить счёт ORDER-12345."
+        if "order_not_found" in lowered:
+            return "Не нашёл такой заказ. Проверьте номер заказа и попробуйте ещё раз."
+        if "missing_customer_inn" in lowered:
+            return "По заказу нет ИНН плательщика, поэтому автоматически выставить счёт нельзя. Нужна ручная обработка."
+        if "multiple_line_items_unsupported" in lowered:
+            return "Этот заказ слишком сложный для безопасного авто-выставления счёта. Нужна ручная обработка."
+        if "order_context_unavailable" in lowered:
+            return "Сейчас не могу безопасно собрать контекст заказа для выставления счёта. Нужна ручная обработка."
+        if "missing_line_items" in lowered or "missing_total_amount" in lowered or "negative_delivery_delta" in lowered:
+            return "По заказу не хватает надёжного контекста для выставления счёта. Нужна ручная обработка."
+        return "Не удалось выставить счёт автоматически. Проверьте контекст заказа и попробуйте ещё раз."
+
     return "Ошибка: " + error[:200]
+
+
+def _build_review_assign_reply_markup(case_id: str) -> Dict[str, Any]:
+    return {
+        "inline_keyboard": [
+            [{"text": "\u0412\u0437\u044f\u0442\u044c \u0432 \u0440\u0430\u0431\u043e\u0442\u0443", "callback_data": f"review_assign:{case_id}"}]
+        ]
+    }
+
+
+def _build_review_resolve_reply_markup(case_id: str) -> Dict[str, Any]:
+    return {
+        "inline_keyboard": [
+            [{"text": "\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", "callback_data": f"review_resolve:{case_id}:executed"}],
+            [
+                {"text": "\u041e\u0442\u043a\u043b\u043e\u043d\u0438\u0442\u044c", "callback_data": f"review_resolve:{case_id}:rejected"},
+                {"text": "\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c", "callback_data": f"review_resolve:{case_id}:cancelled"},
+            ],
+        ]
+    }
+
+
+def _format_review_case_list(result: Dict[str, Any]) -> str:
+    cases = result.get("cases") or []
+    if not cases:
+        return "\u0410\u043a\u0442\u0438\u0432\u043d\u044b\u0445 send_invoice review cases \u043d\u0435\u0442."
+
+    lines = ["\u0410\u043a\u0442\u0438\u0432\u043d\u044b\u0435 send_invoice review cases:"]
+    for case in cases:
+        resume_context = case.get("resume_context") or {}
+        order_reference = resume_context.get("order_reference") or {}
+        order_ref = order_reference.get("insales_order_id") or order_reference.get("order_id") or "n/a"
+        reason = resume_context.get("reason") or resume_context.get("manual_outcome") or "manual_review"
+        assigned_to = case.get("assigned_to") or "-"
+        lines.append(
+            f"- {case.get('case_id')} [{case.get('status')}] order={order_ref} reason={reason} assigned_to={assigned_to}"
+        )
+    return "\n".join(lines)
 
 
 def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
@@ -481,10 +535,21 @@ def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tupl
         return (None, None)
 
     if action_type == "nlu_confirm":
-        if status == "not_implemented":
-            return ("\u042d\u0442\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0435.", None)
         if status == "forbidden":
             return ("\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432", None)
+        if status in {"insufficient_context", "review_required"}:
+            message = result.get("message")
+            if not message:
+                message = _format_nlu_confirm_error(action, result)
+            review_case_id = result.get("review_case_id")
+            if review_case_id:
+                response_text = (
+                    f"{message}\n\n"
+                    f"Review case: {review_case_id}\n"
+                    "Step 1: take the case into work."
+                )
+                return (response_text, _build_review_assign_reply_markup(str(review_case_id)))
+            return (str(message), None)
         if status == "success":
             intent_type = result.get("intent_type", "")
             if intent_type == "check_payment":
@@ -499,8 +564,58 @@ def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tupl
             if intent_type == "get_waybill":
                 size = result.get("pdf_size_bytes", 0)
                 return ("\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u0430\u044f \u0433\u043e\u0442\u043e\u0432\u0430 (%s \u0431\u0430\u0439\u0442)" % size, None)
+            if intent_type == "send_invoice":
+                invoice_number = result.get("invoice_number") or result.get("provider_document_id") or "N/A"
+                provider_document_id = result.get("provider_document_id") or result.get("tbank_invoice_id")
+                if provider_document_id:
+                    return ("Счёт создан: %s (%s)" % (invoice_number, provider_document_id), None)
+                return ("Счёт создан: %s" % invoice_number, None)
             return ("\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", None)
         return (_format_nlu_confirm_error(action, result), None)
+
+    if action_type == "review_case_list":
+        return (_format_review_case_list(result), None)
+
+    if action_type == "review_case_assign":
+        case_id = str(result.get("case_id") or action.get("payload", {}).get("case_id") or "")
+        if status == "assigned":
+            return (
+                f"Review case {case_id} assigned to you.\nStep 2: resolve it after manual handling.",
+                _build_review_resolve_reply_markup(case_id),
+            )
+        if status == "already_assigned":
+            return (
+                f"Review case {case_id} is already assigned to you.",
+                _build_review_resolve_reply_markup(case_id),
+            )
+        if status == "assigned_to_other":
+            assigned_to = result.get("assigned_to") or "another operator"
+            return (f"Review case {case_id} is already assigned to {assigned_to}.", None)
+        if status == "not_assignable":
+            case_status = result.get("case_status") or "unknown"
+            return (f"Review case {case_id} cannot be assigned from status={case_status}.", None)
+        if status == "unsupported_gate":
+            return (f"Review case {case_id} is not supported by this manual flow.", None)
+        if status == "not_found":
+            return (f"Review case {case_id} not found.", None)
+
+    if action_type == "review_case_resolve":
+        case_id = str(result.get("case_id") or action.get("payload", {}).get("case_id") or "")
+        if status == "resolved":
+            resolution_status = result.get("resolution_status") or "resolved"
+            return (f"Review case {case_id} resolved with status={resolution_status}.", None)
+        if status == "needs_assignment":
+            return (f"Review case {case_id} must be assigned before resolution.", None)
+        if status == "already_resolved":
+            case_status = result.get("case_status") or "resolved"
+            return (f"Review case {case_id} is already terminal: {case_status}.", None)
+        if status == "assigned_to_other":
+            assigned_to = result.get("assigned_to") or "another operator"
+            return (f"Review case {case_id} is assigned to {assigned_to}.", None)
+        if status == "unsupported_gate":
+            return (f"Review case {case_id} is not supported by this manual flow.", None)
+        if status == "not_found":
+            return (f"Review case {case_id} not found.", None)
 
     if status == "success":
         return ("\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", None)
@@ -525,7 +640,45 @@ def handle_router_action(action: Dict[str, Any], db_conn) -> Dict[str, Any]:
     result: Dict[str, Any] = {"status": "noop"}
 
     try:
-        if action_type == "ship_paid":
+        if action_type == "review_case_list":
+            result = review_case_manual_flow.list_send_invoice_manual_cases(
+                db_conn,
+                limit=int(action.get("payload", {}).get("limit", 10)),
+            )
+        elif action_type == "review_case_assign":
+            result = review_case_manual_flow.assign_send_invoice_manual_case(
+                db_conn,
+                case_id=str(action.get("payload", {}).get("case_id") or ""),
+                actor_id=str(metadata.get("employee_id") or user_id or "unknown"),
+            )
+            db_conn.commit()
+            log_event(
+                "review_case_assign_result",
+                {
+                    "case_id": result.get("case_id"),
+                    "status": result.get("status"),
+                    "assigned_to": result.get("assigned_to"),
+                    "trace_id": result.get("trace_id"),
+                },
+            )
+        elif action_type == "review_case_resolve":
+            result = review_case_manual_flow.resolve_send_invoice_manual_case(
+                db_conn,
+                case_id=str(action.get("payload", {}).get("case_id") or ""),
+                actor_id=str(metadata.get("employee_id") or user_id or "unknown"),
+                resolution_status=str(action.get("payload", {}).get("resolution_status") or ""),
+            )
+            db_conn.commit()
+            log_event(
+                "review_case_resolve_result",
+                {
+                    "case_id": result.get("case_id"),
+                    "status": result.get("status"),
+                    "resolution_status": result.get("resolution_status"),
+                    "trace_id": result.get("trace_id"),
+                },
+            )
+        elif action_type == "ship_paid":
             invoice_id = action.get("payload", {}).get("invoice_id")
             if not invoice_id:
                 log_event("router_action_error", {
