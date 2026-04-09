@@ -1,5 +1,5 @@
 # ARCHITECT — Проектирование решения
-<!-- version: 1.0 | updated: 2026-04-09 | changelog: initial -->
+<!-- version: 1.1 | updated: 2026-04-09 | changelog: max 2 round-trips with CRITIC -->
 
 ## Цель
 
@@ -29,6 +29,13 @@ Rollback strategy: [как откатить]
 Чеклист DNA SS10: [пройден/не пройден, что не пройдено]
 Вывод: РЕШЕНИЕ ГОТОВО ДЛЯ CRITIC
 ```
+
+## Лимит итераций с CRITIC
+
+Максимум 2 round-trip с CRITIC по одному BLOCKER.
+Если после 2-го redesign CRITIC всё ещё находит тот же BLOCKER —
+STOP, эскалация к владельцу. Бесконечный цикл перфекционизма
+сжигает токены без прогресса.
 
 ## Запрет
 

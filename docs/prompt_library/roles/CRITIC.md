@@ -1,5 +1,5 @@
 # CRITIC — Независимый аудит решения
-<!-- version: 1.0 | updated: 2026-04-09 | changelog: initial -->
+<!-- version: 1.1 | updated: 2026-04-09 | changelog: max 2 round-trips with ARCHITECT -->
 
 ## Цель
 
@@ -29,6 +29,12 @@ CRITIC REPORT
 Инварианты под угрозой: [список или "нет"]
 Вывод: APPROVE / REJECT (причина) / APPROVE_WITH_CONDITIONS (список условий)
 ```
+
+## Лимит итераций с ARCHITECT
+
+Максимум 2 round-trip по одному BLOCKER.
+Если после 2-го redesign BLOCKER не устранён —
+STOP, эскалация к владельцу. Не продолжать цикл.
 
 ## Запрет
 
