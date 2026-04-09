@@ -233,9 +233,12 @@ def _revert_to_base(base_commit: str | None, trace_id: str) -> bool:
         # Discard all staged/unstaged changes
         _sp.run(["git", "checkout", "--", "."], capture_output=True,
                 text=True, cwd=str(ROOT))
-        # Clean untracked files created by executor
-        _sp.run(["git", "clean", "-fd", "--", "tests/", "scripts/", "orchestrator/",
-                 ".github/"], capture_output=True, text=True, cwd=str(ROOT))
+        # Clean untracked files created by executor (exclude orchestrator/runs/)
+        _sp.run(["git", "clean", "-fd", "-e", "orchestrator/runs/",
+                 "-e", "orchestrator/*.json", "-e", "orchestrator/*.jsonl",
+                 "-e", "orchestrator/*.lock", "-e", "orchestrator/*.md",
+                 "--", "tests/", "scripts/", ".github/"],
+                capture_output=True, text=True, cwd=str(ROOT))
 
         print(f"[orchestrator] B10: reverted executor commits back to {base_commit[:8]}")
         return True
