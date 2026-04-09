@@ -50,8 +50,20 @@ def check_packet(
     test_results = packet.get("test_results")
     blockers = packet.get("blockers", [])
 
-    # G1: Empty execution
+    # G1: Empty execution — distinguish "already done" from "no output"
     if not changed_files:
+        executor_notes = (packet.get("executor_notes") or "").lower()
+        _already_signals = ("already", "previously", "no changes needed",
+                            "no new changes", "nothing to do", "already exist",
+                            "already committed", "already implemented")
+        is_already_done = any(sig in executor_notes for sig in _already_signals)
+        if is_already_done:
+            return BatchGateResult(
+                passed=True,
+                reason="task already completed — executor confirmed no changes needed",
+                rule="G1:ALREADY_DONE",
+                auto_merge_eligible=False,  # don't auto-merge empty result
+            )
         return BatchGateResult(
             passed=False,
             reason="no changed files — executor produced no output",

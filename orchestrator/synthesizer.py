@@ -57,6 +57,7 @@ def decide(
     attempt_count: int = 0,
     last_packet_status: str | None = None,
     max_attempts: int = DEFAULT_MAX_ATTEMPTS,
+    declared_risk: str | None = None,  # B12: risk floor from task queue / manifest
 ) -> SynthesizerDecision:
     """
     Apply 7 rules in priority order and return a SynthesizerDecision.
@@ -67,6 +68,7 @@ def decide(
         attempt_count: current attempt number from manifest
         last_packet_status: status field from last execution packet
         max_attempts: ceiling from config.yaml (default 3)
+        declared_risk: risk floor from task queue (B12 fix — cannot downgrade)
 
     Returns:
         SynthesizerDecision with action, final_risk, approved_scope, rule_trace
@@ -92,10 +94,25 @@ def decide(
     else:
         _r5_unblocked = bool(advisor_addresses_blocker)
 
+    # B12: risk floor — declared_risk from queue cannot be downgraded by
+    # classifier or advisor. AI can escalate risk, never lower it.
+    _RISK_RANK = {"LOW": 0, "SEMI": 1, "CORE": 2}
+    if declared_risk and declared_risk in _RISK_RANK:
+        declared_rank = _RISK_RANK[declared_risk]
+        if _RISK_RANK.get(classifier_risk, 0) < declared_rank:
+            classifier_risk = declared_risk
+        if _RISK_RANK.get(advisor_risk, 0) < declared_rank:
+            advisor_risk = declared_risk
+        if declared_rank > 0:
+            warnings.append(
+                f"B12: risk floor applied from declared_risk={declared_risk}. "
+                f"Classifier/advisor cannot downgrade below queue-declared level."
+            )
+
     logger.info(
         "synthesizer.decide: trace start "
-        "classifier_risk=%s advisor_risk=%s attempt=%d last_status=%s",
-        classifier_risk, advisor_risk, attempt_count, last_packet_status,
+        "classifier_risk=%s advisor_risk=%s declared_risk=%s attempt=%d last_status=%s",
+        classifier_risk, advisor_risk, declared_risk, attempt_count, last_packet_status,
         extra={"error_class": None, "severity": "INFO", "retriable": False},
     )
 

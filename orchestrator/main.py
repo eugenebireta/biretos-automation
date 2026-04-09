@@ -19,11 +19,14 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import logging
 import os
 import sys
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent.parent
 # Ensure project root is in sys.path so auditor_system and other top-level packages resolve
@@ -197,6 +200,48 @@ def _sprint_goal_warning(manifest: dict) -> None:
                       file=sys.stderr)
         except Exception:
             pass
+
+
+def _revert_to_base(base_commit: str | None, trace_id: str) -> bool:
+    """B10 fix: revert executor commits back to base_commit.
+
+    Called when acceptance or batch gate fails AFTER executor has committed.
+    Uses git reset --soft to undo commits while preserving working tree,
+    then git checkout to discard file changes.
+
+    Returns True if revert succeeded, False on error.
+    """
+    if not base_commit:
+        print(f"[orchestrator] B10: no base_commit, cannot revert trace_id={trace_id}",
+              file=sys.stderr)
+        return False
+    import subprocess as _sp
+    try:
+        # Check if HEAD has moved past base_commit
+        head = _sp.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                       text=True, cwd=str(ROOT))
+        if head.returncode != 0 or head.stdout.strip() == base_commit:
+            return True  # Nothing to revert
+
+        # Reset commits (keep files staged)
+        reset = _sp.run(["git", "reset", "--soft", base_commit],
+                        capture_output=True, text=True, cwd=str(ROOT))
+        if reset.returncode != 0:
+            print(f"[orchestrator] B10: git reset failed: {reset.stderr}", file=sys.stderr)
+            return False
+
+        # Discard all staged/unstaged changes
+        _sp.run(["git", "checkout", "--", "."], capture_output=True,
+                text=True, cwd=str(ROOT))
+        # Clean untracked files created by executor
+        _sp.run(["git", "clean", "-fd", "--", "tests/", "scripts/", "orchestrator/",
+                 ".github/"], capture_output=True, text=True, cwd=str(ROOT))
+
+        print(f"[orchestrator] B10: reverted executor commits back to {base_commit[:8]}")
+        return True
+    except Exception as exc:
+        print(f"[orchestrator] B10: revert error trace_id={trace_id}: {exc}", file=sys.stderr)
+        return False
 
 
 def _try_queue_advance(manifest: dict) -> None:
@@ -506,6 +551,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
         attempt_count=manifest.get("attempt_count", 1),
         last_packet_status=bundle.last_status,
         max_attempts=int(cfg.get("max_attempts", 3)),
+        declared_risk=manifest.get("_last_risk_class"),  # B12: risk floor from queue
     )
     for w in synth.warnings:
         print(f"[orchestrator] SYNTH WARNING: {w}", file=sys.stderr)
@@ -858,7 +904,8 @@ def _run_advisor(bundle, trace_id: str, classifier_risk: str = "LOW"):
 
 
 def _run_synthesizer(classification, verdict, attempt_count: int,
-                     last_packet_status, max_attempts: int):
+                     last_packet_status, max_attempts: int,
+                     declared_risk: str | None = None):
     """Apply deterministic rule engine (M3)."""
     import synthesizer as _synthesizer
     return _synthesizer.decide(
@@ -867,6 +914,7 @@ def _run_synthesizer(classification, verdict, attempt_count: int,
         attempt_count=attempt_count,
         last_packet_status=last_packet_status,
         max_attempts=max_attempts,
+        declared_risk=declared_risk,
     )
 
 
@@ -1349,6 +1397,10 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     f"drift={acceptance.drift_detected}, "
                     f"out_of_scope={acceptance.out_of_scope_files[:5]}"
                 )
+
+                # B10: revert executor commits before retry/escalation
+                _revert_to_base(base_commit, trace_id)
+
                 if retry_count < max_retries:
                     # P3: AUTO-RETRY — tighten directive with accumulated history
                     accumulated = _format_accumulated_critiques(critique_history)
@@ -1424,6 +1476,9 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                 print("Resolve and set fsm_state=ready in manifest.json")
                 print("=" * 60)
         else:
+            # B10: revert any executor commits on gate failure
+            _revert_to_base(base_commit, trace_id)
+
             manifest["fsm_state"] = "awaiting_owner_reply"
             manifest["last_verdict"] = "BATCH_GATE_FAILED"
             save_manifest(manifest)
