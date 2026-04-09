@@ -241,6 +241,38 @@ For 🔴 CORE tasks: do steps 1-3. Then show owner the PR number and say "Send t
 
 This is the full cycle. Do all steps automatically without asking.
 
+## MANDATORY PIPELINE FOR EVERY TASK
+
+Every task goes through roles according to risk level.
+Role templates: `docs/prompt_library/roles/`
+
+### Relay rule
+
+Every role produces an artifact (Report/Verdict).
+Without artifact the role is NOT considered complete.
+Next role starts only after receiving the previous role's artifact.
+
+### Task completion rule
+
+Task is closed ONLY when AUDITOR wrote `can_ship: YES`.
+"I did everything" without AUDITOR REPORT = task is NOT closed.
+Agent CANNOT report "done" before receiving `can_ship: YES`.
+
+### Defect discovery rule
+
+If agent finds a defect AFTER saying "done" —
+that is an AUDITOR failure, not a coincidence.
+Agent MUST fix the defect and re-run AUDITOR.
+
+### Self-check before reporting
+
+Agent CANNOT write "done" or "completed" until:
+1. Tests ran (if any exist)
+2. Result checked against task requirements
+3. Explicitly answered: "can this be used right now — yes/no"
+
+If there are defects — fix first, report second.
+
 ## NEVER
 
 - Merge to `master` directly
