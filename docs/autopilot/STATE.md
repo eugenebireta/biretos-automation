@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 73
-transition_ts: "2026-04-09T00:00:00Z"
+transition_seq: 74
+transition_ts: "2026-04-09T01:00:00Z"
 
 ## Current
-active_task: "P0.5+P3-ORCHESTRATOR"
-task_id: "P0.5+P3-ORCHESTRATOR"
+active_task: "P2-TASK-QUEUE"
+task_id: "P2-TASK-QUEUE"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "P0.5+P3 shipped together (per critic consensus). P0.5: synthesizer ACTION_SEMI_AUDIT, SEMI pre-execution audit in main.py, audit_passed→ready FSM transition. P3: _get_retry_policy (LOW=1, SEMI=1, CORE=0), _build_retry_directive, auto-retry on acceptance/audit fail, critique injection in directive. core_gate_bridge: run_post_execution_audit_sync + extract_critique_text. 26 new deterministic tests, 1416/1416 pass. Commit 1d07105."
+note: "P2 task queue shipped. task_queue.py: enqueue/dequeue/peek_next/remove_by_id/clear/try_auto_advance. Auto-advance on clean LOW task completion when auto_execute=true; SEMI/CORE require owner. config.yaml: max_retries_low+semi added. manifest.json reset to ready. 34 new tests, 1471/1471 pass. Commit 40ae8c6. P1→P0.5+P3→P2 all DONE per critic consensus order."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
