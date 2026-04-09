@@ -367,7 +367,7 @@ async def _handle_owner_reply(update: Update, text: str) -> bool:
         MANIFEST_PATH.write_text(
             json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8"
         )
-        _pc(f"Owner approved escalation → fsm_state=ready")
+        _pc(f"Owner approved escalation -> fsm_state=ready")
         await update.message.reply_text("Принято. Стройка продолжит при следующем запуске.")
         return True
     elif lower in ("нет", "no", "стоп", "stop"):
@@ -541,7 +541,7 @@ def main():
 
     print(flush=True)
     print("=" * 60, flush=True)
-    print("  ИИ-СТРОЙКА — Telegram Bot", flush=True)
+    print("  II-STROIKA -- Telegram Bot", flush=True)
     print("  @bireta_code_bot", flush=True)
     print("=" * 60, flush=True)
     print(flush=True)

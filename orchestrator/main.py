@@ -266,7 +266,7 @@ def cmd_cycle(args: argparse.Namespace) -> None:
         append_run({"ts": _now(), "event": "lock_busy",
                      "status": "lock_busy",
                      "reason": "Another orchestrator instance holds the lock"})
-        print("[orchestrator] lock_busy — another instance is running. Exiting.",
+        print("[orchestrator] lock_busy -- another instance is running. Exiting.",
               file=sys.stderr)
         return
 
@@ -308,7 +308,7 @@ def cmd_cycle(args: argparse.Namespace) -> None:
             append_run({"ts": _now(), "event": "cycle_busy",
                         "status": "cycle_busy",
                         "reason": "Previous cycle still in progress"})
-            print("[orchestrator] cycle_busy — previous cycle still running. Exiting.",
+            print("[orchestrator] cycle_busy -- previous cycle still running. Exiting.",
                   file=sys.stderr)
             return
 
@@ -488,7 +488,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
             pass  # experience writing should not block orchestrator
         print()
         print("=" * 60)
-        print("ADVISOR ESCALATION — could not obtain valid verdict.")
+        print("ADVISOR ESCALATION -- could not obtain valid verdict.")
         print(f"Reason: {advisor_result.escalation_reason}")
         print("Check orchestrator/last_escalation.json and resolve.")
         print("After resolving: set fsm_state=ready in manifest.json")
@@ -597,7 +597,6 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
             )
 
             if negotiate_result["converged"]:
-                manifest["fsm_state"] = "audit_passed"
                 manifest["last_verdict"] = "AUDIT_PASSED"
                 manifest["last_audit_result"] = negotiate_summary
                 manifest["_negotiate_result"] = {
@@ -612,13 +611,14 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                             "trace_id": trace_id})
                 print(f"[orchestrator] Convergence achieved in "
                       f"{negotiate_result['iterations']} iteration(s)")
-                print("[orchestrator] Audit PASSED -- ready to proceed to builder.")
+                print("[orchestrator] Audit PASSED -- proceeding to directive build.")
 
                 # Save the approved proposal to run dir for executor reference
                 approved_proposal_path = run_dir / "approved_proposal.md"
                 approved_proposal_path.write_text(
                     negotiate_result["proposal"], encoding="utf-8"
                 )
+                # Fall through to directive building (don't return)
             else:
                 # No convergence — BLOCKED_BY_CONSENSUS
                 manifest["fsm_state"] = "blocked_by_consensus"
@@ -647,6 +647,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                     json.dumps(negotiate_result["history"], indent=2, ensure_ascii=False),
                     encoding="utf-8",
                 )
+                return  # blocked — stop here
 
         except Exception as _audit_exc:
             _err_class = type(_audit_exc).__name__
@@ -658,14 +659,14 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                         "status": "audit_error",
                         "error": str(_audit_exc), "error_class": _err_class,
                         "trace_id": trace_id})
-
-        return
+            return  # error — stop here
+        # If converged: fall through to directive building below
 
     # P0.5: SEMI_AUDIT — pre-execution auditor review for SEMI risk tasks
     _semi_audit_critique = None
 
     if synth.action == "SEMI_AUDIT" and _owner_approved:
-        print("[orchestrator] Owner already approved this SEMI task — skipping re-audit.")
+        print("[orchestrator] Owner already approved this SEMI task -- skipping re-audit.")
         append_run({"ts": _now(), "event": "semi_audit_owner_bypass",
                     "status": "owner_approved_bypass",
                     "trace_id": trace_id,
@@ -814,7 +815,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
     else:
         print()
         print("=" * 60)
-        print("NEXT — feed directive to Claude Code:")
+        print("NEXT -- feed directive to Claude Code:")
         print()
         print("    cat orchestrator/orchestrator_directive.md | claude -p")
         print()
@@ -1051,7 +1052,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
             base_commit = _head.stdout.strip()
 
     print()
-    print("[orchestrator] auto_execute=true — running claude -p...")
+    print("[orchestrator] auto_execute=true -- running claude -p...")
 
     exec_result, packet = _eb.run_with_collect(
         directive_path=DIRECTIVE_PATH,
@@ -1155,7 +1156,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
             critique_history = _load_critique_history(run_dir)
 
             if acceptance.passed and risk_class in ("SEMI", "CORE"):
-                print("[orchestrator] SEMI/CORE — running post-execution audit...")
+                print("[orchestrator] SEMI/CORE -- running post-execution audit...")
                 try:
                     from core_gate_bridge import (
                         run_post_execution_audit_sync,
@@ -1297,7 +1298,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         manifest["last_verdict"] = None
                         manifest["retry_count"] = 0
                         manifest.pop("_retry_reason", None)
-                        print(f"[orchestrator] Retries exhausted but last audit PASSED — accepting")
+                        print(f"[orchestrator] Retries exhausted but last audit PASSED -- accepting")
                 elif audit_verdict == "blocked":
                     # Auditor blocked — escalate, no retry
                     manifest["fsm_state"] = "blocked"
@@ -1402,7 +1403,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
             elif manifest["fsm_state"] == "blocked":
                 print()
                 print("=" * 60)
-                print("AUDIT BLOCKED — auditor flagged critical issues.")
+                print("AUDIT BLOCKED -- auditor flagged critical issues.")
                 print(f"Critique: {audit_critique_text[:300]}")
                 print("Owner review required. Set fsm_state=ready after resolution.")
                 print("=" * 60)
@@ -1418,7 +1419,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
             elif manifest["fsm_state"] == "awaiting_owner_reply":
                 print()
                 print("=" * 60)
-                print("AUDIT FAILED — owner review required.")
+                print("AUDIT FAILED -- owner review required.")
                 print(f"Critique: {audit_critique_text[:300]}")
                 print("Resolve and set fsm_state=ready in manifest.json")
                 print("=" * 60)
