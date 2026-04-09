@@ -206,6 +206,10 @@ def load_uncovered_skus() -> list:
         seed_name = data.get("content", {}).get("seed_name", "") or data.get("name", "")
         our_price_raw = data.get("our_price_raw", "")
         product_type = data.get("content", {}).get("product_type", "")
+        subbrand = data.get("subbrand", "")
+        pn_variants = data.get("pn_variants", [])
+        identity_level = data.get("identity_level", "")
+        existing_desc = data.get("content", {}).get("description", "")
 
         # SAFETY CHECK: Verify we're using assembled_title, not expected_category
         expected_cat = data.get("expected_category", "")
@@ -231,12 +235,17 @@ def load_uncovered_skus() -> list:
             "excel_description": excel_description,
             "ref_price_rub": ref_price,
             "product_type": product_type,
+            "subbrand": subbrand,
+            "pn_variants": pn_variants,
+            "identity_level": identity_level,
+            "existing_desc": existing_desc[:100] if existing_desc else "",
             "expected_category_DO_NOT_USE": expected_cat,  # Kept for audit trail only
             "hint": hint,
         })
 
-    # Sort by hint (groups similar products together)
-    uncovered.sort(key=lambda x: (x["hint"], x["pn"]))
+    # Sort: weak identity first (need more research), then by hint (groups similar products)
+    identity_priority = {"weak": 0, "": 1, "strong": 2}
+    uncovered.sort(key=lambda x: (identity_priority.get(x.get("identity_level", ""), 1), x["hint"], x["pn"]))
     return uncovered
 
 
@@ -246,7 +255,13 @@ def generate_chatgpt_prompt(batch: list, batch_num: int) -> str:
     for i, sku in enumerate(batch, 1):
         excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
         ref_price = sku.get("ref_price_rub", "") or ""
-        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} | {excel_desc} | {ref_price} |")
+        subbrand = sku.get("subbrand", "")
+        hint_col = sku["hint"]
+        if subbrand and subbrand.lower() not in hint_col.lower():
+            hint_col = f"{hint_col} ({subbrand})"
+        variants = sku.get("pn_variants", [])
+        alias_note = f" [also: {', '.join(variants[:3])}]" if variants else ""
+        rows.append(f"| {i} | {sku['pn']}{alias_note} | {hint_col} | {excel_desc} | {ref_price} |")
 
     table = "\n".join(rows)
     count = len(batch)
@@ -338,7 +353,15 @@ def generate_gemini_prompt(batch: list, batch_num: int) -> str:
     for i, sku in enumerate(batch, 1):
         excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
         ref_price = sku.get("ref_price_rub", "") or ""
-        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} | {excel_desc} | {ref_price} |")
+        # Add subbrand if available and different from main brand
+        subbrand = sku.get("subbrand", "")
+        hint_col = sku["hint"]
+        if subbrand and subbrand.lower() not in hint_col.lower():
+            hint_col = f"{hint_col} ({subbrand})"
+        # Add pn_variants as aliases
+        variants = sku.get("pn_variants", [])
+        alias_note = f" [also: {', '.join(variants[:3])}]" if variants else ""
+        rows.append(f"| {i} | {sku['pn']}{alias_note} | {hint_col} | {excel_desc} | {ref_price} |")
 
     table = "\n".join(rows)
     count = len(batch)
@@ -445,7 +468,13 @@ def generate_claude_prompt(batch: list, batch_num: int) -> str:
     for i, sku in enumerate(batch, 1):
         excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
         ref_price = sku.get("ref_price_rub", "") or ""
-        rows.append(f"| {i} | {sku['pn']} | {sku['hint']} | {excel_desc} | {ref_price} |")
+        subbrand = sku.get("subbrand", "")
+        hint_col = sku["hint"]
+        if subbrand and subbrand.lower() not in hint_col.lower():
+            hint_col = f"{hint_col} ({subbrand})"
+        variants = sku.get("pn_variants", [])
+        alias_note = f" [also: {', '.join(variants[:3])}]" if variants else ""
+        rows.append(f"| {i} | {sku['pn']}{alias_note} | {hint_col} | {excel_desc} | {ref_price} |")
 
     table = "\n".join(rows)
     count = len(batch)

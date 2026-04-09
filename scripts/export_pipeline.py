@@ -831,6 +831,8 @@ _BASE_FIELDS = [
     "Артикул", "Название", "Бренд", "Изображение",
     "Цена", "Валюта", "Статус цены", "Статус наличия",
     "Описание", "Описание развёрнутое", "Источник описания", "Размещение на сайте", "Тип товара",
+    "Название RU (DR)", "Описание RU (DR)", "Цена DR", "Валюта DR", "Источник цены DR",
+    "Изображение DR", "Категория DR",
     "Статус изображения", "Статус карточки", "Причины проверки",
 ]
 
@@ -856,6 +858,7 @@ def write_insales_export(
         merchandising = b.get("merchandising", {})
         content = b.get("content", {})
         price = b.get("price", {})
+        dr = b.get("deep_research", {})
 
         # Photo URL
         photo_url = ""
@@ -891,6 +894,13 @@ def write_insales_export(
             "Источник описания":  content.get("description_source", ""),
             "Размещение на сайте": content.get("site_placement", ""),
             "Тип товара":         content.get("product_type", ""),
+            "Название RU (DR)":   (dr.get("title_ru") or b.get("dr_category") or "")[:200],
+            "Описание RU (DR)":   (dr.get("description_ru") or "")[:2000],
+            "Цена DR":            str(b.get("dr_price") or "") if b.get("dr_price") else "",
+            "Валюта DR":          b.get("dr_currency", ""),
+            "Источник цены DR":   b.get("dr_price_source", ""),
+            "Изображение DR":     b.get("dr_image_url", ""),
+            "Категория DR":       b.get("dr_category", ""),
             "Статус изображения": merchandising.get("image_status") or photo.get("photo_status", ""),
             "Статус карточки":    b["card_status"],
             "Причины проверки":   "; ".join(b.get("review_reasons", [])),
