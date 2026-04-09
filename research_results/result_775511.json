@@ -1,0 +1,62 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_775511",
+  "entity_id": "775511",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "hand tool set",
+    "description_ru": "Страница указывает “$Call for Pricing” (ценника нет). citeturn48search11",
+    "category_suggestion": "hand tool set",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "—",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "HTR-775511 (site item ref)"
+      ]
+    },
+    "key_findings": [
+      "Страница указывает “$Call for Pricing” (ценника нет). citeturn48search11",
+      "Aliases: HTR-775511 (site item ref)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.nisupplyonline.ca/en/brands/howard-leight-by-honeywell/20/1/328/?displayMode=grid&filterCategory%5B0%5D=999`",
+        "type": "—",
+        "domain": "www.nisupplyonline.ca",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: no, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.nisupplyonline.ca/en/brands/howard-leight-by-honeywell/20/1/328/?displayMode=grid&filterCategory%5B0%5D=999`",
+      "type": "—",
+      "domain": "www.nisupplyonline.ca",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.846294+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

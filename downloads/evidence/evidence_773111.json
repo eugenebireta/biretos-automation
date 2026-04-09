@@ -674,5 +674,34 @@
         "domain": "ebay.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "switch frame",
+    "specs": {
+      "raw": "IP20; Kunststoff; ширина 81 мм; высота 86 мм; Farbe Aluminium",
+      "aliases": [
+        "773111"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена €17.99 incl. MwSt.; техданные и габариты присутствуют на странице. citeturn49view0turn51view0",
+      "Aliases: 773111"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-aluminium-773111-1-st-2855966.html`",
+        "type": "distributor",
+        "domain": "www.conrad.at",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:07.042987+00:00",
+    "merge_source": "result_773111.json"
   }
 }

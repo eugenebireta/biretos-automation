@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_773111",
+  "entity_id": "773111",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "switch frame",
+    "description_ru": "Цена €17.99 incl. MwSt.; техданные и габариты присутствуют на странице. citeturn49view0turn51view0",
+    "category_suggestion": "switch frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 17.99,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-aluminium-773111-1-st-2855966.html`",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://asset.conrad.com/media10/isa/160267/c1/-/de/002855966PI00/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400`",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "IP20; Kunststoff; ширина 81 мм; высота 86 мм; Farbe Aluminium",
+      "aliases": [
+        "773111"
+      ]
+    },
+    "key_findings": [
+      "Цена €17.99 incl. MwSt.; техданные и габариты присутствуют на странице. citeturn49view0turn51view0",
+      "Aliases: 773111"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-aluminium-773111-1-st-2855966.html`",
+        "type": "distributor",
+        "domain": "www.conrad.at",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-aluminium-773111-1-st-2855966.html`",
+      "type": "distributor",
+      "domain": "www.conrad.at",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.842293+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

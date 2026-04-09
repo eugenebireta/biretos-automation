@@ -575,5 +575,33 @@
         "domain": "tinko.ru"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "(false positive) consumer item",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "По “36022-RU” в выдаче преобладают нерелевантные товарные коды (не Honeywell). citeturn35search1turn35search4",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "`https://blossa.ua/ru/vytyazhka-v1-belaya-hepa-100w-bucos-cyclone-36022-ru.html`",
+        "type": "—",
+        "domain": "blossa.ua",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:07.033477+00:00",
+    "merge_source": "result_36022-RU.json"
   }
 }

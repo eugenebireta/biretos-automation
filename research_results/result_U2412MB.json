@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_U2412MB",
+  "entity_id": "U2412MB",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "monitor (non-industrial match)",
+    "description_ru": "Цена: CHF 76.90 incl. MwSt. (плюс доставка). citeturn55search0",
+    "category_suggestion": "monitor (non-industrial match)",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 76.9,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.alternate.ch/Dell/UltraSharp-U2412MB-General%C3%BCberholt-LED-Monitor/html/product/100109067`",
+      "price_type": "gray_market"
+    },
+    "photo_url": "—",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "24″; 1920×1200; E-IPS; 60Hz; 8ms; DP/DVI-D/VGA; USB hub",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Цена: CHF 76.90 incl. MwSt. (плюс доставка). citeturn55search0",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.alternate.ch/Dell/UltraSharp-U2412MB-General%C3%BCberholt-LED-Monitor/html/product/100109067`",
+        "type": "gray_market",
+        "domain": "www.alternate.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.alternate.ch/Dell/UltraSharp-U2412MB-General%C3%BCberholt-LED-Monitor/html/product/100109067`",
+      "type": "gray_market",
+      "domain": "www.alternate.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.838292+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

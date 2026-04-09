@@ -1,0 +1,62 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_36024-RU",
+  "entity_id": "36024-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "(false positive)",
+    "description_ru": "По “36024-RU” в выдаче попадаются нерелевантные карточки товаров с кодом “36024”. citeturn35search2turn35search0",
+    "category_suggestion": "(false positive)",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "—",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "По “36024-RU” в выдаче попадаются нерелевантные карточки товаров с кодом “36024”. citeturn35search2turn35search0",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.magtoys.com.ua/444-sezonnie-tovari-ru/445-leto-ru/469-sachki-ru/36024-ru`",
+        "type": "—",
+        "domain": "www.magtoys.com.ua",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: no, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.magtoys.com.ua/444-sezonnie-tovari-ru/445-leto-ru/469-sachki-ru/36024-ru`",
+      "type": "—",
+      "domain": "www.magtoys.com.ua",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.841293+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

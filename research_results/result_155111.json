@@ -35,10 +35,29 @@
           "category_correction",
           "brand_confirmation"
         ]
+      },
+      {
+        "url": "`https://elecena.pl/product/26065611/peha-by-honeywell-1-x-plytka-przycisku-gniazdo-elektryczne-aluminiowy-155111-1-szt`",
+        "type": "distributor",
+        "domain": "elecena.pl",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Идентификация PN 155111 как контактного щитка PEHA подтверждена авторитетным дистрибьютором (Conrad.se), что противоречит текущему названию 'термостатический вентиль'. Однако отсутствуют прямые ссылки на официальный datasheet Honeywell для этого PN, что снижает уверенность. Категория явно неправильна и требует коррекции."
+    "confidence_notes": "Идентификация PN 155111 как контактного щитка PEHA подтверждена авторитетным дистрибьютором (Conrad.se), что противоречит текущему названию 'термостатический вентиль'. Однако отсутствуют прямые ссылки на официальный datasheet Honeywell для этого PN, что снижает уверенность. Категория явно неправильна и требует коррекции.",
+    "price_value": {
+      "amount": 59.49,
+      "currency": "PLN",
+      "unit_basis": "piece",
+      "source_url": "`https://elecena.pl/product/26065611/peha-by-honeywell-1-x-plytka-przycisku-gniazdo-elektryczne-aluminiowy-155111-1-szt`",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "datasheet_url": "DN: 80; Kvs: 100; Connection: 3\" NPT; Fluid: Steam; PN: 16"
   },
   "sources": [
     {
@@ -49,6 +68,16 @@
         "category_correction",
         "brand_confirmation"
       ]
+    },
+    {
+      "url": "`https://elecena.pl/product/26065611/peha-by-honeywell-1-x-plytka-przycisku-gniazdo-elektryczne-aluminiowy-155111-1-szt`",
+      "type": "distributor",
+      "domain": "elecena.pl",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
     }
   ],
   "confidence": "medium",
@@ -57,5 +86,6 @@
   "provider": "claude",
   "model": "claude-haiku-4-5-20251001",
   "raw_response_length": 2465,
-  "cost_usd": 0.0019
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report-prompt-v3.md"
 }

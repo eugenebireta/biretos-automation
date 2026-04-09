@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_RDU300504",
+  "entity_id": "RDU300504",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "ATEX threaded reducer",
+    "description_ru": "Цена также указана как £26.90 inc VAT. citeturn43view2turn44view0",
+    "category_suggestion": "ATEX threaded reducer",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 22.42,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "`https://www.scatts.co.uk/redapt-rdu300504-series-rdu-ex-reducer-stainless-steel-m25-male-to-m20-female-for-zones-1-2-21-22-21479293636023`",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://images.scatts.co.uk/products/21479293636023-1.jpg`",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "316L SS; IP66/IP68; -20…+80°C; ATEX/EAC/IECEx/CSA; Zone 1/2/21/22; seal nitrile",
+      "aliases": [
+        "Honeywell Analytics RDU300504 (у дилеров)"
+      ]
+    },
+    "key_findings": [
+      "Цена также указана как £26.90 inc VAT. citeturn43view2turn44view0",
+      "Aliases: Honeywell Analytics RDU300504 (у дилеров)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.scatts.co.uk/redapt-rdu300504-series-rdu-ex-reducer-stainless-steel-m25-male-to-m20-female-for-zones-1-2-21-22-21479293636023`",
+        "type": "distributor",
+        "domain": "www.scatts.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.scatts.co.uk/redapt-rdu300504-series-rdu-ex-reducer-stainless-steel-m25-male-to-m20-female-for-zones-1-2-21-22-21479293636023`",
+      "type": "distributor",
+      "domain": "www.scatts.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.836293+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

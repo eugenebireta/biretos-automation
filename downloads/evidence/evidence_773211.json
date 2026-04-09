@@ -643,5 +643,34 @@
         "domain": "honeywell.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "switch frame",
+    "specs": {
+      "raw": "IP20; цвет алюминий; (встречается как рамка серии D 95.572.70.60-1)",
+      "aliases": [
+        "773211"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Voelkner: 24,88 € incl. MwSt.; Conrad CZ даёт модель/параметры и цену в Kč (645 Kč). citeturn49view1turn52view0turn50view1",
+      "Aliases: 773211"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.voelkner.de/products/7580972/PEHA-by-Honeywell-Rahmen-Rahmen-Aluminium-773211-1St..html`",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:07.043987+00:00",
+    "merge_source": "result_773211.json"
   }
 }

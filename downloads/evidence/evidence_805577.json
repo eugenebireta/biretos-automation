@@ -562,5 +562,34 @@
     "alias_found": null,
     "specs": null,
     "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "fire detection accessory",
+    "specs": {
+      "raw": "pack 10; совместимо с IQ8 detector & sounder bases; Tax included",
+      "aliases": [
+        "805577"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "OrbitaDigital показывает цену €29.11 (Tax included) и описание pack of 10, но товар отмечен Out-of-Stock. citeturn24view0turn25view0",
+      "Aliases: 805577"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.orbitadigital.com/en/fire/accessories/36086-esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.html`",
+        "type": "distributor",
+        "domain": "www.orbitadigital.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:07.049987+00:00",
+    "merge_source": "result_805577.json"
   }
 }

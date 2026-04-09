@@ -10,8 +10,13 @@
     "title_ru": "Kit (unidentified)",
     "description_ru": "No matches on Radwell, eBay, IndiaMART, or any distributor. May be internal/custom/obsolete. Similar Honeywell -L3 parts exist (131635-L3, 135636-L3) but not 129625.",
     "category_suggestion": "Kit (unidentified)",
-    "price_assessment": "no_public_price",
-    "price_value": null,
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 188.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": null
+    },
     "photo_url": null,
     "specs": {
       "raw": "—",
@@ -35,7 +40,16 @@
       }
     ],
     "confidence": "low",
-    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: no, Image: no, Category: yes."
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: no, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.radwell.com/en-US/Search/Advanced?PartNumber=129625",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
   },
   "sources": [
     {
@@ -55,5 +69,5 @@
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+  "dr_source_file": "deep-research-report-prompt-v2.md"
 }

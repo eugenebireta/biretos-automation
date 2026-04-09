@@ -585,5 +585,34 @@
         "domain": "supplyhouse.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "manual call point spare part",
+    "specs": {
+      "raw": "EN 54-11 type A; W56mm; H49.5mm; D1.85mm; pictogram + foil",
+      "aliases": [
+        "704960 (VE=10 pcs у части поставщиков)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "ISS явно указывает Qty: 1 Piece; альтернативно встречается упаковка 10 шт. citeturn26view0turn29view0turn28search1",
+      "Aliases: 704960 (VE=10 pcs у части поставщиков)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.isssafety.com/products/704960-honeywell-spare-glass-pane-with-white-stick-on-foil-and-printed-pictogram-in-compliance-with-en-54-11`",
+        "type": "distributor",
+        "domain": "www.isssafety.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:07.041987+00:00",
+    "merge_source": "result_704960.json"
   }
 }

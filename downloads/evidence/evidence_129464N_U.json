@@ -562,5 +562,35 @@
         "domain": "ebay.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "UV sensing tube",
+    "specs": {
+      "raw": "-40…250°F; replacement UV power tube; sold individually; IMS: New – Open Box",
+      "aliases": [
+        "129464N/U",
+        "IR-130-5863"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "IMS указывает “Starting At $84.00” и “New - Open Box”; альтернативные ценники заметно выше. citeturn59search1turn59search0turn58search2",
+      "Aliases: 129464N/U; IR-130-5863"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.imssupply.com/catalog/honeywell/129464n.html`",
+        "type": "gray_market",
+        "domain": "www.imssupply.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:06.992471+00:00",
+    "merge_source": "result_129464N_U.json"
   }
 }

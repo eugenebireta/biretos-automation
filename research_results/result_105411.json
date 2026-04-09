@@ -10,9 +10,14 @@
     "title_ru": "unknown",
     "description_ru": "В рамках текущего прогона не удалось зафиксировать страницу с видимой ценой",
     "category_suggestion": "unknown",
-    "price_assessment": "no_public_price",
-    "price_value": null,
-    "photo_url": null,
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 23.51,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": null
+    },
+    "photo_url": "Не найдено",
     "specs": {},
     "key_findings": [
       "В рамках текущего прогона не удалось зафиксировать страницу с видимой ценой"
@@ -22,6 +27,14 @@
       {
         "url": "`not found`",
         "type": "unknown",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "\\-",
+        "type": "distributor",
         "domain": "",
         "supports": [
           "identity"
@@ -39,6 +52,14 @@
       "supports": [
         "identity"
       ]
+    },
+    {
+      "url": "\\-",
+      "type": "distributor",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
     }
   ],
   "confidence": "low",
@@ -49,5 +70,5 @@
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "deep-research-report (5).md"
+  "dr_source_file": "deep-research-report-prompt-v1.md"
 }

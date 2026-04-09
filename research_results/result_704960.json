@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_704960",
+  "entity_id": "704960",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "manual call point spare part",
+    "description_ru": "ISS явно указывает Qty: 1 Piece; альтернативно встречается упаковка 10 шт. citeturn26view0turn29view0turn28search1",
+    "category_suggestion": "manual call point spare part",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 34.0,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "`https://www.isssafety.com/products/704960-honeywell-spare-glass-pane-with-white-stick-on-foil-and-printed-pictogram-in-compliance-with-en-54-11`",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-704960-primaryimage`",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "EN 54-11 type A; W56mm; H49.5mm; D1.85mm; pictogram + foil",
+      "aliases": [
+        "704960 (VE=10 pcs у части поставщиков)"
+      ]
+    },
+    "key_findings": [
+      "ISS явно указывает Qty: 1 Piece; альтернативно встречается упаковка 10 шт. citeturn26view0turn29view0turn28search1",
+      "Aliases: 704960 (VE=10 pcs у части поставщиков)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.isssafety.com/products/704960-honeywell-spare-glass-pane-with-white-stick-on-foil-and-printed-pictogram-in-compliance-with-en-54-11`",
+        "type": "distributor",
+        "domain": "www.isssafety.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.isssafety.com/products/704960-honeywell-spare-glass-pane-with-white-stick-on-foil-and-printed-pictogram-in-compliance-with-en-54-11`",
+      "type": "distributor",
+      "domain": "www.isssafety.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.837295+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

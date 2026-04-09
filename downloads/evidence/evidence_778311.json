@@ -637,5 +637,34 @@
         "domain": "ebay.com"
       }
     ]
+  },
+  "deep_research": {
+    "title_ru": "proximity switch",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "778311-111"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "В выдаче цена указана как US $262.44 (new). citeturn48search10",
+      "Aliases: 778311-111"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/353915912547`",
+        "type": "marketplace",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:07.045986+00:00",
+    "merge_source": "result_778311.json"
   }
 }

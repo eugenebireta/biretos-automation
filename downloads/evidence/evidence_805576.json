@@ -564,5 +564,34 @@
     "alias_found": null,
     "specs": null,
     "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "fire detection accessory",
+    "specs": {
+      "raw": "pack 10; для маркировки/нумерации детекторов",
+      "aliases": [
+        "805576"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "На странице указано: £9.70 (£11.64 inc VAT). citeturn20view0turn21view0",
+      "Aliases: 805576"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.acornfiresecurity.com/gent-805576-s-quad-base-label-plate-pack-of-10`",
+        "type": "distributor",
+        "domain": "www.acornfiresecurity.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T09:26:07.048987+00:00",
+    "merge_source": "result_805576.json"
   }
 }

@@ -5,9 +5,44 @@
   "research_reason": "category_mismatch",
   "priority": "high",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 51.99,
+      "currency": "PLN",
+      "unit_basis": "piece",
+      "source_url": "`https://elecena.pl/product/26064310/peha-by-honeywell-zaslepka-oslona-aluminiowy-153711-1-szt`",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "title_ru": "blanking cover",
+    "description_ru": "Elecena агрегирует предложение Conrad: 51.99 (gross) / 42.27 + VAT. citeturn56search6",
+    "sources": [
+      {
+        "url": "`https://elecena.pl/product/26064310/peha-by-honeywell-zaslepka-oslona-aluminiowy-153711-1-szt`",
+        "type": "distributor",
+        "domain": "elecena.pl",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "datasheet_url": "DN: 65; Kvs: 63; Connection: 2-1/2\" NPT; PN: 16; Travel: 20 mm"
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "`https://elecena.pl/product/26064310/peha-by-honeywell-zaslepka-oslona-aluminiowy-153711-1-szt`",
+      "type": "distributor",
+      "domain": "elecena.pl",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:49:10.418480Z",
@@ -15,5 +50,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v3.md"
 }

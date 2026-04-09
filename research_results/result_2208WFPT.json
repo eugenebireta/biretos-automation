@@ -10,9 +10,15 @@
     "title_ru": "не найдено",
     "description_ru": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell.",
     "category_suggestion": "not found",
-    "price_assessment": "no_public_price",
-    "price_value": null,
-    "photo_url": null,
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 107.07,
+      "currency": "PLN",
+      "unit_basis": "piece",
+      "source_url": "`https://www.remarkt.pl/catalog/product/view/id/177688`",
+      "price_type": "surplus"
+    },
+    "photo_url": "—",
     "specs": {},
     "key_findings": [
       "The exact part number '2208WFPT' is NOT a Honeywell product. It is the Dell UltraSharp 22-inch LCD monitor (model 2208WFPt/2208WFPT), sold as a consumer/business PC monitor.",
@@ -62,6 +68,16 @@
         "supports": [
           "negative — no Honeywell 2208WFPT found in authorized distributor inventory"
         ]
+      },
+      {
+        "url": "`https://www.remarkt.pl/catalog/product/view/id/177688`",
+        "type": "surplus",
+        "domain": "www.remarkt.pl",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
       }
     ],
     "confidence": "high",
@@ -102,6 +118,16 @@
       "supports": [
         "negative — no Honeywell 2208WFPT found in authorized distributor inventory"
       ]
+    },
+    {
+      "url": "`https://www.remarkt.pl/catalog/product/view/id/177688`",
+      "type": "surplus",
+      "domain": "www.remarkt.pl",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
     }
   ],
   "confidence": "high",
@@ -111,5 +137,6 @@
   "model": "claude-sonnet-4-6",
   "raw_response_length": 3831,
   "cost_usd": 0.05,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
 }

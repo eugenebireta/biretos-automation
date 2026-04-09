@@ -24,6 +24,14 @@
           "price",
           "photo"
         ]
+      },
+      {
+        "url": "\\-",
+        "type": "distributor",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
       }
     ],
     "price_value": {
@@ -34,7 +42,25 @@
       "price_type": "gray_market"
     },
     "price_assessment": "ambiguous_offer",
-    "photo_url": "https://i.ebayimg.com/images/g/m8sAAeSwZLZochGf/s-l500.jpg"
+    "photo_url": "https://i.ebayimg.com/images/g/m8sAAeSwZLZochGf/s-l500.jpg",
+    "title_ru": "power supply",
+    "description_ru": "Not found in any distributor catalog; may be internal/legacy code; verify with source",
+    "documents": [
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/power-supplies/power-supplies",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/building-management/controllers/parts-and-accessories/power-supplies/external-power-supply-unit",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
   },
   "sources": [
     {
@@ -54,6 +80,14 @@
         "price",
         "photo"
       ]
+    },
+    {
+      "url": "\\-",
+      "type": "distributor",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
     }
   ],
   "confidence": "low",
@@ -64,5 +98,5 @@
   "raw_response_length": 21,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "deep-research-report (8).md"
+  "dr_source_file": "deep-research-report-prompt-v3.md"
 }

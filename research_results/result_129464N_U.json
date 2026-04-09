@@ -1,0 +1,71 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_129464N/U",
+  "entity_id": "129464N/U",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "UV sensing tube",
+    "description_ru": "IMS указывает “Starting At $84.00” и “New - Open Box”; альтернативные ценники заметно выше. citeturn59search1turn59search0turn58search2",
+    "category_suggestion": "UV sensing tube",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 84.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.imssupply.com/catalog/honeywell/129464n.html`",
+      "price_type": "gray_market"
+    },
+    "photo_url": "—",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "-40…250°F; replacement UV power tube; sold individually; IMS: New – Open Box",
+      "aliases": [
+        "129464N/U",
+        "IR-130-5863"
+      ]
+    },
+    "key_findings": [
+      "IMS указывает “Starting At $84.00” и “New - Open Box”; альтернативные ценники заметно выше. citeturn59search1turn59search0turn58search2",
+      "Aliases: 129464N/U; IR-130-5863"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.imssupply.com/catalog/honeywell/129464n.html`",
+        "type": "gray_market",
+        "domain": "www.imssupply.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.imssupply.com/catalog/honeywell/129464n.html`",
+      "type": "gray_market",
+      "domain": "www.imssupply.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.839292+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

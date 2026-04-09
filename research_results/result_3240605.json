@@ -5,9 +5,43 @@
   "research_reason": "identity_weak",
   "priority": "low",
   "final_recommendation": {
-    "confidence": "low"
+    "confidence": "low",
+    "price_value": {
+      "amount": 42.02,
+      "currency": "RON",
+      "unit_basis": "piece",
+      "source_url": "`https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V`",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "title_ru": "door microswitch",
+    "description_ru": "Maivis показывает “Micointrerupator usa … 10A 250V #3240605” и цену 42,02 Lei. citeturn53search15",
+    "sources": [
+      {
+        "url": "`https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V`",
+        "type": "distributor",
+        "domain": "maivis.ro",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
   },
-  "sources": [],
+  "sources": [
+    {
+      "url": "`https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V`",
+      "type": "distributor",
+      "domain": "maivis.ro",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
   "confidence": "low",
   "parse_error": "",
   "timestamp": "2026-04-08T20:48:35.807308Z",
@@ -15,5 +49,6 @@
   "model": "unknown",
   "raw_response_length": 21,
   "cost_usd": 0.0,
-  "web_search_used": true
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
 }

@@ -10,8 +10,13 @@
     "title_ru": "Industrial DCS workstation",
     "description_ru": "**NOT Morley fire workstation.** Honeywell Experion PKS platform. End of Sale Q3 2024. Honeywell-channel only",
     "category_suggestion": "Industrial DCS workstation",
-    "price_assessment": "no_public_price",
-    "price_value": null,
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 5670.64,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": null
+    },
     "photo_url": "—",
     "specs": {
       "raw": "2U rack-mount; RAID1; dual video; 16GB RAM; Win 10 IoT Enterprise LTSC; Experion PKS R530/R520/R51x",
@@ -36,7 +41,23 @@
       }
     ],
     "confidence": "medium",
-    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: no, Image: yes, Category: yes."
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: no, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://process.honeywell.com/content/dam/process/en/documents/document-lists/doc_list_hints/2024/2024-April-System%20HINTS.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://process.honeywell.com/content/dam/process/en/documents/document-lists/doc_list_hints/2023/2023-December-System%20HINTS.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
   },
   "sources": [
     {
@@ -57,5 +78,5 @@
   "raw_response_length": 0,
   "cost_usd": 0.0,
   "web_search_used": true,
-  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+  "dr_source_file": "deep-research-report (7).md"
 }
