@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 80
-transition_ts: "2026-04-09T20:00:00Z"
+transition_seq: 81
+transition_ts: "2026-04-09T21:00:00Z"
 
 ## Current
-active_task: "P6-FULL-CYCLE-INTEGRATION"
-task_id: "P6-FULL-CYCLE-INTEGRATION"
+active_task: "P7-BUDGET-TRACKING-AND-AUDIT-SUITE"
+task_id: "P7-BUDGET-TRACKING-AND-AUDIT-SUITE"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "P6 full-cycle integration tests. 14 scenarios covering complete _cmd_cycle_inner pipeline: LOW happy path, SEMI consensus retry, CORE gate block, advisor escalation, synth escalate, executor failure, collect failure, batch gate failure, 5 FSM entry guards, experience lesson injection. 580/580 orchestrator tests pass. Also in this session: P3.1 multi-pass critique loop (config-driven retries, critique accumulation, consensus gate)."
+note: "P7 budget_tracker.py: estimate_cost (model pricing table), record_call (JSONL persist), get_trace_cost, get_daily_summary (by_stage/model/provider), check_budget (daily+per-run limits). Wired into main.py: budget check at cycle start, advisor/executor/auditor cost recording, trace cost summary. 23 budget tests. Comprehensive audit test suite (test_audit_comprehensive.py): 47 tests across 9 categories (FSM invariants, risk separation, consensus gate, retry safety, budget enforcement, experience loop, queue integrity, directive integrity, cross-module contracts). 650/650 orchestrator tests pass."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]

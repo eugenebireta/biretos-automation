@@ -376,6 +376,20 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
     run_dir = _ensure_run_dir(trace_id)
     manifest["_run_dir"] = str(run_dir)
 
+    # P7: budget check before starting
+    _budget_call_seq = 0
+    try:
+        import budget_tracker as _bt
+        budget_status = _bt.check_budget(trace_id)
+        if not budget_status["within_budget"]:
+            logger.warning("Budget exceeded: daily=%.2f/%.2f run=%.2f/%.2f",
+                           budget_status["daily_cost"], budget_status["daily_limit"],
+                           budget_status["trace_cost"], budget_status["per_run_limit"])
+            print(f"[orchestrator] WARNING: budget limit approached "
+                  f"(daily=${budget_status['daily_cost']:.2f}/${budget_status['daily_limit']:.2f})")
+    except Exception as _bt_exc:
+        logger.debug("Budget tracker unavailable: %s", _bt_exc)
+
     # M1: load context bundle
     bundle = _run_intake()
     if bundle.warnings:
@@ -400,6 +414,20 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
     # Model selection: LOW → Sonnet API, SEMI/CORE → Opus API
     advisor_result = _run_advisor(bundle, trace_id,
                                   classifier_risk=classification.risk_class)
+    # P7: record advisor API cost
+    try:
+        import budget_tracker as _bt
+        _advisor_model = "claude-sonnet-4-6" if classification.risk_class == "LOW" else "claude-opus-4-6"
+        _bt.record_call(
+            trace_id=trace_id, provider="anthropic",
+            model=_advisor_model, stage="advisor",
+            input_tokens=getattr(advisor_result, 'input_tokens', 0),
+            output_tokens=getattr(advisor_result, 'output_tokens', 0),
+            call_seq=_budget_call_seq,
+        )
+        _budget_call_seq += 1
+    except Exception:
+        pass
     if advisor_result.warnings:
         for w in advisor_result.warnings:
             print(f"[orchestrator] ADVISOR WARNING: {w}", file=sys.stderr)
@@ -915,6 +943,21 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
           f"exit_code={exec_result.exit_code} "
           f"elapsed={exec_result.elapsed_seconds:.1f}s")
 
+    # P7: record executor cost
+    _budget_seq = manifest.get("_budget_call_seq", 0)
+    try:
+        import budget_tracker as _bt
+        _bt.record_call(
+            trace_id=trace_id, provider="anthropic",
+            model="claude-sonnet-4-6", stage="executor",
+            input_tokens=getattr(exec_result, 'input_tokens', 0),
+            output_tokens=getattr(exec_result, 'output_tokens', 0),
+            call_seq=_budget_seq,
+        )
+        _budget_seq += 1
+    except Exception:
+        pass
+
     # P0-3: Separate three outcomes: success, collect failure, executor failure
     if exec_result.status == "completed" and packet is not None:
         # P1: write packet to per-run dir + legacy path
@@ -1025,6 +1068,16 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     print(f"[orchestrator] Post-exec audit: verdict={audit_verdict} "
                           f"run_id={audit_result.run_id} "
                           f"critique_rounds={len(critique_history)}")
+                    # P7: record auditor cost
+                    try:
+                        _bt.record_call(
+                            trace_id=trace_id, provider="google",
+                            model="gemini-2.5-pro", stage="auditor",
+                            call_seq=_budget_seq,
+                        )
+                        _budget_seq += 1
+                    except Exception:
+                        pass
                 except Exception as exc:
                     print(f"[orchestrator] Post-exec audit ERROR: {exc}")
                     print("[orchestrator] Continuing without audit result.")
@@ -1278,6 +1331,15 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
         print("    cat orchestrator/orchestrator_directive.md | claude -p")
         print(f"    python orchestrator/collect_packet.py --trace-id {trace_id}")
         print("=" * 60)
+
+    # P7: print trace cost summary
+    try:
+        import budget_tracker as _bt
+        trace_cost = _bt.get_trace_cost(trace_id)
+        if trace_cost > 0:
+            print(f"[orchestrator] P7 trace cost: ${trace_cost:.4f}")
+    except Exception:
+        pass
 
 
 def _load_config() -> dict:
