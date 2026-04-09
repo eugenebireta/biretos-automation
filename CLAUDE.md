@@ -305,3 +305,6 @@ If there are defects — fix first, report second.
 - Ignore `docs/autopilot/STATE.md`
 - Give owner manual git commands (`git add`, `git commit`, `git push`) — Claude Code does this autonomously
 - Use `git add -A` — only add specific files that were changed by the task
+- Revert format or rules of `KNOW_HOW.md` — current format is architectural decision (PROJECT_DNA.md §9)
+- Add code changes, config changes, or install instructions to `KNOW_HOW.md` — only external know-how (#platform, #rule, #bug, #data_quirk)
+- Restore deleted `KNOW_HOW.md` entries or `scripts/hooks/pre-commit` — removals were deliberate

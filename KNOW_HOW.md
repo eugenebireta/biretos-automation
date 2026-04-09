@@ -1,6 +1,9 @@
 # Know-How Log
 
-Только внешние и неявные знания. Код документирует себя через git log.
+<!-- DO NOT REVERT THIS FORMAT. Architectural decision: PROJECT_DNA.md §9, CLAUDE.md §NEVER. -->
+<!-- НЕ добавлять: изменения кода, конфигов, инструкции установки, pipeline order. -->
+<!-- Только: внешние платформы, доменные правила данных, environment баги, аномалии данных. -->
+
 Формат: `YYYY-MM-DD | #тег | scope: Суть и почему это важно`
 Tags: #platform, #bug, #rule, #data_quirk
 Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
