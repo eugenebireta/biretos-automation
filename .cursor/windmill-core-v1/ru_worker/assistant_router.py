@@ -325,19 +325,6 @@ def confirm_nlu_intent(
             "trace_id": trace_id,
         }
 
-    # send_invoice is recognized but execution is not yet implemented
-    if pending.parsed_intent_type == "send_invoice":
-        db_conn.commit()
-        return {
-            "status": "not_implemented",
-            "error_class": "PERMANENT",
-            "severity": "WARNING",
-            "retriable": False,
-            "error": "send_invoice_execution_not_implemented_yet",
-            "intent_type": "send_invoice",
-            "trace_id": trace_id,
-        }
-
     # Route to backoffice_router
     from ru_worker.backoffice_router import route_backoffice_intent  # type: ignore
 

@@ -366,6 +366,21 @@ def _format_nlu_confirm_error(action: Dict[str, Any], result: Dict[str, Any]) ->
     if intent_type == "check_payment":
         return "Не удалось проверить оплату. Попробуйте ещё раз чуть позже."
 
+    if intent_type == "send_invoice":
+        if "requires_insales_order_id" in lowered:
+            return "Для выставления счёта нужен явный номер заказа. Напишите, например: выставить счёт ORDER-12345."
+        if "order_not_found" in lowered:
+            return "Не нашёл такой заказ. Проверьте номер заказа и попробуйте ещё раз."
+        if "missing_customer_inn" in lowered:
+            return "По заказу нет ИНН плательщика, поэтому автоматически выставить счёт нельзя. Нужна ручная обработка."
+        if "multiple_line_items_unsupported" in lowered:
+            return "Этот заказ слишком сложный для безопасного авто-выставления счёта. Нужна ручная обработка."
+        if "order_context_unavailable" in lowered:
+            return "Сейчас не могу безопасно собрать контекст заказа для выставления счёта. Нужна ручная обработка."
+        if "missing_line_items" in lowered or "missing_total_amount" in lowered or "negative_delivery_delta" in lowered:
+            return "По заказу не хватает надёжного контекста для выставления счёта. Нужна ручная обработка."
+        return "Не удалось выставить счёт автоматически. Проверьте контекст заказа и попробуйте ещё раз."
+
     return "Ошибка: " + error[:200]
 
 
@@ -481,10 +496,13 @@ def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tupl
         return (None, None)
 
     if action_type == "nlu_confirm":
-        if status == "not_implemented":
-            return ("\u042d\u0442\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0432 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0435.", None)
         if status == "forbidden":
             return ("\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432", None)
+        if status in {"insufficient_context", "review_required"}:
+            message = result.get("message")
+            if message:
+                return (str(message), None)
+            return (_format_nlu_confirm_error(action, result), None)
         if status == "success":
             intent_type = result.get("intent_type", "")
             if intent_type == "check_payment":
@@ -499,6 +517,12 @@ def format_action_result(action: Dict[str, Any], result: Dict[str, Any]) -> Tupl
             if intent_type == "get_waybill":
                 size = result.get("pdf_size_bytes", 0)
                 return ("\u041d\u0430\u043a\u043b\u0430\u0434\u043d\u0430\u044f \u0433\u043e\u0442\u043e\u0432\u0430 (%s \u0431\u0430\u0439\u0442)" % size, None)
+            if intent_type == "send_invoice":
+                invoice_number = result.get("invoice_number") or result.get("provider_document_id") or "N/A"
+                provider_document_id = result.get("provider_document_id") or result.get("tbank_invoice_id")
+                if provider_document_id:
+                    return ("Счёт создан: %s (%s)" % (invoice_number, provider_document_id), None)
+                return ("Счёт создан: %s" % invoice_number, None)
             return ("\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u043e", None)
         return (_format_nlu_confirm_error(action, result), None)
 

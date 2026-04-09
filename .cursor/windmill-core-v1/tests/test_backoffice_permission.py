@@ -50,6 +50,10 @@ def test_operator_can_get_waybill():
     guard_employee_intent(_intent("get_waybill", "operator"))
 
 
+def test_operator_can_send_invoice():
+    guard_employee_intent(_intent("send_invoice", "operator"))
+
+
 # ---------------------------------------------------------------------------
 # MANAGER permissions
 # ---------------------------------------------------------------------------
@@ -64,6 +68,10 @@ def test_manager_can_get_tracking():
 
 def test_manager_can_get_waybill():
     guard_employee_intent(_intent("get_waybill", "manager"))
+
+
+def test_manager_can_send_invoice():
+    guard_employee_intent(_intent("send_invoice", "manager"))
 
 
 # ---------------------------------------------------------------------------
@@ -82,6 +90,10 @@ def test_admin_can_get_waybill():
     guard_employee_intent(_intent("get_waybill", "admin"))
 
 
+def test_admin_can_send_invoice():
+    guard_employee_intent(_intent("send_invoice", "admin"))
+
+
 # ---------------------------------------------------------------------------
 # Unknown / invalid role
 # ---------------------------------------------------------------------------
@@ -98,7 +110,7 @@ def test_unknown_role_raises_veto():
 
 def test_unknown_intent_raises_veto():
     with pytest.raises(GuardianVeto) as exc_info:
-        guard_employee_intent(_intent("send_invoice", "admin"))
+        guard_employee_intent(_intent("delete_everything", "admin"))
     assert exc_info.value.invariant == "INV-INTENT-WHITELIST"
 
 

@@ -215,14 +215,27 @@ def test_confirm_expired_returns_error():
     assert conn.committed is True
 
 
-def test_confirm_send_invoice_returns_not_implemented():
+def test_confirm_send_invoice_routes_to_backoffice(monkeypatch):
+    import ru_worker.backoffice_router as backoffice_router
+
+    def _fake_route(payload, db_conn, payment_adapter=None, shipment_adapter=None):
+        db_conn.commit()
+        return {
+            "status": "insufficient_context",
+            "intent_type": "send_invoice",
+            "trace_id": payload["trace_id"],
+            "message": "need order id",
+        }
+
+    monkeypatch.setattr(backoffice_router, "route_backoffice_intent", _fake_route)
     conn = _Conn(pending_row=_pending_row_tuple("send_invoice", {}))
     result = confirm_nlu_intent(
         {"trace_id": "trace-c-003", "confirmation_id": str(uuid.uuid4())},
         conn,
     )
-    assert result["status"] == "not_implemented"
+    assert result["status"] == "insufficient_context"
     assert result["intent_type"] == "send_invoice"
+    assert result.get("nlu_confirmed") is True
     assert conn.committed is True
 
 

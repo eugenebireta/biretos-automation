@@ -155,7 +155,7 @@ echo ""
 PASS=0
 FAIL=0
 
-echo "[1/5] Slash /ping"
+echo "[1/6] Slash /ping"
 MARK="$(mark_log)"
 HTTP_CODE="$(post_message_update "$BASE_UID" "/ping")"
 if [ "$HTTP_CODE" != "200" ]; then
@@ -171,7 +171,7 @@ else
   fi
 fi
 
-echo "[2/5] NLU check_payment -> confirmation buttons"
+echo "[2/6] NLU check_payment -> confirmation buttons"
 MARK="$(mark_log)"
 HTTP_CODE="$(post_message_update "$((BASE_UID + 1))" "проверить оплату INV-VERIFY-001")"
 if [ "$HTTP_CODE" != "200" ]; then
@@ -194,7 +194,7 @@ else
   fi
 fi
 
-echo "[3/5] NLU get_tracking -> confirm path"
+echo "[3/6] NLU get_tracking -> confirm path"
 MARK="$(mark_log)"
 HTTP_CODE="$(post_message_update "$((BASE_UID + 2))" "где посылка 10248510566")"
 if [ "$HTTP_CODE" != "200" ]; then
@@ -233,7 +233,7 @@ else
   fi
 fi
 
-echo "[4/5] NLU get_waybill -> confirm path"
+echo "[4/6] NLU get_waybill -> confirm path"
 MARK="$(mark_log)"
 HTTP_CODE="$(post_message_update "$((BASE_UID + 3))" "накладная 10248510566")"
 if [ "$HTTP_CODE" != "200" ]; then
@@ -277,9 +277,48 @@ else
   fi
 fi
 
-echo "[5/5] Garbage fallback"
+echo "[5/6] NLU send_invoice -> safe insufficient_context"
 MARK="$(mark_log)"
-HTTP_CODE="$(post_message_update "$((BASE_UID + 4))" "qwerty asdfgh lorem ipsum xyz")"
+HTTP_CODE="$(post_message_update "$((BASE_UID + 4))" "send invoice")"
+if [ "$HTTP_CODE" != "200" ]; then
+  echo "[FAIL] send_invoice webhook HTTP $HTTP_CODE"
+  FAIL=$((FAIL + 1))
+else
+  if LOG_SLICE="$(wait_for_all_patterns "$MARK" 20 '"event": "nlu_confirmation_ready"' '"intent_type": "send_invoice"' 'telegram_message_sent')"; then
+    CONFIRM_ID="$(extract_confirmation_id "send_invoice" "$LOG_SLICE")"
+    if [ -z "$CONFIRM_ID" ]; then
+      echo "[FAIL] send_invoice -> confirmation_id not found"
+      FAIL=$((FAIL + 1))
+    else
+      CALLBACK_MARK="$(mark_log)"
+      HTTP_CODE="$(post_confirm_callback "$((BASE_UID + 104))" "$CONFIRM_ID")"
+      if [ "$HTTP_CODE" != "200" ]; then
+        echo "[FAIL] send_invoice confirm webhook HTTP $HTTP_CODE"
+        FAIL=$((FAIL + 1))
+      elif CALLBACK_LOG="$(wait_for_all_patterns "$CALLBACK_MARK" 25 '"event": "nlu_confirm_result"' '"intent_type": "send_invoice"' '"status": "insufficient_context"' 'telegram_message_sent')"; then
+        if printf "%s\n" "$CALLBACK_LOG" | grep -q '"intent_type": "send_invoice"' \
+          && printf "%s\n" "$CALLBACK_LOG" | grep -q '"status": "insufficient_context"' \
+          && printf "%s\n" "$CALLBACK_LOG" | grep -q 'telegram_message_sent'; then
+          echo "[PASS] send_invoice -> safe insufficient_context reply"
+          PASS=$((PASS + 1))
+        else
+          echo "[FAIL] send_invoice -> confirm path incomplete"
+          FAIL=$((FAIL + 1))
+        fi
+      else
+        echo "[FAIL] send_invoice -> no confirm result in log"
+        FAIL=$((FAIL + 1))
+      fi
+    fi
+  else
+    echo "[FAIL] send_invoice -> no confirmation created"
+    FAIL=$((FAIL + 1))
+  fi
+fi
+
+echo "[6/6] Garbage fallback"
+MARK="$(mark_log)"
+HTTP_CODE="$(post_message_update "$((BASE_UID + 5))" "qwerty asdfgh lorem ipsum xyz")"
 if [ "$HTTP_CODE" != "200" ]; then
   echo "[FAIL] garbage webhook HTTP $HTTP_CODE"
   FAIL=$((FAIL + 1))
@@ -300,7 +339,7 @@ fi
 
 echo ""
 echo "========================================"
-echo "Total: $PASS passed, $FAIL failed out of 5"
+echo "Total: $PASS passed, $FAIL failed out of 6"
 echo "========================================"
 
 exit "$FAIL"
