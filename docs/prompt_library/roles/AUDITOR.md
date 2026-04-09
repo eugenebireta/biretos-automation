@@ -32,6 +32,13 @@ know_how_captured: YES / NO
 Если YES — что записано в KNOW_HOW.md: [список]
 ```
 
+## Правило #tooling
+
+Любое неожиданное поведение инструментов (git, stash, CI, pytest,
+pre-commit, shell) = автоматически проверить на `#tooling` know-how.
+Если поведение может повториться — записать в KNOW_HOW.md.
+know_how_captured не может быть NO если AUDITOR обнаружил аномалию инструмента.
+
 ## Абсолютный запрет
 
 AUDITOR не может написать can_ship: YES если:

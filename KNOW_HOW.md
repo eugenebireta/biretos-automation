@@ -23,6 +23,7 @@ Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
 2026-04-09 #rule pre-commit: install with `pip install pre-commit` then `pre-commit install`. Config at .pre-commit-config.yaml — runs ruff check --select E,W,F on every commit.
 2026-04-09 #bug orchestrator: A4:SCOPE_COMPLIANCE used EXACT path matching only. Fix: added basename fallback -- scope `guardian.py` now matches `orchestrator/guardian.py`. Full-path and prefix matching unchanged.
 2026-04-09 #bug orchestrator: collect_packet pytest parser returned 0/0 because `-q --no-header` suppresses summary line. Fix: removed `-q --no-header`, increased timeout 120s->300s.
+2026-04-09 #tooling git: stash pop contaminates commits -- after git stash pop unstaged files from stash land in working tree and leak into next commit. Always run git status + git diff --staged after stash pop BEFORE committing.
 
 ## Pre-commit Setup
 
