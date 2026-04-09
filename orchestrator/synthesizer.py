@@ -23,7 +23,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any  # noqa: F401 — used by downstream callers
 
 logger = logging.getLogger(__name__)
 
@@ -292,6 +292,81 @@ def decide(
                 rule_trace.append("R3:SCOPE_CLEAN")
     else:
         approved_scope = []
+
+    # -------------------------------------------------------------------------
+    # R3b: Governance module guard — executor must not modify its own checks
+    # Blocks if scope targets orchestrator governance modules at any risk level.
+    # Critic 2 finding: "проверяемый правит проверяющего" is a governance concern.
+    # -------------------------------------------------------------------------
+    _GOVERNANCE_MODULES = (
+        "acceptance_checker", "synthesizer", "batch_quality_gate",
+        "classifier", "collect_packet", "core_gate_bridge",
+    )
+    governance_hits = [
+        f for f in approved_scope
+        if any(f.rstrip(".py").rsplit("/", 1)[-1] == mod for mod in _GOVERNANCE_MODULES)
+    ]
+    if governance_hits:
+        rule_trace.append(f"R3b:GOVERNANCE_GUARD(files={len(governance_hits)})")
+        rationale = (
+            f"Scope contains orchestrator governance modules {governance_hits}. "
+            "Executor must not modify the systems that verify its own output. "
+            "Owner must apply these changes manually or via a separate governance batch."
+        )
+        logger.warning(
+            "synthesizer.decide: R3b GOVERNANCE_GUARD fired files=%s",
+            governance_hits,
+            extra={"error_class": "POLICY_VIOLATION", "severity": "WARNING", "retriable": False},
+        )
+        return SynthesizerDecision(
+            action=ACTION_BLOCKED,
+            final_risk=final_risk,
+            final_route="none",
+            approved_scope=[],
+            rationale=rationale,
+            rule_trace=rule_trace,
+            stripped_files=governance_hits,
+            warnings=warnings + [
+                "R3b: Executor cannot modify governance modules that verify its output."
+            ],
+        )
+
+    # -------------------------------------------------------------------------
+    # R3c: Frozen-name guard — catch bare Tier-1 filenames advisor may return
+    # Advisor sometimes returns "guardian.py" not ".cursor/.../guardian.py".
+    # Catch known frozen module basenames before executor creates wrong files.
+    # -------------------------------------------------------------------------
+    _FROZEN_BASENAMES = (
+        "reconciliation_service", "reconciliation_alerts", "reconciliation_verify",
+        "structural_checks", "observability_service",
+        "maintenance_sweeper", "retention_policy",
+    )
+    frozen_hits = [
+        f for f in approved_scope
+        if any(f.rstrip(".py").rsplit("/", 1)[-1] == bn for bn in _FROZEN_BASENAMES)
+    ]
+    if frozen_hits:
+        rule_trace.append(f"R3c:FROZEN_NAME_GUARD(files={len(frozen_hits)})")
+        rationale = (
+            f"Scope contains files matching Tier-1 frozen module names: {frozen_hits}. "
+            "These are Core frozen modules (PROJECT_DNA §3). "
+            "Even bare filenames matching frozen modules are blocked pre-execution."
+        )
+        logger.warning(
+            "synthesizer.decide: R3c FROZEN_NAME_GUARD fired files=%s",
+            frozen_hits,
+            extra={"error_class": "POLICY_VIOLATION", "severity": "WARNING", "retriable": False},
+        )
+        return SynthesizerDecision(
+            action=ACTION_BLOCKED,
+            final_risk="CORE",
+            final_route="spec_full",
+            approved_scope=[],
+            rationale=rationale,
+            rule_trace=rule_trace,
+            stripped_files=frozen_hits,
+            warnings=warnings,
+        )
 
     # -------------------------------------------------------------------------
     # R6: Empty scope

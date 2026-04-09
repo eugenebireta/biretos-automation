@@ -5,7 +5,7 @@ All tests are pure — no file I/O, no LLM, no subprocess.
 """
 from __future__ import annotations
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 from synthesizer import (
@@ -278,6 +278,60 @@ class TestR3ScopeSanitization:
     def test_r3_rule_trace_scope_clean(self):
         result = decide(_clf(), _verdict(scope=["scripts/foo.py"]))
         assert any("R3" in r and "CLEAN" in r for r in result.rule_trace)
+
+
+# ---------------------------------------------------------------------------
+# R3b: Governance module guard
+# ---------------------------------------------------------------------------
+class TestR3bGovernanceGuard:
+    def test_acceptance_checker_in_scope_blocked(self):
+        result = decide(_clf(), _verdict(scope=["orchestrator/acceptance_checker.py"]))
+        assert result.action == ACTION_BLOCKED
+        assert any("R3b" in r for r in result.rule_trace)
+
+    def test_synthesizer_in_scope_blocked(self):
+        result = decide(_clf(), _verdict(scope=["synthesizer.py"]))
+        assert result.action == ACTION_BLOCKED
+        assert any("R3b" in r for r in result.rule_trace)
+
+    def test_batch_quality_gate_blocked(self):
+        result = decide(_clf(), _verdict(scope=["orchestrator/batch_quality_gate.py"]))
+        assert result.action == ACTION_BLOCKED
+
+    def test_classifier_blocked(self):
+        result = decide(_clf(), _verdict(scope=["classifier.py"]))
+        assert result.action == ACTION_BLOCKED
+
+    def test_governance_module_with_other_files_blocked(self):
+        result = decide(_clf(), _verdict(scope=["scripts/foo.py", "synthesizer.py"]))
+        assert result.action == ACTION_BLOCKED
+        assert "synthesizer.py" in result.stripped_files
+
+    def test_non_governance_module_passes(self):
+        result = decide(_clf(), _verdict(scope=["orchestrator/advisor.py"]))
+        assert result.action != ACTION_BLOCKED
+
+
+# ---------------------------------------------------------------------------
+# R3c: Frozen-name guard
+# ---------------------------------------------------------------------------
+class TestR3cFrozenNameGuard:
+    def test_bare_reconciliation_service_blocked(self):
+        result = decide(_clf(), _verdict(scope=["reconciliation_service.py"]))
+        assert result.action == ACTION_BLOCKED
+        assert any("R3c" in r for r in result.rule_trace)
+
+    def test_bare_structural_checks_blocked(self):
+        result = decide(_clf(), _verdict(scope=["structural_checks.py"]))
+        assert result.action == ACTION_BLOCKED
+
+    def test_bare_observability_blocked(self):
+        result = decide(_clf(), _verdict(scope=["observability_service.py"]))
+        assert result.action == ACTION_BLOCKED
+
+    def test_non_frozen_basename_passes(self):
+        result = decide(_clf(), _verdict(scope=["my_service.py"]))
+        assert result.action != ACTION_BLOCKED
 
 
 # ---------------------------------------------------------------------------
