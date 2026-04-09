@@ -302,3 +302,112 @@ class TestAutoAdvance:
         manifest = self._ready_manifest()
         result = tq.try_auto_advance(manifest, auto_execute=True)
         assert result["task_id"] == "high-prio"
+
+
+# ---------------------------------------------------------------------------
+# main.py wiring: _try_queue_advance
+# ---------------------------------------------------------------------------
+
+class TestMainQueueWiring:
+    """_try_queue_advance in main.py integrates with task_queue module."""
+
+    def test_try_queue_advance_noop_on_empty_queue(self, tmp_path):
+        import main
+        import task_queue as tq
+
+        manifest = {
+            "fsm_state": "ready",
+            "last_verdict": None,
+            "current_task_id": "done-task",
+            "current_sprint_goal": "done",
+            "updated_at": "2026-01-01T00:00:00Z",
+        }
+        manifest_path = tmp_path / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        runs_path = tmp_path / "runs.jsonl"
+
+        with patch.object(main, "MANIFEST_PATH", manifest_path), \
+             patch.object(main, "RUNS_PATH", runs_path), \
+             patch.object(main, "_load_config", return_value={"auto_execute": True}):
+            main._try_queue_advance(manifest)
+
+        # manifest unchanged
+        reloaded = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert reloaded["current_task_id"] == "done-task"
+
+    def test_try_queue_advance_advances_low_task(self, tmp_path):
+        import main
+        import task_queue as tq
+
+        manifest = {
+            "fsm_state": "ready",
+            "last_verdict": None,
+            "current_task_id": "old",
+            "current_sprint_goal": "old goal",
+            "updated_at": "2026-01-01T00:00:00Z",
+        }
+        manifest_path = tmp_path / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        runs_path = tmp_path / "runs.jsonl"
+
+        tq.enqueue("new-task", "New goal", risk_class="LOW")
+
+        with patch.object(main, "MANIFEST_PATH", manifest_path), \
+             patch.object(main, "RUNS_PATH", runs_path), \
+             patch.object(main, "_load_config", return_value={"auto_execute": True}):
+            main._try_queue_advance(manifest)
+
+        reloaded = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert reloaded["current_task_id"] == "new-task"
+        assert reloaded["current_sprint_goal"] == "New goal"
+
+    def test_try_queue_advance_skips_not_ready(self, tmp_path):
+        import main
+        import task_queue as tq
+
+        manifest = {
+            "fsm_state": "error",
+            "last_verdict": "CYCLE_ERROR",
+            "current_task_id": "old",
+            "updated_at": "2026-01-01T00:00:00Z",
+        }
+        manifest_path = tmp_path / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        runs_path = tmp_path / "runs.jsonl"
+
+        tq.enqueue("new-task", "New goal")
+
+        with patch.object(main, "MANIFEST_PATH", manifest_path), \
+             patch.object(main, "RUNS_PATH", runs_path), \
+             patch.object(main, "_load_config", return_value={"auto_execute": True}):
+            main._try_queue_advance(manifest)
+
+        reloaded = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert reloaded["current_task_id"] == "old"  # unchanged
+
+    def test_try_queue_advance_logs_run(self, tmp_path):
+        import main
+        import task_queue as tq
+
+        manifest = {
+            "fsm_state": "ready",
+            "last_verdict": None,
+            "current_task_id": "old",
+            "current_sprint_goal": "old",
+            "updated_at": "2026-01-01T00:00:00Z",
+        }
+        manifest_path = tmp_path / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        runs_path = tmp_path / "runs.jsonl"
+
+        tq.enqueue("new-task", "New goal", risk_class="LOW")
+
+        with patch.object(main, "MANIFEST_PATH", manifest_path), \
+             patch.object(main, "RUNS_PATH", runs_path), \
+             patch.object(main, "_load_config", return_value={"auto_execute": True}):
+            main._try_queue_advance(manifest)
+
+        assert runs_path.exists()
+        entry = json.loads(runs_path.read_text(encoding="utf-8").strip())
+        assert entry["event"] == "queue_auto_advance"
+        assert entry["new_task_id"] == "new-task"

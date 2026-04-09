@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 74
-transition_ts: "2026-04-09T01:00:00Z"
+transition_seq: 75
+transition_ts: "2026-04-09T12:00:00Z"
 
 ## Current
-active_task: "P2-TASK-QUEUE"
-task_id: "P2-TASK-QUEUE"
+active_task: "P2-WIRING+AUDIT-V4"
+task_id: "P2-WIRING+AUDIT-V4"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "P2 task queue shipped. task_queue.py: enqueue/dequeue/peek_next/remove_by_id/clear/try_auto_advance. Auto-advance on clean LOW task completion when auto_execute=true; SEMI/CORE require owner. config.yaml: max_retries_low+semi added. manifest.json reset to ready. 34 new tests, 1471/1471 pass. Commit 40ae8c6. P1→P0.5+P3→P2 all DONE per critic consensus order."
+note: "P2 wired into main.py: _try_queue_advance() auto-advances LOW tasks, cmd_enqueue/cmd_queue CLI subcommands. Audit v4: score 53→66 (+13), 4/5 blockers resolved. FSM audit_in_progress/blocked parked guards added. 5 integration dry-run tests (SEMI audit flow, retry injection, queue advance). 1480+ tests pass. All critic priorities DONE (P1.5, P1, P0.5+P3, P2)."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
