@@ -719,15 +719,19 @@ def _run_synthesizer(classification, verdict, attempt_count: int,
     )
 
 
-def _get_retry_policy(risk_class: str) -> int:
+def _get_retry_policy(risk_class: str, cfg: dict | None = None) -> int:
     """Return max retry count based on risk class.
 
-    Policy (from 3-critic consensus):
-      LOW:  1 auto-retry with tightened directive
-      SEMI: 1 retry with auditor critique attached
-      CORE: 0 retries (always escalate)
+    P3.1: reads from config.yaml (max_retries_low, max_retries_semi).
+    CORE always 0 (escalate to owner).
     """
-    return {"LOW": 1, "SEMI": 1, "CORE": 0}.get(risk_class, 0)
+    if cfg is None:
+        cfg = _load_config()
+    if risk_class == "LOW":
+        return int(cfg.get("max_retries_low", 3))
+    elif risk_class == "SEMI":
+        return int(cfg.get("max_retries_semi", 3))
+    return 0  # CORE
 
 
 def _build_retry_directive(
@@ -775,6 +779,99 @@ def _build_retry_directive(
         return f"{parts[0]}\n\n{correction_block}\n\n---\n{parts[1]}"
     else:
         return f"{original_directive}\n\n{correction_block}"
+
+
+def _load_critique_history(run_dir: Path | None) -> list[dict]:
+    """P3.1: Load accumulated critique history from per-run dir.
+
+    Each retry appends its critique to critique_history.json.
+    Returns list of {attempt, auditor, verdict, summary, ts} dicts.
+    """
+    if run_dir is None:
+        return []
+    history_path = Path(run_dir) / "critique_history.json"
+    if not history_path.exists():
+        return []
+    try:
+        return json.loads(history_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def _append_critique_history(
+    run_dir: Path | None,
+    attempt: int,
+    audit_result,
+    critique_text: str,
+) -> list[dict]:
+    """P3.1: Append critique from current attempt to history.
+
+    Returns the updated full history.
+    """
+    if run_dir is None:
+        return []
+
+    run_dir = Path(run_dir)
+    history = _load_critique_history(run_dir)
+
+    entry = {
+        "attempt": attempt,
+        "ts": _now(),
+        "run_id": getattr(audit_result, "run_id", None),
+        "gate_passed": (audit_result.quality_gate.passed
+                        if hasattr(audit_result, "quality_gate") and audit_result.quality_gate
+                        else None),
+        "approval_route": (audit_result.approval_route.value
+                           if hasattr(audit_result, "approval_route") and audit_result.approval_route
+                           else None),
+        "critique_text": critique_text[:2000],
+    }
+    history.append(entry)
+
+    history_path = run_dir / "critique_history.json"
+    history_path.write_text(
+        json.dumps(history, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    return history
+
+
+def _format_accumulated_critiques(history: list[dict]) -> str:
+    """P3.1: Format all past critiques for injection into retry directive.
+
+    Gives the executor the full conversation with critics, not just the last one.
+    """
+    if not history:
+        return ""
+
+    parts = [f"## Accumulated Critique History ({len(history)} round(s))\n"]
+    for entry in history:
+        attempt = entry.get("attempt", "?")
+        passed = entry.get("gate_passed")
+        route = entry.get("approval_route", "?")
+        critique = entry.get("critique_text", "")
+        verdict = "PASSED" if passed else "FAILED"
+        parts.append(f"### Round {attempt} — {verdict} (route: {route})")
+        if critique:
+            parts.append(critique)
+        parts.append("")
+
+    return "\n".join(parts)
+
+
+def _check_critique_consensus(
+    history: list[dict],
+    min_approvals: int = 2,
+) -> bool:
+    """P3.1: Check if enough consecutive approvals exist for consensus.
+
+    Returns True if the last `min_approvals` rounds ALL passed.
+    This means the executor must satisfy critics repeatedly, not just once.
+    """
+    if len(history) < min_approvals:
+        return False
+
+    recent = history[-min_approvals:]
+    return all(entry.get("gate_passed") is True for entry in recent)
 
 
 def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
@@ -883,12 +980,15 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
 
         if gate_result.passed:
             retry_count = manifest.get("retry_count", 0)
-            max_retries = _get_retry_policy(risk_class)
+            max_retries = _get_retry_policy(risk_class, cfg)
             failed_checks = [c.check_id for c in acceptance.checks if not c.passed]
+            run_dir = manifest.get("_run_dir")
 
-            # --- P0.5: POST-EXECUTION AUDIT (SEMI/CORE only, after acceptance) ---
+            # --- P0.5+P3.1: POST-EXECUTION AUDIT (SEMI/CORE, with critique accumulation) ---
             audit_verdict = None  # None = no audit needed/run
             audit_critique_text = ""
+            critique_history = _load_critique_history(run_dir)
+
             if acceptance.passed and risk_class in ("SEMI", "CORE"):
                 print("[orchestrator] SEMI/CORE — running post-execution audit...")
                 try:
@@ -907,6 +1007,12 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     )
                     audit_verdict = _determine_fsm_state(audit_result)
                     audit_critique_text = extract_critique_text(audit_result)
+
+                    # P3.1: accumulate critique
+                    critique_history = _append_critique_history(
+                        run_dir, retry_count, audit_result, audit_critique_text
+                    )
+
                     manifest["last_audit_result"] = {
                         "run_id": audit_result.run_id,
                         "gate_passed": audit_result.quality_gate.passed
@@ -914,23 +1020,103 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         "approval_route": audit_result.approval_route.value
                         if audit_result.approval_route else None,
                         "verdict": audit_verdict,
+                        "critique_rounds": len(critique_history),
                     }
                     print(f"[orchestrator] Post-exec audit: verdict={audit_verdict} "
-                          f"run_id={audit_result.run_id}")
+                          f"run_id={audit_result.run_id} "
+                          f"critique_rounds={len(critique_history)}")
                 except Exception as exc:
                     print(f"[orchestrator] Post-exec audit ERROR: {exc}")
                     print("[orchestrator] Continuing without audit result.")
                     audit_verdict = None
 
+            # --- P3.1: CONSENSUS CHECK ---
+            min_approvals = int(cfg.get("critique_min_approvals", 2))
+            consensus_required = bool(cfg.get("critique_consensus_required", True))
+
             # --- DETERMINE FINAL STATE ---
             if acceptance.passed:
-                if audit_verdict is None or audit_verdict == "audit_passed":
-                    # Clean success (LOW, or SEMI/CORE with audit pass)
+                if audit_verdict is None:
+                    # LOW risk, no audit needed — clean success
                     manifest["fsm_state"] = "ready"
                     manifest["last_verdict"] = None
                     manifest["retry_count"] = 0
                     manifest.pop("_retry_reason", None)
-                    # P2: try auto-advance to next queued task
+                elif audit_verdict == "audit_passed":
+                    # P3.1: even if audit passed, check consensus
+                    if not consensus_required or _check_critique_consensus(
+                        critique_history, min_approvals
+                    ):
+                        # Consensus achieved — clean success
+                        manifest["fsm_state"] = "ready"
+                        manifest["last_verdict"] = None
+                        manifest["retry_count"] = 0
+                        manifest.pop("_retry_reason", None)
+                        print(f"[orchestrator] Consensus achieved "
+                              f"({len(critique_history)}/{min_approvals} approvals)")
+                    elif retry_count < max_retries:
+                        # Audit passed but consensus not yet reached — retry for more
+                        accumulated = _format_accumulated_critiques(critique_history)
+                        retry_directive = _build_retry_directive(
+                            original_directive=directive_text,
+                            attempt=retry_count,
+                            acceptance_failures=[],
+                            audit_critique=accumulated or audit_critique_text,
+                        )
+                        DIRECTIVE_PATH.write_text(retry_directive, encoding="utf-8")
+                        manifest["retry_count"] = retry_count + 1
+                        manifest["fsm_state"] = "awaiting_execution"
+                        manifest["last_verdict"] = "CONSENSUS_PENDING"
+                        manifest["_retry_reason"] = (
+                            f"Audit passed but consensus requires "
+                            f"{min_approvals} consecutive approvals "
+                            f"(have {len(critique_history)})"
+                        )
+                        print()
+                        print("=" * 60)
+                        print(f"P3.1 CONSENSUS RETRY {retry_count + 1}/{max_retries}")
+                        print(f"Rounds so far: {len(critique_history)}, "
+                              f"need: {min_approvals} consecutive passes")
+                        print("=" * 60)
+                    else:
+                        # Retries exhausted, but last audit passed — accept anyway
+                        manifest["fsm_state"] = "ready"
+                        manifest["last_verdict"] = None
+                        manifest["retry_count"] = 0
+                        manifest.pop("_retry_reason", None)
+                        print(f"[orchestrator] Retries exhausted but last audit PASSED — accepting")
+                elif audit_verdict == "blocked":
+                    # Auditor blocked — escalate, no retry
+                    manifest["fsm_state"] = "blocked"
+                    manifest["last_verdict"] = "AUDIT_BLOCKED"
+                elif retry_count < max_retries:
+                    # P3.1: retry with accumulated critique history
+                    accumulated = _format_accumulated_critiques(critique_history)
+                    retry_directive = _build_retry_directive(
+                        original_directive=directive_text,
+                        attempt=retry_count,
+                        acceptance_failures=[],
+                        audit_critique=accumulated or audit_critique_text,
+                    )
+                    DIRECTIVE_PATH.write_text(retry_directive, encoding="utf-8")
+                    manifest["retry_count"] = retry_count + 1
+                    manifest["fsm_state"] = "awaiting_execution"
+                    manifest["last_verdict"] = "AUDIT_RETRY_SCHEDULED"
+                    manifest["_retry_reason"] = f"Audit failed: {audit_verdict}"
+                    print()
+                    print("=" * 60)
+                    print(f"P3.1 AUDIT-RETRY {retry_count + 1}/{max_retries} "
+                          f"({risk_class}, critique rounds: {len(critique_history)})")
+                    print(f"Critique: {audit_critique_text[:200]}")
+                    print("[orchestrator] Accumulated critique injected. Re-executing...")
+                    print("=" * 60)
+                else:
+                    # Retries exhausted — owner review
+                    manifest["fsm_state"] = "awaiting_owner_reply"
+                    manifest["last_verdict"] = "AUDIT_FAILED"
+
+                # Auto-advance on clean success
+                if manifest.get("fsm_state") == "ready" and manifest.get("last_verdict") is None:
                     try:
                         import task_queue as _tq
                         advanced = _tq.try_auto_advance(
@@ -942,34 +1128,6 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                             print(f"[orchestrator] Queue remaining: {_tq.queue_depth()}")
                     except Exception as _tq_exc:
                         logger.warning("task_queue auto-advance failed: %s", _tq_exc)
-                elif audit_verdict == "blocked":
-                    # Auditor blocked — escalate, no retry
-                    manifest["fsm_state"] = "blocked"
-                    manifest["last_verdict"] = "AUDIT_BLOCKED"
-                elif risk_class == "SEMI" and retry_count < max_retries:
-                    # P3: SEMI retry with auditor critique
-                    retry_directive = _build_retry_directive(
-                        original_directive=directive_text,
-                        attempt=retry_count,
-                        acceptance_failures=[],
-                        audit_critique=audit_critique_text,
-                    )
-                    _retry_path = DIRECTIVE_PATH
-                    _retry_path.write_text(retry_directive, encoding="utf-8")
-                    manifest["retry_count"] = retry_count + 1
-                    manifest["fsm_state"] = "awaiting_execution"
-                    manifest["last_verdict"] = "AUDIT_RETRY_SCHEDULED"
-                    manifest["_retry_reason"] = f"Audit failed: {audit_verdict}"
-                    print()
-                    print("=" * 60)
-                    print(f"P3 AUDIT-RETRY {retry_count + 1}/{max_retries} (SEMI risk)")
-                    print(f"Critique: {audit_critique_text[:200]}")
-                    print("[orchestrator] Tightened directive written. Re-executing...")
-                    print("=" * 60)
-                else:
-                    # CORE or retries exhausted — owner review
-                    manifest["fsm_state"] = "awaiting_owner_reply"
-                    manifest["last_verdict"] = "AUDIT_FAILED"
             else:
                 # Acceptance failed
                 retry_reason = (
@@ -978,11 +1136,13 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     f"out_of_scope={acceptance.out_of_scope_files[:5]}"
                 )
                 if retry_count < max_retries:
-                    # P3: AUTO-RETRY — tighten directive and restart
+                    # P3: AUTO-RETRY — tighten directive with accumulated history
+                    accumulated = _format_accumulated_critiques(critique_history)
                     retry_directive = _build_retry_directive(
                         original_directive=directive_text,
                         attempt=retry_count,
                         acceptance_failures=acceptance_checks_dicts,
+                        audit_critique=accumulated,
                         out_of_scope_files=acceptance.out_of_scope_files,
                     )
                     DIRECTIVE_PATH.write_text(retry_directive, encoding="utf-8")
@@ -992,7 +1152,7 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     manifest["_retry_reason"] = retry_reason
                     print()
                     print("=" * 60)
-                    print(f"P3 AUTO-RETRY {retry_count + 1}/{max_retries} ({risk_class} risk)")
+                    print(f"P3.1 AUTO-RETRY {retry_count + 1}/{max_retries} ({risk_class} risk)")
                     print(f"Reason: {retry_reason}")
                     print("[orchestrator] Tightened directive written. Re-executing...")
                     print("=" * 60)

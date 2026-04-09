@@ -139,11 +139,13 @@ class TestSemiAuditFlow:
              patch("core_gate_bridge._determine_fsm_state", return_value="audit_passed"), \
              patch("core_gate_bridge._determine_last_verdict", return_value="AUDIT_PASSED"):
 
-            cfg = {"auto_execute": False, "executor_timeout_seconds": 60}
+            # P3.1: disable consensus to test single-pass audit acceptance
+            cfg = {"auto_execute": False, "executor_timeout_seconds": 60,
+                   "critique_consensus_required": False}
             main._run_executor_bridge(manifest, "test-trace", cfg)
 
         assert audit_called[0], "Post-execution audit should be called for SEMI"
-        # Manifest should be set to ready (audit passed)
+        # Manifest should be set to ready (audit passed, consensus disabled)
         assert manifest["fsm_state"] == "ready"
 
     def test_semi_audit_fail_triggers_retry(self, tmp_path, capsys):

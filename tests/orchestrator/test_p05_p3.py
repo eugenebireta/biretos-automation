@@ -211,10 +211,10 @@ class TestBuildDirectiveInjection:
         assert manifest["last_verdict"] == "RETRY_SCHEDULED"
 
     def test_semi_retries_with_audit_critique(self):
-        """SEMI risk gets 1 retry (with audit critique attached)."""
+        """SEMI risk gets retries from config (with audit critique attached)."""
         from main import _get_retry_policy
         max_retries = _get_retry_policy("SEMI")
-        assert max_retries == 1
+        assert max_retries == 3  # P3.1: config default
         manifest = {"retry_count": 0, "fsm_state": "awaiting_execution"}
         if manifest["retry_count"] < max_retries:
             manifest["retry_count"] = 1
@@ -226,7 +226,9 @@ class TestBuildDirectiveInjection:
     def test_semi_retry_exhausted_goes_to_owner(self):
         """SEMI with retry_count >= max → awaiting_owner_reply."""
         from main import _get_retry_policy
-        max_retries = _get_retry_policy("SEMI")
+        # Use explicit config with max=1 to test exhaustion path
+        cfg = {"max_retries_semi": 1}
+        max_retries = _get_retry_policy("SEMI", cfg=cfg)
         manifest = {"retry_count": 1, "fsm_state": "awaiting_execution"}
         if manifest["retry_count"] < max_retries:
             manifest["fsm_state"] = "awaiting_execution"
@@ -244,9 +246,11 @@ class TestBuildDirectiveInjection:
     def test_retry_exhausted_goes_to_owner(self):
         """When retry_count >= max_retries, goes to awaiting_owner_reply."""
         from main import _get_retry_policy
+        # Use explicit config with max=1 to test exhaustion at retry_count=1
+        cfg = {"max_retries_low": 1}
         manifest = {"retry_count": 1, "fsm_state": "awaiting_execution"}
         risk_class = "LOW"
-        max_retries = _get_retry_policy(risk_class)
+        max_retries = _get_retry_policy(risk_class, cfg=cfg)
         if manifest["retry_count"] < max_retries:
             manifest["fsm_state"] = "ready"
         else:
@@ -470,15 +474,16 @@ class TestBuildRetryDirective:
 # ---------------------------------------------------------------------------
 
 class TestGetRetryPolicy:
-    """_get_retry_policy returns correct max retries per risk class."""
+    """_get_retry_policy returns correct max retries per risk class (P3.1: config-based)."""
 
-    def test_low_gets_one(self):
+    def test_low_default_from_config(self):
         from main import _get_retry_policy
-        assert _get_retry_policy("LOW") == 1
+        # Default config has max_retries_low: 3
+        assert _get_retry_policy("LOW") == 3
 
-    def test_semi_gets_one(self):
+    def test_semi_default_from_config(self):
         from main import _get_retry_policy
-        assert _get_retry_policy("SEMI") == 1
+        assert _get_retry_policy("SEMI") == 3
 
     def test_core_gets_zero(self):
         from main import _get_retry_policy
@@ -487,6 +492,12 @@ class TestGetRetryPolicy:
     def test_unknown_gets_zero(self):
         from main import _get_retry_policy
         assert _get_retry_policy("UNKNOWN") == 0
+
+    def test_custom_config_overrides(self):
+        from main import _get_retry_policy
+        cfg = {"max_retries_low": 5, "max_retries_semi": 7}
+        assert _get_retry_policy("LOW", cfg=cfg) == 5
+        assert _get_retry_policy("SEMI", cfg=cfg) == 7
 
 
 # ---------------------------------------------------------------------------
@@ -612,3 +623,165 @@ class TestParkedStates:
 
         captured = capsys.readouterr()
         assert "audit" in captured.out.lower()
+
+
+# ---------------------------------------------------------------------------
+# P3.1: Critique accumulation & consensus tests
+# ---------------------------------------------------------------------------
+
+class TestLoadCritiqueHistory:
+    """_load_critique_history reads from per-run dir."""
+
+    def test_none_run_dir(self):
+        from main import _load_critique_history
+        assert _load_critique_history(None) == []
+
+    def test_missing_file(self, tmp_path):
+        from main import _load_critique_history
+        assert _load_critique_history(tmp_path) == []
+
+    def test_loads_valid_json(self, tmp_path):
+        from main import _load_critique_history
+        data = [{"attempt": 1, "gate_passed": True}]
+        (tmp_path / "critique_history.json").write_text(
+            json.dumps(data), encoding="utf-8"
+        )
+        assert _load_critique_history(tmp_path) == data
+
+    def test_corrupt_json_returns_empty(self, tmp_path):
+        from main import _load_critique_history
+        (tmp_path / "critique_history.json").write_text("{bad", encoding="utf-8")
+        assert _load_critique_history(tmp_path) == []
+
+
+class TestAppendCritiqueHistory:
+    """_append_critique_history writes incrementally."""
+
+    def test_none_run_dir(self):
+        from main import _append_critique_history
+        assert _append_critique_history(None, 1, MagicMock(), "text") == []
+
+    def test_appends_and_persists(self, tmp_path):
+        from main import _append_critique_history, _load_critique_history
+
+        audit_result = MagicMock()
+        audit_result.quality_gate.passed = True
+        audit_result.approval_route.value = "AUTO"
+        audit_result.run_id = "run-1"
+
+        result = _append_critique_history(tmp_path, 1, audit_result, "critique text")
+        assert len(result) == 1
+        assert result[0]["attempt"] == 1
+        assert result[0]["gate_passed"] is True
+        assert result[0]["critique_text"] == "critique text"
+
+        # Verify persistence
+        loaded = _load_critique_history(tmp_path)
+        assert len(loaded) == 1
+
+    def test_accumulates_across_calls(self, tmp_path):
+        from main import _append_critique_history
+
+        ar = MagicMock()
+        ar.quality_gate.passed = False
+        ar.approval_route.value = "MANUAL"
+        ar.run_id = "r1"
+
+        _append_critique_history(tmp_path, 1, ar, "first")
+        ar.quality_gate.passed = True
+        result = _append_critique_history(tmp_path, 2, ar, "second")
+        assert len(result) == 2
+        assert result[0]["critique_text"] == "first"
+        assert result[1]["critique_text"] == "second"
+
+    def test_truncates_long_critique(self, tmp_path):
+        from main import _append_critique_history
+
+        ar = MagicMock()
+        ar.quality_gate.passed = True
+        ar.approval_route.value = "AUTO"
+        ar.run_id = "r1"
+
+        long_text = "x" * 5000
+        result = _append_critique_history(tmp_path, 1, ar, long_text)
+        assert len(result[0]["critique_text"]) == 2000
+
+
+class TestFormatAccumulatedCritiques:
+    """_format_accumulated_critiques produces markdown."""
+
+    def test_empty_history(self):
+        from main import _format_accumulated_critiques
+        assert _format_accumulated_critiques([]) == ""
+
+    def test_single_round(self):
+        from main import _format_accumulated_critiques
+        history = [{"attempt": 1, "gate_passed": True, "approval_route": "AUTO",
+                     "critique_text": "All good"}]
+        result = _format_accumulated_critiques(history)
+        assert "Round 1" in result
+        assert "PASSED" in result
+        assert "All good" in result
+        assert "1 round(s)" in result
+
+    def test_multiple_rounds(self):
+        from main import _format_accumulated_critiques
+        history = [
+            {"attempt": 1, "gate_passed": False, "approval_route": "MANUAL",
+             "critique_text": "Fix imports"},
+            {"attempt": 2, "gate_passed": True, "approval_route": "AUTO",
+             "critique_text": "Good now"},
+        ]
+        result = _format_accumulated_critiques(history)
+        assert "2 round(s)" in result
+        assert "Round 1" in result and "FAILED" in result
+        assert "Round 2" in result and "PASSED" in result
+
+
+class TestCheckCritiqueConsensus:
+    """_check_critique_consensus requires N consecutive approvals."""
+
+    def test_empty_history(self):
+        from main import _check_critique_consensus
+        assert _check_critique_consensus([]) is False
+
+    def test_insufficient_rounds(self):
+        from main import _check_critique_consensus
+        history = [{"gate_passed": True}]
+        assert _check_critique_consensus(history, min_approvals=2) is False
+
+    def test_two_consecutive_passes(self):
+        from main import _check_critique_consensus
+        history = [
+            {"gate_passed": False},
+            {"gate_passed": True},
+            {"gate_passed": True},
+        ]
+        assert _check_critique_consensus(history, min_approvals=2) is True
+
+    def test_last_fail_breaks_consensus(self):
+        from main import _check_critique_consensus
+        history = [
+            {"gate_passed": True},
+            {"gate_passed": True},
+            {"gate_passed": False},
+        ]
+        assert _check_critique_consensus(history, min_approvals=2) is False
+
+    def test_min_approvals_three(self):
+        from main import _check_critique_consensus
+        history = [
+            {"gate_passed": True},
+            {"gate_passed": True},
+        ]
+        assert _check_critique_consensus(history, min_approvals=3) is False
+        history.append({"gate_passed": True})
+        assert _check_critique_consensus(history, min_approvals=3) is True
+
+    def test_none_gate_passed_treated_as_fail(self):
+        from main import _check_critique_consensus
+        history = [
+            {"gate_passed": True},
+            {"gate_passed": None},
+        ]
+        assert _check_critique_consensus(history, min_approvals=2) is False
