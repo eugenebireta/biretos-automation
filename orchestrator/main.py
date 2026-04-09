@@ -1348,10 +1348,14 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         manifest.pop("_retry_reason", None)
                         print(f"[orchestrator] Retries exhausted but last audit PASSED -- accepting")
                 elif audit_verdict == "blocked":
+                    # B10: revert executor commits before blocking
+                    _revert_to_base(base_commit, trace_id)
                     # Auditor blocked — escalate, no retry
                     manifest["fsm_state"] = "blocked"
                     manifest["last_verdict"] = "AUDIT_BLOCKED"
                 elif retry_count < max_retries:
+                    # B10: revert executor commits before retry
+                    _revert_to_base(base_commit, trace_id)
                     # P3.1: retry with accumulated critique history
                     accumulated = _format_accumulated_critiques(critique_history)
                     retry_directive = _build_retry_directive(
@@ -1373,6 +1377,8 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                     print("[orchestrator] Accumulated critique injected. Re-executing...")
                     print("=" * 60)
                 else:
+                    # B10: revert executor commits — retries exhausted
+                    _revert_to_base(base_commit, trace_id)
                     # Retries exhausted — owner review
                     manifest["fsm_state"] = "awaiting_owner_reply"
                     manifest["last_verdict"] = "AUDIT_FAILED"

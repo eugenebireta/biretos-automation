@@ -23,7 +23,9 @@ gh api \
     "contexts": ["tests"]
   },
   "enforce_admins": true,
-  "restrictions": null
+  "restrictions": null,
+  "allow_force_pushes": false,
+  "allow_deletions": false
 }
 PAYLOAD
 
