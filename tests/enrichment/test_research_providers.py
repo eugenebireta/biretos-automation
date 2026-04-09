@@ -139,40 +139,43 @@ class TestGeminiResearchProvider:
 
 class TestClaudeWebSearchProvider:
     def test_name_property(self):
-        provider = ClaudeWebSearchProvider(api_key="x")
+        provider = ClaudeWebSearchProvider()
         assert provider.name == "claude_web_search"
 
     def test_cost_tier_property(self):
-        provider = ClaudeWebSearchProvider(api_key="x")
-        assert provider.cost_tier == "medium"
+        provider = ClaudeWebSearchProvider()
+        assert provider.cost_tier == "free"
 
-    def test_raises_without_api_key(self):
-        """Without API key, call should raise RuntimeError (either key check or API error)."""
-        provider = ClaudeWebSearchProvider(api_key="INVALID_KEY_TEST_ONLY")
-        try:
-            provider.call("test prompt")
-            assert False, "Should have raised RuntimeError"
-        except RuntimeError:
-            pass  # Expected — API call should fail
+    def test_call_with_mocked_subprocess(self):
+        """Test that call() uses claude CLI and returns text."""
+        provider = ClaudeWebSearchProvider()
 
-    def test_call_with_mocked_client(self):
-        """Test that call() sends correct request and returns text."""
-        provider = ClaudeWebSearchProvider(api_key="fake_key")
+        mock_proc = MagicMock()
+        mock_proc.returncode = 0
+        mock_proc.stdout = '{"confidence": "high", "identity_confirmed": true}'
 
-        mock_block = MagicMock()
-        mock_block.text = '{"confidence": "high", "identity_confirmed": true}'
-        mock_response = MagicMock()
-        mock_response.content = [mock_block]
-
-        mock_client = MagicMock()
-        mock_client.messages.create.return_value = mock_response
-
-        with patch("anthropic.Anthropic", return_value=mock_client):
+        with patch("subprocess.run", return_value=mock_proc):
             text, model, cost = provider.call("test prompt")
 
         assert "confidence" in text
-        assert model == "claude-sonnet-4-6"
-        assert cost > 0
+        assert model == "claude-cli"
+        assert cost == 0.0
+
+    def test_call_cli_error_raises(self):
+        """CLI error should raise RuntimeError."""
+        provider = ClaudeWebSearchProvider()
+
+        mock_proc = MagicMock()
+        mock_proc.returncode = 1
+        mock_proc.stderr = "some error"
+        mock_proc.stdout = ""
+
+        with patch("subprocess.run", return_value=mock_proc):
+            try:
+                provider.call("test prompt")
+                assert False, "Should have raised RuntimeError"
+            except RuntimeError:
+                pass
 
 
 class TestWebSearchResearchOrchestrator:
@@ -238,7 +241,7 @@ class TestWebSearchResearchOrchestrator:
             orch.research_packet(packet, check_budget_fn=budget_stop)
         except BudgetExceeded:
             pass  # Expected
-        except Exception as e:
+        except Exception:
             # If the budget check isn't called before API, that's also OK
             pass
 

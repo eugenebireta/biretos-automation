@@ -11,7 +11,7 @@ _scripts_dir = os.path.join(os.path.dirname(__file__), "..", "..", "scripts")
 if _scripts_dir not in sys.path:
     sys.path.insert(0, _scripts_dir)
 
-from dr_results_import import (
+from dr_results_import import (  # noqa: E402
     _parse_table_rows,
     _clean_value,
     _is_not_found,
@@ -133,8 +133,8 @@ class TestDetermineProvider:
     def test_compass_is_gpt(self):
         assert _determine_provider("compass_artifact_wf-abc.md") == "dr_gpt"
 
-    def test_deep_research_is_claude(self):
-        assert _determine_provider("deep-research-report.md") == "dr_claude"
+    def test_deep_research_is_gemini(self):
+        assert _determine_provider("deep-research-report.md") == "dr_gemini"
 
 
 class TestBuildResultJson:

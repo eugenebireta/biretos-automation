@@ -58,11 +58,11 @@ Rules:
 1. Output ONLY valid JSON, no prose.
 2. Determine the task_id: short slug like "NOTIFY-DESIGN" or "ROADMAP-NEXT".
 3. Determine sprint_goal: clear 1-2 sentence description of what to do.
-4. Determine risk_class: LOW (only Tier-3, no Core touch), SEMI (Tier-2 body or financial), CORE (Tier-1 adjacent, schema, FSM).
-5. Determine roadmap_stage: which stage from Roadmap this belongs to (e.g. "R1", "8.1", "Phase 7"). Use "NEW" if it's a new idea not in roadmap.
-6. Determine task_type: "implement" (write code), "design" (architecture only), "research" (explore options), "roadmap_next" (pick next from roadmap).
-7. If the user says "следующая задача" or "next task" or similar, read the Roadmap current position and pick the next incomplete stage.
-8. CRITICAL: Only do EXACTLY what the user asked. Do NOT invent tasks from STATE.md context. STATE.md is for context only — the user's instruction is the sole source of what to do.
+4. Determine risk_class: LOW (Tier-3 only), SEMI (Tier-2 body or financial), CORE (Tier-1, schema, FSM).
+5. Determine roadmap_stage: stage from Roadmap (e.g. "R1", "8.1"). Use "NEW" if not in roadmap.
+6. Determine task_type: "implement", "design", "research", or "roadmap_next".
+7. If user says "следующая задача"/"next task", pick next incomplete stage from Roadmap.
+8. CRITICAL: Only do what the user asked. STATE.md is context only, not a source of tasks.
 9. NEVER start enrichment, batch runs, or data processing unless the user EXPLICITLY asked for it.
 
 Output schema:
@@ -122,33 +122,19 @@ def _extract_json(text: str) -> dict:
 
 
 def parse_intent(user_text: str) -> dict:
-    """Call Claude API to parse natural language into structured task."""
-    import anthropic
-
-    key = _load_api_key()
-    if not key:
-        print("ERROR: no ANTHROPIC_API_KEY")
-        sys.exit(1)
+    """Call Claude Code CLI to parse natural language into structured task."""
+    from claude_cli import call_claude
 
     state = _read_truncated(STATE_PATH, 3000)
     roadmap = _read_truncated(ROADMAP_PATH, CONTEXT_LIMIT)
 
-    # NLU parsing is always Sonnet — simple JSON extraction, no need for Opus
-    client = anthropic.Anthropic(api_key=key)
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=512,
-        system=_NLU_SYSTEM_PROMPT,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"## User instruction\n{user_text}\n\n"
-                f"## Current state (STATE.md)\n{state}\n\n"
-                f"## Roadmap (truncated)\n{roadmap}"
-            ),
-        }],
+    prompt = (
+        f"## User instruction\n{user_text}\n\n"
+        f"## Current state (STATE.md)\n{state}\n\n"
+        f"## Roadmap (truncated)\n{roadmap}"
     )
-    raw = response.content[0].text
+
+    raw = call_claude(prompt, system_prompt=_NLU_SYSTEM_PROMPT, timeout=60)
     return _extract_json(raw)
 
 
@@ -252,11 +238,11 @@ def main():
     user_text = " ".join(sys.argv[1:])
 
     print(f"[strojka] Task: {user_text}")
-    print(f"[strojka] Parsing intent via Claude API...")
+    print("[strojka] Parsing intent via Claude CLI...")
 
     # Step 1: NLU parse
     task = parse_intent(user_text)
-    print(f"[strojka] Parsed:")
+    print("[strojka] Parsed:")
     print(f"  task_id:       {task['task_id']}")
     print(f"  sprint_goal:   {task['sprint_goal']}")
     print(f"  risk_class:    {task['risk_class']}")
@@ -266,7 +252,7 @@ def main():
 
     # Step 2: Create manifest
     create_manifest(task)
-    print(f"[strojka] Manifest created.")
+    print("[strojka] Manifest created.")
 
     # Step 3: Autonomy decision
     risk = task["risk_class"].upper()
@@ -298,11 +284,11 @@ def main():
     print("=" * 60)
 
     if code == 0:
-        print(f"[strojka] Done. Check results:")
-        print(f"  Directive: orchestrator/orchestrator_directive.md")
-        print(f"  Manifest:  orchestrator/manifest.json")
+        print("[strojka] Done. Check results:")
+        print("  Directive: orchestrator/orchestrator_directive.md")
+        print("  Manifest:  orchestrator/manifest.json")
         if auto:
-            print(f"  Packet:    orchestrator/last_execution_packet.json")
+            print("  Packet:    orchestrator/last_execution_packet.json")
     else:
         print(f"[strojka] Orchestrator exited with code {code}")
 

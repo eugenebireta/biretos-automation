@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from synthesizer import SynthesizerDecision
+    from auditor_system.hard_shell.contracts import ProtocolRun  # noqa: F401
 
 logger = logging.getLogger(__name__)
 
@@ -259,7 +259,7 @@ def run_post_execution_audit_sync(
         title=f"post-exec-review:{task_id}",
         description=f"Post-execution semantic review: {sprint_goal}",
         roadmap_stage=task_id or "bootstrap",
-        why_now=f"Executor completed SEMI/CORE task. Semantic review required per governance.",
+        why_now="Executor completed SEMI/CORE task. Semantic review required per governance.",
         risk=risk,
         declared_surface=changed_files[:20],
     )
@@ -358,18 +358,15 @@ def _call_anthropic_revise(
     critique_text: str,
     task_context: str,
 ) -> str:
-    """Call Anthropic API to revise a proposal based on critique.
+    """Call Claude Code CLI to revise a proposal based on critique.
+
+    Uses `claude -p` (Claude Code CLI) through the user's subscription,
+    not the Anthropic API balance.
 
     This is NOT using the auditor role — it's using Claude as an architect
     to produce a revised proposal text. Returns the revised proposal markdown.
     """
-    try:
-        import anthropic
-    except ImportError:
-        logger.warning("anthropic package not installed, returning original proposal")
-        return original_proposal
-
-    client = anthropic.Anthropic(api_key=api_key)
+    from claude_cli import call_claude
 
     system_prompt = (
         "You are an architecture reviewer revising a proposal based on critique feedback.\n"
@@ -392,15 +389,11 @@ def _call_anthropic_revise(
         "Now produce the revised proposal:"
     )
 
-    response = client.messages.create(
-        model=model,
-        max_tokens=2048,
-        temperature=0.3,
-        system=system_prompt,
-        messages=[{"role": "user", "content": user_msg}],
-    )
-
-    return response.content[0].text if response.content else original_proposal
+    try:
+        return call_claude(user_msg, system_prompt=system_prompt, timeout=180)
+    except RuntimeError:
+        logger.warning("claude CLI failed for proposal revision, returning original")
+        return original_proposal
 
 
 def negotiate_architecture(
@@ -589,7 +582,7 @@ if __name__ == "__main__":
     decision = _MockDecision()
     task_pack = decision_to_task_pack(decision, manifest)
 
-    print(f"TaskPack created:")
+    print("TaskPack created:")
     print(f"  title:          {task_pack.title}")
     print(f"  roadmap_stage:  {task_pack.roadmap_stage}")
     print(f"  why_now:        {task_pack.why_now}")

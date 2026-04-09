@@ -96,7 +96,7 @@ Return ONLY valid JSON (no markdown, no explanation outside JSON):
   "specs": {{}},
   "key_findings": ["finding 1", "finding 2"],
   "ambiguities": ["ambiguity if any"],
-  "sources": [{{"url": "https://...", "type": "manufacturer or distributor or datasheet", "supports": ["identity", "price"]}}],
+  "sources": [{{"url": "...", "type": "manufacturer|distributor|datasheet", "supports": ["identity", "price"]}}],
   "confidence": "high" or "medium" or "low",
   "confidence_notes": "why this confidence level"
 }}"""
@@ -150,15 +150,18 @@ class GeminiResearchProvider:
 
 
 class ClaudeWebSearchProvider:
-    """Research via Claude Sonnet with web_search tool.
+    """Research via Claude Code CLI with web search capability.
+
+    Uses `claude -p` (Claude Code CLI) through the user's $200/mo subscription
+    instead of Anthropic API balance. Claude Code has built-in web search.
 
     Used as fallback when Gemini returns low confidence.
-    More expensive (~$0.05/call) but often more thorough.
+    Cost: $0 incremental (covered by subscription).
     """
 
     def __init__(self, api_key: Optional[str] = None):
-        secrets = _load_secrets()
-        self._api_key = api_key or secrets.get("ANTHROPIC_API_KEY", "")
+        # api_key kept for interface compat but not used (CLI uses subscription)
+        pass
 
     @property
     def name(self) -> str:
@@ -166,34 +169,35 @@ class ClaudeWebSearchProvider:
 
     @property
     def cost_tier(self) -> str:
-        return "medium"
+        return "free"  # covered by subscription
 
     def call(self, prompt: str) -> tuple[str, str, float]:
         """Returns (response_text, model_name, cost_usd)."""
-        if not self._api_key:
-            raise RuntimeError("ANTHROPIC_API_KEY not set")
+        import subprocess
+        from pathlib import Path
+
+        ROOT = Path(__file__).resolve().parent.parent
+        cmd = ["claude", "--print", "--no-session-persistence"]
 
         try:
-            import anthropic
-        except ImportError:
-            raise RuntimeError("anthropic package not installed: pip install anthropic")
-
-        client = anthropic.Anthropic(api_key=self._api_key)
-        try:
-            response = client.messages.create(
-                model=CLAUDE_SONNET_MODEL,
-                max_tokens=3000,
-                tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 5}],
-                messages=[{"role": "user", "content": prompt}],
+            proc = subprocess.run(
+                cmd,
+                input=prompt,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                timeout=180,
+                cwd=str(ROOT),
             )
-            text_parts = []
-            for block in response.content:
-                if hasattr(block, "text"):
-                    text_parts.append(block.text)
-            text = "\n".join(text_parts)
-            return text, CLAUDE_SONNET_MODEL, _CLAUDE_SONNET_COST
-        except Exception as e:
-            raise RuntimeError(f"Claude API error: {e}") from e
+
+            if proc.returncode == 0:
+                return proc.stdout.strip(), "claude-cli", 0.0
+            else:
+                err = (proc.stderr or proc.stdout or "unknown")[:500]
+                raise RuntimeError(f"claude CLI exit code {proc.returncode}: {err}")
+
+        except subprocess.TimeoutExpired:
+            raise RuntimeError("claude CLI timeout after 180s")
 
 
 def _confidence_rank(conf: str) -> int:
@@ -268,7 +272,9 @@ class WebSearchResearchOrchestrator:
         for provider in [self._gemini, self._claude]:
             if check_budget_fn:
                 try:
-                    check_budget_fn(estimated_cost=provider.__class__.__name__ == "ClaudeWebSearchProvider" and _CLAUDE_SONNET_COST or _GEMINI_FLASH_COST)
+                    is_claude = provider.__class__.__name__ == "ClaudeWebSearchProvider"
+                    cost = _CLAUDE_SONNET_COST if is_claude else _GEMINI_FLASH_COST
+                    check_budget_fn(estimated_cost=cost)
                 except BudgetExceeded:
                     raise
 
@@ -317,7 +323,7 @@ class WebSearchResearchOrchestrator:
 
 if __name__ == "__main__":
     print("research_providers.py — web search research providers")
-    print(f"Providers available: GeminiResearchProvider, ClaudeWebSearchProvider")
+    print("Providers available: GeminiResearchProvider, ClaudeWebSearchProvider")
     print(f"Gemini Flash cost: ~${_GEMINI_FLASH_COST:.3f}/call")
     print(f"Claude Sonnet cost: ~${_CLAUDE_SONNET_COST:.3f}/call")
     print(f"Worst case 50 SKU: ~${(_GEMINI_FLASH_COST + _CLAUDE_SONNET_COST) * 50:.2f}")

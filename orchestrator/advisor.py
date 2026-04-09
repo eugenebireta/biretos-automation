@@ -21,19 +21,18 @@ from __future__ import annotations
 import json
 import logging
 import re
-import subprocess
-import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any  # noqa: F401
+
+from claude_cli import call_claude
 
 logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
 
-CLAUDE_BIN = "claude"
 DEFAULT_CLI_TIMEOUT = 120  # seconds — advisor prompts are small, 2 min is plenty
 
 _SYSTEM_PROMPT = """\
@@ -113,52 +112,8 @@ def _now() -> str:
 
 
 def _call_cli(prompt: str, system_prompt: str, timeout: int) -> str:
-    """Call Claude Code CLI with combined system+user prompt. Returns raw stdout.
-
-    Uses `claude -p` (--print mode) which goes through the user's Claude Code
-    subscription ($200/mo plan) instead of API balance.
-
-    Raises RuntimeError on non-zero exit or timeout.
-    """
-    # Combine system prompt and user prompt into a single input
-    full_prompt = f"{system_prompt}\n\n---\n\n{prompt}"
-
-    cmd = [
-        CLAUDE_BIN,
-        "--print",
-        "--no-session-persistence",
-    ]
-
-    t0 = time.monotonic()
-    try:
-        proc = subprocess.run(
-            cmd,
-            input=full_prompt,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            timeout=timeout,
-            cwd=str(ROOT),
-        )
-        elapsed = time.monotonic() - t0
-
-        if proc.returncode == 0:
-            logger.info(
-                "advisor CLI call: ok elapsed=%.1fs output_len=%d",
-                elapsed, len(proc.stdout),
-            )
-            return proc.stdout.strip()
-        else:
-            err_msg = (proc.stderr or proc.stdout or "unknown error")[:500]
-            raise RuntimeError(
-                f"claude CLI exit code {proc.returncode}: {err_msg}"
-            )
-
-    except subprocess.TimeoutExpired:
-        elapsed = time.monotonic() - t0
-        raise RuntimeError(
-            f"claude CLI timeout after {elapsed:.0f}s (limit={timeout}s)"
-        )
+    """Call Claude Code CLI. Delegates to shared claude_cli.call_claude."""
+    return call_claude(prompt, system_prompt=system_prompt, timeout=timeout)
 
 
 def _extract_json(text: str) -> dict:
