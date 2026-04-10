@@ -302,21 +302,32 @@ async def cmd_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text(f"Ошибка: {e}")
 
 
-async def _run_cycle(update: Update) -> None:
+_MAX_AUTO_CYCLES = 5  # hard limit to prevent infinite loop
+
+
+async def _run_cycle(update: Update, _depth: int = 0) -> None:
     """Run one orchestrator cycle and report result in Russian.
 
     After owner replies (ок/инструкция/решение), this auto-runs main.py
     so the owner doesn't need to manually trigger /run.
 
-    If the resulting state is awaiting_execution, auto-runs again (recursive).
+    If the resulting state is awaiting_execution, auto-runs again (up to _MAX_AUTO_CYCLES).
     Park states are already notified by _notify_park in main.py.
     """
+    if _depth >= _MAX_AUTO_CYCLES:
+        await update.message.reply_text(
+            f"Остановлено после {_MAX_AUTO_CYCLES} циклов подряд.\n"
+            "Посмотри на ПК что происходит. Ответь 'ок' чтобы продолжить."
+        )
+        return
+
     if not MANIFEST_PATH.exists():
         return
 
     m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     task_id = m.get("current_task_id", "?")
-    await update.message.reply_text(f"Запускаю цикл... (задача: {task_id})")
+    if _depth == 0:
+        await update.message.reply_text(f"Запускаю... (задача: {task_id})")
 
     try:
         env = _load_env()
@@ -362,10 +373,10 @@ async def _run_cycle(update: Update) -> None:
         )
         return
 
-    # Awaiting execution — auto-run again
+    # Awaiting execution — auto-run again (with depth guard)
     if new_state == "awaiting_execution":
-        _pc("State is awaiting_execution — auto-running next cycle")
-        await _run_cycle(update)
+        _pc(f"State is awaiting_execution — auto-running cycle {_depth + 1}/{_MAX_AUTO_CYCLES}")
+        await _run_cycle(update, _depth + 1)
         return
 
     # Park states — _notify_park already sent Telegram notification from main.py
