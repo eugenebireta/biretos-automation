@@ -505,7 +505,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     if await _handle_owner_reply(update, text):
         return
 
-    # Check for strojka trigger
+    # Check for strojka trigger — ONLY with explicit prefix
     task_text = None
     for prefix in ("Стройка:", "стройка:", "Strojka:", "strojka:"):
         if text.startswith(prefix):
@@ -513,8 +513,17 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             break
 
     if task_text is None:
-        # Any free text (no prefix) — treat as task instruction
-        task_text = text
+        # Free text without prefix — save as owner message for Claude Code to read
+        inbox = ORCH_DIR / "owner_inbox.jsonl"
+        entry = json.dumps({
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "text": text,
+        }, ensure_ascii=False)
+        with open(inbox, "a", encoding="utf-8") as f:
+            f.write(entry + "\n")
+        _pc(f"Owner message saved: {text[:80]}")
+        await update.message.reply_text("Принял. Передам в рабочий чат.")
+        return
 
     if not task_text:
         await update.message.reply_text("Напиши задачу после 'Стройка:'")

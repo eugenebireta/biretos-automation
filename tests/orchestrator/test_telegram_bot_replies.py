@@ -273,36 +273,28 @@ class TestOwnerReplyFreeText:
 # ---------------------------------------------------------------------------
 
 class TestHandleMessageFreeText:
-    """Any text without prefix treated as new task via strojka."""
+    """Free text without prefix saved to inbox; prefixed text triggers strojka."""
 
-    def test_free_text_triggers_strojka(self, tmp_path):
-        """Text without 'Стройка:' prefix should still trigger strojka."""
+    def test_free_text_saved_to_inbox(self, tmp_path):
+        """Text without 'Стройка:' prefix saved to owner_inbox.jsonl."""
         mp = _write_manifest(tmp_path, {"fsm_state": "ready"})
         update = _make_update("добавь логирование в advisor.py")
         ctx = MagicMock()
 
         with patch.object(bot, "MANIFEST_PATH", mp), \
-             patch.object(bot, "OWNER_CHAT_ID", None), \
-             patch("telegram_bot.subprocess") as mock_sp, \
-             patch("telegram_bot._load_env", return_value=os.environ.copy()), \
-             patch("telegram_bot._build_telegram_message", return_value="done"):
-
-            mock_proc = MagicMock()
-            mock_proc.stdout = iter([])
-            mock_proc.returncode = 0
-            mock_proc.wait = MagicMock()
-            mock_sp.Popen.return_value = mock_proc
-
+             patch.object(bot, "ORCH_DIR", tmp_path), \
+             patch.object(bot, "OWNER_CHAT_ID", None):
             _run(bot.handle_message(update, ctx))
 
-        # Should have started subprocess (strojka)
-        mock_sp.Popen.assert_called_once()
-        call_args = mock_sp.Popen.call_args[0][0]
-        assert "strojka.py" in call_args[1]
-        assert "добавь логирование в advisor.py" in call_args[2]
+        # Should save to inbox, NOT run strojka
+        inbox = tmp_path / "owner_inbox.jsonl"
+        assert inbox.exists()
+        entry = json.loads(inbox.read_text(encoding="utf-8").strip())
+        assert entry["text"] == "добавь логирование в advisor.py"
+        assert "Принял" in update.message.reply_text.call_args[0][0]
 
-    def test_prefixed_text_also_works(self, tmp_path):
-        """'Стройка: <task>' still works as before."""
+    def test_prefixed_text_triggers_strojka(self, tmp_path):
+        """'Стройка: <task>' still triggers strojka."""
         mp = _write_manifest(tmp_path, {"fsm_state": "ready"})
         update = _make_update("Стройка: обнови версию")
         ctx = MagicMock()
