@@ -302,6 +302,90 @@ async def cmd_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         await update.message.reply_text(f"Ошибка: {e}")
 
 
+async def _run_cycle(update: Update) -> None:
+    """Run one orchestrator cycle and report result in Russian.
+
+    After owner replies (ок/инструкция/решение), this auto-runs main.py
+    so the owner doesn't need to manually trigger /run.
+
+    If the resulting state is awaiting_execution, auto-runs again (recursive).
+    Park states are already notified by _notify_park in main.py.
+    """
+    if not MANIFEST_PATH.exists():
+        return
+
+    m = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    task_id = m.get("current_task_id", "?")
+    await update.message.reply_text(f"Запускаю цикл... (задача: {task_id})")
+
+    try:
+        env = _load_env()
+        proc = subprocess.Popen(
+            [sys.executable, str(ORCH_DIR / "main.py")],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            cwd=str(ROOT),
+            env=env,
+        )
+        for line in proc.stdout:
+            line = line.rstrip()
+            if line:
+                _pc(f"  {line}")
+        proc.wait(timeout=600)
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        await update.message.reply_text("Таймаут (10 мин). Посмотри на ПК.")
+        return
+    except Exception as e:
+        await update.message.reply_text(f"Ошибка запуска: {e}")
+        return
+
+    # Re-read manifest for result
+    if not MANIFEST_PATH.exists():
+        await update.message.reply_text("Цикл завершён. Посмотри результат на ПК.")
+        return
+
+    m2 = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    new_state = m2.get("fsm_state", "?")
+    task_id = m2.get("current_task_id", "?")
+
+    _pc(f"Run cycle complete: state={new_state}, exit={proc.returncode}")
+
+    # Success — task completed
+    if new_state == "ready" and m2.get("last_verdict") in ("PASS", "APPROVED", None):
+        await update.message.reply_text(
+            f"Задача «{task_id}» выполнена успешно.\n"
+            f"Тесты прошли, код закоммичен."
+        )
+        return
+
+    # Awaiting execution — auto-run again
+    if new_state == "awaiting_execution":
+        _pc("State is awaiting_execution — auto-running next cycle")
+        await _run_cycle(update)
+        return
+
+    # Park states — _notify_park already sent Telegram notification from main.py
+    # Just log to console, don't double-message
+    park_states = ("awaiting_owner_reply", "error", "blocked", "blocked_by_consensus",
+                   "parked_budget_daily", "parked_budget_run", "parked_api_outage")
+    if new_state in park_states:
+        _pc(f"Parked at {new_state} — notification already sent by _notify_park")
+        return
+
+    # Anything else — generic result
+    verdict = m2.get("last_verdict") or "—"
+    await update.message.reply_text(
+        f"Цикл завершён.\n"
+        f"Состояние: {new_state}\n"
+        f"Вердикт: {verdict}\n"
+        f"Задача: {task_id}"
+    )
+
+
 async def cmd_run(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Trigger one orchestrator cycle (main.py)."""
     if not _is_owner(update):
@@ -317,45 +401,7 @@ async def cmd_run(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "Для ошибок/эскалаций используй 'ок' или 'нет'."
         )
         return
-    await update.message.reply_text(f"Запускаю цикл... (задача: {m.get('current_task_id','?')})")
-    try:
-        env = _load_env()
-        proc = subprocess.Popen(
-            [sys.executable, str(ORCH_DIR / "main.py")],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            cwd=str(ROOT),
-            env=env,
-        )
-        lines = []
-        for line in proc.stdout:
-            line = line.rstrip()
-            if line:
-                _pc(f"  {line}")
-                lines.append(line)
-        proc.wait(timeout=600)
-        # Re-read manifest for result
-        if MANIFEST_PATH.exists():
-            m2 = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-            new_state = m2.get("fsm_state", "?")
-            verdict = m2.get("last_verdict") or "—"
-            await update.message.reply_text(
-                f"Цикл завершён.\n"
-                f"Состояние: {new_state}\n"
-                f"Вердикт: {verdict}\n"
-                f"Задача: {m2.get('current_task_id','?')}"
-            )
-        else:
-            await update.message.reply_text("Цикл завершён. Посмотри результат на ПК.")
-        _pc(f"Run cycle via Telegram complete: exit={proc.returncode}")
-    except subprocess.TimeoutExpired:
-        proc.kill()
-        await update.message.reply_text("Таймаут (10 мин). Посмотри на ПК.")
-    except Exception as e:
-        await update.message.reply_text(f"Ошибка запуска: {e}")
+    await _run_cycle(update)
 
 
 # ── Owner reply to escalation ──────────────────────────────────────────
@@ -385,9 +431,9 @@ async def _handle_owner_reply(update: Update, text: str) -> bool:
             )
             _pc(f"Owner decision: {reply_key} = {options[reply_key]}")
             await update.message.reply_text(
-                f"Принято: {reply_key} — {options[reply_key]}\n\n"
-                f"Стройка продолжит при следующем запуске."
+                f"Принято: {reply_key} — {options[reply_key]}"
             )
+            await _run_cycle(update)
             return True
 
     # --- Simple ок/нет for park states ---
@@ -396,7 +442,7 @@ async def _handle_owner_reply(update: Update, text: str) -> bool:
     if state not in park_states:
         return False
 
-    if lower in ("ок", "ok", "да", "yes", "го", "давай"):
+    if lower in ("ок", "ok", "да", "yes", "го", "давай", "продолжай"):
         m["fsm_state"] = "ready"
         m["last_verdict"] = None
         m.pop("park_reason", None)
@@ -405,7 +451,8 @@ async def _handle_owner_reply(update: Update, text: str) -> bool:
             json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8"
         )
         _pc("Owner approved -> fsm_state=ready")
-        await update.message.reply_text("Принято. Стройка продолжит при следующем запуске.")
+        await update.message.reply_text("Принято. Продолжаю...")
+        await _run_cycle(update)
         return True
     elif lower in ("нет", "no", "стоп", "stop"):
         _pc(f"Owner rejected — fsm stays at {state}")
@@ -425,8 +472,9 @@ async def _handle_owner_reply(update: Update, text: str) -> bool:
         _pc(f"Owner instruction saved: {text[:80]}")
         preview = text[:120] + ("…" if len(text) > 120 else "")
         await update.message.reply_text(
-            f"Принял инструкцию:\n\"{preview}\"\n\nСтройка учтёт при следующем запуске."
+            f"Принял инструкцию:\n\"{preview}\"\n\nВыполняю..."
         )
+        await _run_cycle(update)
         return True
 
     return False

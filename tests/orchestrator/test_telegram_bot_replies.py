@@ -66,15 +66,15 @@ class TestOwnerReplyOkNo:
             "current_task_id": "fix-auth",
         })
         update = _make_update("ок")
-        with patch.object(bot, "MANIFEST_PATH", mp):
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", new_callable=AsyncMock):
             result = _run(bot._handle_owner_reply(update, "ок"))
 
         assert result is True
         m = _read_manifest(tmp_path)
         assert m["fsm_state"] == "ready"
         assert m.get("park_reason") is None
-        update.message.reply_text.assert_called_once()
-        assert "Принято" in update.message.reply_text.call_args[0][0]
+        assert "Принято" in update.message.reply_text.call_args_list[0][0][0]
 
     def test_no_keeps_parked(self, tmp_path):
         mp = _write_manifest(tmp_path, {
@@ -98,12 +98,44 @@ class TestOwnerReplyOkNo:
 
         assert result is False  # not handled
 
+    def test_prodolzhay_resumes_and_runs(self, tmp_path):
+        """'продолжай' should resume and trigger auto-run."""
+        mp = _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#blocker_loop: failed",
+        })
+        update = _make_update("продолжай")
+        mock_run = AsyncMock()
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", mock_run):
+            result = _run(bot._handle_owner_reply(update, "продолжай"))
+
+        assert result is True
+        assert _read_manifest(tmp_path)["fsm_state"] == "ready"
+        mock_run.assert_called_once_with(update)
+
+    def test_ok_triggers_auto_run(self, tmp_path):
+        """After 'ок', _run_cycle should be called automatically."""
+        mp = _write_manifest(tmp_path, {
+            "fsm_state": "blocked",
+            "park_reason": "#blocker: test",
+        })
+        update = _make_update("ок")
+        mock_run = AsyncMock()
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", mock_run):
+            result = _run(bot._handle_owner_reply(update, "ок"))
+
+        assert result is True
+        mock_run.assert_called_once_with(update)
+
     def test_all_park_states_accept_ok(self, tmp_path):
         for state in ("awaiting_owner_reply", "blocked", "blocked_by_consensus",
                        "parked_budget_daily", "parked_budget_run", "parked_api_outage"):
             mp = _write_manifest(tmp_path, {"fsm_state": state})
             update = _make_update("ok")
-            with patch.object(bot, "MANIFEST_PATH", mp):
+            with patch.object(bot, "MANIFEST_PATH", mp), \
+                 patch.object(bot, "_run_cycle", new_callable=AsyncMock):
                 result = _run(bot._handle_owner_reply(update, "ok"))
             assert result is True, f"State {state} did not accept 'ok'"
             assert _read_manifest(tmp_path)["fsm_state"] == "ready"
@@ -125,7 +157,8 @@ class TestOwnerReplyDecision:
             },
         })
         update = _make_update("A")
-        with patch.object(bot, "MANIFEST_PATH", mp):
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", new_callable=AsyncMock):
             result = _run(bot._handle_owner_reply(update, "A"))
 
         assert result is True
@@ -144,7 +177,8 @@ class TestOwnerReplyDecision:
             },
         })
         update = _make_update("b")
-        with patch.object(bot, "MANIFEST_PATH", mp):
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", new_callable=AsyncMock):
             result = _run(bot._handle_owner_reply(update, "b"))
 
         assert result is True
@@ -160,7 +194,8 @@ class TestOwnerReplyDecision:
             },
         })
         update = _make_update("C")
-        with patch.object(bot, "MANIFEST_PATH", mp):
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", new_callable=AsyncMock):
             result = _run(bot._handle_owner_reply(update, "C"))
 
         # "C" is 1 char, not in options, not ок/нет, <5 chars → not handled
@@ -182,7 +217,8 @@ class TestOwnerReplyFreeText:
         })
         text = "попробуй другой подход — используй gemini"
         update = _make_update(text)
-        with patch.object(bot, "MANIFEST_PATH", mp):
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", new_callable=AsyncMock):
             result = _run(bot._handle_owner_reply(update, text))
 
         assert result is True
@@ -190,7 +226,7 @@ class TestOwnerReplyFreeText:
         assert m["owner_instruction"] == text
         assert m["fsm_state"] == "ready"
         assert m.get("park_reason") is None
-        reply = update.message.reply_text.call_args[0][0]
+        reply = update.message.reply_text.call_args_list[0][0][0]
         assert "инструкцию" in reply.lower()
 
     def test_free_text_long_instruction(self, tmp_path):
@@ -199,7 +235,8 @@ class TestOwnerReplyFreeText:
         })
         text = "Отмени текущий подход. Вместо этого: 1) прочитай файл X, 2) измени функцию Y, 3) запусти тесты"
         update = _make_update(text)
-        with patch.object(bot, "MANIFEST_PATH", mp):
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", new_callable=AsyncMock):
             result = _run(bot._handle_owner_reply(update, text))
 
         assert result is True
@@ -310,7 +347,8 @@ class TestEndToEndFreeTextToDirective:
         # 2. Owner sends free-text instruction
         instruction = "не трогай файл guardian.py, исправь только в advisor.py"
         update = _make_update(instruction)
-        with patch.object(bot, "MANIFEST_PATH", mp):
+        with patch.object(bot, "MANIFEST_PATH", mp), \
+             patch.object(bot, "_run_cycle", new_callable=AsyncMock):
             result = _run(bot._handle_owner_reply(update, instruction))
         assert result is True
 
