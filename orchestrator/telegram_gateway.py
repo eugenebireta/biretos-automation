@@ -33,8 +33,12 @@ from pathlib import Path
 from typing import Any
 
 # Import transport abstraction
-from orchestrator.messaging.base import MessengerTransport, CanonicalEvent
-from orchestrator.messaging.telegram_adapter import TelegramAdapter
+try:
+    from orchestrator.messaging.base import MessengerTransport, CanonicalEvent
+    from orchestrator.messaging.telegram_adapter import TelegramAdapter
+except ModuleNotFoundError:
+    from messaging.base import MessengerTransport, CanonicalEvent
+    from messaging.telegram_adapter import TelegramAdapter
 
 ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"

@@ -19,12 +19,14 @@ from typing import Any
 
 import httpx
 
-from orchestrator.messaging.base import (
-    CanonicalEvent,
-    MessageRef,
-    MessengerTransport,
-    compute_raw_hash,
-)
+try:
+    from orchestrator.messaging.base import (
+        CanonicalEvent, MessageRef, MessengerTransport, compute_raw_hash,
+    )
+except ModuleNotFoundError:
+    from messaging.base import (
+        CanonicalEvent, MessageRef, MessengerTransport, compute_raw_hash,
+    )
 
 # Telegram limits
 TG_MAX_TEXT = 4096
