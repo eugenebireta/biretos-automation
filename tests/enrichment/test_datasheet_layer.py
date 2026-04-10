@@ -251,11 +251,23 @@ class TestIngestion:
         )
         r1 = ingest_from_find_datasheet(**base, pdf_bytes=b"version 1")
         r2 = ingest_from_find_datasheet(**base, pdf_bytes=b"version 2")
+        assert r1 is not None
+        assert r2 is not None
+        # C1 fix: returned record must have correct version, not placeholder
         assert r1.version == 1
         assert r2.version == 2
         assert r2.supersedes == 1
+        # Verify stored data matches
+        stored_v1 = read_version(tmp_path, "ING-004", 1)
+        stored_v2 = read_version(tmp_path, "ING-004", 2)
+        assert stored_v1 is not None
+        assert stored_v2 is not None
+        assert stored_v2["supersedes"] == 1
 
     def test_ingest_from_evidence(self, tmp_path):
+        # Create a local PDF file so content hash can be computed
+        pdf_path = tmp_path / "test.pdf"
+        pdf_path.write_bytes(b"fake evidence pdf")
         evidence = {
             "entity_id": "EV-001",
             "brand": "EvidenceBrand",
@@ -263,6 +275,7 @@ class TestIngestion:
                 "datasheet_status": "found",
                 "pdf_url": "https://example.com/ev.pdf",
                 "pdf_source_tier": "distributor",
+                "pdf_local_path": str(pdf_path),
             },
         }
         result = ingest_from_evidence(evidence, trace_id="test", base_dir=tmp_path)
@@ -372,7 +385,10 @@ class TestMigrate:
         evidence_dir.mkdir()
         ds_dir = tmp_path / "datasheets"
 
-        # Create evidence file with datasheet
+        # Create a real PDF file for content hash (W7: no sentinel values)
+        pdf_file = tmp_path / "mig_test.pdf"
+        pdf_file.write_bytes(b"migrate test pdf content")
+
         evidence = {
             "entity_id": "MIG-001",
             "brand": "MigBrand",
@@ -380,6 +396,7 @@ class TestMigrate:
                 "datasheet_status": "found",
                 "pdf_url": "https://example.com/mig.pdf",
                 "pdf_source_tier": "manufacturer",
+                "pdf_local_path": str(pdf_file),
             },
         }
         (evidence_dir / "evidence_001.json").write_text(
@@ -397,6 +414,10 @@ class TestMigrate:
         evidence_dir.mkdir()
         ds_dir = tmp_path / "datasheets"
 
+        # Create a real PDF file for content hash (W7: no sentinel values)
+        pdf_file = tmp_path / "mig_test2.pdf"
+        pdf_file.write_bytes(b"migrate idempotent pdf")
+
         evidence = {
             "entity_id": "MIG-002",
             "brand": "MigBrand",
@@ -404,6 +425,7 @@ class TestMigrate:
                 "datasheet_status": "found",
                 "pdf_url": "https://example.com/mig2.pdf",
                 "pdf_source_tier": "manufacturer",
+                "pdf_local_path": str(pdf_file),
             },
         }
         (evidence_dir / "evidence_002.json").write_text(
@@ -436,6 +458,8 @@ class TestMigrate:
 
         stats = migrate_all(evidence_dir=evidence_dir, base_dir=ds_dir, dry_run=True)
         assert stats["ingested"] == 1  # counted but not written
+        assert stats["dedup_skipped"] == 0
+        assert stats["errors"] == 0
         # Verify nothing was actually written
         assert not ds_dir.exists() or not list(ds_dir.glob("*/v*.json"))
 

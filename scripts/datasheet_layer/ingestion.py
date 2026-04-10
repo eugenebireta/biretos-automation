@@ -11,7 +11,7 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 from .schema import DatasheetRecord, compute_content_hash, _now
-from .store import get_latest_version, write_version, _structured_log
+from .store import write_version, _structured_log
 
 logger = logging.getLogger(__name__)
 
@@ -53,22 +53,25 @@ def ingest_from_find_datasheet(
         )
         return None
 
-    # Compute content hash
+    # Compute content hash — required for dedup. No sentinel values.
     if pdf_bytes:
         content_hash = compute_content_hash(pdf_bytes)
     elif pdf_path and Path(pdf_path).exists():
         content_hash = compute_content_hash(Path(pdf_path).read_bytes())
     else:
-        content_hash = "no_content"
+        _structured_log(
+            trace_id, "ingest_no_content",
+            error_class="POLICY_VIOLATION", severity="WARNING",
+            pn=pn, reason="no pdf_bytes and no readable pdf_path — cannot compute content hash",
+        )
+        return None
 
-    # Determine version
-    latest = get_latest_version(base_dir, pn)
-    new_version = latest + 1
-
+    # version=1 is placeholder — write_version(auto_version=True) assigns
+    # the real version inside the lock to prevent same-PN race conditions.
     record = DatasheetRecord(
         pn=pn,
         brand=brand,
-        version=new_version,
+        version=1,  # overridden by auto_version
         trace_id=trace_id,
         source_id=find_result.get("pdf_url", ""),
         source_tier=find_result.get("pdf_source_tier", "unknown"),
@@ -81,11 +84,16 @@ def ingest_from_find_datasheet(
         specs=find_result.get("pdf_specs", {}),
         text_excerpt=find_result.get("pdf_text_excerpt", "")[:600],
         parse_method=find_result.get("parse_method", ""),
-        supersedes=latest if latest > 0 else None,
     )
 
     try:
-        write_version(base_dir, record.model_dump_json_safe(), trace_id=trace_id)
+        _, actual_version = write_version(
+            base_dir, record.model_dump_json_safe(),
+            trace_id=trace_id, auto_version=True,
+        )
+        # Sync in-memory record with what write_version assigned under lock
+        record.version = actual_version
+        record.supersedes = actual_version - 1 if actual_version > 1 else None
     except ValueError as exc:
         # Dedup — same content already ingested
         _structured_log(
@@ -103,7 +111,7 @@ def ingest_from_find_datasheet(
 
     _structured_log(
         trace_id, "ingest_success",
-        pn=pn, version=new_version,
+        pn=pn,
         spec_count=len(record.specs),
         content_hash=content_hash[:16],
     )

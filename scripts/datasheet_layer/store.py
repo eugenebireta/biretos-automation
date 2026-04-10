@@ -46,12 +46,12 @@ def _structured_log(
 
 
 @contextmanager
-def _file_lock(base_dir: Path, timeout: float = 10.0):
+def _file_lock(base_dir: Path, timeout: float = 10.0, trace_id: str = ""):
     """
     Cross-process file lock via lockfile.
 
-    Uses atomic O_EXCL file creation. Falls back to no-lock if
-    lock acquisition fails after timeout (logs warning, doesn't deadlock).
+    Uses atomic O_EXCL file creation. Raises TimeoutError if lock
+    cannot be acquired — never proceeds unlocked.
     """
     lock_path = base_dir / ".datasheet_store.lock"
     lock_path.parent.mkdir(parents=True, exist_ok=True)
@@ -65,7 +65,14 @@ def _file_lock(base_dir: Path, timeout: float = 10.0):
         except FileExistsError:
             time.sleep(0.05)
     if fd is None:
-        logger.warning("datasheet_store: lock timeout after %.1fs, proceeding unlocked", timeout)
+        _structured_log(
+            trace_id, "lock_timeout",
+            error_class="TRANSIENT", severity="ERROR", retriable=True,
+            timeout=timeout,
+        )
+        raise TimeoutError(
+            f"datasheet_store: lock acquisition timed out after {timeout:.1f}s"
+        )
     try:
         yield
     finally:
@@ -98,8 +105,12 @@ def _atomic_write(path: Path, data: str) -> None:
         raise
 
 
-def _load_index(base_dir: Path) -> dict:
-    """Load global index.json. Returns empty dict if missing."""
+def _load_index(base_dir: Path, trace_id: str = "") -> dict:
+    """Load global index.json. Returns empty dict if file is missing.
+
+    Raises on corrupt/unreadable file to prevent data loss — a subsequent
+    _save_index would overwrite all PN entries with an empty dict.
+    """
     idx_path = base_dir / "index.json"
     if not idx_path.exists():
         return {}
@@ -107,11 +118,11 @@ def _load_index(base_dir: Path) -> dict:
         return json.loads(idx_path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError) as exc:
         _structured_log(
-            "", "index_load_error",
-            error_class="TRANSIENT", severity="WARNING", retriable=True,
+            trace_id, "index_load_error",
+            error_class="TRANSIENT", severity="ERROR", retriable=True,
             error=str(exc),
         )
-        return {}
+        raise
 
 
 def _save_index(base_dir: Path, index: dict) -> None:
@@ -127,9 +138,9 @@ def get_pn_dir(base_dir: Path, pn: str) -> Path:
     return base_dir / pn
 
 
-def get_latest_version(base_dir: Path, pn: str) -> int:
+def get_latest_version(base_dir: Path, pn: str, trace_id: str = "") -> int:
     """Get latest version number for a PN from index. Returns 0 if none."""
-    index = _load_index(base_dir)
+    index = _load_index(base_dir, trace_id=trace_id)
     entry = index.get(pn, {})
     return entry.get("latest_version", 0)
 
@@ -138,26 +149,31 @@ def write_version(
     base_dir: Path,
     record_dict: dict,
     trace_id: str = "",
-) -> Path:
+    auto_version: bool = False,
+) -> tuple[Path, int]:
     """
     Write a versioned datasheet record. Thread/process safe via file lock.
 
     Dedup: if idempotency_key already exists for this PN, skip write.
     Atomic: v{N}.json written BEFORE index.json update.
+    Version assignment happens INSIDE the lock to prevent race conditions.
+
+    Args:
+        auto_version: if True, ignore record_dict["version"] and assign
+            next version number inside the lock (prevents same-PN races).
 
     Returns path to written version file.
     Raises ValueError if dedup match found.
     """
     pn = record_dict["pn"]
     idem_key = record_dict.get("idempotency_key", "")
-    version = record_dict["version"]
 
     pn_dir = get_pn_dir(base_dir, pn)
 
-    with _file_lock(base_dir):
+    with _file_lock(base_dir, trace_id=trace_id):
         # Dedup check under lock — no TOCTOU race
         if idem_key:
-            existing = _find_by_idempotency_key(base_dir, pn, idem_key)
+            existing = _find_by_idempotency_key(base_dir, pn, idem_key, trace_id=trace_id)
             if existing is not None:
                 _structured_log(
                     trace_id, "dedup_skip",
@@ -169,6 +185,17 @@ def write_version(
                     f"with idempotency_key={idem_key}"
                 )
 
+        # Version assignment inside lock — prevents same-PN race
+        if auto_version:
+            index = _load_index(base_dir, trace_id=trace_id)
+            latest = index.get(pn, {}).get("latest_version", 0)
+            version = latest + 1
+            record_dict = {**record_dict, "version": version}
+            if record_dict.get("supersedes") is None and latest > 0:
+                record_dict["supersedes"] = latest
+        else:
+            version = record_dict["version"]
+
         # Write version file first (before index)
         version_path = pn_dir / f"v{version}.json"
         _atomic_write(
@@ -177,7 +204,8 @@ def write_version(
         )
 
         # Update index after version file is safely written
-        index = _load_index(base_dir)
+        if not auto_version:
+            index = _load_index(base_dir, trace_id=trace_id)
         index[pn] = {
             "latest_version": version,
             "version_count": version,
@@ -190,10 +218,10 @@ def write_version(
         pn=pn, version=version,
         spec_count=len(record_dict.get("specs", {})),
     )
-    return version_path
+    return version_path, version
 
 
-def read_version(base_dir: Path, pn: str, version: int) -> dict | None:
+def read_version(base_dir: Path, pn: str, version: int, trace_id: str = "") -> dict | None:
     """Read a specific version. Returns None if not found."""
     path = get_pn_dir(base_dir, pn) / f"v{version}.json"
     if not path.exists():
@@ -202,7 +230,7 @@ def read_version(base_dir: Path, pn: str, version: int) -> dict | None:
         return json.loads(path.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError) as exc:
         _structured_log(
-            "", "version_read_error",
+            trace_id, "version_read_error",
             error_class="TRANSIENT", severity="WARNING", retriable=True,
             pn=pn, version=version, error=str(exc),
         )
@@ -224,7 +252,7 @@ def list_all_pns(base_dir: Path) -> list[str]:
 
 
 def _find_by_idempotency_key(
-    base_dir: Path, pn: str, idem_key: str,
+    base_dir: Path, pn: str, idem_key: str, trace_id: str = "",
 ) -> int | None:
     """Find version number by idempotency_key. Returns None if not found."""
     pn_dir = get_pn_dir(base_dir, pn)
@@ -235,6 +263,11 @@ def _find_by_idempotency_key(
             data = json.loads(vfile.read_text(encoding="utf-8"))
             if data.get("idempotency_key") == idem_key:
                 return data.get("version")
-        except (json.JSONDecodeError, OSError):
+        except (json.JSONDecodeError, OSError) as exc:
+            _structured_log(
+                trace_id, "dedup_scan_corrupt_file",
+                error_class="TRANSIENT", severity="WARNING", retriable=True,
+                pn=pn, file=vfile.name, error=str(exc),
+            )
             continue
     return None
