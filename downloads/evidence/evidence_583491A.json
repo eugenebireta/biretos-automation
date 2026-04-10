@@ -132,12 +132,19 @@
     "image_confidence": 0.769,
     "price_confidence": 0.35,
     "overall": 0.643,
-    "overall_label": "MEDIUM",
+    "overall_label": "LOW",
     "publishability": "REVIEW_REQUIRED",
     "notes": [
       "price_low_confidence",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "MEDIUM",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -527,5 +534,6 @@
     "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "cable",
-  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-583491a-variodyn-d1-cat5-patch-cable-0-5-m-green-dom-to-ampl-primaryimage"
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-583491a-variodyn-d1-cat5-patch-cable-0-5-m-green-dom-to-ampl-primaryimage",
+  "product_category": "cable"
 }

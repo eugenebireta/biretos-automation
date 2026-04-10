@@ -141,12 +141,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -167,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Двухходовой клапан Honeywell с фланцевым присоединением, логотип и маркировка видны",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -185,7 +192,9 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "no_price_found",
@@ -558,5 +567,6 @@
     "source_file": "deep-research-report.md",
     "description_ru": "Фланцевый регулирующий клапан из чугуна с разгруженным плунжером для систем отопления и охлаждения. Рассчитан на номинальное давление PN16 и температуру среды до 180 градусов Цельсия. Подходит для работы с большими перепадами давления благодаря сбалансированной конструкции.",
     "specs": "Size: DN40; PN: 16; Kvs: 25; Stroke: 20mm; Weight: 10.72kg"
-  }
+  },
+  "product_category": "valve"
 }

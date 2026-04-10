@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -326,7 +333,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Принтер",
-    "seed_name": "Принтер Honeywell COLOR"
+    "seed_name": "Принтер Honeywell COLOR",
+    "description_long_ru": "Catalog artifact; ref price = 0; flag as data quality issue"
   },
   "trace": {
     "pn_match_location": "",
@@ -595,10 +603,12 @@
       "В выдаче встречаются товары с «Color» в названии (например, термостаты/кейпады), но PN=COLOR как артикул не подтверждён. citeturn60search3turn60search5",
       "Aliases: Возможные совпадения: «Color» в названиях термостатов/клавиатур"
     ],
-    "merge_ts": "2026-04-09T12:01:24.891174+00:00",
+    "merge_ts": "2026-04-10T11:05:35.326851+00:00",
     "merge_source": "result_COLOR.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Catalog artifact; ref price = 0; flag as data quality issue"
+  },
+  "product_category": "UI Option"
 }

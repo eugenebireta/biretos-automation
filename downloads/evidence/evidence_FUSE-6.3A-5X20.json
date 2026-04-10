@@ -164,7 +164,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -330,7 +337,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Предохранитель",
-    "seed_name": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20"
+    "seed_name": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20",
+    "description_long_ru": "Standard commodity fuse. Packs of 10 ~$6-9 on Amazon"
   },
   "trace": {
     "pn_match_location": "",
@@ -621,10 +629,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.920753+00:00",
+    "merge_ts": "2026-04-10T11:05:35.418912+00:00",
     "merge_source": "result_FUSE-6.3A-5X20.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Standard commodity fuse. Packs of 10 ~$6-9 on Amazon"
+  },
+  "product_category": "fuse"
 }

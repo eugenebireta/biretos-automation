@@ -141,12 +141,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -167,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqRfiecQuEPs7RuNKMG8'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -185,7 +192,9 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "no_price_found",
@@ -556,5 +565,6 @@
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-bms-pthrb0401a2-smart-sn-hmi-electronic-pressure-transmitter-primaryimage",
   "dr_price": 815.33,
   "dr_currency": "EUR",
-  "dr_price_source": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/"
+  "dr_price_source": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/",
+  "product_category": "Electronic pressure transmitter"
 }

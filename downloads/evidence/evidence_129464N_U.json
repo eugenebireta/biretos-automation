@@ -165,15 +165,22 @@
     "image_confidence": 0.0,
     "price_confidence": 0.1,
     "overall": 0.02,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "На изображении видна миниатюрная трубка Honeywell/Beckett 129464N, товар угадывается",
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\129464N_U.jpg",
     "sha1": "bfe962be5ec36e10525be9051297042645ceeacc",
@@ -189,7 +196,9 @@
     "photo_status": "exact_evidence",
     "photo_evidence_role": "exact",
     "photo_is_temporary": false,
-    "replacement_required": false
+    "replacement_required": false,
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -597,5 +606,6 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
     "description_ru": "Сменная фоточувствительная трубка для обнаружения ультрафиолетового излучения пламени. Предназначена для использования в газовых и жидкотопливных горелках промышленного назначения. Является ключевым компонентом систем с динамической самопроверкой для предотвращения аварий. Работает в широком температурном диапазоне до \\+121 °C."
-  }
+  },
+  "product_category": "UV Tube"
 }

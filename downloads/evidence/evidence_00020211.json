@@ -164,7 +164,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -623,5 +630,6 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report-prompt-v3.md",
     "description_ru": "Специализированное устройство системы LOTO для блокировки рычажных настенных выключателей. Предотвращает несанкционированное включение питания во время сервисных работ и вмещает до нескольких замков.16"
-  }
+  },
+  "product_category": "PEHA NOVA frame"
 }

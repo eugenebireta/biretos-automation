@@ -146,12 +146,19 @@
     "image_confidence": 0.192,
     "price_confidence": 0.35,
     "overall": 0.299,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -172,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Металлический корпус/ящик для монтажа блока питания угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -190,7 +197,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://all-bez.ru/catalog/fx808431/"
   },
   "price": {
     "price_status": "no_price_found",
@@ -558,5 +568,6 @@
   "dr_image_url": "https://www.esser-systems.com/productimages/system-flexes-control/flexes-control-in-the-built-in-cabinet//fx808431-heavy-duty-drawer-with-power-supply-unit-5-hu_Inherited_product_pic_300_300_FX808431_xxxxx_GRPE_SF3C_01.jpg",
   "dr_price": 2.091,
   "dr_currency": "EUR",
-  "dr_price_source": "https://www.brandmelde-shop.de/esser-fx808431-schwerlastschublade-fuer-energieversorgung-5-he"
+  "dr_price_source": "https://www.brandmelde-shop.de/esser-fx808431-schwerlastschublade-fuer-energieversorgung-5-he",
+  "product_category": "Fire alarm PSU drawer"
 }

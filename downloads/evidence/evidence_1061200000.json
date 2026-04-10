@@ -136,15 +136,22 @@
     "image_confidence": 0.0,
     "price_confidence": 0.0,
     "overall": 0.0,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": true
+    }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Товар Weidmuller WEW 35/2 на изображении узнаваем",
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1061200000.jpg",
     "sha1": "acf51c8919213500163adff46ebf9d157d2071c3",
@@ -160,7 +167,9 @@
     "photo_status": "exact_evidence",
     "photo_evidence_role": "exact",
     "photo_is_temporary": false,
-    "replacement_required": false
+    "replacement_required": false,
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "public_price",
@@ -533,5 +542,6 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
     "description_ru": "Механический фиксатор для надежного закрепления клеммных блоков на монтажной шине. Изготовлен из усиленного стекловолокном полиамида, устойчивого к вибрации и экстремальным температурам.19"
-  }
+  },
+  "product_category": "terminal"
 }

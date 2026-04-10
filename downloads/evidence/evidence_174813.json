@@ -146,12 +146,19 @@
     "image_confidence": 0.192,
     "price_confidence": 0.35,
     "overall": 0.299,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -542,5 +549,6 @@
   "dr_image_url": "—",
   "dr_price": 126.5,
   "dr_currency": "EUR",
-  "dr_price_source": "https://www.preissuchmaschine.de/in-Radio/Diverse-9/Peha-Unterputz-Radio-20-485-64.html"
+  "dr_price_source": "https://www.preissuchmaschine.de/in-Radio/Diverse-9/Peha-Unterputz-Radio-20-485-64.html",
+  "product_category": "PEHA insert"
 }

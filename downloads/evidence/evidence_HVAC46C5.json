@@ -141,12 +141,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -167,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Инверторы Honeywell серии HVAC чётко видны на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -185,7 +192,9 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "no_price_found",
@@ -590,5 +599,6 @@
   "dr_category": "HVAC inverter (VFD)",
   "dr_price": 1.928,
   "dr_currency": "GBP",
-  "dr_price_source": "https://www.mytub.co.uk/hvac46c5-22kw-ip21-hvac-inverter-46-amps-product-297534"
+  "dr_price_source": "https://www.mytub.co.uk/hvac46c5-22kw-ip21-hvac-inverter-46-amps-product-297534",
+  "product_category": "HVAC inverter (VFD)"
 }

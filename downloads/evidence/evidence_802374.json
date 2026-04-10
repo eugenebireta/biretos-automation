@@ -146,12 +146,19 @@
     "image_confidence": 0.203,
     "price_confidence": 0.35,
     "overall": 0.311,
-    "overall_label": "LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -172,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Мультисенсорный извещатель 802374 IQ8Quad O²T с коробкой ESSER by Honeywell чётко виден",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -190,7 +197,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://www.bireta.ru/product/izveschatel-dvoynoy-dymovoy-o2tiq8quad-s-dopolnite"
   },
   "price": {
     "price_status": "no_price_found",
@@ -554,5 +564,6 @@
   "dr_image_url": "https://www.orbitadigital.com/317909-large_default/esser-802374-iq8-multi-sensory-o2t-detector.jpg",
   "dr_price": 24.64,
   "dr_currency": "EUR",
-  "dr_price_source": "https://www.orbitadigital.com/en/fire/esser/28749-esser-802374-iq8-multi-sensory-o2t-detector.html"
+  "dr_price_source": "https://www.orbitadigital.com/en/fire/esser/28749-esser-802374-iq8-multi-sensory-o2t-detector.html",
+  "product_category": "fire detector"
 }

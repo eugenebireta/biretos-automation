@@ -163,7 +163,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -337,7 +344,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Панель",
-    "seed_name": "Панель удаленных модулей C300 Panel PANC300-04"
+    "seed_name": "Панель удаленных модулей C300 Panel PANC300-04",
+    "description_long_ru": "Same situation as #13"
   },
   "trace": {
     "pn_match_location": "",
@@ -610,10 +618,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.978042+00:00",
+    "merge_ts": "2026-04-10T11:05:35.529576+00:00",
     "merge_source": "result_PANC300-04.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
-  }
+    "source_file": "deep-research-report (1).md",
+    "description_ru": "Same situation as #13"
+  },
+  "product_category": "Control Module"
 }

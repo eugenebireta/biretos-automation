@@ -1,14 +1,37 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 81
-transition_ts: "2026-04-09T21:00:00Z"
+transition_seq: 82
+transition_ts: "2026-04-10T16:00:00Z"
 
 ## Current
-active_task: "P7-BUDGET-TRACKING-AND-AUDIT-SUITE"
-task_id: "P7-BUDGET-TRACKING-AND-AUDIT-SUITE"
+active_task: "R1-EXPORT-READY-CONTROL-LAYER-v1"
+task_id: "R1-EXPORT-READY-CONTROL-LAYER-v1"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
+note: "Export-Ready Control Layer v1: export_ready.py reads 370 evidence files, computes fresh readiness view (not stale card_status). 224 EXPORT_READY / 68 DRAFT_EXPORT / 67 REVIEW_BLOCKED / 11 BLOCKED_NO_PRICE. 4 artifacts: export_ready_view.json, draft_insales_export.xlsx (4 sheets), photo_manifest.csv (370/370 ready_for_cloud), missing_data_queue.csv (167 rows). CANONICAL_CATEGORIES + _normalize_category() in merge_research_to_evidence.py. product_category backfilled 361/374 evidence files. dr_prompt_generator.py catalog_brand now dynamic."
+phase_owner: "Agent/ClaudeCode"
+risk_level: LOW
+pipeline: [BUILDER]
+pr_branch: "feat/rev-r1-catalog"
+now:
+  - step: "EXPORT-READY CONTROL LAYER v1 — 4 artifacts + CANONICAL_CATEGORIES"
+    actions:
+      - "scripts/export_ready.py: fresh readiness view (bypasses stale card_status)"
+      - "export_ready_view.json: 370 SKU readiness records"
+      - "draft_insales_export.xlsx: 4-sheet Excel (Сводка + 3 status sheets)"
+      - "photo_manifest.csv: 370/370 ready_for_cloud, 281 url + 89 local"
+      - "missing_data_queue.csv: 167 gaps — 67 identity, 11 price, 86 specs, 3 desc"
+      - "CANONICAL_CATEGORIES: max_eur + can_be_pack per category in merge_research"
+      - "_normalize_category(): DR raw cat → canonical via keyword rules + assembled_title"
+      - "product_category backfilled 361/374 evidence files"
+      - "dr_prompt_generator.py: catalog_brand dynamic from evidence brand field"
+known_gap: |
+  224 EXPORT_READY but price FX is stub (±5-10% error on non-RUB prices) — fx.py P0-1 still open.
+  67 REVIEW_BLOCKED (CRITICAL_MISMATCH) — needs targeted DR re-run with subbrand-first.
+  68 DRAFT_EXPORT — only our_price_raw, needs market price DR batch.
+  89 local photos not yet uploaded to cloud — next step is cloud upload + URL fill.
+awaiting: "Owner decision: (A) cloud photo upload for 89 local files, OR (B) DR batch for 79 missing-price SKUs, OR (C) identity fix batch for 67 CRITICAL_MISMATCH SKUs"
 note: "P7 budget_tracker.py: estimate_cost (model pricing table), record_call (JSONL persist), get_trace_cost, get_daily_summary (by_stage/model/provider), check_budget (daily+per-run limits). Wired into main.py: budget check at cycle start, advisor/executor/auditor cost recording, trace cost summary. 23 budget tests. Comprehensive audit test suite (test_audit_comprehensive.py): 47 tests across 9 categories (FSM invariants, risk separation, consensus gate, retry safety, budget enforcement, experience loop, queue integrity, directive integrity, cross-module contracts). 650/650 orchestrator tests pass."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW

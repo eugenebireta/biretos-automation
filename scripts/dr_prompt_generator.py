@@ -22,9 +22,7 @@ Outputs to: research_queue/dr_prompts/{version}/
 import json
 import glob
 import os
-import re
 import sys
-from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
 
@@ -141,6 +139,40 @@ FAMILY_RULES = [
 ]
 
 
+def detect_real_brand(assembled_title: str, pn: str, main_brand: str = "Honeywell") -> str | None:
+    """
+    Detect if a SKU's real searchable brand differs from the catalog's main brand.
+    Returns the real brand name if found, or None if main_brand is correct.
+
+    Rule: if assembled_title starts with a brand name that is NOT the main brand,
+    return that brand. This enables 'subbrand + PN' search in prompts.
+
+    This is GENERIC — works for any catalog, not just Honeywell.
+    """
+    # Known subbrand/OEM patterns: first word(s) of assembled_title
+    KNOWN_SUBBRANDS = [
+        "PEHA", "Esser", "Moxa", "Dell", "Phoenix Contact",
+        "Allied Telesis", "Eaton", "Redapt", "Axiomtek",
+        "Trend", "Saia-Burgess", "Notifier", "Morley",
+        "Howard Leight", "Intermec", "Datamax",
+    ]
+    title_upper = assembled_title.upper()
+    for brand in KNOWN_SUBBRANDS:
+        if brand.upper() in title_upper:
+            return brand
+    # Generic: if assembled_title starts with a capitalized word that isn't the main brand
+    words = assembled_title.split()
+    if words and words[0][0].isupper() and words[0].lower() != main_brand.lower():
+        candidate = words[0]
+        # Skip common Russian words and product type words
+        SKIP = {"Рамка","Клапан","Датчик","Привод","Модуль","Блок","Кабель","Терминал",
+                "Монитор","Принтер","Шкаф","Панель","Корпус","Набор","Устройство",
+                "Зарядное","Заглушка","Источник","Свитч","Коннектор","Адаптер"}
+        if candidate not in SKIP and len(candidate) > 2:
+            return candidate
+    return None
+
+
 def classify_product(assembled_title: str, pn: str) -> str:
     """
     Derive English product hint from assembled_title.
@@ -247,6 +279,8 @@ def load_uncovered_skus(gap_mode: str = None) -> list:
         # SAFETY CHECK: Verify we're using assembled_title, not expected_category
         expected_cat = data.get("expected_category", "")
         hint = classify_product(title, pn)
+        main_brand = data.get("brand", "Honeywell") or "Honeywell"
+        real_brand = detect_real_brand(title, pn, main_brand)
 
         # Cross-check: warn if hint contradicts title
         if "PEHA" in title and "PEHA" not in hint:
@@ -274,6 +308,8 @@ def load_uncovered_skus(gap_mode: str = None) -> list:
             "existing_desc": existing_desc[:100] if existing_desc else "",
             "expected_category_DO_NOT_USE": expected_cat,  # Kept for audit trail only
             "hint": hint,
+            "main_brand": main_brand,  # Catalog's primary brand (from evidence 'brand' field)
+            "real_brand": real_brand,  # None if main brand is correct search term
         })
 
     # Sort: weak identity first (need more research), then by hint (groups similar products)
@@ -307,20 +343,34 @@ def generate_chatgpt_prompt(batch: list, batch_num: int) -> str:
     has_ppe = any("PPE" in h for h in families)
 
     search_tips = []
+    # Generic subbrand tips — auto-detected from real_brand field
+    from collections import defaultdict as _dd2
+    brand_to_pns_g = _dd2(list)
+    for s in batch:
+        rb = s.get("real_brand")
+        if rb:
+            brand_to_pns_g[rb].append(s["pn"])
+
+    # Derive catalog brand from batch (use most common main_brand, fallback to "Honeywell")
+    from collections import Counter as _Counter
+    catalog_brand_g = _Counter(s.get("main_brand", "Honeywell") for s in batch).most_common(1)[0][0]
+    for rb, pns in brand_to_pns_g.items():
+        if rb != catalog_brand_g:
+            search_tips.append(f'- {rb}: search "{rb} {{PN}}" — NEVER "{catalog_brand_g} {{PN}}" for these items')
+
     if has_peha:
-        search_tips.append('- PEHA: German electrical accessories (frames, switches, sockets). Search "PEHA {code}" on ebay.de, conrad.de, voelkner.de, elektroversand.de')
-        search_tips.append("- Codes with dots like 010130.10 are PEHA — the suffix .10/.20 is a color variant, search without it too")
+        search_tips.append("- PEHA codes with dots (010130.10): suffix .10/.20 is color variant, search without it too")
+        search_tips.append("- Unit-price PEHA sources: watt24.com, heiz24.de, alles-mit-stecker.de (avoid Conrad/voelkner — pack prices)")
     if has_fire:
-        search_tips.append('- Esser/fire safety: 6-digit codes are IQ8 series fire detectors. Search "Esser {PN}" on brandmelde-shop.de, tinko.ru, nseautomation.com')
-        search_tips.append("- 58xxxx codes are Esser PA/voice alarm speakers and amplifiers")
+        search_tips.append("- Esser 58xxxx = PA speakers/amplifiers; 80xxxx = IQ8 detectors")
     if has_valves:
-        search_tips.append('- V5xxx/ML6xxx are Honeywell HVAC valves and actuators. Search on industrial suppliers, RadWell, IndiaMART')
-        search_tips.append("- N05xxx/N10xxx/S05xxx/S10xxx are Honeywell valve actuators (Sauter or Honeywell)")
+        search_tips.append('- V5xxx/ML6xxx Honeywell HVAC: radwell.com, emoteek.net, IndiaMART')
+        search_tips.append("- N05xxx/N10xxx/S05xxx/S10xxx: Honeywell valve actuators")
     if has_ppe:
-        search_tips.append('- PPE items (earplugs, harnesses, headphones): search on safety equipment suppliers, Amazon, Grainger')
+        search_tips.append('- PPE items: Amazon, Grainger, safety equipment suppliers')
     if not search_tips:
         search_tips.append('- Try "{PN}" in quotes on Google, eBay, Radwell, IndiaMART, AliExpress')
-        search_tips.append("- Try sub-brand prefixes: Esser, PEHA, Morley, Notifier, Trend, Saia-Burgess")
+        search_tips.append("- Try subbrand + PN if product has a known subbrand")
 
     tips_text = "\n".join(search_tips)
 
@@ -455,10 +505,15 @@ def generate_claude_prompt(batch: list, batch_num: int) -> str:
     """Generate Claude Deep Research prompt (contextual/personal style)."""
     rows = []
     for i, sku in enumerate(batch, 1):
-        excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
+        hint_col = sku["hint"]
+        # For PEHA items, seed_name/excel_description from xlsx is unreliable
+        # (labels like "Детектор пламени" for frames). Use assembled_title instead.
+        if "PEHA" in hint_col:
+            excel_desc = sku.get("assembled_title", "") or sku.get("excel_description", "")
+        else:
+            excel_desc = sku.get("excel_description", "") or sku.get("seed_name", "")
         ref_price = sku.get("ref_price_rub", "") or ""
         subbrand = sku.get("subbrand", "")
-        hint_col = sku["hint"]
         if subbrand and subbrand.lower() not in hint_col.lower():
             hint_col = f"{hint_col} ({subbrand})"
         variants = sku.get("pn_variants", [])
@@ -475,18 +530,40 @@ def generate_claude_prompt(batch: list, batch_num: int) -> str:
     has_valves = any(h in ("valve", "actuator") for h in families)
 
     family_context = []
+    # Generic subbrand detection — works for ANY catalog
+    # Group SKUs by their real_brand to generate per-brand search instructions
+    from collections import defaultdict as _dd
+    brand_to_pns = _dd(list)
+    for s in batch:
+        rb = s.get("real_brand")
+        if rb:
+            brand_to_pns[rb].append(s["pn"])
+
+    # Derive catalog brand from batch (use most common main_brand, fallback to "Honeywell")
+    from collections import Counter as _Counter2
+    catalog_brand = _Counter2(s.get("main_brand", "Honeywell") for s in batch).most_common(1)[0][0]
+
+    if brand_to_pns:
+        for rb, pns in brand_to_pns.items():
+            example_pn = pns[0]
+            family_context.append(
+                f'Items with brand **{rb}**: search as "{rb} {{PN}}" (e.g. "{rb} {example_pn}"). '
+                f'**Do NOT search "{catalog_brand} {{PN}}" for these — they are indexed under {rb}, not {catalog_brand}.**'
+            )
+
     if has_peha:
-        family_context.append("Many are **PEHA** brand — German electrical accessories (frames, rocker switches, sockets, inserts). These are NOT fire sensors. Search on ebay.de, conrad.de, voelkner.de, elektroversand.de.")
+        # Extra PEHA-specific search sites
+        family_context.append('**PEHA** search sites: ebay.de, conrad.de, voelkner.de, watt24.com, pehastore.de, heiz24.de, elektroversand.de. Single-unit price sources: watt24.com, heiz24.de, alles-mit-stecker.de (avoid Conrad/voelkner pack prices >200 EUR).')
     if has_fire:
-        family_context.append("Some are **Esser** fire safety components (detectors, transponders, PA speakers). Search on brandmelde-shop.de, tinko.ru, nseautomation.com.")
+        family_context.append('**Esser** search sites: brandmelde-shop.de, tinko.ru, fireshield.co.uk, walde.ee.')
     if has_valves:
-        family_context.append("Some are **Honeywell HVAC** valves and actuators. Search on industrial suppliers, Radwell, IndiaMART.")
+        family_context.append('**Honeywell HVAC** valves/actuators: emoteek.net, automa.net, radwell.com, indiamart.com.')
     if not family_context:
-        family_context.append("These are from various Honeywell sub-brands. Search on eBay, Radwell, IndiaMART, AliExpress, Conrad.de, specialist suppliers.")
+        family_context.append(f"These are from various {catalog_brand} sub-brands. Search on eBay, Radwell, IndiaMART, AliExpress, Conrad.de, specialist suppliers.")
 
     context_text = "\n".join(f"- {c}" for c in family_context)
 
-    return f"""I need you to research market prices for {count} industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+    return f"""I need you to research market prices for {count} industrial part numbers from the {catalog_brand} ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
 
 ## Who I am and why this matters
 
@@ -501,7 +578,7 @@ I'm building a product catalog for an industrial parts reseller. I need real-wor
 - Codes ending in .10/.20 are color variants — search without the suffix too
 - Suffix -RU means Russian market version — try without it
 - Suffix -L3 means kit/set — try without it
-- Many codes have aliases under different Honeywell sub-brand names
+- Many codes have aliases under different sub-brand names
 - Try: "{{PN}}" in quotes, sub-brand + PN, PN without leading zeros
 
 ## {count} Part Numbers (with reference data from our database)
@@ -619,7 +696,7 @@ def main():
 
     # Show family breakdown
     families = group_by_family(skus)
-    print(f"\nProduct family breakdown:")
+    print("\nProduct family breakdown:")
     for family, members in sorted(families.items()):
         print(f"  {family}: {len(members)} SKUs")
 

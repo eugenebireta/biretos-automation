@@ -151,7 +151,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -560,5 +567,6 @@
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-788600-primaryimage",
   "dr_price": 50.35,
   "dr_currency": "SAR",
-  "dr_price_source": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html"
+  "dr_price_source": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html",
+  "product_category": "Fire alarm enclosure"
 }

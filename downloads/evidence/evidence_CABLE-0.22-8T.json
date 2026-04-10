@@ -159,12 +159,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -185,7 +192,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "кабель с разъёмами RJ и DB9 угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -203,7 +210,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://telecom-sales.ru/product/honeywell-cbl-000-300-s00/?srsltid=AfmBOoo1z1yf"
   },
   "price": {
     "price_status": "no_price_found",
@@ -333,7 +343,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Кабель",
-    "seed_name": "Оптический кабель Honeywell CABLE-0.22-8T"
+    "seed_name": "Оптический кабель Honeywell CABLE-0.22-8T",
+    "description_long_ru": "Zero web presence; internal/OEM code"
   },
   "trace": {
     "pn_match_location": "",
@@ -609,10 +620,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.884674+00:00",
+    "merge_ts": "2026-04-10T11:05:35.301325+00:00",
     "merge_source": "result_CABLE-0.22-8T.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Zero web presence; internal/OEM code"
+  },
+  "product_category": "cable"
 }

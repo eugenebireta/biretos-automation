@@ -122,15 +122,22 @@
     "image_confidence": 0.0,
     "price_confidence": 0.0,
     "overall": 0.0,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": true
+    }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "наушники противошумные на каске",
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1012541.jpg",
     "sha1": "637ca5ffa5ba735cd25e2e20811ca62121bcc0a8",
@@ -146,7 +153,9 @@
     "photo_status": "exact_evidence",
     "photo_evidence_role": "exact",
     "photo_is_temporary": false,
-    "replacement_required": false
+    "replacement_required": false,
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "public_price",
@@ -567,5 +576,6 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
     "description_ru": "Пассивные наушники с проволочным креплением для монтажа на защитную каску, обеспечивающие высокую степень шумоподавления. Модель оснащена комфортными подушечками и адаптерами для совместимости с большинством промышленных касок.2"
-  }
+  },
+  "product_category": "hearing protection"
 }

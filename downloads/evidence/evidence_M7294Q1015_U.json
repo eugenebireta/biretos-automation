@@ -146,12 +146,19 @@
     "image_confidence": 0.192,
     "price_confidence": 0.35,
     "overall": 0.299,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -580,5 +587,6 @@
   "dr_image_url": "https://cdn.epartsservices.com/d/HONEYWELL/m7164a1017-1.jpg",
   "dr_price": 2745.67,
   "dr_currency": "USD",
-  "dr_price_source": "https://www.supplyhouse.com/Honeywell-M7294Q1015-24V-Non-Spring-Return-Foot-Mounted-Actuator-w-2-Aux-Switches-4-20mA-Control-300-lb-in"
+  "dr_price_source": "https://www.supplyhouse.com/Honeywell-M7294Q1015-24V-Non-Spring-Return-Foot-Mounted-Actuator-w-2-Aux-Switches-4-20mA-Control-300-lb-in",
+  "product_category": "valve actuator"
 }

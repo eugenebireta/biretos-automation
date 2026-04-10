@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -363,7 +370,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Монитор",
-    "seed_name": "Монитор Honeywell U2421M"
+    "seed_name": "Монитор Honeywell U2421M",
+    "description_long_ru": "Likely Honeywell internal procurement code for U2412M in NOTIFIER fire alarm packages; ref price 6,692 RUB plausible"
   },
   "trace": {
     "pn_match_location": "",
@@ -639,10 +647,13 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:25.014080+00:00",
+    "merge_ts": "2026-04-10T11:05:35.646099+00:00",
     "merge_source": "result_U2421M.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
-  }
+    "source_file": "deep-research-report (2).md",
+    "description_ru": "Likely Honeywell internal procurement code for U2412M in NOTIFIER fire alarm packages; ref price 6,692 RUB plausible"
+  },
+  "dr_image_url": "https://i.dell.com/images/global/monitors/u2421m-photo.jpg",
+  "product_category": "monitor"
 }

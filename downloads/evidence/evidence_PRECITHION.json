@@ -155,12 +155,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -181,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqRYs89p48VSeFFVvmfE'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -199,7 +206,9 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "no_price_found",
@@ -334,7 +343,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Системный блок",
-    "seed_name": "Системный блок Компьютер PRECITHION"
+    "seed_name": "Системный блок Компьютер PRECITHION",
+    "description_long_ru": "Misspelling of PRECISION. Cyrillic-Latin transliteration error. Same product as PRECISION"
   },
   "trace": {
     "pn_match_location": "",
@@ -584,10 +594,12 @@
       "По орфографическим вариантам в публичном рынке подтверждений не получено; наиболее близкий кластер — «Precision» (термостаты/потенциометры). citeturn65search1turn65search9",
       "Aliases: См. источники по PRECISION"
     ],
-    "merge_ts": "2026-04-09T12:01:24.986550+00:00",
+    "merge_ts": "2026-04-10T11:05:35.557365+00:00",
     "merge_source": "result_PRECITHION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Misspelling of PRECISION. Cyrillic-Latin transliteration error. Same product as PRECISION"
+  },
+  "product_category": "â"
 }

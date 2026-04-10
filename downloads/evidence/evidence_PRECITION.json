@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -378,7 +385,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Системный блок",
-    "seed_name": "Системный блок Компьютер PRECITION"
+    "seed_name": "Системный блок Компьютер PRECITION",
+    "description_long_ru": "Misspelling of PRECISION. Same as items 9 and 10"
   },
   "trace": {
     "pn_match_location": "",
@@ -638,10 +646,12 @@
       "Аналогично: PN выглядит как опечатка; прямой карточки товара/цены с таким написанием не найдено. citeturn65search1turn65search9",
       "Aliases: См. источники по PRECISION"
     ],
-    "merge_ts": "2026-04-09T12:01:24.987549+00:00",
+    "merge_ts": "2026-04-10T11:05:35.561730+00:00",
     "merge_source": "result_PRECITION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Misspelling of PRECISION. Same as items 9 and 10"
+  },
+  "product_category": "â"
 }

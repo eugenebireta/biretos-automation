@@ -140,12 +140,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.1,
     "overall": 0.02,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -322,7 +329,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Модуль",
-    "seed_name": "Цифровой настенный модуль Honeywell T7560B1024"
+    "seed_name": "Цифровой настенный модуль Honeywell T7560B1024",
+    "description_long_ru": "T7560B1024 may be EU-specific variant. T7560B1032=$219.39, T7560B1016=$405.51."
   },
   "trace": {
     "pn_match_location": "",
@@ -520,5 +528,44 @@
     "image_url": null,
     "specs": null,
     "notes": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "HVAC wall module",
+    "description_ru": "T7560B1024 may be EU-specific variant. T7560B1032=$219.39, T7560B1016=$405.51.",
+    "specs": {
+      "raw": "LCD display; NTC 20K temp + humidity sensor; 24 VAC/DC; 0–40°C; for Excel 10/600/500 controllers",
+      "aliases": [
+        "T7560B series (1016/1032 variants)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "T7560B1024 may be EU-specific variant. T7560B1032=$219.39, T7560B1016=$405.51.",
+      "Aliases: T7560B series (1016/1032 variants)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.eprinc.net/product/honeywell-t7560-digital-wall-modules/",
+        "type": "distributor",
+        "domain": "www.eprinc.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "claude_compass_batch5_variantA.md",
+    "merge_ts": "2026-04-10T11:47:36.591633+00:00",
+    "merge_source": "result_T7560B1024.json"
+  },
+  "dr_category": "HVAC wall module",
+  "dr_image_url": "https://www.eprinc.net/wp-content/uploads/2015/03/T7560AB1.jpg",
+  "dr_price": 219.39,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.eprinc.net/product/honeywell-t7560-digital-wall-modules/",
+  "product_category": "HVAC wall module"
 }

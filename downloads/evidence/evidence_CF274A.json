@@ -146,12 +146,19 @@
     "image_confidence": 0.192,
     "price_confidence": 0.35,
     "overall": 0.299,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -172,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "принтер угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -190,7 +197,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://namlong.vn/hp/may-in/may-in-hp-laserjet-pro-400-printer-m401d-cf274a-262"
   },
   "price": {
     "price_status": "no_price_found",
@@ -570,5 +580,6 @@
     "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
   },
   "dr_category": "Mono laser printer",
-  "dr_image_url": "https://www.partshere.com/HPPictures/?partno=CF274A"
+  "dr_image_url": "https://www.partshere.com/HPPictures/?partno=CF274A",
+  "product_category": "Mono laser printer"
 }

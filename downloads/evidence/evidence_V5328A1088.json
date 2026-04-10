@@ -146,12 +146,19 @@
     "image_confidence": 0.115,
     "price_confidence": 0.1,
     "overall": 0.226,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -172,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Двухходовой клапан Honeywell с фланцевым соединением чётко виден на изображении",
     "photo_status": "family_evidence",
     "photo_evidence_role": "family_supporting",
@@ -190,7 +197,10 @@
     "stock_photo_flag": true,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://honeywell-rus.ru/product/2-h-hodovoj-linejnyj-klapan-honeywell-v5328a108"
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -571,5 +581,6 @@
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-V5328A1070-left",
   "dr_price": 454.75,
   "dr_currency": "GBP",
-  "dr_price_source": "https://www.kempstoncontrols.co.uk/V5328A1088/Honeywell-Homes/sku/767430"
+  "dr_price_source": "https://www.kempstoncontrols.co.uk/V5328A1088/Honeywell-Homes/sku/767430",
+  "product_category": "valve"
 }

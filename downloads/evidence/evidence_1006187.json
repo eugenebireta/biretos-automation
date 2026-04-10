@@ -111,15 +111,22 @@
     "image_confidence": 0.0,
     "price_confidence": 0.0,
     "overall": 0.0,
-    "overall_label": "VERY_LOW",
+    "overall_label": "HIGH",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": true
+    }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Беруши Honeywell Bilsom 303S видны на упаковке",
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1006187.jpg",
     "sha1": "f5bb3d5084d181ecd96d544f7ea8a5bba1f33e51",
@@ -135,7 +142,9 @@
     "photo_status": "exact_evidence",
     "photo_evidence_role": "exact",
     "photo_is_temporary": false,
-    "replacement_required": false
+    "replacement_required": false,
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "public_price",
@@ -431,5 +440,6 @@
   "dr_image_url": "https://www.alive-sr.com/images/303SBOXFOAMBLUE.jpg",
   "dr_price": 44.48,
   "dr_currency": "USD",
-  "dr_price_source": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/"
+  "dr_price_source": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+  "product_category": "earplugs (PPE)"
 }
