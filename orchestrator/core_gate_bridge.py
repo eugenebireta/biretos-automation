@@ -35,6 +35,8 @@ _PREFLIGHT_GUARDS = [
     "forbidden_dml",     # No DML on core tables from Tier-3 (DNA §5)
 ]
 
+_STUB_VALUE = "stub_not_checked"
+
 
 def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
     """
@@ -44,7 +46,7 @@ def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
     Always writes an audit artifact (even on BLOCKED) for evidence trail.
 
     Returns:
-        {"passed": bool, "results": {guard: "pass"|"fail"}, "blocked_by": str|None}
+        {"passed": bool, "results": {guard: "pass"|"fail"|"stub_not_checked"}, "blocked_by": str|None}
     """
     from datetime import datetime, timezone
 
@@ -62,20 +64,24 @@ def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
         blocked_by = f"frozen_files: {touched_frozen[:5]}"
 
     # Guard: forbidden imports (DNA §5)
-    # Lightweight filename-based check; full import scanning
-    # is done by acceptance_checker. Here we just flag obvious violations.
-    results["forbidden_imports"] = "pass"
+    # NOT YET IMPLEMENTED — marked honestly as stub.
+    # Full implementation planned for governance batch #2.
+    results["forbidden_imports"] = _STUB_VALUE
 
     # Guard: forbidden DML patterns (DNA §5)
-    results["forbidden_dml"] = "pass"
+    # NOT YET IMPLEMENTED — marked honestly as stub.
+    results["forbidden_dml"] = _STUB_VALUE
 
-    # Guard: pinned API signatures (DNA §4) — requires diff analysis,
-    # deferred to acceptance_checker for now
-    results["pinned_api"] = "pass"
+    # Guard: pinned API signatures (DNA §4)
+    # NOT YET IMPLEMENTED — requires diff analysis of function signatures.
+    results["pinned_api"] = _STUB_VALUE
 
-    passed = all(v == "pass" for v in results.values())
+    # passed is determined ONLY by implemented guards (stubs excluded)
+    implemented = {k: v for k, v in results.items() if v != _STUB_VALUE}
+    passed = all(v == "pass" for v in implemented.values()) if implemented else True
 
     # Always write artifact — even on BLOCKED (Fix 4: evidence trail)
+    stub_guards = [k for k, v in results.items() if v == _STUB_VALUE]
     artifact = {
         "trace_id": trace_id,
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -83,6 +89,7 @@ def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
         "passed": passed,
         "results": results,
         "blocked_by": blocked_by,
+        "stub_guards": stub_guards,
         "changed_files": changed_files[:20],
     }
     artifact_path = LAST_AUDIT_RESULT_PATH.parent / "last_preflight_result.json"
