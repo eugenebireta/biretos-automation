@@ -20,7 +20,7 @@ import json
 import logging
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
@@ -32,7 +32,7 @@ if _scripts_dir not in sys.path:
 
 _ROOT = Path(_scripts_dir).parent
 _SHADOW_LOG_DIR = _ROOT / "shadow_log"
-CORRECTION_SCHEMA = "correction_v1"
+CORRECTION_SCHEMA = "correction_v2"
 
 
 def _read_jsonl(path: Path) -> list[dict]:
@@ -65,6 +65,11 @@ def log_correction(
     reason: str,
     corrected_by: str = "owner",
     shadow_log_dir: Optional[Path] = None,
+    *,
+    trace_id: Optional[str] = None,
+    source: Optional[str] = None,
+    ai_model: Optional[str] = None,
+    ai_output_raw: Optional[str] = None,
 ) -> None:
     """Log a human correction to the experience log.
 
@@ -77,6 +82,12 @@ def log_correction(
         reason:          Why the original was wrong.
         corrected_by:    Who made the correction (default: 'owner').
         shadow_log_dir:  Override shadow log directory (for testing).
+
+    v2 keyword-only fields:
+        trace_id:        Links correction to the pipeline run that produced the error.
+        source:          Where the original wrong value came from (e.g. 'dr_gemini', 'photo_pipeline').
+        ai_model:        Which AI model produced the original wrong value.
+        ai_output_raw:   The raw AI output that was wrong (capped at 2000 chars).
     """
     log_dir = shadow_log_dir or _SHADOW_LOG_DIR
     month = datetime.utcnow().strftime("%Y-%m")
@@ -105,6 +116,10 @@ def log_correction(
         "reason": reason,
         "corrected_by": corrected_by,
         "correction_if_any": f"{field_corrected}: {original_value} -> {corrected_value}",
+        "trace_id": trace_id,
+        "source": source,
+        "ai_model": ai_model,
+        "ai_output_raw": ai_output_raw[:2000] if ai_output_raw and len(ai_output_raw) > 2000 else ai_output_raw,
     }
 
     try:
@@ -161,7 +176,7 @@ def retrospective_peha_corrections(
     Returns count of records written.
     """
     log_dir = shadow_log_dir or _SHADOW_LOG_DIR
-    ev_dir = evidence_dir or (_ROOT / "downloads" / "evidence")
+    _ = evidence_dir or (_ROOT / "downloads" / "evidence")  # reserved for future use
     count = 0
 
     # Read from category fix log
