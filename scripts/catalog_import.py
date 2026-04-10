@@ -54,6 +54,7 @@ REASON_MISSING_PRICE = "missing_price"
 REASON_NO_PHOTO = "no_photo"
 REASON_TITLE_CONFIDENCE_LOW = "title_confidence_low"
 REASON_DUPLICATE_PN = "duplicate_pn"
+REASON_LOW_CONFIDENCE = "low_confidence"
 
 # Error classes (DNA §7)
 ERROR_POLICY_VIOLATION = "POLICY_VIOLATION"
@@ -204,6 +205,8 @@ def enrich_from_evidence(
     overall_label = conf.get("overall_label", "").upper()
     if overall_label in (CONFIDENCE_HIGH, CONFIDENCE_MEDIUM, CONFIDENCE_LOW):
         row["confidence"] = overall_label
+    elif overall_label == "VERY_LOW":
+        row["confidence"] = CONFIDENCE_LOW
     else:
         row["confidence"] = CONFIDENCE_LOW
 
@@ -261,7 +264,7 @@ def classify_row(row: dict[str, Any]) -> dict[str, Any]:
     else:
         # LOW
         row["status"] = STATUS_REVIEW_REQUIRED
-        row["review_reason"] = review_reasons[0] if review_reasons else REASON_NO_EVIDENCE
+        row["review_reason"] = review_reasons[0] if review_reasons else REASON_LOW_CONFIDENCE
 
     return row
 

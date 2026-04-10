@@ -124,19 +124,6 @@ try:
 except ImportError:
     _CATEGORY_RESOLVER_AVAILABLE = False
 
-try:
-    from training_logger import (
-        log_photo_verdict as _tl_photo_verdict,
-        log_page_ranking as _tl_page_ranking,
-        log_price_extraction as _tl_price_extraction,
-        log_unit_judge as _tl_unit_judge,
-        log_category_resolution as _tl_category_resolution,
-        log_spec_extraction as _tl_spec_extraction,
-    )
-    _TRAINING_LOGGER_AVAILABLE = True
-except ImportError:
-    _TRAINING_LOGGER_AVAILABLE = False
-
 
 # ── Logging ────────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -170,6 +157,9 @@ _provider_errors: list[dict] = []
 
 CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
 SHADOW_LOG_SCHEMA_VERSION = "photo_pipeline_shadow_log_record_v2"
+# ── Spec extraction version (heuristic, no LLM) ──────────────────────────────
+SPEC_EXTRACTION_VERSION = "spec_heuristic_v1"
+_MAX_PAGE_TEXT_SNIPPET = 4000  # raw text preserved for spec extraction training
 QUEUE_SCHEMA_VERSION = "followup_queue_v2"
 INPUT_COL_PN = "Параметр: Партномер"
 INPUT_COL_NAME = "Название товара или услуги"
@@ -1110,6 +1100,8 @@ def parse_product_page(url: str, pn: str = "") -> dict:
         "image_url": None,
         "description": None,
         "specs": {},
+        "specs_status": "",
+        "page_text_snippet": "",
         "page_url": url,
         "mpn_confirmed": False,
         "jsonld_price": None,
@@ -1239,6 +1231,13 @@ def parse_product_page(url: str, pn: str = "") -> dict:
                 result["specs_status"] = "found_from_page"
         except Exception as _spec_err:
             log.debug(f"spec_extractor failed: {_spec_err}")
+
+        # Preserve raw text snippet for spec extraction training
+        try:
+            _page_text = soup.get_text(separator="\n", strip=True)
+            result["page_text_snippet"] = _page_text[:_MAX_PAGE_TEXT_SNIPPET]
+        except Exception:
+            pass
 
     except Exception as e:
         result["error"] = str(e)
@@ -2133,16 +2132,6 @@ def run(
                     print(f"  Page ranker: {len(non_rejected)}/{len(ranked)} candidates kept")
             except Exception as _pr_err:
                 log.debug(f"page_ranker failed for {pn}: {_pr_err}")
-        if _TRAINING_LOGGER_AVAILABLE and page_ranking_result:
-            try:
-                _tl_page_ranking(
-                    pn=pn, brand=BRAND,
-                    candidate_urls=[c["url"] for c in candidates[:10]],
-                    ranked_result=page_ranking_result[:10],
-                    method="deterministic",
-                )
-            except Exception:
-                pass
 
         # ── Шаг 2b: извлечение цены ────────────────────────────────────────────
         price_info = tighten_public_price_result(
@@ -2214,18 +2203,6 @@ def run(
                         f"  [UNIT_JUDGE] {_judge_result.unit_basis}/{_judge_result.confidence}"
                         f" (trigger: {_judge_result.trigger_reason})"
                     )
-                if _TRAINING_LOGGER_AVAILABLE:
-                    _tl_unit_judge(
-                        pn=pn, brand=BRAND,
-                        price=price_info["price_usd"],
-                        currency=price_info.get("currency", ""),
-                        context_text=_context,
-                        unit_basis=_judge_result.unit_basis,
-                        confidence=_judge_result.confidence,
-                        triggered=_judge_result.triggered,
-                        trigger_reason=_judge_result.trigger_reason,
-                        llm_raw=_judge_result.llm_raw,
-                    )
             except Exception as _uj_err:
                 log.debug(f"price_unit_judge failed for {pn}: {_uj_err}")
 
@@ -2260,34 +2237,8 @@ def run(
                         print(f"  [CATEGORY] Mismatch resolved: {_cat_result.resolution_method}")
                 elif _cat_result.conflict:
                     print(f"  [CATEGORY] Conflict: {_cat_result.conflict_reason}")
-                if _TRAINING_LOGGER_AVAILABLE:
-                    _tl_category_resolution(
-                        pn=pn, brand=BRAND,
-                        xlsx_hint=expected_category,
-                        page_category=_page_cat,
-                        source_tier=_source_tier,
-                        exact_pn_confirmed=_exact_pn,
-                        resolved_category=_cat_result.resolved_category,
-                        resolution_method=_cat_result.resolution_method,
-                        confidence=_cat_result.confidence,
-                    )
             except Exception as _cr_err:
                 log.debug(f"category_resolver failed for {pn}: {_cr_err}")
-
-        # ── Training: price extraction ────────────────────────────────────────
-        if _TRAINING_LOGGER_AVAILABLE and price_info.get("price_usd") is not None:
-            try:
-                _tl_price_extraction(
-                    pn=pn, brand=BRAND,
-                    html_snippet="",
-                    prompt="",
-                    response_raw=str(price_info.get("price_usd", "")),
-                    source_url=price_info.get("source_url", ""),
-                    extracted_price=price_info.get("price_usd"),
-                    currency=price_info.get("currency", ""),
-                )
-            except Exception:
-                pass
 
         # ── Шаг 3: GPT Vision ─────────────────────────────────────────────────
         sha1 = dl.get("sha1", "")
@@ -2341,19 +2292,6 @@ def run(
         )
         if v.get("numeric_keep_guard_applied"):
             print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
-
-        # ── Training: photo verdict ───────────────────────────────────────────
-        if _TRAINING_LOGGER_AVAILABLE:
-            try:
-                _tl_photo_verdict(
-                    pn=pn, brand=BRAND,
-                    photo_path=dl.get("path", ""),
-                    verdict=v.get("verdict", "NO_PHOTO"),
-                    reason=v.get("reason", ""),
-                    source_url=dl.get("source", ""),
-                )
-            except Exception:
-                pass
 
         # ── Datasheet (optional + conditional) ─────────────────────────────────
         ds_result: dict = {"datasheet_status": "skipped"}
@@ -2412,15 +2350,25 @@ def run(
         save_checkpoint(checkpoint)
         bundle_content = bundle.get("content", {})
 
-        # ── Training: spec extraction ─────────────────────────────────────────
-        if _TRAINING_LOGGER_AVAILABLE and dl.get("specs"):
+        # ── Shadow log: spec extraction ──────────────────────────────────────
+        _specs = dl.get("specs", {})
+        if _specs:
             try:
-                _tl_spec_extraction(
-                    pn=pn, brand=BRAND,
-                    html_snippet="",
-                    extracted_specs=dl.get("specs", {}),
-                    method="page_parse",
+                shadow_log(
+                    task_type="spec_extraction",
+                    pn=pn,
+                    brand=BRAND,
+                    model="heuristic",
+                    provider="local",
+                    model_alias="spec_extractor",
+                    model_resolved="spec_extractor_v1",
+                    prompt=dl.get("page_text_snippet", "")[:_MAX_PAGE_TEXT_SNIPPET],
+                    response_raw=json.dumps(_specs, ensure_ascii=False),
+                    response_parsed=_specs,
+                    parse_success=True,
                     source_url=dl.get("source", ""),
+                    prompt_version=SPEC_EXTRACTION_VERSION,
+                    pipeline_stage="spec_extraction",
                 )
             except Exception:
                 pass

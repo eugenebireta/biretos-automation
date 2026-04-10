@@ -82,6 +82,12 @@
     }
   },
   "other_key_scripts": {
+    "confidence_recalculator": {
+      "file": "confidence_recalculator.py",
+      "purpose": "R1.2 Recalculate evidence confidence labels from current signals (identity, photo, price)",
+      "triggers": ["пересчитай confidence", "recalculate confidence", "upgrade labels"],
+      "usage": "python scripts/confidence_recalculator.py --apply --verbose"
+    },
     "photo_matcher": {
       "file": "photo_matcher.py",
       "purpose": "R1.4 Photo quality gate: validate KEEP photos, promote to ACCEPT, generate re-search queue",
