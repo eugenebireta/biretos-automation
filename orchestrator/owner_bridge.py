@@ -307,6 +307,7 @@ def _save_manifest(m: dict) -> None:
 def _load_bridge_state() -> dict:
     return _load_json(BRIDGE_STATE_PATH, {
         "last_processed_update_id": 0,
+        "last_processed_line": 0,
         "processed_count": 0,
         "dlq_count": 0,
     })
@@ -452,37 +453,53 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
 
 
 def process_all_pending() -> int:
-    """Process all unprocessed inbox entries. Returns count processed."""
+    """Process all unprocessed inbox entries. Returns count processed.
+
+    Uses dual cursor:
+    - last_processed_line: line index in inbox file (handles entries without update_id)
+    - last_processed_update_id: Telegram update_id (extra safety for gateway-format entries)
+    """
     if not INBOX_PATH.exists():
         return 0
 
     bridge_state = _load_bridge_state()
-    last_processed = bridge_state.get("last_processed_update_id", 0)
+    last_line = bridge_state.get("last_processed_line", 0)
+    last_uid = bridge_state.get("last_processed_update_id", 0)
 
     # Read inbox
     try:
-        lines = INBOX_PATH.read_text(encoding="utf-8").splitlines()
+        raw_lines = INBOX_PATH.read_text(encoding="utf-8").splitlines()
     except (OSError, UnicodeDecodeError):
         return 0
 
-    count = 0
-    for line in lines:
-        line = line.strip()
-        if not line:
+    # Parse all non-empty lines with their index
+    entries: list[tuple[int, dict]] = []
+    for idx, raw in enumerate(raw_lines):
+        raw = raw.strip()
+        if not raw:
             continue
         try:
-            entry = json.loads(line)
+            entries.append((idx, json.loads(raw)))
         except json.JSONDecodeError:
             continue
 
+    count = 0
+    for idx, entry in entries:
+        # Skip by line index (primary cursor)
+        if idx < last_line:
+            continue
+
+        # Also skip by update_id if present (secondary cursor)
         update_id = entry.get("update_id") or 0
-        if update_id and update_id <= last_processed:
-            continue  # already processed
+        if update_id and update_id <= last_uid:
+            continue
 
         ok = process_inbox_entry(entry, bridge_state)
         if ok:
             count += 1
-            _save_bridge_state(bridge_state)  # persist after EACH entry — crash-safe
+            # Advance line cursor
+            bridge_state["last_processed_line"] = idx + 1
+            _save_bridge_state(bridge_state)
         else:
             break  # manifest locked — retry later
 
