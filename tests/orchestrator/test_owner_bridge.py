@@ -117,17 +117,28 @@ class TestClassifyInput:
         assert typ == "freetext"
         assert payload["instruction"] == "попробуй другой подход"
 
-    def test_freetext_in_idle_creates_new_task(self):
+    def test_freetext_in_idle_is_chat(self):
         m = {"fsm_state": "idle"}
-        typ, payload = bridge.classify_input("сделай что-нибудь полезное", m)
-        assert typ == "new_task"
-        assert payload["instruction"] == "сделай что-нибудь полезное"
+        typ, payload = bridge.classify_input("какой статус проекта", m)
+        assert typ == "chat"
+        assert payload["message"] == "какой статус проекта"
 
-    def test_freetext_in_ready_creates_new_task(self):
+    def test_freetext_in_ready_is_chat(self):
         m = {"fsm_state": "ready"}
-        typ, payload = bridge.classify_input("сделай что-нибудь полезное", m)
+        typ, payload = bridge.classify_input("сколько SKU без описаний", m)
+        assert typ == "chat"
+        assert payload["message"] == "сколько SKU без описаний"
+
+    def test_task_command_creates_new_task(self):
+        m = {"fsm_state": "idle"}
+        typ, payload = bridge.classify_input("/task обнови каталог PEHA", m)
         assert typ == "new_task"
-        assert payload["instruction"] == "сделай что-нибудь полезное"
+        assert payload["instruction"] == "обнови каталог PEHA"
+
+    def test_task_command_too_short(self):
+        m = {"fsm_state": "idle"}
+        typ, _ = bridge.classify_input("/task ок", m)
+        assert typ == "too_short"
 
     def test_approve_in_idle_is_no_pending(self):
         m = {"fsm_state": "idle"}
@@ -266,10 +277,10 @@ class TestFreetext:
 
 class TestNewTask:
 
-    def test_new_task_from_idle(self, tmp_path, monkeypatch):
+    def test_new_task_via_command(self, tmp_path, monkeypatch):
         _patch_paths(tmp_path, monkeypatch)
         _write_manifest(tmp_path, {"fsm_state": "idle"})
-        text = "Обнови каталог — добавь описания для PEHA"
+        text = "/task Обнови каталог — добавь описания для PEHA"
         entry = {"update_id": 110, "text": text}
         state = {"last_processed_update_id": 0}
 
@@ -278,9 +289,8 @@ class TestNewTask:
         assert ok is True
         m = _read_manifest(tmp_path)
         assert m["fsm_state"] == "ready"
-        assert m["current_sprint_goal"] == text
+        assert "Обнови каталог" in m["current_sprint_goal"]
         assert m["current_task_id"].startswith("tg-")
-        assert m["owner_instruction"] == text
 
         outbox = _read_outbox(tmp_path)
         assert "Принял задачу" in outbox[-1]["text"]

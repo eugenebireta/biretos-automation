@@ -64,6 +64,7 @@ PARK_STATES = frozenset({
 APPROVE_WORDS = frozenset({"ок", "ok", "да", "yes", "го", "давай", "продолжай"})
 REJECT_WORDS = frozenset({"нет", "no", "стоп", "stop"})
 STATUS_COMMANDS = frozenset({"/status", "/ping", "/health"})
+TASK_PREFIX = "/task"
 MIN_FREETEXT_LEN = 5
 
 
@@ -73,13 +74,26 @@ def classify_input(text: str, manifest: dict) -> tuple[str, dict[str, Any]]:
     Returns:
         (input_type, payload) where input_type is one of:
         "approve", "reject", "decision", "freetext", "status",
-        "too_short", "no_pending_state"
+        "new_task", "chat", "too_short", "no_pending_state"
+
+    Routing:
+        /task <text>  → new_task (orchestrator pipeline)
+        /status       → status
+        ок/нет        → approve/reject (when parked)
+        everything else → chat (direct Claude response)
     """
     lower = text.lower().strip()
 
     # Status commands — always allowed regardless of FSM state
     if lower in STATUS_COMMANDS:
         return "status", {}
+
+    # Explicit task command → orchestrator pipeline
+    if lower.startswith(TASK_PREFIX):
+        task_text = text[len(TASK_PREFIX):].strip()
+        if len(task_text) >= MIN_FREETEXT_LEN:
+            return "new_task", {"instruction": task_text}
+        return "too_short", {"length": len(task_text)}
 
     fsm_state = manifest.get("fsm_state", "")
 
@@ -90,15 +104,23 @@ def classify_input(text: str, manifest: dict) -> tuple[str, dict[str, Any]]:
         key = text.strip().upper()
         if key in options:
             return "decision", {"key": key, "text": options[key]}
-        # Single letter not in options — falls through
 
-    # Idle/ready/completed — accept new task via freetext
-    if fsm_state not in PARK_STATES:
+    # Parked states — approve/reject/freetext instruction
+    if fsm_state in PARK_STATES:
+        if lower in APPROVE_WORDS:
+            return "approve", {}
+        if lower in REJECT_WORDS:
+            return "reject", {}
         if len(text) >= MIN_FREETEXT_LEN:
-            return "new_task", {"instruction": text, "fsm_state": fsm_state}
-        if lower in APPROVE_WORDS or lower in REJECT_WORDS:
-            return "no_pending_state", {"fsm_state": fsm_state}
+            return "freetext", {"instruction": text}
         return "too_short", {"length": len(text)}
+
+    # Not parked — chat mode (direct Claude response) or no-op
+    if len(text) >= MIN_FREETEXT_LEN:
+        return "chat", {"message": text}
+    if lower in APPROVE_WORDS or lower in REJECT_WORDS:
+        return "no_pending_state", {"fsm_state": fsm_state}
+    return "too_short", {"length": len(text)}
 
     # Approve / reject
     if lower in APPROVE_WORDS:
@@ -186,8 +208,38 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
     )
 
 
+def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
+    """Direct chat — run claude -p with user message, return answer.
+
+    No manifest mutation. Runs claude CLI as subprocess.
+    """
+    message = payload["message"]
+    try:
+        import subprocess as _sp
+        prompt = (
+            f"Ты — ассистент проекта biretos-automation. "
+            f"Отвечай кратко, по-русски. "
+            f"Рабочая директория: {ROOT}\n\n"
+            f"Вопрос владельца: {message}"
+        )
+        result = _sp.run(
+            [sys.executable, "-m", "claude", "-p", prompt],
+            capture_output=True, text=True, timeout=120,
+            cwd=str(ROOT),
+        )
+        answer = (result.stdout or "").strip()
+        if not answer:
+            answer = "(Claude не дал ответа)"
+        # Truncate for Telegram
+        if len(answer) > 3900:
+            answer = answer[:3900] + "\n\n… (обрезано)"
+    except Exception as exc:
+        answer = f"Ошибка: {str(exc)[:200]}"
+    return {}, answer
+
+
 def _handle_new_task(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Create new task from owner message when system is idle/ready."""
+    """Create new task from /task command — goes through orchestrator pipeline."""
     instruction = payload["instruction"]
     task_id = f"tg-{hashlib.md5(instruction.encode()).hexdigest()[:8]}"
     preview = instruction[:120] + ("…" if len(instruction) > 120 else "")
@@ -223,6 +275,7 @@ _HANDLERS: dict[str, Any] = {
     "reject": _handle_reject,
     "decision": _handle_decision,
     "freetext": _handle_freetext,
+    "chat": _handle_chat,
     "new_task": _handle_new_task,
     "status": _handle_status,
     "no_pending_state": _handle_no_pending,
