@@ -68,10 +68,10 @@ def translate_park(
                 f"Ответь 'ок' когда будешь готов продолжить."
             )
         # Generic awaiting
-        clean_reason = park_reason.lstrip("#").replace("_", " ")
+        reason_ru = _translate_reason(park_reason)
         return (
             f"Стройке нужно твоё решение.{task_info}\n\n"
-            f"Причина: {clean_reason[:200]}\n\n"
+            f"Причина: {reason_ru}\n\n"
             f"Ответь 'ок' чтобы продолжить, или 'нет' чтобы остановить."
         )
 
@@ -89,13 +89,45 @@ def translate_park(
             f"Ответь 'ок' чтобы запустить заново, или 'нет' чтобы отменить."
         )
 
-    # Generic fallback
-    clean = park_reason.replace("#", "").replace("_", " ")[:200]
+    # Generic fallback — translate known technical reasons to Russian
+    reason_ru = _translate_reason(park_reason)
     return (
         f"Задача поставлена на паузу.{task_info}\n\n"
-        f"Причина: {clean}\n\n"
+        f"Причина: {reason_ru}\n\n"
         f"Ответь 'ок' чтобы продолжить, или 'нет' чтобы остановить."
     )
+
+
+def _translate_reason(park_reason: str) -> str:
+    """Translate technical park_reason hashtag codes to plain Russian."""
+    reason = park_reason.strip()
+
+    # --- Known hashtag patterns ---
+    if reason.startswith("#synth_escalate"):
+        return "Система не смогла продвинуться — слишком много попыток."
+    if reason.startswith("#synth_blocked"):
+        return "Синтезатор заблокировал задачу — нужны уточнения."
+    if reason.startswith("#synth_no_op"):
+        return "Нечего делать — пустой скоуп. Нужна конкретная задача."
+    if reason.startswith("#advisor_escalation"):
+        return "Советник не смог определить следующий шаг."
+    if reason.startswith("#acceptance_failed"):
+        return "Исполнитель отклонился от задания."
+    if reason.startswith("#batch_gate_failed"):
+        return "Проверка результата не прошла."
+    if reason.startswith("#blocker_loop"):
+        return "Задача застряла в цикле ошибок."
+    if reason.startswith("#blocker"):
+        return "Аудитор нашёл критическую проблему."
+    if reason.startswith("#consensus"):
+        return "Архитектор и критик не смогли договориться."
+    if reason.startswith("#budget_daily"):
+        return "Бюджет на сегодня исчерпан."
+    if reason.startswith("#budget_run"):
+        return "Задача превысила лимит стоимости."
+
+    # Unknown — clean up hashtags and underscores
+    return reason.lstrip("#").replace("_", " ")[:200]
 
 
 def translate_decision(question: str, options: dict[str, str]) -> str:
