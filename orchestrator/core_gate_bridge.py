@@ -11,9 +11,12 @@ Standalone demo usage (no live API):
 """
 from __future__ import annotations
 
+import ast
 import asyncio
+import hashlib
 import json
 import logging
+import re
 import subprocess
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -37,6 +40,136 @@ _PREFLIGHT_GUARDS = [
 
 _STUB_VALUE = "stub_not_checked"
 
+# ── Guard patterns (DNA §5) — mirror Iron Fence CI tests ──────────────────
+_FORBIDDEN_IMPORTS_RE = re.compile(
+    r"from domain\.reconciliation_service|"
+    r"from domain\.reconciliation_verify|"
+    r"from domain\.reconciliation_alerts|"
+    r"from domain\.structural_checks|"
+    r"from domain\.observability_service|"
+    r"import reconciliation_service|"
+    r"import reconciliation_verify|"
+    r"import reconciliation_alerts|"
+    r"import structural_checks|"
+    r"import observability_service"
+)
+
+_RECON_TABLES = (
+    "reconciliation_audit_log", "reconciliation_alerts", "reconciliation_suppressions",
+)
+_CORE_BIZ_TABLES = (
+    "order_ledger", "shipments", "payment_transactions", "reservations",
+    "stock_ledger_entries", "availability_snapshot", "documents",
+)
+_DML_KEYWORDS = ("INSERT", "UPDATE", "DELETE", "ALTER", "DROP")
+_DML_RE = "|".join(_DML_KEYWORDS)
+_RECON_TABLES_RE = "|".join(_RECON_TABLES)
+_CORE_BIZ_TABLES_RE = "|".join(_CORE_BIZ_TABLES)
+_FORBIDDEN_DML_RE = re.compile(
+    rf"({_DML_RE})\s+.*({_RECON_TABLES_RE}|{_CORE_BIZ_TABLES_RE})",
+    re.IGNORECASE,
+)
+
+# ── Pinned API signatures (DNA §4) — hash of ast-extracted signatures ─────
+_PINNED_API_HASHES: dict[str, str] = {
+    "domain/payment_service.py::_derive_payment_status": "2721dacd183f371c",
+    "domain/payment_service.py::_extract_order_total_minor": "943ea30c15f95caa",
+    "domain/shipment_service.py::recompute_order_cdek_cache_atomic": "73eabd40619c3a89",
+    "domain/shipment_service.py::update_shipment_status_atomic": "9e4787b9ecb8c430",
+    "domain/availability_service.py::_ensure_snapshot_row": "31e1a2d055754f54",
+    "domain/ports.py::InvoiceStatusRequest": "46d7ab177a2a9fa5",
+    "domain/ports.py::ShipmentTrackingStatusRequest": "d238f70f33919096",
+}
+
+_WINDMILL_ROOT = ROOT / ".cursor" / "windmill-core-v1"
+
+
+def _read_changed_file(filepath: str) -> str | None:
+    """Read a changed file's content. Returns None if file doesn't exist."""
+    for base in (_WINDMILL_ROOT, ROOT):
+        full = base / filepath
+        if full.exists():
+            try:
+                return full.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                return None
+    return None
+
+
+def _check_forbidden_imports(changed_files: list[str]) -> tuple[str, list[str]]:
+    """Check changed files for forbidden imports (DNA §5). Returns (status, violations)."""
+    violations = []
+    for fpath in changed_files:
+        if not fpath.endswith(".py"):
+            continue
+        content = _read_changed_file(fpath)
+        if content is None:
+            continue
+        for i, line in enumerate(content.splitlines(), 1):
+            if _FORBIDDEN_IMPORTS_RE.search(line):
+                violations.append(f"{fpath}:{i}: {line.strip()}")
+    return ("fail" if violations else "pass"), violations
+
+
+def _check_forbidden_dml(changed_files: list[str]) -> tuple[str, list[str]]:
+    """Check changed files for forbidden DML on protected tables (DNA §5)."""
+    violations = []
+    for fpath in changed_files:
+        if not fpath.endswith(".py"):
+            continue
+        content = _read_changed_file(fpath)
+        if content is None:
+            continue
+        for i, line in enumerate(content.splitlines(), 1):
+            if _FORBIDDEN_DML_RE.search(line):
+                violations.append(f"{fpath}:{i}: {line.strip()}")
+    return ("fail" if violations else "pass"), violations
+
+
+def _extract_signature(source: str, name: str) -> str | None:
+    """Extract function/class signature as normalized string for hash comparison."""
+    try:
+        tree = ast.parse(source)
+    except SyntaxError:
+        return None
+    for node in ast.walk(tree):
+        if isinstance(node, ast.FunctionDef) and node.name == name:
+            args = ast.unparse(node.args)
+            ret = ast.unparse(node.returns) if node.returns else "None"
+            return f"def {name}({args}) -> {ret}"
+        if isinstance(node, ast.ClassDef) and node.name == name:
+            fields = []
+            for item in node.body:
+                if isinstance(item, ast.AnnAssign) and isinstance(item.target, ast.Name):
+                    ann = ast.unparse(item.annotation)
+                    fields.append(f"{item.target.id}: {ann}")
+            return f"class {name}({', '.join(fields)})"
+    return None
+
+
+def _check_pinned_api(changed_files: list[str]) -> tuple[str, list[str]]:
+    """Check that pinned API signatures haven't been modified (DNA §4)."""
+    violations = []
+    for key, expected_hash in _PINNED_API_HASHES.items():
+        rel_path, func_name = key.split("::")
+        # Only check if the file is in the changed list
+        matched = [f for f in changed_files if f.replace("\\", "/").endswith(rel_path)]
+        if not matched:
+            continue
+        source = _read_changed_file(matched[0])
+        if source is None:
+            continue
+        sig = _extract_signature(source, func_name)
+        if sig is None:
+            violations.append(f"{key}: signature not found (deleted or renamed?)")
+            continue
+        actual_hash = hashlib.sha256(sig.encode("utf-8")).hexdigest()[:16]
+        if actual_hash != expected_hash:
+            violations.append(
+                f"{key}: signature changed (expected {expected_hash}, got {actual_hash})"
+            )
+    return ("fail" if violations else "pass"), violations
+
 
 def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
     """
@@ -46,7 +179,7 @@ def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
     Always writes an audit artifact (even on BLOCKED) for evidence trail.
 
     Returns:
-        {"passed": bool, "results": {guard: "pass"|"fail"|"stub_not_checked"}, "blocked_by": str|None}
+        {"passed": bool, "results": {guard: "pass"|"fail"}, "blocked_by": str|None}
     """
     from datetime import datetime, timezone
 
@@ -64,21 +197,24 @@ def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
         blocked_by = f"frozen_files: {touched_frozen[:5]}"
 
     # Guard: forbidden imports (DNA §5)
-    # NOT YET IMPLEMENTED — marked honestly as stub.
-    # Full implementation planned for governance batch #2.
-    results["forbidden_imports"] = _STUB_VALUE
+    imports_status, imports_violations = _check_forbidden_imports(changed_files)
+    results["forbidden_imports"] = imports_status
+    if imports_violations and not blocked_by:
+        blocked_by = f"forbidden_imports: {imports_violations[:3]}"
 
     # Guard: forbidden DML patterns (DNA §5)
-    # NOT YET IMPLEMENTED — marked honestly as stub.
-    results["forbidden_dml"] = _STUB_VALUE
+    dml_status, dml_violations = _check_forbidden_dml(changed_files)
+    results["forbidden_dml"] = dml_status
+    if dml_violations and not blocked_by:
+        blocked_by = f"forbidden_dml: {dml_violations[:3]}"
 
     # Guard: pinned API signatures (DNA §4)
-    # NOT YET IMPLEMENTED — requires diff analysis of function signatures.
-    results["pinned_api"] = _STUB_VALUE
+    api_status, api_violations = _check_pinned_api(changed_files)
+    results["pinned_api"] = api_status
+    if api_violations and not blocked_by:
+        blocked_by = f"pinned_api: {api_violations[:3]}"
 
-    # passed is determined ONLY by implemented guards (stubs excluded)
-    implemented = {k: v for k, v in results.items() if v != _STUB_VALUE}
-    passed = all(v == "pass" for v in implemented.values()) if implemented else True
+    passed = all(v == "pass" for v in results.values())
 
     # Always write artifact — even on BLOCKED (Fix 4: evidence trail)
     stub_guards = [k for k, v in results.items() if v == _STUB_VALUE]
