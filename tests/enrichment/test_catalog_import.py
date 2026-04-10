@@ -21,6 +21,7 @@ from catalog_import import (  # noqa: E402
     CONFIDENCE_LOW,
     CONFIDENCE_MEDIUM,
     REASON_DUPLICATE_PN,
+    REASON_LOW_CONFIDENCE,
     REASON_MISSING_PRICE,
     REASON_NO_EVIDENCE,
     REASON_NO_PHOTO,
@@ -216,6 +217,14 @@ class TestClassification:
         row = {"confidence": CONFIDENCE_LOW, "review_reasons": [REASON_NO_EVIDENCE]}
         result = classify_row(row)
         assert result["status"] == STATUS_REVIEW_REQUIRED
+
+    def test_low_no_reasons_uses_low_confidence(self):
+        """LOW confidence with empty review_reasons must use REASON_LOW_CONFIDENCE,
+        not REASON_NO_EVIDENCE (which should only mean 'file not found')."""
+        row = {"confidence": CONFIDENCE_LOW, "review_reasons": []}
+        result = classify_row(row)
+        assert result["status"] == STATUS_REVIEW_REQUIRED
+        assert result["review_reason"] == REASON_LOW_CONFIDENCE
 
 
 # =============================================================================
