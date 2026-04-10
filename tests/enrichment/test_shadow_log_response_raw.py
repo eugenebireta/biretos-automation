@@ -6,7 +6,6 @@ import os
 import sys
 import tempfile
 from pathlib import Path
-from unittest.mock import patch
 import datetime
 
 _scripts_dir = os.path.join(os.path.dirname(__file__), "..", "..", "scripts")
@@ -101,3 +100,78 @@ class TestResponseRawPreservation:
         assert rec_none["response_raw"] is None
         assert rec_empty["response_raw"] == ""
         assert rec_none["response_raw"] != rec_empty["response_raw"]
+
+
+class TestShadowLogV2Fields:
+    """v2 fields: prompt_version, trace_id, pipeline_stage, schema_version bump."""
+
+    def test_v2_schema_version(self):
+        """Schema version is v2."""
+        with tempfile.TemporaryDirectory() as tmp:
+            record = _write_shadow_log(tmp, '{"ok": true}')
+        assert record["schema_version"] == "photo_pipeline_shadow_log_record_v2"
+
+    def test_prompt_version_stored(self):
+        """prompt_version kwarg is stored in record."""
+        import photo_pipeline as pp
+        orig_dir = pp.SHADOW_LOG_DIR
+        with tempfile.TemporaryDirectory() as tmp:
+            pp.SHADOW_LOG_DIR = Path(tmp)
+            try:
+                pp.shadow_log(
+                    task_type="price_extraction",
+                    pn="TEST123", brand="Honeywell",
+                    model="claude-haiku-4-5", provider="anthropic",
+                    model_alias="claude-haiku-4-5",
+                    model_resolved="claude-haiku-4-5-20251001",
+                    prompt="test", response_raw="ok",
+                    response_parsed={}, parse_success=True,
+                    prompt_version="v11",
+                    trace_id="trace_abc123",
+                    pipeline_stage="price_extraction",
+                )
+            finally:
+                pp.SHADOW_LOG_DIR = orig_dir
+
+            month = datetime.datetime.utcnow().strftime("%Y-%m")
+            path = Path(tmp) / f"price_extraction_{month}.jsonl"
+            record = json.loads(path.read_text(encoding="utf-8").strip())
+
+        assert record["prompt_version"] == "v11"
+        assert record["trace_id"] == "trace_abc123"
+        assert record["pipeline_stage"] == "price_extraction"
+
+    def test_defaults_when_v2_fields_omitted(self):
+        """When v2 kwargs are not passed, fields are null/derived."""
+        with tempfile.TemporaryDirectory() as tmp:
+            record = _write_shadow_log(tmp, '{"ok": true}')
+        assert record["prompt_version"] is None
+        assert record["trace_id"] is None
+        # pipeline_stage defaults to task_type
+        assert record["pipeline_stage"] == "price_extraction"
+
+    def test_backward_compatible_with_existing_callers(self):
+        """Existing callers without v2 kwargs still work (no TypeError)."""
+        import photo_pipeline as pp
+        orig_dir = pp.SHADOW_LOG_DIR
+        with tempfile.TemporaryDirectory() as tmp:
+            pp.SHADOW_LOG_DIR = Path(tmp)
+            try:
+                # Call without any v2 kwargs — must not raise
+                pp.shadow_log(
+                    task_type="image_validation",
+                    pn="PN", brand="B",
+                    model="m", provider="p",
+                    model_alias="m", model_resolved="m",
+                    prompt="p", response_raw="r",
+                    response_parsed={}, parse_success=True,
+                )
+            finally:
+                pp.SHADOW_LOG_DIR = orig_dir
+
+            month = datetime.datetime.utcnow().strftime("%Y-%m")
+            path = Path(tmp) / f"image_validation_{month}.jsonl"
+            record = json.loads(path.read_text(encoding="utf-8").strip())
+
+        assert record["prompt_version"] is None
+        assert record["trace_id"] is None

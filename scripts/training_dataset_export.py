@@ -20,7 +20,6 @@ import json
 import os
 import sys
 from pathlib import Path
-from typing import Optional
 
 _scripts_dir = os.path.dirname(os.path.abspath(__file__))
 if _scripts_dir not in sys.path:
@@ -84,11 +83,14 @@ def export_price_extraction_dataset(shadow_dir: Path = _DEFAULT_SHADOW_DIR) -> l
             "pn": r.get("pn", ""),
             "brand": r.get("brand", ""),
             "prompt": r.get("prompt", ""),
+            "prompt_version": r.get("prompt_version"),
             "response_raw": raw,
             "response_parsed": parsed,
             "source_url": r.get("source_url", ""),
             "source_type": r.get("source_type", ""),
             "model": r.get("model", ""),
+            "model_resolved": r.get("model_resolved", ""),
+            "pipeline_stage": r.get("pipeline_stage", ""),
             "ts": r.get("ts", ""),
         })
     return dataset
@@ -115,12 +117,15 @@ def export_photo_verdict_dataset(shadow_dir: Path = _DEFAULT_SHADOW_DIR) -> list
             "pn": r.get("pn", ""),
             "brand": r.get("brand", ""),
             "prompt": r.get("prompt", ""),
+            "prompt_version": r.get("prompt_version"),
             "response_raw": raw,
             "verdict": verdict,
             "reason": parsed.get("reason", ""),
             "confidence": parsed.get("confidence", ""),
             "source_url": r.get("source_url", ""),
             "model": r.get("model", ""),
+            "model_resolved": r.get("model_resolved", ""),
+            "pipeline_stage": r.get("pipeline_stage", ""),
             "ts": r.get("ts", ""),
         })
     return dataset

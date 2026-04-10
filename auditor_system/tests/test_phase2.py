@@ -21,9 +21,7 @@ from __future__ import annotations
 
 import asyncio
 import json
-import tempfile
 from pathlib import Path
-from typing import Any
 
 import pytest
 
@@ -42,7 +40,7 @@ from ..hard_shell.fallback_handler import (
     FallbackHandler,
 )
 from ..hard_shell.schema_validator import SchemaViolationError, validate_and_parse
-from ..providers.mock_auditor import make_approve_auditor, make_reject_auditor
+from ..providers.mock_auditor import make_approve_auditor
 from ..providers.mock_builder import MockBuilder
 from ..review_runner import ReviewRunner
 
@@ -146,7 +144,10 @@ class TestSchemaValidator:
 
     def test_markdown_fence_not_needed(self):
         """validate_and_parse works on raw JSON (no fence needed)."""
-        raw = '{"verdict": "reject", "summary": "bad", "issues": [{"severity":"critical","area":"policy","description":"violation"}]}'
+        raw = (
+            '{"verdict": "reject", "summary": "bad", "issues": '
+            '[{"severity":"critical","area":"policy","description":"violation"}]}'
+        )
         v = validate_and_parse("openai", raw)
         assert v.verdict == AuditVerdictValue.REJECT
         assert v.issues[0].severity == IssueSeverity.CRITICAL
@@ -417,3 +418,178 @@ class TestCLIVerdict:
         exp_sink = ExperienceSink(tmp_path)
         with pytest.raises(RuntimeError, match="owner_verdict"):
             exp_sink.record(run)
+
+
+# ---------------------------------------------------------------------------
+# ExperienceSink v2: inline text fields
+# ---------------------------------------------------------------------------
+
+class TestExperienceSinkV2InlineText:
+    """Verify proposal_text, critiques_text, and other v2 fields are stored inline."""
+
+    def test_approved_record_contains_proposal_text(self, tmp_path):
+        """Approved run stores chosen_solution.proposal_text inline."""
+        from ..hard_shell.experience_sink import ExperienceSink, EXPERIENCE_SINK_SCHEMA_VERSION
+
+        task = TaskPack(
+            title="Inline text test",
+            roadmap_stage="R1",
+            why_now="Test v2 fields",
+            risk=RiskLevel.LOW,
+            affected_files=["scripts/foo.py", "scripts/bar.py"],
+        )
+        runner = make_runner(tmp_path)
+        run = run_sync(runner.execute(task))
+        run.owner_verdict = "approved"
+
+        exp_sink = ExperienceSink(tmp_path)
+        exp_sink.record(run)
+
+        exp_files = list((tmp_path / "experience_log").glob("*.jsonl"))
+        assert len(exp_files) == 1
+        record = json.loads(exp_files[0].read_text().splitlines()[0])
+
+        # v2 schema
+        assert record["schema_version"] == EXPERIENCE_SINK_SCHEMA_VERSION
+
+        # Inline text present in chosen_solution
+        chosen = record["chosen_solution"]
+        assert "proposal_text" in chosen
+        assert chosen["proposal_text"] is not None
+        assert len(chosen["proposal_text"]) > 0
+
+        # Hash still present for dedup
+        assert "proposal_hash" in chosen
+        assert chosen["proposal_hash"].startswith("sha256:")
+
+        # run_id present
+        assert "run_id" in record
+        assert record["run_id"] == run.run_id
+
+        # files_changed from task
+        assert record["files_changed"] == ["scripts/foo.py", "scripts/bar.py"]
+
+    def test_proposal_text_capped_at_limit(self, tmp_path):
+        """Very long proposal text is capped, not omitted."""
+        from ..hard_shell.experience_sink import ExperienceSink, _MAX_PROPOSAL_CHARS
+        from ..hard_shell.contracts import ProtocolRun, ModelName, EffortLevel, QualityGateResult, ApprovalRoute
+
+        task = TaskPack(
+            title="Cap test",
+            roadmap_stage="R1",
+            why_now="Test cap",
+            risk=RiskLevel.LOW,
+        )
+        run = ProtocolRun(
+            task=task,
+            model_used=ModelName.SONNET,
+            effort=EffortLevel.MEDIUM,
+            proposal="x" * (_MAX_PROPOSAL_CHARS + 5000),
+            revised_proposal="",
+            quality_gate=QualityGateResult(passed=True, reason="ok"),
+            approval_route=ApprovalRoute.AUTO_PASS,
+            owner_verdict="approved",
+        )
+        run.mark_finished()
+
+        exp_sink = ExperienceSink(tmp_path)
+        exp_sink.record(run)
+
+        record = json.loads(
+            list((tmp_path / "experience_log").glob("*.jsonl"))[0].read_text().splitlines()[0]
+        )
+        text = record["chosen_solution"]["proposal_text"]
+        assert len(text) == _MAX_PROPOSAL_CHARS
+
+    def test_escalation_stores_both_proposals(self, tmp_path):
+        """Escalated run stores both rejected (sonnet) and chosen (opus) text."""
+        from ..hard_shell.experience_sink import ExperienceSink
+        from ..hard_shell.contracts import ProtocolRun, ModelName, EffortLevel, QualityGateResult, ApprovalRoute
+
+        task = TaskPack(
+            title="Escalation test",
+            roadmap_stage="R1",
+            why_now="Test DPO pair",
+            risk=RiskLevel.SEMI,
+        )
+        critique = AuditVerdict(
+            auditor_id="mock_openai",
+            verdict=AuditVerdictValue.REJECT,
+            summary="Bad imports",
+            issues=[AuditIssue(severity=IssueSeverity.CRITICAL, area="policy", description="Forbidden import")],
+        )
+        final = AuditVerdict(
+            auditor_id="mock_openai",
+            verdict=AuditVerdictValue.APPROVE,
+            summary="Fixed",
+            issues=[],
+        )
+        run = ProtocolRun(
+            task=task,
+            model_used=ModelName.OPUS,
+            effort=EffortLevel.HIGH,
+            escalated=True,
+            escalation_reason="Quality gate failed",
+            proposal="def bad_code(): import reconciliation",
+            critiques=[critique],
+            revised_proposal="def good_code(): pass",
+            final_verdicts=[final],
+            quality_gate=QualityGateResult(passed=True, reason="ok"),
+            approval_route=ApprovalRoute.BATCH_APPROVAL,
+            owner_verdict="approved",
+        )
+        run.mark_finished()
+
+        exp_sink = ExperienceSink(tmp_path)
+        exp_sink.record(run)
+
+        record = json.loads(
+            list((tmp_path / "experience_log").glob("*.jsonl"))[0].read_text().splitlines()[0]
+        )
+
+        # Both rejected and chosen have inline text
+        assert record["rejected_solution"]["proposal_text"] == "def bad_code(): import reconciliation"
+        assert record["chosen_solution"]["proposal_text"] == "def good_code(): pass"
+
+        # Critiques text inline
+        assert record["critiques_text"] is not None
+        assert "Forbidden import" in record["critiques_text"]
+
+        # Final audit text inline
+        assert record["final_audit_text"] is not None
+        assert "Fixed" in record["final_audit_text"]
+
+    def test_error_detail_stored(self, tmp_path):
+        """Error message from run is stored inline."""
+        from ..hard_shell.experience_sink import ExperienceSink
+        from ..hard_shell.contracts import (
+            ProtocolRun, ModelName, EffortLevel, ErrorClass, QualityGateResult, ApprovalRoute,
+        )
+
+        task = TaskPack(
+            title="Error test",
+            roadmap_stage="R1",
+            why_now="Test error",
+            risk=RiskLevel.LOW,
+        )
+        run = ProtocolRun(
+            task=task,
+            model_used=ModelName.SONNET,
+            effort=EffortLevel.LOW,
+            proposal="some code",
+            error_class=ErrorClass.TRANSIENT,
+            error_message="API timeout after 30s",
+            quality_gate=QualityGateResult(passed=False, reason="error"),
+            approval_route=ApprovalRoute.BLOCKED,
+            owner_verdict="rejected",
+        )
+        run.mark_finished()
+
+        exp_sink = ExperienceSink(tmp_path)
+        exp_sink.record(run)
+
+        record = json.loads(
+            list((tmp_path / "anti_patterns").glob("*.jsonl"))[0].read_text().splitlines()[0]
+        )
+        assert record["error_detail"] == "API timeout after 30s"
+        assert record["owner_notes"] is None
