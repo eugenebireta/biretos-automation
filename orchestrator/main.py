@@ -910,6 +910,7 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
     manifest["last_directive_hash"] = directive_hash
     manifest["fsm_state"] = "awaiting_execution"
     manifest["_last_risk_class"] = synth.final_risk or classification.risk_class
+    manifest.pop("owner_instruction", None)  # consumed — clear after directive built
     save_manifest(manifest)
 
     append_run({"ts": _now(), "event": "directive_written",
@@ -1766,6 +1767,17 @@ Auditor reviewed this task before execution. Address findings:
 
 """
 
+    # Owner free-text instruction (from Telegram reply)
+    owner_section = ""
+    owner_instruction = manifest.get("owner_instruction")
+    if owner_instruction:
+        owner_section = f"""
+## OWNER INSTRUCTION
+Owner sent this message in Telegram. Treat it as a priority directive:
+{owner_instruction}
+
+"""
+
     return f"""# Orchestrator Directive
 trace_id: {trace_id}
 task_id: {task_id}
@@ -1774,7 +1786,7 @@ generated_at: {_now()}
 risk_class: {classification.risk_class}  governance_route: {classification.governance_route}
 advisor_risk: {verdict.risk_assessment}  advisor_route: {verdict.governance_route}
 scope_source: {scope_note}
-{retry_section}{audit_section}{experience_section}
+{retry_section}{audit_section}{owner_section}{experience_section}
 ## Sprint Goal
 {sprint_goal}
 

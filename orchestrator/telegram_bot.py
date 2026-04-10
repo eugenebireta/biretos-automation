@@ -412,6 +412,23 @@ async def _handle_owner_reply(update: Update, text: str) -> bool:
         await update.message.reply_text("Понял. Задача остаётся на паузе.")
         return True
 
+    # Free-text instruction — save and resume
+    if len(text) >= 5:
+        m["owner_instruction"] = text
+        m["fsm_state"] = "ready"
+        m["last_verdict"] = None
+        m.pop("park_reason", None)
+        m["updated_at"] = datetime.now(timezone.utc).isoformat()
+        MANIFEST_PATH.write_text(
+            json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+        _pc(f"Owner instruction saved: {text[:80]}")
+        preview = text[:120] + ("…" if len(text) > 120 else "")
+        await update.message.reply_text(
+            f"Принял инструкцию:\n\"{preview}\"\n\nСтройка учтёт при следующем запуске."
+        )
+        return True
+
     return False
 
 
@@ -437,7 +454,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             break
 
     if task_text is None:
-        return  # Not a command, ignore
+        # Any free text (no prefix) — treat as task instruction
+        task_text = text
 
     if not task_text:
         await update.message.reply_text("Напиши задачу после 'Стройка:'")
