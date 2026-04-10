@@ -398,8 +398,14 @@ def _save_bridge_state(state: dict) -> None:
 # ── Outbox helper ───────────────────────────────────────────────────────
 
 def _enqueue_response(text: str, *, run_id: str | None = None,
-                      event_type: str = "bridge_reply") -> str:
-    """Write response to outbox for Gateway to deliver."""
+                      event_type: str = "bridge_reply",
+                      target: str = "telegram") -> str:
+    """Write response to outbox for Gateway to deliver.
+
+    Args:
+        target: transport name — Gateway only sends messages matching
+                its own transport_name. Bridge sets this from inbox source.
+    """
     msg_id = f"br_{hashlib.md5(f'{time.time()}'.encode()).hexdigest()[:12]}"
     dedup_key = hashlib.md5(f"{run_id}|{event_type}|{text[:80]}".encode()).hexdigest()
     entry = {
@@ -411,6 +417,7 @@ def _enqueue_response(text: str, *, run_id: str | None = None,
         "status": "pending",
         "run_id": run_id,
         "event_type": event_type,
+        "target": target,
     }
     _locked_append(OUTBOX_PATH, json.dumps(entry, ensure_ascii=False))
     return msg_id
@@ -509,9 +516,13 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
                            updates=list(updates.keys()),
                            new_state=manifest.get("fsm_state"))
 
-        # Write response to outbox
+        # Write response to outbox — route back to same transport as source
         run_id = manifest.get("trace_id")
-        _enqueue_response(response_text, run_id=run_id, event_type=f"bridge_{input_type}")
+        source = entry.get("source", "telegram_gateway")
+        # Normalize source to transport name: "telegram_gateway" -> "telegram"
+        target = source.replace("_gateway", "") if source else "telegram"
+        _enqueue_response(response_text, run_id=run_id,
+                          event_type=f"bridge_{input_type}", target=target)
 
     except Exception as exc:
         _send_to_dlq(entry, f"processing_error:{exc!s:.200}")
