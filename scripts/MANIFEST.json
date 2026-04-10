@@ -1,6 +1,22 @@
 {
   "_description": "Script registry — Claude MUST check this before doing any enrichment/catalog work manually",
   "_updated": "2026-04-09",
+  "import_pipeline": {
+    "order": [
+      "catalog_import"
+    ],
+    "scripts": {
+      "catalog_import": {
+        "file": "catalog_import.py",
+        "purpose": "R1.1 Import Pipeline: Excel/CSV → stg_catalog_imports records",
+        "triggers": ["импорт каталога", "import catalog", "import Excel", "загрузи Excel", "stg_catalog"],
+        "usage": "python scripts/catalog_import.py --input path/to/file.xlsx --dry-run",
+        "inputs": ["Excel (.xlsx) or CSV", "downloads/evidence/evidence_*.json (for enrichment)"],
+        "outputs": ["downloads/staging/stg_catalog_imports.json", "downloads/staging/import_report.json"],
+        "critical_rule": "PN and brand normalized to UPPER before dedup. Confidence gate routes to accepted/review_required/rejected."
+      }
+    }
+  },
   "enrichment_pipeline": {
     "order": [
       "dr_prompt_generator",
