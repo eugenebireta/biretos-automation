@@ -117,9 +117,21 @@ class TestClassifyInput:
         assert typ == "freetext"
         assert payload["instruction"] == "попробуй другой подход"
 
-    def test_freetext_not_in_park_state(self):
+    def test_freetext_in_idle_creates_new_task(self):
+        m = {"fsm_state": "idle"}
+        typ, payload = bridge.classify_input("сделай что-нибудь полезное", m)
+        assert typ == "new_task"
+        assert payload["instruction"] == "сделай что-нибудь полезное"
+
+    def test_freetext_in_ready_creates_new_task(self):
         m = {"fsm_state": "ready"}
-        typ, _ = bridge.classify_input("сделай что-нибудь полезное", m)
+        typ, payload = bridge.classify_input("сделай что-нибудь полезное", m)
+        assert typ == "new_task"
+        assert payload["instruction"] == "сделай что-нибудь полезное"
+
+    def test_approve_in_idle_is_no_pending(self):
+        m = {"fsm_state": "idle"}
+        typ, _ = bridge.classify_input("ок", m)
         assert typ == "no_pending_state"
 
     def test_too_short(self):
@@ -248,6 +260,30 @@ class TestFreetext:
 
         outbox = _read_outbox(tmp_path)
         assert "инструкцию" in outbox[-1]["text"].lower()
+
+
+# ── process_inbox_entry: new_task ──────────────────────────────────────
+
+class TestNewTask:
+
+    def test_new_task_from_idle(self, tmp_path, monkeypatch):
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {"fsm_state": "idle"})
+        text = "Обнови каталог — добавь описания для PEHA"
+        entry = {"update_id": 110, "text": text}
+        state = {"last_processed_update_id": 0}
+
+        ok = bridge.process_inbox_entry(entry, state)
+
+        assert ok is True
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "ready"
+        assert m["current_sprint_goal"] == text
+        assert m["current_task_id"].startswith("tg-")
+        assert m["owner_instruction"] == text
+
+        outbox = _read_outbox(tmp_path)
+        assert "Принял задачу" in outbox[-1]["text"]
 
 
 # ── process_inbox_entry: status ─────────────────────────────────────────

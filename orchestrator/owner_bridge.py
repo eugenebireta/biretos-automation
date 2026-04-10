@@ -92,9 +92,13 @@ def classify_input(text: str, manifest: dict) -> tuple[str, dict[str, Any]]:
             return "decision", {"key": key, "text": options[key]}
         # Single letter not in options — falls through
 
-    # Not in a park state — owner actions not applicable
+    # Idle/ready/completed — accept new task via freetext
     if fsm_state not in PARK_STATES:
-        return "no_pending_state", {"fsm_state": fsm_state}
+        if len(text) >= MIN_FREETEXT_LEN:
+            return "new_task", {"instruction": text, "fsm_state": fsm_state}
+        if lower in APPROVE_WORDS or lower in REJECT_WORDS:
+            return "no_pending_state", {"fsm_state": fsm_state}
+        return "too_short", {"length": len(text)}
 
     # Approve / reject
     if lower in APPROVE_WORDS:
@@ -182,10 +186,30 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
     )
 
 
+def _handle_new_task(manifest: dict, payload: dict) -> tuple[dict, str]:
+    """Create new task from owner message when system is idle/ready."""
+    instruction = payload["instruction"]
+    task_id = f"tg-{hashlib.md5(instruction.encode()).hexdigest()[:8]}"
+    preview = instruction[:120] + ("…" if len(instruction) > 120 else "")
+    return (
+        {
+            "fsm_state": "ready",
+            "current_sprint_goal": instruction,
+            "current_task_id": task_id,
+            "owner_instruction": instruction,
+            "attempt_count": 0,
+            "last_verdict": None,
+            "park_reason": None,
+            "trace_id": "",
+        },
+        f"Принял задачу [{task_id}]:\n\"{preview}\"\n\nЗапускаю.",
+    )
+
+
 def _handle_no_pending(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Owner sent message but no pending action. Save to inbox, no mutation."""
+    """Owner sent approve/reject but no pending action."""
     state = payload.get("fsm_state", "?")
-    return {}, f"Сейчас нет ожидающих действий (состояние: {state}). Сообщение сохранено."
+    return {}, f"Сейчас нет ожидающих действий (состояние: {state})."
 
 
 def _handle_too_short(manifest: dict, payload: dict) -> tuple[dict, str]:
@@ -199,6 +223,7 @@ _HANDLERS: dict[str, Any] = {
     "reject": _handle_reject,
     "decision": _handle_decision,
     "freetext": _handle_freetext,
+    "new_task": _handle_new_task,
     "status": _handle_status,
     "no_pending_state": _handle_no_pending,
     "too_short": _handle_too_short,
