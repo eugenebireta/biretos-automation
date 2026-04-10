@@ -390,6 +390,79 @@ def run_audit_sync(task_pack, proposal_text: str = ""):
     return result
 
 
+# ── Dual Audit Fallback Honesty (Batch #3) ──────────────────────────────────
+# When one or both API auditors fail (429, timeout, network), the audit mode
+# degrades. These helpers classify the mode and ENFORCE stricter approval
+# routing — not just artifact decoration.
+
+def _classify_audit_mode(provider_status: dict[str, str]) -> str:
+    """Classify audit completeness from per-provider outcomes.
+
+    Returns: "dual" | "degraded_single" | "unavailable"
+    """
+    ok_count = sum(1 for v in provider_status.values() if v == "ok")
+    if ok_count >= 2:
+        return "dual"
+    if ok_count == 1:
+        return "degraded_single"
+    return "unavailable"
+
+
+def _apply_degraded_policy(
+    risk_class: str,
+    audit_mode: str,
+    current_route,  # ApprovalRoute enum
+) -> tuple:
+    """Enforce stricter routing when audit is degraded. Returns (new_route, reason).
+
+    Policy matrix (fail-closed):
+        LOW  + degraded_single → keep current (AUTO_PASS ok)
+        LOW  + unavailable     → INDIVIDUAL_REVIEW
+        SEMI + degraded_single → INDIVIDUAL_REVIEW (enforced upgrade)
+        SEMI + unavailable     → BLOCKED
+        CORE + degraded_single → BLOCKED
+        CORE + unavailable     → BLOCKED
+
+    This function UPGRADES the route — it never downgrades.
+    """
+    from auditor_system.hard_shell.contracts import ApprovalRoute
+
+    # Route severity order for "never downgrade" logic
+    _ROUTE_SEVERITY = {
+        ApprovalRoute.AUTO_PASS: 0,
+        ApprovalRoute.BATCH_APPROVAL: 1,
+        ApprovalRoute.INDIVIDUAL_REVIEW: 2,
+        ApprovalRoute.BLOCKED: 3,
+    }
+
+    if audit_mode == "dual":
+        return current_route, None  # no degradation
+
+    # Determine minimum route from policy matrix
+    if risk_class == "CORE":
+        min_route = ApprovalRoute.BLOCKED
+        reason = f"CORE requires dual audit; got {audit_mode}"
+    elif risk_class == "SEMI":
+        if audit_mode == "unavailable":
+            min_route = ApprovalRoute.BLOCKED
+            reason = "SEMI + both auditors unavailable"
+        else:  # degraded_single
+            min_route = ApprovalRoute.INDIVIDUAL_REVIEW
+            reason = "SEMI + single auditor — owner must review individually"
+    else:  # LOW
+        if audit_mode == "unavailable":
+            min_route = ApprovalRoute.INDIVIDUAL_REVIEW
+            reason = "LOW + both auditors unavailable"
+        else:  # degraded_single
+            return current_route, None  # LOW tolerates single auditor
+    # type: ignore[possibly-undefined]
+
+    # Never downgrade — only upgrade
+    if _ROUTE_SEVERITY.get(min_route, 0) > _ROUTE_SEVERITY.get(current_route, 0):
+        return min_route, reason
+    return current_route, None
+
+
 def run_scope_review_sync(task_pack, scope_text: str = ""):
     """
     Lightweight pre-execution scope/risk review.
@@ -416,19 +489,25 @@ def run_scope_review_sync(task_pack, scope_text: str = ""):
         AnthropicAuditor(model=anthropic_model, api_key=secrets["ANTHROPIC_API_KEY"]),
     ]
 
-    # Single critique round — no builder, no revision
+    # Single critique round — track per-provider status for honesty
+    auditor_ids = ["gemini", "anthropic"]
+
     async def _run():
         verdicts = []
-        for auditor in auditors:
+        provider_status = {}
+        for auditor, aid in zip(auditors, auditor_ids):
             try:
                 verdict = await auditor.critique(scope_text, task_pack, context={})
                 verdicts.append(verdict)
+                provider_status[aid] = "ok"
             except Exception as exc:
                 logger.warning("scope_review: auditor %s failed: %s",
                                auditor.auditor_id, exc)
-        return verdicts
+                provider_status[aid] = f"error:{type(exc).__name__}"
+        return verdicts, provider_status
 
-    verdicts = asyncio.run(_run())
+    verdicts, provider_status = asyncio.run(_run())
+    audit_mode = _classify_audit_mode(provider_status)
 
     # Simple pass logic: no critical issues = pass
     concerns = []
@@ -443,13 +522,22 @@ def run_scope_review_sync(task_pack, scope_text: str = ""):
 
     passed = not has_critical and len(verdicts) > 0
 
+    # Build confidence_reduction_reason
+    confidence_reduction_reason = None
+    if audit_mode != "dual":
+        failed = [k for k, v in provider_status.items() if v != "ok"]
+        confidence_reduction_reason = f"{','.join(failed)}_unavailable"
+
     logger.info(
         json.dumps({
             "trace_id": getattr(task_pack, "title", "?"),
             "outcome": "scope_review_complete",
             "passed": passed,
+            "audit_mode": audit_mode,
+            "provider_status": provider_status,
             "auditor_count": len(verdicts),
             "concern_count": len(concerns),
+            "confidence_reduction_reason": confidence_reduction_reason,
         }, ensure_ascii=False)
     )
 
@@ -458,6 +546,9 @@ def run_scope_review_sync(task_pack, scope_text: str = ""):
         "concerns": concerns,
         "auditor_verdicts": auditor_verdicts,
         "verdict_count": len(verdicts),
+        "audit_mode": audit_mode,
+        "provider_status": provider_status,
+        "confidence_reduction_reason": confidence_reduction_reason,
     }
 
 
@@ -541,19 +632,25 @@ def run_post_execution_audit_sync(
         GeminiAuditor(model=gemini_model, api_key=secrets["GEMINI_API_KEY"]),
         AnthropicAuditor(model=anthropic_model, api_key=secrets["ANTHROPIC_API_KEY"]),
     ]
+    auditor_ids = ["gemini", "anthropic"]
 
-    async def _run_critique(auditor_list):
+    async def _run_critique(auditor_list, aid_list=None):
         verdicts = []
-        for auditor in auditor_list:
+        provider_status = {}
+        for idx, auditor in enumerate(auditor_list):
+            aid = aid_list[idx] if aid_list else auditor.auditor_id
             try:
                 verdict = await auditor.critique(proposal_text, task_pack, context={})
                 verdicts.append(verdict)
+                provider_status[aid] = "ok"
             except Exception as exc:
                 logger.warning("post_exec_audit: auditor %s failed: %s",
                                auditor.auditor_id, exc)
-        return verdicts
+                provider_status[aid] = f"error:{type(exc).__name__}"
+        return verdicts, provider_status
 
-    verdicts = asyncio.run(_run_critique(auditors))
+    verdicts, provider_status = asyncio.run(_run_critique(auditors, auditor_ids))
+    audit_mode = _classify_audit_mode(provider_status)
 
     # Check if ANY auditor (Gemini OR Sonnet) found critical issues.
     # Critical is deterministic: driven by IssueSeverity.CRITICAL enum in verdict schema.
@@ -635,25 +732,34 @@ def run_post_execution_audit_sync(
         reason="no critical issues" if not has_critical else "critical issues found",
     )
 
-    # Approval routing:
+    # Approval routing (base):
     # - CORE: NEVER auto_pass. Always INDIVIDUAL_REVIEW (→ JUDGE + owner).
-    #   Opus clearing = "forwarded to JUDGE", NOT "approved".
     # - SEMI: NEVER auto_pass. Always BATCH_APPROVAL (→ owner ACCEPT).
-    #   Per Master Plan: "SEMI: commit/merge только с owner approval".
     # - LOW: auto_pass if gate passed.
     if has_critical:
         run.approval_route = ApprovalRoute.BLOCKED
     elif risk_class == "CORE":
-        # CORE always goes to JUDGE — even if gate passed
         run.approval_route = ApprovalRoute.INDIVIDUAL_REVIEW
     elif risk_class == "SEMI":
-        # SEMI always needs owner ACCEPT — never auto-pass
         run.approval_route = ApprovalRoute.BATCH_APPROVAL
     elif run.quality_gate.passed:
-        # LOW with clean gate — auto pass
         run.approval_route = ApprovalRoute.AUTO_PASS
     else:
         run.approval_route = ApprovalRoute.INDIVIDUAL_REVIEW
+
+    # Degraded audit enforcement — may UPGRADE route (never downgrade)
+    confidence_reduction_reason = None
+    if audit_mode != "dual":
+        failed = [k for k, v in provider_status.items() if v != "ok"]
+        confidence_reduction_reason = f"{','.join(failed)}_unavailable"
+
+    enforced_route, degrade_reason = _apply_degraded_policy(
+        risk_class, audit_mode, run.approval_route,
+    )
+    if degrade_reason:
+        run.approval_route = enforced_route
+        if not confidence_reduction_reason:
+            confidence_reduction_reason = degrade_reason
 
     run.mark_finished()
 
@@ -663,11 +769,19 @@ def run_post_execution_audit_sync(
         "run_id": run.run_id,
         "gate_passed": run.quality_gate.passed,
         "approval_route": run.approval_route.value,
+        "audit_mode": audit_mode,
+        "provider_status": provider_status,
         "auditor_verdicts": {v.auditor_id: v.verdict.value for v in verdicts},
         "escalated": escalated,
+        "confidence_reduction_reason": confidence_reduction_reason,
         "outcome": "post_exec_audit_complete",
         "tier": tier,
     }, ensure_ascii=False))
+
+    # Attach fallback honesty fields to run for artifact consumers
+    run.audit_mode = audit_mode
+    run.provider_status = provider_status
+    run.confidence_reduction_reason = confidence_reduction_reason
 
     return run
 
@@ -806,7 +920,9 @@ def run_cli_prescreen_sync(
     if data is None:
         logger.warning("cli_prescreen: failed to parse CLI response")
         return {"passed": True, "verdict": "prescreen_skip", "critique": "",
-                "tier": "cli_prescreen"}
+                "tier": "cli_prescreen",
+                "audit_mode": "cli_only",
+                "self_eval_conflict": True, "advisory_only": True}
 
     passed = bool(data.get("passed", True))
     issues = data.get("issues", [])
@@ -817,6 +933,7 @@ def run_cli_prescreen_sync(
         "outcome": "cli_prescreen_complete",
         "passed": passed,
         "issues_count": len(issues),
+        "audit_mode": "cli_only",
     }, ensure_ascii=False))
 
     return {
@@ -824,6 +941,9 @@ def run_cli_prescreen_sync(
         "verdict": "prescreen_pass" if passed else "prescreen_fail",
         "critique": critique,
         "tier": "cli_prescreen",
+        "audit_mode": "cli_only",
+        "self_eval_conflict": True,
+        "advisory_only": True,
     }
 
 
