@@ -15,3 +15,6 @@ critique_min_approvals: 2
 pytest_timeout_seconds: 120
 runs_retention_days: 90
 sprint_goal_staleness_warn_days: 7
+# Telegram transport: gateway replaces notifier + bot
+telegram_gateway_enabled: true
+telegram_notifier_enabled: false

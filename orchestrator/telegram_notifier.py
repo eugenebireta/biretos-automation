@@ -32,6 +32,33 @@ logger = logging.getLogger(__name__)
 # Injectable for tests — replaces HTTP send
 _send_fn: Optional[object] = None
 
+# Config-flag guard: disabled when telegram_gateway is active
+_notifier_enabled: Optional[bool] = None
+_notifier_checked_at: float = 0
+
+
+def _is_notifier_enabled() -> bool:
+    """Check config.yaml flag. Cached for 60s to avoid disk reads."""
+    global _notifier_enabled, _notifier_checked_at
+    import time
+    now = time.time()
+    if _notifier_enabled is not None and (now - _notifier_checked_at) < 60:
+        return _notifier_enabled
+    _notifier_checked_at = now
+    config_path = ORCH_DIR / "config.yaml"
+    if config_path.exists():
+        try:
+            text = config_path.read_text(encoding="utf-8")
+            for line in text.splitlines():
+                if line.strip().startswith("telegram_notifier_enabled:"):
+                    val = line.split(":", 1)[1].strip().lower()
+                    _notifier_enabled = val in ("true", "yes", "1")
+                    return _notifier_enabled
+        except Exception:
+            pass
+    _notifier_enabled = True  # default: enabled if flag missing
+    return _notifier_enabled
+
 # Dedup: remember last sent message to avoid spamming owner with repeats
 _last_sent_hash: Optional[str] = None
 
@@ -56,6 +83,7 @@ def send(text: str) -> bool:
 
     Returns True on success, False if not configured or delivery failed.
     Silently no-ops if TELEGRAM_OWNER_CHAT_ID is not set (bot not yet started).
+    Disabled when telegram_notifier_enabled: false in config.yaml.
     """
     global _send_fn
     if _send_fn is not None:
@@ -65,6 +93,10 @@ def send(text: str) -> bool:
     if not token or not chat_id:
         logger.debug("telegram_notifier: not configured (token=%s chat_id=%s)", bool(token), bool(chat_id))
         return False
+
+    if not _is_notifier_enabled():
+        logger.debug("telegram_notifier: disabled via config.yaml (gateway active)")
+        return True  # return True so callers don't treat as failure
 
     url = f"https://api.telegram.org/bot{token}/sendMessage"
     payload = json.dumps({"chat_id": chat_id, "text": text}).encode("utf-8")
