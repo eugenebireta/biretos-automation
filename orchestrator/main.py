@@ -797,9 +797,13 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
         try:
             import core_gate_bridge as _cgb
             task_pack = _cgb.decision_to_task_pack(synth, manifest)
+
+            # --- Layer 0.5: Contract Compiler (deterministic, $0) ---
+            _task_id = manifest.get("current_task_id", "unknown")
+            _stage_id = _task_id.split("-")[0] if "-" in _task_id else _task_id
             scope_text = (
                 f"## Scope/Risk Review (pre-execution)\n\n"
-                f"Task: {manifest.get('current_task_id', 'unknown')}\n"
+                f"Task: {_task_id}\n"
                 f"Sprint Goal: {manifest.get('current_sprint_goal', '')}\n"
                 f"Scope ({len(synth.approved_scope)} files): {synth.approved_scope[:20]}\n"
                 f"Risk: {synth.final_risk}\n"
@@ -807,6 +811,39 @@ def _cmd_cycle_inner(args: argparse.Namespace, manifest: dict) -> None:
                 f"**Question: Is this scope safe? Are any Tier-1/Tier-2 files at risk?**\n"
                 f"**Do NOT review code — code does not exist yet. Only review scope and risk.**\n"
             )
+            try:
+                contract_result = _cgb.run_contract_check(
+                    stage_id=_stage_id,
+                    proposal_text=scope_text,
+                    trace_id=trace_id,
+                )
+                print(f"[orchestrator] Contract check: {contract_result['status']}")
+                if contract_result["status"] == "blocked_precondition":
+                    blocked_by = contract_result["prereqs"].get("blocked_by", [])
+                    print(f"[orchestrator] BLOCKED_PRECONDITION: {blocked_by}")
+                    manifest["fsm_state"] = "blocked"
+                    manifest["last_verdict"] = "BLOCKED_PRECONDITION"
+                    manifest["park_reason"] = (
+                        f"#blocker: prerequisites not met: {blocked_by}"
+                    )
+                    save_manifest(manifest)
+                    append_run({"ts": _now(), "event": "contract_blocked",
+                                "status": "blocked_precondition",
+                                "blocked_by": blocked_by,
+                                "trace_id": trace_id})
+                    _notify_park(manifest)
+                    return
+                if contract_result["verified_context"]["shape_warnings"]:
+                    for w in contract_result["verified_context"]["shape_warnings"]:
+                        print(f"[orchestrator] SHAPE WARNING: {w}")
+                if contract_result["verified_context"]["false_claims"]:
+                    for fc in contract_result["verified_context"]["false_claims"]:
+                        print(f"[orchestrator] FALSE CLAIM: {fc}")
+            except Exception as exc:
+                print(f"[orchestrator] Contract check error (non-fatal): {exc}")
+                contract_result = None
+
+            # --- Layer 2: LLM scope review (with verified context) ---
             scope_result = _cgb.run_scope_review_sync(task_pack, scope_text=scope_text)
 
             audit_summary = {
@@ -1290,6 +1327,22 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                         return
                 except Exception as exc:
                     print(f"[orchestrator] Preflight guard error (non-fatal): {exc}")
+
+                # --- Layer 0.5: CONTRACT CHECK (deterministic, $0) ---
+                try:
+                    from core_gate_bridge import run_contract_check
+                    _task_id_cc = manifest.get("current_task_id", "unknown")
+                    _stage_cc = _task_id_cc.split("-")[0] if "-" in _task_id_cc else _task_id_cc
+                    _cc_result = run_contract_check(
+                        stage_id=_stage_cc,
+                        proposal_text=directive_text[:2000],
+                        trace_id=trace_id,
+                    )
+                    if _cc_result["verified_context"]["false_claims"]:
+                        for fc in _cc_result["verified_context"]["false_claims"]:
+                            print(f"[orchestrator] CONTRACT FALSE CLAIM: {fc}")
+                except Exception as exc:
+                    print(f"[orchestrator] Contract check error (non-fatal): {exc}")
 
                 # --- AUDIT OVERLAY: CLI pre-screen on retries, API audit on final ---
                 is_final_attempt = (retry_count >= max_retries) or (retry_count == 0)

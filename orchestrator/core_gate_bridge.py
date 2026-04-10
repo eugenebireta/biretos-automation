@@ -104,6 +104,50 @@ def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
     return {"passed": passed, "results": results, "blocked_by": blocked_by}
 
 
+def run_contract_check(
+    stage_id: str,
+    proposal_text: str,
+    trace_id: str = "",
+) -> dict:
+    """
+    Layer 0.5: Canonical Contract Gate.
+
+    Deterministic verification of prerequisites, factual claims, and solution
+    shape BEFORE any LLM audit. Produces verified_context for LLM auditors
+    so they focus on residual engineering risk, not fact-checking.
+
+    Returns compile_contract() result dict with status, prereqs, claims, shape,
+    and verified_context suitable for passing to Layer 2 auditors.
+
+    BLOCKED_PRECONDITION → hard block (prereqs not met).
+    SHAPE_DEVIATION → advisory warning (LLM + owner decide).
+    CLEAN → proceed to LLM audit.
+    """
+    from contract_compiler import compile_contract
+
+    result = compile_contract(stage_id, proposal_text, trace_id)
+
+    # Write artifact for evidence trail
+    artifact_path = ROOT / "orchestrator" / "last_contract_check.json"
+    artifact_path.write_text(json.dumps({
+        "trace_id": trace_id,
+        "stage_id": stage_id,
+        "status": result["status"],
+        "prereqs_passed": result["prereqs"]["passed"],
+        "false_claims": result["verified_context"]["false_claims"],
+        "shape_warnings": result["verified_context"]["shape_warnings"],
+    }, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    logger.info(json.dumps({
+        "trace_id": trace_id,
+        "stage_id": stage_id,
+        "status": result["status"],
+        "outcome": "contract_check_complete",
+    }, ensure_ascii=False))
+
+    return result
+
+
 def decision_to_task_pack(decision, manifest: dict):
     """
     Convert a SynthesizerDecision + manifest into an auditor_system TaskPack.
