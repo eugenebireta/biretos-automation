@@ -1,0 +1,92 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_580249.11",
+  "entity_id": "580249.11",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PA power amplifier",
+    "description_ru": "Used condition on eBay; no new pricing found publicly",
+    "category_suggestion": "PA power amplifier",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 3.995,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/125733345896",
+      "price_type": "surplus"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-580249-11-d1-power-amplifier-4-channel-4xd500-230v-ac-50-60h-primaryimage",
+    "specs": {
+      "raw": "230VAC; 4×500W; Class D; 100V direct outputs; galvanic isolation; VARIODYN D1",
+      "aliases": [
+        "4XD500"
+      ]
+    },
+    "key_findings": [
+      "Used condition on eBay; no new pricing found publicly",
+      "Aliases: 4XD500"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/125733345896",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.ebay.com/itm/125733345896",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.esser-systems.com/en/products/details/variodyn-d1/amplifiers/58024911-four-channel-amplifier-4xd500/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.acornfiresecurity.com/notifier-honeywell-power-amplifier-4-x-500w-100v-class-d-580249.11",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/itm/125733345896",
+      "type": "surplus",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.964513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

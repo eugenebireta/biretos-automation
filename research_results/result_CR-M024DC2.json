@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CR-M024DC2",
+  "entity_id": "CR-M024DC2",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "electromagnetic relay",
+    "description_ru": "На странице указаны ступенчатые цены и упаковка 10 pcs",
+    "category_suggestion": "electromagnetic relay",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 6.69,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.tme.eu/en/details/cr-m024dc2/industrial-electromagnetic-relays/abb/1svr405611r1000/` citeturn46search4",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "DPDT; Ucoil 24VDC; Icontacts max 12A; pricing per pcs (net/gross shown)",
+      "aliases": [
+        "ABB 1SVR405611R1000 / TME symbol CR-M024DC2"
+      ]
+    },
+    "key_findings": [
+      "На странице указаны ступенчатые цены и упаковка 10 pcs",
+      "Aliases: ABB 1SVR405611R1000 / TME symbol CR-M024DC2"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.tme.eu/en/details/cr-m024dc2/industrial-electromagnetic-relays/abb/1svr405611r1000/` citeturn46search4",
+        "type": "distributor",
+        "domain": "www.tme.eu",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.tme.eu/en/details/cr-m024dc2/industrial-electromagnetic-relays/abb/1svr405611r1000/` citeturn46search4",
+      "type": "distributor",
+      "domain": "www.tme.eu",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.066748+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

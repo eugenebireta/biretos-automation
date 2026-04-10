@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_188091",
+  "entity_id": "188091",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "switch frame",
+    "description_ru": "Цена указана **inkl. MwSt.**, доставка бесплатная (на странице). citeturn54view0",
+    "category_suggestion": null,
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 525.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-holz-188091-5-st-2856760.html` citeturn54view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://asset.conrad.com/media10/isa/160267/c1/-/de/002856760PI00/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400` citeturn57view0",
+    "specs": {},
+    "key_findings": [
+      "Unable to perform web search to retrieve information for Honeywell part number 188091.",
+      "The search tool consistently returned only time information instead of search results."
+    ],
+    "ambiguities": [
+      "Cannot confirm product category, similar part numbers, pricing, photos, or specifications without successful web search results."
+    ],
+    "sources": [
+      {
+        "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-holz-188091-5-st-2856760.html` citeturn54view0",
+        "type": "distributor",
+        "domain": "www.conrad.at",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Information could not be retrieved due to a technical issue preventing web search execution."
+  },
+  "sources": [
+    {
+      "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-holz-188091-5-st-2856760.html` citeturn54view0",
+      "type": "distributor",
+      "domain": "www.conrad.at",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:56:46.316968Z",
+  "provider": "gemini_grounding",
+  "model": "gemini-2.5-flash",
+  "raw_response_length": 775,
+  "cost_usd": 0.004,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

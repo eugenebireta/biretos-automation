@@ -1,29 +1,91 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 50
-transition_ts: "2026-04-03T17:07:18Z"
+transition_seq: 81
+transition_ts: "2026-04-09T21:00:00Z"
 
 ## Current
-active_task: "BVS deterministic merge tool"
-task_id: "bvs-merge-tool"
-phase: BUILDER
-status: COMPLETED
-phase_owner: "Owner/Eugene"
-risk_level: SEMI
+active_task: "P7-BUDGET-TRACKING-AND-AUDIT-SUITE"
+task_id: "P7-BUDGET-TRACKING-AND-AUDIT-SUITE"
+phase: COMPLETED_WAITING_REVIEW
+status: DONE
+note: "P7 budget_tracker.py: estimate_cost (model pricing table), record_call (JSONL persist), get_trace_cost, get_daily_summary (by_stage/model/provider), check_budget (daily+per-run limits). Wired into main.py: budget check at cycle start, advisor/executor/auditor cost recording, trace cost summary. 23 budget tests. Comprehensive audit test suite (test_audit_comprehensive.py): 47 tests across 9 categories (FSM invariants, risk separation, consensus gate, retry safety, budget enforcement, experience loop, queue integrity, directive integrity, cross-module contracts). 650/650 orchestrator tests pass."
+phase_owner: "Agent/ClaudeCode"
+risk_level: LOW
 pipeline: [BUILDER]
 pr_branch: "feat/rev-r1-catalog"
-pr_number: 28
 now:
-  - step: "PR #28 merged; deterministic artifacts pinned post-merge"
+  - step: "Enrichment Improvements Batch v2 — all 9 blocks + web search integration complete"
     actions:
-      - "merge_manifests.py: deterministic first+second pass JSONL merge (18/18 tests)"
-      - "25 SKU checked for BVS eligibility, 5 URLs eligible (3 PN on 2 RU sites)"
-      - "2 wins (lemanapro.ru), 3 blocked (vseinstrumenti.ru ServicePipe)"
-      - "bvs_25sku_seed.jsonl committed; merged_manifest.jsonl sanitized to deterministic versioned output"
-      - "41/41 tests PASS (18 merge + 23 BVS regression)"
-known_gap: "vseinstrumenti.ru ServicePipe not solvable; raw BVS/CDP provenance remains in runtime manifest and screenshots, not in committed merged output."
-awaiting: "No open dependency inside this batch; PR #28 is already merged to master."
+      - "Block 1: response_raw=None for API failures, 10k truncation cap, response_raw_present field — 7 tests"
+      - "Block 2: extract_full_jsonld() — brand, mpn, gtin, dims, rating, seller, additionalProperty — 14 tests"
+      - "Block 3: spec_extractor.py — 3-strategy HTML parser (tables, dl, spec divs) — 15 tests"
+      - "Block 4: YAML brand config registry — honeywell/peha/esser + brand_knowledge.py — 23 tests"
+      - "Block 5: multi_source_prices.py — optional distributor cross-validation (off by default) — 13 tests"
+      - "Block 6: brand_experience_writer.py — BrandExperienceRecord + pipeline integration — 16 tests"
+      - "Block 7: conditional datasheets — auto-trigger for no_price/no_photo/category_mismatch — 9 tests"
+      - "Block 8: training_dataset_export.py — 4 datasets, 938 examples exported — 15 tests"
+      - "Block 9: correction_logger.py — 44 retrospective records (33 PEHA + 11 sanity) — 9 tests"
+      - "Web Search: GeminiResearchProvider + ClaudeWebSearchProvider + WebSearchResearchOrchestrator — 29 tests"
+      - "research_runner.py: --web-search and --rerun flags added"
+      - "Total: 1173/1173 PASS"
+known_gap: |
+  Enrichment batch continuation (~280 SKU) not yet run — next step.
+  Research results in research_results/ — NOT merged to evidence without owner review.
+awaiting: "Enrichment batch continuation run, then research_runner --web-search --rerun for 37 failed SKUs"
+pr_number: 38
+now:
+  - step: "Price scout resolution — suffix-variant PN matching, trust domain expansion, URL refresh for 6 ambiguous seeds"
+    actions:
+      - "pn_match.py: strip_known_suffix() + suffix-variant fallback in extract_structured_pn_flags"
+      - "trust.py: 7 new industrial domains (sima-land, vseinstrumenti, specregion, pksafety, dmsupply, transcat, instrumart)"
+      - "4 seeds updated with accessible URLs (specregion for harnesses, DM Supply for 129464N/U, instrumart for 129625-L3)"
+      - "129464N/U: admissible_public_price ($640.44, DM Supply, lineage=True)"
+      - "1011893-RU + 1011894-RU: lineage=True via suffix-variant matching (surface_conflict pending stabilization)"
+      - "Final: 6 admissible_public_price, 5 ambiguous_offer/review_required"
+      - "Evaluation report (honeywell.xlsx) provides reference prices for all 17 SKU"
+known_gap: |
+  SURFACE_CONFLICT (new sources): 1011893-RU, 1011894-RU — lineage=True but surface_conflict with prior runs
+    — will stabilize after 2+ pipeline runs; currently flagged as review_required
+  MANUFACTURER_PN_NOT_VISIBLE: 129625-L3 (GA-USB1-IR distributor code), 121679-L3 (no accessible URL)
+    — distributor pages don't show manufacturer PN; lineage unconfirmable by automation
+    — evaluation report reference prices: 129625-L3=55352₽, 121679-L3=17169₽
+  NO_PUBLIC_PRICE: 1015021 (rfq_only on all found pages), 121679-L3 (no page found)
+    — evaluation report reference: 1015021=1255₽, 121679-L3=17169₽
+  STRUCTURAL_PN_COLLISION: 8 PEHA items (00020211, 101411, 104011, 105411, 106511, 109411, 125711, 127411)
+    — mislabeled as industrial sensors/valves but are Peha electrical switch covers
+    — prices exist on Conrad but pipeline rejects due to category_mismatch
+    — needs catalog reclassification or explicit category_mismatch override
+  photo_recovery=14 SKU remaining
+known_gap: |
+  batch2 SKUs not in current 25-SKU catalog — evidence bundles must be created before integration
+  6 ambiguous_offer rows: 704960 (pack qty ambiguity), BWC4-Y-R (suffix variant, no lineage),
+    CPO-RL4 (surplus distributor, unknown tier), CN80-HB-CNV-0 (distributor only), XJ1-00-07000000,
+    2904617 (Phoenix Contact — non-Honeywell brand)
+  test_price_lineage fix: URL in access-denied test must not embed PN (url_path_pn_match fires on matching slugs)
+awaiting: "Owner decision: (A) expand catalog with batch2 SKUs (create evidence bundles), OR (B) reclassify PEHA items, OR (C) switch track to Infrastructure."
+
+## Previous (seq 60 — M4 Executor Bridge)
+prev_active_task: "Meta Orchestrator — M4 Executor Bridge"
+prev_task_id: "meta-orchestrator-m4-executor-bridge"
+prev_phase: COMPLETED
+prev_status: CLOSED
+prev_exit: "executor_bridge.py run()+run_with_collect(), 43 tests, SEMI BATCH_APPROVAL. 308/308 orchestrator tests PASS."
+
+## Previous (seq 59 — M3 synthesizer)
+prev_active_task: "Meta Orchestrator — M3 Decision Synthesizer + Gemini Auditor"
+
+prev_task_id: "meta-orchestrator-m3-synthesizer"
+prev_phase: COMPLETED
+prev_status: CLOSED
+prev_exit: "synthesizer.py 7-rule engine + Gemini 3.1 Pro auditor. CORE audit via API: BATCH_APPROVAL. 61/61 M3 tests PASS."
+
+## Previous (seq 50 — BVS deterministic merge tool)
+prev_active_task: "BVS deterministic merge tool"
+prev_task_id: "bvs-merge-tool"
+prev_phase: BUILDER
+prev_status: COMPLETED
+prev_exit: "PR #28 merged; 41/41 tests PASS; bvs_25sku_seed.jsonl + merged_manifest.jsonl committed."
 
 ## Previous (seq 48 — auditor_system Phase 2)
 prev_active_task: "auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4)"

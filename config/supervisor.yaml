@@ -1,0 +1,14 @@
+batch_limits:
+  photo: 1
+  price: 1
+
+telegram:
+  enabled: true
+  api_base: "https://api.telegram.org"
+  bot_token_key: "SUPERVISOR_TELEGRAM_BOT_TOKEN"
+  chat_id_key: "SUPERVISOR_TELEGRAM_CHAT_ID"
+  poll_limit: 20
+  send_timeout_seconds: 15
+  poll_timeout_seconds: 15
+  delivery_retry_backoff_seconds: [60, 300, 1800]
+  decision_timeout_hours: 24

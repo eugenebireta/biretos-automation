@@ -1,0 +1,101 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_TPPR-V-1040",
+  "entity_id": "TPPR-V-1040",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Relay output module (gas detection)",
+    "description_ru": "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified.",
+    "category_suggestion": "Relay output module (gas detection)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 900.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.jjstech.com/tppr-v-1040.html",
+      "price_type": "distributor"
+    },
+    "photo_url": "(available on ISS Safety page)",
+    "specs": {
+      "raw": "4-ch relay; 4× SPCO; 24V DC aux; 0–25mA; IP20; 35×99.5×114.5mm; DIN-rail; 2.5mm² max wire",
+      "aliases": [
+        "Related: TPPR-V-1000",
+        "TPPR-V-1010",
+        "TPPR-V-1030"
+      ]
+    },
+    "key_findings": [
+      "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified.",
+      "Aliases: Related: TPPR-V-1000; TPPR-V-1010; TPPR-V-1030"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.jjstech.com/tppr-v-1040.html",
+        "type": "distributor",
+        "domain": "www.jjstech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.jjstech.com/tppr-v-1040.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.gasdetectorsusa.com/GDUSA/product.asp?pid=5857-HONEYWELL_TPPR-V-1040",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.isssafety.com/products/tppr-v-1040-honeywell-relay-output-module",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-gb/products/gas-and-flame-detection/documents/tppr_spec_sheet_inputoutput_modules_v1_1014_emeai.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.jjstech.com/tppr-v-1040.html",
+      "type": "distributor",
+      "domain": "www.jjstech.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.013636+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

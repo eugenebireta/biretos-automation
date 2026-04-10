@@ -1,0 +1,93 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_T7560B1008",
+  "entity_id": "T7560B1008",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Temp & humidity wall module",
+    "description_ru": "Electronic wall module with LCD. T7560B includes humidity sensor vs T7560A",
+    "category_suggestion": "Temp & humidity wall module",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 329.56,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.mytub.co.uk/honeywell-t7560b1008-sensor-tempr-and-humidty-product-308663",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "NTC 20K ohm + humidity; 13°C–29°C range; LCD display; 105×100×21 mm; for XL10 controllers",
+      "aliases": [
+        "T7560A (temp-only variant)",
+        "T7460-LONJACK (accessory)"
+      ]
+    },
+    "key_findings": [
+      "Electronic wall module with LCD. T7560B includes humidity sensor vs T7560A",
+      "Aliases: T7560A (temp-only variant); T7460-LONJACK (accessory)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-t7560b1008-sensor-tempr-and-humidty-product-308663",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-t7560b1008-sensor-tempr-and-humidty-product-308663",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.wolseley.co.uk/product/honeywell-t7560b1008-sensor-temperature---humidty/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/engineering-specifications/74-3097.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.mytub.co.uk/honeywell-t7560b1008-sensor-tempr-and-humidty-product-308663",
+      "type": "distributor",
+      "domain": "www.mytub.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.991566+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

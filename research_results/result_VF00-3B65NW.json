@@ -1,0 +1,106 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_VF00-3B65NW",
+  "entity_id": "VF00-3B65NW",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Immersion temperature sensor",
+    "description_ru": "~$21 USD equiv. Also ₽5,593 at nt-rt.ru. Related VF20-3B65NW is £42.20 at Kempston Controls",
+    "category_suggestion": "Immersion temperature sensor",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1932.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://www.energoprime.ru/catalog/honeywell/datchiki-temperatury/vf00-3b65nw/",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "Pt1000; 300 mm probe; IP65; -40…+150°C; compatible wells: WB300 (brass), WS300 (SS); R½ ISO PN25",
+      "aliases": [
+        "VF01/VF10/VF20 series variants"
+      ]
+    },
+    "key_findings": [
+      "~$21 USD equiv. Also ₽5,593 at nt-rt.ru. Related VF20-3B65NW is £42.20 at Kempston Controls",
+      "Aliases: VF01/VF10/VF20 series variants"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.energoprime.ru/catalog/honeywell/datchiki-temperatury/vf00-3b65nw/",
+        "type": "distributor",
+        "domain": "www.energoprime.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/centraline/hbt-bms-en0b0724-ge51r0120.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://productcatalog.honeywellhome.com/europe/ecatdata/pdf_gr-vf-pt-nw_vf00-3b65nw.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.kempstoncontrols.co.uk/VF20-3B65NW/Honeywell-Fema/sku/953190",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.energoprime.ru/catalog/honeywell/datchiki-temperatury/vf00-3b65nw/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://honeywell.nt-rt.ru/price/product/353917",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.energoprime.ru/catalog/honeywell/datchiki-temperatury/vf00-3b65nw/",
+      "type": "distributor",
+      "domain": "www.energoprime.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.991566+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

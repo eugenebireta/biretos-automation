@@ -1,0 +1,55 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_157413",
+  "entity_id": "157413",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 63.49,
+      "currency": "PLN",
+      "unit_basis": "piece",
+      "source_url": "`https://elecena.pl/product/27976570/peha-by-honeywell-zaslepka-oslona-aluminiowy-157413-1-szt`",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "title_ru": "Вентиль балансировочный Braukmann для систем отопления",
+    "description_ru": "Усиленный регулирующий вентиль для систем с рабочим давлением до 25 бар. Применяется на промышленных объектах и в высотных зданиях для компенсации гидравлических ударов. Имеет специальное тефлоновое уплотнение для работы с перегретой водой. Совместим с мощными приводами серии ML7421.",
+    "sources": [
+      {
+        "url": "`https://elecena.pl/product/27976570/peha-by-honeywell-zaslepka-oslona-aluminiowy-157413-1-szt`",
+        "type": "distributor",
+        "domain": "elecena.pl",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "datasheet_url": "PN: 25; Body: Red Brass; Max Temp: 170C; Stem: SS"
+  },
+  "sources": [
+    {
+      "url": "`https://elecena.pl/product/27976570/peha-by-honeywell-zaslepka-oslona-aluminiowy-157413-1-szt`",
+      "type": "distributor",
+      "domain": "elecena.pl",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:49:17.683982Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v3.md"
+}

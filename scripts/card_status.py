@@ -15,6 +15,7 @@ _SOURCE_MATRIX_PATH = _CONFIG_DIR / "source_role_field_matrix_v1.json"
 _REVIEW_SCHEMA_PATH = _CONFIG_DIR / "review_reason_schema_v1.json"
 
 _PUBLISHABLE_PRICE = {"public_price", "rfq_only"}
+_PRICE_EXISTS = {"public_price", "rfq_only", "owner_price"}
 _STRUCTURED_CONTEXTS = {"jsonld", "title", "h1", "product_context"}
 _PDF_IDENTITY_ALLOWED_TIERS = {"official", "authorized"}
 
@@ -878,6 +879,10 @@ def _normalize_price_status(value: str) -> str:
         "": "no_price",
     }
     norm = aliases.get(norm, norm)
+    # owner_price is mapped to rfq_only for policy matching:
+    # it counts as "has price" (→ REVIEW_REQUIRED) but not as publishable market price
+    if norm == "owner_price":
+        return "rfq_only"
     if norm not in {"public_price", "rfq_only", "no_price"}:
         raise ValueError(f"Unsupported price_status: {value}")
     return norm
@@ -948,6 +953,15 @@ def _derive_simple_review_reasons(
 
 
 def _infer_identity_level(photo_result: dict, datasheet_result: dict) -> str:
+    # Prefer explicit structured match flags from extract_structured_pn_flags()
+    if photo_result.get("exact_structured_pn_match"):
+        return "strong"
+    struct_loc = str(photo_result.get("structured_pn_match_location", "")).strip().lower()
+    # Strip suffix-variant suffix so "title_suffix_variant" still maps to "title"
+    base_struct_loc = struct_loc.split("_suffix_variant")[0]
+    if base_struct_loc in _STRUCTURED_CONTEXTS:
+        return "strong"
+    # Legacy fallback: pn_match_location from PNMatchResult (alphanumeric body matches)
     location = str(photo_result.get("pn_match_location", "")).strip().lower()
     if location in _STRUCTURED_CONTEXTS or _has_exact_pdf_identity_evidence(datasheet_result):
         return "strong"

@@ -1,0 +1,656 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "LEONARDO-OT",
+  "pn_variants": [
+    "LEONARDO.OT",
+    "LEONARDOOT"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Дымо-тепловой извещатель Leonardo-OT",
+  "assembled_title": "Извещатель Honeywell LEONARDO-OT",
+  "our_price_raw": "1056,00",
+  "expected_category": "Извещатель",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_LEONARDO-OT",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_LEONARDO-OT"
+        ],
+        "evidence_ids": [
+          "ev_title_LEONARDO-OT"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_LEONARDO-OT"
+        ],
+        "evidence_ids": [
+          "ev_image_LEONARDO-OT"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_LEONARDO-OT"
+        ],
+        "evidence_ids": [
+          "ev_price_LEONARDO-OT"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_LEONARDO-OT"
+        ],
+        "evidence_ids": [
+          "ev_pdf_LEONARDO-OT"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_LEONARDO-OT"
+      ],
+      "evidence_ids": [
+        "ev_title_LEONARDO-OT"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_LEONARDO-OT"
+      ],
+      "evidence_ids": [
+        "ev_image_LEONARDO-OT"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_LEONARDO-OT"
+      ],
+      "evidence_ids": [
+        "ev_price_LEONARDO-OT"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_LEONARDO-OT"
+      ],
+      "evidence_ids": [
+        "ev_pdf_LEONARDO-OT"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\LEONARDO-OT.jpg",
+      "canonical_filename": "HONEYWELL_LEONARDO-OT_70344fe1.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie",
+      "origin_page_url": "https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "",
+      "quote_cta_url": "",
+      "lineage_source_url": "",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqPUE5rJdBqSTsE3qQSD'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\LEONARDO-OT.jpg",
+    "sha1": "70344fe13409c9b6db164f01d9b4ab0450c3e048",
+    "canonical_filename": "HONEYWELL_LEONARDO-OT_70344fe1.jpg",
+    "public_url": null,
+    "width": 5877,
+    "height": 1674,
+    "size_kb": 99,
+    "source": "google:https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie",
+    "phash": "8000000000000000",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "none",
+    "commercial_identity_status": "unclear",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "source_engine": "",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": false,
+    "price_source_url": "",
+    "price_source_domain": "",
+    "price_source_type": "",
+    "price_source_tier": "",
+    "price_source_engine": "",
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_title_pn_match": false,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "",
+    "price_source_clean_product_page": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_lineage_schema_version": "",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": false,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_source_candidates",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://www.muctr.ru/upload/iblock/c40/ra3y2hkawaxtl5j4gx9s3ic7xr96av9z.pdf",
+    "pdf_source_tier": "ru_b2b",
+    "pdf_title": "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ",
+    "pdf_specs": {
+      "ИМЕНИ Д": "И. МЕНДЕЛЕЕВА",
+      "ББК 24": "35",
+      "Рецензент": "Российский химико-технологический университет",
+      "имени Д": "И. Менделеева",
+      "Успехи в химии и химической технологии": "ТОМ XXXVI. 2022. № 1",
+      "У78 № 1 (250)": "– М.: РХТУ им. Д. И. Менделеева, 2022. – 108 с.",
+      "работы по направлениям": "цифровые технологии в управлении социально-",
+      "Elibrary.ru": "УДК 66.01-52",
+      "университет им": "Д. И. Менделеева, 2022",
+      "Абаева Е.А., Аверина Ю.М": "ПРОЦЕССНОЕ УПРАВЛЕНИЕ КАК НАИБОЛЕЕ ЭФФЕКТИВНЫЙ ИНСТРУМЕНТ",
+      "Абузярова Ю.Р., Богомолов Б.Б": "МОДЕЛИРОВАНИЕ ИНФОРМАЦИОННОЙ ПОДДЕРЖКИ БИЗНЕС-ПРОЦЕССОВ",
+      "ЭКОЛОГИЧЕСКОГО МЕНЕДЖМЕНТА": "10",
+      "Абузярова Ю.Р., Гайдукова М.О": "ЦИФРОВАЯ ТРАНСФОРМАЦИЯ ИНФОРМАЦИОННЫХ РЕСУРСОВ ХИМИКО-",
+      "ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ": "16",
+      "Гайдукова М.О., Шушунова Т.Н": "ПРОБЛЕМЫ ИМПОРТОЗАМЕЩЕНИЯ ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ",
+      "ИХ ОПТИМАЛЬНЫХ РЕШЕНИЙ": "20",
+      "Гетман А.Г": "ЦИФРОВИЗАЦИЯ ТАМОЖЕННЫХ ТЕХНОЛОГИЙ КАК ФАКТОР ПОВЫШЕНИЯ",
+      "НАДЕЖНОСТИ ЦЕПЕЙ ПОСТАВОК": "23",
+      "Глушков И.В., Аверина Ю.М., Мухортова Л.И": "ЦИФРОВИЗИРОВАННЫЕ ТРЕНАЖЕРНЫЕ ПРОГРАММЫ ДЛЯ ПОДГОТОВКИ",
+      "ЭНЕРГОПРЕДПРИЯТИЙ": "ИНСТРУМЕНТАЛЬНЫЕ СРЕДСТВА, МЕТОДИЧЕСКИЙ",
+      "И ПРАКТИЧЕСКИЙ ОПЫТ": "26",
+      "СПЕЦИАЛИСТОВ ПРОМЫШЛЕННЫХ ПРЕДПРИЯТИЙ": "29",
+      "Городничев И.С., Мавлянбердиев А.Р., Копылова Л.Е": "ВЛИЯНИЕ ОТТОКА ИНОСТРАННЫХ IT-КОМПАНИЙ НА ТЕМПЫ РАЗВИТИЯ",
+      "ЦИФРОВОЙ ЭКОНОМИКИ РОССИИ": "32",
+      "Заболотная Е.В., Челноков В.В., Аверина Ю.М": "ИННОВАЦИОННАЯ СИСТЕМА КОНТРОЛЛИНГА УПРАВЛЕНИЯ ОПАСНЫМИ",
+      "ОТХОДАМИ": "36",
+      "Зайцев А.Г., Хапилина С.И": "НЕЙРОМАРКЕТИНГОВЫЕ ИНСТРУМЕНТЫ ФОРМИРОВАНИЯ ТЕХНОЛОГИЙ",
+      "ПОТРЕБЛЕНИЯ В КОНТЕКСТЕ ЗЕЛЕНОЙ ЭКОНОМИКИ": "38",
+      "Кондратов Е.В., Шушунова Т.Н": "РОЛЬ ТАРГЕТИРОВАННОЙ РЕКЛАМЫ КАК ИНСТРУМЕНТА ЦИФРОВОГО",
+      "СОЦИАЛЬНЫХ СЕТЯХ": "42",
+      "Егоренкова А.И., Мельникова Д.А., Фролова А.В": "ВОСТРЕБОВАННОСТЬ ЭЛЕКТРОННЫХ ГОСУДАРСТВЕННЫХ УСЛУГ СРЕДИ",
+      "МОЛОДОГО НАСЕЛЕНИЯ": "45",
+      "Королева Е.М, Фролова А.В": "NFT-ТОКЕН КАК ОДИН ИЗ САМЫХ ОБСУЖДАЕМЫХ ТРЕНДОВ БЛОКЧЕЙН:",
+      "ПЕРСПЕКТИВЫ И ОГРАНИЧЕНИЯ": "49",
+      "Куделина А.А., Порошин А.А., Невмятуллина Х.А": "ПЕРСПЕКТИВЫ РАЗВИТИЯ СТАНДАРТИЗАЦИИ ДЛЯ ИНДУСТРИИ 4.0 ................... 52"
+    },
+    "pdf_text_excerpt": "МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ РОССИЙСКИЙ ХИМИКО-ТЕХНОЛОГИЧЕСКИЙ УНИВЕРСИТЕТ ИМЕНИ Д. И. МЕНДЕЛЕЕВА УСПЕХИ В ХИМИИ И ХИМИЧЕСКОЙ ТЕХНОЛОГИИ Том XXXVI № 1 Москва 2022 УДК 66.01-52 ББК 24. 35 У78 Рецензент: Российский химико-технологический университет имени Д. И. Менделеева Успехи в химии и химической технологии: сб. науч. тр. Том XXXVI, У78 № 1 (250). – М.: РХТУ им. Д. И. Менделеева, 2022. – 108 с. В сборнике «Успехи в химии и химической технологии» опубликованы статьи по актуальным вопросам в области цифровой экономики. Представлены работы по направлениям: цифров",
+    "num_pages": 108,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_source_candidates",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Дымо-тепловой извещатель Leonardo-OT предназначен для обнаружения дыма и повышения температуры в помещениях. Он обеспечивает надежное и своевременное оповещение о пожаре.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Пожарная сигнализация",
+    "product_type": "Извещатель",
+    "seed_name": "Дымо-тепловой извещатель Leonardo-OT",
+    "description_long_ru": "Требуется алиас/контекст (лицензия/ПО/услуга/железо). Открытый ценник не зафиксировал."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": false,
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
+    "price_exact_product_page": false,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_source_candidates"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:LEONARDO-OT:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:LEONARDO-OT:7f2800ad89ead30d9ceb2130",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:LEONARDO-OT:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:LEONARDO-OT:7f2800ad89ead30d9ceb2130",
+      "pn_primary": "LEONARDO-OT",
+      "normalized_title": "Извещатель Honeywell LEONARDO-OT",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_LEONARDO-OT"
+          ],
+          "evidence_ids": [
+            "ev_title_LEONARDO-OT"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_LEONARDO-OT"
+          ],
+          "evidence_ids": [
+            "ev_image_LEONARDO-OT"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_LEONARDO-OT"
+          ],
+          "evidence_ids": [
+            "ev_price_LEONARDO-OT"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_LEONARDO-OT"
+          ],
+          "evidence_ids": [
+            "ev_pdf_LEONARDO-OT"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "",
+        "pdf_source_tier": "ru_b2b",
+        "image_source_tier": ""
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "ru_b2b"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": null,
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.306334+00:00",
+    "source": "chatgpt",
+    "price": null,
+    "currency": "Â",
+    "source_url": "â",
+    "category": "â",
+    "image_url": "â",
+    "price_type": "â",
+    "alias_found": "â",
+    "specs": "â",
+    "notes": "Ð¢ÑÐµÐ±ÑÐµÑÑÑ Ð°Ð»Ð¸Ð°Ñ/ÐºÐ¾Ð½ÑÐµÐºÑÑ (Ð»Ð¸ÑÐµÐ½Ð·Ð¸Ñ/ÐÐ/ÑÑÐ»ÑÐ³Ð°/Ð¶ÐµÐ»ÐµÐ·Ð¾). ÐÑÐºÑÑÑÑÐ¹ ÑÐµÐ½Ð½Ð¸Ðº Ð½Ðµ Ð·Ð°ÑÐ¸ÐºÑÐ¸ÑÐ¾Ð²Ð°Ð».",
+    "sources": [
+      {
+        "url": "â",
+        "page_type": "â",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "â"
+      }
+    ]
+  },
+  "dr_image_url": "â",
+  "dr_category": "â",
+  "dr_price_type": "â",
+  "dr_sources": [
+    {
+      "url": "https://www.notifier.it/prodotti_scheda.asp?idp=122",
+      "page_type": "manufacturer",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "notifier.it"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.249455+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "MULTI-SENSOR",
+    "source_url": "Optical/Thermal; Ivory; Addressable",
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.notifier.it/prodotti_scheda.asp?idp=122",
+        "page_type": "manufacturer",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "notifier.it"
+      }
+    ]
+  },
+  "deep_research": {
+    "title_ru": "—",
+    "description_ru": "Требуется алиас/контекст (лицензия/ПО/услуга/железо). Открытый ценник не зафиксировал.",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Требуется алиас/контекст (лицензия/ПО/услуга/железо). Открытый ценник не зафиксировал.",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.947503+00:00",
+    "merge_source": "result_LEONARDO-OT.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (3).md"
+  }
+}

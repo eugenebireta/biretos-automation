@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_805576",
+  "entity_id": "805576",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "fire detection accessory",
+    "description_ru": "На странице указано: £9.70 (£11.64 inc VAT). citeturn20view0turn21view0",
+    "category_suggestion": "fire detection accessory",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 9.7,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "`https://www.acornfiresecurity.com/gent-805576-s-quad-base-label-plate-pack-of-10`",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://www.acornfiresecurity.com/image/cache/data/GENT/805576-400x400.JPG`",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "pack 10; для маркировки/нумерации детекторов",
+      "aliases": [
+        "805576"
+      ]
+    },
+    "key_findings": [
+      "На странице указано: £9.70 (£11.64 inc VAT). citeturn20view0turn21view0",
+      "Aliases: 805576"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.acornfiresecurity.com/gent-805576-s-quad-base-label-plate-pack-of-10`",
+        "type": "distributor",
+        "domain": "www.acornfiresecurity.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.acornfiresecurity.com/gent-805576-s-quad-base-label-plate-pack-of-10`",
+      "type": "distributor",
+      "domain": "www.acornfiresecurity.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.839292+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

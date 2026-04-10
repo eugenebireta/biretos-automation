@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | NMF-RP16SCUS2-RU | fiber patch panel |
+| 2 | FP1B-LCUL-01H | fiber pigtail |
+| 3 | P400-RU | graphics card |
+| 4 | RA100Z | indicator |
+| 5 | 129625-L3 | kit |
+| 6 | AT-MMC200LX | media converter |
+| 7 | 010130.10 | module |
+| 8 | 203-183-420 | module |
+| 9 | 804905 | module |
+| 10 | T7560A1000 | module |
+| 11 | TPPR-V-1040 | module |
+| 12 | SMB500 | mounting box |
+| 13 | NE-NICS02 | network card |
+| 14 | CATALIST | network switch |
+| 15 | 804791 | panel |
+| 16 | RIC-F-LCU24-01C | panel |
+| 17 | EDA61K-SH-DC | pistol grip handle |
+| 18 | CF274A | printer |
+| 19 | PHASER | printer |
+| 20 | FCP3-RACK | rack cabinet |
+
+## Search instructions
+
+- Various Honeywell sub-brands. Search: eBay, Radwell, IndiaMART, Conrad.de, specialist suppliers
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

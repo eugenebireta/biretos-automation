@@ -1,0 +1,91 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_VSOF-320-4.0",
+  "entity_id": "VSOF-320-4.0",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Mixing valve (on/off)",
+    "description_ru": "Sibling VSOF-320-2.5 priced €72.10 at heiz24.de; for fan coil units",
+    "category_suggestion": "valve",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-VSMF-320-4-0-left",
+    "specs": {
+      "raw": "DN20; Kvs 4.0; 3-way bypass; PN16; G3/4 ext thread; flat seal; 2.5mm stroke; close-off 100 kPa",
+      "aliases": [
+        "VSMF-320-4.0 (modulating version)"
+      ]
+    },
+    "key_findings": [
+      "Sibling VSOF-320-2.5 priced €72.10 at heiz24.de; for fan coil units",
+      "Aliases: VSMF-320-4.0 (modulating version)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/vs-series-3-way-short-stroke-linear-mixing-valves-flat-seal-pn16",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: no, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/.../vs-series-3-way-short-stroke-linear-mixing-valves-flat-seal-pn16",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/.../hbt-bms-en0b0617-ge51r0617.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://www.heiz24.de/Honeywell-VSOF-320-25-zone-three-way-valve-DN-20-kvs-25-stroke-25-mm-NEW",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/...",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/vs-series-3-way-short-stroke-linear-mixing-valves-flat-seal-pn16",
+      "type": "—",
+      "domain": "buildings.honeywell.com",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.955004+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

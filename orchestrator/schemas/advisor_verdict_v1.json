@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "advisor_verdict_v1",
+  "title": "Claude Advisor Verdict",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_id",
+    "risk_assessment",
+    "governance_route",
+    "rationale",
+    "next_step",
+    "scope",
+    "issued_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "v1" },
+    "trace_id": { "type": "string", "minLength": 1 },
+    "risk_assessment": {
+      "type": "string",
+      "enum": ["LOW", "SEMI", "CORE"]
+    },
+    "governance_route": {
+      "type": "string",
+      "enum": ["none", "critique", "audit", "spec_full"]
+    },
+    "rationale": { "type": "string", "minLength": 1 },
+    "next_step": { "type": "string", "minLength": 1 },
+    "scope": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "issued_at": { "type": "string", "minLength": 1 }
+  }
+}

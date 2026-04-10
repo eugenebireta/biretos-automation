@@ -1,0 +1,80 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_187591",
+  "entity_id": "187591",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка для выключателя PEHA by Honeywell",
+    "description_ru": "Декоративная рамка белого цвета для монтажа выключателей и розеток серии PEHA производства Honeywell. Предназначена для использования в электроустановках.",
+    "category_suggestion": "Электромонтажные изделия / Рамки и накладки",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad.sk (Slovakia distributor): €3,35 EUR (approximately 3348,83 RUB at historical rates), unit basis: штука (piece)",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 187591 is NOT a flame detector (детектор пламени) - this is a critical category mismatch",
+      "Confirmed product is PEHA by Honeywell decorative frame (рамка) for electrical installations, white color",
+      "Conrad.sk marketplace listing explicitly identifies this as 'PEHA-by-honeywell-ramcek-ram-biela' (frame, white)",
+      "Current catalog title 'Детектор пламени Honeywell D 20.672.243.022' is completely incorrect",
+      "The model designation D 20.672.243.022 does not match PEHA frame product line nomenclature",
+      "Price evidence from Conrad.sk supports electrical accessory classification, not safety detector"
+    ],
+    "ambiguities": [
+      "The designation 'D 20.672.243.022' in current catalog cannot be verified as authentic Honeywell model number for this PN",
+      "No manufacturer datasheet found to confirm exact technical specifications of frame dimensions or material",
+      "Possible confusion with different Honeywell product line - flame detectors exist but are not PN 187591",
+      "Russian-language product documentation for this specific PN not located in public sources"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-biela-187591-2856627.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category",
+          "price"
+        ]
+      },
+      {
+        "url": "`https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-biela-187591-2856627.html` citeturn26search3",
+        "type": "—",
+        "domain": "www.conrad.sk",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Identity confirmed as PEHA frame (not flame detector) via distributor listing with exact PN match and price alignment. However, no manufacturer documentation or Russian-language sources found. Category mismatch is definitive, but exact frame specifications and authentic model designation require additional verification."
+  },
+  "sources": [
+    {
+      "url": "https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-biela-187591-2856627.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category",
+        "price"
+      ]
+    },
+    {
+      "url": "`https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-biela-187591-2856627.html` citeturn26search3",
+      "type": "—",
+      "domain": "www.conrad.sk",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:15:17.427311Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2345,
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
+}

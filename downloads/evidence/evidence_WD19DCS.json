@@ -1,0 +1,605 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "WD19DCS",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Док-станция Honeywell WD19DCS",
+  "assembled_title": "Док-станция Honeywell WD19DCS",
+  "our_price_raw": "9240,00",
+  "expected_category": "Док-станция",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_WD19DCS",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_WD19DCS"
+        ],
+        "evidence_ids": [
+          "ev_title_WD19DCS"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_WD19DCS"
+        ],
+        "evidence_ids": [
+          "ev_image_WD19DCS"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_WD19DCS"
+        ],
+        "evidence_ids": [
+          "ev_price_WD19DCS"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_WD19DCS"
+        ],
+        "evidence_ids": [
+          "ev_pdf_WD19DCS"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09T"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_WD19DCS"
+      ],
+      "evidence_ids": [
+        "ev_title_WD19DCS"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_WD19DCS"
+      ],
+      "evidence_ids": [
+        "ev_image_WD19DCS"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_WD19DCS"
+      ],
+      "evidence_ids": [
+        "ev_price_WD19DCS"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_WD19DCS"
+      ],
+      "evidence_ids": [
+        "ev_pdf_WD19DCS"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\WD19DCS.jpg",
+      "canonical_filename": "HONEYWELL_WD19DCS_9a2f4414.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://www.indiamart.com/proddetail/dell-wd19dcs-docking-2848959107730.html?srs",
+      "origin_page_url": "https://www.indiamart.com/proddetail/dell-wd19dcs-docking-2848959107730.html?srs",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.senetic.co.uk/product/DELL-WD19DCS",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.senetic.co.uk/product/DELL-WD19DCS",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqrxbwv3MZnZWsxXkmAe'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\WD19DCS.jpg",
+    "sha1": "9a2f44146c5a7c1db5fcb4fe464ab25a67c4f0f0",
+    "canonical_filename": "HONEYWELL_WD19DCS_9a2f4414.jpg",
+    "public_url": null,
+    "width": 485,
+    "height": 1000,
+    "size_kb": 36,
+    "source": "google:https://www.indiamart.com/proddetail/dell-wd19dcs-docking-2848959107730.html?srs",
+    "phash": "ea8175aa372a954d",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": "stub",
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.senetic.co.uk/product/DELL-WD19DCS",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": true,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Dock-станция",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.senetic.co.uk/product/DELL-WD19DCS",
+    "price_source_domain": "senetic.co.uk",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://www.tra.gov.eg/wp-content/uploads/2025/01/1st-Jan.-2025.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "2025 رياني 1 :خ يراتلا",
+    "pdf_specs": {
+      "2025 رياني 1": "خ يراتلا",
+      "ُ ى": "ةيلاتلا تاظحلاملا ةاعارم جىري .هلاعأ خ يراتلا تح عونلا ةدمتعملا ةزهجلأل ةمئاق لي اميف",
+      "ي ي ي": "2003 ةنسل 10 مقر تلااصتلاا",
+      "importation or customs clearance permit": "3) Type Approval does not include approval on any digital content on the type-approved device.",
+      "1 MOBILE PHONE": "S...MOBILE S9295",
+      "2 MOBILE PHONE": "S...MOBILE S9220",
+      "3 MOBILE PHONE": "S...MOBILE S6102",
+      "4 MOBILE PHONE": "S...MOBILE S5S5",
+      "5 MOBILE PHONE": "S...MOBILE S5570",
+      "6 MOBILE PHONE": "S...MOBILE S5363",
+      "7 MOBILE PHONE": "S...MOBILE S5",
+      "8 MOBILE PHONE": "S...MOBILE S4S4",
+      "9 MOBILE PHONE": "S...MOBILE S210",
+      "10 MOBILE PHONE": "S...MOBILE S111",
+      "11 MOBILE PHONE": "S...MOBILE S1085",
+      "206 NETW": "TRAFF"
+    },
+    "pdf_text_excerpt": "2025 رياني 1 :خ يراتلا ةدمتعملا ةزهجلأا ةمئاق Date:1st January, 2025 Type Approved Equipment List ُ ى :ةيلاتلا تاظحلاملا ةاعارم جىري .هلاعأ خ يراتلا تح عونلا ةدمتعملا ةزهجلأل ةمئاق لي اميف ي نوناقل اقبط ح يصرت وأ صيخرت لىإ جاتحي طاشن يأ نمضتي لاو طقف ةهجلا مادختسلا امنإ و نيرخلآل تلااصتلاا تامدخ ميدقت ف زاهجلا مادختسا ف قحلا طعي لا عونلا دامتعا )1 ي ي ي .2003 ةنسل 10 مقر تلااصتلاا .هنم ةدراولا تانحشلا لع ةقفاوم لا و هدابرتساب احيصرت بىتعت لا و ةدمتعملا ةيلودلا ةملاسلا تافصاومل زاهجلا ةقباطمب ةداهش ه ي عونلا دامتعا ةداهش )2 َّ ُ .دمتعملا زاهجلا لع لمحم مقر ىوتحم يأ لع ةقفاوملا نمضتي لا عونلا دا",
+    "num_pages": 665,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {
+      "compatible_brand": "Dell",
+      "power": "240",
+      "warranty": "1 year",
+      "input_voltage": "230",
+      "availability": "In Stock",
+      "price": "Excluding all taxes",
+      "ships_from": "Vadodara",
+      "shipping": "As per delivery location",
+      "gst_registration_date": "Jul 2017",
+      "legal_status_of_firm": "Proprietorship",
+      "nature_of_business": "Wholesaler/Distributor",
+      "number_of_employees": "Upto 10 People",
+      "annual_turnover": "5 - 25 Cr",
+      "indiamart_member_since": "Dec 2015",
+      "gst": "24**********1ZI"
+    },
+    "description": "Док-станция Honeywell WD19DCS предназначена для подключения и зарядки мобильных устройств. Обеспечивает удобство в использовании и совместимость с различными моделями устройств. Идеально подходит для офисного и домашнего использования.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Док-станция",
+    "seed_name": "Док-станция Honeywell WD19DCS",
+    "description_long_ru": "Dell Performance Dock. MSRP $484.21; $436 at SHI; used $30–70 on eBay. EOL product."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:WD19DCS:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:WD19DCS:1f3c71ca5f1bcc833a03a688",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:WD19DCS:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:WD19DCS:1f3c71ca5f1bcc833a03a688",
+      "pn_primary": "WD19DCS",
+      "normalized_title": "Док-станция Honeywell WD19DCS",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_WD19DCS"
+          ],
+          "evidence_ids": [
+            "ev_title_WD19DCS"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_WD19DCS"
+          ],
+          "evidence_ids": [
+            "ev_image_WD19DCS"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_WD19DCS"
+          ],
+          "evidence_ids": [
+            "ev_price_WD19DCS"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_WD19DCS"
+          ],
+          "evidence_ids": [
+            "ev_pdf_WD19DCS"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "unknown",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "unknown"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "Dock-станция",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "deep_research": {
+    "title_ru": "Docking station",
+    "description_ru": "Dell Performance Dock. MSRP $484.21; $436 at SHI; used $30–70 on eBay. EOL product.",
+    "specs": {
+      "raw": "240W adapter; 210W PD; Dual USB-C; 2x DP 1.4; HDMI 2.0b; 3x USB-A 3.1; GigE; up to 5K@60Hz; 1.1\"×8.1\"×3.5\"",
+      "aliases": [
+        "210-AZBN (Dell order code)",
+        "K20A001",
+        "WD19DC (w/ audio)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Dell Performance Dock. MSRP $484.21; $436 at SHI; used $30–70 on eBay. EOL product.",
+      "Aliases: 210-AZBN (Dell order code); K20A001; WD19DC (w/ audio)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/p/2319237555",
+        "type": "marketplace",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:25.035607+00:00",
+    "merge_source": "result_WD19DCS.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+  },
+  "dr_category": "Docking station",
+  "dr_image_url": "https://i.ebayimg.com/images/g/5xcAAOSwUZBg9WXw/s-l640.jpg",
+  "dr_price": 205.95,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/p/2319237555"
+}

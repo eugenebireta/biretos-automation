@@ -1,208 +1,247 @@
 # Task Capsule
 
-Task_ID: bvs-merge-tool
+Task_ID: R1-enrichment-improvements-v2
 Risk: SEMI
-Date: 2026-04-03
-Branch: feat/rev-r1-catalog
-PR: https://github.com/eugenebireta/biretos-automation/pull/28
-Status: COMPLETED — PR #28 merged to master (merge commit `f6c9954`)
+Date: 2026-04-08
 
-## What was built
+## Summary
 
-Deterministic merge tool for first+second pass price scout manifests.
+Enrichment Improvements Batch v2 — 9 sequential blocks, 9 commits, 767/767 tests PASS.
 
-New modules:
-- `scripts/merge_manifests.py` — merge by key=`part_number::source_domain`,
-  second-pass wins on lineage/price upgrade, blocked records dropped
-- `tests/enrichment/test_merge_manifests.py` — 18 deterministic tests
+Key deliverables:
+- **Block 1 — response_raw fix:** `shadow_log()` now uses `None` for API failures
+  (distinguishable from `""` empty). Adds `response_raw_present` + `response_raw_truncated`
+  fields. 10k char truncation cap.
+- **Block 2 — JSON-LD expansion:** `extract_full_jsonld()` captures brand, mpn, gtin13, gtin,
+  description (truncated 500), image, category, weight, dimensions, availability, seller,
+  aggregateRating, additionalProperty, price_valid_until. Stored in `bundle["jsonld_full"]`.
+- **Block 3 — Spec extraction:** `spec_extractor.py` — 3-strategy parser (2-col tables,
+  dl/dt/dd, spec-class divs). Replaces inline table-only parser. Caps at 100 specs/page.
+  Keys normalised to snake_case. `specs_status="found_from_page"` when found.
+- **Block 4 — Brand config registry:** YAML files in `config/brands/` for Honeywell, PEHA, Esser.
+  `brand_knowledge.py`: `load_brand_config()`, `get_product_family()`, `get_trusted_domains()`,
+  `get_datasheet_query()`, `get_search_hints()`. Sub-brand detection: 153711→PEHA, 804950→Esser.
+- **Block 5 — Multi-source prices:** `multi_source_prices.py` — optional SerpAPI distributor
+  search + cross-validation via price_sanity. Off by default. Never crashes pipeline.
+- **Block 6 — Brand experience writer:** `brand_experience_writer.py` — `BrandExperienceRecord`
+  dataclass + `write_brand_experience()`. Pipeline calls after save_checkpoint(). Salience:
+  correction=9, failed=7, success=4. Summary ≤200 chars.
+- **Block 7 — Conditional datasheets:** `find_datasheet()` auto-triggers for
+  no_price_found | NO_PHOTO | category_mismatch (not only --datasheets flag).
+- **Block 8 — Training dataset export:** `training_dataset_export.py` — 4 datasets:
+  price_extraction (723 examples), photo_verdict (146), category_classification (69),
+  search_strategy (0 until next enrichment run). 938 total. Output: `training_data/`.
+- **Block 9 — Correction logging:** `correction_logger.py` — `log_correction()` (salience=9),
+  `log_price_sanity_warning()` (salience=7). Retrospective: 33 PEHA corrections + 11 sanity
+  warnings = 44 records in shadow_log/experience_2026-04.jsonl.
 
-Reproducible artifacts:
-- `downloads/scout_cache/bvs_25sku_seed.jsonl` — 5 eligible URLs from 25 SKU
-- `downloads/scout_cache/merged_manifest.jsonl` — 22 rows (20 first-pass + 2 BVS wins), sanitized deterministic committed output
-
-## Coverage detail
-
-25 SKU checked for BVS eligibility via `load_first_pass_candidates()`:
-- 5 URLs eligible (3 PN across vseinstrumenti.ru + lemanapro.ru)
-- 20 SKU already have lineage=True from EU/AE/CZ sources or lack RU product URLs
-- 2 wins: lemanapro.ru for 1015021 (4314.40 RUB) and 1012541 (5355.82 RUB)
-- 3 blocked: vseinstrumenti.ru DDoS-Guard (ServicePipe) — not solvable
-
-## Tests
-
-41/41 PASS (18 merge + 23 BVS regression)
-
-## Governance
-- Tier-1 frozen files: CLEAN
-- Pinned API signatures: CLEAN
-- price_manual_scout.py: NOT MODIFIED
-- `merged_manifest.jsonl`: committed as deterministic versioned output; run-scoped BVS/CDP fields stripped
-- Runtime artifacts (`bvs_25sku_manifest.jsonl`): NOT in PR; retain raw BVS/CDP provenance (`trace_id`, `idempotency_key`, screenshots, model/runtime metadata)
-- Evidence bundle changes: NOT in PR (deferred to systemic integration)
-- captcha_solver.py fix + smoke tests: deferred to separate PR #29
+Total new tests: 121 (7+14+15+23+13+16+9+15+9). Full suite: 767/767 PASS.
 
 ---
 
-# Previous Capsule
+## Web Search Integration Block
 
-Task_ID: auditor-system-phase2
-Risk: SEMI
-Date: 2026-04-03
-Branch: feat/rev-r1-catalog
+**research_providers.py** — `GeminiResearchProvider` (gemini-2.5-flash + Google Search grounding,
+~$0.004/call), `ClaudeWebSearchProvider` (claude-sonnet-4-6 with web_search_20250305, ~$0.05/call),
+`WebSearchResearchOrchestrator` (Gemini first → stop at medium/high → Claude fallback on low only),
+`build_research_prompt()`, `_confidence_rank()`, `_parse_json_from_text()`.
 
-## What was built
+**research_runner.py** — Added `--web-search` flag (activates WebSearchResearchOrchestrator),
+`--rerun` flag (clears low-confidence results for retry), `use_web_search` param in
+`run_research_for_packet()` and `run_batch_research()`.
 
-auditor_system Phase 2 — Live Auditors + Pilot Gate (SPEC v3.4).
+**test_research_providers.py** — 29 tests covering all providers, orchestrator strategy
+(Gemini-high → no Claude, Gemini-low → Claude, both fail → error dict), prompt builder,
+JSON extraction, budget propagation.
 
-New modules:
-- `hard_shell/schema_validator.py` — SchemaViolationError + validate_and_parse (SPEC §19.3)
-- `hard_shell/fallback_handler.py` — FallbackHandler: risk-aware (SPEC §7)
-- `providers/openai_auditor.py` — live Responses API + Structured Outputs
-- `providers/anthropic_auditor.py` — live Messages API (claude-sonnet-4-6)
-- `auditor_system/requirements.txt`
-- `auditor_system/config/.env.auditors` — isolated secrets (gitignored)
+Budget worst-case: ($0.004 + $0.05) × 50 SKU = $2.70 (well within $10/day limit).
 
-Modified:
-- `review_runner.py` — _gather_safe + FallbackHandler
-- `run_store.py` — load_run_for_verdict
-- `cli.py` — verdict + pilot + live commands
-- `config/models.yaml` — anthropic: claude-sonnet-4-6
-- `.gitignore` + `.env` root cleared
+Total suite after web search block: 1173/1173 PASS.
 
-## Tests
+## Next
 
-38/38 PASS (14 Phase1 regression + 24 Phase2 new)
-
-## Pilot Gate
-
-| Task | Risk | Route | Note |
-|------|------|-------|------|
-| Branch protection | LOW | auto_pass | Anthropic approve; OpenAI quota→CONTINUE_ONE |
-| Iron Fence M3a | SEMI | batch_approval | Anthropic concerns; OpenAI quota→CONTINUE_BATCH |
-| Pydantic Validation | CORE | BLOCKED | OpenAI quota→STOP_OWNER_ALERT (correct) |
-
-Owner verdicts: LOW=approved, SEMI=approved.
-DPO records: 2 in experience_log/2026-04.jsonl.
-
-## Known gap
-OpenAI key has insufficient_quota. CORE pilot needs funded key.
-FallbackHandler correctly BLOCKED CORE on one auditor failure.
-
-## Files changed
-- auditor_system/hard_shell/schema_validator.py (NEW)
-- auditor_system/hard_shell/fallback_handler.py (NEW)
-- auditor_system/hard_shell/run_store.py (MODIFIED)
-- auditor_system/providers/openai_auditor.py (REPLACED)
-- auditor_system/providers/anthropic_auditor.py (REPLACED)
-- auditor_system/review_runner.py (MODIFIED)
-- auditor_system/cli.py (REPLACED)
-- auditor_system/config/models.yaml (MODIFIED)
-- auditor_system/config/.env.auditors (NEW — gitignored)
-- auditor_system/requirements.txt (NEW)
-- auditor_system/tests/test_phase2.py (NEW)
-- .gitignore (MODIFIED)
-- .env root (CLEARED)
-
-## Governance
-- Tier-1 frozen files: CLEAN
-- Pinned API signatures: CLEAN
+Enrichment batch continuation (~175 new SKU from honeywell_insales_import.csv, 195 already
+checkpointed). After enrichment: research_runner --web-search --rerun for 37 failed high-priority
+SKUs, then training_dataset_export.py for updated training data stats.
 
 ---
 
-# Previous Capsule
+# Task Capsule (previous)
 
-Task_ID: bvs-second-pass-scout
+Task_ID: R1-overnight-batch-1-2
 Risk: SEMI
-Date: 2026-04-02
-Branch: feat/rev-r1-catalog
-Status: LIVE_VALIDATION_PENDING — NOT COMPLETED
-Governance note: PR #22 merged prematurely (auto-merge without owner approval).
-Owner decision 2026-04-02: no revert. Task not closed until live evidence produced.
+Date: 2026-04-08
 
-## What was built
+## Summary
+Overnight autonomous batch: price sanity check, enrichment continuation (301 SKU),
+self-audit, PEHA category_mismatch batch fix, research queue export, Claude API
+deep-research batch.
 
-browser_vision_scout.py — second-pass price scout for bot-blocked (403/401/498) and
-JS-rendered (200/no-lineage) product URLs.
+Key deliverables:
+- **price_sanity.py**: 5-rule price validator (REJECT/WARNING/PASS) — AED/exotic
+  currency flag, high piece price, cross-reference 5× median, extreme bounds, round
+  number detection. 26 deterministic tests PASS. Integrated into photo_pipeline.py.
+- **Retrospective sanity audit**: 69 existing SKU — PASS=31, WARNING=11, REJECT=0.
+  Results in shadow_log/price_sanity_audit_2026-04.jsonl.
+- **Enrichment batch**: running background, ~79/370 at snapshot time (~1 SKU/min).
+- **Category fix**: 33 PEHA items corrected (Вентиль/Детектор/Датчик →
+  Рамки/Клавиши/Диммеры/Накладки PEHA). 30 SKU: price_now_admissible.
+  shadow_log/category_fix_2026-04.jsonl.
+- **research_queue.py**: emits JSON+MD research packets for DRAFT/REVIEW_REQUIRED SKU.
+  69 packets generated (37 high, 32 low priority). Category breakdown: category_mismatch=34,
+  identity_weak=28, no_price_lineage=5, specs_gap=2.
+- **research_runner.py**: Claude API deep-research with budget guard, MockProvider for
+  tests, audit, merge candidates, overnight report. 23 tests PASS.
+- **Batch research**: 37 high-priority packets sent to claude-haiku (running background).
+  Results go to research_results/ — NOT merged without owner review.
 
-NOT Anthropic Computer Use tool. Uses Playwright (real Chromium/Edge) + Claude
-Messages API image input (Vision) for price extraction and PN lineage confirmation.
-
-Components:
-- BrowserFetcher: Playwright context manager, auto browser channel (msedge→chrome→bundled),
-  headless default, cookie banner helper (benign only), no CAPTCHA bypass
-- VisionExtractor: Claude Vision API, auto-escalation Sonnet→Opus on low confidence,
-  structured JSON extraction (price, currency, pn_confirmed, stock_status, page_class)
-- materialize_bvs_record(): same manifest schema as price_manual_scout.py + additive fields
-- load_first_pass_candidates(): filter by http_status {401,403,498} OR 200/no-lineage
-- Full CLI: --seed, --manifest, --first-pass-manifest, --headed, --browser-channel,
-  --vision-model, --no-escalation, --save-all-screenshots
-
-Tests: 23/23 PASS (deterministic, mock Playwright + mock Anthropic)
-
-## Dependencies
-- playwright 1.57.0 — already installed
-- anthropic — requires: pip install anthropic
-
-## Files changed
-- scripts/browser_vision_scout.py (NEW, 490 lines)
-- tests/enrichment/test_browser_vision_scout.py (NEW, 280 lines)
-- docs/autopilot/STATE.md (updated)
-- docs/autopilot/CAPSULE.md (this file)
-- docs/_governance/COMPLETED_LOG.md (appended)
-
-## Governance
-- Tier-1 frozen files: CLEAN
-- Pinned API signatures: CLEAN
-- price_manual_scout.py: NOT MODIFIED
+After category fix: DRAFT_ONLY=58, REVIEW_REQUIRED=11 (from initial 69 SKU).
+Total new tests: 69 (26+20+23), full suite 646/646 PASS.
 
 ---
 
-# Previous Capsule
+# Task Capsule (previous)
 
-Task_ID: auditor-system-phase1
+Task_ID: R1-revenue-price-scout-batch2
+Risk: LOW
+Date: 2026-04-07
+
+## Summary
+Price scout batch2 — 17 new SKUs (Esser fire safety, HVAC actuators, barcode printers) from authorized/industrial distributors.
+
+Key deliverables:
+- **trust.py**: 7 new domains — walde.ee (authorized, Esser official distributor Estonia), firealarmmax.com, globaltestsupply.com, bolasystems.com, shop.peaktech.com, barcodefactory.com, logiscenter.us (all industrial)
+- **price_manual_seed_batch2.jsonl**: 17 manually seeded prices, all from verified distributor pages
+- **price_manual_manifest_batch2.jsonl**: 11 admissible_public_price, 6 ambiguous_offer
+- **test fix**: test_access_denied_page_stays_non_lineage URL corrected — url_path_pn_match feature fires on embedded PNs by design; test URL must not include PN
+
+Result: 11 new admissible prices for future catalog expansion. Evidence bundles not yet created (new SKUs not in current 25-SKU local catalog — expected TRANSIENT skips).
+
+849/849 tests PASS.
+
+---
+
+Task_ID: R1-revenue-price-scout-resolution
+Risk: LOW
+Date: 2026-04-07
+
+## Summary
+Resolved 5 of 11 previously ambiguous price seeds. Key deliverables:
+- **pn_match.py**: suffix-variant fallback (strip -RU/-L3/N/U before lineage match)
+- **trust.py**: 7 new industrial domains for RU PPE + US safety suppliers  
+- **Seeds**: 4 updated with accessible URLs; 129464N/U newly admissible ($640 DM Supply)
+- **Honeywell PN conventions** documented in memory (base PN + color/region/kit suffixes)
+- **Evaluation report** (honeywell.xlsx) identified as reference price source for all 17 SKU
+
+Final state: 6 admissible_public_price, 5 review_required (surface_conflict or rfq/no-url)
+
+## Remaining Gaps
+- 8 PEHA items: catalog says "sensors" but products are electrical switch covers → needs reclassification
+- 1011893-RU / 1011894-RU: lineage=True, surface_conflict (new URLs, will stabilize)
+- 129625-L3: distributor uses GA-USB1-IR code, manufacturer PN not in page HTML
+- 1015021 / 121679-L3: no public price found (rfq_only or no accessible page)
+
+---
+
+Task_ID: R1-revenue-photo-price-recovery-attempt
+Risk: LOW
+Date: 2026-04-07
+Branch: feat/rev-r1-catalog
+PR: https://github.com/eugenebireta/biretos-automation/pull/38
+Status: COMPLETED — structural gap confirmed, no new admissible data
+
+## What was done
+
+Attempted photo recovery (14 SKU) and price scout (10 SKU) from followup queues.
+
+Key setup actions completed:
+- `config/.env.providers` created with ANTHROPIC_API_KEY (providers.py step2b now functional)
+- `.claude/settings.local.json` created with SERPAPI_KEY + OPENAI_API_KEY (persistent across sessions)
+- `.gitignore` updated to protect `settings.local.json`
+
+## Results
+
+Photo recovery: 14/14 REJECT — no improvement.
+Price scout: 0/8 new admissible prices found.
+
+Root cause: Structural PN collision. 7 SKU (101411, 104011, 105411, 106511, 109411, 125711, 127411)
+have Honeywell part numbers that are shared with Peha by Honeywell home automation products
+(switches, outlets, cover frames). Automated search always returns the wrong product category.
+No automated recovery path exists for these SKU.
+
+Catalog state after refresh: 0 auto_publish, 13 review_required, 12 draft_only, 25 total.
+849/849 tests PASS.
+
+## Known Gap (structural)
+
+7 PN-collision SKU need manual photo sourcing or catalog cleanup.
+3 genuinely unseeded SKU (not in catalog CSV or no web presence).
+3 admissibility_review SKU need owner judgment (pack ambiguity, component flags).
+price_followup=17, photo_recovery=14.
+
+## Previous Capsule (R1 price-evidence-integrator — seq 63)
+
+Task_ID: R1-revenue-price-evidence-integrator
 Risk: SEMI
-Date: 2026-04-02
-PR: https://github.com/eugenebireta/biretos-automation/pull/18 (auto-merge enabled)
-Commit: 3bfe336
+Date: 2026-04-07
+Branch: feat/rev-r1-catalog
+PR: https://github.com/eugenebireta/biretos-automation/pull/38
+Status: COMPLETED — committed, pushed to feat/rev-r1-catalog
 
 ## What was built
 
-Governed AI Execution System — Phase 1 thin vertical slice (SPEC v3.4).
+`price_evidence_integrator.py` closes the gap between `price_manual_scout.py` output
+(manifests) and the canonical evidence bundles read by `local_catalog_refresh.py`.
 
-21 files in `auditor_system/`:
-- `hard_shell/contracts.py` — Pydantic models: TaskPack, AuditVerdict, SurfaceClassification, ProtocolRun
-- `hard_shell/context_assembler.py` — rule-based surface classifier (19 TIER1_FILES, 9 OPUS_SURFACES, keyword→surface map)
-- `hard_shell/model_selector.py` — Trigger A/B/C model selection (Sonnet default, Opus for OPUS_SURFACES, escalation on gate failure)
-- `hard_shell/quality_gate.py` — deterministic pass/fail (reject+critical → fail; both 3+ warnings → fail; conflict → fail)
-- `hard_shell/approval_router.py` — AUTO_PASS / BATCH_APPROVAL / INDIVIDUAL_REVIEW / BLOCKED routing + owner_summary.md
-- `hard_shell/experience_sink.py` — DPO-ready JSONL (approved→experience_log/, rejected→anti_patterns/, guard on missing verdict)
-- `hard_shell/run_store.py` — artifact persistence in runs/<run_id>/ (12 artifact files per run)
-- `providers/mock_builder.py` + `providers/mock_auditor.py` — deterministic mocks, no external calls
-- `providers/openai_auditor.py` + `providers/anthropic_auditor.py` — Phase 2 stubs (NotImplementedError)
-- `review_runner.py` — bounded 2-round protocol orchestrator
-- `cli.py` — dry-run and single-task entry points
-- `tests/test_dry_run.py` — 14 tests
+Key components:
+- `scripts/price_evidence_integrator.py` — reads price manifest JSONL, applies
+  `price_admissibility.materialize_price_admissibility()` per row; for rows classified
+  `offer_admissibility_status == "admissible_public_price"` writes the price section
+  into `evidence_<pn>.json`, sets `field_statuses_v2["price_status"] = "ACCEPTED"` and
+  `policy_decision_v2["price_status"] = "ACCEPTED"`, records integration trace in
+  `refresh_trace["price_integration"]`. Does NOT touch `card_status`.
+- `tests/enrichment/test_price_evidence_integrator.py` — 32 deterministic tests covering
+  build_price_section, evidence_path lookup, success, skips, dry_run, idempotency.
 
-## Test evidence
+DNA compliance:
+- trace_id generated per run (pi_<ts>_<hex>), injectable _now_fn for deterministic tests
+- idempotent: overwriting price section + trace with same trace_id is safe
+- error_class/severity/retriable on all error paths
+- no Core DML, no domain.reconciliation_* imports
+- explicit field allowlist (_PRICE_FIELD_MAP) to prevent schema drift
 
-14/14 PASS — all Phase 1 readiness criteria:
-- Full cycle artifacts in runs/<run_id>/ (12 files)
-- ModelSelector: LOW→Sonnet, fsm/guardian keywords→Opus
-- Escalation: Sonnet gate fail → Opus retry
-- QualityGate: critical reject → INDIVIDUAL_REVIEW
-- ApprovalRouter: LOW+approve→AUTO_PASS, SEMI+approve→BATCH_APPROVAL, CORE→INDIVIDUAL_REVIEW
-- owner_summary.md readable with task title + route
-- ExperienceSink: JSONL written after owner verdict; RuntimeError if called before verdict
-- Surface mismatch: ContextAssembler∪Builder declared → effective_surface union, Opus selected
-- Tier-1 file → tier1_files surface → Opus
+## Real integration result
 
-## Dependency note
+Run against `downloads/scout_cache/price_manual_manifest.jsonl` (20 rows):
+- 5 rows classified `admissible_public_price` → integrated
+- 15 rows skipped (offer_status != admissible_public_price)
+- Evidence bundles updated: 027913.10 (EUR 467→44365 RUB), 1000106 (AED 68.25→1638 RUB),
+  1006186 (TWD 1794, rub_price=None — FX gap), 1003012, 1030000000
 
-Requires `pyyaml` (not yet in requirements.txt). Install: `pip install pyyaml`.
+Post-integration `local_catalog_refresh.py` result:
+- review_required=15 (up from 9), draft_only=10, auto_publish=0, promote_canonical=false
 
-## Next (Phase 2)
+Post-integration `build_catalog_followup_queues.py`:
+- price_followup_count=14, photo_recovery_count=14
 
-- Wire live OpenAI auditor (Responses API + json_schema, NOT Chat Completions + JSON mode)
-- Wire live Anthropic auditor (run in separate process without ANTHROPIC_API_KEY in env)
-- Add `pyyaml` to requirements.txt
-- OwnerQueue, BatchPackBuilder, FallbackHandler (scope-excluded from Phase 1)
+## Governance
+
+SEMI risk. Two-round audit via auditor_system API (Gemini 3.1 Pro CRITIC + Opus 4.6 JUDGE).
+Result: **BATCH_APPROVAL** (quality gate passed).
+Post-audit fixes: sys.path.insert moved to module level; trace_id timestamp sourced from now_fn().
+
+## Coverage
+
+798/798 tests PASS (zero regression). 32/32 integrator tests PASS.
+
+## Previous Capsule (M4 Executor Bridge — seq 60)
+
+M4 Executor Bridge closes the automation loop for the Meta Orchestrator.
+When `auto_execute: true` in config.yaml, `python orchestrator/main.py` now
+runs end-to-end: intake → classify → advisor → synthesizer → directive → claude --print → collect_packet.
+New: `orchestrator/executor_bridge.py` (run()+run_with_collect()), 43 tests.
+SEMI BATCH_APPROVAL. 308/308 orchestrator tests PASS.
+
+## Next
+
+Revenue R1 track: photo pipeline recovery (14 SKU) or next price scout batch (14 SKU).

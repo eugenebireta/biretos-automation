@@ -1,0 +1,90 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_HVAC23C5",
+  "entity_id": "HVAC23C5",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "HVAC inverter (VFD)",
+    "description_ru": "Honeywell NXL series (Vacon-designed)",
+    "category_suggestion": "HVAC inverter (VFD)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1.324,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.mytub.co.uk/hvac23c5-11kw-ip54-hvac-inverter-23-amps-product-298665",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "11kW; 23A; 380–500V 3ph; IP54; EMC class C; 144×391×214mm; 8.1kg; 0–320Hz output",
+      "aliases": [
+        "NXL HVAC 23C5"
+      ]
+    },
+    "key_findings": [
+      "Honeywell NXL series (Vacon-designed)",
+      "Aliases: NXL HVAC 23C5"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/hvac23c5-11kw-ip54-hvac-inverter-23-amps-product-298665",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.mytub.co.uk/hvac23c5-11kw-ip54-hvac-inverter-23-amps-product-298665",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.kontrolyum.com/hvac23c5-honeywell-ac-driver",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/bms-from-hco-030923/hbt-bms-en0b0619-ge51r0511.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.mytub.co.uk/hvac23c5-11kw-ip54-hvac-inverter-23-amps-product-298665",
+      "type": "distributor",
+      "domain": "www.mytub.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.968513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

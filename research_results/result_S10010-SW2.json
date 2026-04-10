@@ -1,0 +1,131 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_S10010-SW2",
+  "entity_id": "S10010-SW2",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Damper actuator",
+    "description_ru": "SmartAct S10 spring-return; eBay listing new condition, Mesa AZ",
+    "category_suggestion": "actuator",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 189.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/390572113023",
+      "price_type": "surplus"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-S10010-SW2-left",
+    "specs": {
+      "raw": "10 Nm; 24 VAC/DC; spring return; (0)2-10V & floating; 2 aux switches; IP54; 90s runtime",
+      "aliases": [
+        "MS7510A2206"
+      ]
+    },
+    "key_findings": [
+      "SmartAct S10 spring-return; eBay listing new condition, Mesa AZ",
+      "Aliases: MS7510A2206"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/390572113023",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/401281135417",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.ebay.com/itm/390572113023",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://www.resideo.com/emea/en/.../s10010-sw2...",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/gb/en/.../s10-series-10nm-spring-return-damper-actuator",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://blackhawksupply.com/products/honeywell-ms7510a2206...",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://www.bolasystems.com/damper-actuator-honeywell-s10010-sw2",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/401281135417",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/itm/390572113023",
+      "type": "surplus",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/401281135417",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.948491+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

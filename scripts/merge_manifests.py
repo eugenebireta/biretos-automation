@@ -28,6 +28,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from price_admissibility import materialize_price_admissibility
+
 
 VOLATILE_OUTPUT_FIELDS = {
     "blocked_ui_detected",
@@ -103,6 +105,17 @@ def _sanitize_output_row(row: dict[str, Any]) -> dict[str, Any]:
     return sanitized
 
 
+def _finalize_output_row(row: dict[str, Any]) -> dict[str, Any]:
+    """Attach deterministic admissibility metadata to committed output rows."""
+    finalized = _sanitize_output_row(row)
+    finalized = materialize_price_admissibility(finalized)
+    finalized["review_required"] = bool(finalized.get("review_required")) or bool(
+        finalized.get("price_admissibility_review_required")
+    )
+    return finalized
+
+
+
 def merge(
     first_pass: list[dict[str, Any]],
     second_pass: list[dict[str, Any]],
@@ -138,14 +151,14 @@ def merge(
 
         if key in first_by_key:
             if _second_pass_wins(first_by_key[key], row):
-                replacement = _sanitize_output_row(row)
+                replacement = _finalize_output_row(row)
                 replacement["merge_source"] = "second_pass_replaced"
                 replacements[key] = replacement
                 stats["replaced"] += 1
             else:
                 stats["kept_first"] += 1
         else:
-            new_row = _sanitize_output_row(row)
+            new_row = _finalize_output_row(row)
             new_row["merge_source"] = "second_pass_new"
             new_rows.append(new_row)
             stats["appended"] += 1
@@ -160,7 +173,7 @@ def merge(
         if key in replacements:
             merged.append(replacements[key])
         else:
-            row = _sanitize_output_row(first_by_key[key])
+            row = _finalize_output_row(first_by_key[key])
             row["merge_source"] = "first_pass"
             merged.append(row)
 

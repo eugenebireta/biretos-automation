@@ -1,0 +1,99 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_804791",
+  "entity_id": "804791",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "LED indicator panel",
+    "description_ru": "Esser by Honeywell, System IQ8Control fire alarm. Regular price €1,049. Also used by Valeo (automotive) — context matters",
+    "category_suggestion": "LED indicator panel",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 846.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.esser-systems.com/productimages/display-and-operating-units/system-iq8control//804791-loop-led-remote-indicator-panel-for-32-messages_Inherited_product_pic_300_300_BM804791_xxxxx_GZPE_SF3C_00.jpg",
+    "specs": {
+      "raw": "32 red LEDs; 10–15V DC; quiescent 1 mA; alarm 380 mA; -5°C to 50°C; VdS approved; esserbus transponder",
+      "aliases": [
+        "764790 (same hardware without esserbus transponder)"
+      ]
+    },
+    "key_findings": [
+      "Esser by Honeywell, System IQ8Control fire alarm. Regular price €1,049. Also used by Valeo (automotive) — context matters",
+      "Aliases: 764790 (same hardware without esserbus transponder)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.esser-systems.com/en/products/details/display-and-operating-units/system-iq8control/804791-loop-led-remote-indicator-panel-for-32-messages/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.hls-austria.com/en/business/fire-alarm-systems/esser-by-honeywell/products/displays-and-operating-units/system-iq8control/led-indicator-panels/804791",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.thebigredguide.com/esser-by-honeywell-804791-lighting-accessories-technical-details.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell",
+      "type": "distributor",
+      "domain": "walde.ee",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.987063+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

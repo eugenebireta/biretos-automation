@@ -1,0 +1,570 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "304L",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS",
+  "assembled_title": "Беруши Honeywell 304L",
+  "our_price_raw": "0,00",
+  "expected_category": "Беруши",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_304L",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "ACCEPTED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_304L"
+        ],
+        "evidence_ids": [
+          "ev_image_304L"
+        ],
+        "policy_rule_id": "CAP-06",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_304L"
+        ],
+        "evidence_ids": [
+          "ev_pdf_304L"
+        ],
+        "policy_rule_id": "CAP-06",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-06",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.910758+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "ACCEPTED",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_304L"
+      ],
+      "evidence_ids": [
+        "ev_title_304L"
+      ],
+      "policy_rule_id": "CAP-08W",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_304L"
+      ],
+      "evidence_ids": [
+        "ev_image_304L"
+      ],
+      "policy_rule_id": "CAP-08W",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_304L"
+      ],
+      "evidence_ids": [
+        "ev_pdf_304L"
+      ],
+      "policy_rule_id": "CAP-08W",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.712,
+    "image_confidence": 0.534,
+    "price_confidence": 0.534,
+    "overall": 0.552,
+    "overall_label": "LOW",
+    "publishability": "AUTO_PUBLISH",
+    "notes": []
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\304L.jpg",
+      "canonical_filename": "HONEYWELL_304L_a99362e7.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://tezro.ru/shop/berushi-honeywell-bilsom-304l/",
+      "origin_page_url": "https://tezro.ru/shop/berushi-honeywell-bilsom-304l/",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+      "replacement_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "Беруши на шнурке clearly visible",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\304L.jpg",
+    "sha1": "a99362e7042e7e335c46f15ec5f1af8d3ff59dcb",
+    "canonical_filename": "HONEYWELL_304L_a99362e7.jpg",
+    "public_url": null,
+    "width": 800,
+    "height": 800,
+    "size_kb": 34,
+    "source": "google:https://tezro.ru/shop/berushi-honeywell-bilsom-304l/",
+    "phash": "e4b4d3874d386267",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "public_price",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "exact",
+    "commercial_identity_status": "exact_product",
+    "offer_admissibility_status": "admissible_public_price",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": 68.25,
+    "currency": "AED",
+    "rub_price": 1638.0,
+    "fx_rate_used": 24.0,
+    "fx_provider": "stub",
+    "price_confidence": 95,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+    "source_type": "other",
+    "source_tier": "industrial",
+    "source_engine": "google_us",
+    "stock_status": "backorder",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Беруши",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+    "price_source_domain": "modern-eastern.com",
+    "price_source_type": "other",
+    "price_source_tier": "industrial",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+    "price_source_replacement_domain": "modern-eastern.com",
+    "price_source_replacement_tier": "industrial",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "title",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [],
+    "identity": []
+  },
+  "content": {
+    "specs": {
+      "Тип товара": "Беруши"
+    },
+    "description": "Беруши Honeywell CORDED EARPLUG предназначены для защиты слуха в промышленных условиях. Обеспечивают комфортное ношение и эффективную защиту от шума.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Средства индивидуальной защиты",
+    "product_type": "Беруши",
+    "seed_name": "Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS",
+    "description_long_ru": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": ""
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:304L:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:304L:3d8c001cc1488cc4f7cfec93",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "REVIEW_REQUIRED",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "REVIEW_REQUIRED"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:304L:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:304L:3d8c001cc1488cc4f7cfec93",
+      "pn_primary": "304L",
+      "normalized_title": "Беруши Honeywell 304L",
+      "card_status": "REVIEW_REQUIRED",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "ACCEPTED",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_304L"
+          ],
+          "evidence_ids": [
+            "ev_title_304L"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_304L"
+          ],
+          "evidence_ids": [
+            "ev_image_304L"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_304L"
+          ],
+          "evidence_ids": [
+            "ev_pdf_304L"
+          ],
+          "policy_rule_id": "CAP-08W",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "industrial",
+        "pdf_source_tier": "",
+        "image_source_tier": "industrial"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "public_price",
+        "source_tier": "industrial",
+        "page_product_class": "Беруши",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Honeywell Howard Leight Bilsom 304L — Одноразовые беруши на шнурке (размер L)",
+    "description_ru": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар.",
+    "specs": {
+      "model_name": "Bilsom 304L",
+      "manufacturer_part_number": "1000106",
+      "product_family": "Bilsom 300 Series",
+      "type": "Corded disposable earplugs",
+      "size": "Large (L)",
+      "material": "Polyurethane foam",
+      "shape": "Bullet / tapered (conical)",
+      "color": "Yellow and white (Leight Stripe)",
+      "SNR": "33 dB",
+      "standard": "EN 352-2:2002",
+      "PVC_free": true,
+      "cord": "Yes — corded",
+      "reusability": "Single use / disposable",
+      "pack_size": "Box of 100 pairs",
+      "applications": "Agriculture, automotive, aviation, construction, chemical, defence, energy, food industry, foundry, mining, petrochemical, welding, and more"
+    },
+    "identity_confirmed": true,
+    "confidence": "high",
+    "key_findings": [
+      "Part number '304L' is the Honeywell Howard Leight Bilsom 304L — a corded disposable earplug in size Large, part of the Bilsom 300 Series PPE product family.",
+      "The internal Honeywell catalog/material number (SKU) for this product is 1000106.",
+      "Product is confirmed as CURRENT and actively listed on both the Honeywell SPS support portal (official datasheet hosted at sps-support.honeywell.com) and multiple authorized distributors worldwide.",
+      "Key specification: SNR 33 dB, compliant with EN 352-2:2002, polyurethane foam, corded, size L, yellow/white coloring, PVC-free.",
+      "One distributor (O'Sullivan Hygiene Supplies, IE) listed price of €28.00 per box of 100 pairs, though marked as 'unavailable' at time of search — treat as indicative/reference price only.",
+      "No Russian-language official Honeywell page found; Russian description synthesized from confirmed English-language product data.",
+      "No direct product image URL could be reliably extracted from search results."
+    ],
+    "sources": [
+      {
+        "url": "https://sps-support.honeywell.com/s/article/1000106-Bilsom-304L-Datasheet-in-English",
+        "type": "manufacturer",
+        "supports": [
+          "identity",
+          "product_family",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.amazon.com/Honeywell-Howard-Leight-Bullet-Shaped-1000106/dp/B006GCNBYI",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs",
+          "availability"
+        ]
+      },
+      {
+        "url": "https://www.arco.co.uk/Web-Taxonomy/Personal-Protective-Equipment/Earplugs-and-Ear-Defenders/Earplugs/Honeywell-Howard-Leight-Bilsom-304L-Corded-Disposable-Earplugs-(Box-of-100-Pairs/p/PIMM00000000023790",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.osullivanhygienesupplies.com/store/p100/HONEYWELL_Howard_Leight_Bilsom_304L_Corded_Ear_Plug_SNR_33_dB_(Box_of_100).html",
+        "type": "distributor",
+        "supports": [
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.modern-eastern.com/honeywell-bilsom-304l-foamplug-corded.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "http://www.shahsales.com/product-details.php?id=376",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+        "type": "distributor",
+        "domain": "www.amazon.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.modern-eastern.com/en/home/honeywell-earplugs-304l-large-Box-of-100-pairs-1000106",
+        "type": "distributor",
+        "domain": "www.modern-eastern.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.812590+00:00",
+    "merge_source": "result_304L.json",
+    "provider": "claude_web_search",
+    "model": "claude-sonnet-4-6",
+    "source_file": "deep-research-report (8).md"
+  },
+  "dr_category": "Средства индивидуальной защиты (СИЗ) — Защита слуха / Беруши одноразовые",
+  "dr_image_url": "https://www.modern-eastern.com/content/product_images/8808176105869.jpg"
+}

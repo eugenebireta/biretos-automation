@@ -1,0 +1,83 @@
+You are a Senior Procurement Intelligence Analyst specializing in Gray Market and Industrial Surplus sourcing for Honeywell ecosystem parts. Your job is to find real, purchasable prices that normal search engines miss.
+
+## Context
+
+These 30 part numbers are from Honeywell sub-brands: Esser (fire safety), PEHA (electrical switches), Morley-IAS (fire detection), Honeywell Building Technologies (HVAC), and others. Many are European market items.
+
+## Key search tricks for these specific parts
+
+- Try "{PN}" in quotes on Google, eBay, Radwell, IndiaMART, AliExpress
+- Try sub-brand prefixes: Esser, PEHA, Morley, Notifier, Trend, Saia-Burgess
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | PANC300-04 [also: PANC300.04, PANC30004] | panel | Панель удаленных модулей C300 Panel PANC300-04 | 3886297.00 |
+| 2 | CB015A | printer | Принтер Honeywell CB015A | 25560.00 |
+| 3 | COLOR | printer | Принтер Honeywell COLOR | 0.00 |
+| 4 | EASY | rack cabinet | Серверный шкаф Honeywell EASY | 0.00 |
+| 5 | EP10425882 | sensor | Датчик присутствия Honeywell EP10425882 | 17036.75 |
+| 6 | EP10427213 | sensor | Датчик присутствия Honeywell PD-ATMO360i/8 T KNX | 36607.00 |
+| 7 | EP10427404 | sensor | Датчик присутствия Honeywell PD-C360i/8 KNX UP | 22235.86 |
+| 8 | KTF00-65-2M [also: KTF00.65.2M, KTF00652M] | sensor | Кабельный погружной датчик KTF00-65-2M | 5953.80 |
+| 9 | МЕТРОВ | cable | Кабель Honeywell МЕТРОВ | 0.00 |
+| 10 | XFLR822A | module | Аналоговый выходной модуль Honeywell XFLR822A | 39715.33 |
+| 11 | XFLR824A | module | Модуль с 6 реле Honeywell XFLR824A | 20908.81 |
+| 12 | FO-WBI-12A-GY [also: FO.WBI.12A.GY, FOWBI12AGY] | Honeywell Бокс | Оптический бокс Honeywell FO-WBI-12A-GY | 3442.00 |
+| 13 | 400-ATII [also: 400.ATII, 400ATII] | Honeywell Жесткий | Жесткий диск Honeywell 400-ATII, 300GB 15K RPM SAS 12Gbps | 18259.00 |
+| 14 | BF-HWC4-PN16-0125 [also: BF.HWC4.PN16.0125, BFHWC4PN160125] | Honeywell Задвижка | Задвижка с диском Honeywell DN125 MBV DI Body Disk Matl Epoxy coated | 4131.64 |
+| 15 | 704960 | Honeywell Запасное | Запасное стекло для малого MCP | 2550.65 |
+| 16 | RMK400AP-IV [also: RMK400AP.IV, RMK400APIV] | Honeywell Комплект | Комплект для встраиваемого монтажа RMK400AP-IV | 349.20 |
+| 17 | ROL15-2761-04 [also: ROL15.2761.04, ROL15276104] | Honeywell Комплект | Комплект роликового вала ROL15-2761-04 | 5257.21 |
+| 18 | CWSS-RB-S8 [also: CWSS.RB.S8, CWSSRBS8] | Honeywell Маяк | Световой маяк красный Honeywell CWSS-RB-S8 | 3960.00 |
+| 19 | EVCS-HSB [also: EVCS.HSB, EVCSHSB] | Honeywell Пульт | Пульт вызова Honeywell EVCS-HSB | 14960.00 |
+| 20 | RDU300504 | Honeywell Редуктор | Редуктор RDU300504 | 3002.25 |
+| 21 | MAU8/MS | Honeywell Резьба | Внешняя резьба с уплотнительным кольцом MAU8/MS | 6547.55 |
+| 22 | 3240190 | Honeywell Рейка | Перфорированная DIN-рейка 3240190 | 1715.48 |
+| 23 | 65UL3J | Honeywell Светодиодная | Светодиодная панель LED 65UL3J-E | 122100.00 |
+| 24 | 583520 | Honeywell Станция | Цифровая станция вызова Honeywell DCS Plus e54-16 | 126089.93 |
+| 25 | 805576 | Honeywell Табличка | Табличка для базы извещателя (набор из 10) 805576 | 2057.96 |
+| 26 | EVCS-MS [also: EVCS.MS, EVCSMS] | Honeywell Трубка | Настольная трубка Honeywell EVCS-MS | 262764.00 |
+| 27 | IP | IP phone | IP-телефон | 0.00 |
+| 28 | 36299-RU [also: 36299.RU, 36299RU] | adapter | Адаптер RRC Honeywell 36299-RU, 400x200мм | 4161.50 |
+| 29 | 805577 | adapter | Адаптер для монтажа (набор из 10) 805577 | 2262.16 |
+| 30 | 583491A | cable | Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый | 1041.21 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "valve actuator"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler to know where to look for each type of product.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

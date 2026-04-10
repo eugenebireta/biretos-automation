@@ -1,0 +1,77 @@
+You are an industrial parts investigator. I will give you 8 part numbers.
+Your mission: find EVERY product. "Not found" is a failure -- use it only after
+you have exhausted ALL search strategies below.
+
+## MANDATORY investigation protocol (for EVERY part number)
+
+Execute these steps IN ORDER. Do NOT skip any step. Only after completing all 8
+steps may you write "not found":
+
+1. **Exact phrase**: Google `"{PN}"` in quotes
+2. **Brand prefix**: Google `Honeywell {PN}` then `PEHA {PN}` then `Esser {PN}`
+3. **Drop suffix**: remove `.10` / `.20` / `-RU` / `-L3` / `/U` / `-SW1` from end, search again
+4. **Partial match**: search only the first 5--6 characters (e.g. `129464` for `129464N/U`)
+5. **Datasheets**: Google `{PN} datasheet PDF` and `{PN} specifications`
+6. **Distributors**: search directly on ebay.de, ebay.com, ebay.co.uk, radwell.com, indiamart.com, conrad.de, mouser.com, digikey.com
+7. **Russian market**: search on vseinstrumenti.ru, lemanapro.ru (ex-Lerua Merlen), electropara.ru, tinko.ru, bionic.spb.ru, etm.ru
+8. **Cross-reference**: if you found the product under a different PN (alias), search that alias for prices
+
+## Part Numbers
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 101411 | Honeywell Micro Switch accessory |
+| 2 | 104011 | Honeywell Micro Switch accessory |
+| 3 | 109411 | Honeywell Micro Switch accessory |
+| 4 | 125711 | Honeywell Micro Switch accessory |
+| 5 | 127411 | Honeywell Micro Switch accessory |
+| 6 | 129464N/U | Honeywell flame detector component |
+| 7 | 153711 | Honeywell HVAC valve |
+| 8 | 1000106 | Honeywell safety PPE |
+
+## Output -- THREE tables
+
+### Table 1 -- Product data (ALL 8 rows, every PN must appear)
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 2-3 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Column rules:
+- **Part Number**: exact PN from input. Every input PN MUST have a row.
+- **Brand**: actual manufacturer (Honeywell, PEHA, Esser, Weidmuller, Saia-Burgess, etc.)
+- **Product Name (Russian)**: short product name in Russian, 5-15 words
+- **Description (Russian, 2-3 sentences)**: what it is, what it does, where it's used. Write as a professional B2B catalog.
+- **Category**: product category in Russian (e.g. "Клапан регулирующий", "Рамка для выключателя")
+- **Price**: real price you found, or "Not found". NEVER invent prices.
+- **Currency**: EUR, USD, GBP, RUB, CHF, etc.
+- **Price Source URL**: direct link to the page with the price
+- **Photo URL**: direct link to product image
+- **Datasheet PDF URL**: direct link to PDF datasheet
+- **Key Specs**: semicolon-separated: `DN: 15; Kvs: 0.63; Connection: G1/2`
+- **Certifications**: CE, ATEX, UL, TR CU, etc.
+- **EAN/GTIN**: if found
+
+### Table 2 -- Documents found (only rows where you found a document)
+
+| Part Number | Document URL | Document Type | Language |
+|---|---|---|---|
+
+Document Type values: Datasheet, Installation Manual, Wiring Diagram, Certificate, Safety Data Sheet, Brochure, Technical Manual
+
+### Table 3 -- Every URL visited (ALL 8 PNs, even "not found" ones)
+
+| Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
+|---|---|---|---|---|---|---|
+
+List 2-5 real URLs per PN. This data trains our AI search system -- completeness is critical.
+Page Type: `distributor` / `manufacturer` / `marketplace` / `datasheet` / `catalog` / `forum`
+
+## Critical rules
+
+- NEVER invent or estimate prices. "Not found" >> a guess.
+- Every input PN MUST appear in Table 1 and Table 3.
+- Any currency is acceptable.
+- Surplus, used, and refurbished prices are valuable -- just note it in Description.
+- If you find a product under a different PN (alias), mention the alias in Key Specs.
+- Photos from eBay listings are fine.
+- Russian prices from vseinstrumenti.ru and similar are HIGH PRIORITY.

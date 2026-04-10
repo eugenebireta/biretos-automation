@@ -1,0 +1,86 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_127411",
+  "entity_id": "127411",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 7.7,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.pehastore.de/20-6511-21.html",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "https://cdn.webshopapp.com/shops/291379/files/436458558/900x900x2/peha-schuko-steckdose-erhoehtem-beruehrungsschutz.jpg",
+    "sources": [
+      {
+        "url": "https://www.pehastore.de/20-6511-21.html",
+        "type": "distributor",
+        "domain": "www.pehastore.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "\\-",
+        "type": "distributor",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "title_ru": "Защитная прозрачная крышка для кнопок управления",
+    "description_ru": "Специализированная шайба с привулканизированным эластомером для уплотнения резьбовых соединений. Предотвращает утечки через монтажные отверстия в корпусах приборов под давлением. Выполнена из нержавеющей стали со слоем нитрильного каучука. Выдерживает многократные циклы затяжки без потери свойств.",
+    "documents": [
+      {
+        "url": "https://www.pehastore.de/20-6511-21.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.elektroversand-schmidt.de/Schalterprogramme/PEHA/AURA-Schalterprogramm/Steckdosen-SCHUKO/SCHUKO-Steckdosen-anthrazit/Peha-Aura-Steckdose-SCHUKO-antrhazit.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.pehastore.de/20-6511-21.html",
+      "type": "distributor",
+      "domain": "www.pehastore.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "\\-",
+      "type": "distributor",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:48:54.954749Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v3.md"
+}

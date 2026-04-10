@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FUSE-2A-5X20-RU",
+  "entity_id": "FUSE-2A-5X20-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fuse",
+    "description_ru": "В открытом рынке чаще встречается как типовой предохранитель, а не как код Honeywell. citeturn7search1",
+    "category_suggestion": "Fuse",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 42.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://www.chipdip.ru/product/5x20-2a",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "2A; 5×20 mm citeturn7search1",
+      "aliases": [
+        "FUSE-2A-5X20 (без -RU)"
+      ]
+    },
+    "key_findings": [
+      "В открытом рынке чаще встречается как типовой предохранитель, а не как код Honeywell. citeturn7search1",
+      "Aliases: FUSE-2A-5X20 (без -RU)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.chipdip.ru/product/5x20-2a",
+        "type": "distributor",
+        "domain": "www.chipdip.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.chipdip.ru/product/5x20-2a",
+      "type": "distributor",
+      "domain": "www.chipdip.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.056234+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

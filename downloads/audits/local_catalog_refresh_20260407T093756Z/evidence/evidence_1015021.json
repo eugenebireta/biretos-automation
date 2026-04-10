@@ -1,0 +1,455 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T09:37:56.639919Z",
+  "pn": "1015021",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis",
+  "assembled_title": "Наушники Honeywell 1015021",
+  "our_price_raw": "1254,50",
+  "expected_category": "Наушники",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [],
+  "policy_decision_v2": {
+    "decision_id": "dec_1015021",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_1015021"
+        ],
+        "evidence_ids": [
+          "ev_title_1015021"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "IMAGE_UNKNOWN",
+        "field": "image",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_image_1015021"
+        ],
+        "evidence_ids": [
+          "ev_image_1015021"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_1015021"
+        ],
+        "evidence_ids": [
+          "ev_price_1015021"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_1015021"
+        ],
+        "evidence_ids": [
+          "ev_pdf_1015021"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "REVIEW_REQUIRED",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_1015021"
+      ],
+      "evidence_ids": [
+        "ev_title_1015021"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "IMAGE_UNKNOWN",
+      "field": "image",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_image_1015021"
+      ],
+      "evidence_ids": [
+        "ev_image_1015021"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_1015021"
+      ],
+      "evidence_ids": [
+        "ev_price_1015021"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_1015021"
+      ],
+      "evidence_ids": [
+        "ev_pdf_1015021"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.0,
+    "overall": 0.0,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image",
+      "no_price_data"
+    ]
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "На изображении видны противошумные наушники Honeywell на каске, товар угадывается.",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1015021.jpg",
+    "sha1": "324da367c19894767d46742934566b669e3b4bda",
+    "canonical_filename": "HONEYWELL_1015021_324da367.jpg",
+    "public_url": null,
+    "width": 588,
+    "height": 592,
+    "size_kb": 75,
+    "source": "cached",
+    "phash": "e986947992674db4",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "photo_status": "exact_evidence",
+    "photo_evidence_role": "exact",
+    "photo_is_temporary": false,
+    "replacement_required": false
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://igbt.by/wp-content/uploads/2025/03/catalogue_2025_datasheet_Honeywell_Minsk_Belarus.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "Минск +375447584780 viber zakaz@igbt.by www.fotorele.net",
+    "pdf_specs": {
+      "Каталог Honeywell 2025г": "Honeywell в Беларуси",
+      "Honeywell International Inc": "- американская многонациональная компания, производитель",
+      "некоторые ключевые факты о компании": "История",
+      " Основана": "1906 год",
+      " Основатель": "Mark C. Honeywell",
+      " Штаб-квартира": "Шарлотт, Северная Каролина, США",
+      "1. Аэрокосмические и оборонные технологии": "системы управления полетом,",
+      "2. Промышленная автоматизация": "системы управления процессами, контроллеры,",
+      "датчики и т.п": "3. Коммерческая и жилая автоматизация: системы управления климатом,",
+      "безопасности и т.п": "4. Транспортные системы: системы управления движением, навигационные",
+      "системы и т.п": "Продукты и услуги",
+      "1. Системы управления процессами": "Experion PKS, Experion SCADA и т.п.",
+      "2. Контроллеры и датчики": "Universal Control, ControlEdge и т.п.",
+      "3. Системы безопасности": "Enterprise Buildings Integrator, Pro-Watch и т.п.",
+      "4. Аэрокосмические и оборонные продукты": "системы управления полетом,",
+      "навигационные системы и т.п": "Наименования наиболее продаваемых продуктов",
+      "1. Experion PKS": "система управления процессами",
+      "2. Universal Control": "контроллер для промышленной автоматизации",
+      "3. ControlEdge": "контроллер для промышленной автоматизации",
+      "4. Enterprise Buildings Integrator": "система управления зданиями",
+      "5. Pro-Watch": "система безопасности",
+      " Валовая выручка": "более $ 40 млрд в 2020 году",
+      " Чистая прибыль": "более $ 2 млрд в 2020 году",
+      " Количество сотрудников": "более 110 тысяч человек",
+      "спектром продуктов и услуг в различных областях": "Компания продолжает развиваться и",
+      " Experion PKS": "система управления процессами",
+      " Universal Control": "контроллер для промышленной автоматизации",
+      " ControlEdge": "контроллер для промышленной автоматизации",
+      " Distributed Control System (DCS)": "система управления процессами для крупных",
+      " Safety Manager": "система управления безопасностью процессов",
+      " Flight Control System (FCS)": "система управления полетом для самолетов и",
+      " Navigation System (NS)": "навигационная система для самолетов и вертолетов",
+      " Communication System (CS)": "система связи для самолетов и вертолетов",
+      " Electronic Flight Instrument System (EFIS)": "электронная приборная панель для",
+      " Air Traffic Control System (ATCS)": "система управления воздушным движением для"
+    },
+    "pdf_text_excerpt": "Минск +375447584780 viber zakaz@igbt.by www.fotorele.net каталог, описание, технические, характеристики, datasheet, параметры, маркировка, габариты, фото, модуль, Honeywell, даташит, модуль, преобразователь, Каталог Honeywell 2025г. Honeywell в Беларуси купить, продажа в Минске, Беларусь электронные компоненты где и как купить в Минске? Продукция Honeywell о компании Honeywell Honeywell International Inc. - американская многонациональная компания, производитель широкого спектра продуктов и услуг в области технологий и промышленности. Вот некоторые ключевые факты о компании: История  Основана:",
+    "num_pages": 486,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": "Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis обеспечивают защиту слуха и имеют высокую видимость. Они идеально подходят для использования в условиях низкой освещенности.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Средства индивидуальной защиты",
+    "product_type": "Наушники",
+    "seed_name": "Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": true,
+    "trace_id": "catalog_verifier:1015021:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:1015021:440dc471a0cf29269f4deb6a",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:1015021:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:1015021:440dc471a0cf29269f4deb6a",
+      "pn_primary": "1015021",
+      "normalized_title": "Наушники Honeywell 1015021",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "REVIEW_REQUIRED",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_1015021"
+          ],
+          "evidence_ids": [
+            "ev_title_1015021"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "IMAGE_UNKNOWN",
+          "field": "image",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_image_1015021"
+          ],
+          "evidence_ids": [
+            "ev_image_1015021"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_1015021"
+          ],
+          "evidence_ids": [
+            "ev_price_1015021"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_1015021"
+          ],
+          "evidence_ids": [
+            "ev_pdf_1015021"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "",
+        "pdf_source_tier": "unknown",
+        "image_source_tier": ""
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "unknown"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": null,
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "failed",
+    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
+    "openai_request_id": ""
+  },
+  "merchandising": {
+    "image_local_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos_enhanced\\1015021__catalog_placeholder_v1__324da367.jpg",
+    "image_status": "placeholder",
+    "image_kind": "placeholder_enhanced",
+    "image_temporary": true,
+    "replacement_required": true,
+    "lineage_preserved": true,
+    "source_manifest_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
+    "source_photo_verdict": "KEEP",
+    "cleanup_recommended": false,
+    "policy_reason_code": ""
+  },
+  "refresh_trace": {
+    "refresh_mode": "local_catalog_refresh_v1",
+    "content_seed_applied": true,
+    "content_seed_source": "insales_import_seed",
+    "photo_verdict_cache_applied": true,
+    "photo_verdict_value": "KEEP",
+    "merchandising_attached": true,
+    "merchandising_image_status": "placeholder",
+    "card_status_source": "base_bundle_preserved",
+    "policy_card_status_historical": "DRAFT_ONLY",
+    "policy_card_status_mismatch": true
+  }
+}

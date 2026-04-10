@@ -1,0 +1,65 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_1006186",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "1006186",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 1006186 (Honeywell)",
+  "research_reason": "specs_gap",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Find technical specifications for Honeywell 1006186",
+    "What are the key technical parameters and operating conditions?",
+    "Is there a product datasheet for Honeywell 1006186?",
+    "Provide any relevant Russian-language product description for Honeywell 1006186"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "public_price",
+    "price_source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922?srsltid=AfmBOoqn2Ny_TR5hBHhMJq7poxvRhnnQxolIKzQU3BH2PR7LOdfNGCkv",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "LEGACY_AUTO_PUBLISH_HOLDOUT"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Беруши 303L FOAMPLUG",
+    "assembled_title": "Беруши Honeywell 1006186",
+    "expected_category": "Беруши",
+    "our_price_raw": "1920,61",
+    "has_content_seed": true,
+    "price_currency": "TWD",
+    "price_native_value": 1794.0,
+    "price_rub": null,
+    "existing_source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922?srsltid=AfmBOoqn2Ny_TR5hBHhMJq7poxvRhnnQxolIKzQU3BH2PR7LOdfNGCkv",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_1006186.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.933729Z"
+}

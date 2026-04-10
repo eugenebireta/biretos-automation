@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_ML6420A3072",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "ML6420A3072",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN ML6420A3072 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=ML6420A3072",
+    "What is the full product name and product family for Honeywell ML6420A3072?",
+    "Is ML6420A3072 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell ML6420A3072"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://phc.parts/product/honeywell-102940/LinearActuatorHW-HE0411?srsltid=AfmBOorwqUe0VFoXncNxtHxoMfyy8DlcbXhNRqjKhB7JHa4HBCaVwCII",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Электрический линейный привод ML6420A3072",
+    "assembled_title": "Привод Honeywell ML6420A3072",
+    "expected_category": "Привод",
+    "our_price_raw": "105996,60",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://phc.parts/product/honeywell-102940/LinearActuatorHW-HE0411?srsltid=AfmBOorwqUe0VFoXncNxtHxoMfyy8DlcbXhNRqjKhB7JHa4HBCaVwCII",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_ML6420A3072.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.496264Z"
+}

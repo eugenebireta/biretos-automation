@@ -62,6 +62,13 @@ from no_price_coverage import (                                # noqa: E402
     choose_better_no_price_candidate,
     materialize_no_price_coverage,
 )
+from providers import (                                        # noqa: E402
+    ClaudeChatAdapter,
+    get_enrichment_model_alias,
+    reset_batch_usage,
+    get_batch_usage_summary,
+)
+from enrichment_experience_log import append_batch_experience   # noqa: E402
 from catalog_seed import build_content_seed_from_row           # noqa: E402
 from price_lineage import (                                     # noqa: E402
     choose_better_price_lineage_candidate,
@@ -88,6 +95,39 @@ from catalog_shadow_runtime import (                            # noqa: E402
     record_source_success,
     shadow_runtime_active,
 )
+from price_sanity import apply_sanity_to_price_info             # noqa: E402
+
+# ── Phase 2 components (safe imports — never kill pipeline) ───────────────────
+try:
+    from page_ranker import rank_candidates, PageCandidate
+    _PAGE_RANKER_AVAILABLE = True
+except ImportError:
+    _PAGE_RANKER_AVAILABLE = False
+
+try:
+    from price_unit_judge import judge_price_unit_basis
+    _PRICE_JUDGE_AVAILABLE = True
+except ImportError:
+    _PRICE_JUDGE_AVAILABLE = False
+
+try:
+    from category_resolver import resolve_category
+    _CATEGORY_RESOLVER_AVAILABLE = True
+except ImportError:
+    _CATEGORY_RESOLVER_AVAILABLE = False
+
+try:
+    from training_logger import (
+        log_photo_verdict as _tl_photo_verdict,
+        log_page_ranking as _tl_page_ranking,
+        log_price_extraction as _tl_price_extraction,
+        log_unit_judge as _tl_unit_judge,
+        log_category_resolution as _tl_category_resolution,
+        log_spec_extraction as _tl_spec_extraction,
+    )
+    _TRAINING_LOGGER_AVAILABLE = True
+except ImportError:
+    _TRAINING_LOGGER_AVAILABLE = False
 
 
 # ── Logging ────────────────────────────────────────────────────────────────────
@@ -118,8 +158,16 @@ SHADOW_LOG_DIR      = ROOT / "shadow_log"
 EVIDENCE_DIR        = DOWNLOADS / "evidence"
 EXPORT_DIR          = DOWNLOADS / "export"
 LAST_RUN_META: dict = {}
+_provider_errors: list[dict] = []
 
 CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
+SHADOW_LOG_SCHEMA_VERSION = "photo_pipeline_shadow_log_record_v1"
+QUEUE_SCHEMA_VERSION = "followup_queue_v2"
+INPUT_COL_PN = "Параметр: Партномер"
+INPUT_COL_NAME = "Название товара или услуги"
+INPUT_COL_OUR_PRICE = "Цена продажи"
+INPUT_COL_CATEGORY = "Параметр: Тип товара"
+INPUT_COL_BRAND = "Параметр: Бренд"
 
 PHOTOS_DIR.mkdir(exist_ok=True)
 SHADOW_LOG_DIR.mkdir(exist_ok=True)
@@ -167,8 +215,8 @@ BRAND                 = "Honeywell"
 DELAY                 = 0.4
 MIN_BYTES             = 4000
 MIN_DIM               = 150
-PRICE_LLM_MODEL       = "gpt-4o-mini"
-VISION_MODEL          = "gpt-5.4-mini"
+PRICE_LLM_MODEL       = get_enrichment_model_alias("text")
+VISION_MODEL          = get_enrichment_model_alias("vision")
 STOCK_PHOTO_THRESHOLD = 5  # phash у N+ SKU → stock_photo_flag
 
 
@@ -199,18 +247,39 @@ def get_openai_client() -> OpenAI:
 
 
 class OpenAIChatCompletionsAdapter:
-    """Default provider adapter backed by OpenAI chat completions."""
+    """Legacy provider adapter backed by OpenAI chat completions."""
 
     def __init__(self, client_loader: Callable[[], Any] | None = None):
         self._client_loader = client_loader or get_openai_client
+        self.last_call_metadata: dict[str, Any] = {}
 
     def complete(self, *, model: str, messages: list[dict], **api_kwargs: Any) -> str:
-        response = self._client_loader().chat.completions.create(
-            model=model,
-            messages=messages,
-            **api_kwargs,
-        )
-        return response.choices[0].message.content or ""
+        started_at = time.perf_counter()
+        try:
+            response = self._client_loader().chat.completions.create(
+                model=model,
+                messages=messages,
+                **api_kwargs,
+            )
+            latency_ms = int((time.perf_counter() - started_at) * 1000)
+            self.last_call_metadata = {
+                "provider": "openai",
+                "model_alias": model,
+                "model_resolved": model,
+                "latency_ms": latency_ms,
+                "error_class": None,
+            }
+            return response.choices[0].message.content or ""
+        except Exception as exc:
+            latency_ms = int((time.perf_counter() - started_at) * 1000)
+            self.last_call_metadata = {
+                "provider": "openai",
+                "model_alias": model,
+                "model_resolved": model,
+                "latency_ms": latency_ms,
+                "error_class": exc.__class__.__name__,
+            }
+            raise
 
 
 class SerpAPISearchAdapter:
@@ -226,7 +295,7 @@ class SerpAPISearchAdapter:
         return search_factory(resolved_params).get_dict()
 
 
-chat_completion_adapter: ChatCompletionAdapter = OpenAIChatCompletionsAdapter()
+chat_completion_adapter: ChatCompletionAdapter = ClaudeChatAdapter()
 search_provider_adapter: SearchProviderAdapter = SerpAPISearchAdapter()
 
 
@@ -237,7 +306,7 @@ def set_chat_completion_adapter(adapter: ChatCompletionAdapter) -> None:
 
 def reset_chat_completion_adapter() -> None:
     global chat_completion_adapter
-    chat_completion_adapter = OpenAIChatCompletionsAdapter()
+    chat_completion_adapter = ClaudeChatAdapter()
 
 
 def set_search_provider_adapter(adapter: SearchProviderAdapter) -> None:
@@ -405,15 +474,23 @@ def detect_suffix_conflict(pn: str, found_pns: list[str]) -> bool:
 # Shadow Logger + call_gpt — единая обёртка
 # ══════════════════════════════════════════════════════════════════════════════
 
+_MAX_RESPONSE_RAW_CHARS = 10_000  # cap to avoid huge JSONL entries
+
+
 def shadow_log(
     task_type: str,
     pn: str,
     brand: str,
     model: str,
+    provider: str,
+    model_alias: str,
+    model_resolved: str,
     prompt: str,
-    response_raw: str,
+    response_raw: Optional[str],
     response_parsed: dict,
     parse_success: bool,
+    latency_ms: int | None = None,
+    error_class: str | None = None,
     source_url: str = None,
     source_type: str = None,
 ) -> None:
@@ -421,20 +498,41 @@ def shadow_log(
 
     Файл: shadow_log/{task_type}_YYYY-MM.jsonl
     Не блокирует основной пайплайн при ошибке записи.
+
+    response_raw semantics:
+      None  — API call failed, no model response available
+      ""    — API returned empty text (unexpected but non-fatal)
+      "..." — actual model response (preserved up to _MAX_RESPONSE_RAW_CHARS)
     """
     try:
         month = datetime.datetime.utcnow().strftime("%Y-%m")
         path = SHADOW_LOG_DIR / f"{task_type}_{month}.jsonl"
+
+        # Preserve response_raw; truncate only if very long
+        raw_stored: Optional[str] = response_raw
+        raw_truncated = False
+        if isinstance(response_raw, str) and len(response_raw) > _MAX_RESPONSE_RAW_CHARS:
+            raw_stored = response_raw[:_MAX_RESPONSE_RAW_CHARS]
+            raw_truncated = True
+
         record = {
+            "schema_version": SHADOW_LOG_SCHEMA_VERSION,
             "ts": datetime.datetime.utcnow().isoformat() + "Z",
             "pn": pn,
             "brand": brand,
             "task_type": task_type,
+            "provider": provider,
             "model": model,
+            "model_alias": model_alias,
+            "model_resolved": model_resolved,
             "prompt": prompt,
-            "response_raw": response_raw,
+            "response_raw": raw_stored,
+            "response_raw_present": raw_stored is not None and raw_stored != "",
+            "response_raw_truncated": raw_truncated,
             "response_parsed": response_parsed,
             "parse_success": parse_success,
+            "latency_ms": latency_ms,
+            "error_class": error_class,
             "human_correction": None,
             "correction_ts": None,
             "source_url": source_url,
@@ -475,16 +573,46 @@ def call_gpt(
     adapter: ChatCompletionAdapter | None = None,
     **api_kwargs,
 ) -> str:
-    """Единая обёртка над client.chat.completions.create.
+    """Единая обёртка над provider chat completions.
 
-    Вызывает OpenAI API, автоматически пишет запись в shadow_log.
+    Вызывает configured provider adapter, автоматически пишет запись в shadow_log.
     Возвращает content строку ответа. При ошибке API — пробрасывает исключение.
     """
-    content = (adapter or chat_completion_adapter).complete(
-        model=model,
-        messages=messages,
-        **api_kwargs,
-    )
+    active_adapter = adapter or chat_completion_adapter
+    try:
+        content = active_adapter.complete(
+            model=model,
+            messages=messages,
+            **api_kwargs,
+        )
+    except Exception as exc:
+        adapter_meta = dict(getattr(active_adapter, "last_call_metadata", {}) or {})
+        error_class = str(adapter_meta.get("error_class") or exc.__class__.__name__)
+        _provider_errors.append({
+            "pn": pn,
+            "task_type": task_type,
+            "error_class": error_class,
+            "model": str(adapter_meta.get("model_alias", model)),
+            "latency_ms": adapter_meta.get("latency_ms"),
+        })
+        shadow_log(
+            task_type=task_type,
+            pn=pn,
+            brand=brand,
+            provider=str(adapter_meta.get("provider", "unknown")),
+            model=str(adapter_meta.get("model_alias", model)),
+            model_alias=str(adapter_meta.get("model_alias", model)),
+            model_resolved=str(adapter_meta.get("model_resolved", model)),
+            prompt=_redact_messages_for_log(messages),
+            response_raw=None,  # None = API failure, no model response
+            response_parsed={},
+            parse_success=False,
+            latency_ms=adapter_meta.get("latency_ms"),
+            error_class=error_class,
+            source_url=source_url,
+            source_type=source_type,
+        )
+        raise
 
     # Пробуем распарсить JSON для поля response_parsed в логе
     parse_success = False
@@ -498,15 +626,21 @@ def call_gpt(
     except Exception:
         pass
 
+    adapter_meta = dict(getattr(active_adapter, "last_call_metadata", {}) or {})
     shadow_log(
         task_type=task_type,
         pn=pn,
         brand=brand,
-        model=model,
+        provider=str(adapter_meta.get("provider", "unknown")),
+        model=str(adapter_meta.get("model_alias", model)),
+        model_alias=str(adapter_meta.get("model_alias", model)),
+        model_resolved=str(adapter_meta.get("model_resolved", model)),
         prompt=_redact_messages_for_log(messages),
         response_raw=content,
         response_parsed=response_parsed,
         parse_success=parse_success,
+        latency_ms=adapter_meta.get("latency_ms"),
+        error_class=adapter_meta.get("error_class"),
         source_url=source_url,
         source_type=source_type,
     )
@@ -579,6 +713,126 @@ def extract_jsonld_image(html: str, pn: str) -> dict | None:
                 "currency": currency,
                 "mpn_confirmed": mpn_confirmed,
             }
+    return None
+
+
+# ── JSON-LD full extraction helpers ──────────────────────────────────────────
+
+def _jld_extract_brand(data: dict) -> Optional[str]:
+    brand = data.get("brand")
+    if isinstance(brand, dict):
+        return brand.get("name")
+    return brand if isinstance(brand, str) else None
+
+
+def _jld_extract_dimensions(data: dict) -> Optional[dict]:
+    dims = {}
+    for key in ("width", "height", "depth", "length"):
+        val = data.get(key)
+        if val is not None:
+            dims[key] = val
+    return dims if dims else None
+
+
+def _jld_extract_seller(data: dict) -> Optional[str]:
+    seller = data.get("seller")
+    if isinstance(seller, dict):
+        return seller.get("name")
+    return seller if isinstance(seller, str) else None
+
+
+def _jld_extract_rating(data: dict) -> Optional[dict]:
+    rating = data.get("aggregateRating")
+    if isinstance(rating, dict):
+        return {
+            "value": rating.get("ratingValue"),
+            "count": rating.get("reviewCount"),
+        }
+    return None
+
+
+def _jld_extract_additional_props(data: dict) -> Optional[list]:
+    props = data.get("additionalProperty", [])
+    if props and isinstance(props, list):
+        return [
+            {"name": p.get("name"), "value": p.get("value")}
+            for p in props[:20]
+            if isinstance(p, dict)
+        ]
+    return None
+
+
+def _jld_extract_availability(data: dict) -> Optional[str]:
+    avail = data.get("availability")
+    if isinstance(avail, str):
+        # Normalise schema.org URL to short form
+        return avail.split("/")[-1] if "/" in avail else avail
+    return None
+
+
+def _jld_truncate(text: Optional[str], max_len: int) -> Optional[str]:
+    if text and len(text) > max_len:
+        return text[:max_len]
+    return text
+
+
+def extract_full_jsonld(jsonld_data: dict) -> dict:
+    """Извлечь ВСЕ полезные поля из JSON-LD Product schema.
+
+    Дополняет существующий extract_jsonld_image() — сохраняет в evidence bundle
+    как jsonld_full для обучения и будущих карточек товаров.
+    """
+    offers = jsonld_data.get("offers", {})
+    if isinstance(offers, list):
+        offers = offers[0] if offers else {}
+    if not isinstance(offers, dict):
+        offers = {}
+
+    availability = _jld_extract_availability(jsonld_data) or _jld_extract_availability(offers)
+    seller = _jld_extract_seller(jsonld_data) or _jld_extract_seller(offers)
+
+    return {
+        "name": jsonld_data.get("name"),
+        "sku": jsonld_data.get("sku"),
+        "mpn": jsonld_data.get("mpn"),
+        "gtin13": jsonld_data.get("gtin13"),
+        "gtin": jsonld_data.get("gtin"),
+        "brand": _jld_extract_brand(jsonld_data),
+        "description": _jld_truncate(jsonld_data.get("description"), 500),
+        "image": jsonld_data.get("image"),
+        "category": jsonld_data.get("category"),
+        "weight": jsonld_data.get("weight"),
+        "dimensions": _jld_extract_dimensions(jsonld_data),
+        "availability": availability,
+        "seller": seller,
+        "aggregate_rating": _jld_extract_rating(jsonld_data),
+        "additional_properties": _jld_extract_additional_props(jsonld_data),
+        "price": offers.get("price"),
+        "currency": offers.get("priceCurrency"),
+        "price_valid_until": offers.get("priceValidUntil"),
+        "item_condition": offers.get("itemCondition"),
+    }
+
+
+def extract_all_jsonld_from_html(html: str, pn: str) -> Optional[dict]:
+    """Parse HTML, find first Product JSON-LD block, return full extraction.
+
+    Returns None if no Product JSON-LD found.
+    Stored in evidence bundle as jsonld_full (additive, non-breaking).
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    for script in soup.find_all("script", type="application/ld+json"):
+        try:
+            data = json.loads(script.string or "")
+        except Exception:
+            continue
+        items = data if isinstance(data, list) else [data]
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            if item.get("@type") not in ("Product", "ProductGroup"):
+                continue
+            return extract_full_jsonld(item)
     return None
 
 
@@ -864,6 +1118,11 @@ def parse_product_page(url: str, pn: str = "") -> dict:
                 result["jsonld_price"] = jsonld.get("price")
                 result["jsonld_currency"] = jsonld.get("currency")
 
+        # JSON-LD full extraction — stored in result["jsonld_full"] for evidence bundle
+        jsonld_full = extract_all_jsonld_from_html(html, pn)
+        if jsonld_full:
+            result["jsonld_full"] = jsonld_full
+
         # 2. itemprop="image"
         tag = soup.find("img", itemprop="image")
         if tag:
@@ -943,23 +1202,15 @@ def parse_product_page(url: str, pn: str = "") -> dict:
                 result["description"] = tag["content"][:500]
                 break
 
-        # Характеристики — таблицы
-        specs: dict = {}
-        for table in soup.find_all("table"):
-            for row in table.find_all("tr"):
-                cells = row.find_all(["td", "th"])
-                if len(cells) == 2:
-                    k, v = cells[0].get_text(strip=True), cells[1].get_text(strip=True)
-                    if k and v and len(k) < 60 and len(v) < 200:
-                        specs[k] = v
-        # dl/dt/dd
-        for dl in soup.find_all("dl"):
-            for k_tag, v_tag in zip(dl.find_all("dt"), dl.find_all("dd")):
-                k, v = k_tag.get_text(strip=True), v_tag.get_text(strip=True)
-                if k and v and len(k) < 60:
-                    specs[k] = v
-        if specs:
-            result["specs"] = dict(list(specs.items())[:20])
+        # Характеристики — используем spec_extractor (3 стратегии)
+        try:
+            from spec_extractor import extract_specs_from_html as _extract_specs
+            _extracted_specs = _extract_specs(html, pn)
+            if _extracted_specs:
+                result["specs"] = _extracted_specs
+                result["specs_status"] = "found_from_page"
+        except Exception as _spec_err:
+            log.debug(f"spec_extractor failed: {_spec_err}")
 
     except Exception as e:
         result["error"] = str(e)
@@ -1151,6 +1402,40 @@ def step2_us_price(pn: str, ru_name: str) -> list[dict]:
         except Exception as e:
             log.warning(f"step2 {label} error: {e}")
 
+    return candidates
+
+
+def step2_distributor_multisource(pn: str) -> list[dict]:
+    """Optional multi-source: additional distributor search via Q_DISTRIBUTORS.
+
+    Runs ONLY when --multi-source flag is set. Off by default.
+    Returns additional candidate URLs for cross-validation via price_sanity Rule 3.
+    Results stored in bundle["additional_prices"] for downstream use.
+    """
+    queries = build_search_queries(pn, BRAND)
+    candidates: list[dict] = []
+    try:
+        results = run_search_query({
+            "engine": "google",
+            "q": queries["distributors"],
+            "num": 5, "gl": "ru", "hl": "ru",
+        }).get("organic_results", [])
+        time.sleep(DELAY)
+        for res in results:
+            url = res.get("link", "")
+            if not url or any(d in url for d in SKIP_PAGE_DOMAINS):
+                continue
+            if not allow_external_source_candidate(url):
+                continue
+            candidates.append({
+                "url": url,
+                "snippet": res.get("snippet", ""),
+                "title": res.get("title", ""),
+                "source_type": "distributor_multisource",
+                "engine": "google_distributors",
+            })
+    except Exception as exc:
+        log.warning(f"step2_distributor_multisource error for {pn}: {exc}")
     return candidates
 
 
@@ -1418,13 +1703,13 @@ def step2b_extract_from_pages(
             error_text = str(e).lower()
             timed_out = "timeout" in error_text or "timed out" in error_text
             if "insufficient_quota" in error_text or ("429" in error_text and "quota" in error_text):
-                transient_failure_codes.add("openai_quota")
+                transient_failure_codes.add("llm_quota")
             elif "rate limit" in error_text or "rate_limit" in error_text:
-                transient_failure_codes.add("openai_rate_limit")
+                transient_failure_codes.add("llm_rate_limit")
             elif timed_out:
-                transient_failure_codes.add("openai_timeout")
+                transient_failure_codes.add("llm_timeout")
             elif any(token in error_text for token in ("temporary", "temporarily", "502", "503", "504", "connection reset")):
-                transient_failure_codes.add("openai_temporary_failure")
+                transient_failure_codes.add("llm_temporary_failure")
             record_source_failure(url, timed_out=timed_out, channel="external_source")
             log.warning(f"  step2b error {url[:70]}: {e}")
 
@@ -1564,17 +1849,74 @@ def step3_vision(pn: str, name: str, img_path: str, w: int, h: int) -> dict:
 # Главная функция
 # ══════════════════════════════════════════════════════════════════════════════
 
+def load_queue_part_numbers(
+    queue_path: Path | str,
+    *,
+    allowed_action_codes: set[str],
+) -> list[str]:
+    rows = [
+        json.loads(line)
+        for line in Path(queue_path).read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    part_numbers: list[str] = []
+    for row in rows:
+        schema_version = str(row.get("queue_schema_version", "") or "").strip()
+        if schema_version != QUEUE_SCHEMA_VERSION:
+            raise ValueError(
+                f"Unsupported queue schema version: {schema_version or '<missing>'}"
+            )
+        action_code = str(row.get("action_code", "") or "").strip()
+        if not action_code:
+            raise ValueError("Queue row missing action_code")
+        if action_code not in allowed_action_codes:
+            continue
+        pn = str(row.get("pn") or row.get("part_number") or "").strip()
+        if not pn:
+            raise ValueError("Queue row missing pn/part_number")
+        part_numbers.append(pn)
+    return part_numbers
+
+
+def load_run_dataframe(
+    *,
+    input_file: Path = INPUT_FILE,
+    limit: int | None = None,
+    queue_path: Path | str | None = None,
+) -> pd.DataFrame:
+    df = pd.read_csv(input_file, sep="\t", encoding="utf-16", dtype=str).fillna("")
+    if queue_path:
+        queue_pns = load_queue_part_numbers(
+            queue_path,
+            allowed_action_codes={"photo_recovery"},
+        )
+        if queue_pns:
+            order_map = {pn: index for index, pn in enumerate(queue_pns)}
+            df = df.assign(__queue_pn=df[INPUT_COL_PN].astype(str).str.strip())
+            df = df[df["__queue_pn"].isin(order_map)].copy()
+            df["__queue_order"] = df["__queue_pn"].map(order_map)
+            df = df.sort_values("__queue_order", kind="stable").drop(
+                columns=["__queue_pn", "__queue_order"]
+            )
+        else:
+            df = df.head(0)
+    if limit:
+        df = df.head(limit)
+    return df
+
+
 def run(
     limit: int = None,
     show_results: bool = False,
     datasheets: bool = False,
     export: bool = True,
     base_photo_url: str = "",
+    queue_path: Path | str | None = None,
+    force_reprocess: bool = False,
+    multi_source: bool = False,
 ):
     """Запускает пайплайн для всех SKU из INPUT_FILE."""
-    df = pd.read_csv(INPUT_FILE, sep="\t", encoding="utf-16", dtype=str).fillna("")
-    if limit:
-        df = df.head(limit)
+    df = load_run_dataframe(limit=limit, queue_path=queue_path)
 
     verdicts       = json.loads(VERDICT_FILE.read_text(encoding="utf-8")) if VERDICT_FILE.exists() else {}
     data           = json.loads(DATA_FILE.read_text(encoding="utf-8")) if DATA_FILE.exists() else {}
@@ -1591,7 +1933,9 @@ def run(
     phash_cache: dict[str, list[str]] = {}  # phash → [pn1, pn2, ...]
     checkpoint     = load_checkpoint()
 
-    global LAST_RUN_META
+    global LAST_RUN_META, _provider_errors
+    reset_batch_usage()
+    _provider_errors = []
     keep = reject = no_photo = skipped_checkpoint = 0
     all_results = []
     evidence_bundles: list[dict] = []
@@ -1620,6 +1964,29 @@ def run(
             skipped_checkpoint += 1
             print(f"[{i+1}/{len(df)}] {pn} — CHECKPOINT (skip)")
             continue
+
+        # ── Evidence-first skip: protect bundles written by other pipelines ───
+        if not force_reprocess:
+            pn_safe = re.sub(r'[\\/:*?"<>|]', "_", pn)
+            evidence_path = EVIDENCE_DIR / f"evidence_{pn_safe}.json"
+            if evidence_path.exists():
+                try:
+                    existing_bundle = json.loads(evidence_path.read_text(encoding="utf-8"))
+                    evidence_bundles.append(existing_bundle)
+                    checkpoint[pn] = existing_bundle
+                    save_checkpoint(checkpoint)
+                    v_cached = existing_bundle.get("photo", {}).get("verdict", "NO_PHOTO")
+                    if v_cached == "KEEP":
+                        keep += 1
+                    elif v_cached == "NO_PHOTO":
+                        no_photo += 1
+                    else:
+                        reject += 1
+                    skipped_checkpoint += 1
+                    print(f"[{i+1}/{len(df)}] {pn} — EVIDENCE_EXISTS (skip)")
+                    continue
+                except Exception:
+                    pass  # Corrupted file — fall through to normal processing
 
         allowed, reason = allow_next_sku(pn)
         if not allowed:
@@ -1708,6 +2075,40 @@ def run(
         # ── Шаг 2: поиск URL кандидатов ───────────────────────────────────────
         candidates = step2_us_price(pn, name)
 
+        # ── Page Ranker: reorder candidates by domain tier + PN signals ────────
+        page_ranking_result: list[dict] = []
+        if _PAGE_RANKER_AVAILABLE and candidates:
+            try:
+                page_cands = [
+                    PageCandidate(url=c["url"], title=c.get("title", ""), snippet=c.get("snippet", ""))
+                    for c in candidates
+                ]
+                ranked = rank_candidates(pn, BRAND, page_cands, use_gemini=False)
+                # Reorder candidates by ranker score (keep non-rejected first)
+                non_rejected = [r for r in ranked if not r.rejected]
+                if non_rejected:
+                    candidates = [
+                        next((c for c in candidates if c["url"] == r.url), candidates[0])
+                        for r in non_rejected
+                    ]
+                    page_ranking_result = [
+                        {"url": r.url, "score": r.score, "reason": r.rank_reason, "rejected": r.rejected}
+                        for r in ranked
+                    ]
+                    print(f"  Page ranker: {len(non_rejected)}/{len(ranked)} candidates kept")
+            except Exception as _pr_err:
+                log.debug(f"page_ranker failed for {pn}: {_pr_err}")
+        if _TRAINING_LOGGER_AVAILABLE and page_ranking_result:
+            try:
+                _tl_page_ranking(
+                    pn=pn, brand=BRAND,
+                    candidate_urls=[c["url"] for c in candidates[:10]],
+                    ranked_result=page_ranking_result[:10],
+                    method="deterministic",
+                )
+            except Exception:
+                pass
+
         # ── Шаг 2b: извлечение цены ────────────────────────────────────────────
         price_info = tighten_public_price_result(
             step2b_extract_from_pages(
@@ -1727,6 +2128,128 @@ def run(
             )
         else:
             print(f"  Цена: {price_info['price_status']}")
+
+        # ── Multi-source distributor search (--multi-source only) ─────────────
+        additional_prices: list[dict] = []
+        if multi_source:
+            additional_candidates = step2_distributor_multisource(pn)
+            if additional_candidates:
+                additional_prices = [
+                    {"url": c["url"], "title": c["title"], "snippet": c["snippet"]}
+                    for c in additional_candidates
+                ]
+                log.info(f"  multi_source: {len(additional_prices)} distributor candidates for {pn}")
+
+        # ── Price Sanity Check ────────────────────────────────────────────────
+        if price_info.get("price_usd") is not None:
+            price_info = apply_sanity_to_price_info(
+                price_info=price_info,
+                pn=pn,
+                brand=BRAND,
+            )
+            if price_info.get("price_sanity_status") != "PASS":
+                _sanity_flags = price_info.get("price_sanity_flags", [])
+                print(
+                    f"  [PRICE_SANITY] {price_info['price_sanity_status']}: "
+                    + "; ".join(_sanity_flags)
+                )
+                if price_info.get("price_sanity_status") == "REJECT":
+                    print(f"  [PRICE_SANITY] Цена отклонена → price_status=rejected_sanity_check")
+
+        # ── Price Unit Judge (per-unit vs per-pack detection) ─────────────────
+        if _PRICE_JUDGE_AVAILABLE and price_info.get("price_usd") is not None:
+            try:
+                _context = (price_info.get("offer_title", "") + " " + price_info.get("context_text", ""))[:500]
+                _judge_result = judge_price_unit_basis(
+                    price=price_info["price_usd"],
+                    currency=price_info.get("currency", ""),
+                    context_text=_context,
+                    pn=pn, brand=BRAND,
+                    use_llm=True,
+                )
+                if _judge_result.triggered:
+                    price_info["unit_judge_result"] = {
+                        "unit_basis": _judge_result.unit_basis,
+                        "confidence": _judge_result.confidence,
+                        "trigger_reason": _judge_result.trigger_reason,
+                        "pack_qty": _judge_result.pack_qty,
+                        "llm_used": _judge_result.llm_used,
+                    }
+                    print(f"  [UNIT_JUDGE] {_judge_result.unit_basis}/{_judge_result.confidence} (trigger: {_judge_result.trigger_reason})")
+                if _TRAINING_LOGGER_AVAILABLE:
+                    _tl_unit_judge(
+                        pn=pn, brand=BRAND,
+                        price=price_info["price_usd"],
+                        currency=price_info.get("currency", ""),
+                        context_text=_context,
+                        unit_basis=_judge_result.unit_basis,
+                        confidence=_judge_result.confidence,
+                        triggered=_judge_result.triggered,
+                        trigger_reason=_judge_result.trigger_reason,
+                        llm_raw=_judge_result.llm_raw,
+                    )
+            except Exception as _uj_err:
+                log.debug(f"price_unit_judge failed for {pn}: {_uj_err}")
+
+        # ── Category Resolver ─────────────────────────────────────────────────
+        if _CATEGORY_RESOLVER_AVAILABLE and expected_category:
+            try:
+                _page_cat = price_info.get("page_product_class", "")
+                _source_url = price_info.get("source_url", "")
+                _source_tier = 0
+                if _source_url:
+                    _st = get_source_trust(_source_url)
+                    _tier_map = {"official": 1, "authorized": 2, "industrial": 3}
+                    _source_tier = _tier_map.get(_st.get("tier", ""), 0)
+                _exact_pn = bool(dl.get("exact_structured_pn_match", False))
+                _cat_result = resolve_category(
+                    xlsx_hint=expected_category,
+                    page_category=_page_cat,
+                    source_tier=_source_tier,
+                    exact_pn_confirmed=_exact_pn,
+                )
+                price_info["category_resolution"] = {
+                    "resolved_category": _cat_result.resolved_category,
+                    "resolution_method": _cat_result.resolution_method,
+                    "conflict": _cat_result.conflict,
+                    "confidence": _cat_result.confidence,
+                }
+                # Override category_mismatch if resolver says it's OK
+                if _cat_result.resolution_method in ("page_confirmed", "xlsx_hint", "page_override"):
+                    if price_info.get("category_mismatch"):
+                        price_info["category_mismatch"] = False
+                        price_info["category_mismatch_resolved"] = True
+                        print(f"  [CATEGORY] Mismatch resolved: {_cat_result.resolution_method}")
+                elif _cat_result.conflict:
+                    print(f"  [CATEGORY] Conflict: {_cat_result.conflict_reason}")
+                if _TRAINING_LOGGER_AVAILABLE:
+                    _tl_category_resolution(
+                        pn=pn, brand=BRAND,
+                        xlsx_hint=expected_category,
+                        page_category=_page_cat,
+                        source_tier=_source_tier,
+                        exact_pn_confirmed=_exact_pn,
+                        resolved_category=_cat_result.resolved_category,
+                        resolution_method=_cat_result.resolution_method,
+                        confidence=_cat_result.confidence,
+                    )
+            except Exception as _cr_err:
+                log.debug(f"category_resolver failed for {pn}: {_cr_err}")
+
+        # ── Training: price extraction ────────────────────────────────────────
+        if _TRAINING_LOGGER_AVAILABLE and price_info.get("price_usd") is not None:
+            try:
+                _tl_price_extraction(
+                    pn=pn, brand=BRAND,
+                    html_snippet="",
+                    prompt="",
+                    response_raw=str(price_info.get("price_usd", "")),
+                    source_url=price_info.get("source_url", ""),
+                    extracted_price=price_info.get("price_usd"),
+                    currency=price_info.get("currency", ""),
+                )
+            except Exception:
+                pass
 
         # ── Шаг 3: GPT Vision ─────────────────────────────────────────────────
         sha1 = dl.get("sha1", "")
@@ -1781,11 +2304,39 @@ def run(
         if v.get("numeric_keep_guard_applied"):
             print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
 
-        # ── Datasheet (optional) ────────────────────────────────────────────────
+        # ── Training: photo verdict ───────────────────────────────────────────
+        if _TRAINING_LOGGER_AVAILABLE:
+            try:
+                _tl_photo_verdict(
+                    pn=pn, brand=BRAND,
+                    photo_path=dl.get("path", ""),
+                    verdict=v.get("verdict", "NO_PHOTO"),
+                    reason=v.get("reason", ""),
+                    source_url=dl.get("source", ""),
+                )
+            except Exception:
+                pass
+
+        # ── Datasheet (optional + conditional) ─────────────────────────────────
         ds_result: dict = {"datasheet_status": "skipped"}
-        if datasheets:
-            from datasheet_pipeline import find_datasheet
-            ds_result = find_datasheet(pn, BRAND, get_serpapi_key())
+        _needs_datasheet = (
+            price_info.get("price_status") == "no_price_found"
+            or v.get("verdict") == "NO_PHOTO"
+            or bool(price_info.get("category_mismatch"))
+            # Phase 1.7: also trigger for weak identity (no structured PN match)
+            or not dl.get("exact_structured_pn_match", False)
+        )
+        if datasheets or _needs_datasheet:
+            try:
+                from datasheet_pipeline import find_datasheet
+                from brand_knowledge import get_datasheet_query as _ds_query
+                _serpapi_key = get_serpapi_key()
+                if _serpapi_key:
+                    ds_result = find_datasheet(pn, BRAND, _serpapi_key)
+                    if ds_result.get("datasheet_status") == "found":
+                        print(f"  [DATASHEET] Found: {ds_result.get('pdf_url', '')[:80]}")
+            except Exception as _ds_err:
+                log.debug(f"datasheet_pipeline failed for {pn}: {_ds_err}")
 
         # ── Brand co-occurrence check ──────────────────────────────────────────
         page_text_for_cooc = dl.get("description") or ""
@@ -1810,10 +2361,43 @@ def run(
             expected_category=expected_category,
             content_seed=content_seed,
         )
+        # JSON-LD full extraction — additive, non-breaking enrichment
+        if _dl_with_flags.get("jsonld_full"):
+            bundle["jsonld_full"] = _dl_with_flags["jsonld_full"]
+        # Multi-source distributor candidates — additive, for cross-validation
+        if additional_prices:
+            bundle["additional_prices"] = additional_prices
+        # Page ranking result — additive
+        if page_ranking_result:
+            bundle["page_ranking"] = page_ranking_result
         evidence_bundles.append(bundle)
         checkpoint[pn] = bundle
         save_checkpoint(checkpoint)
         bundle_content = bundle.get("content", {})
+
+        # ── Training: spec extraction ─────────────────────────────────────────
+        if _TRAINING_LOGGER_AVAILABLE and dl.get("specs"):
+            try:
+                _tl_spec_extraction(
+                    pn=pn, brand=BRAND,
+                    html_snippet="",
+                    extracted_specs=dl.get("specs", {}),
+                    method="page_parse",
+                    source_url=dl.get("source", ""),
+                )
+            except Exception:
+                pass
+
+        # ── Brand experience record ──────────────────────────────────────────────
+        try:
+            from brand_experience_writer import (
+                build_brand_experience_from_bundle,
+                write_brand_experience,
+            )
+            _brand_exp = build_brand_experience_from_bundle(bundle)
+            write_brand_experience(_brand_exp, shadow_log_dir=SHADOW_LOG_DIR)
+        except Exception as _bexp_err:
+            log.debug(f"brand_experience_writer failed for {pn}: {_bexp_err}")
 
         verdicts[pn] = {
             **v,
@@ -1928,17 +2512,49 @@ def run(
         print(f"Evidence   → {EVIDENCE_DIR} ({len(evidence_bundles)} bundles)")
 
     shadow_summary = get_shadow_runtime_summary()
+    cost_summary = get_batch_usage_summary()
+
+    # Experience log — one record per finalized bundle
+    try:
+        append_batch_experience(
+            shadow_log_dir=SHADOW_LOG_DIR,
+            bundles=evidence_bundles,
+            batch_id=run_ts,
+        )
+    except Exception as _exp_exc:
+        log.warning(f"experience_log flush failed: {_exp_exc}")
+
+    # Cost + provider error summary
+    print(f"\n{'='*55}")
+    print(
+        f"COST:  calls={cost_summary['calls']}  "
+        f"in={cost_summary['input_tokens']}tok  "
+        f"out={cost_summary['output_tokens']}tok  "
+        f"~${cost_summary['estimated_cost_usd']:.4f}"
+        + ("  ⚠ COST_ANOMALY" if cost_summary.get("cost_anomaly") else "")
+    )
+    if _provider_errors:
+        print(f"PROVIDER_ERRORS: {len(_provider_errors)} — " + ", ".join(
+            f"{e['error_class']}({e['pn']})" for e in _provider_errors[:5]
+        ) + ("…" if len(_provider_errors) > 5 else ""))
+    else:
+        print("PROVIDER_ERRORS: 0")
+
     LAST_RUN_META = {
         "run_ts": run_ts,
         "limit": limit,
+        "queue_path": str(queue_path) if queue_path else "",
+        "selected_input_rows": len(df),
         "processed_results": len(all_results),
         "evidence_bundles": len(evidence_bundles),
         "early_stop_reason": early_stop_reason or shadow_summary.get("reason_for_early_stop", ""),
         "shadow_runtime_summary": shadow_summary,
+        "cost_summary": cost_summary,
+        "provider_errors": len(_provider_errors),
     }
 
     # Clear checkpoint only on full (unlimited) successful run
-    if not limit and export and not shadow_summary.get("early_stop"):
+    if not limit and not queue_path and export and not shadow_summary.get("early_stop"):
         clear_checkpoint()
         log.info("checkpoint cleared after full run")
 
@@ -1982,11 +2598,40 @@ if __name__ == "__main__":
     p.add_argument("--datasheets",  action="store_true",       help="Искать и парсить PDF datasheet")
     p.add_argument("--no-export",   action="store_true",       help="Не писать export/evidence")
     p.add_argument("--photo-base-url", default="",             help="Базовый URL для фото (InSales)")
+    p.add_argument("--queue", default="", help="JSONL queue file from build_catalog_followup_queues.py")
+    p.add_argument("--force-reprocess", action="store_true",
+                   help="Ignore existing evidence bundles and reprocess from scratch")
+    p.add_argument("--multi-source", action="store_true",
+                   help="Run additional distributor search for cross-validation prices (OFF by default)")
+    p.add_argument("--provider", choices=["openai", "claude", "gemini"], default=None,
+                   help="LLM provider: openai (default), claude, or gemini (DDG search + Gemini Flash)")
     args = p.parse_args()
+
+    # Provider override: swap global adapters before run()
+    if args.provider == "gemini":
+        try:
+            from gemini_provider import create_gemini_adapters
+            _search, _chat = create_gemini_adapters()
+            set_search_provider_adapter(_search)
+            set_chat_completion_adapter(_chat)
+            log.info("Provider: gemini (DDG search + Gemini 2.5 Flash)")
+        except Exception as exc:
+            log.error(f"Failed to init gemini provider: {exc}")
+            sys.exit(1)
+    elif args.provider == "claude":
+        log.info("Provider: claude (Anthropic Messages API)")
+        # ClaudeChatAdapter is already the default for chat_completion_adapter
+        # but search still uses SerpAPI — that's expected
+    else:
+        log.info("Provider: openai (SerpAPI + OpenAI)")
+
     run(
         limit=args.limit,
         show_results=args.show,
         datasheets=args.datasheets,
         export=not args.no_export,
         base_photo_url=args.photo_base_url,
+        queue_path=Path(args.queue) if args.queue else None,
+        force_reprocess=args.force_reprocess,
+        multi_source=args.multi_source,
     )

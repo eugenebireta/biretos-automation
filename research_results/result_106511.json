@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_106511",
+  "entity_id": "106511",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "socket insert (SCHUKO)",
+    "description_ru": "Доступность указана (34 items immediate)",
+    "category_suggestion": "socket insert (SCHUKO)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 4.77,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.watt24.com/en/p/peha-schuko-steckdose-rws-16a-250v-2-pol.-d-20.6511.02-oks-00106511/` citeturn38search7",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "16A; 250V; product number 106511; цена incl. VAT",
+      "aliases": [
+        "00106511 (ordering code)"
+      ]
+    },
+    "key_findings": [
+      "Доступность указана (34 items immediate)",
+      "Aliases: 00106511 (ordering code)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.watt24.com/en/p/peha-schuko-steckdose-rws-16a-250v-2-pol.-d-20.6511.02-oks-00106511/` citeturn38search7",
+        "type": "distributor",
+        "domain": "www.watt24.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.watt24.com/en/p/peha-schuko-steckdose-rws-16a-250v-2-pol.-d-20.6511.02-oks-00106511/` citeturn38search7",
+      "type": "distributor",
+      "domain": "www.watt24.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.071746+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

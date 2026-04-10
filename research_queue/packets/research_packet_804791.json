@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_804791",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "804791",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 804791 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=804791",
+    "What is the full product name and product family for Honeywell 804791?",
+    "Is 804791 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 804791"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://alarmforum.de/showthread.php?tid=15089&action=nextnewest",
+    "category_mismatch": false,
+    "overall_confidence": "LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "NO_PRICE_EVIDENCE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Панель дистанционной индикации Loop LED 804791",
+    "assembled_title": "Панель Honeywell 804791",
+    "expected_category": "Панель",
+    "our_price_raw": "34511,29",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://alarmforum.de/showthread.php?tid=15089&action=nextnewest",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_804791.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.427259Z"
+}

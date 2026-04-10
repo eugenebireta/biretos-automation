@@ -59,6 +59,11 @@ from deterministic_false_positive_controls import (
 )
 from naming_resolver import resolve_title_or_fallback
 from no_price_coverage import materialize_no_price_coverage
+from price_admissibility import materialize_price_admissibility
+from price_evidence_cache import (
+    normalize_cache_fallback_reason,
+    normalize_transient_failure_codes,
+)
 
 
 # ── H-lite: deterministic title assembly (no AI) ────────────────────────────────
@@ -441,8 +446,12 @@ def build_evidence_bundle(
     Computes overall_card_confidence via confidence.py when available.
     Assembles assembled_title via H-lite title formula.
     """
-    guarded_price_result = materialize_no_price_coverage(
-        tighten_public_price_result(price_result)
+    guarded_price_result = materialize_price_admissibility(
+        materialize_no_price_coverage(tighten_public_price_result(price_result)),
+        queue_price_status=str(price_result.get("queue_price_status", "") or "").strip(),
+        historical_state_price_status=str(
+            price_result.get("historical_state_price_status", "") or ""
+        ).strip(),
     )
     guarded_vision_verdict = apply_numeric_keep_guard(
         pn=pn,
@@ -487,6 +496,12 @@ def build_evidence_bundle(
         price_result=guarded_price_result,
     )
     price_observation = infer_price_observation_surface(guarded_price_result, run_ts)
+    normalized_cache_fallback_reason = normalize_cache_fallback_reason(
+        guarded_price_result.get("cache_fallback_reason", "")
+    )
+    normalized_transient_failure_codes = normalize_transient_failure_codes(
+        guarded_price_result.get("transient_failure_codes", [])
+    )
     evidence_paths = build_evidence_paths_block(
         photo_result=photo_result,
         price_result=guarded_price_result,
@@ -506,7 +521,13 @@ def build_evidence_bundle(
     confidence_block: dict = {}
     if _CONFIDENCE_AVAILABLE:
         source_tier = price_result.get("source_tier", "unknown")
-        pn_loc = photo_result.get("pn_match_location", "")
+        # Fix: prefer structured_pn_match_location from extract_structured_pn_flags()
+        # over legacy pn_match_location (which is often empty/"")
+        pn_loc = photo_result.get("structured_pn_match_location", "")
+        if not pn_loc and photo_result.get("exact_structured_pn_match"):
+            pn_loc = "jsonld"  # structured match found, default to high-confidence location
+        if not pn_loc:
+            pn_loc = photo_result.get("pn_match_location", "")  # legacy fallback
         pn_conf_raw = photo_result.get("pn_match_confidence", 0)
         pn_conf_norm = pn_conf_raw / 100.0 if pn_conf_raw > 1 else pn_conf_raw
 
@@ -600,6 +621,18 @@ def build_evidence_bundle(
 
         "price": {
             "price_status": price_status,
+            "price_admissibility_schema_version": guarded_price_result.get("price_admissibility_schema_version", ""),
+            "string_lineage_status": guarded_price_result.get("string_lineage_status", ""),
+            "commercial_identity_status": guarded_price_result.get("commercial_identity_status", ""),
+            "offer_admissibility_status": guarded_price_result.get("offer_admissibility_status", ""),
+            "staleness_or_conflict_status": guarded_price_result.get("staleness_or_conflict_status", ""),
+            "price_admissibility_reason_codes": list(guarded_price_result.get("price_admissibility_reason_codes", [])),
+            "price_admissibility_review_bucket": guarded_price_result.get("price_admissibility_review_bucket", ""),
+            "price_admissibility_review_required": bool(
+                guarded_price_result.get("price_admissibility_review_required")
+            ),
+            "queue_price_status": guarded_price_result.get("queue_price_status", ""),
+            "historical_state_price_status": guarded_price_result.get("historical_state_price_status", ""),
             "price_per_unit": guarded_price_result.get("price_usd"),
             "currency": guarded_price_result.get("currency"),
             "rub_price": guarded_price_result.get("rub_price"),
@@ -677,13 +710,13 @@ def build_evidence_bundle(
             "no_price_coverage_schema_version": guarded_price_result.get("no_price_coverage_schema_version", ""),
             "public_price_rejection_reasons": list(guarded_price_result.get("public_price_rejection_reasons", [])),
             "cache_fallback_used": bool(guarded_price_result.get("cache_fallback_used")),
-            "cache_fallback_reason": guarded_price_result.get("cache_fallback_reason", ""),
+            "cache_fallback_reason": normalized_cache_fallback_reason,
             "cache_schema_version": guarded_price_result.get("cache_schema_version", ""),
             "cache_policy_version": guarded_price_result.get("cache_policy_version", ""),
             "cache_source_run_id": guarded_price_result.get("cache_source_run_id", ""),
             "cache_bundle_ref": guarded_price_result.get("cache_bundle_ref", ""),
             "transient_failure_detected": bool(guarded_price_result.get("transient_failure_detected")),
-            "transient_failure_codes": list(guarded_price_result.get("transient_failure_codes", [])),
+            "transient_failure_codes": normalized_transient_failure_codes,
         },
 
         "datasheet": datasheet_result,
@@ -778,7 +811,7 @@ def build_evidence_bundle(
             },
             "call_state": "shadow_error",
             "error": str(exc),
-            "openai_request_id": "",
+            "llm_request_id": "",
         }
     return bundle
 
@@ -797,7 +830,9 @@ def write_evidence_bundles(bundles: list[dict], evidence_dir: Path) -> None:
 _BASE_FIELDS = [
     "Артикул", "Название", "Бренд", "Изображение",
     "Цена", "Валюта", "Статус цены", "Статус наличия",
-    "Описание", "Источник описания", "Размещение на сайте", "Тип товара",
+    "Описание", "Описание развёрнутое", "Источник описания", "Размещение на сайте", "Тип товара",
+    "Название RU (DR)", "Описание RU (DR)", "Цена DR", "Валюта DR", "Источник цены DR",
+    "Изображение DR", "Категория DR",
     "Статус изображения", "Статус карточки", "Причины проверки",
 ]
 
@@ -823,6 +858,7 @@ def write_insales_export(
         merchandising = b.get("merchandising", {})
         content = b.get("content", {})
         price = b.get("price", {})
+        dr = b.get("deep_research", {})
 
         # Photo URL
         photo_url = ""
@@ -854,9 +890,17 @@ def write_insales_export(
             "Статус цены":        price.get("price_status", ""),
             "Статус наличия":     price.get("stock_status", ""),
             "Описание":           (content.get("description") or "")[:500],
+            "Описание развёрнутое": (content.get("description_long_ru") or "")[:2000],
             "Источник описания":  content.get("description_source", ""),
             "Размещение на сайте": content.get("site_placement", ""),
             "Тип товара":         content.get("product_type", ""),
+            "Название RU (DR)":   (dr.get("title_ru") or b.get("dr_category") or "")[:200],
+            "Описание RU (DR)":   (dr.get("description_ru") or "")[:2000],
+            "Цена DR":            str(b.get("dr_price") or "") if b.get("dr_price") else "",
+            "Валюта DR":          b.get("dr_currency", ""),
+            "Источник цены DR":   b.get("dr_price_source", ""),
+            "Изображение DR":     b.get("dr_image_url", ""),
+            "Категория DR":       b.get("dr_category", ""),
             "Статус изображения": merchandising.get("image_status") or photo.get("photo_status", ""),
             "Статус карточки":    b["card_status"],
             "Причины проверки":   "; ".join(b.get("review_reasons", [])),

@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_829211",
+  "entity_id": "829211",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "switch frame (2-gang)",
+    "description_ru": "Источник — специализированный магазин (Heiz24), не официальный производитель",
+    "category_suggestion": "switch frame (2-gang)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 4.56,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.heiz24.de/PEHA-D-9557203-Dialogue-frame-2gang-white-5-00829211-NEW` citeturn45search4",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "EAN 4010105829211; RAL1013 упомянут; цена incl. 19% VAT",
+      "aliases": [
+        "00829211 (ordering code)"
+      ]
+    },
+    "key_findings": [
+      "Источник — специализированный магазин (Heiz24), не официальный производитель",
+      "Aliases: 00829211 (ordering code)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.heiz24.de/PEHA-D-9557203-Dialogue-frame-2gang-white-5-00829211-NEW` citeturn45search4",
+        "type": "distributor",
+        "domain": "www.heiz24.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.heiz24.de/PEHA-D-9557203-Dialogue-frame-2gang-white-5-00829211-NEW` citeturn45search4",
+      "type": "distributor",
+      "domain": "www.heiz24.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.074858+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

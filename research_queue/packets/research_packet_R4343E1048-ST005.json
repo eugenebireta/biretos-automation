@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_R4343E1048-ST005",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "R4343E1048-ST005",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN R4343E1048-ST005 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=R4343E1048-ST005",
+    "What is the full product name and product family for Honeywell R4343E1048-ST005?",
+    "Is R4343E1048-ST005 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell R4343E1048-ST005"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.manualslib.com/products/Honeywell-R4343e1048-St005-12575040.html",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "УФ-переключатель пламени R4343E1048-ST005",
+    "assembled_title": "Переключатель Honeywell R4343E1048-ST005",
+    "expected_category": "Переключатель",
+    "our_price_raw": "10571,50",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.manualslib.com/products/Honeywell-R4343e1048-St005-12575040.html",
+    "pn_variants": [
+      "R4343E1048.ST005",
+      "R4343E1048ST005"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_R4343E1048-ST005.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.521411Z"
+}

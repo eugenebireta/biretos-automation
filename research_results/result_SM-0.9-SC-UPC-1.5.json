@@ -1,0 +1,72 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_SM-0.9-SC-UPC-1.5",
+  "entity_id": "SM-0.9-SC-UPC-1.5",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fiber optic patch cord",
+    "description_ru": "Цена на странице дана «per unit»; есть скидки от количества. citeturn51view0",
+    "category_suggestion": "Fiber optic patch cord",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 6.0,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "https://www.digitec.ch/en/s1/product/extralink-patchcord-scupc-scupc-sm-simplex-900um-15m-150-m-network-cables-35548404",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://static01.galaxus.com/productimages/8/2/8/1/1/0/0/2/7/0/7/7/3/3/4/7/7/9/1/0197686c-f6f2-7a33-b8f8-298ebc503344_720.jpeg citeturn52view0",
+    "specs": {
+      "raw": "Single Mode; длина 1.5 м; диаметр 0.9 мм; SC/UPC↔SC/UPC; цвет жёлтый citeturn51view0",
+      "aliases": [
+        "SM 9/125",
+        "SC/UPC",
+        "900um",
+        "1.5m"
+      ]
+    },
+    "key_findings": [
+      "Цена на странице дана «per unit»; есть скидки от количества. citeturn51view0",
+      "Aliases: SM 9/125; SC/UPC; 900um; 1.5m"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.digitec.ch/en/s1/product/extralink-patchcord-scupc-scupc-sm-simplex-900um-15m-150-m-network-cables-35548404",
+        "type": "distributor",
+        "domain": "www.digitec.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.digitec.ch/en/s1/product/extralink-patchcord-scupc-scupc-sm-simplex-900um-15m-150-m-network-cables-35548404",
+      "type": "distributor",
+      "domain": "www.digitec.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.059238+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

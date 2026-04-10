@@ -1,0 +1,77 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_174813",
+  "entity_id": "174813",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 126.5,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.preissuchmaschine.de/in-Radio/Diverse-9/Peha-Unterputz-Radio-20-485-64.html",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "sources": [
+      {
+        "url": "https://www.preissuchmaschine.de/in-Radio/Diverse-9/Peha-Unterputz-Radio-20-485-64.html",
+        "type": "distributor",
+        "domain": "www.preissuchmaschine.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "title_ru": "PEHA flush-mounted radio",
+    "description_ru": "**NOT a simple insert** — complete flush-mount radio. €126.50–147.48 range. Also €89.00 at gluehbirne.de",
+    "documents": [
+      {
+        "url": "https://www.preissuchmaschine.de/in-Radio/Diverse-9/Peha-Unterputz-Radio-20-485-64.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.guenstiger.de/Produkt/Peha/Unterputz_Radio_20_485_64.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.amazon.de/20-485-64-Radio-Unterputz-Radio-Aura-Design-anthrazit/dp/B001NJJ134",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.preissuchmaschine.de/in-Radio/Diverse-9/Peha-Unterputz-Radio-20-485-64.html",
+      "type": "distributor",
+      "domain": "www.preissuchmaschine.de",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:52:30.709641Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

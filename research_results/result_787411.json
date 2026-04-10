@@ -1,0 +1,63 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_787411",
+  "entity_id": "787411",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "cover plate",
+    "description_ru": "Также встречается в российских прайсах (см. liveinlight листинг)",
+    "category_suggestion": "cover plate",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 174.99,
+      "currency": "CZK",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.cz/cs/p/peha-by-honeywell-kryt-kryt-787411-1-ks-2855853.html` citeturn42search5",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "IP20; пластик; скидка -5% на странице; цена отображается как 174,99 Kč"
+    },
+    "key_findings": [
+      "Также встречается в российских прайсах (см. liveinlight листинг)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.conrad.cz/cs/p/peha-by-honeywell-kryt-kryt-787411-1-ks-2855853.html` citeturn42search5",
+        "type": "distributor",
+        "domain": "www.conrad.cz",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.conrad.cz/cs/p/peha-by-honeywell-kryt-kryt-787411-1-ks-2855853.html` citeturn42search5",
+      "type": "distributor",
+      "domain": "www.conrad.cz",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.068748+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

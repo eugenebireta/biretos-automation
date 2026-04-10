@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_400-ATII",
+  "entity_id": "400-ATII",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Server storage (Dell PN): SAS HDD",
+    "description_ru": "На странице показаны цены exkl./inkl. MwSt. и наличие (3 шт). citeturn32search9",
+    "category_suggestion": "Server storage (Dell PN): SAS HDD",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 140.69,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.senetic.de/product/400-ATII` citeturn32search9",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "Dell PN 400-ATII (EAN 5397184036464)"
+      ]
+    },
+    "key_findings": [
+      "На странице показаны цены exkl./inkl. MwSt. и наличие (3 шт). citeturn32search9",
+      "Aliases: Dell PN 400-ATII (EAN 5397184036464)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.senetic.de/product/400-ATII` citeturn32search9",
+        "type": "distributor",
+        "domain": "www.senetic.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.senetic.de/product/400-ATII` citeturn32search9",
+      "type": "distributor",
+      "domain": "www.senetic.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.023147+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

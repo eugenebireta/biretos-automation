@@ -1,0 +1,86 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_22811",
+  "entity_id": "22811",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 10.49,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.beslist.be/products/klussen/klussen_486171_488691/c/merk~2433526",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "sources": [
+      {
+        "url": "https://www.beslist.be/products/klussen/klussen_486171_488691/c/merk~2433526",
+        "type": "distributor",
+        "domain": "www.beslist.be",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "photo_url": "—",
+    "title_ru": "PEHA rocker switch",
+    "description_ru": "Nova Tangenta single rocker; retro toggle aesthetic; price via Elektrototaalmarkt.nl",
+    "documents": [
+      {
+        "url": "https://www.beslist.be/products/klussen/klussen_486171_488691/c/merk~2433526",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.pehastore.de/schalterprogramme/nova/nova-tangenta/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.beslist.be/products/klussen/klussen_486171_488691/c/merk~2433526",
+      "type": "distributor",
+      "domain": "www.beslist.be",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:59:06.989616Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+}

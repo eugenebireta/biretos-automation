@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CPO-RL4",
+  "entity_id": "CPO-RL4",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "HVAC/Building: room controller (BACnet MS/TP)",
+    "description_ru": "Цена 740,00 €; указано “New - 12 Months Warranty”. citeturn16search7",
+    "category_suggestion": "HVAC/Building: room controller (BACnet MS/TP)",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 740.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://bg.wiautomation.com/honeywell/plc-systems/plc-systems/cporl4` citeturn16search7",
+      "price_type": "gray_market"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "ControlPoint Room Controller"
+      ]
+    },
+    "key_findings": [
+      "Цена 740,00 €; указано “New - 12 Months Warranty”. citeturn16search7",
+      "Aliases: ControlPoint Room Controller"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://bg.wiautomation.com/honeywell/plc-systems/plc-systems/cporl4` citeturn16search7",
+        "type": "gray_market",
+        "domain": "bg.wiautomation.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://bg.wiautomation.com/honeywell/plc-systems/plc-systems/cporl4` citeturn16search7",
+      "type": "gray_market",
+      "domain": "bg.wiautomation.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.018639+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

@@ -1,0 +1,631 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T18:19:14.480694Z",
+  "pn": "191591",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Детектор пламени Honeywell D 20.674.240.192",
+  "assembled_title": "Рамка 4-постовая PEHA NOVA, 191591",
+  "our_price_raw": "7521,67",
+  "expected_category": "Детектор",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "CRITICAL_MISMATCH",
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_191591",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "CRITICAL_MISMATCH",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_price_191591"
+        ],
+        "evidence_ids": [
+          "ev_price_191591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_191591"
+        ],
+        "evidence_ids": [
+          "ev_image_191591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_191591"
+        ],
+        "evidence_ids": [
+          "ev_price_191591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_191591"
+        ],
+        "evidence_ids": [
+          "ev_pdf_191591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-10",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.909758+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_191591"
+      ],
+      "evidence_ids": [
+        "ev_title_191591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "CRITICAL_MISMATCH",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_price_191591"
+      ],
+      "evidence_ids": [
+        "ev_price_191591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_191591"
+      ],
+      "evidence_ids": [
+        "ev_image_191591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_191591"
+      ],
+      "evidence_ids": [
+        "ev_price_191591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_191591"
+      ],
+      "evidence_ids": [
+        "ev_pdf_191591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.185,
+    "image_confidence": 0.036,
+    "price_confidence": 0.1,
+    "overall": 0.105,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\191591.jpg",
+      "canonical_filename": "HONEYWELL_191591_325bd2f6.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki",
+      "origin_page_url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki-dlya-rozetok-i-vyklyuchateley/ramka-4-posta-peha-by-honeywell-nova-bezuprechnyy-oniks-191591",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki-dlya-rozetok-i-vyklyuchateley/ramka-4-posta-peha-by-honeywell-nova-bezuprechnyy-oniks-191591",
+      "replacement_url": "https://www.conrad.pl/pl/p/Ramka-PEHA-by-Honeywell-191591-czarny-2856772.html",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "deterministic numeric/dotted PN guard: page_context_not_clean",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\191591.jpg",
+    "sha1": "325bd2f69d2488d51ed67f17e3aa78ce5a75af4e",
+    "canonical_filename": "HONEYWELL_191591_325bd2f6.jpg",
+    "public_url": null,
+    "width": 500,
+    "height": 500,
+    "size_kb": 5,
+    "source": "google:https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki",
+    "phash": "9e79618696599965",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": true,
+    "numeric_keep_guard_reasons": [
+      "page_context_not_clean"
+    ],
+    "photo_reconsider": true,
+    "photo_reconsider_reason": "strong identity (title) + structured PN match"
+  },
+  "price": {
+    "price_status": "category_mismatch_only",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "component_or_accessory",
+    "offer_admissibility_status": "ambiguous_offer",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_COMPONENT_OR_ACCESSORY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": 6239.91,
+    "currency": "RUB",
+    "rub_price": 6239.91,
+    "fx_rate_used": 1.0,
+    "fx_provider": "stub",
+    "price_confidence": 25,
+    "price_observed_at": "2026-04-07T18:19:14.480694Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki-dlya-rozetok-i-vyklyuchateley/ramka-4-posta-peha-by-honeywell-nova-bezuprechnyy-oniks-191591",
+    "source_type": "ru_b2b",
+    "source_tier": "ru_b2b",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": true,
+    "page_product_class": "Рамка (Frame)",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki-dlya-rozetok-i-vyklyuchateley/ramka-4-posta-peha-by-honeywell-nova-bezuprechnyy-oniks-191591",
+    "price_source_domain": "teslatorg.ru",
+    "price_source_type": "ru_b2b",
+    "price_source_tier": "ru_b2b",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.conrad.pl/pl/p/Ramka-PEHA-by-Honeywell-191591-czarny-2856772.html",
+    "price_source_replacement_domain": "conrad.pl",
+    "price_source_replacement_tier": "industrial",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "title",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [
+      "category_or_brand_mismatch",
+      "source_tier_not_admissible"
+    ],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": true,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [
+      {
+        "class": "numeric_keep_guard",
+        "code": "page_context_not_clean",
+        "source_field": "photo.numeric_keep_guard_reasons"
+      }
+    ],
+    "price": [
+      {
+        "class": "public_price_rejection",
+        "code": "category_or_brand_mismatch",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "public_price_rejection",
+        "code": "source_tier_not_admissible",
+        "source_field": "price.public_price_rejection_reasons"
+      }
+    ],
+    "identity": [
+      {
+        "class": "identity_mismatch",
+        "code": "category_mismatch",
+        "source_field": "price.category_mismatch"
+      }
+    ]
+  },
+  "content": {
+    "specs": {},
+    "description": "Детектор пламени Honeywell D 20.674.240.192 обеспечивает быстрое и точное обнаружение пламени. Подходит для использования в системах пожарной сигнализации.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Пожарная сигнализация",
+    "product_type": "Детектор",
+    "seed_name": "Детектор пламени Honeywell D 20.674.240.192",
+    "description_long_ru": "Четырёхпостовая рамка для установки розеток и выключателей серии PEHA by Honeywell Nova. Предназначена для монтажа в стандартные подрозетники."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": true,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T18:19:14.480694Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": ""
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:191591:2026-04-07T18:19:14.480694Z",
+    "idempotency_key": "catalog_verifier:191591:5e7d7cd175c4a7180d2b8e79",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "CRITICAL_POLICY_CONFLICT",
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:191591:2026-04-07T18:19:14.480694Z",
+      "idempotency_key": "catalog_verifier:191591:5e7d7cd175c4a7180d2b8e79",
+      "pn_primary": "191591",
+      "normalized_title": "Рамка 4-постовая PEHA NOVA, 191591",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_191591"
+          ],
+          "evidence_ids": [
+            "ev_title_191591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "CRITICAL_MISMATCH",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_price_191591"
+          ],
+          "evidence_ids": [
+            "ev_price_191591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_191591"
+          ],
+          "evidence_ids": [
+            "ev_image_191591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_191591"
+          ],
+          "evidence_ids": [
+            "ev_price_191591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_191591"
+          ],
+          "evidence_ids": [
+            "ev_pdf_191591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "ru_b2b",
+        "pdf_source_tier": "",
+        "image_source_tier": "ru_b2b"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": true,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "category_mismatch_only",
+        "source_tier": "ru_b2b",
+        "page_product_class": "Рамка (Frame)",
+        "category_mismatch": true,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "CRITICAL_POLICY_CONFLICT",
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.169764+00:00",
+    "source": "chatgpt",
+    "price": 359.95,
+    "currency": "CHF",
+    "source_url": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html",
+    "category": "switch frame",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "â",
+    "specs": "Peha D 20.674.240.192; IP20; RALâÐ¿Ð¾Ð´Ð¾Ð±Ð½. 9005; Ð¼Ð°ÑÐµÑÐ¸Ð°Ð»: ÑÑÐµÐºÐ»Ð¾; 5 ÑÑ/ÑÐ¿Ð°Ðº",
+    "notes": "CHF 71.99/ÑÑ; **inkl. MwSt.**, Ð´Ð¾ÑÑÐ°Ð²ÐºÐ° Ð±ÐµÑÐ¿Ð»Ð°ÑÐ½Ð°Ñ.",
+    "sources": [
+      {
+        "url": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "conrad.ch"
+      }
+    ]
+  },
+  "dr_price": 359.95,
+  "dr_currency": "CHF",
+  "dr_price_source": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html",
+  "dr_category": "switch frame",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html",
+      "page_type": "distributor",
+      "has_price": "yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "conrad.ch"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:44:45.066306+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "HARDWARE",
+    "source_url": null,
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": ""
+  },
+  "deep_research": {
+    "description_ru": "Четырёхпостовая рамка для установки розеток и выключателей серии PEHA by Honeywell Nova. Предназначена для монтажа в стандартные подрозетники."
+  }
+}

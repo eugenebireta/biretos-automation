@@ -1,0 +1,93 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_BS-420G2",
+  "entity_id": "BS-420G2",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire & gas alarm panel",
+    "description_ru": "NOT Honeywell — Autronica (Carrier group); also $2,500 used on eBay",
+    "category_suggestion": "Fire & gas alarm panel",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 646.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.radwell.com/Buy/AUTRONICA/AUTRONICA/116-KIT-BS-420G2",
+      "price_type": "surplus"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/SLgAAOSworVnm3QW/s-l1600.jpg",
+    "specs": {
+      "raw": "Autronica AutroSafe 4; 12 modules; 2×Ethernet; SIL2; EN54-2; 19.84 lbs; Norway",
+      "aliases": [
+        "116-BS-420G2",
+        "116-KIT-BS-420G2"
+      ]
+    },
+    "key_findings": [
+      "NOT Honeywell — Autronica (Carrier group); also $2,500 used on eBay",
+      "Aliases: 116-BS-420G2; 116-KIT-BS-420G2"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.radwell.com/Buy/AUTRONICA/AUTRONICA/116-KIT-BS-420G2",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://product.autronicafire.com/products/fire-and-gas-detection-systems/autrosafe-4-ifg/bs-420g/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.radwell.com/Buy/AUTRONICA/AUTRONICA/116-KIT-BS-420G2",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/126924155910",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.radwell.com/Buy/AUTRONICA/AUTRONICA/116-KIT-BS-420G2",
+      "type": "surplus",
+      "domain": "www.radwell.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.968513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

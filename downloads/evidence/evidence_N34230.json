@@ -1,0 +1,569 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "N34230",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Привод заслонки Honeywell N34230",
+  "assembled_title": "Привод Honeywell N34230",
+  "our_price_raw": "21412,00",
+  "expected_category": "Привод",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_N34230",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_N34230"
+        ],
+        "evidence_ids": [
+          "ev_image_N34230"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_N34230"
+        ],
+        "evidence_ids": [
+          "ev_price_N34230"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_N34230"
+        ],
+        "evidence_ids": [
+          "ev_pdf_N34230"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-06B"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_N34230"
+      ],
+      "evidence_ids": [
+        "ev_title_N34230"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_N34230"
+      ],
+      "evidence_ids": [
+        "ev_image_N34230"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_N34230"
+      ],
+      "evidence_ids": [
+        "ev_price_N34230"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_N34230"
+      ],
+      "evidence_ids": [
+        "ev_pdf_N34230"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\N34230.jpg",
+      "canonical_filename": "HONEYWELL_N34230_238de475.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "https://www.resideo.com/emea/en/products/comfort/hydronic-valves-and-actuators/hydronic-valve-actuators/n34230-for-damper-area-of-6-square-meters-230-vac-2-3-pt-n34230/",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.resideo.com/emea/en/products/comfort/hydronic-valves-and-actuators/hydronic-valve-actuators/n34230-for-damper-area-of-6-square-meters-230-vac-2-3-pt-n34230/",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqQQgsuuphp8snrArhtk'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\N34230.jpg",
+    "sha1": "238de4755a726a18831d21c370993e0aee723a4e",
+    "canonical_filename": "HONEYWELL_N34230_238de475.jpg",
+    "public_url": null,
+    "width": 500,
+    "height": 500,
+    "size_kb": 145,
+    "source": "cached",
+    "phash": "e1c6c6989a6d9a65",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.resideo.com/emea/en/products/comfort/hydronic-valves-and-actuators/hydronic-valve-actuators/n34230-for-damper-area-of-6-square-meters-230-vac-2-3-pt-n34230/",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.resideo.com/emea/en/products/comfort/hydronic-valves-and-actuators/hydronic-valve-actuators/n34230-for-damper-area-of-6-square-meters-230-vac-2-3-pt-n34230/",
+    "price_source_domain": "resideo.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": true,
+    "transient_failure_codes": [
+      "llm_timeout"
+    ]
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://honeywell-ec.ru/files/pdfs/HVAC-catalog-ru-ur18r0119.pdf",
+    "pdf_source_tier": "ru_b2b",
+    "pdf_title": "Низовая автоматика и",
+    "pdf_specs": {
+      "Условные обозначения": "+ «Лучший выбор»",
+      "Примечание": "В данной таблице представлены только рекомендации. Клапаны, отмеченные «+», являются",
+      "предпочтительным решением в конкретных применениях": "СОДЕРЖАНИЕ",
+      "DR.": "GMLA (V5431А) Pу6, Ду15-40 99",
+      "ZR.": "MA (V5441A) Pу6, Ду15-40 109",
+      "ТРУБОПРОВОДНАЯ АРМАТУРА Стр": "Дисковые поворотные затворы с ручным управлением 5"
+    },
+    "pdf_text_excerpt": "Низовая автоматика и трубопроводная арматура Всё для систем отопления, централизованного теплоснабжения и вентиляции Каталог продукции Рекомендуемые решения Лучший выбор Область применения Типы клапанов Пар Отоп- Охла- Фэн- Вен- ИТП Высо- ГВС ление жде- койл тиля- кое ние ция p Малые линейные PN16 V582x - + + + o - - - PN16 V583x - + + + o - - - PN25 V5825B + + o - o + + o Большие линейные клапаны PN16 V5011R - + + - + - -1) o PN16 V5011S + + + - + + -1) o PN16 V5013R - + + - + - -1) o PN16 V5013E - + + - + - -1) o PN16 V5328 o + + - + + -1) - PN6/16 V5329/V5015/V5050 - + + - + - -1) - PN16 V5",
+    "num_pages": 188,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Привод заслонки Honeywell N34230 с крутящим моментом 34 Нм предназначен для управления воздушными заслонками в системах вентиляции. Работает от напряжения 230 В и поддерживает плавающее управление, обеспечивая надежное регулирование потока воздуха.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Привод",
+    "seed_name": "Привод заслонки Honeywell N34230",
+    "description_long_ru": "SmartAct N34 series; EUR excl. VAT; primarily European market"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:N34230:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:N34230:fa7a903715bdd58925b1b554",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:N34230:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:N34230:fa7a903715bdd58925b1b554",
+      "pn_primary": "N34230",
+      "normalized_title": "Привод Honeywell N34230",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_N34230"
+          ],
+          "evidence_ids": [
+            "ev_title_N34230"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_N34230"
+          ],
+          "evidence_ids": [
+            "ev_image_N34230"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_N34230"
+          ],
+          "evidence_ids": [
+            "ev_price_N34230"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_N34230"
+          ],
+          "evidence_ids": [
+            "ev_pdf_N34230"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "ru_b2b",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "ru_b2b"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "actuator",
+    "description_ru": "SmartAct N34 series; EUR excl. VAT; primarily European market",
+    "specs": {
+      "raw": "34 Nm; 230 VAC; floating/2-position; IP54; damper area up to 7.8 m²; shaft 10-27mm round / 10-18mm square"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "SmartAct N34 series; EUR excl. VAT; primarily European market"
+    ],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/servomoteurs-de-clapet-dair-n34230-honeywell-actionneur-de-volet-34-nm-230-vac-2-3-pts/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.emoteek.nl/Honeywell-N34230-Damper-actuator-Esser-832624-origineel",
+        "type": "distributor",
+        "domain": "www.emoteek.nl",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.966531+00:00",
+    "merge_source": "result_N34230.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (6).md"
+  },
+  "dr_category": "actuator",
+  "dr_price": 521.82,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://emoteek.net/en/product/servomoteurs-de-clapet-dair-n34230-honeywell-actionneur-de-volet-34-nm-230-vac-2-3-pts/"
+}

@@ -1,0 +1,72 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_EVCS-MS",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "EVCS-MS",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN EVCS-MS (Honeywell)",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "questions_to_resolve": [
+    "What is the correct product category for Honeywell EVCS-MS (Настольная трубка Honeywell EVCS-MS)?",
+    "Is the expected category 'Трубка' correct for this product?",
+    "What similar part numbers exist in the same product family?",
+    "Provide any relevant Russian-language product description for Honeywell EVCS-MS"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "category_mismatch_only",
+    "price_source_url": "https://wirelessfirealarmsystems.co.uk/product/honeywell-evcs-ms-evcs-network-8-master-handset-desk-mount-evcs-ms-honeywell/",
+    "category_mismatch": true,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "CRITICAL_MISMATCH",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Настольная трубка Honeywell EVCS-MS",
+    "assembled_title": "Трубка Honeywell EVCS-MS",
+    "expected_category": "Трубка",
+    "our_price_raw": "262764,00",
+    "has_content_seed": true,
+    "price_currency": "GBP",
+    "price_native_value": 1411.58,
+    "price_rub": 158096.96,
+    "existing_source_url": "https://wirelessfirealarmsystems.co.uk/product/honeywell-evcs-ms-evcs-network-8-master-handset-desk-mount-evcs-ms-honeywell/",
+    "pn_variants": [
+      "EVCS.MS",
+      "EVCSMS"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_EVCS-MS.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.465261Z"
+}

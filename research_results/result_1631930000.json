@@ -1,0 +1,314 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_1631930000",
+  "entity_id": "1631930000",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Weidmüller (NOT Honeywell)",
+    "title_ru": "Держатель маркера для клеммных блоков SCHT 5 S",
+    "description_ru": "Артикул 1631930000 принадлежит компании Weidmüller, а не Honeywell. Это держатель (несущая планка) маркеров для клеммных блоков серии SCHT 5 S, выполненный из полиамида PA66, бежевого цвета, устанавливается непосредственно на монтажную рейку TS 32 или TS 35 (DIN-рейку) и позволяет маркировать клеммные ряды независимо от типа клеммы.",
+    "category_suggestion": "Аксессуары для клеммных блоков / Маркировочные системы",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 2.7582,
+      "currency": "CAD",
+      "unit_basis": "piece",
+      "source_url": "https://www.gescan.com/products/12-control-automation/13-terminal-blocks-connectors/05-terminal-block-accessories/09-marking-tags/p-V0RNMTYzMTkzMDAwMA==-weidmuller-1631930000-scht-terminal-marker-dark-beige"
+    },
+    "photo_url": "(see TME 360° view: https://www.tme.eu/en/details/scht5s/rail-mounted-connectors/weidmuller/1631930000-scht-5-s/)",
+    "specs": {
+      "manufacturer": "Weidmüller",
+      "part_number": "1631930000",
+      "model_series": "SCHT 5 S",
+      "product_type": "Terminal block marker / marker holder (group tag carrier)",
+      "dimensions": "44.5 x 9.5 mm (L x W)",
+      "pitch_mm": 5.0,
+      "material": "Polyamide 66 (PA66)",
+      "color": "Beige",
+      "mounting": "TS 32 (G-rail) or TS 35 (top-hat/DIN rail)",
+      "operating_temperature_range": "-40 °C to +100 °C",
+      "compatible_strips": "ESO 5, STR 5 protective strips",
+      "standard_pack_qty": 20,
+      "rohs_compliant": true
+    },
+    "key_findings": [
+      "Part number 1631930000 does NOT belong to Honeywell — it is exclusively a Weidmüller product.",
+      "The product is the Weidmüller SCHT 5 S — a terminal block marker/group tag carrier for DIN rail mounting.",
+      "Confirmed by Weidmüller's own official product catalogue (catalog.weidmueller.com), DigiKey, Newark, Farnell, TME, and multiple authorized distributors.",
+      "No Honeywell product with part number 1631930000 was found on any manufacturer website, authorized distributor, or datasheet database.",
+      "The part is a current, actively sold product (available from multiple distributors worldwide as of April 2026).",
+      "Sold in packs of 20 units; individual pricing ranges from ~£0.89–£1.02 (ex VAT) per piece in the UK, ~$2.07–$2.76 CAD per piece in Canada.",
+      "Product mounts directly onto TS 32 (G-rail) or TS 35 (top-hat rail) and accepts ESO 5 / STR 5 insert strips.",
+      "Material: Polyamide 66; operating temperature: -40°C to +100°C; pitch: 5.0 mm."
+    ],
+    "ambiguities": [
+      "The user attributed this part number to Honeywell, but no evidence supports this — the part is unambiguously a Weidmüller product.",
+      "Two color descriptions appear across sources: some list 'beige', others 'dark beige' — likely minor variant naming by distributors for the same SKU.",
+      "Price shown is per-piece from a Canadian distributor (CAD); UK pricing is £0.89–£1.02/piece ex VAT. No USD list price confirmed per piece."
+    ],
+    "sources": [
+      {
+        "url": "https://catalog.weidmueller.com/catalog/Start.do?localeId=en&ObjectID=1631930000",
+        "type": "manufacturer",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://eshop.weidmueller.com/en/scht-5-s/p/1631930000",
+        "type": "manufacturer",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.digikey.com/en/products/detail/1631930000/1631930000-ND/494003",
+        "type": "distributor",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://www.newark.com/weidmuller/1631930000/terminal-block-marker-blank-5mm/dp/67T2572",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.gescan.com/products/12-control-automation/13-terminal-blocks-connectors/05-terminal-block-accessories/09-marking-tags/p-V0RNMTYzMTkzMDAwMA==-weidmuller-1631930000-scht-terminal-marker-dark-beige",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.kempstoncontrols.com/1631930000/Weidmuller/sku/490721",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.markertech.co.uk/products/printers-markers/marking-accessories/holders/weidmuller-1631930000-scht-5-s",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs",
+          "price"
+        ]
+      },
+      {
+        "url": "https://uk.farnell.com/weidmuller/1631930000/terminal-marker-5mm-nylon-66-pk20/dp/2579823",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.tme.eu/en/details/scht5s/rail-mounted-connectors/weidmuller/1631930000-scht-5-s/",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.bpx.co.uk/store/product/1631930000",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.radwell.co.uk/Search/Advanced?PartNumber=1631930000",
+        "type": "surplus",
+        "domain": "www.radwell.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "high",
+    "confidence_notes": "Part number 1631930000 is confirmed with absolute certainty as a Weidmüller product (SCHT 5 S terminal marker holder) by the official Weidmüller manufacturer catalogue and at least 8 independent authorized distributors. There is zero evidence of any Honeywell product carrying this part number. The brand attribution in the user's request is incorrect. All technical specifications are consistent across multiple independent sources.",
+    "documents": [
+      {
+        "url": "https://www.bpx.co.uk/store/product/1631930000",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.kempstoncontrols.com/1631930000/Weidmuller/sku/490721",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.kempstoncontrols.co.uk/1631930000/Weidmuller/sku/490721",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://tlcelectronics.com/8567-tlc.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.markertech.co.uk/products/printers-markers/marking-accessories/holders/weidmuller-1631930000-scht-5-s",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.amazon.com/WEIDMULLER-SCHT5S-Terminal-Markers-1631930000/dp/B00KD85YX2",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.tme.eu/en/details/scht5s/rail-mounted-connectors/weidmuller/1631930000-scht-5-s/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://eshop.weidmueller.com/en/scht-5-s/p/1631930000",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://catalog.weidmueller.com/catalog/Start.do?localeId=en&ObjectID=1631930000",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://catalog.weidmueller.com/catalog/Start.do?localeId=en&ObjectID=1631930000",
+      "type": "manufacturer",
+      "supports": [
+        "identity",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://eshop.weidmueller.com/en/scht-5-s/p/1631930000",
+      "type": "manufacturer",
+      "supports": [
+        "identity",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://www.digikey.com/en/products/detail/1631930000/1631930000-ND/494003",
+      "type": "distributor",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://www.newark.com/weidmuller/1631930000/terminal-block-marker-blank-5mm/dp/67T2572",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://www.gescan.com/products/12-control-automation/13-terminal-blocks-connectors/05-terminal-block-accessories/09-marking-tags/p-V0RNMTYzMTkzMDAwMA==-weidmuller-1631930000-scht-terminal-marker-dark-beige",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.kempstoncontrols.com/1631930000/Weidmuller/sku/490721",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "specs",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.markertech.co.uk/products/printers-markers/marking-accessories/holders/weidmuller-1631930000-scht-5-s",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "specs",
+        "price"
+      ]
+    },
+    {
+      "url": "https://uk.farnell.com/weidmuller/1631930000/terminal-marker-5mm-nylon-66-pk20/dp/2579823",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://www.tme.eu/en/details/scht5s/rail-mounted-connectors/weidmuller/1631930000-scht-5-s/",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://www.bpx.co.uk/store/product/1631930000",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.radwell.co.uk/Search/Advanced?PartNumber=1631930000",
+      "type": "surplus",
+      "domain": "www.radwell.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "high",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:51:06.800595Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 5860,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (9).md"
+}

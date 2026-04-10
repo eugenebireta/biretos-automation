@@ -1,0 +1,20 @@
+advisor_parse_max_retries: 2
+auto_execute: true
+auto_pytest: true
+base_commit: null
+diff_truncation_chars: 15000
+escalation_timeout_hours: 24
+executor_timeout_seconds: 600
+max_attempts: 3
+max_context_chars: 15000
+max_retries_low: 3
+max_retries_semi: 3
+# P3.1: Multi-Pass Critique Loop
+critique_consensus_required: true
+critique_min_approvals: 2
+pytest_timeout_seconds: 120
+runs_retention_days: 90
+sprint_goal_staleness_warn_days: 7
+# Telegram transport: gateway replaces notifier + bot
+telegram_gateway_enabled: true
+telegram_notifier_enabled: false

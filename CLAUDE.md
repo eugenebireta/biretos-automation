@@ -12,6 +12,62 @@ If the user message is a short liveness check or tiny conversational prompt
 
 This override applies only to that single liveness/conversational turn.
 
+## SCRIPT AWARENESS (mandatory pre-flight)
+
+Before doing ANY of these tasks manually, FIRST check `scripts/MANIFEST.json`
+and run the existing script:
+
+- Generating DR prompts → `scripts/dr_prompt_generator.py`
+- Importing DR results → `scripts/dr_results_import.py`
+- Merging to evidence → `scripts/merge_research_to_evidence.py`
+- Downloading documents → `scripts/download_documents.py`
+- Exporting to CSV/Excel → `scripts/export_pipeline.py`
+- Any enrichment/catalog task → `ls scripts/` and grep for keywords FIRST
+
+**NEVER write ad-hoc Python for tasks that existing scripts already handle.**
+**NEVER invent product data — always pull from evidence files.**
+All scripts support `--dry-run` — use it first.
+
+See `memory/reference_operations_map.md` for the full task→script mapping.
+
+## Управление неявными знаниями (KNOW_HOW.md)
+
+Код документирует себя сам через `git log`. Файл `KNOW_HOW.md` предназначен СТРОГО
+для фиксации внешних и неявных знаний, которые невозможно вывести из исходного кода.
+
+ТВОЯ ОБЯЗАННОСТЬ:
+Если в процессе диалога, анализа данных или дебага ты обнаруживаешь новую критическую
+информацию, ты должен САМОСТОЯТЕЛЬНО предложить записать её в `KNOW_HOW.md`.
+
+ЧТО ПИШЕМ:
+- `#platform` — неочевидное поведение внешних платформ (API, лимиты, переключения режимов LLM)
+- `#rule` — доменные правила и специфика данных (форматы PN, суффиксы, мусор в лотах)
+- `#bug` — плавающие ошибки, связанные с окружением или грязными данными
+- `#data_quirk` — аномалии в данных, coverage gaps, quality patterns. Примеры:
+  "evidence: expected_category wrong in 92% (344/374)",
+  "evidence: weak identity 30% SKUs — worse DR results",
+  "brand X: N SKUs, coverage Y%, description gap Z%"
+
+ПРАВИЛО МАСШТАБА: числовые факты в KNOW_HOW требуют команду-источник.
+Не "33+ PEHA", а `grep -c` / `wc -l` / скрипт подсчёта → точное число и процент.
+Никогда не экстраполировать масштаб из одного примера.
+
+ПОСЛЕ BATCH PROCESSING: обязательно записать хотя бы один `#data_quirk` —
+coverage, quality, аномалии. Даже если "всё нормально" — зафиксировать метрики.
+
+СТРОГО ЗАПРЕЩЕНО писать:
+- Изменения в коде (добавление функций, рефакторинг, фиксы)
+- Изменение конфигураций (включение флагов, настройки)
+- Структуру директорий и архитектуру (это README или архитектурные доки)
+- Инструкции по установке инструментов (это README)
+
+Формат: `YYYY-MM-DD | #тег | scope: Суть и почему это важно`
+
+KNOW_HOW ownership:
+- SCOUT и BUILDER могут записать открытие с тегом `#draft`
+- AUDITOR — финальный валидатор: подтверждает, дополняет или удаляет `#draft` записи
+- Финальная запись (без `#draft`) появляется до закрытия задачи
+
 ## VERIFICATION REMINDER
 
 Before changing code, define the verification path first.
@@ -47,6 +103,21 @@ explicitly opens a separate Stage 8.1 batch:
 - `auditor_system/review_runner.py`
 - `auditor_system/hard_shell/approval_router.py`
 - `auditor_system/hard_shell/contracts.py`
+
+## PROTECTED GOVERNANCE SURFACE
+
+These modules enforce execution constraints. They CANNOT be modified by
+LOW or SEMI executor paths. Changes require explicit owner approval as
+a separate governance batch:
+
+- `orchestrator/acceptance_checker.py` — acceptance gates (A1-A5+)
+- `orchestrator/synthesizer.py` — risk floor, gate semantics
+- `orchestrator/guardian.py` — task intent / action validation
+- `auditor_system/hard_shell/` — post-audit bridge, approval routing
+- `orchestrator/collect_packet.py` — pytest parser, evidence collection
+
+Reason: executor must never modify its own constraints. If executor needs
+a gate change to pass — that is an escalation to owner, not a fix.
 
 ## FROZEN FILES (19) — NEVER TOUCH
 
@@ -177,6 +248,35 @@ After completing any task:
 6. Wait for external review
 7. Show final diff summary and risk classification
 
+## OPERATIONAL PARAMETERS
+
+### Global task timeout
+Formula: `executor_timeout × (max_retries + 1) × 2`.
+Default: 600 × 4 × 2 = 4800s (~80 min) for all risk levels.
+After timeout → forced STOP + park in `STATE.md` with `#TIMEOUT`. Not crash, not retry.
+
+### Budget limits
+- Per-run: $0.50 soft warning (log, don't block)
+- Daily: $5.00 hard stop — all tasks parked until next day
+- Owner override: explicit only
+
+### Orphan cleanup
+At start of each new trace:
+- Check for uncommitted files from prior cycles
+- If found → log in experience, clean working directory
+- If orphan doesn't belong to current trace → log + escalate, don't delete silently
+
+### API fallback
+If external API returns error or timeout:
+1. One retry after 60s
+2. If still failing → park task in `STATE.md` with `parked_api_outage`
+3. Owner notification
+4. No model substitution (Gemini CRITIC ≠ Claude CRITIC — changes governance)
+
+### Acceptance gate A6 (test modification warning)
+If executor modified test files that existed before task started → WARNING flag.
+Not a block — a flag for AUDITOR to verify "test was fixed, not weakened".
+
 ## PARALLELIZATION
 
 - Only ONE major branch active at a time
@@ -205,17 +305,76 @@ After completing any task:
 
 ## WORKFLOW RULE
 
-After completing any task:
-1. Commit changes with descriptive message
-2. Push to current branch
-3. Create PR via "gh pr create"
-4. Enable auto-merge via "gh pr merge --auto --merge"
-5. Show PR number, diff --stat, and pytest result
-6. STOP. PR will merge automatically when CI passes.
+Workflow differs by risk level:
 
-For 🔴 CORE tasks: do steps 1-3. Then show owner the PR number and say "Send this PR number to JUDGE chat for review". After owner pastes "OK" — run gh pr merge --auto --merge. Owner's "OK" means external reviewers approved. Owner does not review code.
+### 🟢 LOW
+1. Commit → push → PR → auto-merge (`gh pr merge --auto --merge`)
+2. Show PR number, diff --stat, pytest result
+3. STOP. PR merges when CI passes.
 
-This is the full cycle. Do all steps automatically without asking.
+### 🟡 SEMI
+1. Commit → push → PR
+2. Show PR number, diff --stat, pytest result
+3. **WAIT for owner ACCEPT** — no auto-merge
+4. After owner says "ACCEPT" → run `gh pr merge --auto --merge`
+
+### 🔴 CORE
+1. Commit → push → PR
+2. Show owner the PR number: "Send this PR number to JUDGE chat for review"
+3. After owner pastes "OK" → run `gh pr merge --auto --merge`
+4. Owner's "OK" means external reviewers approved. Owner does not review code.
+
+Do all steps automatically without asking (except waiting for approval on SEMI/CORE).
+
+## MANDATORY PIPELINE FOR EVERY TASK
+
+Every task goes through roles according to risk level.
+Role templates: `docs/prompt_library/roles/`
+
+### Pipeline by risk level
+
+**🟢 LOW:**
+`SCOUT/ARCHITECT/PLANNER/BUILDER (compressed) → AUDITOR → auto ship`
+Compression allowed, but: deterministic gates mandatory, AUDITOR must be
+a separate pass (not same breath as BUILDER). `can_ship` only after acceptance.
+
+**🟡 SEMI:**
+`SCOUT → ARCHITECT → external CRITIC → PLANNER → BUILDER → external AUDITOR → OWNER ACCEPT`
+CRITIC and AUDITOR must be external (separate context, not self-review).
+JUDGE is not required for SEMI but may be invoked by owner.
+
+**🔴 CORE:**
+`Pass 1: SCOUT + ARCHITECT → WAITING_FOR_OK → Pass 2: PLANNER + BUILDER → external CRITIC → external AUDITOR → external JUDGE → owner decision`
+
+### Relay rule
+
+Every role produces an artifact (Report/Verdict).
+Without artifact the role is NOT considered complete.
+Next role starts only after receiving the previous role's artifact.
+
+### Task completion rule
+
+- **LOW**: closed when AUDITOR wrote `can_ship: YES`.
+- **SEMI**: closed when AUDITOR `can_ship: YES` AND owner `ACCEPT`.
+- **CORE**: closed when AUDITOR `can_ship: YES` AND JUDGE `APPROVE` AND owner `ACCEPT`.
+
+"I did everything" without AUDITOR REPORT = task is NOT closed.
+Agent CANNOT report "done" before receiving `can_ship: YES`.
+
+### Defect discovery rule
+
+If agent finds a defect AFTER saying "done" —
+that is an AUDITOR failure, not a coincidence.
+Agent MUST fix the defect and re-run AUDITOR.
+
+### Self-check before reporting
+
+Agent CANNOT write "done" or "completed" until:
+1. Tests ran (if any exist)
+2. Result checked against task requirements
+3. Explicitly answered: "can this be used right now — yes/no"
+
+If there are defects — fix first, report second.
 
 ## NEVER
 
@@ -232,3 +391,6 @@ This is the full cycle. Do all steps automatically without asking.
 - Ignore `docs/autopilot/STATE.md`
 - Give owner manual git commands (`git add`, `git commit`, `git push`) — Claude Code does this autonomously
 - Use `git add -A` — only add specific files that were changed by the task
+- Revert format or rules of `KNOW_HOW.md` — current format is architectural decision (PROJECT_DNA.md §9)
+- Add code changes, config changes, or install instructions to `KNOW_HOW.md` — only external know-how (#platform, #rule, #bug, #data_quirk)
+- Restore deleted `KNOW_HOW.md` entries or `scripts/hooks/pre-commit` — removals were deliberate

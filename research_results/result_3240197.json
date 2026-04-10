@@ -1,0 +1,54 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_3240197",
+  "entity_id": "3240197",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 133.0,
+      "currency": "CNY",
+      "unit_basis": "piece",
+      "source_url": "`https://pc-cn.com/collections/all-products?page=285`",
+      "price_type": "gray_market"
+    },
+    "price_assessment": "ambiguous_offer",
+    "photo_url": "—",
+    "title_ru": "wiring duct / raceway",
+    "description_ru": "Цена ¥133.00 показана списком на странице каталога; спецификация 2m/gray упоминается у Sager. citeturn54view0turn53search0",
+    "sources": [
+      {
+        "url": "`https://pc-cn.com/collections/all-products?page=285`",
+        "type": "gray_market",
+        "domain": "pc-cn.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://pc-cn.com/collections/all-products?page=285`",
+      "type": "gray_market",
+      "domain": "pc-cn.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:48:04.010114Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

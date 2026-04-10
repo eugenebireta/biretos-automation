@@ -1,0 +1,103 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_29313",
+  "entity_id": "29313",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "PEHA center plate",
+    "description_ru": "Продукт с артикулом 29313 от Honeywell не был найден ни в одной публично доступной базе данных, каталоге производителя или авторизованного дистрибьютора. Идентификация невозможна без дополнительных данных.",
+    "category_suggestion": "не определено",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "—",
+    "specs": {},
+    "key_findings": [
+      "Артикул 29313 от Honeywell не найден ни на официальном сайте Honeywell, ни на сайтах авторизованных дистрибьюторов (Grainger, RS Components, Digikey и др.).",
+      "Поиск по нескольким запросам ('Honeywell 29313', 'Honeywell 29313 part number', 'Honeywell 29313 specifications', 'Honeywell 29313 distributor') не дал релевантных результатов.",
+      "Honeywell является крупным конгломератом с множеством бизнес-направлений (безопасность, авиация, промышленная автоматизация, HVAC, средства индивидуальной защиты), поэтому без уточнения продуктовой линейки идентификация 5-значного артикула затруднена.",
+      "Не исключено, что 29313 является внутренним, устаревшим, отозванным или региональным артикулом, недоступным в публичных онлайн-каталогах.",
+      "Результаты поиска не содержат ни одного прямого упоминания PN 29313 в контексте продукции Honeywell."
+    ],
+    "ambiguities": [
+      "Honeywell охватывает множество продуктовых сегментов (PPE/SHE, промышленная автоматизация, HVAC, авиация, охранные системы) — неизвестно, к какому из них относится данный артикул.",
+      "Возможно, артикул 29313 является суффиксом, субкодом или региональным вариантом более длинного каталожного номера (например, XX-29313 или 29313-XX).",
+      "Артикул может принадлежать одной из дочерних или ранее приобретённых компаний Honeywell (например, Honeywell Safety Products, Sperian, North Safety и др.).",
+      "Номер может быть устаревшим (discontinued) и отсутствовать в актуальных онлайн-каталогах.",
+      "Без уточнения продуктовой категории или бизнес-подразделения Honeywell точная идентификация невозможна."
+    ],
+    "sources": [
+      {
+        "url": "https://www.honeywell.com",
+        "type": "manufacturer",
+        "supports": []
+      },
+      {
+        "url": "https://aerospace.honeywell.com",
+        "type": "manufacturer",
+        "supports": []
+      },
+      {
+        "url": "https://buildings.honeywell.com",
+        "type": "manufacturer",
+        "supports": []
+      },
+      {
+        "url": "https://automation.honeywell.com",
+        "type": "manufacturer",
+        "supports": []
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Артикул 29313 не был обнаружен ни в одном публично доступном источнике, связанном с Honeywell, несмотря на несколько целенаправленных поисковых запросов. Идентичность продукта не подтверждена. Для верификации рекомендуется обратиться напрямую к официальному представителю Honeywell или авторизованному дистрибьютору, указав также продуктовую категорию или бизнес-подразделение."
+  },
+  "sources": [
+    {
+      "url": "https://www.honeywell.com",
+      "type": "manufacturer",
+      "supports": []
+    },
+    {
+      "url": "https://aerospace.honeywell.com",
+      "type": "manufacturer",
+      "supports": []
+    },
+    {
+      "url": "https://buildings.honeywell.com",
+      "type": "manufacturer",
+      "supports": []
+    },
+    {
+      "url": "https://automation.honeywell.com",
+      "type": "manufacturer",
+      "supports": []
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:04:57.775925Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3529,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+}

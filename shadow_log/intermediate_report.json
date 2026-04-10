@@ -1,0 +1,43 @@
+{
+  "report": "Block 4 Intermediate Report",
+  "timestamp": "2026-04-08T13:00:00Z",
+  "total_skus": 361,
+  "card_status": {
+    "AUTO_PUBLISH": 7,
+    "REVIEW_REQUIRED": 144,
+    "DRAFT_ONLY": 210
+  },
+  "readiness_pct": 41.8,
+  "identity": {
+    "strong": 262,
+    "weak": 99
+  },
+  "remaining_draft_blockers": {
+    "identity_weak": 99,
+    "photo_problem": 104,
+    "no_ext_price_but_has_xlsx": 85
+  },
+  "progress_from_start": {
+    "original": {"AUTO_PUBLISH": 5, "REVIEW_REQUIRED": 14, "DRAFT_ONLY": 342, "readiness_pct": 5.3},
+    "after_block_0": {"AUTO_PUBLISH": 7, "REVIEW_REQUIRED": 144, "DRAFT_ONLY": 210, "readiness_pct": 41.8},
+    "improvement": "+36.5pp readiness, +132 SKU from DRAFT"
+  },
+  "blocks_completed": {
+    "block_0": "confidence fix + owner_price fallback → 132 SKU unlocked",
+    "block_1": "page_ranker + price_judge + category_resolver + training_logger integrated",
+    "block_2": "prepare_rerun.py created (actual re-run needs API budget)",
+    "block_3": "363 research packets emitted, 20 pilot SKUs exported"
+  },
+  "next_steps": {
+    "block_5": "Photo REJECT re-review for 104 strong identity SKUs",
+    "block_6": "Family price inference from sibling SKUs",
+    "block_7": "Yandex Market search (optional)",
+    "pipeline_rerun": "Run with --force-reprocess for 210 DRAFT SKUs ($10 budget)"
+  },
+  "research_queue": {
+    "total_packets": 363,
+    "high_priority": 290,
+    "low_priority": 73,
+    "pilot_skus_exported": 20
+  }
+}

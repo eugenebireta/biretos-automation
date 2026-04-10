@@ -1,6 +1,6 @@
 {
   "schema_version": "roadmap_live_status_v2",
-  "generated_at": "2026-04-07T22:36:01.080886+00:00Z",
+  "generated_at": "2026-04-08T19:31:48.856763+00:00Z",
   "status_meaning": {
     "DONE": "All code artifacts exist and tests pass. Does NOT mean business goal is achieved — only that implementation is complete.",
     "PARTIAL": "Some code artifacts exist but the stage is incomplete.",
@@ -523,7 +523,7 @@
         {
           "label": "enrichment tests (>=20)",
           "ok": true,
-          "evidence": "34 files in tests\\enrichment/"
+          "evidence": "59 files in tests\\enrichment/"
         }
       ]
     },
@@ -597,8 +597,8 @@
       "description": "AI task planning pipeline: intake → classifier (risk assessment) → advisor (Claude LLM) → synthesizer (deterministic rule engine) → directive writer. NOT an experience/learning system — it plans tasks.",
       "risk": "SEMI",
       "roadmap_claimed": "NOT_IN_ROADMAP",
-      "actual_status": "PARTIAL",
-      "passed": 1,
+      "actual_status": "DONE",
+      "passed": 8,
       "total": 8,
       "checks": [
         {
@@ -608,38 +608,38 @@
         },
         {
           "label": "M1 classifier.py",
-          "ok": false,
-          "evidence": "MISSING: classifier.py"
+          "ok": true,
+          "evidence": "orchestrator\\classifier.py"
         },
         {
           "label": "M1 intake.py",
-          "ok": false,
-          "evidence": "MISSING: intake.py"
+          "ok": true,
+          "evidence": "orchestrator\\intake.py"
         },
         {
           "label": "M2 advisor.py",
-          "ok": false,
-          "evidence": "MISSING: advisor.py"
+          "ok": true,
+          "evidence": "orchestrator\\advisor.py"
         },
         {
           "label": "M3 synthesizer.py",
-          "ok": false,
-          "evidence": "MISSING: synthesizer.py"
+          "ok": true,
+          "evidence": "orchestrator\\synthesizer.py"
         },
         {
           "label": "M4 executor_bridge.py",
-          "ok": false,
-          "evidence": "MISSING: executor_bridge.py"
+          "ok": true,
+          "evidence": "orchestrator\\executor_bridge.py"
         },
         {
           "label": "M0.5 schemas.py",
-          "ok": false,
-          "evidence": "MISSING: schemas.py"
+          "ok": true,
+          "evidence": "orchestrator\\schemas.py"
         },
         {
           "label": "orchestrator tests (>=30)",
-          "ok": false,
-          "evidence": "0 files in tests\\orchestrator/"
+          "ok": true,
+          "evidence": "10 files in tests\\orchestrator/"
         }
       ]
     },
@@ -649,8 +649,8 @@
       "description": "Dual-critique code review system: Gemini (CRITIC) + Anthropic (JUDGE) audit AI-generated code changes. Quality gate blocks unsafe merges. NOT the same as Guardian (Stage 5) which guards runtime mutations.",
       "risk": "SEMI",
       "roadmap_claimed": "NOT_IN_ROADMAP",
-      "actual_status": "PARTIAL",
-      "passed": 5,
+      "actual_status": "DONE",
+      "passed": 6,
       "total": 6,
       "checks": [
         {
@@ -675,8 +675,8 @@
         },
         {
           "label": "gemini_auditor.py",
-          "ok": false,
-          "evidence": "MISSING: gemini_auditor.py"
+          "ok": true,
+          "evidence": "auditor_system\\providers\\gemini_auditor.py"
         },
         {
           "label": "auditor tests (>=10)",

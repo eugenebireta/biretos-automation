@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_816713",
+  "entity_id": "816713",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "cover plate",
+    "description_ru": "Heureka показывает 255 Kč (c DPH) и ссылку на Conrad как продавца. citeturn56search1",
+    "category_suggestion": "cover plate",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 255.0,
+      "currency": "CZK",
+      "unit_basis": "piece",
+      "source_url": "`https://hlavni-vypinace.heureka.cz/honeywell-by-peha-816713/`",
+      "price_type": "marketplace"
+    },
+    "photo_url": "—",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "816713"
+      ]
+    },
+    "key_findings": [
+      "Heureka показывает 255 Kč (c DPH) и ссылку на Conrad как продавца. citeturn56search1",
+      "Aliases: 816713"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://hlavni-vypinace.heureka.cz/honeywell-by-peha-816713/`",
+        "type": "marketplace",
+        "domain": "hlavni-vypinace.heureka.cz",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://hlavni-vypinace.heureka.cz/honeywell-by-peha-816713/`",
+      "type": "marketplace",
+      "domain": "hlavni-vypinace.heureka.cz",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.846294+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

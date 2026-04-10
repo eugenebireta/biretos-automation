@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_SC-SC",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "SC-SC",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN SC-SC (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=SC-SC",
+    "What is the full product name and product family for Honeywell SC-SC?",
+    "Is SC-SC a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell SC-SC"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://midteks.com/sc-sc-30-meter-single-mode-sc-cs-upc-simplex?srsltid=AfmBOoqZfP2j0jCMIQ363swCoRZQBIGS3sT2s0PlbXiqM7ncKR5LXaNV",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Волоконно-оптический патч-корд SC-SC Hyperline FC-D2-50-SC/PR-SC/PR-H-20M-LSZ",
+    "assembled_title": "Патч-корд Honeywell SC-SC",
+    "expected_category": "Патч-корд",
+    "our_price_raw": "2226,17",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://midteks.com/sc-sc-30-meter-single-mode-sc-cs-upc-simplex?srsltid=AfmBOoqZfP2j0jCMIQ363swCoRZQBIGS3sT2s0PlbXiqM7ncKR5LXaNV",
+    "pn_variants": [
+      "SC.SC",
+      "SCSC"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_SC-SC.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.529412Z"
+}

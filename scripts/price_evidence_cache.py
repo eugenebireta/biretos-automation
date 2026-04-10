@@ -21,10 +21,16 @@ PRICE_CACHE_SCHEMA_VERSION = "price_evidence_cache_v1"
 CURRENT_PRICE_POLICY_VERSION = "catalog_evidence_policy_v1"
 _ADMISSIBLE_TIERS = {"official", "authorized", "industrial"}
 _TRANSIENT_FAILURE_CODES = {
-    "openai_quota",
-    "openai_rate_limit",
-    "openai_temporary_failure",
-    "openai_timeout",
+    "llm_quota",
+    "llm_rate_limit",
+    "llm_temporary_failure",
+    "llm_timeout",
+}
+_LEGACY_FAILURE_CODE_ALIASES = {
+    "openai_quota": "llm_quota",
+    "openai_rate_limit": "llm_rate_limit",
+    "openai_temporary_failure": "llm_temporary_failure",
+    "openai_timeout": "llm_timeout",
 }
 
 
@@ -34,6 +40,24 @@ def _utc_now() -> str:
 
 def _normalized(value: Any) -> str:
     return str(value or "").strip().lower()
+
+
+def normalize_transient_failure_code(value: Any) -> str:
+    """Normalize legacy provider-specific failure codes to generic llm_* codes."""
+    normalized = _normalized(value)
+    return _LEGACY_FAILURE_CODE_ALIASES.get(normalized, normalized)
+
+
+def normalize_transient_failure_codes(values) -> list:
+    """Normalize failure-code collections while preserving unique sorted values."""
+    normalized = {normalize_transient_failure_code(v) for v in values if _normalized(v)}
+    return sorted(normalized)
+
+
+def normalize_cache_fallback_reason(reason: Any) -> str:
+    """Normalize comma-separated legacy fallback reasons to llm_* codes."""
+    tokens = [t.strip() for t in str(reason or "").split(",") if t.strip()]
+    return ",".join(normalize_transient_failure_codes(tokens))
 
 
 def _domain(url: Any) -> str:
@@ -177,7 +201,10 @@ def select_cached_price_fallback(
     if cache_payload.get("policy_version") != expected_policy_version:
         return None
 
-    normalized_failure_codes = {_normalized(code) for code in failure_codes}
+    normalized_failure_codes = {
+        _LEGACY_FAILURE_CODE_ALIASES.get(_normalized(code), _normalized(code))
+        for code in failure_codes
+    }
     if not normalized_failure_codes.intersection(_TRANSIENT_FAILURE_CODES):
         return None
 
@@ -226,6 +253,7 @@ def select_cached_price_fallback(
             "public_price_rejection_reasons": list(entry.get("public_price_rejection_reasons", [])),
             "cache_fallback_used": True,
             "cache_fallback_reason": ",".join(sorted(normalized_failure_codes)),
+            "transient_failure_codes": sorted(normalized_failure_codes),
             "cache_schema_version": PRICE_CACHE_SCHEMA_VERSION,
             "cache_policy_version": entry.get("policy_version"),
             "cache_source_run_id": entry.get("source_run_id"),

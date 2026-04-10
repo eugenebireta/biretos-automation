@@ -1,0 +1,32 @@
+# Know-How Log
+
+<!-- DO NOT REVERT THIS FORMAT. Architectural decision: PROJECT_DNA.md §9, CLAUDE.md §NEVER. -->
+<!-- НЕ добавлять: изменения кода, конфигов, инструкции установки, pipeline order. -->
+<!-- Только: внешние платформы, доменные правила данных, environment баги, аномалии данных. -->
+<!-- TECH DEBT: при 50+ записях — добавить AUDITOR code check: числа требуют shell output в коммите. -->
+
+Формат: `YYYY-MM-DD | #тег | scope: Суть и почему это важно`
+Tags: #platform, #bug, #rule, #data_quirk
+Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
+
+2026-04-09 | #platform | gemini-dr: SHORT prompts only. Long prompts trigger analytics mode (narrative, ZERO prices/URLs). Table mode and analytics mode are mutually exclusive.
+2026-04-09 | #platform | gemini-dr: input = minimal 3-col table (# | PN | Hint). Batch: 20 SKU. Files: deep-research-report*.md
+2026-04-09 | #platform | claude-dr: RICH prompts OK. Include Excel descriptions, ref prices, aliases. Batch: 30 SKU.
+2026-04-09 | #platform | chatgpt-compass: RICH prompts + role "Gray Market Analyst". Batch: 30 SKU. Files: compass_artifact_wf-*.md
+2026-04-09 | #rule | data: trusted fields = seed_name, our_price_raw, brand, product_type, assembled_title
+2026-04-09 | #rule | data: UNRELIABLE field = expected_category (wrong in 92% of evidence — 344/374 files). NEVER use as hint.
+2026-04-09 | #rule | data: product hints come ONLY from assembled_title — never invent
+2026-04-09 | #rule | pn-suffix: .10=color, -RU=Russian market, -L3=kit, N/U=replacement
+2026-04-09 | #rule | research-runner: Haiku-only without web access gives 0 merge candidates — need web grounding
+2026-04-09 | #rule | orchestrator: manifest.json itself triggers A4:SCOPE drift because orchestrator writes to it during execution. Known false positive.
+2026-04-09 | #rule | orchestrator: A4:SCOPE uses repo-relative paths with basename fallback. Directive scope "guardian.py" matches "orchestrator/guardian.py". Without full path — risk of false drift rejection.
+2026-04-09 | #bug | dr_prompt_generator: v6 used expected_category as hint — wrong for 33+ PEHA. Fix: use assembled_title only.
+2026-04-09 | #bug | export_pipeline: 5 DR fields (price, currency, title_ru, description_ru, image_url) were not exported. Fix: added all 5 columns.
+2026-04-09 | #bug | price_extraction: PN 00020211 fails 108x with RuntimeError, provider=openai model=claude-haiku-4-5. Config mismatch — openai provider can't run claude model.
+2026-04-09 | #bug | orchestrator: B10 — git reset --soft leaves staged new files on disk. Must git restore --staged before checkout+clean or executor artifacts leak.
+2026-04-09 | #bug | tooling: git stash pop puts unstaged files into working tree — they leak into next commit. Always git status + git diff --staged after stash pop BEFORE committing.
+2026-04-09 | #data_quirk | evidence: expected_category is wrong in 344/374 files (92%), not just "33+ PEHA" — field is globally unreliable.
+2026-04-09 | #data_quirk | evidence: description_ru missing in 31% of evidence (119/374). Main gap in enrichment coverage.
+2026-04-09 | #data_quirk | evidence: weak identity SKUs = 112/374 (30%). These produce worse DR results — sort them first in prompts.
+2026-04-09 | #rule | catalog: entire catalog is single brand (Honeywell). All PN conventions, subbrand logic, suffix rules are Honeywell-specific.
+2026-04-09 | #bug | price_extraction: 108 failures ALL on PN 00020211 — provider=openai but model=claude-haiku-4-5. Likely config mismatch (wrong provider for model).

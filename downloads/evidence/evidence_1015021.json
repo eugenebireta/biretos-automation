@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1015021",
   "pn_variants": [],
   "brand": "Honeywell",
@@ -9,7 +9,7 @@
   "assembled_title": "Наушники Honeywell 1015021",
   "our_price_raw": "1254,50",
   "expected_category": "Наушники",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_1015021",
@@ -17,51 +17,25 @@
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
-    "price_status": "INSUFFICIENT",
+    "image_status": "ACCEPTED",
+    "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
       {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_1015021"
-        ],
-        "evidence_ids": [
-          "ev_title_1015021"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1015021"
-        ],
-        "evidence_ids": [
-          "ev_image_1015021"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
-        "reason_code": "NO_PRICE_EVIDENCE",
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
         "field": "price",
-        "severity": "INFO",
+        "severity": "WARNING",
         "candidate_ids": [
           "cand_price_1015021"
         ],
         "evidence_ids": [
           "ev_price_1015021"
         ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
+        "policy_rule_id": "CAP-02",
+        "bucket": "PRICE_AMBIGUITY"
       },
       {
         "reason_code": "NO_PDF_EVIDENCE",
@@ -73,16 +47,15 @@
         "evidence_ids": [
           "ev_pdf_1015021"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-02",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
-      "PDF_CONFLICT"
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-02"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -147,14 +120,13 @@
   "confidence": {
     "pn_confidence": 0.0,
     "image_confidence": 0.0,
-    "price_confidence": 0.0,
-    "overall": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
   },
   "photo": {
@@ -261,7 +233,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
     "product_type": "Наушники",
-    "seed_name": "Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis"
+    "seed_name": "Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis",
+    "description_long_ru": "Preorder, 1–2 week lead; compatible with Hygiene Kit 1011998"
   },
   "trace": {
     "pn_match_location": "",
@@ -450,6 +423,57 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true
-  }
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.505678+00:00"
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "hearing protection",
+    "description_ru": "Preorder, 1–2 week lead; compatible with Hygiene Kit 1011998",
+    "specs": {
+      "raw": "NRR 28dB; headband; hi-visibility green earcups; steel wire; EN 352",
+      "aliases": [
+        "Leightning L1HHV",
+        "Howard Leight L1HHV"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Preorder, 1–2 week lead; compatible with Hygiene Kit 1011998",
+      "Aliases: Leightning L1HHV; Howard Leight L1HHV"
+    ],
+    "sources": [
+      {
+        "url": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html",
+        "type": "distributor",
+        "domain": "lsgindustrial.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.lightshineuae.com/honeywell-high-visibility-earmuffs-1015021.html",
+        "type": "distributor",
+        "domain": "www.lightshineuae.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.773536+00:00",
+    "merge_source": "result_1015021.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
+  },
+  "dr_category": "hearing protection",
+  "dr_image_url": "https://cdn.lightshineuae.com/thumbs/1015021-500.jpg",
+  "dr_price": 36.14,
+  "dr_currency": "USD",
+  "dr_price_source": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html"
 }

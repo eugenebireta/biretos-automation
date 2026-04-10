@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_CF274A",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "CF274A",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN CF274A (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=CF274A",
+    "What is the full product name and product family for Honeywell CF274A?",
+    "Is CF274A a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell CF274A"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://namlong.vn/hp/may-in/may-in-hp-laserjet-pro-400-printer-m401d-cf274a-2625.html",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Принтер Honeywell CF274A",
+    "assembled_title": "Принтер Honeywell CF274A",
+    "expected_category": "Принтер",
+    "our_price_raw": "6164,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://namlong.vn/hp/may-in/may-in-hp-laserjet-pro-400-printer-m401d-cf274a-2625.html",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_CF274A.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.451259Z"
+}

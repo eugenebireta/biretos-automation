@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_36026-RU",
+  "entity_id": "36026-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "vehicle body part (collision)",
+    "description_ru": "В исходном списке ожидается Honeywell; на практике «‑ru» в URL используется как языковой маркер, а не Honeywell‑суффикс. citeturn50search5",
+    "category_suggestion": "vehicle body part (collision)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 84.88,
+      "currency": "PLN",
+      "unit_basis": "piece",
+      "source_url": "`https://krakowparts.pl/AG-36026-ru` citeturn50search5",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "«Cena brutto: 84,88 zł» incl. 23% VAT (по странице) citeturn50search5",
+      "aliases": [
+        "36026 (без -RU)"
+      ]
+    },
+    "key_findings": [
+      "В исходном списке ожидается Honeywell; на практике «‑ru» в URL используется как языковой маркер, а не Honeywell‑суффикс. citeturn50search5",
+      "Aliases: 36026 (без -RU)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://krakowparts.pl/AG-36026-ru` citeturn50search5",
+        "type": "distributor",
+        "domain": "krakowparts.pl",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://krakowparts.pl/AG-36026-ru` citeturn50search5",
+      "type": "distributor",
+      "domain": "krakowparts.pl",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.053241+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

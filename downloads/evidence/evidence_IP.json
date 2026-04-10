@@ -1,0 +1,582 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "IP",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "IP-телефон",
+  "assembled_title": "Телефон Honeywell IP",
+  "our_price_raw": "0,00",
+  "expected_category": "Телефон",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "PDF_NOT_EXACT_CONFIRMED"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_IP",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_IP"
+        ],
+        "evidence_ids": [
+          "ev_image_IP"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_IP"
+        ],
+        "evidence_ids": [
+          "ev_price_IP"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_IP"
+        ],
+        "evidence_ids": [
+          "ev_pdf_IP"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-06B"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_IP"
+      ],
+      "evidence_ids": [
+        "ev_image_IP"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_IP"
+      ],
+      "evidence_ids": [
+        "ev_price_IP"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_IP"
+      ],
+      "evidence_ids": [
+        "ev_pdf_IP"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.427,
+    "image_confidence": 0.192,
+    "price_confidence": 0.35,
+    "overall": 0.299,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\IP.jpg",
+      "canonical_filename": "HONEYWELL_IP_11b70599.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://www.akvilona.ru/brands/honeywell/description/h4w2prv2.htm",
+      "origin_page_url": "https://www.akvilona.ru/brands/honeywell/description/h4w2prv2.htm",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.alarmgrid.com/products/honeywell-home-prowifi",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.alarmgrid.com/products/honeywell-home-prowifi",
+      "replacement_url": "https://buildings.honeywell.com/us/en/products/by-category/video-systems/cameras/dome-cameras/35-series-ip-camera",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "На изображении IP-камера видеонаблюдения, а не IP-телефон",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\IP.jpg",
+    "sha1": "11b70599c0764633331be4c199fe3ae34ab13d7a",
+    "canonical_filename": "HONEYWELL_IP_11b70599.jpg",
+    "public_url": null,
+    "width": 300,
+    "height": 250,
+    "size_kb": 42,
+    "source": "google:https://www.akvilona.ru/brands/honeywell/description/h4w2prv2.htm",
+    "phash": "bc8bd23c8bb0cc33",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
+    "photo_reconsider": true,
+    "photo_reconsider_reason": "strong identity (title) + structured PN match"
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.alarmgrid.com/products/honeywell-home-prowifi",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.alarmgrid.com/products/honeywell-home-prowifi",
+    "price_source_domain": "alarmgrid.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://buildings.honeywell.com/us/en/products/by-category/video-systems/cameras/dome-cameras/35-series-ip-camera",
+    "price_source_replacement_domain": "buildings.honeywell.com",
+    "price_source_replacement_tier": "official",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "url_path",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://hbtmkto.honeywell.com/rs/127-UCB-316/images/30Series_Product_Detail.pdf",
+    "pdf_source_tier": "official",
+    "pdf_title": "30 SERIES",
+    "pdf_specs": {
+      "including a 5MP fisheye camera": "The Honeywell cameras,",
+      "secure data transmission and easy installation": "HBW2PR1 / HBW4PR1",
+      "recognized as a person": "their subsidiaries prohibited under US National Defense",
+      "Night cameras for any scenario": "The 30 Series provides",
+      "maximum protection against dust and water": "Boasting",
+      "applications": "• Water/Dust proof (IP66) and IK10 (model dependent)",
+      "715 Peachtree St": "NE ONVIF and the ONVIF logo are trademarks of ONVIF Inc.",
+      "make changes in product design or specifications": "1.800.323.4576",
+      "HC30W45R2 Pole Mount": "HQA-PM2*",
+      "Corner Mount": "HB34S2-CM*",
+      "resistant 2.8mm fixed Pole Mount": "HQA-PM2*",
+      "F2.0 Corner Mount": "HB34S2-CM*",
+      "2 MP WDR TDN IR Fixed Rugged Dome Pendant Mount": "HQA-PK**",
+      "PoE 802.3af or 12 VDC Ceiling mount": "HQA-CB",
+      "5 MP WDR TDN IR Fixed Bullet Camera Junction Box": "HBS2-BB",
+      "HC30WB5R1 IP66 rated Pole Mount": "HQA-PM2*",
+      "4mm fixed Corner Mount": "HB34S2-CM*",
+      "HC30WE5R2 Pole Mount": "HQA-PM2*",
+      "PoE 802.3af or 12 VDC MFZ, F1.4-F2.8 Corner Mount": "HB34S2-CM*",
+      "HC30WE5R3 PoE 802.3af or 12 VDC Junction Box": "HQA-BB1, HQA-BB3",
+      "IP66 rated 2.8mm fixed, Wall Mount": "HQA-WK2",
+      "Junction Box": "HQA-BB1, HQA-BB2 HQA-",
+      "HC30WF5R1 with built-in microphone Corner Mount": "HB34S2-CM*",
+      "Ceiling mount": "HQA-CB"
+    },
+    "pdf_text_excerpt": "30 SERIES IP CAMERAS Take Advantage of Honeywell’s 30 Series IP Cameras Honeywell is taking quality and reliability to the next level with the new 30 series line of 2MP and 5MP IP cameras including a 5MP fisheye camera. The Honeywell cameras, including bullet, fisheye, ball and rugged dome cameras offer exceptional picture clarity, flexible system integration, secure data transmission and easy installation. HBW2PR1 / HBW4PR1 SUPERIOR HD IMAGE QUALITY, UP TO 5MP ONBOARD VIDEO STORAGE • Up to 5MP (2560x1920) cameras • Supports microSD (Class 10) card up to 256GB for local • True WDR (120 dB) ens",
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {
+      "параметр": "Значение параметра",
+      "стандарт_видео": "NTSC/PAL",
+      "развертка": "Прогрессивная",
+      "светочувствительная_матрица": "H4W2PRV2: 1/2,7 дюйма, 2 Mп, КМОП",
+      "число_пикселей": "H4W2PRV2: 1920×1080 (2 Мп)",
+      "чувствительность": "0,1 лк, F1.4 (цвет)/0 лк (при включенных ИК-светодиодах)",
+      "дальность_ик_подсветки": "до 30 м",
+      "режим_день_ночь": "Авто (ICR)/Цветной/Черно-белый",
+      "компенсация_встречной_засветки": "BLC/HLC/DWDR",
+      "баланс_белого": "Автоматически/вручную",
+      "регулировка_усиления": "Автоматически/вручную",
+      "шумоподавление": "3DNR",
+      "маскирование": "до 4 областей",
+      "фокусное_расстояние": "2,7 - 12 мм",
+      "угол_обзора_в_горизонтальной_плоскости": "H4W2PRV2: 93°- 35°",
+      "коридорный_режим": "Поддерживается",
+      "кодеки_видео": "H.264/H.264H/H.264B/MJPEG",
+      "разрешение": "H4W2PRV2: 2 Мп 1080p (1920×1080), 720p (1280×720), D1 (704×576/704×480), CIF (352×288/352×240)",
+      "кадровая_частота": "H4W2PRV2: 2 МП 1080p (1–25/30 кадров/с)",
+      "скорость_передачи_данных": "H.264: 32 Кб/c – 10 Мб/c",
+      "карта_памяти": "microSD (128 GB)",
+      "ethernet": "RJ-45 (10/100Base-T)",
+      "протокол": "IPv4/IPv6, HTTP, HTTPS, SSL, TCP/IP, UDP, UPnP, ICMP, IGMP, SNMP, RTSP, RTP, SMTP, NTP, DHCP, DNS, PPPoE, DDNS, FTP, IP Filter, QoS, Bonjour, 802.1X",
+      "совместимость": "ONVIF Profile S, Profile G",
+      "макс_число_пользователей": "20 пользователей",
+      "мобильные_устройства": "Мобильное приложение HonView Touch для телефонов и планшетов iPhone/iPad и Android",
+      "питание": "PoE (802.3af ), 12 В",
+      "потребляемая_мощность": "не более 8,0 Вт (при включенных ИК-светодиодах)",
+      "габаритные_размеры": "122,0 х 89,9 мм",
+      "масса": "0,5 кг",
+      "конструкция": "Литой алюминиевый корпус с порошковым покрытием",
+      "температура": "-30 до +60°C",
+      "относительная_влажность": "0–95%, без выпадения конденсата",
+      "класс_защиты": "IP66",
+      "класс_антивандальной_защиты": "K10"
+    },
+    "description": "IP-телефон предназначен для передачи голосовых данных через IP-сети. Он обеспечивает высокое качество звука и поддерживает различные функции, такие как конференц-связь и голосовая почта.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Системы безопасности",
+    "product_type": "Телефон",
+    "seed_name": "IP-телефон",
+    "description_long_ru": "Too generic to resolve; closest candidate: Honeywell IP-COM internet communicator"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:IP:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:IP:fcd7371378945cb072d0a0ec",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "strong"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:IP:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:IP:fcd7371378945cb072d0a0ec",
+      "pn_primary": "IP",
+      "normalized_title": "Телефон Honeywell IP",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_IP"
+          ],
+          "evidence_ids": [
+            "ev_image_IP"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_IP"
+          ],
+          "evidence_ids": [
+            "ev_price_IP"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_IP"
+          ],
+          "evidence_ids": [
+            "ev_pdf_IP"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "official",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "official"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "IP phone",
+    "description_ru": "Too generic to resolve; closest candidate: Honeywell IP-COM internet communicator",
+    "specs": {
+      "aliases": [
+        "possibly IP-COM"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Too generic to resolve; closest candidate: Honeywell IP-COM internet communicator",
+      "Aliases: possibly IP-COM"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.937995+00:00",
+    "merge_source": "result_IP.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+  },
+  "dr_category": "IP phone"
+}

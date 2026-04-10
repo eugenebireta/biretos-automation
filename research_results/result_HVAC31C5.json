@@ -1,0 +1,82 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_HVAC31C5",
+  "entity_id": "HVAC31C5",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "HVAC inverter (VFD)",
+    "description_ru": "Listed at Kempston Controls; login/quote required",
+    "category_suggestion": "HVAC inverter (VFD)",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "raw": "15kW; 31A; 380–500V 3ph; IP54; EMC class C; 144×391×214mm; 8.1kg; 0–320Hz output",
+      "aliases": [
+        "NXL HVAC 31C5"
+      ]
+    },
+    "key_findings": [
+      "Listed at Kempston Controls; login/quote required",
+      "Aliases: NXL HVAC 31C5"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.kempstoncontrols.com/HVAC31C5/Honeywell-Fema/sku/872687",
+        "type": "—",
+        "domain": "www.kempstoncontrols.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: no, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.kempstoncontrols.com/HVAC31C5/Honeywell-Fema/sku/872687",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/bms-from-hco-030923/hbt-bms-en0b0619-ge51r0511.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.manualslib.com/manual/70023/Honeywell-Nxl.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.kempstoncontrols.com/HVAC31C5/Honeywell-Fema/sku/872687",
+      "type": "—",
+      "domain": "www.kempstoncontrols.com",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.969513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

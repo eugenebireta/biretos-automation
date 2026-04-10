@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_805577",
+  "entity_id": "805577",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "fire detection accessory",
+    "description_ru": "OrbitaDigital показывает цену €29.11 (Tax included) и описание pack of 10, но товар отмечен Out-of-Stock. citeturn24view0turn25view0",
+    "category_suggestion": "fire detection accessory",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 29.11,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.orbitadigital.com/en/fire/accessories/36086-esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.html`",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://www.orbitadigital.com/334658-large_default/esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.jpg`",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "pack 10; совместимо с IQ8 detector & sounder bases; Tax included",
+      "aliases": [
+        "805577"
+      ]
+    },
+    "key_findings": [
+      "OrbitaDigital показывает цену €29.11 (Tax included) и описание pack of 10, но товар отмечен Out-of-Stock. citeturn24view0turn25view0",
+      "Aliases: 805577"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.orbitadigital.com/en/fire/accessories/36086-esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.html`",
+        "type": "distributor",
+        "domain": "www.orbitadigital.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.orbitadigital.com/en/fire/accessories/36086-esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.html`",
+      "type": "distributor",
+      "domain": "www.orbitadigital.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.838292+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

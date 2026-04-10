@@ -1,0 +1,86 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_191591",
+  "entity_id": "191591",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка 4-постовая PEHA by Honeywell Nova",
+    "description_ru": "Четырёхпостовая рамка для установки розеток и выключателей серии PEHA by Honeywell Nova. Предназначена для монтажа в стандартные подрозетники.",
+    "category_suggestion": "Рамки и накладки для электроустановочных изделий",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Источник: teslatorg.ru (российский дистрибьютор электроустановочных изделий). Цена указана в каталоге, однако точная стоимость не зафиксирована в доступных публичных источниках. Внутренний ценовой ориентир 7521,67 руб. не подтверждается независимыми источниками.",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 191591 относится к серии PEHA by Honeywell Nova, а не к детекторам пламени",
+      "Продукт является электроустановочным изделием (рамка), а не датчиком/детектором",
+      "Категория 'Детектор' является ошибочной; правильная категория — 'Рамки и накладки' или 'Электроустановочные изделия'",
+      "Источник teslatorg.ru подтверждает идентичность как рамки 4-постовой PEHA by Honeywell Nova",
+      "Критическое несоответствие между названием в каталоге ('Детектор пламени') и фактическим назначением продукта"
+    ],
+    "ambiguities": [
+      "Точная спецификация рамки (материал, цвет, степень защиты) не подтверждена в открытых источниках",
+      "Официальный каталог Honeywell не содержит PN 191591 в доступных публичных базах",
+      "Возможна ошибка в исходном названии продукта в системе (смешивание с другим PN)",
+      "Публичная рыночная цена не найдена; доступна только информация от одного дистрибьютора"
+    ],
+    "sources": [
+      {
+        "url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki-dlya-rozetok-i-vyklyuchateley/ramka-4-posta-peha-by-honeywell-nova-bezuprechnyy-oniks-191591",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category_correction"
+        ]
+      },
+      {
+        "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html` citeturn56view1",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентичность подтверждена одним российским дистрибьютором, но отсутствует поддержка от официальных источников Honeywell. Категория явно ошибочна (детектор пламени vs. рамка для розеток). Требуется корректировка названия и категории в каталоге. Цена не подтверждена независимыми источниками.",
+    "price_value": {
+      "amount": 359.95,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html` citeturn56view1",
+      "price_type": "distributor"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ramki-dlya-rozetok-i-vyklyuchateley/ramka-4-posta-peha-by-honeywell-nova-bezuprechnyy-oniks-191591",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category_correction"
+      ]
+    },
+    {
+      "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html` citeturn56view1",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:16:45.628988Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2350,
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
+}

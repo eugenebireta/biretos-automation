@@ -1,0 +1,83 @@
+Research 20 industrial part numbers for a professional B2B catalog.
+You will produce BOTH a narrative technical review AND structured data tables.
+
+## Search protocol
+
+For each part number:
+1. Google `"{PN}"` in quotes -- identify the product
+2. Google `"{PN}" datasheet` -- find official documentation
+3. If nothing: remove suffix (`.10`, `-RU`, `-L3`, `/U`) and retry
+4. If still nothing: add brand prefix (`Honeywell {PN}`, `PEHA {PN}`, `Esser {PN}`)
+5. Check eBay (ebay.de + ebay.com) for photos and surplus pricing
+6. Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, electropara.ru, tinko.ru
+
+## Product context
+
+- **Honeywell Safety / Howard Leight** -- PPE: ear plugs, harnesses, gas detectors. Search: grainger.com, amazon.com, rsgroup.com
+
+## Part Numbers
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 1011994 | hearing protection (PPE) |
+| 2 | 1012539 | hearing protection (PPE) |
+| 3 | 1015021 | hearing protection (PPE) |
+| 4 | 1011893-RU | safety harness (PPE) |
+| 5 | 1011894-RU | safety harness (PPE) |
+| 6 | D-71570 | fuse |
+| 7 | 13960 | power supply |
+| 8 | 2904617 | power supply |
+| 9 | 2CDG110146R0011 | power supply |
+| 10 | DCPSU-24-1.3 | power supply unit |
+| 11 | 7910180000 | terminal |
+| 12 | 1631930000 | terminal block |
+| 13 | 50017460-001/U | transformer |
+| 14 | H3D1F1X | IP camera |
+| 15 | H4W4GR1Y | IP camera |
+| 16 | H4W4PER2 | IP camera |
+| 17 | HBL6GR2 | IP camera |
+| 18 | GLATRON | monitor |
+| 19 | P2422H | monitor |
+| 20 | SDM-S93 | monitor |
+
+## Required output
+
+### Part 1: Technical review (Russian narrative)
+
+Напиши связный технический обзор на русском языке, охватывающий все 20 товаров.
+Группируй по категориям. Для каждого товара напиши 100-200 слов:
+- Что это, серия/семейство, производитель
+- Принцип работы, ключевая функция
+- Технические характеристики с числами (размеры, номиналы, диапазоны)
+- Где применяется (типы объектов, систем)
+- Чем отличается данная модификация
+
+Пиши как технический редактор профессионального каталога.
+Используй естественный русский язык, НЕ буквальный перевод.
+
+### Part 2: Structured tables
+
+**Table 1 -- Product data (ALL 20 rows, every PN must appear)**
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+- Every input PN MUST have a row, even if price is "Not found"
+- NEVER invent prices
+- Description: 3-5 предложений на русском языке
+
+**Table 2 -- Sources visited (ALL 20 PNs)**
+
+| Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
+|---|---|---|---|---|---|---|
+
+2-4 real URLs per PN. Even for "not found" items, show where you searched.
+
+## Rules
+
+- NEVER invent or estimate prices. "Not found" is always better than a guess.
+- Every PN MUST appear in Table 1 and Table 2.
+- Russian prices (RUB) from vseinstrumenti.ru, lemanapro.ru are HIGH PRIORITY.
+- Narrative descriptions and Table 1 descriptions MUST be in Russian.
+- Any currency accepted (EUR, USD, GBP, RUB, CHF).
+- Surplus/eBay photos are acceptable.

@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_S0324-2POS-SW1",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "S0324-2POS-SW1",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN S0324-2POS-SW1 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=S0324-2POS-SW1",
+    "What is the full product name and product family for Honeywell S0324-2POS-SW1?",
+    "Is S0324-2POS-SW1 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell S0324-2POS-SW1"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "ambiguous_offer",
+    "price_source_url": "https://www.salidzini.lv/cena?q=honeywell+s0324-2pos-sw1",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Привод заслонки S0324-2POS-SW1",
+    "assembled_title": "Привод Honeywell S0324-2POS-SW1",
+    "expected_category": "Привод",
+    "our_price_raw": "18182,50",
+    "has_content_seed": true,
+    "price_currency": "EUR",
+    "price_native_value": 244.83,
+    "price_rub": 23258.85,
+    "existing_source_url": "https://www.salidzini.lv/cena?q=honeywell+s0324-2pos-sw1",
+    "pn_variants": [
+      "S0324.2POS.SW1",
+      "S03242POSSW1"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_S0324-2POS-SW1.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.526411Z"
+}

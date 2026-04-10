@@ -1,0 +1,59 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_820511",
+  "entity_id": "820511",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "switch frame",
+    "description_ru": "Страница-профиль без цены (требует запроса)",
+    "category_suggestion": "switch frame",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "raw": "SKU: 820511; указано “5 Frame” без цены",
+      "aliases": [
+        "00820511 (frame)"
+      ]
+    },
+    "key_findings": [
+      "Страница-профиль без цены (требует запроса)",
+      "Aliases: 00820511 (frame)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.inwest.ge/product-page/peha-by-honeywell-sockets-switches-00820511-1` citeturn53view1",
+        "type": "unknown",
+        "domain": "www.inwest.ge",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.inwest.ge/product-page/peha-by-honeywell-sockets-switches-00820511-1` citeturn53view1",
+      "type": "unknown",
+      "domain": "www.inwest.ge",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.065750+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

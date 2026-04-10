@@ -1,0 +1,54 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_190511",
+  "entity_id": "190511",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 10.03,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.watt24.com/p/peha-wippschalter-10a-250v-seriensch.-d-515-190511/`",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "title_ru": "rocker switch insert",
+    "description_ru": "Watt24 показывает 10,03 € incl. MwSt.; техданные (Schaltungsart/Nennspannung/Bemessungsstrom) присутствуют. citeturn57search2",
+    "sources": [
+      {
+        "url": "`https://www.watt24.com/p/peha-wippschalter-10a-250v-seriensch.-d-515-190511/`",
+        "type": "distributor",
+        "domain": "www.watt24.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://www.watt24.com/p/peha-wippschalter-10a-250v-seriensch.-d-515-190511/`",
+      "type": "distributor",
+      "domain": "www.watt24.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:58:21.166311Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

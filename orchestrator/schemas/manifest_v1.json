@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "manifest_v1",
+  "title": "Orchestrator Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "fsm_state",
+    "current_sprint_goal",
+    "current_task_id",
+    "trace_id",
+    "attempt_count",
+    "updated_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "v1" },
+    "fsm_state": {
+      "type": "string",
+      "enum": [
+        "ready", "processing", "awaiting_execution", "awaiting_owner_reply",
+        "completed", "error",
+        "audit_in_progress", "audit_passed", "blocked", "needs_owner_review",
+        "blocked_by_consensus"
+      ]
+    },
+    "current_sprint_goal": { "type": "string" },
+    "current_task_id": { "type": "string" },
+    "trace_id": { "type": "string" },
+    "attempt_count": { "type": "integer", "minimum": 0 },
+    "retry_count": {
+      "type": "integer", "minimum": 0, "default": 0,
+      "description": "P3.1: number of auto-retries after acceptance failure"
+    },
+    "last_verdict": {
+      "type": ["string", "null"],
+      "enum": [
+        "EXECUTE_NEXT_STEP", "ASK_EXECUTOR_FOR_RECON", "RUN_CRITIQUE",
+        "RUN_SPEC_GOVERNANCE", "ESCALATE_TO_OWNER",
+        "ESCALATE", "BLOCKED", "RETRY_SCHEDULED",
+        "AUDIT_PASSED", "AUDIT_FAILED", "AUDIT_INCONCLUSIVE",
+        "BATCH_GATE_FAILED", "BLOCKED_BY_CONSENSUS", "POST_AUDIT_FAILED",
+        "SCOPE_APPROVED", "SCOPE_REJECTED",
+        null
+      ]
+    },
+    "last_audit_result": {
+      "type": ["object", "null"],
+      "description": "Summary of the last automated audit run (set by CORE_GATE bridge)"
+    },
+    "last_directive_hash": { "type": ["string", "null"] },
+    "pending_packet_id": { "type": ["string", "null"] },
+    "deadline_at": { "type": ["string", "null"] },
+    "default_option_id": { "type": ["string", "null"] },
+    "updated_at": { "type": "string" },
+    "_last_risk_class": {
+      "type": ["string", "null"],
+      "description": "Risk class from last synthesizer run, used by batch quality gate"
+    },
+    "_run_dir": {
+      "type": ["string", "null"],
+      "description": "P1: per-run directory path for artifact isolation"
+    },
+    "_semi_audit_critique": {
+      "type": ["string", "null"],
+      "description": "P0.5: critique text from SEMI pre-execution audit"
+    },
+    "_negotiate_result": {
+      "type": ["object", "null"],
+      "description": "Phase 2: result of negotiate_architecture convergence loop"
+    }
+  }
+}

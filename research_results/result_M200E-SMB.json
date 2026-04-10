@@ -1,0 +1,106 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_M200E-SMB",
+  "entity_id": "M200E-SMB",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm surface mount box",
+    "description_ru": "System Sensor / Honeywell. Also £9.92 at Acorn Fire; €9.90 at Endevoronline. LPCB, VdS, BOSEC approved.",
+    "category_suggestion": "Fire alarm surface mount box",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 8.82,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-m200e-smb-surface-mounting-box-base-primaryimage",
+    "specs": {
+      "raw": "IP30; plastic; for M200/M700/TC800/MI-XXX modules; tri-colour LEDs; decade address switches",
+      "aliases": [
+        "M200E-SMB-KO (w/ knockouts)"
+      ]
+    },
+    "key_findings": [
+      "System Sensor / Honeywell. Also £9.92 at Acorn Fire; €9.90 at Endevoronline. LPCB, VdS, BOSEC approved.",
+      "Aliases: M200E-SMB-KO (w/ knockouts)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944",
+        "type": "distributor",
+        "domain": "www.thefirealarmstore.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.acornfiresecurity.com/notifier-m200e-smb",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.detectionsupplies.co.uk/.../system-sensor-surface-mounting-box-for-m2xx-series-modules",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://endevoronline.com/gb/fire-fighting-electricity/3113-surface-mount-box-addressable-fire-alarm-honeywell-m200e-smb.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.systemsensoreurope.com/products/m200-addressable-modules-mounting-box/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944",
+      "type": "distributor",
+      "domain": "www.thefirealarmstore.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.009122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

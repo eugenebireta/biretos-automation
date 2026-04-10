@@ -1,0 +1,41 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_PERTHECTION",
+  "entity_id": "PERTHECTION",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "—",
+    "description_ru": "В доступных источниках PN как слово/бренд не дал однозначной карточки товара/цены.",
+    "category_suggestion": "—",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "В доступных источниках PN как слово/бренд не дал однозначной карточки товара/цены.",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.062747+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

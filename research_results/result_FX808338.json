@@ -1,0 +1,83 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FX808338",
+  "entity_id": "FX808338",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm expansion housing",
+    "description_ru": "Net price; €583.10 gross incl. 19% VAT",
+    "category_suggestion": "Fire alarm expansion housing",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 490.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.brandmelde-shop.de/esser-fx808338-erweiterungsgehaeuse-mit-2-din-schienen",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "2 DIN rails (350mm); 5.0kg; for essernet switches and esserbus couplers",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Net price; €583.10 gross incl. 19% VAT",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.brandmelde-shop.de/esser-fx808338-erweiterungsgehaeuse-mit-2-din-schienen",
+        "type": "distributor",
+        "domain": "www.brandmelde-shop.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.brandmelde-shop.de/esser-fx808338-erweiterungsgehaeuse-mit-2-din-schienen",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.esser-systems.com/produkte/details/system-flexes-control/zubehoer-flexes-control/fx808338-erweiterungsgehaeuse-mit-2-din-schienen-2/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.brandmelde-shop.de/esser-fx808338-erweiterungsgehaeuse-mit-2-din-schienen",
+      "type": "distributor",
+      "domain": "www.brandmelde-shop.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.962513+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

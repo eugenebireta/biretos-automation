@@ -1,0 +1,528 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "581276",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Настенный громкоговоритель Honeywell 581276, 10 Вт",
+  "assembled_title": "Громкоговоритель Honeywell 581276",
+  "our_price_raw": "12745,04",
+  "expected_category": "Громкоговоритель",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_581276",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_581276"
+        ],
+        "evidence_ids": [
+          "ev_image_581276"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_581276"
+        ],
+        "evidence_ids": [
+          "ev_pdf_581276"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-06B",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.913758+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_581276"
+      ],
+      "evidence_ids": [
+        "ev_title_581276"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_581276"
+      ],
+      "evidence_ids": [
+        "ev_image_581276"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_581276"
+      ],
+      "evidence_ids": [
+        "ev_price_581276"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_581276"
+      ],
+      "evidence_ids": [
+        "ev_pdf_581276"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.617,
+    "image_confidence": 0.401,
+    "price_confidence": 0.35,
+    "overall": 0.437,
+    "overall_label": "LOW",
+    "publishability": "REVIEW_REQUIRED",
+    "notes": [
+      "price_low_confidence"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\581276.jpg",
+      "canonical_filename": "HONEYWELL_581276_dce0fb08.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://germes-security.ru/esser/korpusnie-gromkogovoriteli-modely-581276/",
+      "origin_page_url": "https://germes-security.ru/esser/korpusnie-gromkogovoriteli-modely-581276/",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.armosystems.ru/catalog/gromkogovoriteli75/581276_nastennyy_dinamik_l_pwp10a_10__5_vt_abs_belyy_honeywell/",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.armosystems.ru/catalog/gromkogovoriteli75/581276_nastennyy_dinamik_l_pwp10a_10__5_vt_abs_belyy_honeywell/",
+      "replacement_url": "https://www.hls-austria.at/~/media/ePresence/Extranet/HLS-Product-DOCUMENTATION/SHARED%20Documentation/PA-VA/Promotional%20Documentation/Product%20Data%20Sheets/VARIODYN/d800224-datasheet-581276",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqHRjY7cJ7UM2FLTExES'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\581276.jpg",
+    "sha1": "dce0fb08d3382514c2071cb612eb3a3cd1643484",
+    "canonical_filename": "HONEYWELL_581276_dce0fb08.jpg",
+    "public_url": null,
+    "width": 300,
+    "height": 200,
+    "size_kb": 12,
+    "source": "google:https://germes-security.ru/esser/korpusnie-gromkogovoriteli-modely-581276/",
+    "phash": "af2bd0d42f2b6894",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": "stub",
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.armosystems.ru/catalog/gromkogovoriteli75/581276_nastennyy_dinamik_l_pwp10a_10__5_vt_abs_belyy_honeywell/",
+    "source_type": "ru_b2b",
+    "source_tier": "ru_b2b",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Громкоговоритель",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.armosystems.ru/catalog/gromkogovoriteli75/581276_nastennyy_dinamik_l_pwp10a_10__5_vt_abs_belyy_honeywell/",
+    "price_source_domain": "armosystems.ru",
+    "price_source_type": "ru_b2b",
+    "price_source_tier": "ru_b2b",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.hls-austria.at/~/media/ePresence/Extranet/HLS-Product-DOCUMENTATION/SHARED%20Documentation/PA-VA/Promotional%20Documentation/Product%20Data%20Sheets/VARIODYN/d800224-datasheet-581276",
+    "price_source_replacement_domain": "hls-austria.at",
+    "price_source_replacement_tier": "industrial",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "url_path",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Настенный громкоговоритель Honeywell 581276 мощностью 10 Вт предназначен для использования в системах оповещения и звукового сопровождения. Обеспечивает высокое качество звука и надежность.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Громкоговоритель",
+    "seed_name": "Настенный громкоговоритель Honeywell 581276, 10 Вт",
+    "description_long_ru": "Out of stock at layta.ru; B2B pricing"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:581276:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:581276:bb0ebee76820722196f5c8df",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:581276:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:581276:bb0ebee76820722196f5c8df",
+      "pn_primary": "581276",
+      "normalized_title": "Громкоговоритель Honeywell 581276",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_581276"
+          ],
+          "evidence_ids": [
+            "ev_title_581276"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_581276"
+          ],
+          "evidence_ids": [
+            "ev_image_581276"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_581276"
+          ],
+          "evidence_ids": [
+            "ev_price_581276"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_581276"
+          ],
+          "evidence_ids": [
+            "ev_pdf_581276"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "ru_b2b",
+        "pdf_source_tier": "",
+        "image_source_tier": "ru_b2b"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "ru_b2b",
+        "page_product_class": "Громкоговоритель",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PA cabinet speaker",
+    "description_ru": "Out of stock at layta.ru; B2B pricing",
+    "specs": {
+      "raw": "10W (10/5/2.5W taps); ABS; 150Hz–17kHz; white RAL9003; fire-resistant plastic",
+      "aliases": [
+        "L-PWP10A"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Out of stock at layta.ru; B2B pricing",
+      "Aliases: L-PWP10A"
+    ],
+    "sources": [
+      {
+        "url": "https://www.esser-systems.com/en/products/details/loud-speaker/wall-surface-mounted-speakers/581276-10-w-cabinet-loudspeaker-abs/",
+        "type": "—",
+        "domain": "www.esser-systems.com",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.837128+00:00",
+    "merge_source": "result_581276.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+  },
+  "dr_category": "PA cabinet speaker"
+}

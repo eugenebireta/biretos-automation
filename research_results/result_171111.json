@@ -1,0 +1,113 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_171111",
+  "entity_id": "171111",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Термостатический вентиль Honeywell D 20.571.02 T (арт. 171111)",
+    "description_ru": "Предположительно термостатический вентиль (клапан) производства Honeywell. Точное подтверждение продукта с артикулом 171111 и обозначением D 20.571.02 T в открытых источниках не найдено.",
+    "category_suggestion": "Термостатический вентиль / Радиаторная арматура",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "Артикул 171111 не найден ни на официальном сайте Honeywell, ни у авторизованных дистрибьюторов (Resideo, Building Solutions, Process Honeywell).",
+      "Обозначение D 20.571.02 T не соответствует стандартным форматам артикулов Honeywell (обычно вида VNNNNXnnnn или аналогичных).",
+      "Honeywell производит широкий ассортимент термостатических вентилей (серии V2000, V2050, V110, TM200 и др.), однако ни один из них не соответствует артикулу 171111.",
+      "Возможно, 171111 является внутренним складским или дистрибьюторским номером, а не оригинальным артикулом производителя.",
+      "Категория 'Вентиль' (термостатический клапан) является правдоподобной для продукции Honeywell в данном сегменте, но не может быть подтверждена для конкретного артикула.",
+      "Поиск на русскоязычных ресурсах (rusfilter.ru, zadvishka.ru, lunda.ru, valterra.ru, profimann.com.ua) не дал результатов по артикулу 171111."
+    ],
+    "ambiguities": [
+      "171111 может быть внутренним артикулом дистрибьютора, а не оригинальным номером Honeywell.",
+      "D 20.571.02 T может быть обозначением из устаревшего или регионального каталога Honeywell (Braukmann/Resideo).",
+      "Невозможно исключить, что продукт существует, но не индексируется в открытом доступе (B2B-каталог, закрытый прайс-лист).",
+      "Требуется уточнение у официального дистрибьютора Honeywell/Resideo в России или Украине."
+    ],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/building-management/field-devices/valves",
+        "type": "manufacturer",
+        "supports": []
+      },
+      {
+        "url": "https://rusfilter.ru/catalog/termo_klapany/termostaticheskij-klapan-honeywell/",
+        "type": "distributor",
+        "supports": []
+      },
+      {
+        "url": "https://zadvishka.ru/category/termostaticheskie-klapany-i-termogolovki-honeywell/",
+        "type": "distributor",
+        "supports": []
+      },
+      {
+        "url": "https://lunda.ru/catalog/category/c13166/product/termostaticheskij-klapan-ub-honeywell_30704.html",
+        "type": "distributor",
+        "supports": []
+      },
+      {
+        "url": "https://valterra.ru/catalog/termostaticheskie-smesitelnye-klapany/termostaticheskiy-smesitelnyy-klapan-tm200-honeywell/",
+        "type": "distributor",
+        "supports": []
+      },
+      {
+        "url": "`not found`",
+        "type": "unknown",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Артикул 171111 с обозначением D 20.571.02 T не обнаружен ни в одном из проверенных открытых источников — ни на сайте производителя Honeywell/Resideo, ни у авторизованных дистрибьюторов на русском и английском языках. Категория 'Вентиль' правдоподобна в контексте продуктового портфеля Honeywell, однако не может быть подтверждена для данного конкретного артикула. Рекомендуется обратиться напрямую к официальному дистрибьютору Honeywell/Resideo для верификации."
+  },
+  "sources": [
+    {
+      "url": "https://buildings.honeywell.com/us/en/products/by-category/building-management/field-devices/valves",
+      "type": "manufacturer",
+      "supports": []
+    },
+    {
+      "url": "https://rusfilter.ru/catalog/termo_klapany/termostaticheskij-klapan-honeywell/",
+      "type": "distributor",
+      "supports": []
+    },
+    {
+      "url": "https://zadvishka.ru/category/termostaticheskie-klapany-i-termogolovki-honeywell/",
+      "type": "distributor",
+      "supports": []
+    },
+    {
+      "url": "https://lunda.ru/catalog/category/c13166/product/termostaticheskij-klapan-ub-honeywell_30704.html",
+      "type": "distributor",
+      "supports": []
+    },
+    {
+      "url": "https://valterra.ru/catalog/termostaticheskie-smesitelnye-klapany/termostaticheskiy-smesitelnyy-klapan-tm200-honeywell/",
+      "type": "distributor",
+      "supports": []
+    },
+    {
+      "url": "`not found`",
+      "type": "unknown",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:52:06.841443Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3676,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

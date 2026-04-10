@@ -1,0 +1,69 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_162211",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "162211",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 162211 (Honeywell)",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "questions_to_resolve": [
+    "What is the correct product category for Honeywell 162211 (Термостатический вентиль Honeywell D 20.572.150.21)?",
+    "Is the expected category 'Вентиль' correct for this product?",
+    "What similar part numbers exist in the same product family?",
+    "Provide any relevant Russian-language product description for Honeywell 162211"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "REJECT",
+    "price_status": "category_mismatch_only",
+    "price_source_url": "https://www.nabava.net/nekategorizirano/peha-by-honeywell-okvir-okvir-162211-1-st-cijena-860431031",
+    "category_mismatch": true,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "CRITICAL_MISMATCH",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Термостатический вентиль Honeywell D 20.572.150.21",
+    "assembled_title": "Рамка 2-постовая PEHA AURA, 162211",
+    "expected_category": "Вентиль",
+    "our_price_raw": "3654,40",
+    "has_content_seed": true,
+    "price_currency": "EUR",
+    "price_native_value": 75.99,
+    "price_rub": 7219.05,
+    "existing_source_url": "https://www.nabava.net/nekategorizirano/peha-by-honeywell-okvir-okvir-162211-1-st-cijena-860431031",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_162211.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.333106Z"
+}

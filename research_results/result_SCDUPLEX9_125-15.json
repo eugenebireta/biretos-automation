@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_SCDUPLEX9/125-15",
+  "entity_id": "SCDUPLEX9/125-15",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "fiber optic patch cord",
+    "description_ru": "Оптические коды у Honeywell часто выглядят как внутренние обозначения длины/коннекторов",
+    "category_suggestion": "fiber optic patch cord",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 381.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-15m.html` citeturn13view0turn31search1",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "SM 9/125 (G.652.C); SC/UPC-SC/UPC; LSZH; 1310/1550 нм; длина 1,5 м",
+      "aliases": [
+        "Вероятный алиас: 2SM-3.0-SC/UPC-SC/UPC 1,5м"
+      ]
+    },
+    "key_findings": [
+      "Оптические коды у Honeywell часто выглядят как внутренние обозначения длины/коннекторов",
+      "Aliases: Вероятный алиас: 2SM-3.0-SC/UPC-SC/UPC 1,5м"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-15m.html` citeturn13view0turn31search1",
+        "type": "distributor",
+        "domain": "www.optcom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-15m.html` citeturn13view0turn31search1",
+      "type": "distributor",
+      "domain": "www.optcom.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.065750+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_7508002114",
+  "entity_id": "7508002114",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Interface module (RS VERT 16)",
+    "description_ru": "“Цена с НДС 40 834.56 руб.”; товара нет в наличии. citeturn34search2",
+    "category_suggestion": "Interface module (RS VERT 16)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 40834.56,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://ets-e.ru/product/weidmuller-rs-vert-16-24vdc-2a-p-s-7508002114.html` citeturn34search2",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "RS VERT 16 24VDC 2A P S"
+      ]
+    },
+    "key_findings": [
+      "“Цена с НДС 40 834.56 руб.”; товара нет в наличии. citeturn34search2",
+      "Aliases: RS VERT 16 24VDC 2A P S"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://ets-e.ru/product/weidmuller-rs-vert-16-24vdc-2a-p-s-7508002114.html` citeturn34search2",
+        "type": "distributor",
+        "domain": "ets-e.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://ets-e.ru/product/weidmuller-rs-vert-16-24vdc-2a-p-s-7508002114.html` citeturn34search2",
+      "type": "distributor",
+      "domain": "ets-e.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.025149+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

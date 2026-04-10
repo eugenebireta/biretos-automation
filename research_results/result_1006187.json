@@ -1,0 +1,133 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_1006187",
+  "entity_id": "1006187",
+  "research_reason": "specs_gap",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "Беруши поролоновые 303S-YEL/WHT (упаковка 200 пар)",
+    "description_ru": "Одноразовые поролоновые беруши Honeywell 303S предназначены для защиты слуха в условиях производственного шума. Обеспечивают звукоизоляцию SNR 33 дБ. Поставляются в упаковке по 200 пар.",
+    "category_suggestion": "Средства защиты органов слуха / Беруши",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "WorkWear Express (distributor): публичная цена указана на странице товара для PN 1006187, 303S-YEL/WHT, 200 пар; валюта USD; цена за упаковку (200 пар)",
+    "photo_assessment": "family",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 1006187 подтвержден как Honeywell 303S-YEL/WHT foam earplug refill pack на WorkWear Express",
+      "Продукт: поролоновые беруши (foam earplugs), упаковка 200 пар",
+      "SNR (Sound Noise Reduction): 33 дБ",
+      "Размер: Small (малый)",
+      "Цвет: желтый/белый (YEL/WHT)",
+      "Публичная цена доступна на сайте дистрибьютора WorkWear Express"
+    ],
+    "ambiguities": [
+      "Официальный datasheet Honeywell для PN 1006187 не найден в открытых источниках",
+      "Точные технические параметры (материал, диапазон частот, коэффициент ослабления по частотам) не подтверждены",
+      "Информация о сертификации (ГОСТ, CE, ANSI) не найдена",
+      "Условия хранения и срок годности не указаны в доступных источниках"
+    ],
+    "sources": [
+      {
+        "url": "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33?srsltid=AfmBOooCDhimF5IpXiU1ge0c5tyaF8U8Vz981j7ybLx1UaEOgw41ESXj",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "product_name",
+          "specs_partial",
+          "price"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+        "type": "distributor",
+        "domain": "www.alive-sr.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентичность PN 1006187 как Honeywell 303S-YEL/WHT подтверждена на уровне дистрибьютора. Базовые спецификации (размер, SNR, количество) найдены. Однако отсутствует официальный datasheet производителя и детальные технические параметры. Цена доступна на публичном сайте дистрибьютора, что позволяет оценить её как admissible_public_price.",
+    "price_value": {
+      "amount": 44.48,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.alive-sr.com/images/303SBOXFOAMBLUE.jpg",
+    "documents": [
+      {
+        "url": "https://www.alive-sr.com/products/honeywell-howard-leight-1006187-bilsom-303s-earplugs-refill-bag-200-pairs",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.fabory.com/en/honeywell-earplug-refill-pack-bilsom-303s-single-use-1006187-yellow-white-1006187/p/1006187HON",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33?srsltid=AfmBOooCDhimF5IpXiU1ge0c5tyaF8U8Vz981j7ybLx1UaEOgw41ESXj",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "product_name",
+        "specs_partial",
+        "price"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://www.alive-sr.com/prod/303SBOXFOAMBLUE/",
+      "type": "distributor",
+      "domain": "www.alive-sr.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:12:46.133749Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2137,
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (8).md"
+}

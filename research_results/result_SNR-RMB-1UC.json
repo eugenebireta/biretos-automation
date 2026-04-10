@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_SNR-RMB-1UC",
+  "entity_id": "SNR-RMB-1UC",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "rackmount kit",
+    "description_ru": "В исходном запросе бренд «Honeywell», но найденный PN относится к сетевым аксессуарам SNR",
+    "category_suggestion": "rackmount kit",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 1306.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://shop.nag.ru/catalog/33888.aksessuary-dlya-kommutatorov/33892.kreplenie-krepezh-kommutatorov/05010.snr-rmb-1uc` citeturn50search0",
+      "price_type": "gray_market"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "листинг показывает аналоги; цена для SNR-RMB-1UC-Z",
+      "aliases": [
+        "SNR-RMB-1UC-Z (вариант/оцинк.)"
+      ]
+    },
+    "key_findings": [
+      "В исходном запросе бренд «Honeywell», но найденный PN относится к сетевым аксессуарам SNR",
+      "Aliases: SNR-RMB-1UC-Z (вариант/оцинк.)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://shop.nag.ru/catalog/33888.aksessuary-dlya-kommutatorov/33892.kreplenie-krepezh-kommutatorov/05010.snr-rmb-1uc` citeturn50search0",
+        "type": "gray_market",
+        "domain": "shop.nag.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://shop.nag.ru/catalog/33888.aksessuary-dlya-kommutatorov/33892.kreplenie-krepezh-kommutatorov/05010.snr-rmb-1uc` citeturn50search0",
+      "type": "gray_market",
+      "domain": "shop.nag.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.073856+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

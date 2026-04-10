@@ -1,0 +1,131 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_N0524-SW2",
+  "entity_id": "N0524-SW2",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "HVAC damper actuator (SmartAct)",
+    "description_ru": "Электрический актуатор без возвратной пружины с крутящим моментом 5Нм для управления небольшими воздушными заслонками. Оснащен двумя вспомогательными переключателями для контроля положений. Работает от напряжения 24В и поддерживает двухпозиционное или трехпозиционное управление.",
+    "category_suggestion": "HVAC damper actuator (SmartAct)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 177.88,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.bolasystems.com/smartact-damper-actuator-honeywell-n0524-sw2-5nm-24vac-2-auxiliary-end-switches` citeturn32search6",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/tE8AAOSwR3Nnnck7/s-l1600.jpg",
+    "specs": {
+      "aliases": [
+        "N0524-SW2 (end switches -SW2)"
+      ]
+    },
+    "key_findings": [
+      "На странице: List price €269,04; price without VAT €177,88; price with VAT 21% €215,23; статус “Out of stock”. citeturn32search6",
+      "Aliases: N0524-SW2 (end switches -SW2)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.bolasystems.com/smartact-damper-actuator-honeywell-n0524-sw2-5nm-24vac-2-auxiliary-end-switches` citeturn32search6",
+        "type": "distributor",
+        "domain": "www.bolasystems.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/226576260731",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.ebay.com/itm/226576260731",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.bolasystems.com/flap-actuator-smartact-honeywell-n0524-sw2-5nm-24vac-2-auxiliary-limit-switches",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.odilonplus.com/en/products/honeywell-n0524-sw2/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://customer.resideo.com/en-US/Pages/Product.aspx?cat=HonECC+Catalog&pid=N0524-SW2",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://manualzz.com/doc/33250223/n0524-n1024--n05230-2pos-n10230-2pos---honeywell",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://heatingsparesandcontrols.co.uk/product/havc-controls-honeywell-smartact-n0524-sw2-damper-motor-5nm-24v-with-aux-switches-havc-w068840",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ],
+    "datasheet_url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/catalogs/bms-from-hco-030923/hbt-bms-en3b0260-ge51r0120.pdf"
+  },
+  "sources": [
+    {
+      "url": "`https://www.bolasystems.com/smartact-damper-actuator-honeywell-n0524-sw2-5nm-24vac-2-auxiliary-end-switches` citeturn32search6",
+      "type": "distributor",
+      "domain": "www.bolasystems.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/226576260731",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.024147+00:00",
+  "provider": "dr_gemini",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "batch_gemini_v8_nodesc_b1.json"
+}

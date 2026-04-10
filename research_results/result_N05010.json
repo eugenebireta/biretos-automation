@@ -1,0 +1,140 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_N05010",
+  "entity_id": "N05010",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Damper actuator",
+    "description_ru": "SmartAct N05 series; made in Germany",
+    "category_suggestion": "actuator",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 209.33,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://ib.cappusa.com/UHDUwHiVwa0EPj6HLxCgd0sljumIH5PBtGaMq4YS/honeywell-commercial-mn7220a2205-mn7505a2001-253x464.jpg",
+    "specs": {
+      "raw": "5 Nm; 24 VAC/DC; 0-10V/2-10V modulating; IP54; 150s/90°; 450g; non-spring return",
+      "aliases": [
+        "MN7505A2001"
+      ]
+    },
+    "key_findings": [
+      "SmartAct N05 series; made in Germany",
+      "Aliases: MN7505A2001"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+        "type": "distributor",
+        "domain": "cappusa.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.radwell.com/Buy/HONEYWELL/HONEYWELL/N05010",
+        "type": "surplus",
+        "domain": "www.radwell.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://radwell.com/Buy/HONEYWELL/HONEYWELL/N05010",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/.../n05-rotary-damper-actuator",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://bolasystems.com/actuator-smartact-honeywell-n05010",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://manualslib.com/manual/1600863/Honeywell-N05010.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://oumanshop.com/product/n05010/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      },
+      {
+        "url": "https://www.radwell.com/Buy/HONEYWELL/HONEYWELL/N05010",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+      "type": "distributor",
+      "domain": "cappusa.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.radwell.com/Buy/HONEYWELL/HONEYWELL/N05010",
+      "type": "surplus",
+      "domain": "www.radwell.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.945490+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

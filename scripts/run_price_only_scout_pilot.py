@@ -28,6 +28,8 @@ from price_source_surface_stability import build_source_surface_cache_payload_fr
 ROOT = Path(__file__).resolve().parent.parent
 DOWNLOADS = ROOT / "downloads"
 AUDITS_DIR = DOWNLOADS / "audits"
+QUEUE_SCHEMA_VERSION = "followup_queue_v2"
+SCOUT_PRICE_ACTION_CODE = "scout_price"
 
 
 def utc_stamp() -> str:
@@ -138,6 +140,62 @@ def select_seeded_rows(
     return seeded[:limit]
 
 
+def load_queue_request(queue_path: Path | str) -> dict[str, Any]:
+    rows = [
+        json.loads(line)
+        for line in Path(queue_path).read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    requested_pns: list[str] = []
+    skipped_action_counts: Counter[str] = Counter()
+    snapshot_id = ""
+    for row in rows:
+        schema_version = str(row.get("queue_schema_version", "") or "").strip()
+        if schema_version != QUEUE_SCHEMA_VERSION:
+            raise ValueError(
+                f"Unsupported queue schema version: {schema_version or '<missing>'}"
+            )
+        action_code = str(row.get("action_code", "") or "").strip()
+        if not action_code:
+            raise ValueError("Queue row missing action_code")
+        snapshot_id = snapshot_id or str(row.get("snapshot_id", "") or "").strip()
+        pn = str(row.get("pn") or row.get("part_number") or "").strip()
+        if not pn:
+            raise ValueError("Queue row missing pn/part_number")
+        if action_code == SCOUT_PRICE_ACTION_CODE:
+            requested_pns.append(pn)
+        else:
+            skipped_action_counts[action_code] += 1
+    return {
+        "queue_path": str(queue_path),
+        "queue_schema_version": QUEUE_SCHEMA_VERSION,
+        "snapshot_id": snapshot_id,
+        "requested_pns": requested_pns,
+        "requested_count": len(requested_pns),
+        "total_rows": len(rows),
+        "skipped_action_counts": dict(skipped_action_counts),
+    }
+
+
+def select_queue_seeded_rows(
+    *,
+    queue_request: dict[str, Any],
+    catalog_rows: list[dict[str, str]],
+    candidate_index: dict[str, list[dict[str, Any]]],
+    limit: int,
+) -> list[dict[str, str]]:
+    row_index = {row["pn"]: row for row in catalog_rows}
+    seeded: list[dict[str, str]] = []
+    for pn in queue_request.get("requested_pns", []):
+        row = row_index.get(pn)
+        if row is None or not candidate_index.get(pn):
+            continue
+        seeded.append(row)
+        if len(seeded) >= limit:
+            break
+    return seeded
+
+
 def materialize_price_result(
     row: dict[str, str],
     *,
@@ -233,10 +291,17 @@ def summarize_results(
     }
 
 
-def run(limit: int = 20, manual_seed_path: Path | None = None) -> dict[str, Any]:
+def run(
+    limit: int = 20,
+    manual_seed_path: Path | None = None,
+    queue_path: Path | None = None,
+) -> dict[str, Any]:
+    if manual_seed_path is not None and queue_path is not None:
+        raise ValueError("manual_seed_path and queue_path are mutually exclusive")
     batch_root = AUDITS_DIR / f"price_only_scout_pilot_{utc_stamp()}"
     batch_root.mkdir(parents=True, exist_ok=True)
     prior_run_dirs = discover_prior_run_dirs(AUDITS_DIR)
+    queue_request: dict[str, Any] | None = None
 
     if manual_seed_path is not None:
         manifest_path = batch_root / "manual_price_manifest.jsonl"
@@ -308,7 +373,16 @@ def run(limit: int = 20, manual_seed_path: Path | None = None) -> dict[str, Any]
             surface_cache_payload=surface_cache_payload,
         )
         catalog_rows = load_catalog_rows(INPUT_FILE)
-        selected_rows = select_seeded_rows(catalog_rows, candidate_index, limit=limit)
+        if queue_path is not None:
+            queue_request = load_queue_request(queue_path)
+            selected_rows = select_queue_seeded_rows(
+                queue_request=queue_request,
+                catalog_rows=catalog_rows,
+                candidate_index=candidate_index,
+                limit=limit,
+            )
+        else:
+            selected_rows = select_seeded_rows(catalog_rows, candidate_index, limit=limit)
         results = [
             materialize_price_result(
                 row,
@@ -345,6 +419,17 @@ def run(limit: int = 20, manual_seed_path: Path | None = None) -> dict[str, Any]
             "selected_rows_path": str(selected_path),
         }
     )
+    if queue_request is not None:
+        summary.update(
+            {
+                "queue_path": queue_request["queue_path"],
+                "queue_schema_version": queue_request["queue_schema_version"],
+                "queue_snapshot_id": queue_request["snapshot_id"],
+                "queue_total_rows": queue_request["total_rows"],
+                "queue_requested_count": queue_request["requested_count"],
+                "queue_skipped_action_counts": queue_request["skipped_action_counts"],
+            }
+        )
     summary_path = batch_root / "summary.json"
     summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     return summary
@@ -354,11 +439,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run a bounded price-only scout pilot from prior admissible surfaces.")
     parser.add_argument("--limit", type=int, default=20)
     parser.add_argument("--manual-seed", default="", help="Optional JSONL of Codex-seeded manual price observations.")
+    parser.add_argument("--queue", default="", help="Optional follow-up queue JSONL; only action_code=scout_price is processed.")
     args = parser.parse_args()
+    if args.manual_seed and args.queue:
+        parser.error("--manual-seed and --queue are mutually exclusive")
 
     summary = run(
         limit=args.limit,
         manual_seed_path=Path(args.manual_seed) if args.manual_seed else None,
+        queue_path=Path(args.queue) if args.queue else None,
     )
     print(
         f"requested_limit={summary['requested_limit']} "

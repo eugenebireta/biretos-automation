@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_885811",
+  "entity_id": "885811",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Power adapter cord",
+    "description_ru": "Цена/характеристики видимы на карточке производителя. citeturn41view0",
+    "category_suggestion": "Power adapter cord",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 59.99,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://parkworld.com/products/885811",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://parkworld.com/cdn/shop/products/885811_01_200x200.jpg?v=1740532159 citeturn43view1",
+    "specs": {
+      "raw": "50A; 125V; 6250W; 6AWG/3C; длина 18 inch citeturn41view0",
+      "aliases": [
+        "Parkworld 885811"
+      ]
+    },
+    "key_findings": [
+      "Цена/характеристики видимы на карточке производителя. citeturn41view0",
+      "Aliases: Parkworld 885811"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://parkworld.com/products/885811",
+        "type": "distributor",
+        "domain": "parkworld.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://parkworld.com/products/885811",
+      "type": "distributor",
+      "domain": "parkworld.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.055235+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

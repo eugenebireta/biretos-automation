@@ -1,0 +1,110 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5016A1135",
+  "entity_id": "V5016A1135",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Flanged 2-way valve",
+    "description_ru": "V5016A series; Stock On Fire lists quote-only",
+    "category_suggestion": "valve",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 2838.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.oumanshop.com/product/v5016a1135/",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://stockonfire.com/wp-content/uploads/2025/07/V5016A1135.jpg",
+    "specs": {
+      "raw": "2-way flanged; pressure-balanced; PN16; for high differential pressure / district heating",
+      "aliases": [
+        "Honeywell Alerton V5016A1135"
+      ]
+    },
+    "key_findings": [
+      "V5016A series; Stock On Fire lists quote-only",
+      "Aliases: Honeywell Alerton V5016A1135"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5016-series-2-way-flanged-pressure-balanced-large-linear-valves-pn16",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.oumanshop.com/product/v5016a1135/",
+        "type": "distributor",
+        "domain": "www.oumanshop.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: no, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://stockonfire.com/product/v5016a1135-linear-valve/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/.../v5016-series-2-way-flanged-pressure-balanced-large-linear-valves-pn16",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://oumanshop.com/product/v5016a1135/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5016-series-2-way-flanged-pressure-balanced-large-linear-valves-pn16",
+      "type": "—",
+      "domain": "buildings.honeywell.com",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.oumanshop.com/product/v5016a1135/",
+      "type": "distributor",
+      "domain": "www.oumanshop.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.953003+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

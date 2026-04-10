@@ -1,0 +1,629 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "LCD",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Монитор LCD",
+  "assembled_title": "Монитор Honeywell LCD",
+  "our_price_raw": "0,00",
+  "expected_category": "Монитор",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "PDF_NOT_EXACT_CONFIRMED"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_LCD",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_LCD"
+        ],
+        "evidence_ids": [
+          "ev_title_LCD"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_LCD"
+        ],
+        "evidence_ids": [
+          "ev_image_LCD"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_LCD"
+        ],
+        "evidence_ids": [
+          "ev_pdf_LCD"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_LCD"
+      ],
+      "evidence_ids": [
+        "ev_title_LCD"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_LCD"
+      ],
+      "evidence_ids": [
+        "ev_image_LCD"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_LCD"
+      ],
+      "evidence_ids": [
+        "ev_price_LCD"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_LCD"
+      ],
+      "evidence_ids": [
+        "ev_pdf_LCD"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\LCD.jpg",
+      "canonical_filename": "HONEYWELL_LCD_4bbc7348.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/annunciators-and-keypads/annunciators-and-keypads/lcd-160-liquid-crystal-display",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/annunciators-and-keypads/annunciators-and-keypads/lcd-160-liquid-crystal-display",
+      "replacement_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/annunciators-and-keypads/annunciators-and-keypads/lcd-160-liquid-crystal-display",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "На изображении электросчётчик/измерительный прибор на DIN-рейку, а не LCD монитор",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\LCD.jpg",
+    "sha1": "4bbc7348acf7dc1236216bf568512ccd384652fd",
+    "canonical_filename": "HONEYWELL_LCD_4bbc7348.jpg",
+    "public_url": null,
+    "width": 240,
+    "height": 180,
+    "size_kb": 29,
+    "source": "cached",
+    "phash": "b0c7931ccdb06c6e",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "exact",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY",
+      "PRICE_SEMANTIC_IDENTITY_MISMATCH"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/annunciators-and-keypads/annunciators-and-keypads/lcd-160-liquid-crystal-display",
+    "source_type": "other",
+    "source_tier": "official",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/annunciators-and-keypads/annunciators-and-keypads/lcd-160-liquid-crystal-display",
+    "price_source_domain": "buildings.honeywell.com",
+    "price_source_type": "other",
+    "price_source_tier": "official",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": false,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "url_path",
+    "price_source_clean_product_page": false,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "url_path_pn_match",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/annunciators-and-keypads/annunciators-and-keypads/lcd-160-liquid-crystal-display",
+    "price_source_replacement_domain": "buildings.honeywell.com",
+    "price_source_replacement_tier": "official",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "url_path",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": false,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://www.csd.com.au/ts1522132314/attachments/ProductAttachmentGroup/1/HF-LCD-80AU%20Datasheet.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "HONEYWELL LCD80",
+    "pdf_specs": {
+      "indicator panels (FIP)": "Up to 32 LCD-80s may be",
+      "connected onto the two-wire distributed ring": "The",
+      "“Terminal” and “Annunciator” mode": "Common Features",
+      "characters x 4 lines)": "• Time and date display field.",
+      "from the control panel": "• Mutable local piezo sounder with",
+      "alarm/fault/isolate resound": "• Flush or surface mount options available.",
+      "• EIA-485 interface": "up to 32 per FIP.",
+      "display interface to the BC200 FIP": "BC200 display.",
+      "• No programming necessary": "which are activated by a script event in",
+      "the FIP": "received from the panel.",
+      "• Displays device type identifiers": "of 60 characters each, programmed via",
+      "• Alarm/fault/isolate count": "BC200 PCI.",
+      "Isolates": "total number of active messages.",
+      "• Scroll buttons to view multiple events": "• Scroll buttons to view multiple",
+      "Specifications": "External Supply Voltage: 20VDC to 28VDC",
+      "Standby Current": "100mA",
+      "Alarm Current": "100mA",
+      "Communications Link": "EIA485 multi-dropped"
+    },
+    "pdf_text_excerpt": "HONEYWELL LCD80 LCD80 Mimic Annunciator General The LCD-80 is an 80-character, backlit LCD display annunciator for the Honeywell BC200 fire indicator panels (FIP). Up to 32 LCD-80s may be connected onto the two-wire distributed ring. The LCD-80 has two basic modes of operation, “Terminal” and “Annunciator” mode. Common Features • 80-character backlit Liquid Crystal Display (20 characters x 4 lines). • Time and date display field. • Can be remotely located up to 1000 metres from the control panel. • Mutable local piezo sounder with alarm/fault/isolate resound. • Flush or surface mount options a",
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Монитор LCD используется для отображения информации в системах видеонаблюдения и контроля. Он обеспечивает высокое качество изображения и надежность в эксплуатации.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Видеонаблюдение",
+    "product_type": "Монитор",
+    "seed_name": "Монитор LCD"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "url_path_pn_match",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": false,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:LCD:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:LCD:9c0fb020218d3d14c38009b0",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:LCD:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:LCD:9c0fb020218d3d14c38009b0",
+      "pn_primary": "LCD",
+      "normalized_title": "Монитор Honeywell LCD",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_LCD"
+          ],
+          "evidence_ids": [
+            "ev_title_LCD"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_LCD"
+          ],
+          "evidence_ids": [
+            "ev_image_LCD"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_LCD"
+          ],
+          "evidence_ids": [
+            "ev_price_LCD"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_LCD"
+          ],
+          "evidence_ids": [
+            "ev_pdf_LCD"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "official",
+        "pdf_source_tier": "unknown",
+        "image_source_tier": "official"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "unknown"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "official",
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.549604+00:00",
+    "source": "chatgpt",
+    "price": 293.93,
+    "currency": "USD",
+    "source_url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+    "category": "Printer spare part",
+    "image_url": null,
+    "price_type": "list_price",
+    "alias_found": "346-314S-001",
+    "specs": "Part #: 346-314S-001; Â«LCD, panel assy spare PM 23/43Â»; MSRP ÑÐºÐ°Ð·Ð°Ð½",
+    "notes": "PN=LCD ÑÑÐ°ÐºÑÐ¾Ð²Ð°Ð½ ÐºÐ°Ðº Ð²Ð½ÑÑÑÐµÐ½Ð½Ð¸Ð¹ ÑÑÐ»ÑÐº Â«LCD spare partÂ»; Ð¿ÑÑÐ¼Ð¾Ð³Ð¾ Â«LCDÂ» ÐºÐ°Ðº MPN Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾.",
+    "sources": [
+      {
+        "url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+        "page_type": "distributor",
+        "has_price": "Yes (MSRP)",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "thermalprintersupplies.com"
+      }
+    ]
+  },
+  "dr_price": 320.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+  "dr_category": "HMI Display",
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "radwell.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.476538+00:00",
+    "source": "gemini",
+    "price": 320.0,
+    "currency": "USD",
+    "source_url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+    "category": "HMI Display",
+    "image_url": null,
+    "price_type": "surplus",
+    "alias_found": "Replacement for T7350/T7750",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "radwell.com"
+      }
+    ]
+  },
+  "deep_research": {
+    "title_ru": "Printer spare part",
+    "specs": {
+      "raw": "Part #: 346-314S-001; «LCD, panel assy spare PM 23/43»; MSRP указан citeturn64search15",
+      "aliases": [
+        "346-314S-001 citeturn64search15"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "PN=LCD трактован как внутренний ярлык «LCD spare part»; прямого «LCD» как MPN не найдено. citeturn64search15",
+      "Aliases: 346-314S-001 citeturn64search15"
+    ],
+    "sources": [
+      {
+        "url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+        "type": "list_price",
+        "domain": "www.thermalprintersupplies.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.946503+00:00",
+    "merge_source": "result_LCD.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (4).md"
+  }
+}

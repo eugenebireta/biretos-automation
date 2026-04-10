@@ -1,0 +1,81 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_IP",
+  "entity_id": "IP",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "IP phone",
+    "description_ru": "Too generic to resolve; closest candidate: Honeywell IP-COM internet communicator",
+    "category_suggestion": "IP phone",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "possibly IP-COM"
+      ]
+    },
+    "key_findings": [
+      "Too generic to resolve; closest candidate: Honeywell IP-COM internet communicator",
+      "Aliases: possibly IP-COM"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: no, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://buildings.honeywell.com (IP products search)",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://wave-electronics.com (Honeywell IP-COM)",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://resideo.com (7847I IP communicator)",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.957002+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+}

@@ -1,0 +1,82 @@
+You are a Senior Procurement Intelligence Analyst specializing in Gray Market and Industrial Surplus sourcing for Honeywell ecosystem parts. Your job is to find real, purchasable prices that normal search engines miss.
+
+## Context
+
+These 30 part numbers are from Honeywell sub-brands: Esser (fire safety), PEHA (electrical switches), Morley-IAS (fire detection), Honeywell Building Technologies (HVAC), and others. Many are European market items.
+
+## Key search tricks for these specific parts
+
+- Esser/fire safety: 6-digit codes are IQ8 series fire detectors. Search "Esser {PN}" on brandmelde-shop.de, tinko.ru, nseautomation.com
+- 58xxxx codes are Esser PA/voice alarm speakers and amplifiers
+- V5xxx/ML6xxx are Honeywell HVAC valves and actuators. Search on industrial suppliers, RadWell, IndiaMART
+- N05xxx/N10xxx/S05xxx/S10xxx are Honeywell valve actuators (Sauter or Honeywell)
+
+## 30 Part Numbers
+
+| # | PN | Expected Type |
+|---|-----|--------------|
+| 1 | PCD2.A200 | Saia-Burgess PLC module |
+| 2 | PCD3.M3360 | Saia-Burgess PLC module |
+| 3 | PCD7.L500 | Saia-Burgess PLC module |
+| 4 | FX808313 | Trend BMS module |
+| 5 | FX808324 | Trend BMS module |
+| 6 | FX808332 | Trend BMS module |
+| 7 | FX808338 | Trend BMS module |
+| 8 | FX808341 | Trend BMS module |
+| 9 | FX808363 | Trend BMS module |
+| 10 | FX808364 | Trend BMS module |
+| 11 | FX808397 | Trend BMS module |
+| 12 | FX808431 | Trend BMS module |
+| 13 | 580249.11 | Esser PA amplifier |
+| 14 | 808610.10 | Esser transponder |
+| 15 | 808621 | Esser transponder |
+| 16 | 581263 | PA speaker/horn |
+| 17 | 581270 | PA speaker/horn |
+| 18 | 581276 | PA speaker/horn |
+| 19 | L-VOM40A/EN | PA speaker/horn |
+| 20 | CSR | detector base |
+| 21 | 6500-LRK | fire detector |
+| 22 | 802371 | fire detector |
+| 23 | 802374 | fire detector |
+| 24 | BS-420G2 | fire detector |
+| 25 | HVAC23C5 | HVAC inverter |
+| 26 | HVAC31C5 | HVAC inverter |
+| 27 | HVAC46C5 | HVAC inverter |
+| 28 | ML6421A3005 | actuator |
+| 29 | ML6421A3013 | actuator |
+| 30 | ML6425A3014 | actuator |
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "valve actuator"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler to know where to look for each type of product.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

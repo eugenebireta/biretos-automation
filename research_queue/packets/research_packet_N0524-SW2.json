@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_N0524-SW2",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "N0524-SW2",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN N0524-SW2 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=N0524-SW2",
+    "What is the full product name and product family for Honeywell N0524-SW2?",
+    "Is N0524-SW2 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell N0524-SW2"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "ambiguous_offer",
+    "price_source_url": "https://cappusa.com/p/3112841-honeywell-mn6105a1201/v/3112841?srsltid=AfmBOooOccweNgFXSXEatjboTisa9XHf3Cvh5EXAFJWs1tQ0lbPshKLm",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Привод заслонки Honeywell N0524-SW2",
+    "assembled_title": "Привод Honeywell N0524-SW2",
+    "expected_category": "Привод",
+    "our_price_raw": "16371,50",
+    "has_content_seed": true,
+    "price_currency": "USD",
+    "price_native_value": 221.33,
+    "price_rub": 19477.04,
+    "existing_source_url": "https://cappusa.com/p/3112841-honeywell-mn6105a1201/v/3112841?srsltid=AfmBOooOccweNgFXSXEatjboTisa9XHf3Cvh5EXAFJWs1tQ0lbPshKLm",
+    "pn_variants": [
+      "N0524.SW2",
+      "N0524SW2"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_N0524-SW2.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.501265Z"
+}

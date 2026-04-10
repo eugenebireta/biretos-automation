@@ -1,0 +1,531 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "583491A",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый",
+  "assembled_title": "Кабель Honeywell 583491A",
+  "our_price_raw": "1041,21",
+  "expected_category": "Кабель",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_583491A",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_583491A"
+        ],
+        "evidence_ids": [
+          "ev_image_583491A"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_583491A"
+        ],
+        "evidence_ids": [
+          "ev_pdf_583491A"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-06B",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.913758+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_583491A"
+      ],
+      "evidence_ids": [
+        "ev_title_583491A"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_583491A"
+      ],
+      "evidence_ids": [
+        "ev_image_583491A"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_583491A"
+      ],
+      "evidence_ids": [
+        "ev_price_583491A"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_583491A"
+      ],
+      "evidence_ids": [
+        "ev_pdf_583491A"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.855,
+    "image_confidence": 0.769,
+    "price_confidence": 0.35,
+    "overall": 0.643,
+    "overall_label": "MEDIUM",
+    "publishability": "REVIEW_REQUIRED",
+    "notes": [
+      "price_low_confidence",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\583491A.jpg",
+      "canonical_filename": "HONEYWELL_583491A_b8cfcdba.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://all-bez.ru/catalog/583491a/",
+      "origin_page_url": "https://all-bez.ru/catalog/583491a/",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.adiglobal.cz/sk/produkty121:21416248/input-cable-dom-amplifier",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.adiglobal.cz/sk/produkty121:21416248/input-cable-dom-amplifier",
+      "replacement_url": "https://www.adiglobal.cz/sk/produkty121:21416248/input-cable-dom-amplifier",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "логотип без предмета",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\583491A.jpg",
+    "sha1": "b8cfcdbac793832dad37d3ab99880afc9924a66f",
+    "canonical_filename": "HONEYWELL_583491A_b8cfcdba.jpg",
+    "public_url": null,
+    "width": 1280,
+    "height": 1024,
+    "size_kb": 51,
+    "source": "google:https://all-bez.ru/catalog/583491a/",
+    "phash": "ea9295a54a6ab595",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
+    "photo_reconsider": true,
+    "photo_reconsider_reason": "strong identity (title) + structured PN match"
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "exact",
+    "commercial_identity_status": "exact_product",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": "EUR",
+    "rub_price": null,
+    "fx_rate_used": 95.0,
+    "fx_provider": "stub",
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.adiglobal.cz/sk/produkty121:21416248/input-cable-dom-amplifier",
+    "source_type": "other",
+    "source_tier": "authorized",
+    "source_engine": "google_us",
+    "stock_status": "in_stock",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Input cable",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.adiglobal.cz/sk/produkty121:21416248/input-cable-dom-amplifier",
+    "price_source_domain": "adiglobal.cz",
+    "price_source_type": "other",
+    "price_source_tier": "authorized",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.adiglobal.cz/sk/produkty121:21416248/input-cable-dom-amplifier",
+    "price_source_replacement_domain": "adiglobal.cz",
+    "price_source_replacement_tier": "authorized",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "title",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": true,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Входной кабель Honeywell 583491A используется для подключения аудиоусилителей в системах звукового сопровождения. Длина кабеля составляет 0,5 м, цвет — зеленый.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Кабель",
+    "seed_name": "Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый",
+    "description_long_ru": "Esser by Honeywell; VARIODYN D1 voice alarm system; fire safety distributor quote only"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": true,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:583491A:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:583491A:bfbf8ee0489eec3a865946fd",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:583491A:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:583491A:bfbf8ee0489eec3a865946fd",
+      "pn_primary": "583491A",
+      "normalized_title": "Кабель Honeywell 583491A",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_583491A"
+          ],
+          "evidence_ids": [
+            "ev_title_583491A"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_583491A"
+          ],
+          "evidence_ids": [
+            "ev_image_583491A"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_583491A"
+          ],
+          "evidence_ids": [
+            "ev_price_583491A"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_583491A"
+          ],
+          "evidence_ids": [
+            "ev_pdf_583491A"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "authorized",
+        "pdf_source_tier": "",
+        "image_source_tier": "authorized"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "authorized",
+        "page_product_class": "Input cable",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "cable",
+    "description_ru": "Esser by Honeywell; VARIODYN D1 voice alarm system; fire safety distributor quote only",
+    "specs": {
+      "raw": "CAT5 patch cable; 0.5m; green; RJ45; DOM to 2-ch power amplifier",
+      "aliases": [
+        "Cable DOMRJ45-XVRJ45"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Esser by Honeywell; VARIODYN D1 voice alarm system; fire safety distributor quote only",
+      "Aliases: Cable DOMRJ45-XVRJ45"
+    ],
+    "sources": [
+      {
+        "url": "https://www.esser-systems.com/en/products/details/voice-alarm-system-variodynR-d1/variodyn-d1-comprio/583491a-cat5-patch-cable-05-m-green-dom-to-amplifier-1/",
+        "type": "—",
+        "domain": "www.esser-systems.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.838128+00:00",
+    "merge_source": "result_583491A.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+  },
+  "dr_category": "cable",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-583491a-variodyn-d1-cat5-patch-cable-0-5-m-green-dom-to-ampl-primaryimage"
+}

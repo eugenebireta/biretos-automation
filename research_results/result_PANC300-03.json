@@ -1,0 +1,58 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_PANC300-03",
+  "entity_id": "PANC300-03",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "DCS / панель удалённых модулей C300",
+    "description_ru": "Встречается в аукционном списке; цена за единицу не раскрыта без авторизации (видна только общая стоимость лота). citeturn12view0",
+    "category_suggestion": "DCS / панель удалённых модулей C300",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "C300 Panel (описание лота)"
+      ]
+    },
+    "key_findings": [
+      "Встречается в аукционном списке; цена за единицу не раскрыта без авторизации (видна только общая стоимость лота). citeturn12view0",
+      "Aliases: C300 Panel (описание лота)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://tbankrot.ru/item?id=7463584` citeturn12view0",
+        "type": "—",
+        "domain": "tbankrot.ru",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://tbankrot.ru/item?id=7463584` citeturn12view0",
+      "type": "—",
+      "domain": "tbankrot.ru",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.016638+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

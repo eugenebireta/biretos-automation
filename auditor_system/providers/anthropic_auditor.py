@@ -12,12 +12,11 @@ System prompt built dynamically from ContextAssembler context (SPEC §19.4).
 """
 from __future__ import annotations
 
-import json
 import logging
 from typing import Any
 
-from ..hard_shell.contracts import AuditVerdict, AuditVerdictValue, TaskPack
-from ..hard_shell.schema_validator import SchemaViolationError, validate_and_parse
+from ..hard_shell.contracts import AuditVerdict, TaskPack
+from ..hard_shell.schema_validator import validate_and_parse
 from .base import AuditorProvider
 # Reuse prompt builders from openai_auditor (same system/user prompt format)
 from .openai_auditor import _build_system_prompt, _build_user_prompt

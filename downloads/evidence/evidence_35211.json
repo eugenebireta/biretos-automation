@@ -1,0 +1,546 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "35211",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Датчик давления D 20.672.192 T",
+  "assembled_title": "Рамка 2-постовая PEHA NOVA, 35211",
+  "our_price_raw": "1226,33",
+  "expected_category": "Датчик",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_35211",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_35211"
+        ],
+        "evidence_ids": [
+          "ev_image_35211"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_35211"
+        ],
+        "evidence_ids": [
+          "ev_pdf_35211"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-06B",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.911759+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_35211"
+      ],
+      "evidence_ids": [
+        "ev_title_35211"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_35211"
+      ],
+      "evidence_ids": [
+        "ev_image_35211"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_35211"
+      ],
+      "evidence_ids": [
+        "ev_price_35211"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_35211"
+      ],
+      "evidence_ids": [
+        "ev_pdf_35211"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.712,
+    "image_confidence": 0.16,
+    "price_confidence": 0.35,
+    "overall": 0.403,
+    "overall_label": "LOW",
+    "publishability": "REVIEW_REQUIRED",
+    "notes": [
+      "price_low_confidence",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\35211.jpg",
+      "canonical_filename": "HONEYWELL_35211_626b7bfe.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://www.conrad.pl/pl/p/peha-by-honeywell-ramka-ramka-czarny-35211-1-szt-2856",
+      "origin_page_url": "https://www.conrad.pl/pl/p/peha-by-honeywell-ramka-ramka-czarny-35211-1-szt-2856",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cadre-cadre-noir-35211-1-pc-s-2856020.html",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cadre-cadre-noir-35211-1-pc-s-2856020.html",
+      "replacement_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cadre-cadre-noir-35211-1-pc-s-2856020.html",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "баннер категории сайта с человеком и логотипом, товар не показан",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\35211.jpg",
+    "sha1": "626b7bfe76e95bb2c78f3df7924ea85927506e08",
+    "canonical_filename": "HONEYWELL_35211_626b7bfe.jpg",
+    "public_url": null,
+    "width": 702,
+    "height": 141,
+    "size_kb": 13,
+    "source": "google:https://www.conrad.pl/pl/p/peha-by-honeywell-ramka-ramka-czarny-35211-1-szt-2856",
+    "phash": "a9cddde9ea961440",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
+    "photo_reconsider": true,
+    "photo_reconsider_reason": "strong identity (title) + structured PN match"
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "exact",
+    "commercial_identity_status": "exact_product",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cadre-cadre-noir-35211-1-pc-s-2856020.html",
+    "source_type": "other",
+    "source_tier": "industrial",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cadre-cadre-noir-35211-1-pc-s-2856020.html",
+    "price_source_domain": "conrad.ch",
+    "price_source_type": "other",
+    "price_source_tier": "industrial",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cadre-cadre-noir-35211-1-pc-s-2856020.html",
+    "price_source_replacement_domain": "conrad.ch",
+    "price_source_replacement_tier": "industrial",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "title",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": true,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": true,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Датчик давления D 20.672.192 T используется для контроля давления в промышленных системах. Обеспечивает точность и долговечность.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Датчик",
+    "seed_name": "Датчик давления D 20.672.192 T",
+    "description_long_ru": "Nova Basis 2-fold frame; €12.75 incl VAT / €8.56 ex VAT; 8-day lead time at Omnical"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": true,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": true,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:35211:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:35211:a9f97af09f05f7570d9c6c47",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:35211:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:35211:a9f97af09f05f7570d9c6c47",
+      "pn_primary": "35211",
+      "normalized_title": "Рамка 2-постовая PEHA NOVA, 35211",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_35211"
+          ],
+          "evidence_ids": [
+            "ev_title_35211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_35211"
+          ],
+          "evidence_ids": [
+            "ev_image_35211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_35211"
+          ],
+          "evidence_ids": [
+            "ev_price_35211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_35211"
+          ],
+          "evidence_ids": [
+            "ev_pdf_35211"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "industrial",
+        "pdf_source_tier": "",
+        "image_source_tier": "industrial"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": true,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "industrial",
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "PEHA frame",
+    "description_ru": "Nova Basis 2-fold frame; €12.75 incl VAT / €8.56 ex VAT; 8-day lead time at Omnical",
+    "specs": {
+      "raw": "83×154mm; 2-gang; deep black RAL 9005; thermoplastic; IP20; 0.021kg; halogen-free",
+      "aliases": [
+        "D 20.672.192 T",
+        "00035211",
+        "EAN 4010105035216"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Nova Basis 2-fold frame; €12.75 incl VAT / €8.56 ex VAT; 8-day lead time at Omnical",
+      "Aliases: D 20.672.192 T; 00035211; EAN 4010105035216"
+    ],
+    "sources": [
+      {
+        "url": "https://www.omnical.co/products/peha/00035211/1107237",
+        "type": "distributor",
+        "domain": "www.omnical.co",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.821097+00:00",
+    "merge_source": "result_35211.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
+  },
+  "dr_category": "PEHA frame",
+  "dr_image_url": "https://images.omnical.co/thumb/8169758a-b6a6-40ca-a333-b5f63844c661/7129?mw=300&mh=300",
+  "dr_price": 12.75,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.omnical.co/products/peha/00035211/1107237"
+}

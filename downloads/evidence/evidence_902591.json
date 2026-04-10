@@ -1,0 +1,670 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "902591",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Оптический извещатель Esser D 1930/4.02 O.A.",
+  "assembled_title": "Акустическая розетка PEHA, 902591",
+  "our_price_raw": "2447,00",
+  "expected_category": "Извещатель",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "CRITICAL_MISMATCH",
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_902591",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "CRITICAL_MISMATCH",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_price_902591"
+        ],
+        "evidence_ids": [
+          "ev_price_902591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_902591"
+        ],
+        "evidence_ids": [
+          "ev_image_902591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_902591"
+        ],
+        "evidence_ids": [
+          "ev_price_902591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_902591"
+        ],
+        "evidence_ids": [
+          "ev_pdf_902591"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-10",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.918759+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_902591"
+      ],
+      "evidence_ids": [
+        "ev_title_902591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "CRITICAL_MISMATCH",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_price_902591"
+      ],
+      "evidence_ids": [
+        "ev_price_902591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_902591"
+      ],
+      "evidence_ids": [
+        "ev_image_902591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_902591"
+      ],
+      "evidence_ids": [
+        "ev_price_902591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_902591"
+      ],
+      "evidence_ids": [
+        "ev_pdf_902591"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.128,
+    "image_confidence": 0.017,
+    "price_confidence": 0.1,
+    "overall": 0.076,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\902591.jpg",
+      "canonical_filename": "HONEYWELL_902591_caf81094.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://aelektro.ru/catalog/rozetki/audio/mekhanizm-audio-rozetki-honeywell-koll",
+      "origin_page_url": "https://aelektro.ru/catalog/rozetki/audio/mekhanizm-audio-rozetki-honeywell-koll",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-insert-prise-pour-haut-parleur-blanc-902591-1-pc-s-2855783.html",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-insert-prise-pour-haut-parleur-blanc-902591-1-pc-s-2855783.html",
+      "replacement_url": "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html?srsltid=AfmBOorRinuGUa4-pQqFW6_e6YEnjEXHWDr2XzpxBcWcnMSj-aQLvT8p",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "На изображении показана монтажная плата с клеммными колодками, а не оптический извещатель",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\902591.jpg",
+    "sha1": "caf810940f404fecdc0bbe44d178d05217635aea",
+    "canonical_filename": "HONEYWELL_902591_caf81094.jpg",
+    "public_url": null,
+    "width": 650,
+    "height": 650,
+    "size_kb": 93,
+    "source": "google:https://aelektro.ru/catalog/rozetki/audio/mekhanizm-audio-rozetki-honeywell-koll",
+    "phash": "aac4ed7c309ad1d8",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": [],
+    "photo_reconsider": true,
+    "photo_reconsider_reason": "strong identity (title) + structured PN match"
+  },
+  "price": {
+    "price_status": "category_mismatch_only",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "component_or_accessory",
+    "offer_admissibility_status": "ambiguous_offer",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_COMPONENT_OR_ACCESSORY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": 26.66,
+    "currency": "EUR",
+    "rub_price": 2532.7,
+    "fx_rate_used": 95.0,
+    "fx_provider": "stub",
+    "price_confidence": 25,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-insert-prise-pour-haut-parleur-blanc-902591-1-pc-s-2855783.html",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "in_stock",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": true,
+    "page_product_class": "Prise pour haut-parleur (Speaker Socket Insert)",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-insert-prise-pour-haut-parleur-blanc-902591-1-pc-s-2855783.html",
+    "price_source_domain": "conrad.fr",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html?srsltid=AfmBOorRinuGUa4-pQqFW6_e6YEnjEXHWDr2XzpxBcWcnMSj-aQLvT8p",
+    "price_source_replacement_domain": "voelkner.de",
+    "price_source_replacement_tier": "industrial",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "url_path",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [
+      "category_or_brand_mismatch",
+      "noisy_page_context",
+      "source_tier_not_admissible"
+    ],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "public_price_rejection",
+        "code": "category_or_brand_mismatch",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "public_price_rejection",
+        "code": "noisy_page_context",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "public_price_rejection",
+        "code": "source_tier_not_admissible",
+        "source_field": "price.public_price_rejection_reasons"
+      }
+    ],
+    "identity": [
+      {
+        "class": "identity_mismatch",
+        "code": "category_mismatch",
+        "source_field": "price.category_mismatch"
+      }
+    ]
+  },
+  "content": {
+    "specs": {
+      "Артикул:": "P902591",
+      "Бренд:": "PEHA",
+      "Цвет:": "Белый",
+      "Страна производитель:": "Германия",
+      "Материал:": "Композит",
+      "Монтажная коробка:": "68",
+      "Степень защиты:": "IP20",
+      "Способ монтажа:": "Скрытый",
+      "Тип товара:": "Механизм аудио-розетки",
+      "Ценовая принадлежность:": "Премиум",
+      "Коллекция:": "коллекции Peha"
+    },
+    "description": "Оптический извещатель Esser D 1930/4.02 O.A. предназначен для обнаружения дыма в помещении. Используется в системах пожарной сигнализации для защиты объектов от пожара.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Пожарная сигнализация",
+    "product_type": "Извещатель",
+    "seed_name": "Оптический извещатель Esser D 1930/4.02 O.A."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": ""
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:902591:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:902591:2461787b777f55631c79b9c0",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "CRITICAL_POLICY_CONFLICT",
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:902591:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:902591:2461787b777f55631c79b9c0",
+      "pn_primary": "902591",
+      "normalized_title": "Акустическая розетка PEHA, 902591",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_902591"
+          ],
+          "evidence_ids": [
+            "ev_title_902591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "CRITICAL_MISMATCH",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_price_902591"
+          ],
+          "evidence_ids": [
+            "ev_price_902591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_902591"
+          ],
+          "evidence_ids": [
+            "ev_image_902591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_902591"
+          ],
+          "evidence_ids": [
+            "ev_price_902591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_902591"
+          ],
+          "evidence_ids": [
+            "ev_pdf_902591"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "category_mismatch_only",
+        "source_tier": "unknown",
+        "page_product_class": "Prise pour haut-parleur (Speaker Socket Insert)",
+        "category_mismatch": true,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "CRITICAL_POLICY_CONFLICT",
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.289334+00:00",
+    "source": "chatgpt",
+    "price": 24.92,
+    "currency": "EUR",
+    "source_url": "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html",
+    "category": "speaker socket insert",
+    "image_url": "https://asset.re-in.de/isa/160267/c1/-/de/002855783PI00/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..webp?align=center&ex=500&ey=500&format=WEBP&quality=95&x=500&y=500",
+    "price_type": "distributor",
+    "alias_found": "902591",
+    "specs": "IP20; RAL 9010; 1 pc; ÑÐ²ÐµÑ Ð±ÐµÐ»ÑÐ¹",
+    "notes": "Voelkner: 24,92 â¬ incl. MwSt.; ÑÐµÑÐ¿Ð°ÑÐ°Ð¼ÐµÑÑÑ (IP20/RAL) Ð¿Ð¾Ð´ÑÐ²ÐµÑÐ¶Ð´Ð°ÑÑÑÑ Ð½Ð° Conrad.",
+    "sources": [
+      {
+        "url": "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "voelkner.de"
+      }
+    ]
+  },
+  "dr_price": 24.92,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html",
+  "dr_image_url": "https://asset.re-in.de/isa/160267/c1/-/de/002855783PI00/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..webp?align=center&ex=500&ey=500&format=WEBP&quality=95&x=500&y=500",
+  "dr_category": "speaker socket insert",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html",
+      "page_type": "distributor",
+      "has_price": "yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "voelkner.de"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.232455+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "TEMP SENSOR",
+    "source_url": "NTC 10k; Immersion; HVAC application",
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "speaker socket insert",
+    "specs": {
+      "raw": "IP20; RAL 9010; 1 pc; цвет белый",
+      "aliases": [
+        "902591"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Voelkner: 24,92 € incl. MwSt.; техпараметры (IP20/RAL) подтверждаются на Conrad. citeturn30view1turn30view0turn31view0",
+      "Aliases: 902591"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html`",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.874162+00:00",
+    "merge_source": "result_902591.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (3).md"
+  }
+}

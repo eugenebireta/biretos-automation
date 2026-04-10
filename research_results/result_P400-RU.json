@@ -1,0 +1,95 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_P400-RU",
+  "entity_id": "P400-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Professional graphics card",
+    "description_ru": "NVIDIA Quadro P400. -RU = Russian SKU, identical HW. Discontinued → replaced by T400. eBay used $30–93; new $99–169 at B&H.",
+    "category_suggestion": "Professional graphics card",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 92.98,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/164400798862",
+      "price_type": "surplus"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/HTQAAOSwbuFfbYqp/s-l1600.jpg",
+    "specs": {
+      "raw": "Pascal GP107; 256 CUDA; 2GB GDDR5; 64-bit; PCIe 3.0 x16; 3× mDP 1.4; 30W TDP; single-slot LP",
+      "aliases": [
+        "VCQP400-PB",
+        "VCQP400V2-PB",
+        "Dell 0F2NVH",
+        "HP 919985-002"
+      ]
+    },
+    "key_findings": [
+      "NVIDIA Quadro P400. -RU = Russian SKU, identical HW. Discontinued → replaced by T400. eBay used $30–93; new $99–169 at B&H.",
+      "Aliases: VCQP400-PB; VCQP400V2-PB; Dell 0F2NVH; HP 919985-002"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/164400798862",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.ebay.com/itm/164400798862",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.bhphotovideo.com/c/product/1326549-REG/pny_technologies_vcqp400_pb_nvidia_quadro_p400.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/productspage/quadro/quadro-desktop/quadro-pascal-p400-data-sheet-us-nv-704503-r1.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/itm/164400798862",
+      "type": "surplus",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.010122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

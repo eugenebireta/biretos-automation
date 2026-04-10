@@ -1,0 +1,625 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "400-ATII",
+  "pn_variants": [
+    "400.ATII",
+    "400ATII"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Жесткий диск Honeywell 400-ATII, 300GB 15K RPM SAS 12Gbps",
+  "assembled_title": "Жесткий диск Honeywell 400-ATII",
+  "our_price_raw": "18259,00",
+  "expected_category": "Жесткий диск",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_400-ATII",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_400-ATII"
+        ],
+        "evidence_ids": [
+          "ev_image_400-ATII"
+        ],
+        "policy_rule_id": "CAP-07",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_400-ATII"
+        ],
+        "evidence_ids": [
+          "ev_price_400-ATII"
+        ],
+        "policy_rule_id": "CAP-07",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_400-ATII"
+        ],
+        "evidence_ids": [
+          "ev_pdf_400-ATII"
+        ],
+        "policy_rule_id": "CAP-07",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-07",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.912758+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_400-ATII"
+      ],
+      "evidence_ids": [
+        "ev_title_400-ATII"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_400-ATII"
+      ],
+      "evidence_ids": [
+        "ev_image_400-ATII"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_400-ATII"
+      ],
+      "evidence_ids": [
+        "ev_price_400-ATII"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_400-ATII"
+      ],
+      "evidence_ids": [
+        "ev_pdf_400-ATII"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.617,
+    "image_confidence": 0.401,
+    "price_confidence": 0.1,
+    "overall": 0.387,
+    "overall_label": "LOW",
+    "publishability": "REVIEW_REQUIRED",
+    "notes": [
+      "price_low_confidence"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\400-ATII.jpg",
+      "canonical_filename": "HONEYWELL_400-ATII_5d698649.jpg",
+      "public_url": null,
+      "origin_ref": "yandex:https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pok",
+      "origin_page_url": "https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pok",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pokoleniya/zhestkie-diski-hdd/zhestkiy-disk-dell-400-atii-300gb-12g-15k-2-5-sas-v-komplekte-s-salazkami-dxd9h/",
+      "quote_cta_url": "info@linkas.ru",
+      "lineage_source_url": "https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pokoleniya/zhestkie-diski-hdd/zhestkiy-disk-dell-400-atii-300gb-12g-15k-2-5-sas-v-komplekte-s-salazkami-dxd9h/",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "жёсткий диск в салазках — товар угадывается",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\400-ATII.jpg",
+    "sha1": "5d698649dd66fadada265cec5521639d031c6663",
+    "canonical_filename": "HONEYWELL_400-ATII_5d698649.jpg",
+    "public_url": null,
+    "width": 430,
+    "height": 398,
+    "size_kb": 19,
+    "source": "yandex:https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pok",
+    "phash": "eb9294695a97a570",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "ambiguous_offer",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "ambiguous_offer",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": 90480,
+    "currency": "RUB",
+    "rub_price": 90480.0,
+    "fx_rate_used": 1.0,
+    "fx_provider": "stub",
+    "price_confidence": 25,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pokoleniya/zhestkie-diski-hdd/zhestkiy-disk-dell-400-atii-300gb-12g-15k-2-5-sas-v-komplekte-s-salazkami-dxd9h/",
+    "source_type": "ru_b2b",
+    "source_tier": "ru_b2b",
+    "source_engine": "yandex",
+    "stock_status": "backorder",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": true,
+    "quote_cta_url": "info@linkas.ru",
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Жесткий диск",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pokoleniya/zhestkie-diski-hdd/zhestkiy-disk-dell-400-atii-300gb-12g-15k-2-5-sas-v-komplekte-s-salazkami-dxd9h/",
+    "price_source_domain": "linkas.ru",
+    "price_source_type": "ru_b2b",
+    "price_source_tier": "ru_b2b",
+    "price_source_engine": "yandex",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": true,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [
+      "source_tier_not_admissible"
+    ],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "public_price_rejection",
+        "code": "source_tier_not_admissible",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {
+      "Артикул": "400-ATII",
+      "Количество дисков в комплекте": "1",
+      "Технология": "Serial Attached SCSI (SAS)",
+      "Форм-фактор": "SFF",
+      "Емкость": "300 Gb",
+      "Интерфейс": "SAS",
+      "Размер диска": "2.5\"",
+      "Скорость вращения": "15K (15000 RPM)",
+      "Скорость передачи данных": "12G (12Gb/sec)",
+      "Время поиска": "4,5 ms",
+      "Поддержка горячей замены": "Да",
+      "Салазки входят в комплект": "Да",
+      "Салазки поддерживают горячую замену диска": "Да",
+      "Артикул салазок": "DXD9H"
+    },
+    "description": "Жесткий диск Honeywell 400-ATII с объемом 300GB и скоростью вращения 15K RPM предназначен для использования в серверах и системах хранения данных. Обеспечивает высокую скорость передачи данных благодаря интерфейсу SAS 12Gbps.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Жесткий диск",
+    "seed_name": "Жесткий диск Honeywell 400-ATII, 300GB 15K RPM SAS 12Gbps"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": ""
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:400-ATII:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:400-ATII:cbaf0fd8c170e3458dacbf11",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:400-ATII:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:400-ATII:cbaf0fd8c170e3458dacbf11",
+      "pn_primary": "400-ATII",
+      "normalized_title": "Жесткий диск Honeywell 400-ATII",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_400-ATII"
+          ],
+          "evidence_ids": [
+            "ev_title_400-ATII"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_400-ATII"
+          ],
+          "evidence_ids": [
+            "ev_image_400-ATII"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_400-ATII"
+          ],
+          "evidence_ids": [
+            "ev_price_400-ATII"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_400-ATII"
+          ],
+          "evidence_ids": [
+            "ev_pdf_400-ATII"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "ru_b2b",
+        "pdf_source_tier": "",
+        "image_source_tier": "ru_b2b"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "ambiguous_offer",
+        "source_tier": "ru_b2b",
+        "page_product_class": "Жесткий диск",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.028104+00:00",
+    "source": "chatgpt",
+    "price": 140.69,
+    "currency": "EUR",
+    "source_url": "https://www.senetic.de/product/400-ATII",
+    "category": "Server storage Dell SAS HDD",
+    "image_url": "senetic.de",
+    "price_type": "distributor",
+    "alias_found": "Dell PN 400-ATII",
+    "specs": null,
+    "notes": "Prices exkl/inkl MwSt, 3 units available",
+    "sources": [
+      {
+        "url": "https://www.senetic.de/product/400-ATII",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "senetic.de"
+      }
+    ]
+  },
+  "dr_price": 140.69,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.senetic.de/product/400-ATII",
+  "dr_category": "Server storage Dell SAS HDD",
+  "dr_image_url": "surplusindustrial.com",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.740161+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CATALOG",
+    "source_url": "No",
+    "category": "No",
+    "image_url": "surplusindustrial.com",
+    "price_type": "legacy transmitter/interface part code",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.surplusindustrial.com/",
+        "page_type": "catalog",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "surplusindustrial.com"
+      }
+    ]
+  },
+  "dr_price_type": "legacy transmitter/interface part code",
+  "dr_sources": [
+    {
+      "url": "https://www.surplusindustrial.com/",
+      "page_type": "catalog",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "surplusindustrial.com"
+    }
+  ],
+  "deep_research": {
+    "title_ru": "Server storage (Dell PN): SAS HDD",
+    "specs": {
+      "aliases": [
+        "Dell PN 400-ATII (EAN 5397184036464)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "На странице показаны цены exkl./inkl. MwSt. и наличие (3 шт). citeturn32search9",
+      "Aliases: Dell PN 400-ATII (EAN 5397184036464)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.senetic.de/product/400-ATII` citeturn32search9",
+        "type": "distributor",
+        "domain": "www.senetic.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.831124+00:00",
+    "merge_source": "result_400-ATII.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (1).md"
+  }
+}

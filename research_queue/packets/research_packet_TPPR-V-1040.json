@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_TPPR-V-1040",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "TPPR-V-1040",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN TPPR-V-1040 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=TPPR-V-1040",
+    "What is the full product name and product family for Honeywell TPPR-V-1040?",
+    "Is TPPR-V-1040 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell TPPR-V-1040"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.isssafety.com/products/tppr-v-1040-honeywell-relay-output-module?srsltid=AfmBOoo-OGKyi0Wsmt-ekkPdg3dkfnDE6W6hqoIqXWDWmKs_H75hk_sb",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Модуль цифрового ввода Honeywell TPPR-V-1040",
+    "assembled_title": "Модуль Honeywell TPPR-V-1040",
+    "expected_category": "Модуль",
+    "our_price_raw": "100189,56",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.isssafety.com/products/tppr-v-1040-honeywell-relay-output-module?srsltid=AfmBOoo-OGKyi0Wsmt-ekkPdg3dkfnDE6W6hqoIqXWDWmKs_H75hk_sb",
+    "pn_variants": [
+      "TPPR.V.1040",
+      "TPPRV1040"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_TPPR-V-1040.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.540412Z"
+}

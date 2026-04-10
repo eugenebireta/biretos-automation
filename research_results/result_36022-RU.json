@@ -1,0 +1,62 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_36022-RU",
+  "entity_id": "36022-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "(false positive) consumer item",
+    "description_ru": "По “36022-RU” в выдаче преобладают нерелевантные товарные коды (не Honeywell). citeturn35search1turn35search4",
+    "category_suggestion": "(false positive) consumer item",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "—",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "По “36022-RU” в выдаче преобладают нерелевантные товарные коды (не Honeywell). citeturn35search1turn35search4",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://blossa.ua/ru/vytyazhka-v1-belaya-hepa-100w-bucos-cyclone-36022-ru.html`",
+        "type": "—",
+        "domain": "blossa.ua",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: no, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://blossa.ua/ru/vytyazhka-v1-belaya-hepa-100w-bucos-cyclone-36022-ru.html`",
+      "type": "—",
+      "domain": "blossa.ua",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.837295+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

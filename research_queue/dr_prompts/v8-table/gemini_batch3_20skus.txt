@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | C7355A1050 | multisensor |
+| 2 | FT6960-60 | thermostat |
+| 3 | V5013R1057 | valve |
+| 4 | V5013R1099 | valve |
+| 5 | V5015A1169 | valve |
+| 6 | V5016A1135 | valve |
+| 7 | V5328A1013 | valve |
+| 8 | V5328A1047 | valve |
+| 9 | V5328A1088 | valve |
+| 10 | V5328A1112 | valve |
+| 11 | V5421B1090 | valve |
+| 12 | V5832A1046 | valve |
+| 13 | VR420AB1002-0000 | valve |
+| 14 | M7294Q1015/U | valve actuator motor |
+| 15 | МЕТРОВ | cable |
+| 16 | WD19DCS | docking station |
+| 17 | XNX-RMAV-RNNNN | gas detector |
+| 18 | X-MAP4P | media player |
+| 19 | XFLR822A | module |
+| 20 | XFLR824A | module |
+
+## Search instructions
+
+- **Honeywell Building Tech** -- HVAC valves (V5xxx), actuators (ML6xxx, N05xxx), thermostats (T7xxx). Search: carrier.com, radwell.com, indiamart.com, prolinkpro.ru
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

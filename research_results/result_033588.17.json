@@ -1,0 +1,87 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_033588.17",
+  "entity_id": "033588.17",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Шарнирное соединение (шаровое) для извещателей Viewguard, настенное/угловое",
+    "description_ru": "Регулируемый кронштейн для точной установки извещателей движения серий Viewguard и SCM. Позволяет изменять угол обзора детектора по горизонтали и вертикали для исключения мертвых зон в охраняемом помещении.7",
+    "category_suggestion": "Connector (ABB)",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "https://cdn.productimages.abb.com/9PAA00000071734_400x400.jpg",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "033588",
+        "ABB code 7B033588"
+      ]
+    },
+    "key_findings": [
+      "ABB product, not Vanderbilt/Honeywell. Details gated behind ABB inquiry form. .17 suffix likely denotes variant.",
+      "Aliases: 033588; ABB code 7B033588"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://new.abb.com/products/7B033588/033588",
+        "type": "—",
+        "domain": "new.abb.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      },
+      {
+        "url": "\\-",
+        "type": "distributor",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: no, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://new.abb.com/products/7B033588/033588",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://new.abb.com/products/7B033588/033588",
+      "type": "—",
+      "domain": "new.abb.com",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    },
+    {
+      "url": "\\-",
+      "type": "distributor",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.007122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v1.md"
+}

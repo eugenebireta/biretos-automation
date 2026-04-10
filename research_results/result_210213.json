@@ -1,0 +1,53 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_210213",
+  "entity_id": "210213",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 53.24,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.sandervunderink.nl/peha-tronic-dimmer-315w-433hab.html` citeturn37view1",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "D 433 HAB O.A.",
+    "sources": [
+      {
+        "url": "`https://www.sandervunderink.nl/peha-tronic-dimmer-315w-433hab.html` citeturn37view1",
+        "type": "distributor",
+        "domain": "www.sandervunderink.nl",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "title_ru": "dimmer"
+  },
+  "sources": [
+    {
+      "url": "`https://www.sandervunderink.nl/peha-tronic-dimmer-315w-433hab.html` citeturn37view1",
+      "type": "distributor",
+      "domain": "www.sandervunderink.nl",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:59:00.039206Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

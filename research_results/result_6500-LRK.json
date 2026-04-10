@@ -1,0 +1,97 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_6500-LRK",
+  "entity_id": "6500-LRK",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Beam detector reflector kit",
+    "description_ru": "Also €168.06 at elettronew.com; £218.60 at acornfiresecurity.com",
+    "category_suggestion": "Beam detector reflector kit",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 165.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://evidence.lv/en/conventional-fire-alarm-systems/conventional-detectors/reflektoru-komplekts-3-gab.html",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "3 reflectors (0.4×0.4m each); extends beam range 70→100m; for 6500RE/NFXI-BEAM",
+      "aliases": [
+        "BEAM-LRK"
+      ]
+    },
+    "key_findings": [
+      "Also €168.06 at elettronew.com; £218.60 at acornfiresecurity.com",
+      "Aliases: BEAM-LRK"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://evidence.lv/en/conventional-fire-alarm-systems/conventional-detectors/reflektoru-komplekts-3-gab.html",
+        "type": "distributor",
+        "domain": "evidence.lv",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.acornfiresecurity.com/morley-6500-lrk-long-range-reflector-kit-70m-100m",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://evidence.lv/en/conventional-fire-alarm-systems/conventional-detectors/reflektoru-komplekts-3-gab.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.elettronew.com/en/fire-protection-systems/reflector-fire-notifier-long-range-70-100m-6500-lrk-23775.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/in/en/products/by-category/sensors/reflector-kits/6500-lrk-long-range-reflection-kit-75-100m",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://evidence.lv/en/conventional-fire-alarm-systems/conventional-detectors/reflektoru-komplekts-3-gab.html",
+      "type": "distributor",
+      "domain": "evidence.lv",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.967514+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

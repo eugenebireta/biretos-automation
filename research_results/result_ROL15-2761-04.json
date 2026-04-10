@@ -1,0 +1,68 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_ROL15-2761-04",
+  "entity_id": "ROL15-2761-04",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "printer spare part (platen roller)",
+    "description_ru": "",
+    "category_suggestion": "printer spare part (platen roller)",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 62.1,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.com/itm/266625014296` citeturn20view1",
+      "price_type": "gray_market"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "MPN ROL15-2761-04; condition new; совместимость: I‑Class printers (по лоту) citeturn20view1",
+      "aliases": [
+        "Delfi: 64.00 € excl. VAT citeturn20view3"
+      ]
+    },
+    "key_findings": [
+      "Aliases: Delfi: 64.00 € excl. VAT citeturn20view3"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/266625014296` citeturn20view1",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.com/itm/266625014296` citeturn20view1",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.045729+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

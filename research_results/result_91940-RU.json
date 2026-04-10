@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_91940-RU",
+  "entity_id": "91940-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PVC conduit",
+    "description_ru": "На странице единица измерения — пог.м, при этом бухта 20 м указана в описании. citeturn37view0",
+    "category_suggestion": "PVC conduit",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 37.59,
+      "currency": "UAH",
+      "unit_basis": "piece",
+      "source_url": "https://elnik.shop/truba-pvh-gnuchka-gofrovana-diametr-40mm-standartna-z-protyagkoyu-sirij-kolir-20-m-p-octopus-dks-91940-ru",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://elnik.shop/image/cache/catalog/gofrovani-trubi-z-plastika/0/221237971-91940-dks-ukrajina-1000x1000.jpeg citeturn38view0",
+    "specs": {
+      "raw": "Øнаруж 40 мм; Øвнутр 31.8 мм; IP55; прочность 350Н; длина 20000 мм; -25…+60°C; не распространяет горение citeturn37view0",
+      "aliases": [
+        "91940 (DKC)"
+      ]
+    },
+    "key_findings": [
+      "На странице единица измерения — пог.м, при этом бухта 20 м указана в описании. citeturn37view0",
+      "Aliases: 91940 (DKC)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://elnik.shop/truba-pvh-gnuchka-gofrovana-diametr-40mm-standartna-z-protyagkoyu-sirij-kolir-20-m-p-octopus-dks-91940-ru",
+        "type": "distributor",
+        "domain": "elnik.shop",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://elnik.shop/truba-pvh-gnuchka-gofrovana-diametr-40mm-standartna-z-protyagkoyu-sirij-kolir-20-m-p-octopus-dks-91940-ru",
+      "type": "distributor",
+      "domain": "elnik.shop",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.058236+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

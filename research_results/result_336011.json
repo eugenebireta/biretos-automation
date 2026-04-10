@@ -1,0 +1,82 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_336011",
+  "entity_id": "336011",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA insert",
+    "description_ru": "Not found in any online catalog; may be discontinued or incorrect PN; Dialog aluminium range suspected",
+    "category_suggestion": "PEHA insert",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "—",
+    "specs": {
+      "raw": "not confirmed",
+      "aliases": [
+        "00336011 (assumed)"
+      ]
+    },
+    "key_findings": [
+      "Not found in any online catalog; may be discontinued or incorrect PN; Dialog aluminium range suspected",
+      "Aliases: 00336011 (assumed)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: no, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.pehastore.de/schalterprogramme/dialog/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.elektronetshop.de/alle-produkte/peha-dialog-schalterprogramm/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.elektrobode.nl/categories/schakelmateriaal/peha/dialog",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.973646+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

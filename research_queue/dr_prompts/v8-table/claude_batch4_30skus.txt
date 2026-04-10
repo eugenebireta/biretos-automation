@@ -1,0 +1,90 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- Many are **PEHA** brand — German electrical accessories (frames, rocker switches, sockets, inserts). These are NOT fire sensors. Search on ebay.de, conrad.de, voelkner.de, elektroversand.de.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different Honeywell sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | TPPR-V-1040 [also: TPPR.V.1040, TPPRV1040] | module | Модуль цифрового ввода Honeywell TPPR-V-1040 | 100189.56 |
+| 2 | SMB500 | mounting box | Монтажный корпус Honeywell SMB500 | 218.25 |
+| 3 | NE-NICS02 [also: NE.NICS02, NENICS02] | network card | Сетевая карта Honeywell NE-NICS02 | 87612.50 |
+| 4 | CATALIST | network switch | Свитч Honeywell CATALIST | 0.00 |
+| 5 | 804791 | panel | Панель дистанционной индикации Loop LED 804791 | 34511.29 |
+| 6 | RIC-F-LCU24-01C [also: RIC.F.LCU24.01C, RICFLCU2401C] | panel | Панель Quick-Pack RIC-F-LCU24-01C | 15363.43 |
+| 7 | EDA61K-SH-DC [also: EDA61K.SH.DC, EDA61KSHDC] | pistol grip handle | Пистолетная рукоять для ТСД Honeywell EDA61K-SH-DC | 10226.32 |
+| 8 | CF274A | printer | Принтер Honeywell CF274A | 6164.00 |
+| 9 | PHASER | printer | Принтер PHASER | 0.00 |
+| 10 | FCP3-RACK [also: FCP3.RACK, FCP3RACK] | rack cabinet | Оптический шкаф Honeywell FCP3-RACK | 11265.29 |
+| 11 | AT-MMCR18-60-RU [also: AT.MMCR18.60.RU, ATMMCR1860RU] | rack chassis | Шасси Allied Telesis AT-MMCR18-60-RU | 52788.50 |
+| 12 | AF00-B65 [also: AF00.B65, AF00B65] | sensor | Датчик температуры Honeywell OUTDOOR AIR PT1000, IP65 | 2791.00 |
+| 13 | DPTE1000S | sensor | Датчик перепада давления Honeywell DPTE1000S | 55842.00 |
+| 14 | DTI6 | sensor | Датчик давления Honeywell DTI6 | 7096.00 |
+| 15 | PTSRB0101V3 | sensor | Электронный датчик давления PTSRB0101V3 | 70871.30 |
+| 16 | SF00-B54 [also: SF00.B54, SF00B54] | sensor | Накладной датчик SF00-B54 | 8575.84 |
+| 17 | T7460A1018 | sensor | Комнатный датчик PT1000 Honeywell T7460A1018 | 8086.28 |
+| 18 | T7560B1008 | sensor | Настенный датчик температуры Honeywell T7560B1008 | 21939.27 |
+| 19 | VF00-3B65NW [also: VF00.3B65NW, VF003B65NW] | sensor | Погружной датчик Honeywell VF00-3B65NW | 21104.36 |
+| 20 | MZ-PCWS77 [also: MZ.PCWS77, MZPCWS77] | workstation | Рабочая станция Dell R7920XL RAID1 RACK | 206421.50 |
+| 21 | MZ-PCWS84 [also: MZ.PCWS84, MZPCWS84] | workstation | Рабочая станция HP Z4 G4 RAID1 TOWER | 43032.00 |
+| 22 | 101411 | PEHA AURA frame | Датчик температуры D 20.572.51.70 | 6201.83 |
+| 23 | 174411 | PEHA AURA frame | Термостатический вентиль Honeywell D 20.574.64 T | 952.40 |
+| 24 | 125711 | PEHA AURA insert | Термостатический вентиль Honeywell D 20.610.21 TV | 714.10 |
+| 25 | 174813 | PEHA AURA insert | Радиоприемник Honeywell D 20.485.64 RADIO | 25482.00 |
+| 26 | 104011 | PEHA AURA rocker switch | Датчик температуры D 20.545.02 | 625.95 |
+| 27 | 109411 | PEHA AURA rocker switch | Датчик температуры D 20.645.21 | 669.60 |
+| 28 | 127411 | PEHA AURA socket | Термостатический вентиль Honeywell D 20.6511.21 | 919.27 |
+| 29 | 603111 | PEHA COMPACTA frame | Датчик D 771.02 | 188.58 |
+| 30 | 369211 | PEHA DIALOG frame | Устройство Honeywell D 95.572.78 | 552.60 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

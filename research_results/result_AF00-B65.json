@@ -1,0 +1,101 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_AF00-B65",
+  "entity_id": "AF00-B65",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Outdoor temperature sensor",
+    "description_ru": "Honeywell Connected Building. Price excl. VAT. EAN 4046911076709",
+    "category_suggestion": "Outdoor temperature sensor",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 75.12,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "Pt1000; -40…+70°C; ±0.3°C accuracy; IP65; 2-wire; time constant ≤3 min; polycarbonate UL94-V0",
+      "aliases": [
+        "AF00-B54 (IP54 version)",
+        "AF10-B65 (NTC 10k)",
+        "AF20-B65 (NTC 20k)"
+      ]
+    },
+    "key_findings": [
+      "Honeywell Connected Building. Price excl. VAT. EAN 4046911076709",
+      "Aliases: AF00-B54 (IP54 version); AF10-B65 (NTC 10k); AF20-B65 (NTC 20k)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.bolasystems.com/honeywell-af00-b65-outdoor-temperature-sensor-pt1000-40-70-c",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/ba-bms-AF00-AF10-and-AF20-OUTSIDE-TEMPERATURE-SENSORS-Datasheet-English.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/in/en/products/by-category/sensors/temperature-sensors/outside-temperature-sensor",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
+      "type": "distributor",
+      "domain": "emoteek.net",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.989062+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

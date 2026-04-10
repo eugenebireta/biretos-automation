@@ -1,0 +1,82 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CSR",
+  "entity_id": "CSR",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Detector base",
+    "description_ru": "Very generic PN; likely Morley-IAS MOR.CSR; limited data",
+    "category_suggestion": "Detector base",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "raw": "Standard detector base; Morley-IAS brand; conventional type",
+      "aliases": [
+        "MOR.CSR"
+      ]
+    },
+    "key_findings": [
+      "Very generic PN; likely Morley-IAS MOR.CSR; limited data",
+      "Aliases: MOR.CSR"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://unicat.msf.org/cat/product/95627",
+        "type": "—",
+        "domain": "unicat.msf.org",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md. Price: no, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://unicat.msf.org/cat/product/95627",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://www.esser-systems.com/en/products/list/automatic-detectors/base-series-iq8quad-es-detect/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/catalogs/Morley-IAS-Product-Catalog-Nordics-2023.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://unicat.msf.org/cat/product/95627",
+      "type": "—",
+      "domain": "unicat.msf.org",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.967514+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+}

@@ -1,0 +1,98 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_35211",
+  "entity_id": "35211",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA frame",
+    "description_ru": "Nova Basis 2-fold frame; €12.75 incl VAT / €8.56 ex VAT; 8-day lead time at Omnical",
+    "category_suggestion": "PEHA frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 12.75,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.omnical.co/products/peha/00035211/1107237",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://images.omnical.co/thumb/8169758a-b6a6-40ca-a333-b5f63844c661/7129?mw=300&mh=300",
+    "specs": {
+      "raw": "83×154mm; 2-gang; deep black RAL 9005; thermoplastic; IP20; 0.021kg; halogen-free",
+      "aliases": [
+        "D 20.672.192 T",
+        "00035211",
+        "EAN 4010105035216"
+      ]
+    },
+    "key_findings": [
+      "Nova Basis 2-fold frame; €12.75 incl VAT / €8.56 ex VAT; 8-day lead time at Omnical",
+      "Aliases: D 20.672.192 T; 00035211; EAN 4010105035216"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.omnical.co/products/peha/00035211/1107237",
+        "type": "distributor",
+        "domain": "www.omnical.co",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.omnical.co/products/peha/00035211/1107237",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.omnical.co/products/peha/00035211/1107237",
+      "type": "distributor",
+      "domain": "www.omnical.co",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.975647+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

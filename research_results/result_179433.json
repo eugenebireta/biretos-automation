@@ -1,0 +1,55 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_179433",
+  "entity_id": "179433",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Unknown",
+    "description_ru": "По запросу PN найден нерелевантный контент (ID изображения/адрес), коммерческих карточек товара не найдено. citeturn44search7",
+    "category_suggestion": null,
+    "price_assessment": "not_found",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "Unable to perform web search due to technical issues with the search tool."
+    ],
+    "ambiguities": [
+      "No search results could be retrieved."
+    ],
+    "sources": [
+      {
+        "url": "`https://commons.wikimedia.org/wiki/File%3ABridge_over_the_A27%2C_Shoreham_-_geograph.org.uk_-_179433.jpg` citeturn44search7",
+        "type": "—",
+        "domain": "commons.wikimedia.org",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "No information could be found as the search tool consistently failed to return relevant results."
+  },
+  "sources": [
+    {
+      "url": "`https://commons.wikimedia.org/wiki/File%3ABridge_over_the_A27%2C_Shoreham_-_geograph.org.uk_-_179433.jpg` citeturn44search7",
+      "type": "—",
+      "domain": "commons.wikimedia.org",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:52:44.145937Z",
+  "provider": "gemini_grounding",
+  "model": "gemini-2.5-flash",
+  "raw_response_length": 838,
+  "cost_usd": 0.004,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

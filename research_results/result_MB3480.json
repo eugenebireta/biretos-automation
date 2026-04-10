@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_MB3480",
+  "entity_id": "MB3480",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Industrial networking: Modbus gateway",
+    "description_ru": "eBay, состояние “New”. citeturn16search2",
+    "category_suggestion": "Industrial networking: Modbus gateway",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 703.37,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "`https://www.ebay.com/itm/388702932359` citeturn16search2",
+      "price_type": "gray_market"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "MOXA MGate MB3480"
+      ]
+    },
+    "key_findings": [
+      "eBay, состояние “New”. citeturn16search2",
+      "Aliases: MOXA MGate MB3480"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.ebay.com/itm/388702932359` citeturn16search2",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.ebay.com/itm/388702932359` citeturn16search2",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.019637+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

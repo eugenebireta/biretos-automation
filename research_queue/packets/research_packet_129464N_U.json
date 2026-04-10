@@ -1,0 +1,66 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_129464N/U",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "129464N/U",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 129464N/U (Honeywell)",
+  "research_reason": "category_mismatch",
+  "priority": "low",
+  "questions_to_resolve": [
+    "What is the correct product category for Honeywell 129464N/U (Миниатюрная трубка Honeywell Mini Peeper 129464N/U)?",
+    "Is the expected category 'Трубка' correct for this product?",
+    "What similar part numbers exist in the same product family?",
+    "Provide any relevant Russian-language product description for Honeywell 129464N/U"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "category_mismatch_only",
+    "price_source_url": "https://www.ulcontrols.com/shop/burner-and-combustion-controls/honeywell-burner-and-combustion-controls/flame-sensors/honeywell-129464n-u-uv-power-tube-40-to-250f-for-c7035-c7061/",
+    "category_mismatch": true,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "category_mismatch",
+      "mismatch_blocks_publish"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Миниатюрная трубка Honeywell Mini Peeper 129464N/U",
+    "assembled_title": "Трубка Honeywell 129464N/U",
+    "expected_category": "Трубка",
+    "our_price_raw": "1997,60",
+    "has_content_seed": true,
+    "price_currency": "USD",
+    "price_native_value": 567.8,
+    "price_rub": 49966.4,
+    "existing_source_url": "https://www.ulcontrols.com/shop/burner-and-combustion-controls/honeywell-burner-and-combustion-controls/flame-sensors/honeywell-129464n-u-uv-power-tube-40-to-250f-for-c7035-c7061/",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_129464N_U.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.301811Z"
+}

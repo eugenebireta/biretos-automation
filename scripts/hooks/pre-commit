@@ -1,0 +1,11 @@
+#!/bin/sh
+# Know-How enforcement: warn if scripts/orchestrator changed but KNOW_HOW.md not updated
+if git diff --cached --name-only | grep -qE '^(scripts/|orchestrator/).*\.py$'; then
+    if ! git diff --cached --name-only | grep -q '^KNOW_HOW\.md$'; then
+        echo ""
+        echo "WARNING: You modified scripts/ or orchestrator/ but didn't update KNOW_HOW.md"
+        echo "  If you discovered a new rule, bug, or script behavior, append one line:"
+        echo "  YYYY-MM-DD #tag scope: fact"
+        echo ""
+    fi
+fi

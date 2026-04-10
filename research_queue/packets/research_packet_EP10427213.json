@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_EP10427213",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "EP10427213",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN EP10427213 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=EP10427213",
+    "What is the full product name and product family for Honeywell EP10427213?",
+    "Is EP10427213 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell EP10427213"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "REJECT",
+    "price_status": "no_price_found",
+    "price_source_url": "https://knx-trade.com/smart-home-systems/sensors/presence-detectors/esylux-ep10427213-knx-presence-detector-pd-atmo-360-8-m-t-flush-mounted/",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Датчик присутствия Honeywell PD-ATMO360i/8 T KNX",
+    "assembled_title": "Датчик Honeywell EP10427213",
+    "expected_category": "Датчик",
+    "our_price_raw": "36607,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://knx-trade.com/smart-home-systems/sensors/presence-detectors/esylux-ep10427213-knx-presence-detector-pd-atmo-360-8-m-t-flush-mounted/",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_EP10427213.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.464261Z"
+}

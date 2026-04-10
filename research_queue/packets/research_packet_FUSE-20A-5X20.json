@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_FUSE-20A-5X20",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "FUSE-20A-5X20",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN FUSE-20A-5X20 (Honeywell)",
+  "research_reason": "no_price_lineage",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Find a public market price for Honeywell FUSE-20A-5X20 from a verifiable distributor",
+    "Is FUSE-20A-5X20 RFQ-only or available with published pricing?",
+    "Which authorized distributors carry this part number?",
+    "Provide any relevant Russian-language product description for Honeywell FUSE-20A-5X20"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": null,
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "NO_PRICE_EVIDENCE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Предохранитель плавкий Honeywell FUSE-20A-5X20",
+    "assembled_title": "Предохранитель Honeywell FUSE-20A-5X20",
+    "expected_category": "Предохранитель",
+    "our_price_raw": "584,03",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": null,
+    "pn_variants": [
+      "FUSE.20A.5X20",
+      "FUSE20A5X20"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_FUSE-20A-5X20.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.470260Z"
+}

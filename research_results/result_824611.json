@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_824611",
+  "entity_id": "824611",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "cover plate",
+    "description_ru": "Computersalg показывает DKK 122.00 (ex moms 97.60), статус “Udsolgt”. citeturn56search5",
+    "category_suggestion": "cover plate",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 122.0,
+      "currency": "DKK",
+      "unit_basis": "piece",
+      "source_url": "`https://www.computersalg.dk/i/10462587/peha-by-honeywell-afd%C3%A6kning-afd%C3%A6kning-824611-1-stk`",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "ex moms 97.60; EAN 4010105824612",
+      "aliases": [
+        "824611"
+      ]
+    },
+    "key_findings": [
+      "Computersalg показывает DKK 122.00 (ex moms 97.60), статус “Udsolgt”. citeturn56search5",
+      "Aliases: 824611"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.computersalg.dk/i/10462587/peha-by-honeywell-afd%C3%A6kning-afd%C3%A6kning-824611-1-stk`",
+        "type": "distributor",
+        "domain": "www.computersalg.dk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.computersalg.dk/i/10462587/peha-by-honeywell-afd%C3%A6kning-afd%C3%A6kning-824611-1-stk`",
+      "type": "distributor",
+      "domain": "www.computersalg.dk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.846294+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

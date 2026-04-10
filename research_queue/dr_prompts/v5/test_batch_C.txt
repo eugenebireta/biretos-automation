@@ -1,0 +1,105 @@
+Research 8 industrial part numbers for a B2B catalog. You will produce
+both a narrative technical review AND structured data tables.
+
+## SEARCH PROTOCOL
+
+For each part number, follow this sequence:
+1. Google `"{PN}"` in quotes -- identify the product
+2. Google `"{PN}" datasheet` or `"{PN}" PDF` -- find official documentation
+3. If nothing: remove suffix (`.10`, `-RU`, `-L3`, `/U`) and retry
+4. If still nothing: add brand prefix (`Honeywell {PN}`, `PEHA {PN}`, `Esser {PN}`)
+5. Check eBay (ebay.de + ebay.com + ebay.co.uk) for photos and surplus pricing
+6. Check Russian sources for RUB prices: vseinstrumenti.ru, lemanapro.ru, etm.ru, electropara.ru, tinko.ru, bionic.spb.ru
+
+## PRODUCT CONTEXT
+
+These products belong to the Honeywell ecosystem of brands:
+
+| Brand | Products | PN Pattern | Best Search Sites |
+|---|---|---|---|
+| Honeywell Micro Switch | Toggle switch accessories: sealing boots (IP67/IP68), guards, levers | 101411, 109411, 125711 | mouser.com, digikey.com, newark.com |
+| Honeywell Thermal Solutions | UV flame sensors, burner controls | 129464N/U | customer.honeywell.com, combustion911.com |
+| Honeywell Building Tech | HVAC valves V5xxx, actuators ML6xxx | V5011, 153711 | carrier.com, radwell.com, prolinkpro.ru |
+| Honeywell Safety / Howard Leight | PPE: ear plugs, earmuffs, harnesses | 1000106, 1012541 | grainger.com, amazon.com |
+
+IMPORTANT: Part numbers 101411, 104011, 109411, 125711, 127411 are Micro Switch SEALING BOOTS
+(герметизирующие колпачки для тумблеров), NOT lockout/tagout devices.
+
+## Part Numbers
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 101411 | Honeywell Micro Switch sealing boot |
+| 2 | 104011 | Honeywell Micro Switch sealing boot |
+| 3 | 109411 | Honeywell Micro Switch sealing boot |
+| 4 | 125711 | Honeywell Micro Switch sealing boot |
+| 5 | 127411 | Honeywell Micro Switch sealing boot |
+| 6 | 129464N/U | Honeywell UV flame sensor tube |
+| 7 | 153711 | Honeywell HVAC globe valve |
+| 8 | 1000106 | Howard Leight ear plugs |
+
+## Required Output
+
+### Part 1: Technical Review (Russian narrative)
+
+Write a comprehensive technical article in Russian covering all 8 products.
+Group by product family. For each product write 100-200 words explaining:
+- What it is, series/family, manufacturer
+- How it works, key technical principle
+- Specifications with real numbers (dimensions, ratings, ranges)
+- Application areas (types of facilities, systems)
+- What makes this modification unique (suffix meaning, variant)
+- Compatibility and ecosystem context
+
+Write as a senior technical editor. Use natural Russian.
+This text will be used directly in our product catalog descriptions.
+
+Example quality level:
+"Защитные аксессуары для переключателей Micro Switch. Артикул 101411 -- это герметизирующий
+колпачок (sealing boot) из силиконовой резины для тумблерных переключателей серии Honeywell
+Micro Switch. Предназначен для повышения степени защиты переключателя до IP67/IP68 в условиях
+воздействия пыли, влаги и агрессивных сред. Крепится на резьбовую часть тумблера и полностью
+изолирует механизм от внешних факторов. Применяется в панелях управления морских судов,
+горнодобывающей техники и промышленного оборудования."
+
+### Part 2: Structured Tables
+
+**Table 1 -- Product data (ALL 8 rows, every PN must appear)**
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Column requirements:
+- **Part Number**: exact PN from input list
+- **Brand**: real manufacturer
+- **Product Name (Russian)**: concise name, 5-15 words
+- **Description (Russian)**: 3-5 sentences, professional tone. What, why, where, how.
+- **Category**: Russian category name
+- **Price**: real found price or "Not found". NEVER estimate or guess.
+- **Datasheet PDF URL**: direct link to the PDF file
+- **Key Specs**: structured: `param: value; param: value`
+- **EAN/GTIN**: barcode number if found
+
+**Table 2 -- Documents found**
+
+| Part Number | Document URL | Document Type | Language |
+|---|---|---|---|
+
+Only include rows where you actually found a document.
+Document Type: Datasheet, Installation Manual, Certificate, Technical Manual
+
+**Table 3 -- All URLs visited (ALL 8 PNs)**
+
+| Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
+|---|---|---|---|---|---|---|
+
+2-5 URLs per PN. Include even failed searches.
+Page Type: distributor / manufacturer / marketplace / datasheet / catalog / forum
+
+## Critical Rules
+
+1. NEVER invent or estimate prices. "Not found" >> a guess.
+2. Every input PN MUST appear in Table 1 and Table 3.
+3. Russian prices (RUB) from vseinstrumenti.ru, lemanapro.ru are HIGH PRIORITY.
+4. Description quality matters more than finding prices.
+5. The narrative review will be published in our catalog -- make it excellent.

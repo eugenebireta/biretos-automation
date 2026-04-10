@@ -1,0 +1,516 @@
+{
+  "pilot_size": 30,
+  "search_hits": 30,
+  "pn_confirmed": 10,
+  "prices_found": 1,
+  "price_pct": 3.3,
+  "rate_limiter": {
+    "daily_plain": 42,
+    "daily_grounded": 0,
+    "consecutive_429": 0
+  },
+  "results": [
+    {
+      "pn": "191791",
+      "name": "Детектор пламени Honeywell D 20.674.242.702",
+      "search_candidates": 10,
+      "pages_fetched": 0,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует описанию товара. На изображении представлена рамка для розеток/выключателей, а не детектор пламени."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "V5329C1059",
+      "name": "Трехходовой клапан Honeywell V5329C1059",
+      "search_candidates": 10,
+      "pages_fetched": 3,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "The image clearly shows the three-way valve Honeywell V5329C1059, matching the product description. The brand name 'Honeywell' and the model number 'V5329C1059' are visible on the product label, despite the watermark."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "846811",
+      "name": "Детектор пламени Esser D 95.572.19",
+      "search_candidates": 6,
+      "pages_fetched": 4,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует описанию товара. На изображении показана рамка для розеток/выключателей, а в описании указан детектор пламени."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "788013.40.RU",
+      "name": "Панель управления пожаротушением Exting. control panel 8010, RU",
+      "search_candidates": 9,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "Изображение соответствует товару."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "V5011R1000",
+      "name": "Двухходовой клапан Honeywell V5011R1000",
+      "search_candidates": 9,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "The image clearly shows a two-way valve, and the brand 'Honeywell' is visible on the product itself, matching the provided product information."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "PERTHECTION",
+      "name": "Сканер PERTHECTION",
+      "search_candidates": 10,
+      "pages_fetched": 3,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "На изображении показан термостат Honeywell, а не сканер PERTHECTION."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "36146-RU",
+      "name": "Т-образный соединитель 400x80мм 36146-RU",
+      "search_candidates": 10,
+      "pages_fetched": 1,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует описанию товара. На изображении показана деталь, которая не является Т-образным соединителем."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "V5329A1004",
+      "name": "Трехходовой клапан Honeywell V5329A1004",
+      "search_candidates": 10,
+      "pages_fetched": 3,
+      "pn_confirmed_on_page": true,
+      "extraction_result": {
+        "pn_found": true,
+        "pn_exact_confirmed": true,
+        "category_mismatch": true,
+        "page_product_class": "3 PORT VALVE BODY",
+        "price_per_unit": 908.11,
+        "currency": "GBP",
+        "offer_qty": 1,
+        "offer_unit_basis": "piece",
+        "price_status": "public_price",
+        "stock_status": "unknown",
+        "lead_time_detected": true,
+        "suffix_conflict": false,
+        "price_confidence": 5,
+        "source_type": "other",
+        "source_url": "https://www.theheatxchange.co.uk/havc-controls-honeywell-v5329a1004-3-port-valve-body-15mm-kv-25-havc-havw068767"
+      },
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "Изображение соответствует товару. Товар угадывается."
+      },
+      "price_found": true,
+      "price_usd": 908.11,
+      "currency": "GBP",
+      "price_status": "public_price"
+    },
+    {
+      "pn": "PIP-003",
+      "name": "Союзное соединение ASD SOCKET UNION 25MM PK10 PIP-003",
+      "search_candidates": 9,
+      "pages_fetched": 1,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "Изображение соответствует описанию товара: на нем показано красное союзное соединение, которое является фитингом для труб."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "775511",
+      "name": "Датчик D 95.6511.26",
+      "search_candidates": 10,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "На изображении розетка, а не датчик."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "106511",
+      "name": "Датчик температуры D 20.6511.02 OKS",
+      "search_candidates": 10,
+      "pages_fetched": 1,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует товару. На изображении электрическая розетка, а товар - датчик температуры."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "887111",
+      "name": "Тепловой извещатель Esser D 95.244.02 T",
+      "search_candidates": 9,
+      "pages_fetched": 4,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует товару. На изображении показан выключатель, а не тепловой извещатель."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "272369098",
+      "name": "Кабельный разъем Honeywell 6pol Socket H07RN",
+      "search_candidates": 10,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "На изображении вентилятор, а не кабельный разъем."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "171111",
+      "name": "Термостатический вентиль Honeywell D 20.571.02 T",
+      "search_candidates": 10,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует описанию товара. На изображении рамка, а в описании термостатический вентиль."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "36026-RU",
+      "name": "Горизонтальный угол 400x80мм 36026-RU",
+      "search_candidates": 10,
+      "pages_fetched": 1,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "The image shows a person holding an electronic component, which is not the 'Горизонтальный угол 400x80мм 36026-RU' as described in the product information."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "604411",
+      "name": "Датчик D 701 DO F",
+      "search_candidates": 10,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "На изображении монтажная коробка, а не датчик."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "1012541",
+      "name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU",
+      "search_candidates": 10,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "На изображении четко видны противошумные наушники, прикрепленные к каске, что соответствует описанию товара \"Наушники противошумные EARMUFF-LEIGHTNING L3H EU\"."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "185191",
+      "name": "Детектор пламени Honeywell D 20.671.240.192",
+      "search_candidates": 10,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует товару. На изображении представлена черная рамка, а не детектор пламени Honeywell."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "VQ450MB1006",
+      "name": "Комбинированный клапан Honeywell VQ450MB1006",
+      "search_candidates": 5,
+      "pages_fetched": 3,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "The image clearly shows the Honeywell VQ450MB1006 combined valve, despite the watermark. The product is identifiable."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "191591",
+      "name": "Детектор пламени Honeywell D 20.674.240.192",
+      "search_candidates": 10,
+      "pages_fetched": 1,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение представляет собой пиксельную иконку камеры на черном фоне, что является заглушкой и не показывает сам товар."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "BWC4-Y-R",
+      "name": "Газоанализатор Honeywell BWC4 - O2, LEL, H2S, CO, Yellow, RU",
+      "search_candidates": 10,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "Изображение соответствует товару \"Газоанализатор Honeywell BWC4 - O2, LEL, H2S, CO, Yellow, RU\"."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "H4L6GR2",
+      "name": "Камера видеонаблюдения H4L6GR2",
+      "search_candidates": 8,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "Изображение четкое, товар хорошо виден и соответствует описанию. Отсутствуют водяные знаки, плохой фон или низкое качество."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "MCP-PRO-M",
+      "name": "Ручной извещатель MCP-PRO-M",
+      "search_candidates": 6,
+      "pages_fetched": 0,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "Изображение соответствует товару \"Ручной извещатель MCP-PRO-M\"."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "174111",
+      "name": "Термостатический вентиль Honeywell D 20.571.64 T",
+      "search_candidates": 9,
+      "pages_fetched": 1,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "На изображении не термостатический вентиль, а рамка для розетки или выключателя."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "280870645",
+      "name": "Кабель соединительный Honeywell ATR1-CONNECTING CABLE-2POL",
+      "search_candidates": 10,
+      "pages_fetched": 0,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "На изображении показан промышленный датчик или измерительный прибор, а не соединительный кабель."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "SC-SCDUPLEX9/125-2",
+      "name": "Оптический кабель SC-SCDuplex9/125 2m",
+      "search_candidates": 9,
+      "pages_fetched": 4,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": null,
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "105411",
+      "name": "Датчик температуры D 20.545.21",
+      "search_candidates": 9,
+      "pages_fetched": 1,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение полностью белое, товар не виден."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "V5328A1005",
+      "name": "Двухходовой клапан Honeywell V5328A1005",
+      "search_candidates": 9,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": true,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "KEEP",
+        "reason": "The image clearly shows the Honeywell V5328A1005 two-way valve, matching the product description."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "190191",
+      "name": "Детектор пламени Honeywell D 20.674.201.702",
+      "search_candidates": 10,
+      "pages_fetched": 4,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "Изображение не соответствует описанию товара. На изображении представлена рамка для розеток/выключателей, а в описании указан детектор пламени."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    },
+    {
+      "pn": "PP11L",
+      "name": "Ноутбук PP11L",
+      "search_candidates": 9,
+      "pages_fetched": 2,
+      "pn_confirmed_on_page": false,
+      "extraction_result": null,
+      "vision_result": {
+        "verdict": "REJECT",
+        "reason": "На изображении показан электронный компонент, а не ноутбук."
+      },
+      "price_found": false,
+      "price_usd": null,
+      "currency": null,
+      "price_status": "no_price_found"
+    }
+  ],
+  "price_summary": [
+    {
+      "pn": "V5329A1004",
+      "price": 908.11,
+      "currency": "GBP",
+      "status": "public_price",
+      "source_url": "https://www.theheatxchange.co.uk/havc-controls-honeywell-v5329a1004-3-port-valve-body-15mm-kv-25-havc-havw068767"
+    }
+  ]
+}

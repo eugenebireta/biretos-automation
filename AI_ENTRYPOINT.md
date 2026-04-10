@@ -1,15 +1,24 @@
 # AI Entrypoint
 
-Read first:
+## Always read (every cycle):
 
-1. `docs/PROJECT_DNA.md`
-2. canonical boundary / governance documents referenced by DNA
-3. `docs/MASTER_PLAN_v1_9_2.md`
-4. `docs/autopilot/STATE.md`
-5. GitHub current state
-6. `docs/EXECUTION_ROADMAP_v2_3.md`
-7. `docs/_governance/AI_EXECUTION_CONTRACT_v1.md`
-8. `docs/policies/R1_PHASE_A_BATCH_EXECUTION_STANDARD_v1_0.md` (for `R1` / `Phase A`)
+1. `docs/PROJECT_DNA.md` — invariants, frozen files, absolute rules
+2. `docs/autopilot/STATE.md` — current execution state
+3. Task Brief текущей задачи — сейчас: `config/TASK_BRIEF_R1_ENRICHMENT.md`
+4. `docs/_governance/AI_EXECUTION_CONTRACT_v1.md` — execution role boundaries
+
+## Read if relevant to current task:
+
+5. `docs/policies/R1_PHASE_A_BATCH_EXECUTION_STANDARD_v1_0.md` — при R1 / Phase A работе
+6. `CLAUDE.md` — при первом запуске в новом repo checkout
+
+## Read when planning (not every cycle):
+
+7. `docs/MASTER_PLAN_v1_9_2.md` — стратегия, принципы
+8. `docs/EXECUTION_ROADMAP_v2_3.md` — порядок этапов, текущая позиция
+
+## Read only at tool switch:
+
 9. `docs/autopilot/HANDOFF_STATE.json`
 10. `docs/handoffs/SWITCH_RUNBOOK_v1.md`
 

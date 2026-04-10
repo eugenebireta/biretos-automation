@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_A133230-00",
+  "entity_id": "A133230-00",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PPE: sandblasting helmet",
+    "description_ru": "Показана SRP: €449,16 Excl. tax и €543,48 Incl. tax; статус “Out of stock”. citeturn32search11",
+    "category_suggestion": "PPE: sandblasting helmet",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 449.16,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.safety-workwear-shop.com/en/honeywell-commander-a133230-00.html` citeturn32search11",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "Honeywell Commander / 36-A133230-00"
+      ]
+    },
+    "key_findings": [
+      "Показана SRP: €449,16 Excl. tax и €543,48 Incl. tax; статус “Out of stock”. citeturn32search11",
+      "Aliases: Honeywell Commander / 36-A133230-00"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.safety-workwear-shop.com/en/honeywell-commander-a133230-00.html` citeturn32search11",
+        "type": "distributor",
+        "domain": "www.safety-workwear-shop.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.safety-workwear-shop.com/en/honeywell-commander-a133230-00.html` citeturn32search11",
+      "type": "distributor",
+      "domain": "www.safety-workwear-shop.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.022144+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

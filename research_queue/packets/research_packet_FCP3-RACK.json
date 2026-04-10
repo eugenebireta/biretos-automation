@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_FCP3-RACK",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "FCP3-RACK",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN FCP3-RACK (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=FCP3-RACK",
+    "What is the full product name and product family for Honeywell FCP3-RACK?",
+    "Is FCP3-RACK a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell FCP3-RACK"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.techyshop.co.ke/siemon-fiber-connect-panel-fixed-tray-black-1rms-fcp3-rack/",
+    "category_mismatch": false,
+    "overall_confidence": "LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Оптический шкаф Honeywell FCP3-RACK",
+    "assembled_title": "Шкаф Honeywell FCP3-RACK",
+    "expected_category": "Шкаф",
+    "our_price_raw": "11265,29",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.techyshop.co.ke/siemon-fiber-connect-panel-fixed-tray-black-1rms-fcp3-rack/",
+    "pn_variants": [
+      "FCP3.RACK",
+      "FCP3RACK"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_FCP3-RACK.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.467259Z"
+}

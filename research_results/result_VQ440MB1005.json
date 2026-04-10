@@ -1,0 +1,116 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_VQ440MB1005",
+  "entity_id": "VQ440MB1005",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Комбинированный газовый клапан DN40 VQ440MB1005",
+    "description_ru": "Электромагнитный комбинированный клапан класса «А» для газовых горелочных устройств. Объединяет две ступени безопасности и регулятор расхода в одном компактном алюминиевом корпусе. Предназначен для работы с природным газом и СУГ в промышленных котлах.",
+    "category_suggestion": "Газовый комбинированный клапан",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 510180.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://shop.vitaprom.ru/products/honeywell_vq440mb1005/` citeturn19view0",
+      "price_type": "gray_market"
+    },
+    "photo_url": "—",
+    "specs": {
+      "aliases": [
+        "534.322.235"
+      ]
+    },
+    "key_findings": [
+      "Страница: “Цена: 510180 ₽”; указано “Оплата по счету без НДС” и “с НДС (+30%)”. citeturn19view0",
+      "Aliases: 534.322.235"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://shop.vitaprom.ru/products/honeywell_vq440mb1005/` citeturn19view0",
+        "type": "gray_market",
+        "domain": "shop.vitaprom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://boilerparts.ru/honeywell-brahma-siemens-suntec/zapchasti-honeywell/gazovye-klapany-honeywell/kombinirovannye-klapana-honeywell-serii-vq440-vq-modular/gazovyy-klapan-honeywell-vq440mb1005",
+        "type": "distributor",
+        "domain": "boilerparts.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://boilerparts.ru/honeywell-brahma-siemens-suntec/zapchasti-honeywell/gazovye-klapany-honeywell/kombinirovannye-klapana-honeywell-serii-vq440-vq-modular/gazovyy-klapan-honeywell-vq440mb1005",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://honeywell-trade.ru/products/gazovye-klapany-honeywell/gazovye-klapany-vq-modular/klapan-honeywell-vq440-vq-modular",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://honeyvell.energy/VQ440/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://process.honeywell.com/us/en/products/thermal-solutions/fuel-and-air-delivery/shutoff-valves/vq400-800-series",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://shop.vitaprom.ru/products/honeywell_vq440mb1005/` citeturn19view0",
+      "type": "gray_market",
+      "domain": "shop.vitaprom.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://boilerparts.ru/honeywell-brahma-siemens-suntec/zapchasti-honeywell/gazovye-klapany-honeywell/kombinirovannye-klapana-honeywell-serii-vq440-vq-modular/gazovyy-klapan-honeywell-vq440mb1005",
+      "type": "distributor",
+      "domain": "boilerparts.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.020636+00:00",
+  "provider": "dr_gemini",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "batch_gemini_v8_nodesc_b1.json"
+}

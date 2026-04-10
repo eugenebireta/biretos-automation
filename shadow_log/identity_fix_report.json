@@ -1,0 +1,61 @@
+{
+  "phase": "0",
+  "description": "_infer_identity_level() bug fix + Gemini sprint",
+  "before": {
+    "draft_only": 350,
+    "review_required": 11,
+    "auto_publish": 0,
+    "identity_weak": 142,
+    "identity_strong": 202,
+    "identity_confirmed": 17
+  },
+  "after": {
+    "draft_only": 342,
+    "review_required": 14,
+    "auto_publish": 5,
+    "identity_weak": 99,
+    "identity_strong": 262
+  },
+  "identity_fixes": {
+    "bug_fix": "fixed _infer_identity_level() to read exact_structured_pn_match and structured_pn_match_location",
+    "retrospective_boost": {
+      "strong_from_structured_match": 202,
+      "confirmed_legacy_preserved": 17,
+      "new_from_structured_merge": 5
+    },
+    "gemini_sprint_phase1": {
+      "sprinted": 50,
+      "confirmed": 18,
+      "estimated_cost_usd": 0.15
+    },
+    "gemini_sprint_phase2": {
+      "sprinted": 109,
+      "confirmed": 37,
+      "estimated_cost_usd": 0.33
+    },
+    "gemini_sprint_total": {
+      "sprinted": 157,
+      "confirmed": 55,
+      "estimated_cost_usd": 0.48
+    },
+    "still_weak": 99
+  },
+  "card_status_delta": {
+    "draft_only_change": -8,
+    "review_required_change": 3,
+    "auto_publish_change": 5
+  },
+  "identity_level_delta": {
+    "weak_reduced": 43,
+    "strong_increased": 60
+  },
+  "scripts_created": [
+    "scripts/recalculate_card_status.py",
+    "scripts/_run_sprint_109.py"
+  ],
+  "scripts_modified": [
+    "scripts/card_status.py (_infer_identity_level fix)"
+  ],
+  "tests_added": 22,
+  "tests_file": "tests/enrichment/test_identity_level_fix.py"
+}

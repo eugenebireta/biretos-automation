@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_400-ATII",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "400-ATII",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 400-ATII (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=400-ATII",
+    "What is the full product name and product family for Honeywell 400-ATII?",
+    "Is 400-ATII a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 400-ATII"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "ambiguous_offer",
+    "price_source_url": "https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pokoleniya/zhestkie-diski-hdd/zhestkiy-disk-dell-400-atii-300gb-12g-15k-2-5-sas-v-komplekte-s-salazkami-dxd9h/",
+    "category_mismatch": false,
+    "overall_confidence": "LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Жесткий диск Honeywell 400-ATII, 300GB 15K RPM SAS 12Gbps",
+    "assembled_title": "Жесткий диск Honeywell 400-ATII",
+    "expected_category": "Жесткий диск",
+    "our_price_raw": "18259,00",
+    "has_content_seed": true,
+    "price_currency": "RUB",
+    "price_native_value": 90480,
+    "price_rub": 90480.0,
+    "existing_source_url": "https://linkas.ru/catalog/servery/servery-dell/diski-dlya-severov-dell-14-go-pokoleniya/zhestkie-diski-hdd/zhestkiy-disk-dell-400-atii-300gb-12g-15k-2-5-sas-v-komplekte-s-salazkami-dxd9h/",
+    "pn_variants": [
+      "400.ATII",
+      "400ATII"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_400-ATII.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.404260Z"
+}

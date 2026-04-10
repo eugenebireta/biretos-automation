@@ -1,0 +1,87 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- Many are **PEHA** brand — German electrical accessories (frames, rocker switches, sockets, inserts). These are NOT fire sensors. Search on ebay.de, conrad.de, voelkner.de, elektroversand.de.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different Honeywell sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers
+
+| # | PN | Expected Type |
+|---|-----|--------------|
+| 1 | SMB500 | mounting box |
+| 2 | NE-NICS02 | network card |
+| 3 | CATALIST | network switch |
+| 4 | 804791 | panel |
+| 5 | RIC-F-LCU24-01C | panel |
+| 6 | EDA61K-SH-DC | pistol grip handle |
+| 7 | CF274A | printer |
+| 8 | PHASER | printer |
+| 9 | XJ1-00-07000000 | printer |
+| 10 | FCP3-RACK | rack cabinet |
+| 11 | AT-MMCR18-60-RU | rack chassis |
+| 12 | AF00-B65 | sensor |
+| 13 | DPTE1000S | sensor |
+| 14 | DTI6 | sensor |
+| 15 | PTSRB0101V3 | sensor |
+| 16 | SF00-B54 | sensor |
+| 17 | T7460A1018 | sensor |
+| 18 | T7560B1008 | sensor |
+| 19 | VF00-3B65NW | sensor |
+| 20 | MZ-PCWS77 | workstation |
+| 21 | MZ-PCWS84 | workstation |
+| 22 | 101411 | PEHA AURA frame |
+| 23 | 174411 | PEHA AURA frame |
+| 24 | 125711 | PEHA AURA insert |
+| 25 | 174813 | PEHA AURA insert |
+| 26 | 104011 | PEHA AURA rocker switch |
+| 27 | 109411 | PEHA AURA rocker switch |
+| 28 | 127411 | PEHA AURA socket |
+| 29 | 603111 | PEHA COMPACTA frame |
+| 30 | 369211 | PEHA DIALOG frame |
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

@@ -1,0 +1,95 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_54611",
+  "entity_id": "54611",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA rocker switch",
+    "description_ru": "Nova Brillance; listed as NEW at heiz24.de",
+    "category_suggestion": "PEHA rocker switch",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 8.42,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.heiz24.de/PEHA-D-20545702-Series-00054611-Nova-Rocker-2gang-aluminium-Series-NEW",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "2-gang series rocker; aluminium color 702; for Art. 515/515 T; IP20; halogen-free",
+      "aliases": [
+        "D 20.545.702",
+        "00054611"
+      ]
+    },
+    "key_findings": [
+      "Nova Brillance; listed as NEW at heiz24.de",
+      "Aliases: D 20.545.702; 00054611"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.heiz24.de/PEHA-D-20545702-Series-00054611-Nova-Rocker-2gang-aluminium-Series-NEW",
+        "type": "distributor",
+        "domain": "www.heiz24.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.heiz24.de/PEHA-D-20545702-Series-00054611-Nova-Rocker-2gang-aluminium-Series-NEW",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.heiz24.de/PEHA-D-20545702-Series-00054611-Nova-Rocker-2gang-aluminium-Series-NEW",
+      "type": "distributor",
+      "domain": "www.heiz24.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.977647+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

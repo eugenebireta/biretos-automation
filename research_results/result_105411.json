@@ -1,0 +1,74 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_105411",
+  "entity_id": "105411",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Блокиратор клавишный для электрических панелей",
+    "description_ru": "Гибкий прозрачный чехол для тумблеров, позволяющий видеть положение рычага переключателя. Защищает узел переключения от брызг воды и мелкодисперсной пыли. Подходит для использования в пищевой промышленности благодаря легкости очистки. Устанавливается под стандартную крепежную гайку.",
+    "category_suggestion": "unknown",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 23.51,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": null
+    },
+    "photo_url": "Не найдено",
+    "specs": {},
+    "key_findings": [
+      "В рамках текущего прогона не удалось зафиксировать страницу с видимой ценой"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`not found`",
+        "type": "unknown",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "\\-",
+        "type": "distributor",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`not found`",
+      "type": "unknown",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "\\-",
+      "type": "distributor",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.066748+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v3.md"
+}

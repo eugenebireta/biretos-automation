@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1006186",
   "pn_variants": [],
   "brand": "Honeywell",
@@ -9,7 +9,7 @@
   "assembled_title": "Беруши Honeywell 1006186",
   "our_price_raw": "1920,61",
   "expected_category": "Беруши",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "AUTO_PUBLISH",
   "review_reasons": [
     "LEGACY_AUTO_PUBLISH_HOLDOUT"
   ],
@@ -21,24 +21,11 @@
     "review_schema_version": "review_reason_schema_v1",
     "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "ACCEPTED",
     "pdf_status": "REVIEW_REQUIRED",
-    "card_status": "REVIEW_REQUIRED",
+    "card_status": "AUTO_PUBLISH",
     "review_reasons": [
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1006186"
-        ],
-        "evidence_ids": [
-          "ev_image_1006186"
-        ],
-        "policy_rule_id": "CAP-05",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
       {
         "reason_code": "PDF_NOT_EXACT_CONFIRMED",
         "field": "pdf",
@@ -49,15 +36,14 @@
         "evidence_ids": [
           "ev_pdf_1006186"
         ],
-        "policy_rule_id": "CAP-05",
+        "policy_rule_id": "CAP-01",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-05"
+    "policy_rule_id": "CAP-01"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -126,22 +112,20 @@
   },
   "price": {
     "price_status": "public_price",
-    "price_per_unit": 0.237,
-    "currency": "EUR",
-    "rub_price": 22.52,
-    "fx_rate_used": 95.0,
+    "price_per_unit": 1794.0,
+    "currency": "TWD",
     "fx_provider": "stub",
     "price_confidence": 95,
-    "source_url": "https://nl.rs-online.com/web/p/ear-plugs/1040922",
-    "source_type": "authorized_distributor",
     "source_tier": "authorized",
     "stock_status": "in_stock",
-    "offer_unit_basis": "piece",
+    "offer_unit_basis": "box",
     "offer_qty": 1,
-    "lead_time_detected": false,
+    "lead_time_detected": true,
+    "page_product_class": "",
+    "source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922?srsltid=AfmBOoqn2Ny_TR5hBHhMJq7poxvRhnnQxolIKzQU3BH2PR7LOdfNGCkv",
+    "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
-    "page_product_class": "Беруши",
     "brand_mismatch": false,
     "price_median_clean": null,
     "price_min_clean": null,
@@ -183,7 +167,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
     "product_type": "Беруши",
-    "seed_name": "Беруши 303L FOAMPLUG"
+    "seed_name": "Беруши 303L FOAMPLUG",
+    "description_long_ru": "Bag of 200 pairs; refill for HL400 dispenser; TWD 1,794 ≈ USD 55–58; in stock RS Taiwan"
   },
   "trace": {
     "pn_match_location": "",
@@ -345,9 +330,57 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "REVIEW_REQUIRED",
-    "policy_card_status_mismatch": true,
-    "holdout_applied": true,
-    "holdout_reason": "AUTO_PUBLISH_V2_MISMATCH_OWNER_DECISION_20260402",
-    "holdout_previous_card_status": "AUTO_PUBLISH"
-  }
+    "policy_card_status_mismatch": false
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "earplugs",
+    "description_ru": "Bag of 200 pairs; refill for HL400 dispenser; TWD 1,794 ≈ USD 55–58; in stock RS Taiwan",
+    "specs": {
+      "raw": "SNR 33dB; polyurethane foam; uncorded; disposable; large; bullet/tapered; EN 352-2",
+      "aliases": [
+        "Bilsom 303L",
+        "Howard Leight 303L",
+        "RS 104-0922"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Bag of 200 pairs; refill for HL400 dispenser; TWD 1,794 ≈ USD 55–58; in stock RS Taiwan",
+      "Aliases: Bilsom 303L; Howard Leight 303L; RS 104-0922"
+    ],
+    "sources": [
+      {
+        "url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+        "type": "distributor",
+        "domain": "twen.rs-online.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.alive-sr.com/prod/303LBOXFOAMRED/",
+        "type": "distributor",
+        "domain": "www.alive-sr.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.767024+00:00",
+    "merge_source": "result_1006186.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
+  },
+  "dr_category": "earplugs",
+  "dr_image_url": "https://media.rs-online.com/image/upload/F1040922-01",
+  "dr_price": 1794.0,
+  "dr_currency": "TWD",
+  "dr_price_source": "https://twen.rs-online.com/web/p/ear-plugs/1040922"
 }

@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_1061200000",
+  "entity_id": "1061200000",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Кронштейн концевой Weidmuller WEW 35/2 (для рейки TS 35, винтовой)",
+    "description_ru": "Механический фиксатор для надежного закрепления клеммных блоков на монтажной шине. Изготовлен из усиленного стекловолокном полиамида, устойчивого к вибрации и экстремальным температурам.19",
+    "category_suggestion": "Terminal block accessory",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 2.391,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.tme.eu/en/details/wew35-2/terminal-block-accessories/weidmuller/1061200000/",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://assets.dam.weidmueller.com/assets/api/a6b351d5-.../DAP_Master_PP%2Cw_800%2Cq_80 citeturn15view0",
+    "specs": {
+      "raw": "Артикул: 1061200000; обозначение: WEW35/2 citeturn8view0",
+      "aliases": [
+        "WEW35/2 / 1061200000"
+      ]
+    },
+    "key_findings": [
+      "В вашем списке как Honeywell, но на рынке устойчиво как Weidmüller. citeturn8view0turn14view0",
+      "Aliases: WEW35/2 / 1061200000"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.tme.eu/en/details/wew35-2/terminal-block-accessories/weidmuller/1061200000/",
+        "type": "distributor",
+        "domain": "www.tme.eu",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.tme.eu/en/details/wew35-2/terminal-block-accessories/weidmuller/1061200000/",
+      "type": "distributor",
+      "domain": "www.tme.eu",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.056234+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v1.md"
+}

@@ -1,0 +1,119 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5328A1088",
+  "entity_id": "V5328A1088",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Flanged valve",
+    "description_ru": "MANUFACTURER DISCONTINUED; £454.75 ex-VAT; now Resideo branded",
+    "category_suggestion": "valve",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 454.75,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.kempstoncontrols.co.uk/V5328A1088/Honeywell-Homes/sku/767430",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-V5328A1070-left",
+    "specs": {
+      "raw": "DN40; Kvs 25; 2-way flanged linear; PN16; steel body; 20mm stroke",
+      "aliases": [
+        "Resideo V5328A1088"
+      ]
+    },
+    "key_findings": [
+      "MANUFACTURER DISCONTINUED; £454.75 ex-VAT; now Resideo branded",
+      "Aliases: Resideo V5328A1088"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.kempstoncontrols.co.uk/V5328A1088/Honeywell-Homes/sku/767430",
+        "type": "distributor",
+        "domain": "www.kempstoncontrols.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/283344103059",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.kempstoncontrols.co.uk/V5328A1088/Honeywell-Homes/sku/767430",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://bhl.co.uk/honeywell-v5328a-1088-40mm-2port-valve-cv-25-v5328a1088-w309749.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://homecomfort.resideo.com/.../V5328A1088(HW)",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/283344103059",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.kempstoncontrols.co.uk/V5328A1088/Honeywell-Homes/sku/767430",
+      "type": "distributor",
+      "domain": "www.kempstoncontrols.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/283344103059",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.954002+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

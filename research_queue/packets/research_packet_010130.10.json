@@ -1,0 +1,72 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_010130.10",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "010130.10",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 010130.10 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=010130.10",
+    "What is the full product name and product family for Honeywell 010130.10?",
+    "Is 010130.10 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 010130.10"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "REJECT",
+    "price_status": "no_price_found",
+    "price_source_url": "https://adiglobal.cz/en/produkty180:18161810/4dg-2op-module-bus-2-bus-1-s-m",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "NO_PRICE_EVIDENCE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
+    "assembled_title": "Модуль Honeywell 010130.10",
+    "expected_category": "Модуль",
+    "our_price_raw": "13288,04",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://adiglobal.cz/en/produkty180:18161810/4dg-2op-module-bus-2-bus-1-s-m",
+    "pn_variants": [
+      "10130.10",
+      "010130-10",
+      "01013010"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_010130.10.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.170752Z"
+}

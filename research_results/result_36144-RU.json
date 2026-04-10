@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_36144-RU",
+  "entity_id": "36144-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "Honeywell",
+    "title_ru": "water backwash filter",
+    "description_ru": "На странице есть подробные ТТХ и описание промывки; цена 29 000 ₽. citeturn32view0turn33view0",
+    "category_suggestion": "water backwash filter",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 29000.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://santehmoskva.ru/filtr-dlya-vody-honeywell-f-76s-1-aa-30155.html`",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://santehmoskva.ru/image/cache/catalog/sharan-filter/21126.970-1200x1200.jpg.webp`",
+    "datasheet_url": null,
+    "specs": {
+      "raw": "Tmax 40°C; Kvs 16.1 м³/ч; фильтрация 100 мкм; Pmax 16 bar; 1″; вес 3.1 кг; 209×453 мм",
+      "aliases": [
+        "Артикул 36144 (без -RU на сайте)"
+      ]
+    },
+    "key_findings": [
+      "На странице есть подробные ТТХ и описание промывки; цена 29 000 ₽. citeturn32view0turn33view0",
+      "Aliases: Артикул 36144 (без -RU на сайте)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://santehmoskva.ru/filtr-dlya-vody-honeywell-f-76s-1-aa-30155.html`",
+        "type": "distributor",
+        "domain": "santehmoskva.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (3).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://santehmoskva.ru/filtr-dlya-vody-honeywell-f-76s-1-aa-30155.html`",
+      "type": "distributor",
+      "domain": "santehmoskva.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-09T09:22:43.841293+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

@@ -1,0 +1,51 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_2SM-3.0-SCU-SCU-1",
+  "entity_id": "2SM-3.0-SCU-SCU-1",
+  "research_reason": "no_price_lineage",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 380.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-1m.html` citeturn11view0",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "sources": [
+      {
+        "url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-1m.html` citeturn11view0",
+        "type": "distributor",
+        "domain": "www.optcom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "title_ru": "fiber optic patch cord",
+    "description_ru": "Дублирует строку #31, так как PN из списка совпадает по смыслу с этим товаром"
+  },
+  "sources": [
+    {
+      "url": "`https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2sm-30-scupc-scupc-1m.html` citeturn11view0",
+      "type": "distributor",
+      "domain": "www.optcom.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:05:12.631370Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

@@ -1,0 +1,109 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FX808439",
+  "entity_id": "FX808439",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "fire alarm accessory",
+    "description_ru": "Комплектующий элемент для построения модульных пожарных панелей управления Honeywell Esser. Служит для физического крепления и интеграции плат расширения внутри корпуса контрольной панели. Обеспечивает структурную целостность и корректную организацию кабельных подключений.",
+    "category_suggestion": "fire alarm accessory",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 432.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.esser-systems.com/fileadmin/dokumente/downloads/marketingmaterial/catalogues/Listino_ESSER_incendio_marzo_2024.pdf` citeturn17search0",
+      "price_type": "list_price"
+    },
+    "photo_url": "(Honeywell) Service drawer",
+    "specs": {
+      "raw": "позиция FX808439 присутствует в прайс‑листе с ценой 432.00 € citeturn17search0",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.esser-systems.com/fileadmin/dokumente/downloads/marketingmaterial/catalogues/Listino_ESSER_incendio_marzo_2024.pdf` citeturn17search0",
+        "type": "list_price",
+        "domain": "www.esser-systems.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.esser-systems.com/en/products/details/industrial-solution-fm-approved/19-rack/fx808439-service-drawer-1-hu-1/",
+        "type": "—",
+        "domain": "www.esser-systems.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.esser-systems.com/en/products/details/industrial-solution-fm-approved/19-rack/fx808439-service-drawer-1-hu-1/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.esser-systems.com/en/products/list/system-flexes-control/flexes-control-in-the-built-in-cabinet/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.esser-systems.com/en/products/list/19-rack/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://www.esser-systems.com/fileadmin/dokumente/downloads/marketingmaterial/catalogues/Listino_ESSER_incendio_marzo_2024.pdf` citeturn17search0",
+      "type": "list_price",
+      "domain": "www.esser-systems.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.esser-systems.com/en/products/details/industrial-solution-fm-approved/19-rack/fx808439-service-drawer-1-hu-1/",
+      "type": "—",
+      "domain": "www.esser-systems.com",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.043727+00:00",
+  "provider": "dr_gemini",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "batch_gemini_v8_nodesc_b1.json"
+}

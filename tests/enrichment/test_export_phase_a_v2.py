@@ -281,6 +281,64 @@ class TestExportBundleV2:
         assert bundle["card_status"] == "DRAFT_ONLY"
         assert bundle["card_status"] == bundle["policy_decision_v2"]["card_status"]
         assert "source_tier_not_admissible" in bundle["price"]["public_price_rejection_reasons"]
+        assert bundle["price"]["offer_admissibility_status"] == "ambiguous_offer"
+        assert bundle["price"]["string_lineage_status"] == "none"
+        assert bundle["price"]["price_admissibility_review_bucket"] == "PRICE_ADMISSIBILITY_REVIEW"
+
+    def test_bundle_materializes_price_admissibility_axes(self):
+        bundle = build_evidence_bundle(
+            pn="101411",
+            name="Frame",
+            brand="Honeywell",
+            photo_result={},
+            vision_verdict={"verdict": "NO_PHOTO", "reason": "missing"},
+            price_result={
+                "price_status": "public_price",
+                "price_usd": 12.4,
+                "currency": "EUR",
+                "source_url": "https://example.com/frame",
+                "page_product_class": "PEHA cover frame",
+                "price_source_exact_product_lineage_confirmed": True,
+                "price_source_clean_product_page": True,
+                "price_source_lineage_reason_code": "exact_title_h1_jsonld",
+                "price_source_seen": True,
+            },
+            datasheet_result={},
+            run_ts="2026-04-04T00:00:00Z",
+        )
+        assert bundle["price"]["price_admissibility_schema_version"] == "price_admissibility_v1"
+        assert bundle["price"]["string_lineage_status"] == "exact"
+        assert bundle["price"]["commercial_identity_status"] == "component_or_accessory"
+        assert bundle["price"]["offer_admissibility_status"] == "ambiguous_offer"
+        assert bundle["price"]["staleness_or_conflict_status"] == "clean"
+        assert "PRICE_COMPONENT_OR_ACCESSORY" in bundle["price"]["price_admissibility_reason_codes"]
+        assert bundle["price"]["price_admissibility_review_bucket"] == "PRICE_ADMISSIBILITY_REVIEW"
+
+    def test_bundle_preserves_stale_historical_claim_in_price_surface(self):
+        bundle = build_evidence_bundle(
+            pn="104011",
+            name="Cover",
+            brand="Honeywell",
+            photo_result={},
+            vision_verdict={"verdict": "NO_PHOTO", "reason": "missing"},
+            price_result={
+                "price_status": "no_price_found",
+                "historical_state_price_status": "closed",
+                "price_source_exact_product_lineage_confirmed": True,
+                "price_source_clean_product_page": True,
+                "price_source_lineage_reason_code": "exact_title_h1_jsonld",
+                "price_source_seen": True,
+                "price_usd": 8.95,
+                "currency": "EUR",
+                "page_product_class": "PEHA cover",
+            },
+            datasheet_result={},
+            run_ts="2026-04-04T00:00:00Z",
+        )
+        assert bundle["price"]["offer_admissibility_status"] == "ambiguous_offer"
+        assert bundle["price"]["staleness_or_conflict_status"] == "stale_historical_claim"
+        assert "PRICE_STALE_HISTORICAL_CLAIM" in bundle["price"]["price_admissibility_reason_codes"]
+        assert bundle["price"]["price_admissibility_review_bucket"] == "STALE_TRUTH_REVIEW"
 
     def test_bundle_rejects_numeric_keep_without_structured_identity(self):
         bundle = build_evidence_bundle(
@@ -353,7 +411,8 @@ class TestExportBundleV2:
         assert bundle["price"]["cache_fallback_used"] is True
         assert bundle["price"]["cache_source_run_id"] == "phase_a_v2_sanity_20260326T222242Z"
         assert bundle["price"]["cache_schema_version"] == "price_evidence_cache_v1"
-        assert bundle["price"]["transient_failure_codes"] == ["openai_quota"]
+        assert bundle["price"]["cache_fallback_reason"] == "llm_quota"
+        assert bundle["price"]["transient_failure_codes"] == ["llm_quota"]
         assert bundle["price"]["price_observed_at"] == "2026-03-26T22:22:42Z"
         assert bundle["price"]["price_observed_date"] == "2026-03-26"
         assert bundle["price"]["price_date"] == "2026-03-26"

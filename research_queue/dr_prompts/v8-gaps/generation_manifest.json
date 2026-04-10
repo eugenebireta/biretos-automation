@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-04-09T14:56:01.252061",
+  "version": "v8-gaps",
+  "total_uncovered": 265,
+  "source_fields": [
+    "assembled_title (product hint derivation)",
+    "seed_name (Excel description — passed to DR as context)",
+    "our_price_raw (Excel reference price — passed to DR as validation anchor)",
+    "brand",
+    "NEVER expected_category"
+  ],
+  "families": {
+    "Other": 122,
+    "PEHA electrical": 69,
+    "HVAC/valves": 33,
+    "Fire safety/PA": 14,
+    "Power/electrical": 5,
+    "PPE safety": 2,
+    "Security/video": 13,
+    "BMS controllers": 7
+  },
+  "batches": {
+    "chatgpt": {
+      "count": 9,
+      "batch_size": 30,
+      "files": [
+        "chatgpt_batch1_30skus.txt",
+        "chatgpt_batch2_30skus.txt",
+        "chatgpt_batch3_30skus.txt",
+        "chatgpt_batch4_30skus.txt",
+        "chatgpt_batch5_30skus.txt",
+        "chatgpt_batch6_30skus.txt",
+        "chatgpt_batch7_30skus.txt",
+        "chatgpt_batch8_30skus.txt",
+        "chatgpt_batch9_25skus.txt"
+      ]
+    },
+    "gemini": {
+      "count": 14,
+      "batch_size": 20,
+      "files": [
+        "gemini_batch1_20skus.txt",
+        "gemini_batch2_20skus.txt",
+        "gemini_batch3_20skus.txt",
+        "gemini_batch4_20skus.txt",
+        "gemini_batch5_20skus.txt",
+        "gemini_batch6_20skus.txt",
+        "gemini_batch7_20skus.txt",
+        "gemini_batch8_20skus.txt",
+        "gemini_batch9_20skus.txt",
+        "gemini_batch10_20skus.txt",
+        "gemini_batch11_20skus.txt",
+        "gemini_batch12_20skus.txt",
+        "gemini_batch13_20skus.txt",
+        "gemini_batch14_5skus.txt"
+      ]
+    },
+    "claude": {
+      "count": 9,
+      "batch_size": 30,
+      "files": [
+        "claude_batch1_30skus.txt",
+        "claude_batch2_30skus.txt",
+        "claude_batch3_30skus.txt",
+        "claude_batch4_30skus.txt",
+        "claude_batch5_30skus.txt",
+        "claude_batch6_30skus.txt",
+        "claude_batch7_30skus.txt",
+        "claude_batch8_30skus.txt",
+        "claude_batch9_25skus.txt"
+      ]
+    }
+  }
+}

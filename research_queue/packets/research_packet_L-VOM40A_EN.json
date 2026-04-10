@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_L-VOM40A/EN",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "L-VOM40A/EN",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN L-VOM40A/EN (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=L-VOM40A/EN",
+    "What is the full product name and product family for Honeywell L-VOM40A/EN?",
+    "Is L-VOM40A/EN a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell L-VOM40A/EN"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://www.lyintl.com/products/l-vom40a-en-honeywell-40w-aluminum-outdoor-column-loudspeaker",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "PDF_NOT_EXACT_CONFIRMED"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Громкоговоритель L-VOM40A/EN",
+    "assembled_title": "Громкоговоритель Honeywell L-VOM40A/EN",
+    "expected_category": "Громкоговоритель",
+    "our_price_raw": "0,00",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://www.lyintl.com/products/l-vom40a-en-honeywell-40w-aluminum-outdoor-column-loudspeaker",
+    "pn_variants": [
+      "L.VOM40A/EN",
+      "LVOM40A/EN"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_L-VOM40A_EN.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.489264Z"
+}

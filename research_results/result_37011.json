@@ -1,0 +1,63 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_37011",
+  "entity_id": "37011",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "rocker cover (wippe)",
+    "description_ru": "-8% на странице; цена указана как Prix TTC",
+    "category_suggestion": "rocker cover (wippe)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 10.99,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html` citeturn47search8",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "IP20; RAL 9005; пластик; 1 шт; цвет: чёрный"
+    },
+    "key_findings": [
+      "-8% на странице; цена указана как Prix TTC"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html` citeturn47search8",
+        "type": "distributor",
+        "domain": "www.conrad.fr",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html` citeturn47search8",
+      "type": "distributor",
+      "domain": "www.conrad.fr",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.063747+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

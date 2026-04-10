@@ -1,0 +1,102 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_804905",
+  "entity_id": "804905",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm MCP module",
+    "description_ru": "ESSER by Honeywell. Electronic module w/ isolator for manual call points. Requires separate housing (704900 red / 704901 blue). Made in Germany.",
+    "category_suggestion": "Fire alarm MCP module",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 81.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-704900-primaryimage",
+    "specs": {
+      "raw": "8–42V DC; 45µA quiescent; 9mA alarm; 133×133×36mm; 236g; IP44 w/ housing; EN 54-11 Type B; esserbus protocol",
+      "aliases": [
+        "IQ8MCP",
+        "804906 (w/ relay)",
+        "804955 (small)",
+        "804971 (complete small)"
+      ]
+    },
+    "key_findings": [
+      "ESSER by Honeywell. Electronic module w/ isolator for manual call points. Requires separate housing (704900 red / 704901 blue). Made in Germany.",
+      "Aliases: IQ8MCP; 804906 (w/ relay); 804955 (small); 804971 (complete small)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
+        "type": "distributor",
+        "domain": "walde.ee",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.orbitadigital.com/en/cctv/fire/analogue/push-buttons/28855-electronic-modular-analog-pushbutton-with-isolator-mounting-box-not-included.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/pl/en/products/by-category/fire-life-safety/manual-call-points-pull-stations-and-panic-buttons/manual-call-points-pull-stations/iq8mcp-electronic-module",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.fireprojects.co.in/products/Honeywell-ESSAR-Electronic-Module-with-Isolator-804905-IQ8MCP",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
+      "type": "distributor",
+      "domain": "walde.ee",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.012639+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

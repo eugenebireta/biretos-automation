@@ -1,0 +1,134 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_ML6420A3072",
+  "entity_id": "ML6420A3072",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "линейный электропривод 600 N, 24 VAC, ход 20 мм (для линейных клапанов)",
+    "description_ru": "Линейный электрический привод с усилием 600Н для управления седельными клапанами в системах ОВиК. Поддерживает трехпозиционное управление и имеет ход штока 20 мм. Работает от переменного тока 24В и отличается высокой надежностью при эксплуатации в котельных.",
+    "category_suggestion": "линейный электропривод 600 N, 24 VAC, ход 20 мм (для линейных клапанов)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 352.51,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://www.bolasystems.com/actuator-for-honeywell-control-valve-ml6420a3072-600n-24vac"
+    },
+    "photo_url": "https://digitalassets.resideo.com/damroot/RDEDesktop/10019/ml6420age02cohres.jpg",
+    "specs": "Force: 600N; Stroke: 20mm; Power: 24VAC; IP Rating: IP54; Weight: 1.46kg",
+    "key_findings": [
+      "Цена на Bola Systems указана без НДС; на странице также дан вариант с НДС 21%. citeturn23view0turn29view0"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.bolasystems.com/actuator-for-honeywell-control-valve-ml6420a3072-600n-24vac",
+        "type": "distributor",
+        "domain": "www.bolasystems.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.es/itm/284136640290",
+        "type": "surplus",
+        "domain": "www.ebay.es",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.todo-control.com/ml6420a3072-honeywell-electric-actuator",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.bolasystems.com/control-valve-actuator-honeywell-ml6420a3072-600n-24vac",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.es/itm/284136640290",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://spanish.alibaba.com/product-detail/original-honeywell-valve-ml6420a3072-with-good-delivery-time-60359182290.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://oportunidadesindustriales.com/es/subastas/honeywell-ml6420a3072-65272",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.resideo.com/gb/en/products/ml6420a3072/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://sbc-support.com/field-devices/en/ecatdata/pdf_ml64_ml6420a3072.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ],
+    "datasheet_url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/engineering-specifications/77-5315.pdf"
+  },
+  "sources": [
+    {
+      "url": "https://www.bolasystems.com/actuator-for-honeywell-control-valve-ml6420a3072-600n-24vac",
+      "type": "distributor",
+      "domain": "www.bolasystems.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.es/itm/284136640290",
+      "type": "surplus",
+      "domain": "www.ebay.es",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.341392+00:00",
+  "provider": "dr_gemini",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "batch_gemini_v8_nodesc_b1.json"
+}

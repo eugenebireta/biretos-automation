@@ -1,0 +1,94 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_WD19DCS",
+  "entity_id": "WD19DCS",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Docking station",
+    "description_ru": "Dell Performance Dock. MSRP $484.21; $436 at SHI; used $30–70 on eBay. EOL product.",
+    "category_suggestion": "Docking station",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 205.95,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/p/2319237555",
+      "price_type": "marketplace"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/5xcAAOSwUZBg9WXw/s-l640.jpg",
+    "specs": {
+      "raw": "240W adapter; 210W PD; Dual USB-C; 2x DP 1.4; HDMI 2.0b; 3x USB-A 3.1; GigE; up to 5K@60Hz; 1.1\"×8.1\"×3.5\"",
+      "aliases": [
+        "210-AZBN (Dell order code)",
+        "K20A001",
+        "WD19DC (w/ audio)"
+      ]
+    },
+    "key_findings": [
+      "Dell Performance Dock. MSRP $484.21; $436 at SHI; used $30–70 on eBay. EOL product.",
+      "Aliases: 210-AZBN (Dell order code); K20A001; WD19DC (w/ audio)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/p/2319237555",
+        "type": "marketplace",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.shi.com/product/41934561/Dell-Performance-Dock-WD19DCS",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.staples.com/dell-performance-docking-station-for-laptop-dell-wd19dcs/product_IM1VJ6931",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.com/p/2319237555",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/p/2319237555",
+      "type": "marketplace",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.008122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

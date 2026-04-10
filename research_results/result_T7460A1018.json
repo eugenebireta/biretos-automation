@@ -1,0 +1,92 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_T7460A1018",
+  "entity_id": "T7460A1018",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Temperature wall module",
+    "description_ru": "For Excel 10/50–800 controllers. May be obsolete. Gray-market price — treat with caution",
+    "category_suggestion": "Temperature wall module",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 625.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://okmarts.com/honeywell-sensor-t7460a1018.html",
+      "price_type": "gray_market"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "PT1000; 0–50°C; IP30; 16–22 AWG; max 1000 ft wire; 6°–40°C operating",
+      "aliases": [
+        "Part of T7460A/B/C/D/E/F family"
+      ]
+    },
+    "key_findings": [
+      "For Excel 10/50–800 controllers. May be obsolete. Gray-market price — treat with caution",
+      "Aliases: Part of T7460A/B/C/D/E/F family"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://okmarts.com/honeywell-sensor-t7460a1018.html",
+        "type": "gray_market",
+        "domain": "okmarts.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://okmarts.com/honeywell-sensor-t7460a1018.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.kempstoncontrols.com/T7460A1018/Honeywell-Fema/sku/863499",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://files.kempstoncontrols.com/files/2a9acdbfd6759589b5a943a1add7895f/T7460A1001.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://okmarts.com/honeywell-sensor-t7460a1018.html",
+      "type": "gray_market",
+      "domain": "okmarts.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.990061+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

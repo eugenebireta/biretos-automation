@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CAB-010-SC-SM",
+  "entity_id": "CAB-010-SC-SM",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fiber adapter",
+    "description_ru": "На странице есть розница и опт «с НДС». citeturn53view0",
+    "category_suggestion": "Fiber adapter",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 10.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://www.optcom.ru/catalog/ADAPTER/adaptery-FC-SC-ST-LC-rozetki/CAB-010.html",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://www.optcom.ru/userfls/shop/card/9/88196_adapter-sm-sc-cab-010-130205-00005.png citeturn54view0",
+    "specs": {
+      "raw": "корпус пластик; втулка керамика; -20…+70°C; 15×9.4×27.4 мм; 4.8 г; >1000 циклов citeturn53view0",
+      "aliases": [
+        "CAB-010 (SC/UPC SM)"
+      ]
+    },
+    "key_findings": [
+      "На странице есть розница и опт «с НДС». citeturn53view0",
+      "Aliases: CAB-010 (SC/UPC SM)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.optcom.ru/catalog/ADAPTER/adaptery-FC-SC-ST-LC-rozetki/CAB-010.html",
+        "type": "distributor",
+        "domain": "www.optcom.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.optcom.ru/catalog/ADAPTER/adaptery-FC-SC-ST-LC-rozetki/CAB-010.html",
+      "type": "distributor",
+      "domain": "www.optcom.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.059238+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

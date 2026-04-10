@@ -1,0 +1,111 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_1015021",
+  "entity_id": "1015021",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "hearing protection",
+    "description_ru": "Preorder, 1–2 week lead; compatible with Hygiene Kit 1011998",
+    "category_suggestion": "hearing protection",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 36.14,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://cdn.lightshineuae.com/thumbs/1015021-500.jpg",
+    "specs": {
+      "raw": "NRR 28dB; headband; hi-visibility green earcups; steel wire; EN 352",
+      "aliases": [
+        "Leightning L1HHV",
+        "Howard Leight L1HHV"
+      ]
+    },
+    "key_findings": [
+      "Preorder, 1–2 week lead; compatible with Hygiene Kit 1011998",
+      "Aliases: Leightning L1HHV; Howard Leight L1HHV"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html",
+        "type": "distributor",
+        "domain": "lsgindustrial.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.lightshineuae.com/honeywell-high-visibility-earmuffs-1015021.html",
+        "type": "distributor",
+        "domain": "www.lightshineuae.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.indiamart.com/proddetail/honeywell-leightning-l1hhv-passive-headband-earmuff-28-db-1015021-2854791785848.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://sps-support.honeywell.com/s/article/1010922-1010923-1010925-Leightning-Ear-Muff-L1-L2-L3-and-1012539-1015021-1012541-L1H-L1HHV-L2H-L3H-Leightning-Ear-Muff-User-Instruction-Manual",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://lsgindustrial.com/honeywell-leightning-l1hhv-hi-visibility-earmuff.html",
+      "type": "distributor",
+      "domain": "lsgindustrial.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.lightshineuae.com/honeywell-high-visibility-earmuffs-1015021.html",
+      "type": "distributor",
+      "domain": "www.lightshineuae.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.980647+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

@@ -1,0 +1,54 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_311513",
+  "entity_id": "311513",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 345.0,
+      "currency": "SEK",
+      "unit_basis": "piece",
+      "source_url": "`https://www.computersalg.se/i/10462259/peha-by-honeywell-311513-t%C3%A4cklock-t%C3%A4cklock-aluminium`",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "title_ru": "cover plate",
+    "description_ru": "Computersalg показывает SEK 345.00 (ex moms 276.00) и статус “Slutsåld”. citeturn58search5",
+    "sources": [
+      {
+        "url": "`https://www.computersalg.se/i/10462259/peha-by-honeywell-311513-t%C3%A4cklock-t%C3%A4cklock-aluminium`",
+        "type": "distributor",
+        "domain": "www.computersalg.se",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://www.computersalg.se/i/10462259/peha-by-honeywell-311513-t%C3%A4cklock-t%C3%A4cklock-aluminium`",
+      "type": "distributor",
+      "domain": "www.computersalg.se",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:07:53.503591Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

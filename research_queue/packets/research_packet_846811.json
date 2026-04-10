@@ -1,0 +1,69 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_846811",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "846811",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 846811 (Honeywell)",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "questions_to_resolve": [
+    "What is the correct product category for Honeywell 846811 (Детектор пламени Esser D 95.572.19)?",
+    "Is the expected category 'Детектор' correct for this product?",
+    "What similar part numbers exist in the same product family?",
+    "Provide any relevant Russian-language product description for Honeywell 846811"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "REJECT",
+    "price_status": "category_mismatch_only",
+    "price_source_url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-sort-846811-1-stk-2856038.html",
+    "category_mismatch": true,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "CRITICAL_MISMATCH",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Детектор пламени Esser D 95.572.19",
+    "assembled_title": "Рамка 2-постовая PEHA DIALOG, 846811",
+    "expected_category": "Детектор",
+    "our_price_raw": "559,50",
+    "has_content_seed": true,
+    "price_currency": "DKK",
+    "price_native_value": 55.2,
+    "price_rub": null,
+    "existing_source_url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-sort-846811-1-stk-2856038.html",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_846811.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.438259Z"
+}

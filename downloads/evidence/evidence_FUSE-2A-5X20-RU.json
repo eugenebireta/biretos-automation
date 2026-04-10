@@ -1,0 +1,651 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "FUSE-2A-5X20-RU",
+  "pn_variants": [
+    "FUSE.2A.5X20.RU",
+    "FUSE2A5X20RU"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Предохранитель плавкий Honeywell FUSE-2A-5X20",
+  "assembled_title": "Предохранитель Honeywell FUSE-2A-5X20-RU",
+  "our_price_raw": "151,90",
+  "expected_category": "Предохранитель",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_FUSE-2A-5X20-RU",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_FUSE-2A-5X20-RU"
+        ],
+        "evidence_ids": [
+          "ev_title_FUSE-2A-5X20-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_FUSE-2A-5X20-RU"
+        ],
+        "evidence_ids": [
+          "ev_image_FUSE-2A-5X20-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_FUSE-2A-5X20-RU"
+        ],
+        "evidence_ids": [
+          "ev_price_FUSE-2A-5X20-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_FUSE-2A-5X20-RU"
+        ],
+        "evidence_ids": [
+          "ev_pdf_FUSE-2A-5X20-RU"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_FUSE-2A-5X20-RU"
+      ],
+      "evidence_ids": [
+        "ev_title_FUSE-2A-5X20-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_FUSE-2A-5X20-RU"
+      ],
+      "evidence_ids": [
+        "ev_image_FUSE-2A-5X20-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_FUSE-2A-5X20-RU"
+      ],
+      "evidence_ids": [
+        "ev_price_FUSE-2A-5X20-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_FUSE-2A-5X20-RU"
+      ],
+      "evidence_ids": [
+        "ev_pdf_FUSE-2A-5X20-RU"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\FUSE-2A-5X20-RU.jpg",
+      "canonical_filename": "HONEYWELL_FUSE-2A-5X20-RU_2934b96b.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://barnspb.ru/fuse-2a-5x20-250v/",
+      "origin_page_url": "https://barnspb.ru/fuse-2a-5x20-250v/",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "",
+      "quote_cta_url": "",
+      "lineage_source_url": "",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "Плавкие предохранители 5x20 с маркировкой FUSE 2A 5x20 250V на этикетке",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\FUSE-2A-5X20-RU.jpg",
+    "sha1": "2934b96b8c24c848e6ba04b6d05c04e4c761a1ec",
+    "canonical_filename": "HONEYWELL_FUSE-2A-5X20-RU_2934b96b.jpg",
+    "public_url": null,
+    "width": 3264,
+    "height": 2448,
+    "size_kb": 1611,
+    "source": "google:https://barnspb.ru/fuse-2a-5x20-250v/",
+    "phash": "b436d28b71297987",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "none",
+    "commercial_identity_status": "unclear",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "source_engine": "",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": false,
+    "price_source_url": "",
+    "price_source_domain": "",
+    "price_source_type": "",
+    "price_source_tier": "",
+    "price_source_engine": "",
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_title_pn_match": false,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "",
+    "price_source_clean_product_page": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_lineage_schema_version": "",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": false,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_source_candidates",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://www.lamborghinicalor.it/media/3541F272.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "8102/60",
+    "pdf_specs": {
+      "272F1453": "doc",
+      "l’uso la manutenzione": "sivamente a personale professionalmente qualificato.",
+      "proprietario e/o dall’installatore": "la manutenzione annuale.",
+      "personale professionalmente qualificato": "• Dopo aver rimosso l’imballaggio assicurarsi dell’inte-",
+      "possono causare danni a persone animale o cose": "È • Gli elementi dell’imballaggio non devono essere",
+      "costruttore stesso gersi al fornitore": "• Prima di effettuare qualsiasi operazioni di pulizia o di",
+      "attraverso gli appositi organi di intercettazione": "Certificazione",
+      "1. Istruzioni d’uso": "3 3. Servizio e manutenzione .................................7",
+      "1.1 Presentazione": "3 3.1 Regolazioni ....................................................7",
+      "1.2 Pannello comandi": "3 3.2 Messa in servizio ...........................................8",
+      "1.3 Accensione e spegnimento": "3 3.3 Manutenzione ................................................9",
+      "1.4 Regolazioni": "3 3.4 Risoluzione dei problemi .............................12",
+      "1.5 Manutenzione": "4",
+      "1.6 Anomalie": "4 4. Caratteristiche e dati tecnici .........................13",
+      "4.1 Dimensioni e attacchi": "13",
+      "2. Installazione": "4",
+      "4.2 Vista generale e componenti principali": "14",
+      "2.1 Disposizioni Generali": "4 4.3 Tabella dati tecnici .......................................15",
+      "2.2 Luogo di installazione": "4 4.4 Diagrammi ...................................................15",
+      "2.3 Collegamenti idraulici": "5 4.5 Schemi elettrici ............................................16",
+      "2.4 Collegamento gas": "5",
+      "2.5 Collegamenti elettrici": "6",
+      "2.6 Collegamento alla canna fumaria": "7",
+      "cod": "3541F272 - Rev. 00 - 06/2018",
+      "fig": "1 - Pannello comandi",
+      "•Aprire il rubinetto del gas a monte della caldaia": "•Chiudere o inserire l’eventuale interruttore o spina a monte della caldaia",
+      "ripeterà il ciclo di accensione": "Se, anche dopo alcuni tentativi, i bruciatori non si accendessero, consultare il paragrafo anomalie.",
+      "sotto dei 45°": "Regolazione della temperatura ambiente (con termostato ambiente opzionale)",
+      "di regolazione caldaia": "3"
+    },
+    "pdf_text_excerpt": "8102/60 - 00 .veR - 272F1453 .doc ISO 9001 CERTIFIED COMPANY GASTER N 119 ÷ 289 AW IT - ISTRUZIONE PER L’USO L’INSTALLAZIONE E LA MANUTENZIONE EN - INSTRUCTIONS FOR USE, INSTALLATION AND MAINTENANCE ES - INSTRUCCIONES DE USO, INSTALACIÓN Y MANTENIMIENTO RO - INSTRUCŢIUNI DE UTILIZARE INSTALAREA ŞI ÎNTREŢINEREA RU - ТЕХНИЧЕСКИЙ ПАСПОРТ ИЗДЕЛИЯ РУКОВОДСТВО ПО ЭКСПЛУАТАЦИИ, МОНТАЖУ ИТЕХОБСЛУЖИВАНИЮ 272F1453 GASTER N 119 ÷ 289 AW • Leggere attentamente le avvertenze contenute in • In caso di guasto e/o cattivo funzionamento dell’appa- questo libretto di istruzioni in quanto forniscono impor- recch",
+    "num_pages": 96,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_source_candidates",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Предохранитель плавкий Honeywell FUSE-2A-5X20 предназначен для защиты электрических цепей от перегрузок. Он обеспечивает надежную защиту и предотвращает повреждение оборудования.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Предохранитель",
+    "seed_name": "Предохранитель плавкий Honeywell FUSE-2A-5X20"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": false,
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
+    "price_exact_product_page": false,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_source_candidates"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:FUSE-2A-5X20-RU:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:FUSE-2A-5X20-RU:47d1c2cb00bbaf455314b0e0",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:FUSE-2A-5X20-RU:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:FUSE-2A-5X20-RU:47d1c2cb00bbaf455314b0e0",
+      "pn_primary": "FUSE-2A-5X20-RU",
+      "normalized_title": "Предохранитель Honeywell FUSE-2A-5X20-RU",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_FUSE-2A-5X20-RU"
+          ],
+          "evidence_ids": [
+            "ev_title_FUSE-2A-5X20-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_FUSE-2A-5X20-RU"
+          ],
+          "evidence_ids": [
+            "ev_image_FUSE-2A-5X20-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_FUSE-2A-5X20-RU"
+          ],
+          "evidence_ids": [
+            "ev_price_FUSE-2A-5X20-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_FUSE-2A-5X20-RU"
+          ],
+          "evidence_ids": [
+            "ev_pdf_FUSE-2A-5X20-RU"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "",
+        "pdf_source_tier": "unknown",
+        "image_source_tier": ""
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "unknown"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": null,
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.535601+00:00",
+    "source": "chatgpt",
+    "price": 42.0,
+    "currency": "RUB",
+    "source_url": "https://www.chipdip.ru/product/5x20-2a",
+    "category": "Fuse",
+    "image_url": null,
+    "price_type": "distributor",
+    "alias_found": "FUSE-2A-5X20 (Ð±ÐµÐ· -RU)",
+    "specs": "2A; 5Ã20 mm",
+    "notes": "Ð Ð¾ÑÐºÑÑÑÐ¾Ð¼ ÑÑÐ½ÐºÐµ ÑÐ°ÑÐµ Ð²ÑÑÑÐµÑÐ°ÐµÑÑÑ ÐºÐ°Ðº ÑÐ¸Ð¿Ð¾Ð²Ð¾Ð¹ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð½Ð¸ÑÐµÐ»Ñ, Ð° Ð½Ðµ ÐºÐ°Ðº ÐºÐ¾Ð´ Honeywell.",
+    "sources": [
+      {
+        "url": "https://www.chipdip.ru/product/5x20-2a",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "chipdip.ru"
+      }
+    ]
+  },
+  "dr_price": 0.85,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+  "dr_category": "Fuse",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "graybar.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.464531+00:00",
+    "source": "gemini",
+    "price": 0.85,
+    "currency": "USD",
+    "source_url": "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+    "category": "Fuse",
+    "image_url": "https://www.graybar.com/medias/25141956-01-GMA-2-R.jpg",
+    "price_type": "distributor",
+    "alias_found": "GMA-2-R",
+    "specs": null,
+    "notes": "2A; 250V; 5x20mm; Fast Acting; Glass tube",
+    "sources": [
+      {
+        "url": "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "graybar.com"
+      }
+    ]
+  },
+  "dr_image_url": "https://www.graybar.com/medias/25141956-01-GMA-2-R.jpg",
+  "deep_research": {
+    "title_ru": "Fuse",
+    "specs": {
+      "raw": "2A; 5×20 mm citeturn7search1",
+      "aliases": [
+        "FUSE-2A-5X20 (без -RU)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "В открытом рынке чаще встречается как типовой предохранитель, а не как код Honeywell. citeturn7search1",
+      "Aliases: FUSE-2A-5X20 (без -RU)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.chipdip.ru/product/5x20-2a",
+        "type": "distributor",
+        "domain": "www.chipdip.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.919753+00:00",
+    "merge_source": "result_FUSE-2A-5X20-RU.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (4).md"
+  }
+}

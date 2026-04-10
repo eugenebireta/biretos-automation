@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:57:32.170030Z",
   "pn": "121679-L3",
   "pn_variants": [
     "121679.L3",
@@ -14,8 +14,10 @@
   "expected_category": "Аспиратор",
   "card_status": "DRAFT_ONLY",
   "review_reasons": [
-    "no_photo_and_no_price",
-    "NO_IMAGE_EVIDENCE"
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
   ],
   "policy_decision_v2": {
     "decision_id": "dec_121679-L3",
@@ -26,7 +28,7 @@
     "identity_level": "weak",
     "title_status": "ACCEPTED",
     "image_status": "INSUFFICIENT",
-    "price_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
@@ -57,9 +59,9 @@
         "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
-        "reason_code": "NO_PRICE_EVIDENCE",
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
         "field": "price",
-        "severity": "INFO",
+        "severity": "WARNING",
         "candidate_ids": [
           "cand_price_121679-L3"
         ],
@@ -67,7 +69,7 @@
           "ev_price_121679-L3"
         ],
         "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
+        "bucket": "PRICE_AMBIGUITY"
       },
       {
         "reason_code": "NO_PDF_EVIDENCE",
@@ -86,7 +88,8 @@
     "review_buckets": [
       "IDENTITY_CONFLICT",
       "MISSING_MINIMUM_EVIDENCE",
-      "PDF_CONFLICT"
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
     ],
     "policy_rule_id": "CAP-09"
   },
@@ -153,19 +156,40 @@
   "confidence": {
     "pn_confidence": 0.0,
     "image_confidence": 0.0,
-    "price_confidence": 0.0,
-    "overall": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\121679-L3.jpg",
+      "canonical_filename": "HONEYWELL_121679-L3_bd891bb0.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "",
+      "quote_cta_url": "",
+      "lineage_source_url": "",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
   },
   "photo": {
     "verdict": "REJECT",
     "verdict_reason": "на изображении только логотип и текст, товара не видно",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\121679-L3.jpg",
     "sha1": "bd891bb0b7f5b9fbeca7139b7b47aa06f46e08ad",
     "canonical_filename": "HONEYWELL_121679-L3_bd891bb0.jpg",
@@ -177,26 +201,40 @@
     "phash": "8801d543ac7a7fb5",
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
-    "photo_status": "rejected",
-    "photo_evidence_role": "none",
-    "photo_is_temporary": false,
-    "replacement_required": false
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "none",
+    "commercial_identity_status": "unclear",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
     "price_per_unit": null,
     "currency": null,
     "rub_price": null,
     "fx_rate_used": null,
     "fx_provider": null,
     "price_confidence": 0,
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
     "source_url": null,
     "source_type": null,
     "source_tier": null,
+    "source_engine": "",
     "stock_status": "unknown",
     "offer_unit_basis": "unknown",
     "offer_qty": null,
     "lead_time_detected": false,
+    "quote_cta_url": null,
     "suffix_conflict": false,
     "category_mismatch": false,
     "page_product_class": "",
@@ -204,18 +242,67 @@
     "price_median_clean": null,
     "price_min_clean": null,
     "price_max_clean": null,
-    "price_sample_size": 1
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": false,
+    "price_source_url": "",
+    "price_source_domain": "",
+    "price_source_type": "",
+    "price_source_tier": "",
+    "price_source_engine": "",
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_title_pn_match": false,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "",
+    "price_source_clean_product_page": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_lineage_schema_version": "",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": false,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_source_candidates",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
   },
   "datasheet": {
-    "datasheet_status": "not_found",
-    "pdf_url": null,
-    "pdf_source_tier": null,
-    "pdf_title": null,
-    "pdf_specs": {},
-    "pdf_text_excerpt": null,
-    "num_pages": 0,
-    "parse_method": null,
-    "pn_confirmed_in_pdf": false
+    "datasheet_status": "skipped"
   },
   "structured_identity": {
     "exact_jsonld_pn_match": false,
@@ -225,13 +312,25 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": ""
   },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_source_candidates",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
   "content": {
     "specs": {},
     "description": "Ручной аспиратор используется для отбора проб воздуха в различных промышленных и лабораторных условиях. Он позволяет точно измерять концентрацию газов и других веществ в воздухе. Компактный и легкий в использовании.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Аспиратор",
-    "seed_name": "Ручной аспиратор Honeywell 121679-L3"
+    "seed_name": "Ручной аспиратор Honeywell 121679-L3",
+    "description_long_ru": "Комплект для ручного забора проб воздуха, совместимый с портативными газоанализаторами MicroClip XL и X3. Позволяет проводить мониторинг загазованности в колодцах и замкнутых пространствах перед входом персонала.25"
   },
   "trace": {
     "pn_match_location": "",
@@ -246,15 +345,37 @@
     "exact_jsonld_pn_match": false,
     "exact_title_pn_match": false,
     "exact_h1_pn_match": false,
-    "exact_product_context_pn_match": false
+    "exact_product_context_pn_match": false,
+    "price_source_seen": false,
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
+    "price_exact_product_page": false,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_source_candidates"
   },
   "verifier_shadow": {
     "schema_version": "catalog_verifier_shadow_record_v1",
     "policy_version": "catalog_verifier_policy_v1",
     "mode": "shadow",
-    "feature_enabled": true,
-    "trace_id": "catalog_verifier:121679-L3:2026-03-26T20:23:24.007390Z",
-    "idempotency_key": "catalog_verifier:121679-L3:7c02fdf294f40e5aac064415",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:121679-L3:2026-04-07T11:57:32.170030Z",
+    "idempotency_key": "catalog_verifier:121679-L3:f175987af02197bee3fb4fa6",
+    "transport": "responses_api",
     "router": {
       "should_route": true,
       "trigger_codes": [
@@ -273,8 +394,8 @@
     },
     "packet": {
       "schema_version": "catalog_verifier_input_schema_v1",
-      "trace_id": "catalog_verifier:121679-L3:2026-03-26T20:23:24.007390Z",
-      "idempotency_key": "catalog_verifier:121679-L3:7c02fdf294f40e5aac064415",
+      "trace_id": "catalog_verifier:121679-L3:2026-04-07T11:57:32.170030Z",
+      "idempotency_key": "catalog_verifier:121679-L3:f175987af02197bee3fb4fa6",
       "pn_primary": "121679-L3",
       "normalized_title": "Аспиратор Honeywell 121679-L3",
       "card_status": "DRAFT_ONLY",
@@ -358,10 +479,10 @@
         "structured_pn_match_location": ""
       },
       "pdf_evidence_summary": {
-        "datasheet_status": "not_found",
+        "datasheet_status": "skipped",
         "pdf_exact_pn_confirmed": false,
         "pn_confirmed_in_pdf": false,
-        "pdf_source_tier": null
+        "pdf_source_tier": ""
       },
       "image_evidence_summary": {
         "photo_verdict": "REJECT",
@@ -392,32 +513,111 @@
       "reasoning_tokens": 0,
       "estimated_cost_usd": 0.0
     },
-    "call_state": "failed",
-    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
-    "openai_request_id": ""
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
   },
-  "merchandising": {
-    "image_local_path": "",
-    "image_status": "rejected",
-    "image_kind": "blocked_reject",
-    "image_temporary": false,
-    "replacement_required": true,
-    "lineage_preserved": false,
-    "source_manifest_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
-    "source_photo_verdict": "REJECT",
-    "cleanup_recommended": true,
-    "policy_reason_code": "source_photo_verdict_reject"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.030105+00:00",
+    "source": "chatgpt",
+    "price": 242.0,
+    "currency": "AUD",
+    "source_url": "https://www.contractoressentials.com.au/products/honeywell-manual-aspirator-pump",
+    "category": "Gas detection aspirator pump",
+    "image_url": "https://s7d1.scene7.com/is/image/Honeywell65/GasAlertMicroClipXlX3",
+    "price_type": "distributor",
+    "alias_found": "MC-AS01",
+    "specs": null,
+    "notes": "Includes GST, in stock",
+    "sources": [
+      {
+        "url": "https://www.contractoressentials.com.au/products/honeywell-manual-aspirator-pump",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "contractoressentials.com.au"
+      },
+      {
+        "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/gas-and-flame-detection/portables/multi-gas/honeywell-bw-microclip-series-multi-gas-detector",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "automation.honeywell.com"
+      }
+    ]
   },
-  "refresh_trace": {
-    "refresh_mode": "local_catalog_refresh_v1",
-    "content_seed_applied": true,
-    "content_seed_source": "insales_import_seed",
-    "photo_verdict_cache_applied": true,
-    "photo_verdict_value": "REJECT",
-    "merchandising_attached": false,
-    "merchandising_image_status": "rejected",
-    "card_status_source": "photo_verdict_override",
-    "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": false
+  "dr_price": 550.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.galco.com/",
+  "dr_image_url": "https://s7d1.scene7.com/is/image/Honeywell65/GasAlertMicroClipXlX3",
+  "dr_category": "Kit",
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:40:17.750168+00:00",
+    "source": "gemini",
+    "price": 550.0,
+    "currency": "USD",
+    "source_url": "https://www.galco.com/",
+    "category": "Kit",
+    "image_url": "galco.com",
+    "price_type": "gray_market",
+    "alias_found": "Cable/Installation kit for TDC 3000 systems",
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.galco.com/",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "galco.com"
+      }
+    ]
+  },
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.galco.com/",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "galco.com"
+    }
+  ],
+  "deep_research": {
+    "title_ru": "Gas detection accessory: manual aspirator pump",
+    "specs": {
+      "aliases": [
+        "MC-AS01 (встречается в импорт-описаниях)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена: $242.00 AUD “Includes GST”; на складе. citeturn33search4",
+      "Aliases: MC-AS01 (встречается в импорт-описаниях)"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.contractoressentials.com.au/products/honeywell-manual-aspirator-pump` citeturn33search4",
+        "type": "distributor",
+        "domain": "www.contractoressentials.com.au",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:42:13.309814+00:00",
+    "merge_source": "result_121679-L3.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report-prompt-v3.md",
+    "description_ru": "Комплект для ручного забора проб воздуха, совместимый с портативными газоанализаторами MicroClip XL и X3. Позволяет проводить мониторинг загазованности в колодцах и замкнутых пространствах перед входом персонала.25"
   }
 }

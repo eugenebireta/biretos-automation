@@ -1,0 +1,63 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_369111",
+  "entity_id": "369111",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "switch frame",
+    "description_ru": "На странице указана скидка -5% и статус «нет в наличии»",
+    "category_suggestion": "switch frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 493.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://liveinlight.ru/ramki/ramki-1-post/ramka-1-post-peha-by-honeywell-dialog-bronzovyy-2` citeturn38search4",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "81x81 мм; материал термопласт; серия DIALOG (по заголовку); цена со скидкой"
+    },
+    "key_findings": [
+      "На странице указана скидка -5% и статус «нет в наличии»"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://liveinlight.ru/ramki/ramki-1-post/ramka-1-post-peha-by-honeywell-dialog-bronzovyy-2` citeturn38search4",
+        "type": "distributor",
+        "domain": "liveinlight.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://liveinlight.ru/ramki/ramki-1-post/ramka-1-post-peha-by-honeywell-dialog-bronzovyy-2` citeturn38search4",
+      "type": "distributor",
+      "domain": "liveinlight.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.070748+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

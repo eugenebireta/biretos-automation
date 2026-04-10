@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1012539",
   "pn_variants": [],
   "brand": "Honeywell",
@@ -9,49 +9,21 @@
   "assembled_title": "Наушники Honeywell 1012539",
   "our_price_raw": "1652,59",
   "expected_category": "Наушники",
-  "card_status": "REVIEW_REQUIRED",
-  "review_reasons": [
-    "LEGACY_AUTO_PUBLISH_HOLDOUT"
-  ],
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_1012539",
     "policy_version": "catalog_evidence_policy_v1",
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_1012539"
-        ],
-        "evidence_ids": [
-          "ev_title_1012539"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1012539"
-        ],
-        "evidence_ids": [
-          "ev_image_1012539"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
       {
         "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
         "field": "price",
@@ -62,7 +34,7 @@
         "evidence_ids": [
           "ev_price_1012539"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-01",
         "bucket": "PRICE_AMBIGUITY"
       },
       {
@@ -75,17 +47,15 @@
         "evidence_ids": [
           "ev_pdf_1012539"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-01",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT",
       "PRICE_AMBIGUITY"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-01"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -227,7 +197,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
     "product_type": "Наушники",
-    "seed_name": "Наушники противошумные EARMUFF-LEIGHTNING L1H"
+    "seed_name": "Наушники противошумные EARMUFF-LEIGHTNING L1H",
+    "description_long_ru": "Also on eBay at €16.79 (new condition); helmet adapters 3711/3712/3721"
   },
   "trace": {
     "pn_match_location": "",
@@ -419,9 +390,58 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true,
-    "holdout_applied": true,
-    "holdout_reason": "AUTO_PUBLISH_V2_MISMATCH_OWNER_DECISION_20260402",
-    "holdout_previous_card_status": "AUTO_PUBLISH"
-  }
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.503680+00:00"
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "hearing protection",
+    "description_ru": "Also on eBay at €16.79 (new condition); helmet adapters 3711/3712/3721",
+    "specs": {
+      "raw": "SNR 26dB; helmet-mounted; steel wire arms; snap-in cushions; EN 352",
+      "aliases": [
+        "Leightning L1H",
+        "Howard Leight L1H",
+        "Arco 211005"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also on eBay at €16.79 (new condition); helmet adapters 3711/3712/3721",
+      "Aliases: Leightning L1H; Howard Leight L1H; Arco 211005"
+    ],
+    "sources": [
+      {
+        "url": "https://www.safety5000.com/hearing-protection-c16/ear-defenders-c39/honeywell-howard-leight-leightning-l1h-snr-26-db-grey-helmet-mounted-ear-muff-defender-p254",
+        "type": "distributor",
+        "domain": "www.safety5000.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/272241478308",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.771536+00:00",
+    "merge_source": "result_1012539.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
+  },
+  "dr_category": "hearing protection",
+  "dr_image_url": "https://i.ebayimg.com/images/g/WBgAAOSw4F5aDH0q/s-l300.jpg",
+  "dr_price": 14.02,
+  "dr_currency": "GBP",
+  "dr_price_source": "https://www.safety5000.com/hearing-protection-c16/ear-defenders-c39/honeywell-howard-leight-leightning-l1h-snr-26-db-grey-helmet-mounted-ear-muff-defender-p254"
 }

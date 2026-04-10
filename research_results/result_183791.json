@@ -1,0 +1,88 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_183791",
+  "entity_id": "183791",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка декоративная PEHA by Honeywell 183791",
+    "description_ru": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук.",
+    "category_suggestion": "Рамки и накладки электроустановочные",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad.nl (источник в текущем статусе): розничная цена в EUR за упаковку 10 шт.; точная цена не извлечена из доступных данных, но источник подтверждает наличие товара",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 183791 идентифицирован как декоративная рамка (frame), а не модуль управления (модуль)",
+      "Продукт относится к линейке PEHA by Honeywell (электроустановочные изделия)",
+      "Текущее название в каталоге 'Модуль управления Honeywell D 20.671.201.022' является ошибочным и не соответствует фактическому продукту",
+      "Conrad.nl подтверждает идентичность как 'PEHA by Honeywell 183791 frame frame wit 10 stuk(s)'",
+      "Категория 'Модуль' неправильна; правильная категория — электроустановочные рамки/накладки"
+    ],
+    "ambiguities": [
+      "Связь между PN 183791 и обозначением 'D 20.671.201.022' не подтверждена; возможна ошибка в каталогизации",
+      "Точные технические характеристики (материал, размеры, стандарты) не найдены в открытых источниках",
+      "Отсутствует официальный datasheet от Honeywell для подтверждения всех спецификаций",
+      "Причина категоризации как 'модуль управления' остается неясной"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conrad.nl/nl/p/peha-by-honeywell-183791-frame-frame-wit-10-stuk-s-2856802.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category_correction",
+          "price_reference"
+        ]
+      },
+      {
+        "url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html` citeturn27search0",
+        "type": "distributor",
+        "domain": "www.conrad.fr",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентичность продукта как декоративной рамки подтверждена одним авторитетным дистрибьютором (Conrad.nl), но отсутствуют официальные источники Honeywell и datasheet. Категория явно неправильна в текущем каталоге. Цена в xlsx может быть ошибочной из-за неправильной категоризации. Требуется переклассификация и переверка источника цены.",
+    "price_value": {
+      "amount": 405.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html` citeturn27search0",
+      "price_type": "distributor"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://www.conrad.nl/nl/p/peha-by-honeywell-183791-frame-frame-wit-10-stuk-s-2856802.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category_correction",
+        "price_reference"
+      ]
+    },
+    {
+      "url": "`https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-blanc-183791-10-pc-s-2856802.html` citeturn27search0",
+      "type": "distributor",
+      "domain": "www.conrad.fr",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:14:31.200420Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2261,
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
+}

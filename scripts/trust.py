@@ -63,6 +63,25 @@ DOMAIN_TRUST: dict[str, dict] = {
 
     # ── Russian industrial PPE distributors ────────────────────────────────────
     "uralsiz.ru":                 {"tier": "industrial",  "weight": 0.70},  # ТД УРАЛСИЗ — Ekaterinburg PPE, script-accessible, lineage=True confirmed
+    "sima-land.ru":               {"tier": "industrial",  "weight": 0.68},  # Sima-land — major RU wholesale/retail, PPE+industrial
+    "vseinstrumenti.ru":          {"tier": "industrial",  "weight": 0.72},  # ВсеИнструменты — large RU tools/PPE retailer
+    "specregion.ru":              {"tier": "industrial",  "weight": 0.68},  # СпецРегион — PPE distributor, Ekaterinburg
+
+    # ── Authorized Esser / Honeywell fire safety distributors ─────────────────
+    "walde.ee":                   {"tier": "authorized",  "weight": 0.85},  # Walde AS — official Esser by Honeywell distributor, Estonia
+
+    # ── International industrial distributors (non-TLD-heuristic) ─────────────
+    "pksafety.com":               {"tier": "industrial",  "weight": 0.75},  # PK Safety — US safety equipment distributor
+    "dmsupplysource.com":         {"tier": "industrial",  "weight": 0.72},  # DM Supply — US HVAC/combustion controls
+    "transcat.com":               {"tier": "industrial",  "weight": 0.75},  # Transcat — US calibration/gas detection
+    "instrumart.com":             {"tier": "industrial",  "weight": 0.75},  # Instrumart — US industrial instruments & safety
+    "lightshine.ae":              {"tier": "industrial",  "weight": 0.70},  # Lightshine — UAE safety/PPE distributor
+    "firealarmmax.com":           {"tier": "industrial",  "weight": 0.72},  # Fire Alarm Max — US fire alarm parts distributor
+    "globaltestsupply.com":       {"tier": "industrial",  "weight": 0.73},  # Global Test Supply — US industrial test equipment
+    "bolasystems.com":            {"tier": "industrial",  "weight": 0.72},  # Bola Systems — EU HVAC components distributor
+    "shop.peaktech.com":          {"tier": "industrial",  "weight": 0.73},  # Peak Technologies — US barcode/industrial printer distributor
+    "barcodefactory.com":         {"tier": "industrial",  "weight": 0.72},  # Barcode Factory — US barcode/printer accessories
+    "logiscenter.us":             {"tier": "industrial",  "weight": 0.72},  # Logiscenter — US barcode scanner distributor
 
     # ── Russian B2B ─────────────────────────────────────────────────────────────
     "armosystems.ru":             {"tier": "ru_b2b",      "weight": 0.75},

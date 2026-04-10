@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-04-06T18:32:01.484326Z",
+  "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1012541",
   "pn_variants": [],
   "brand": "Honeywell",
@@ -9,7 +9,7 @@
   "assembled_title": "Наушники Honeywell 1012541",
   "our_price_raw": "4675,63",
   "expected_category": "Наушники",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_1012541",
@@ -19,8 +19,8 @@
     "review_schema_version": "review_reason_schema_v1",
     "identity_level": "weak",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
-    "price_status": "INSUFFICIENT",
+    "image_status": "ACCEPTED",
+    "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
@@ -38,32 +38,6 @@
         "bucket": "IDENTITY_CONFLICT"
       },
       {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1012541"
-        ],
-        "evidence_ids": [
-          "ev_image_1012541"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
-        "reason_code": "NO_PRICE_EVIDENCE",
-        "field": "price",
-        "severity": "INFO",
-        "candidate_ids": [
-          "cand_price_1012541"
-        ],
-        "evidence_ids": [
-          "ev_price_1012541"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
         "reason_code": "NO_PDF_EVIDENCE",
         "field": "pdf",
         "severity": "INFO",
@@ -79,7 +53,6 @@
     ],
     "review_buckets": [
       "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
     "policy_rule_id": "CAP-09"
@@ -153,8 +126,7 @@
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
   },
   "photo": {
@@ -300,7 +272,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
     "product_type": "Наушники",
-    "seed_name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU"
+    "seed_name": "Наушники противошумные EARMUFF-LEIGHTNING L3H EU",
+    "description_long_ru": "Пассивные наушники с проволочным креплением для монтажа на защитную каску, обеспечивающие высокую степень шумоподавления. Модель оснащена комфортными подушечками и адаптерами для совместимости с большинством промышленных касок.2"
   },
   "trace": {
     "pn_match_location": "",
@@ -485,12 +458,114 @@
     "content_seed_source": "insales_import_seed",
     "photo_verdict_cache_applied": true,
     "photo_verdict_value": "KEEP",
-    "price_overlay_applied": true,
-    "blocked_price_overlay_applied": true,
     "merchandising_attached": true,
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.504678+00:00"
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.177764+00:00",
+    "source": "chatgpt",
+    "price": 39.0,
+    "currency": "EUR",
+    "source_url": "https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html",
+    "category": "PPE earmuffs (helmet mount)",
+    "image_url": "https://preprod.equipementprotectionindividuelle.fr/2567-cart_default/coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.jpg",
+    "price_type": "distributor",
+    "alias_found": "â",
+    "specs": "SNR 31; H 30/M 29/L 24; Ð°Ð´Ð°Ð¿ÑÐµÑÑ 3711/3712/3721; EN352â3 (Ð² Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ð¸)",
+    "notes": "Ð¦ÐµÐ½Ð° ÑÐºÐ°Ð·Ð°Ð½Ð° Â«39,00 â¬ TTC (39,00 â¬ HT)Â» Ð½Ð° ÑÑÑÐ°Ð½Ð¸ÑÐµ.",
+    "sources": [
+      {
+        "url": "https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "equipementprotectionindividuelle.fr"
+      },
+      {
+        "url": "https://sps-support.honeywell.com/s/article/1012541-Leightning-L3Hs-Helmet-Earmuff-3711-3712-3721-Adapter-Data-Sheet-Spanish",
+        "page_type": "manufacturer",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "sps-support.honeywell.com"
+      }
+    ]
+  },
+  "dr_price": 39.0,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html",
+  "dr_image_url": "https://preprod.equipementprotectionindividuelle.fr/2567-cart_default/coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.jpg",
+  "dr_category": "PPE earmuffs (helmet mount)",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html",
+      "page_type": "distributor",
+      "has_price": "yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "equipementprotectionindividuelle.fr"
+    },
+    {
+      "url": "https://sps-support.honeywell.com/s/article/1012541-Leightning-L3Hs-Helmet-Earmuff-3711-3712-3721-Adapter-Data-Sheet-Spanish",
+      "page_type": "manufacturer",
+      "has_price": "no",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "sps-support.honeywell.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:44:45.076304+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "INDUSTRIAL",
+    "source_url": null,
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "PPE earmuffs (helmet mount)",
+    "specs": {
+      "raw": "SNR 31; H 30/M 29/L 24; адаптеры 3711/3712/3721; EN352‑3 (в описании) citeturn34view0",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Цена указана «39,00 € TTC (39,00 € HT)» на странице. citeturn34view0",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "`https://preprod.equipementprotectionindividuelle.fr/protection-auditive/1499-coquilles-leightning-l3h-snr-31db-pour-casque-de-securite-honeywell-sperian.html` citeturn34view0",
+        "type": "distributor",
+        "domain": "preprod.equipementprotectionindividuelle.fr",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:42:13.289896+00:00",
+    "merge_source": "result_1012541.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (2).md",
+    "description_ru": "Пассивные наушники с проволочным креплением для монтажа на защитную каску, обеспечивающие высокую степень шумоподавления. Модель оснащена комфортными подушечками и адаптерами для совместимости с большинством промышленных касок.2"
   }
 }

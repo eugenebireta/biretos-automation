@@ -1,0 +1,90 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_191791",
+  "entity_id": "191791",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка для выключателя Peha by Honeywell 191791",
+    "description_ru": "Рамка для монтажа выключателей и розеток серии Peha by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки.",
+    "category_suggestion": "Электроустановочные изделия / Рамки и накладки",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad Elektronik (Дания) предлагает PN 191791 как рамку Peha by Honeywell по цене в диапазоне EUR 15-25 за единицу (упаковка 5 шт.). Источник: https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-191791-5-stk-2856771.html",
+    "photo_assessment": "not_found",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 191791 является рамкой (ramme) для выключателей Peha by Honeywell, а не детектором пламени",
+      "Текущее название в каталоге 'Детектор пламени Honeywell D 20.674.242.702' содержит критическую ошибку идентификации",
+      "Продукт подтвержден на официальном сайте Conrad Elektronik как электроустановочное изделие",
+      "Категория 'Детектор' полностью неправильна для этого продукта",
+      "Цена 7589,00 (предположительно RUB) несоответствует рыночной стоимости рамки (~EUR 3-5 за единицу)"
+    ],
+    "ambiguities": [
+      "Невозможно подтвердить точные технические спецификации (материал, размеры, цвет) без доступа к официальному datasheet Honeywell",
+      "Неясно, является ли D 20.674.242.702 отдельным артикулом или ошибочной ссылкой на другой продукт",
+      "Отсутствует официальная документация Honeywell для PN 191791 в открытых источниках"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-191791-5-stk-2856771.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category",
+          "price_evidence"
+        ]
+      },
+      {
+        "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-191791-5-st-2856771.html` citeturn56view0",
+        "type": "distributor",
+        "domain": "www.conrad.at",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентификация как рамки для выключателей подтверждена одним авторитетным дистрибьютором (Conrad), но отсутствует прямое подтверждение от Honeywell. Категория 'Электроустановочные изделия' определена с высокой уверенностью на основе типа продукта. Низкая уверенность в полных спецификациях из-за отсутствия официального datasheet.",
+    "price_value": {
+      "amount": 425.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-191791-5-st-2856771.html` citeturn56view0",
+      "price_type": "distributor"
+    },
+    "photo_url": "`https://asset.conrad.com/media10/isa/160267/c1/-/de/002856771PI01/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400` citeturn57view2"
+  },
+  "sources": [
+    {
+      "url": "https://www.conradelektronik.dk/da/p/peha-by-honeywell-ramme-ramme-191791-5-stk-2856771.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category",
+        "price_evidence"
+      ]
+    },
+    {
+      "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-191791-5-st-2856771.html` citeturn56view0",
+      "type": "distributor",
+      "domain": "www.conrad.at",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:17:03.785864Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2248,
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
+}

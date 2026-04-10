@@ -1,0 +1,654 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "RMK400AP-IV",
+  "pn_variants": [
+    "RMK400AP.IV",
+    "RMK400APIV"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Комплект для встраиваемого монтажа RMK400AP-IV",
+  "assembled_title": "Комплект Honeywell RMK400AP-IV",
+  "our_price_raw": "349,20",
+  "expected_category": "Комплект",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "CRITICAL_MISMATCH",
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "PDF_NOT_EXACT_CONFIRMED"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_RMK400AP-IV",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "CRITICAL_MISMATCH",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_price_RMK400AP-IV"
+        ],
+        "evidence_ids": [
+          "ev_price_RMK400AP-IV"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_RMK400AP-IV"
+        ],
+        "evidence_ids": [
+          "ev_image_RMK400AP-IV"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_RMK400AP-IV"
+        ],
+        "evidence_ids": [
+          "ev_price_RMK400AP-IV"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_RMK400AP-IV"
+        ],
+        "evidence_ids": [
+          "ev_pdf_RMK400AP-IV"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-10"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "CRITICAL_MISMATCH",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_price_RMK400AP-IV"
+      ],
+      "evidence_ids": [
+        "ev_price_RMK400AP-IV"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_RMK400AP-IV"
+      ],
+      "evidence_ids": [
+        "ev_image_RMK400AP-IV"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_RMK400AP-IV"
+      ],
+      "evidence_ids": [
+        "ev_price_RMK400AP-IV"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_RMK400AP-IV"
+      ],
+      "evidence_ids": [
+        "ev_pdf_RMK400AP-IV"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.128,
+    "image_confidence": 0.017,
+    "price_confidence": 0.1,
+    "overall": 0.076,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\RMK400AP-IV.jpg",
+      "canonical_filename": "HONEYWELL_RMK400AP-IV_8ff68208.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie",
+      "origin_page_url": "https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.orbitadigital.com/en/fire/conventional/detectors/14487-notifier-rmk400ap-iv-accessory-for-embedding-400-and-800-series.html?srsltid=AfmBOoocZTefhggM56ZxD6MJSpBKKHkGnbFsupWLLQOuiOFs6pDsyvRm",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.orbitadigital.com/en/fire/conventional/detectors/14487-notifier-rmk400ap-iv-accessory-for-embedding-400-and-800-series.html?srsltid=AfmBOoocZTefhggM56ZxD6MJSpBKKHkGnbFsupWLLQOuiOFs6pDsyvRm",
+      "replacement_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=50820-rmk400ap-iv-montagesockelzusatz-rmk400ap-iv",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "Комплект для встраиваемого монтажа — круглая рамка и металлический кронштейн — соответствует описанию товара",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\RMK400AP-IV.jpg",
+    "sha1": "8ff6820805b6da3fca01088e414a4e2708b4ca7d",
+    "canonical_filename": "HONEYWELL_RMK400AP-IV_8ff68208.jpg",
+    "public_url": null,
+    "width": 632,
+    "height": 500,
+    "size_kb": 25,
+    "source": "google:https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie",
+    "phash": "bf36b0e0c3c3c98c",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "category_mismatch_only",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "component_or_accessory",
+    "offer_admissibility_status": "ambiguous_offer",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_COMPONENT_OR_ACCESSORY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": 14.93,
+    "currency": "EUR",
+    "rub_price": 1418.35,
+    "fx_rate_used": 95.0,
+    "fx_provider": "stub",
+    "price_confidence": 25,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.orbitadigital.com/en/fire/conventional/detectors/14487-notifier-rmk400ap-iv-accessory-for-embedding-400-and-800-series.html?srsltid=AfmBOoocZTefhggM56ZxD6MJSpBKKHkGnbFsupWLLQOuiOFs6pDsyvRm",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": true,
+    "page_product_class": "Mounting Accessory / Socket",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.orbitadigital.com/en/fire/conventional/detectors/14487-notifier-rmk400ap-iv-accessory-for-embedding-400-and-800-series.html?srsltid=AfmBOoocZTefhggM56ZxD6MJSpBKKHkGnbFsupWLLQOuiOFs6pDsyvRm",
+    "price_source_domain": "orbitadigital.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": true,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "jsonld",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=50820-rmk400ap-iv-montagesockelzusatz-rmk400ap-iv",
+    "price_source_replacement_domain": "igs-hagen.de",
+    "price_source_replacement_tier": "authorized",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "title",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [
+      "category_or_brand_mismatch",
+      "noisy_page_context",
+      "source_tier_not_admissible"
+    ],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://hbtmkto.honeywell.com/rs/127-UCB-316/images/Notifier%20Pricelist%202023%20BNL%20V1.pdf",
+    "pdf_source_tier": "official",
+    "pdf_title": "2023 Price List",
+    "pdf_specs": {
+      "020-643 020-643 DUAL PORT FIBRE OPTIC INTERF": "MULTIMODE € 929,10 ea 1W",
+      "M721E M721E ADDR.MOD": "2 INPUTS&1 RELAY OUT.30VDC/2A € 168,10 ea 1W",
+      "MMX-10ME MMX-10ME ADDR": "10 INPUT CARD ADV/CLIP(NOT) € 852,60 ea 1W"
+    },
+    "pdf_text_excerpt": "2023 Price List Effective from 01.01.23 Chapter 1 - Intelligent Systems Commercial Part Order Part Number Description List Price UOM Lead Number 2023 Time 85080 85080 MPG DP10K-IP € 8 328,70 ea 4W 85072 85072 MPG500 MODBUS IP € 3 261,50 ea 4W 002-439 002-439 MULTI-MOUNT ENCLOSURE, RAL 7021 € 288,00 ea 1W 002-450-002 002-450-002 IDR-2A ACTIVE REPEATER FOR NF30/50 € 1 279,00 ea 1W 002-452-002 002-452-002 IDR-6A ACTIVE REPEATER FOR NF3000 € 1 443,30 ea 1W 002-467 002-467 NETWORK GATEWAY UNIT (NGU) € 2 434,80 ea 4W 002-629 002-629 IDP-LB1 LOOP BOOSTER (NOTIFIER) € 1 467,30 ea 1W 020-038-009 020-03",
+    "num_pages": 33,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "public_price_rejection",
+        "code": "category_or_brand_mismatch",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "public_price_rejection",
+        "code": "noisy_page_context",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "public_price_rejection",
+        "code": "source_tier_not_admissible",
+        "source_field": "price.public_price_rejection_reasons"
+      }
+    ],
+    "identity": [
+      {
+        "class": "identity_mismatch",
+        "code": "category_mismatch",
+        "source_field": "price.category_mismatch"
+      }
+    ]
+  },
+  "content": {
+    "specs": {
+      "цвет": "Цвет слоновой кости",
+      "внутренний_диаметр": "103 мм",
+      "внешний_диаметр": "143,5 мм",
+      "диаметр_отверстия": "107 мм",
+      "высота": "31 мм",
+      "вес": "0,1 кг"
+    },
+    "description": "Комплект для встраиваемого монтажа детекторов, цвет слоновой кости. Предназначен для скрытой установки детекторов в потолках и стенах, обеспечивая эстетичный вид и надежную фиксацию.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Пожарная сигнализация",
+    "product_type": "Комплект",
+    "seed_name": "Комплект для встраиваемого монтажа RMK400AP-IV",
+    "description_long_ru": "В том же прайсе есть RMK400AP (белый) 415р"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": ""
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:RMK400AP-IV:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:RMK400AP-IV:f4dec855d709d5ac526b7a39",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "CRITICAL_POLICY_CONFLICT",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "strong"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:RMK400AP-IV:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:RMK400AP-IV:f4dec855d709d5ac526b7a39",
+      "pn_primary": "RMK400AP-IV",
+      "normalized_title": "Комплект Honeywell RMK400AP-IV",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "CRITICAL_MISMATCH",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_price_RMK400AP-IV"
+          ],
+          "evidence_ids": [
+            "ev_price_RMK400AP-IV"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_RMK400AP-IV"
+          ],
+          "evidence_ids": [
+            "ev_image_RMK400AP-IV"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_RMK400AP-IV"
+          ],
+          "evidence_ids": [
+            "ev_price_RMK400AP-IV"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_RMK400AP-IV"
+          ],
+          "evidence_ids": [
+            "ev_pdf_RMK400AP-IV"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "official",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "official"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "category_mismatch_only",
+        "source_tier": "unknown",
+        "page_product_class": "Mounting Accessory / Socket",
+        "category_mismatch": true,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "CRITICAL_POLICY_CONFLICT",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.431544+00:00",
+    "source": "chatgpt",
+    "price": 415.0,
+    "currency": "RUB",
+    "source_url": "https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf",
+    "category": "mounting bracket",
+    "image_url": null,
+    "price_type": "list_price",
+    "alias_found": "Ð ÑÐ¾Ð¼ Ð¶Ðµ Ð¿ÑÐ°Ð¹ÑÐµ ÐµÑÑÑ RMK400AP (Ð±ÐµÐ»ÑÐ¹) 415Ñ",
+    "specs": "Ð°ÐºÑÐµÑÑÑÐ°Ñ Ð´Ð»Ñ Ð¿Ð¾Ð¶Ð°ÑÐ½ÑÑ Ð¸Ð·Ð²ÐµÑÐ°ÑÐµÐ»ÐµÐ¹; ÑÐµÐ½Ð° Ð² Ð¿ÑÐ°Ð¹Ñ-Ð»Ð¸ÑÑÐµ",
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf",
+        "page_type": "datasheet_pdf",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "systemsensor.ru"
+      }
+    ]
+  },
+  "dr_price": 14.88,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.credexalarmsystems.eu/en/alarm-systems/honeywell/notifier-analog-fire-alarm/",
+  "dr_category": "Mount Kit",
+  "dr_price_type": "gray_market",
+  "dr_sources": [
+    {
+      "url": "https://www.credexalarmsystems.eu/en/alarm-systems/honeywell/notifier-analog-fire-alarm/",
+      "page_type": "distributor",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "credexalarmsystems.eu"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.363482+00:00",
+    "source": "gemini",
+    "price": 14.88,
+    "currency": "EUR",
+    "source_url": "https://www.credexalarmsystems.eu/en/alarm-systems/honeywell/notifier-analog-fire-alarm/",
+    "category": "Mount Kit",
+    "image_url": null,
+    "price_type": "gray_market",
+    "alias_found": "RMK400AP",
+    "specs": null,
+    "notes": "Recess for B501 AP; Notifier",
+    "sources": [
+      {
+        "url": "https://www.credexalarmsystems.eu/en/alarm-systems/honeywell/notifier-analog-fire-alarm/",
+        "page_type": "distributor",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "credexalarmsystems.eu"
+      }
+    ]
+  },
+  "deep_research": {
+    "title_ru": "mounting bracket",
+    "description_ru": "В том же прайсе есть RMK400AP (белый) 415р",
+    "specs": {
+      "raw": "аксессуар для пожарных извещателей; цена в прайс-листе"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "В том же прайсе есть RMK400AP (белый) 415р"
+    ],
+    "sources": [
+      {
+        "url": "`https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf` citeturn36view0",
+        "type": "list_price",
+        "domain": "systemsensor.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.994061+00:00",
+    "merge_source": "result_RMK400AP-IV.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (5).md"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_309811",
+  "entity_id": "309811",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Датчик температуры Honeywell 309811 (D 95.540.70)",
+    "description_ru": "Датчик температуры с артикулом 309811 и внутренней ссылкой D 95.540.70. Точная идентификация продукта по открытым источникам не подтверждена.",
+    "category_suggestion": "Датчик температуры",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 9.75,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/p/peha-by-honeywell-abdeckung-wippe-aluminium-309811-1-st-2854986.html` citeturn53view0",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "Артикул '309811' не найден ни на официальном сайте Honeywell, ни у авторизованных дистрибьюторов в открытом доступе.",
+      "Ссылка 'D 95.540.70' не вернула результатов ни в одном из поисковых запросов — ни на английском, ни на русском языке.",
+      "Honeywell выпускает широкий ассортимент датчиков температуры (термисторы, RTD/PT1000/PT100, NTC20k, BALCO 500), однако ни один из них не идентифицирован с номером 309811.",
+      "Формат артикула '309811' не совпадает со стандартными форматами Honeywell (например, HEL-700, VF20, T7425, C7085 и др.).",
+      "Возможно, артикул является внутренним номером посредника, OEM-номером или принадлежит другому производителю.",
+      "Категория 'Датчик' как общая классификация правдоподобна, учитывая суффикс 'D 95.540.70', однако без подтверждения остаётся предположением."
+    ],
+    "ambiguities": [
+      "Артикул '309811' может быть внутренним или OEM-номером, не совпадающим с официальной номенклатурой Honeywell.",
+      "Ссылка 'D 95.540.70' не распознана ни как серия, ни как номер модели Honeywell в открытых базах данных.",
+      "Неизвестно, относится ли продукт к направлению Sensing & IoT, Building Technologies или другому подразделению Honeywell.",
+      "Нельзя исключить, что '309811' — это номер детали стороннего поставщика, совместимой с оборудованием Honeywell, а не оригинальный артикул Honeywell."
+    ],
+    "sources": [
+      {
+        "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/sensors/temperature-and-humidity-sensors",
+        "type": "manufacturer",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://honeywell-trade.ru/products/datchiki-i-rele-honeywell/datchiki-temperatury/",
+        "type": "distributor",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://center-control.ru/collection/honeywell-datchiki-temperatury",
+        "type": "distributor",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-abdeckung-wippe-aluminium-309811-1-st-2854986.html` citeturn53view0",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Артикул '309811' и ссылка 'D 95.540.70' не найдены ни в одном открытом источнике: ни на сайте производителя Honeywell, ни у авторизованных дистрибьюторов, ни в технической документации. Категория 'Датчик температуры' является обоснованным предположением на основе контекста запроса, однако не подтверждена. Для верификации рекомендуется обратиться напрямую к Honeywell или авторизованному дистрибьютору с указанием полного обозначения продукта."
+  },
+  "sources": [
+    {
+      "url": "https://automation.honeywell.com/us/en/products/sensing-solutions/sensors/temperature-and-humidity-sensors",
+      "type": "manufacturer",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://honeywell-trade.ru/products/datchiki-i-rele-honeywell/datchiki-temperatury/",
+      "type": "distributor",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://center-control.ru/collection/honeywell-datchiki-temperatury",
+      "type": "distributor",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-abdeckung-wippe-aluminium-309811-1-st-2854986.html` citeturn53view0",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:07:46.962149Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3469,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

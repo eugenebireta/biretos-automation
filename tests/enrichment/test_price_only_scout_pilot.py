@@ -66,7 +66,7 @@ def test_summarize_results_materializes_explicit_success_gates():
                 "price_source_exact_product_lineage_confirmed": False,
                 "price_source_surface_conflict_detected": False,
                 "cache_fallback_used": True,
-                "transient_failure_codes": ["openai_quota"],
+                "transient_failure_codes": ["llm_quota"],
                 "fx_normalization_status": "fx_gap",
             },
         ],

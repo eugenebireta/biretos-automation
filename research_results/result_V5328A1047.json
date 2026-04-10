@@ -1,0 +1,73 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5328A1047",
+  "entity_id": "V5328A1047",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Flanged valve",
+    "description_ru": "V5328A series; confirmed in Honeywell datasheet EN0B-0291GE51",
+    "category_suggestion": "valve",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-V5328A1054-left",
+    "specs": {
+      "raw": "DN20; Kvs 4.0; 2-way flanged linear; PN16; steel body; 20mm stroke"
+    },
+    "key_findings": [
+      "V5328A series; confirmed in Honeywell datasheet EN0B-0291GE51"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5328-series-2-way-flanged-large-linear-valves-pn16",
+        "type": "—",
+        "domain": "buildings.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: no, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://buildings.honeywell.com/gb/en/.../v5328-series-2-way-flanged-large-linear-valves-pn16",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/.../hbt-bms-v5328-et-sp01r0613.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5328-series-2-way-flanged-large-linear-valves-pn16",
+      "type": "—",
+      "domain": "buildings.honeywell.com",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.953003+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

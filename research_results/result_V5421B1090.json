@@ -1,0 +1,115 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5421B1090",
+  "entity_id": "V5421B1090",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Butterfly valve",
+    "description_ru": "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade",
+    "category_suggestion": "valve",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1038.16,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/zZ8AAOSwmZFn4RHv/s-l1600.jpg",
+    "specs": {
+      "raw": "DN200; Kvs 3460; PN6/10/16; wafer flange; 2-way butterfly; ductile iron GGG40; max DP 3bar"
+    },
+    "key_findings": [
+      "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/226662421193",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.ebay.com/itm/226662421193",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090...",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://odilonplus.com/en/products/honeywell-v5421b1090/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/in/en/.../v5421-series-butterfly-valves-pn16",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/",
+      "type": "distributor",
+      "domain": "emoteek.net",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/226662421193",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.954002+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

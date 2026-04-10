@@ -1,0 +1,100 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_HCM-4-2U",
+  "entity_id": "HCM-4-2U",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Horizontal cable manager",
+    "description_ru": "Siemon RouteIT series. $59.60 at Energy Avenue; $85 on eBay for -D variant. Also available in gray.",
+    "category_suggestion": "Horizontal cable manager",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 59.03,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "http://www.eaccu-tech.com/siemon/hcm-4-2u-siemon-solutions/",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/zyYAAOSw5hBmmWmt/s-l1600.jpg",
+    "specs": {
+      "raw": "19\" width; 2U (3.5\"H); 4\" finger depth; single-sided w/ dual-hinge cover; 48+ Cat6A cables; 2.9 lb; black",
+      "aliases": [
+        "HCM-4-2U-D (double-sided variant)",
+        "Anixter #899909"
+      ]
+    },
+    "key_findings": [
+      "Siemon RouteIT series. $59.60 at Energy Avenue; $85 on eBay for -D variant. Also available in gray.",
+      "Aliases: HCM-4-2U-D (double-sided variant); Anixter #899909"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "http://www.eaccu-tech.com/siemon/hcm-4-2u-siemon-solutions/",
+        "type": "distributor",
+        "domain": "www.eaccu-tech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.energyavenue.com/product/detail/3489727/siemon-hcm-4-2u",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "http://www.eaccu-tech.com/siemon/hcm-4-2u-siemon-solutions/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/116257975250",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.neobits.com/siemon_hcm_4_2u_d_",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "http://www.eaccu-tech.com/siemon/hcm-4-2u-siemon-solutions/",
+      "type": "distributor",
+      "domain": "www.eaccu-tech.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.005127+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

@@ -1,0 +1,70 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_AT-MMCR18-60-RU",
+  "entity_id": "AT-MMCR18-60-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Media converter rack chassis",
+    "description_ru": "Allied Telesis product. -RU = Russian variant. MSRP $1,250. Also $903.99 (Zoro), $745.93 (ShopBLT), $799.99 (NetworkHardwares)",
+    "category_suggestion": "Media converter rack chassis",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 732.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.directdial.com/us/item/allied-telesis-mmcr18-media-conversion-rack-mount-chassis/at-mmcr18-60",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "18-slot chassis; 2U; 17.3\"×10\"×3.4\"; 1× AC PSU included; TAA Compliant",
+      "aliases": [
+        "AT-MMCR18-60 (base model without -RU)",
+        "MMCR18"
+      ]
+    },
+    "key_findings": [
+      "Allied Telesis product. -RU = Russian variant. MSRP $1,250. Also $903.99 (Zoro), $745.93 (ShopBLT), $799.99 (NetworkHardwares)",
+      "Aliases: AT-MMCR18-60 (base model without -RU); MMCR18"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.directdial.com/us/item/allied-telesis-mmcr18-media-conversion-rack-mount-chassis/at-mmcr18-60",
+        "type": "distributor",
+        "domain": "www.directdial.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.directdial.com/us/item/allied-telesis-mmcr18-media-conversion-rack-mount-chassis/at-mmcr18-60",
+      "type": "distributor",
+      "domain": "www.directdial.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.989062+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

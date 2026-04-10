@@ -1,0 +1,98 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_239053",
+  "entity_id": "239053",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "USB адаптер Honeywell D 95.610.03 USB SPV",
+    "description_ru": "USB адаптер для серии SPV от Honeywell с артикулом D 95.610.03. Точное назначение и технические характеристики не подтверждены из открытых источников.",
+    "category_suggestion": "Адаптер",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 749.98,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://teslatorg.ru/peha-by-honeywell?page=21` citeturn51search0",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {},
+    "key_findings": [
+      "Точный артикул '239053' от Honeywell не найден ни на сайте производителя, ни у авторизованных дистрибьюторов в открытом доступе.",
+      "Поисковые запросы по комбинациям '239053 Honeywell', 'D 95.610.03 USB SPV' не дали релевантных результатов.",
+      "Honeywell выпускает широкую линейку USB-адаптеров (USB-to-Serial, LON-USB, CT50-USB и др.), но ни один из них не идентифицирован под номером 239053.",
+      "Категория 'Адаптер' для данного типа продукта является обоснованной по аналогии с похожими артикулами Honeywell, однако не подтверждена для конкретного артикула 239053.",
+      "Артикул может относиться к специализированному промышленному или противопожарному оборудованию Honeywell, поставляемому только через закрытые B2B-каналы."
+    ],
+    "ambiguities": [
+      "Артикул '239053' может быть внутренним номером дистрибьютора, а не официальным артикулом Honeywell.",
+      "Обозначение 'D 95.610.03' похоже на номер документа или дополнительный код, а не стандартный каталожный номер Honeywell.",
+      "Принадлежность к серии SPV (System for Public Voice / аналог) не подтверждена для данного артикула.",
+      "Нельзя исключить, что артикул относится к снятому с производства продукту, отсутствующему в актуальных каталогах."
+    ],
+    "sources": [
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/public-address-and-voice-alarm/call-stations/external-lon-usb-interface-adapter",
+        "type": "manufacturer",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/enclosure-mounts-and-hardware/serial-port-to-usb-converter",
+        "type": "manufacturer",
+        "supports": [
+          "category_context"
+        ]
+      },
+      {
+        "url": "`https://teslatorg.ru/peha-by-honeywell?page=21` citeturn51search0",
+        "type": "distributor",
+        "domain": "teslatorg.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Артикул 239053 от Honeywell не обнаружен ни в одном из проверенных публичных источников (сайт производителя, авторизованные дистрибьюторы, русскоязычные торговые площадки, технические базы данных). Категория 'Адаптер' правдоподобна исходя из названия продукта, но не верифицирована. Все данные в ответе основаны исключительно на предоставленном запросе, а не на найденных источниках. Рекомендуется обратиться напрямую к Honeywell или авторизованному дистрибьютору."
+  },
+  "sources": [
+    {
+      "url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/public-address-and-voice-alarm/call-stations/external-lon-usb-interface-adapter",
+      "type": "manufacturer",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/enclosure-mounts-and-hardware/serial-port-to-usb-converter",
+      "type": "manufacturer",
+      "supports": [
+        "category_context"
+      ]
+    },
+    {
+      "url": "`https://teslatorg.ru/peha-by-honeywell?page=21` citeturn51search0",
+      "type": "distributor",
+      "domain": "teslatorg.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:00:46.362371Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 3076,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

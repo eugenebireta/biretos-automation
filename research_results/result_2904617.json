@@ -1,0 +1,273 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_2904617",
+  "entity_id": "2904617",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Phoenix Contact (NOT Honeywell)",
+    "title_ru": "Источник питания QUINT4-PS/1AC/24DC/20/+ (Phoenix Contact, арт. 2904617)",
+    "description_ru": "Первично-коммутируемый источник питания серии QUINT POWER для монтажа на DIN-рейку с технологией SFB (Selective Fuse Breaking), защитным покрытием печатной платы и встроенным развязывающим MOSFET; вход: 1-фазный 85–264 В AC, выход: 24 В DC / 20 А. Производитель — Phoenix Contact, а не Honeywell.",
+    "category_suggestion": "Промышленные источники питания (DIN-Rail Power Supplies)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 633.36,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://shop.iecsupply.com/products/2904617"
+    },
+    "photo_url": "https://www.phoenixcontact.com/en-us/products/power-supply-unit-quint4-ps-1ac-24dc-20-2904617",
+    "specs": {
+      "model": "QUINT4-PS/1AC/24DC/20/+",
+      "product_family": "QUINT POWER (GEN 4)",
+      "function": "Regulated AC/DC switched-mode power supply (SMPS)",
+      "input_voltage_ac": "85–264 V AC (1-phase, nom. 120/208/230/240 V AC)",
+      "network_frequency": "45–65 Hz",
+      "output_voltage_dc": "24 V DC (adjustable 24–28 V DC)",
+      "output_current": "20 A",
+      "rated_power_w": 480,
+      "efficiency_percent": 92.7,
+      "ripple_noise_mv": "<30 mVpp",
+      "mtbf_hours": 868000,
+      "mounting": "DIN Rail",
+      "protection_rating": "IP20",
+      "protection_type": "Overvoltage protection",
+      "housing_material": "Aluminium (metal)",
+      "termination": "Push-In Terminal",
+      "operating_temp_min_c": -25,
+      "operating_temp_max_c": 70,
+      "insulation_voltage_kv": 4,
+      "special_features": "SFB Technology, conformal PCB coating, integrated decoupling MOSFET, NFC interface, dynamic boost 200% for 5s, static boost 125%, mains failure buffer >20ms",
+      "origin": "Thailand (TH)",
+      "rohs_compliant": true,
+      "certifications": [
+        "UL Listed UL 508",
+        "UL/C-UL Recognized UL 60950-1",
+        "UL ANSI/ISA-12.12.01 Class I Div 2 Groups A/B/C/D",
+        "CAN/CSA-C22.2",
+        "DNV GL",
+        "EMC Directive 2014/30/EU",
+        "EN 61000 series",
+        "REACH"
+      ],
+      "manufacturer_status": "Commercialized (current product)"
+    },
+    "key_findings": [
+      "CRITICAL: Part number 2904617 belongs to Phoenix Contact, NOT Honeywell. No Honeywell product with PN=2904617 was found on any source.",
+      "The product is Phoenix Contact QUINT4-PS/1AC/24DC/20/+, a 4th-generation QUINT POWER DIN-rail power supply.",
+      "Confirmed as CURRENT (Commercialized) product status on manufacturer website phoenixcontact.com.",
+      "Publicly listed price: ~$633.36 USD per piece (IEC Supply, Power/Mation); $587.35 list / $489.46 discounted at RSP Supply.",
+      "Key specs: Input 85–264 V AC (1-phase), Output 24 V DC / 20 A, 480 W rated power, 92.7% efficiency, IP20, DIN-rail mount, metal housing.",
+      "Features SFB Technology (Selective Fuse Breaking), conformal PCB protective coating for extreme environments, and integrated decoupling MOSFET.",
+      "Multiple authorized distributors (RS Components, IEC Supply, Southern Controls, Power/Mation) stock this part.",
+      "No Honeywell-branded product or Honeywell catalog entry for PN 2904617 was found anywhere in the search results."
+    ],
+    "ambiguities": [
+      "The requested brand 'Honeywell' does NOT match part number 2904617. This PN is exclusively a Phoenix Contact part number. The brand in the request may be an error or misattribution.",
+      "Price varies by distributor ($489–$653 USD range); tariffs may apply for US imports depending on origin (Thailand).",
+      "A direct image CDN URL could not be extracted from the manufacturer page without rendering JavaScript; the manufacturer product page URL is provided instead."
+    ],
+    "sources": [
+      {
+        "url": "https://www.phoenixcontact.com/en-us/products/power-supply-unit-quint4-ps-1ac-24dc-20-2904617",
+        "type": "manufacturer",
+        "supports": [
+          "identity",
+          "specs",
+          "status"
+        ]
+      },
+      {
+        "url": "https://shop.iecsupply.com/products/2904617",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://www.southerncontrols.com/products/2904617",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://shop.powermation.com/products/2904617",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://us.rs-online.com/product/phoenix-contact/2904617/71671668/",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs"
+        ]
+      },
+      {
+        "url": "https://octopart.com/part/phoenix-contact/2904617",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "specs",
+          "datasheet"
+        ]
+      },
+      {
+        "url": "https://rspsupply.com/p-68237-phoenix-contact-2904617-power-supply-quint4-ps1ac24dc20.aspx",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/358380945206",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "high",
+    "confidence_notes": "Part number 2904617 is definitively and consistently identified as Phoenix Contact QUINT4-PS/1AC/24DC/20/+ across the manufacturer's own website and 6+ independent authorized distributors. Confidence in product identity is HIGH. Confidence that this part does NOT belong to Honeywell is also HIGH — zero sources associate PN 2904617 with Honeywell. The brand field in the original request is incorrect.",
+    "documents": [
+      {
+        "url": "https://www.phoenixcontact.com/en-us/products/power-supply-unit-quint4-ps-1ac-24dc-20-2904617",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://rspsupply.com/p-68237-phoenix-contact-2904617-power-supply-quint4-ps1ac24dc20.aspx",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.digikey.com/en/products/detail/phoenix-contact/2904617/9992724",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://us.rs-online.com/product/phoenix-contact/2904617/71671668/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.newark.com/phoenix-contact/2904617/power-supply-ac-dc-24v-20a-rohs/dp/80AH3217",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/127302558038",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.phoenixcontact.com/en-us/products/power-supply-unit-quint4-ps-1ac-24dc-20-2904617",
+      "type": "manufacturer",
+      "supports": [
+        "identity",
+        "specs",
+        "status"
+      ]
+    },
+    {
+      "url": "https://shop.iecsupply.com/products/2904617",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://www.southerncontrols.com/products/2904617",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://shop.powermation.com/products/2904617",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://us.rs-online.com/product/phoenix-contact/2904617/71671668/",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "specs"
+      ]
+    },
+    {
+      "url": "https://octopart.com/part/phoenix-contact/2904617",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "specs",
+        "datasheet"
+      ]
+    },
+    {
+      "url": "https://rspsupply.com/p-68237-phoenix-contact-2904617-power-supply-quint4-ps1ac24dc20.aspx",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/358380945206",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "high",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:03:58.663767Z",
+  "provider": "claude_web_search",
+  "model": "claude-sonnet-4-6",
+  "raw_response_length": 5902,
+  "cost_usd": 0.05,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

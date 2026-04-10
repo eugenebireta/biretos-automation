@@ -1,0 +1,112 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5011R1000",
+  "entity_id": "V5011R1000",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "2‑ходовой линейный регулирующий клапан PN16, резьбовой (DN15, Kvs0.63)",
+    "description_ru": "Двухходовой седельный клапан из латуни с внутренней резьбой для систем теплоснабжения. Имеет пропускную способность Kvs 0.63 и предназначен для точного регулирования расхода воды. Используется с линейными приводами серии ML64/ML74.",
+    "category_suggestion": "2‑ходовой линейный регулирующий клапан PN16, резьбовой (DN15, Kvs0.63)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 235.6,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "https://www.hlkshop.ch/de/honeywell-durchgangsventil-pn-16-messing-ig-dn-15-kvs-wert-063-artnr-v5011r1000"
+    },
+    "photo_url": "https://www.hlkshop.ch/images/thumbs/0139919_honeywell-durchgangsventil-pn-16-messing-ig-dn-15-kvs-wert-063-artnr-v5011r1000_550.jpeg",
+    "specs": "Size: DN15; Kvs: 0.63; PN: 16; Connection: G 1/2\"; Stroke: 20mm",
+    "key_findings": [
+      "citeturn42view0turn43view0"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.hlkshop.ch/de/honeywell-durchgangsventil-pn-16-messing-ig-dn-15-kvs-wert-063-artnr-v5011r1000",
+        "type": "distributor",
+        "domain": "www.hlkshop.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://energycontrolsonline.co.uk/products/2-port-plant-valve-2-port-20mm-stroke-pn16-int-thread-brass-plug-15mm-kvs-0-63",
+        "type": "distributor",
+        "domain": "energycontrolsonline.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://energycontrolsonline.co.uk/products/2-port-plant-valve-2-port-20mm-stroke-pn16-int-thread-brass-plug-15mm-kvs-0-63",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.kempstoncontrols.co.uk/V5011R1000/Honeywell-Homes/sku/1842320",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/gb/en/products/by-category/building-management/field-devices/valves/globe-valves/v5011r-series-2-way-internal-thread-linear-control-valve-pn16",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://www.todo-control.com/valve-v5011r-honeywell",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.hlkshop.ch/de/honeywell-durchgangsventil-pn-16-messing-ig-dn-15-kvs-wert-063-artnr-v5011r1000",
+      "type": "distributor",
+      "domain": "www.hlkshop.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://energycontrolsonline.co.uk/products/2-port-plant-valve-2-port-20mm-stroke-pn16-int-thread-brass-plug-15mm-kvs-0-63",
+      "type": "distributor",
+      "domain": "energycontrolsonline.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.343577+00:00",
+  "provider": "dr_gemini",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "batch_gemini_v8_nodesc_b1.json"
+}

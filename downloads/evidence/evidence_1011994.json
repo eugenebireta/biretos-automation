@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1011994",
   "pn_variants": [],
   "brand": "Honeywell",
@@ -9,7 +9,7 @@
   "assembled_title": "Наушники Honeywell 1011994",
   "our_price_raw": "1741,63",
   "expected_category": "Наушники",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_1011994",
@@ -17,52 +17,13 @@
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
-    "price_status": "INSUFFICIENT",
+    "image_status": "ACCEPTED",
+    "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_1011994"
-        ],
-        "evidence_ids": [
-          "ev_title_1011994"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_1011994"
-        ],
-        "evidence_ids": [
-          "ev_image_1011994"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
-        "reason_code": "NO_PRICE_EVIDENCE",
-        "field": "price",
-        "severity": "INFO",
-        "candidate_ids": [
-          "cand_price_1011994"
-        ],
-        "evidence_ids": [
-          "ev_price_1011994"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
       {
         "reason_code": "NO_PDF_EVIDENCE",
         "field": "pdf",
@@ -73,21 +34,19 @@
         "evidence_ids": [
           "ev_pdf_1011994"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-01",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-01"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
     "image_status": "REVIEW_REQUIRED",
-    "price_status": "INSUFFICIENT",
+    "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT"
   },
   "review_reasons_v2": [
@@ -153,8 +112,7 @@
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
   },
   "photo": {
@@ -177,23 +135,23 @@
     "replacement_required": false
   },
   "price": {
-    "price_status": "no_price_found",
-    "price_per_unit": null,
-    "currency": null,
-    "rub_price": null,
-    "fx_rate_used": null,
-    "fx_provider": null,
-    "price_confidence": 0,
-    "source_url": null,
-    "source_type": null,
-    "source_tier": null,
-    "stock_status": "unknown",
-    "offer_unit_basis": "unknown",
-    "offer_qty": null,
+    "price_status": "public_price",
+    "price_per_unit": 9.95,
+    "currency": "USD",
+    "rub_price": 875.6,
+    "fx_rate_used": 88.0,
+    "fx_provider": "stub",
+    "price_confidence": 95,
+    "source_tier": "official",
+    "stock_status": "out_of_stock",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
     "lead_time_detected": false,
+    "page_product_class": "",
+    "source_url": "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm",
+    "source_type": "official",
     "suffix_conflict": false,
     "category_mismatch": false,
-    "page_product_class": "",
     "brand_mismatch": false,
     "price_median_clean": null,
     "price_min_clean": null,
@@ -235,7 +193,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
     "product_type": "Наушники",
-    "seed_name": "Наушники противошумные EARMUFF LEIGHTNING L1N"
+    "seed_name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
+    "description_long_ru": "⚠️ DISCONTINUED at several retailers; limited remaining stock"
   },
   "trace": {
     "pn_match_location": "",
@@ -424,6 +383,60 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true
-  }
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.503680+00:00"
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "hearing protection",
+    "description_ru": "⚠️ DISCONTINUED at several retailers; limited remaining stock",
+    "specs": {
+      "raw": "NRR 25dB; neckband; steel headband; snap-in cushions; Air Flow Control tech; ANSI S3.19",
+      "aliases": [
+        "Leightning L1N",
+        "Howard Leight L1N",
+        "1011994-H5 (case)",
+        "ASIN B000NU60N8"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "⚠️ DISCONTINUED at several retailers; limited remaining stock",
+      "Aliases: Leightning L1N; Howard Leight L1N; 1011994-H5 (case); ASIN B000NU60N8"
+    ],
+    "sources": [
+      {
+        "url": "https://www.ferguson.com/product/howard-leight-l1n-leightning-safety-earmuff-with-neckband-nrr25-h1011994/_/R-4299460",
+        "type": "distributor",
+        "domain": "www.ferguson.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/177847011062",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.770530+00:00",
+    "merge_source": "result_1011994.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (8).md"
+  },
+  "dr_category": "hearing protection",
+  "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/sps-hppe-brp900-1010922",
+  "dr_price": 11.7,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ferguson.com/product/howard-leight-l1n-leightning-safety-earmuff-with-neckband-nrr25-h1011994/_/R-4299460"
 }

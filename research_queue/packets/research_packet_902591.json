@@ -1,0 +1,69 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_902591",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "902591",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 902591 (Honeywell)",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "questions_to_resolve": [
+    "What is the correct product category for Honeywell 902591 (Оптический извещатель Esser D 1930/4.02 O.A.)?",
+    "Is the expected category 'Извещатель' correct for this product?",
+    "What similar part numbers exist in the same product family?",
+    "Provide any relevant Russian-language product description for Honeywell 902591"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "REJECT",
+    "price_status": "category_mismatch_only",
+    "price_source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-insert-prise-pour-haut-parleur-blanc-902591-1-pc-s-2855783.html",
+    "category_mismatch": true,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "CRITICAL_MISMATCH",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Оптический извещатель Esser D 1930/4.02 O.A.",
+    "assembled_title": "Акустическая розетка PEHA, 902591",
+    "expected_category": "Извещатель",
+    "our_price_raw": "2447,00",
+    "has_content_seed": true,
+    "price_currency": "EUR",
+    "price_native_value": 26.66,
+    "price_rub": 2532.7,
+    "existing_source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-insert-prise-pour-haut-parleur-blanc-902591-1-pc-s-2855783.html",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_902591.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.441261Z"
+}

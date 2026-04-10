@@ -1,0 +1,126 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_FT6960-60",
+  "entity_id": "FT6960-60",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Frost thermostat",
+    "description_ru": "Honeywell FEMA brand; -60 = 6m coil; WiAutomation at $191.04; eBay from Turkey",
+    "category_suggestion": "thermostat",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 70.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/405001297427",
+      "price_type": "gray_market"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/qlkAAOSwIfBmVKKE/s-l1600.png",
+    "specs": {
+      "raw": "Frost protection thermostat; -20 to +55°C; 6m capillary; manual reset; 24-250 VAC; M20×1.5 cable entry",
+      "aliases": [
+        "FT696060 (WiAutomation)"
+      ]
+    },
+    "key_findings": [
+      "Honeywell FEMA brand; -60 = 6m coil; WiAutomation at $191.04; eBay from Turkey",
+      "Aliases: FT696060 (WiAutomation)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/405001297427",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/383213321046",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.ebay.com/itm/405001297427",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://us.wiautomation.com/honeywell/.../ft696060",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://kempstoncontrols.com/FT6960-60/Honeywell-Fema/sku/2882878",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://products.ecc.emea.honeywell.com/.../pg_gr-ft69.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/383213321046",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.ebay.com/itm/405001297427",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/383213321046",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.949492+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

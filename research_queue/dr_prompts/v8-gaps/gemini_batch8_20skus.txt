@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | MAU8/MS | Honeywell Резьба |
+| 2 | 3240190 | Honeywell Рейка |
+| 3 | 65UL3J | Honeywell Светодиодная |
+| 4 | 583520 | Honeywell Станция |
+| 5 | 805576 | Honeywell Табличка |
+| 6 | EVCS-MS | Honeywell Трубка |
+| 7 | IP | IP phone |
+| 8 | 36299-RU | adapter |
+| 9 | 805577 | adapter |
+| 10 | 583491A | cable |
+| 11 | 3240197 | channel module |
+| 12 | 3240199 | channel module |
+| 13 | 3240348 | channel module |
+| 14 | 3240357 | channel module |
+| 15 | 805590 | charging base |
+| 16 | 033588.17 | connector |
+| 17 | PIP-003 | connector |
+| 18 | LUX | converter |
+| 19 | 42511 | device |
+| 20 | 57511 | device |
+
+## Search instructions
+
+- Various Honeywell sub-brands. Search: eBay, Radwell, IndiaMART, Conrad.de, specialist suppliers
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

@@ -1,0 +1,90 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_189791",
+  "entity_id": "189791",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Рамка электроустановочная PEHA by Honeywell 189791",
+    "description_ru": "Электроустановочная рамка чёрного цвета от PEHA (бренд Honeywell). Предназначена для монтажа электрических выключателей и розеток. Продаётся упаковкой по 5 шт.",
+    "category_suggestion": "Электроустановочные изделия / Рамки и накладки",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad.fr (источник в текущем статусе): €5,47 за упаковку 5 шт. (PN 2856757). Цена соответствует электроустановочной продукции, а не детекторам пламени.",
+    "photo_assessment": "mismatch",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 189791 — это электроустановочная рамка PEHA by Honeywell, а НЕ детектор пламени",
+      "Текущее название в каталоге 'Детектор пламени Honeywell D 20.673.244.192' является критической ошибкой идентификации",
+      "Conrad.fr подтверждает: 'PEHA by Honeywell cadre (рамка) noir (чёрная) 189791 - 5 pc/s' — это рамка для электроустановок",
+      "Цена 5469,29 в xlsx не соответствует рыночной цене электроустановочной рамки (~5-10 EUR за упаковку)",
+      "Номер D 20.673.244.192 относится к другому продукту (возможно, детектору), но не к PN 189791"
+    ],
+    "ambiguities": [
+      "Откуда взялось название 'Детектор пламени' и номер D 20.673.244.192 для PN 189791 — требуется проверка источника данных",
+      "Существует ли в каталоге отдельный продукт с номером D 20.673.244.192 (возможно, произошла путаница двух разных PN)",
+      "Цена 5469,29 в xlsx может относиться к другому продукту или содержать ошибку валюты/единицы"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-noir-189791-5-pc-s-2856757.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category",
+          "price"
+        ]
+      },
+      {
+        "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189791-5-st-2856757.html` citeturn27search3",
+        "type": "distributor",
+        "domain": "www.conrad.ch",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентификация PN 189791 как электроустановочной рамки подтверждена Conrad.fr. Однако критическое несоответствие между текущим названием ('Детектор пламени') и фактическим продуктом (рамка) указывает на серьёзную ошибку в каталоге. Требуется проверка источника исходных данных и возможное разделение двух разных PN.",
+    "price_value": {
+      "amount": 261.95,
+      "currency": "CHF",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189791-5-st-2856757.html` citeturn27search3",
+      "price_type": "distributor"
+    },
+    "photo_url": "—"
+  },
+  "sources": [
+    {
+      "url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cadre-cadre-noir-189791-5-pc-s-2856757.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category",
+        "price"
+      ]
+    },
+    {
+      "url": "`https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189791-5-st-2856757.html` citeturn27search3",
+      "type": "distributor",
+      "domain": "www.conrad.ch",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:15:49.020517Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2217,
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report (2).md"
+}

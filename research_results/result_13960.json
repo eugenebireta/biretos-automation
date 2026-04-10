@@ -1,0 +1,102 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_13960",
+  "entity_id": "13960",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/286702604696",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "\\-",
+        "type": "distributor",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "price_value": {
+      "amount": 807.5,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.ebay.com/itm/286702604696",
+      "price_type": "gray_market"
+    },
+    "price_assessment": "ambiguous_offer",
+    "photo_url": "https://i.ebayimg.com/images/g/m8sAAeSwZLZochGf/s-l500.jpg",
+    "title_ru": "Блок питания PSU BUS2 12В DC 3А для MB Secure",
+    "description_ru": "Компактный импульсный источник питания для систем охранной сигнализации и контроля доступа. Обеспечивает стабильное напряжение для считывателей, замков и контроллеров серии NetAXS. Имеет защиту от перегрузки по выходу и фильтр электромагнитных помех. Крепится на DIN-рейку или устанавливается в системный шкаф.",
+    "documents": [
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/power-supplies/power-supplies",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/us/en/products/by-category/building-management/controllers/parts-and-accessories/power-supplies/external-power-supply-unit",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/286702604696",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "\\-",
+      "type": "distributor",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:49:02.739247Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v3.md"
+}

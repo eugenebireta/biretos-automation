@@ -1,0 +1,94 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_52811",
+  "entity_id": "52811",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA rocker switch",
+    "description_ru": "Nova Tangenta; only Russian price found (~€12–13 equivalent); page returned 404 on fetch",
+    "category_suggestion": "PEHA rocker switch",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1267.43,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://magelectric.ru/catalog/3843/92260",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "2-gang; aluminium color 702; arrow symbols up/down for blind/shutter control",
+      "aliases": [
+        "00052811"
+      ]
+    },
+    "key_findings": [
+      "Nova Tangenta; only Russian price found (~€12–13 equivalent); page returned 404 on fetch",
+      "Aliases: 00052811"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://magelectric.ru/catalog/3843/92260",
+        "type": "distributor",
+        "domain": "magelectric.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://magelectric.ru/catalog/3843/92260",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://magelectric.ru/catalog/3843/92260",
+      "type": "distributor",
+      "domain": "magelectric.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.977647+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

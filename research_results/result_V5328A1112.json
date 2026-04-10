@@ -1,0 +1,108 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_V5328A1112",
+  "entity_id": "V5328A1112",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Flanged valve",
+    "description_ru": "V5328A series; also listed on eBay Germany (expired)",
+    "category_suggestion": "valve",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1290.54,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.mytub.co.uk/honeywell-v5328a-1112-80mm-2port-mphw-cv-100-product-301846",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-V5328A1112-left",
+    "specs": {
+      "raw": "DN80; Kvs 100; 2-way flanged linear; PN16; steel/cast iron body; 20mm stroke"
+    },
+    "key_findings": [
+      "V5328A series; also listed on eBay Germany (expired)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-v5328a-1112-80mm-2port-mphw-cv-100-product-301846",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/226716997147",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-v5328a-1112-80mm-2port-mphw-cv-100-product-301846",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5328a1112...",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/226716997147",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.mytub.co.uk/honeywell-v5328a-1112-80mm-2port-mphw-cv-100-product-301846",
+      "type": "distributor",
+      "domain": "www.mytub.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/226716997147",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.954002+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

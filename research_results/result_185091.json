@@ -1,0 +1,51 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_185091",
+  "entity_id": "185091",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 343.96,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.voelkner.de/products/7581727/PEHA-by-Honeywell-Rahmen-Rahmen-Schwarz-185091-10St..html` citeturn26search2",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "sources": [
+      {
+        "url": "`https://www.voelkner.de/products/7581727/PEHA-by-Honeywell-Rahmen-Rahmen-Schwarz-185091-10St..html` citeturn26search2",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "title_ru": "switch frame",
+    "description_ru": "На RU‑странице встречается как NOVA «матриованная бронза» (тот же числовой код как артикул). citeturn26search8"
+  },
+  "sources": [
+    {
+      "url": "`https://www.voelkner.de/products/7581727/PEHA-by-Honeywell-Rahmen-Rahmen-Schwarz-185091-10St..html` citeturn26search2",
+      "type": "distributor",
+      "domain": "www.voelkner.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:54:32.131436Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

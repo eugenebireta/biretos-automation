@@ -1,0 +1,554 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "HBL6GR2",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Камера видеонаблюдения HBL6GR2",
+  "assembled_title": "Камера Honeywell HBL6GR2",
+  "our_price_raw": "0,00",
+  "expected_category": "Камера",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "PDF_NOT_EXACT_CONFIRMED"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_HBL6GR2",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_HBL6GR2"
+        ],
+        "evidence_ids": [
+          "ev_image_HBL6GR2"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_HBL6GR2"
+        ],
+        "evidence_ids": [
+          "ev_price_HBL6GR2"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_HBL6GR2"
+        ],
+        "evidence_ids": [
+          "ev_pdf_HBL6GR2"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-06B"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_HBL6GR2"
+      ],
+      "evidence_ids": [
+        "ev_image_HBL6GR2"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_HBL6GR2"
+      ],
+      "evidence_ids": [
+        "ev_price_HBL6GR2"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_HBL6GR2"
+      ],
+      "evidence_ids": [
+        "ev_pdf_HBL6GR2"
+      ],
+      "policy_rule_id": "CAP-07",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.427,
+    "image_confidence": 0.192,
+    "price_confidence": 0.35,
+    "overall": 0.299,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\HBL6GR2.jpg",
+      "canonical_filename": "HONEYWELL_HBL6GR2_d1563b54.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://www.youtube.com/watch?v=tBX5zgyTtpQ",
+      "origin_page_url": "https://www.youtube.com/watch?v=tBX5zgyTtpQ",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm?srsltid=AfmBOorNWY3u73c0SPxjz1rZB950vmSqB7w6qKxON42K8zDz_0hIwKsf",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm?srsltid=AfmBOorNWY3u73c0SPxjz1rZB950vmSqB7w6qKxON42K8zDz_0hIwKsf",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "Скриншот ПО Honeywell MAXPRO VMS с камерой HBL6GR2 в углу — товар угадывается",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\HBL6GR2.jpg",
+    "sha1": "d1563b54852c6d135d65d3fb6236e111c5c90374",
+    "canonical_filename": "HONEYWELL_HBL6GR2_d1563b54.jpg",
+    "public_url": null,
+    "width": 1280,
+    "height": 720,
+    "size_kb": 126,
+    "source": "google:https://www.youtube.com/watch?v=tBX5zgyTtpQ",
+    "phash": "bf6bca36c41dc091",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm?srsltid=AfmBOorNWY3u73c0SPxjz1rZB950vmSqB7w6qKxON42K8zDz_0hIwKsf",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm?srsltid=AfmBOorNWY3u73c0SPxjz1rZB950vmSqB7w6qKxON42K8zDz_0hIwKsf",
+    "price_source_domain": "jmac.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://www.adiglobal.cz/iiWWW/docs.nsf/all/C0E23E350BA0D6ECC125864E0079DB92/$FILE/kl_hbl6gr2-lpr_en.pdf",
+    "pdf_source_tier": "authorized",
+    "pdf_title": "equIP® Cameras",
+    "pdf_specs": {
+      "Up to 164 ft": "(50 m), depending on",
+      "License Plate Recognition**": "Noise Reduction 3DNR",
+      "Angle Of View Horizontal": "86° - 35° Languages Supported By German, Italian, Japanese, Korean,",
+      "18 W max": "(IR LEDs on and motorized",
+      "Resolution 4:3 Product": "4.9 lb. (2.2 kg);",
+      "Package": "6.4 lb. (2.9 kg)",
+      "API software integration": "Refer to www.onvif.org for ORDERING",
+      "site (http://www.security": "H.265, with VehicleTrace pre-installed and",
+      "honeywell.com/hota/) licensed": "to learn more about our",
+      "solutions": "DIMENSIONS",
+      "Building No": "2, 2nd floor, 201",
+      "Tel": "+44 (0)8448 000 235"
+    },
+    "pdf_text_excerpt": "equIP® Cameras HBL6GR2-LPR Network TDN Low-Light 2 MP IR LPR Rugged Bullet OPERATIONAL IPv4/v6, TCP/IP, UDP, RTP, RTSP, RTCP, HTTP, HTTPS, SSL, ICMP, FTP, SMTP, Video Standard NTSC/PAL Supported Protocols* DHCP, PPPoE, UPnP, IGMP, SNMP v2/ Scanning System Progressive scan v3, Bonjour, DNS, DDNS, IEEE 802.1x, QoS, NTP, IP Filter, Multicast, ONVIF 1/1.8” 6MP progressive CMOS Image Sensor (2MP used) Maximum Users Access 20 users Minimum Illumination 0.004 lux color @ F1.53, 0 lux B/W with User account and password protection IR LEDs on @ F1.53 HTTPS, IP Filter, IEEE 802.1x, Digest authentication,",
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Камера видеонаблюдения предназначена для использования в системах безопасности. Она обеспечивает высокое качество изображения и надежность работы в различных условиях.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Видеонаблюдение",
+    "product_type": "Камера",
+    "seed_name": "Камера видеонаблюдения HBL6GR2",
+    "description_long_ru": "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:HBL6GR2:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:HBL6GR2:1eb31aad93b3f48a3b6344b9",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "strong"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:HBL6GR2:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:HBL6GR2:1eb31aad93b3f48a3b6344b9",
+      "pn_primary": "HBL6GR2",
+      "normalized_title": "Камера Honeywell HBL6GR2",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_HBL6GR2"
+          ],
+          "evidence_ids": [
+            "ev_image_HBL6GR2"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_HBL6GR2"
+          ],
+          "evidence_ids": [
+            "ev_price_HBL6GR2"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_HBL6GR2"
+          ],
+          "evidence_ids": [
+            "ev_pdf_HBL6GR2"
+          ],
+          "policy_rule_id": "CAP-07",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "authorized",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "authorized"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "IP camera (bullet)",
+    "description_ru": "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine",
+    "specs": {
+      "raw": "6MP 3072×2048; 1/1.8\" CMOS; 4.1–16.4mm MFZ F1.53; digital WDR; 50m IR; H.265/H.264; PoE+; IP67; IK10; 128GB SD; face detection; people counting",
+      "aliases": [
+        "HBL6GR2-LPR (with license plate recognition)"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine",
+      "Aliases: HBL6GR2-LPR (with license plate recognition)"
+    ],
+    "sources": [
+      {
+        "url": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html",
+        "type": "distributor",
+        "domain": "www.neobits.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm",
+        "type": "distributor",
+        "domain": "www.jmac.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.933994+00:00",
+    "merge_source": "result_HBL6GR2.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (9).md"
+  },
+  "dr_category": "IP camera (bullet)",
+  "dr_image_url": "(available on A1 Security Cameras and JMAC product pages)",
+  "dr_price": 1982.49,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html"
+}

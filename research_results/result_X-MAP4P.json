@@ -1,0 +1,94 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_X-MAP4P",
+  "entity_id": "X-MAP4P",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Digital multi-audio player",
+    "description_ru": "Honeywell/Intevio/Morley VARIODYN PA/VA system. Original €955.56 discounted. Supports MP3/WAV/FLAC. Made in China.",
+    "category_suggestion": "Digital multi-audio player",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 907.78,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://dieffematic.com/en/products/invio-x-map4p-multiple-digital-audio-player-surveillance-security",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://dieffematic.com/cdn/shop/files/riproduttore-audio-digitale-multiplo-intevio-x-map4p-sorveglianza-sicurezza-379.webp?v=1695236936&width=1000",
+    "specs": {
+      "raw": "100-240V AC; <15W; 19\" 1U; Bluetooth 4.2; USB; SD; FM/AM; 3ch RCA 775mV; 20-20kHz; SNR ≥80dB; THD 0.05%",
+      "aliases": [
+        "X-MAP4P-HONEYWELL (EPCOM)",
+        "X-MAP04 (older)",
+        "D800254.G0"
+      ]
+    },
+    "key_findings": [
+      "Honeywell/Intevio/Morley VARIODYN PA/VA system. Original €955.56 discounted. Supports MP3/WAV/FLAC. Made in China.",
+      "Aliases: X-MAP4P-HONEYWELL (EPCOM); X-MAP04 (older); D800254.G0"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://dieffematic.com/en/products/invio-x-map4p-multiple-digital-audio-player-surveillance-security",
+        "type": "distributor",
+        "domain": "dieffematic.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://dieffematic.com/en/products/invio-x-map4p-multiple-digital-audio-player-surveillance-security",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/notifier-it/HBT-Fire-202203221609-X-MAP4P-Datasheet.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.acornfiresecurity.com/morley-honeywell-digital-multi-audio-player-x-map4p",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://dieffematic.com/en/products/invio-x-map4p-multiple-digital-audio-player-surveillance-security",
+      "type": "distributor",
+      "domain": "dieffematic.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.011630+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

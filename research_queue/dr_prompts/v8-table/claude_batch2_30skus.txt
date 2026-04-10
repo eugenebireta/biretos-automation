@@ -1,0 +1,90 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- Some are **Honeywell HVAC** valves and actuators. Search on industrial suppliers, Radwell, IndiaMART.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different Honeywell sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | ML6421A3013 | actuator | Привод клапана Honeywell ML6421A3013 | 48149.00 |
+| 2 | ML6425A3014 | actuator | Привод с возвратной пружиной Honeywell ML6425A3014 | 50917.25 |
+| 3 | N05010 | actuator | Привод заслонки Honeywell N05010 | 14984.10 |
+| 4 | N05230-2POS [also: N05230.2POS, N052302POS] | actuator | Привод заслонки Honeywell N05230-2POS | 16735.00 |
+| 5 | N0524 | actuator | Привод заслонки Honeywell N0524 | 21031.69 |
+| 6 | N10010 | actuator | Привод заслонки Honeywell N10010 | 59961.14 |
+| 7 | N34230 | actuator | Привод заслонки Honeywell N34230 | 21412.00 |
+| 8 | N3424 | actuator | Привод заслонки Honeywell N3424 | 18994.00 |
+| 9 | S05230-2POS [also: S05230.2POS, S052302POS] | actuator | Привод заслонки S05230-2POS | 12467.00 |
+| 10 | S10010-SW2 [also: S10010.SW2, S10010SW2] | actuator | Привод заслонки 10NM 24V с двумя переключателями S10010-SW2 | 17428.50 |
+| 11 | C7355A1050 | multisensor | Мультисенсор настенный Honeywell C7355A1050 | 182410.00 |
+| 12 | FT6960-60 [also: FT6960.60, FT696060] | thermostat | Термостат защиты от замерзания Honeywell FT6960-60 | 27186.57 |
+| 13 | V5013R1057 | valve | Трехходовой клапан Honeywell V5013R1057 | 13321.86 |
+| 14 | V5013R1099 | valve | Трехходовой клапан Honeywell V5013R1099 | 26083.14 |
+| 15 | V5015A1169 | valve | Трехходовой клапан Honeywell V5015A1169 | 146969.00 |
+| 16 | V5016A1135 | valve | Двухходовой клапан Honeywell V5016A1135 | 126215.50 |
+| 17 | V5328A1013 | valve | Двухходовой клапан Honeywell V5328A1013 | 77177.00 |
+| 18 | V5328A1047 | valve | Двухходовой клапан Honeywell V5328A1047 | 77177.00 |
+| 19 | V5328A1088 | valve | Двухходовой клапан Honeywell V5328A1088 | 43206.69 |
+| 20 | V5328A1112 | valve | Двухходовой клапан Honeywell V5328A1112 | 92649.00 |
+| 21 | V5421B1090 | valve | Центрический дисковый клапан Honeywell V5421B1090 | 66907.33 |
+| 22 | V5832A1046 | valve | Двухходовой клапан Honeywell V5832A1046 | 8239.95 |
+| 23 | VR420AB1002-0000 [also: VR420AB1002.0000, VR420AB10020000] | valve | Комбинированный газовый клапан Honeywell VR420AB1002-0000 | 109988.00 |
+| 24 | M7294Q1015/U | valve actuator motor | Мотор Modutrol M7294Q1015/U | 20475.50 |
+| 25 | МЕТРОВ | cable | Кабель Honeywell МЕТРОВ | 0.00 |
+| 26 | WD19DCS | docking station | Док-станция Honeywell WD19DCS | 9240.00 |
+| 27 | XNX-RMAV-RNNNN [also: XNX.RMAV.RNNNN, XNXRMAVRNNNN] | gas detector | Газоанализатор Honeywell XNX-RMAV-RNNNN | 120997.85 |
+| 28 | X-MAP4P [also: X.MAP4P, XMAP4P] | media player | Цифровой мультимедийный плеер Honeywell X-MAP4P | 45775.00 |
+| 29 | XFLR822A | module | Аналоговый выходной модуль Honeywell XFLR822A | 39715.33 |
+| 30 | XFLR824A | module | Модуль с 6 реле Honeywell XFLR824A | 20908.81 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

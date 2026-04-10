@@ -1,0 +1,54 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_171411",
+  "entity_id": "171411",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 230.0,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://spanias.com/power-tools/cordless/wood-circular-saws/r18cs7-0-brushless-circular-saw-18v-one-17039`",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "photo_url": "—",
+    "title_ru": "cordless circular saw",
+    "description_ru": "Код 171411 на странице — товарный код Ryobi; привязка к Honeywell не подтверждена. citeturn59search3",
+    "sources": [
+      {
+        "url": "`https://spanias.com/power-tools/cordless/wood-circular-saws/r18cs7-0-brushless-circular-saw-18v-one-17039`",
+        "type": "distributor",
+        "domain": "spanias.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://spanias.com/power-tools/cordless/wood-circular-saws/r18cs7-0-brushless-circular-saw-18v-one-17039`",
+      "type": "distributor",
+      "domain": "spanias.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:52:13.818550Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (3).md"
+}

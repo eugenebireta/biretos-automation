@@ -1,0 +1,67 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_LCD",
+  "entity_id": "LCD",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Printer spare part",
+    "description_ru": "PN=LCD трактован как внутренний ярлык «LCD spare part»; прямого «LCD» как MPN не найдено. citeturn64search15",
+    "category_suggestion": "Printer spare part",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 293.93,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+      "price_type": "list_price"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "Part #: 346-314S-001; «LCD, panel assy spare PM 23/43»; MSRP указан citeturn64search15",
+      "aliases": [
+        "346-314S-001 citeturn64search15"
+      ]
+    },
+    "key_findings": [
+      "PN=LCD трактован как внутренний ярлык «LCD spare part»; прямого «LCD» как MPN не найдено. citeturn64search15",
+      "Aliases: 346-314S-001 citeturn64search15"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+        "type": "list_price",
+        "domain": "www.thermalprintersupplies.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://www.thermalprintersupplies.com/discontinued/346-314s-001/",
+      "type": "list_price",
+      "domain": "www.thermalprintersupplies.com",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.061742+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

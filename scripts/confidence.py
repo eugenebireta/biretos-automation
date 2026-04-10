@@ -237,6 +237,11 @@ def compute_price_confidence(
     if price_status in ("ambiguous_offer", "category_mismatch_only", "brand_mismatch_only"):
         return 0.10
 
+    # Owner price from xlsx: exists but low commercial confidence
+    # Enough for REVIEW_REQUIRED but not for AUTO_PUBLISH
+    if price_status == "owner_price":
+        return _clamp(0.35)
+
     trust = _SOURCE_TRUST_WEIGHT.get(source_tier, _SOURCE_TRUST_WEIGHT["unknown"])
     score = trust * pn_match_confidence
 
@@ -359,6 +364,12 @@ def compute_card_confidence(
                 cc.notes.append("price_low_confidence")
             else:
                 cc.notes.append("price_not_found")
+        return cc
+
+    if has_pn and not has_image and price_present and not price_ok:
+        cc.publishability = "REVIEW_REQUIRED"
+        cc.notes.append("price_low_confidence")
+        cc.notes.append("no_usable_image")
         return cc
 
     if has_pn and not has_image and not price_present:

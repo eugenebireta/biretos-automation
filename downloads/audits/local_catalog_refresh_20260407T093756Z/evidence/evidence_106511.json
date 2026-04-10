@@ -1,0 +1,489 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T09:37:56.639919Z",
+  "pn": "106511",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Датчик температуры D 20.6511.02 OKS",
+  "assembled_title": "Датчик Honeywell 106511",
+  "our_price_raw": "452,50",
+  "expected_category": "Датчик",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "category_mismatch",
+    "photo_rejected_or_missing",
+    "NO_IMAGE_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_106511",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_106511"
+        ],
+        "evidence_ids": [
+          "ev_title_106511"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "CRITICAL_MISMATCH",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_price_106511"
+        ],
+        "evidence_ids": [
+          "ev_price_106511"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_106511"
+        ],
+        "evidence_ids": [
+          "ev_image_106511"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_106511"
+        ],
+        "evidence_ids": [
+          "ev_price_106511"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_106511"
+        ],
+        "evidence_ids": [
+          "ev_pdf_106511"
+        ],
+        "policy_rule_id": "CAP-10",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-10"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_106511"
+      ],
+      "evidence_ids": [
+        "ev_title_106511"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "CRITICAL_MISMATCH",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_price_106511"
+      ],
+      "evidence_ids": [
+        "ev_price_106511"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_106511"
+      ],
+      "evidence_ids": [
+        "ev_image_106511"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_106511"
+      ],
+      "evidence_ids": [
+        "ev_price_106511"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_106511"
+      ],
+      "evidence_ids": [
+        "ev_pdf_106511"
+      ],
+      "policy_rule_id": "CAP-10",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.1,
+    "overall": 0.02,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "на изображении розетка, а не датчик температуры",
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\106511.jpg",
+    "sha1": "f147b0c0c76470803542630e6244862da6f0aa08",
+    "canonical_filename": "HONEYWELL_106511_f147b0c0.jpg",
+    "public_url": null,
+    "width": 500,
+    "height": 500,
+    "size_kb": 48,
+    "source": "cached",
+    "phash": "87687ada78616666",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false
+  },
+  "price": {
+    "price_status": "category_mismatch_only",
+    "price_per_unit": 6.99,
+    "currency": "€",
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": "stub",
+    "price_confidence": 90,
+    "source_url": "https://www.nabava.net/nekategorizirano/peha-by-honeywell-1-struki-umetak-uticnica-bijela-106511-cijena-460518821",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "stock_status": "in_stock",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": false,
+    "suffix_conflict": false,
+    "category_mismatch": true,
+    "page_product_class": "unknown",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://dera.ioe.ac.uk/id/eprint/12326/1/nat-distancetravelledmeasuresspecifiedatsubjectandqualificationlevel-re-mar2006.pdf",
+    "pdf_source_tier": "unknown",
+    "pdf_title": "Di stance tr avel led measure for 16 - 19 year ol ds",
+    "pdf_specs": {
+      "T his s pec if ic ation det ai ls": "W hat data ar e us ed as a b as is f or dis tanc e tr av el led c alc ul ati ons",
+      "Input": "Data sent by matching contractor (Annex D, Table 2, Table 3 and Table 4)",
+      "Processes": " the data matching process (Section 1)",
+      "Output": "Annex D Table 5, Table 6, Table 7 and Table 8.",
+      "calculations": "Thisincludestheworkperformedbythematchingcontractor,andtheLearningandSkills",
+      "Council": "Section 1 –The data matching process",
+      "19yearoldswereobtainedfromtwomainsources": " IndividualisedLearnerRecord(ILR)datasubmittedtotheLSCforFurtherEducation(FE)and",
+      "fromawardingbodies": "2. ILRdatacontainingkeybiographicalinformationweresenttoBathUniversityforadatamatching",
+      "processtotakeplace": "Inordertobeconsistentwiththe2004/05successratestobepublishedbythe",
+      "UniversitycontainedthefieldsshowninTable1inAnnexD": "3. Thesedatawerethenusedtoobtaininformationregardingattainment,bothpriorandoutput,",
+      "been16-18yearsoldwhentheystartedtheirWBLprogramme": "Section 2 –Data receipt and preparation",
+      "download": "Thereare4filesforeachagecohort1foreachdatasource(FEandWBL). Thecontentof",
+      "thesetablesisshowninTables2to4inAnnexD": "2. Thesefilescanallbelinkedbyusingthecandidateserialnumbervariable,whichisauniquelink",
+      "betweenallofthefilesforeachsource": "1",
+      "toandincludingage15": "Pointscores",
+      "system": "Fulldetailsofthequalificationsthatareincludedinpriorattainmentcalculationandthepoints",
+      "achievedinthatqualification": "Calculationofscores",
+      "stakeholders": "Thisprovisionisoutsideofthatincludedinthevalueadded(VA)measures,anddiffersfor",
+      "FEandWBL": "Theprovisioninscopeisasfollows:",
+      "ForWBL": " Apprenticeships",
+      "ForFE": " NVQLevel1",
+      " BTECFirstDiploma(FD)": "2",
+      "qualificationsuccessrates": "DuetoslightdifferencesinthecontentofFEandWBLdata,slightlydifferent",
+      "slightlydifferent": "FurtherinformationregardingthedifferencesbetweentheFEandWBLsuccessrates",
+      "differencesare": " FEprovision,excludingGCSEs,usestimelysuccessrates,determinedbytheexpectedenddate",
+      "TableA": "DiagramdetailingdifferencesbetweenapproachestakenfordifferentDTdatasets",
+      "FEandWBLproviders Calculationofpriorattainment": "Thisisthe"
+    },
+    "pdf_text_excerpt": "Di stance tr avel led measure for 16 - 19 year ol ds speci fi ed at subj ect and quali ficati on l evel Di stance tr avel led techni cal speci fi cati on (summar y) Pu rp o se o f sp ec if icat io n T his s pec if ic ation det ai ls : W hat data ar e us ed as a b as is f or dis tanc e tr av el led c alc ul ati ons - Ho w to c alc u late pr i or atta i nm ent - Ho w to s elec t what le ar ner s / ex am s ar e inc l ude d i n c a lc ula tio n - Ho w to c alc u late out put att ainm ent - Ho w to c alc u late nat io na l c oef f ic ients of ex pec ted atta i nm ent - Ho w to c alc u late dis t an",
+    "num_pages": 54,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "content": {
+    "specs": {},
+    "description": "Датчик температуры D 20.6511.02 OKS используется для измерения температуры в промышленных системах. Он обеспечивает высокую точность и надежность измерений.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Датчик",
+    "seed_name": "Датчик температуры D 20.6511.02 OKS"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": true,
+    "trace_id": "catalog_verifier:106511:2026-03-26T20:23:24.007390Z",
+    "idempotency_key": "catalog_verifier:106511:1625b45951318956d71452db",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "CRITICAL_POLICY_CONFLICT",
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:106511:2026-03-26T20:23:24.007390Z",
+      "idempotency_key": "catalog_verifier:106511:1625b45951318956d71452db",
+      "pn_primary": "106511",
+      "normalized_title": "Датчик Honeywell 106511",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_106511"
+          ],
+          "evidence_ids": [
+            "ev_title_106511"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "CRITICAL_MISMATCH",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_price_106511"
+          ],
+          "evidence_ids": [
+            "ev_price_106511"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_106511"
+          ],
+          "evidence_ids": [
+            "ev_image_106511"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_106511"
+          ],
+          "evidence_ids": [
+            "ev_price_106511"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_106511"
+          ],
+          "evidence_ids": [
+            "ev_pdf_106511"
+          ],
+          "policy_rule_id": "CAP-10",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "unknown",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "unknown"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "category_mismatch_only",
+        "source_tier": "unknown",
+        "page_product_class": "unknown",
+        "category_mismatch": true,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "CRITICAL_POLICY_CONFLICT",
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "failed",
+    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
+    "openai_request_id": ""
+  },
+  "merchandising": {
+    "image_local_path": "",
+    "image_status": "rejected",
+    "image_kind": "blocked_reject",
+    "image_temporary": false,
+    "replacement_required": true,
+    "lineage_preserved": false,
+    "source_manifest_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
+    "source_photo_verdict": "REJECT",
+    "cleanup_recommended": true,
+    "policy_reason_code": "source_photo_verdict_reject"
+  },
+  "refresh_trace": {
+    "refresh_mode": "local_catalog_refresh_v1",
+    "content_seed_applied": true,
+    "content_seed_source": "insales_import_seed",
+    "photo_verdict_cache_applied": true,
+    "photo_verdict_value": "REJECT",
+    "merchandising_attached": false,
+    "merchandising_image_status": "rejected",
+    "card_status_source": "photo_verdict_override",
+    "policy_card_status_historical": "DRAFT_ONLY",
+    "policy_card_status_mismatch": false
+  }
+}

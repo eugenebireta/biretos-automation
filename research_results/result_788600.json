@@ -1,0 +1,95 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_788600",
+  "entity_id": "788600",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Fire alarm enclosure",
+    "description_ru": "ESSER by Honeywell. SAR 50.35 ≈ $13.43 USD. European distributors require login for pricing.",
+    "category_suggestion": "Fire alarm enclosure",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 50.35,
+      "currency": "SAR",
+      "unit_basis": "piece",
+      "source_url": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-788600-primaryimage",
+    "specs": {
+      "raw": "189×131×47mm; surface-mount plastic; grey; for 808610/11/13/14 esserbus transponders; VdS certified",
+      "aliases": [
+        "788600.10",
+        "788650 (white)",
+        "788601 (flush grey)",
+        "788651 (flush white)"
+      ]
+    },
+    "key_findings": [
+      "ESSER by Honeywell. SAR 50.35 ≈ $13.43 USD. European distributors require login for pricing.",
+      "Aliases: 788600.10; 788650 (white); 788601 (flush grey); 788651 (flush white)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html",
+        "type": "distributor",
+        "domain": "electric-house.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.esser-systems.com/en/products/details/transponders/esserbus/788600-housing-surface-mount-gray/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.hls-czech.com/en/germanhome/business/brandmeldeanlagen/esser-by-honeywell/products/installation-and-service/housings/788600",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html",
+      "type": "distributor",
+      "domain": "electric-house.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.009122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

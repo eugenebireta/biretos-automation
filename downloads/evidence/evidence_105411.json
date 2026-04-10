@@ -1,18 +1,20 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:57:32.170030Z",
   "pn": "105411",
   "pn_variants": [],
   "brand": "Honeywell",
   "subbrand": "",
   "name": "Датчик температуры D 20.545.21",
-  "assembled_title": "Датчик Honeywell 105411",
+  "assembled_title": "Клавиша PEHA AURA, 105411",
   "our_price_raw": "669,60",
-  "expected_category": "Датчик",
+  "expected_category": "electrical_switch_covers",
   "card_status": "DRAFT_ONLY",
   "review_reasons": [
-    "no_photo_and_no_price",
-    "NO_IMAGE_EVIDENCE"
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
   ],
   "policy_decision_v2": {
     "decision_id": "dec_105411",
@@ -23,7 +25,7 @@
     "identity_level": "weak",
     "title_status": "ACCEPTED",
     "image_status": "INSUFFICIENT",
-    "price_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
@@ -49,19 +51,6 @@
         ],
         "evidence_ids": [
           "ev_image_105411"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
-      {
-        "reason_code": "NO_PRICE_EVIDENCE",
-        "field": "price",
-        "severity": "INFO",
-        "candidate_ids": [
-          "cand_price_105411"
-        ],
-        "evidence_ids": [
-          "ev_price_105411"
         ],
         "policy_rule_id": "CAP-09",
         "bucket": "MISSING_MINIMUM_EVIDENCE"
@@ -150,19 +139,40 @@
   "confidence": {
     "pn_confidence": 0.0,
     "image_confidence": 0.0,
-    "price_confidence": 0.0,
-    "overall": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
     "overall_label": "VERY_LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
-      "no_usable_image",
-      "no_price_data"
+      "no_usable_image"
     ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\105411.jpg",
+      "canonical_filename": "HONEYWELL_105411_dc3000e5.jpg",
+      "public_url": null,
+      "origin_ref": "cached",
+      "origin_page_url": "",
+      "origin_kind": "cache"
+    },
+    "price": {
+      "observed_page_url": "https://www.conrad.de/de/p/peha-by-honeywell-abdeckung-wippe-anthrazit-105411-1-st-2855047.html",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.conrad.de/de/p/peha-by-honeywell-abdeckung-wippe-anthrazit-105411-1-st-2855047.html",
+      "replacement_url": "https://www.conrad.de/de/p/peha-by-honeywell-abdeckung-wippe-anthrazit-105411-1-st-2855047.html",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
   },
   "photo": {
     "verdict": "REJECT",
     "verdict_reason": "на фото выключатель, а не датчик температуры",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\105411.jpg",
     "sha1": "dc3000e5703c6e00467aeceaa506acf0146646ba",
     "canonical_filename": "HONEYWELL_105411_dc3000e5.jpg",
@@ -174,26 +184,40 @@
     "phash": "9c7ce003ffe400fc",
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
-    "photo_status": "rejected",
-    "photo_evidence_role": "none",
-    "photo_is_temporary": false,
-    "replacement_required": false
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "exact",
+    "commercial_identity_status": "exact_product",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
     "price_per_unit": null,
     "currency": null,
     "rub_price": null,
     "fx_rate_used": null,
     "fx_provider": null,
     "price_confidence": 0,
-    "source_url": null,
-    "source_type": null,
-    "source_tier": null,
+    "price_observed_at": "2026-04-07T11:57:32.170030Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.conrad.de/de/p/peha-by-honeywell-abdeckung-wippe-anthrazit-105411-1-st-2855047.html",
+    "source_type": "other",
+    "source_tier": "industrial",
+    "source_engine": "google_us",
     "stock_status": "unknown",
     "offer_unit_basis": "unknown",
     "offer_qty": null,
     "lead_time_detected": false,
+    "quote_cta_url": null,
     "suffix_conflict": false,
     "category_mismatch": false,
     "page_product_class": "",
@@ -201,18 +225,67 @@
     "price_median_clean": null,
     "price_min_clean": null,
     "price_max_clean": null,
-    "price_sample_size": 1
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.conrad.de/de/p/peha-by-honeywell-abdeckung-wippe-anthrazit-105411-1-st-2855047.html",
+    "price_source_domain": "conrad.de",
+    "price_source_type": "other",
+    "price_source_tier": "industrial",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.conrad.de/de/p/peha-by-honeywell-abdeckung-wippe-anthrazit-105411-1-st-2855047.html",
+    "price_source_replacement_domain": "conrad.de",
+    "price_source_replacement_tier": "industrial",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "title",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": true,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
   },
   "datasheet": {
-    "datasheet_status": "not_found",
-    "pdf_url": null,
-    "pdf_source_tier": null,
-    "pdf_title": null,
-    "pdf_specs": {},
-    "pdf_text_excerpt": null,
-    "num_pages": 0,
-    "parse_method": null,
-    "pn_confirmed_in_pdf": false
+    "datasheet_status": "skipped"
   },
   "structured_identity": {
     "exact_jsonld_pn_match": false,
@@ -222,13 +295,25 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": ""
   },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
   "content": {
     "specs": {},
     "description": "Датчик температуры D 20.545.21 предназначен для точного измерения температуры в промышленных системах. Он отличается высокой надежностью и долговечностью.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Датчик температуры D 20.545.21"
+    "seed_name": "Датчик температуры D 20.545.21",
+    "description_long_ru": "В рамках текущего прогона не удалось зафиксировать страницу с видимой ценой"
   },
   "trace": {
     "pn_match_location": "",
@@ -243,15 +328,37 @@
     "exact_jsonld_pn_match": false,
     "exact_title_pn_match": false,
     "exact_h1_pn_match": false,
-    "exact_product_context_pn_match": false
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "source_already_admissible",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T11:57:32.170030Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": true,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
   },
   "verifier_shadow": {
     "schema_version": "catalog_verifier_shadow_record_v1",
     "policy_version": "catalog_verifier_policy_v1",
     "mode": "shadow",
-    "feature_enabled": true,
-    "trace_id": "catalog_verifier:105411:2026-03-26T20:23:24.007390Z",
-    "idempotency_key": "catalog_verifier:105411:4aa5e462f94ad9cf781da10a",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:105411:2026-04-07T11:57:32.170030Z",
+    "idempotency_key": "catalog_verifier:105411:7e5045edc018f61c84736963",
+    "transport": "responses_api",
     "router": {
       "should_route": true,
       "trigger_codes": [
@@ -270,10 +377,10 @@
     },
     "packet": {
       "schema_version": "catalog_verifier_input_schema_v1",
-      "trace_id": "catalog_verifier:105411:2026-03-26T20:23:24.007390Z",
-      "idempotency_key": "catalog_verifier:105411:4aa5e462f94ad9cf781da10a",
+      "trace_id": "catalog_verifier:105411:2026-04-07T11:57:32.170030Z",
+      "idempotency_key": "catalog_verifier:105411:7e5045edc018f61c84736963",
       "pn_primary": "105411",
-      "normalized_title": "Датчик Honeywell 105411",
+      "normalized_title": "Клавиша PEHA AURA, 105411",
       "card_status": "DRAFT_ONLY",
       "field_statuses": {
         "title_status": "ACCEPTED",
@@ -342,9 +449,9 @@
       ],
       "source_role_evidence_summary": {
         "title_source_role": "deterministic_title_assembly",
-        "price_source_tier": "",
+        "price_source_tier": "industrial",
         "pdf_source_tier": "",
-        "image_source_tier": ""
+        "image_source_tier": "industrial"
       },
       "structured_identity": {
         "exact_jsonld_pn_match": false,
@@ -355,10 +462,10 @@
         "structured_pn_match_location": ""
       },
       "pdf_evidence_summary": {
-        "datasheet_status": "not_found",
+        "datasheet_status": "skipped",
         "pdf_exact_pn_confirmed": false,
         "pn_confirmed_in_pdf": false,
-        "pdf_source_tier": null
+        "pdf_source_tier": ""
       },
       "image_evidence_summary": {
         "photo_verdict": "REJECT",
@@ -367,7 +474,7 @@
       },
       "price_evidence_summary": {
         "price_status": "no_price_found",
-        "source_tier": null,
+        "source_tier": "industrial",
         "page_product_class": "",
         "category_mismatch": false,
         "brand_mismatch": false
@@ -389,32 +496,95 @@
       "reasoning_tokens": 0,
       "estimated_cost_usd": 0.0
     },
-    "call_state": "failed",
-    "error": "Error code: 400 - {'error': {'message': \"Unsupported parameter: 'temperature' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'temperature', 'code': None}}",
-    "openai_request_id": ""
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
   },
-  "merchandising": {
-    "image_local_path": "",
-    "image_status": "rejected",
-    "image_kind": "blocked_reject",
-    "image_temporary": false,
-    "replacement_required": true,
-    "lineage_preserved": false,
-    "source_manifest_ref": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\scout_cache\\photo_enhance_manifest_all25_recheck.jsonl",
-    "source_photo_verdict": "REJECT",
-    "cleanup_recommended": true,
-    "policy_reason_code": "source_photo_verdict_reject"
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.415545+00:00",
+    "source": "chatgpt",
+    "price": null,
+    "currency": "UNKNOWN",
+    "source_url": null,
+    "category": "Ð ÑÐ°Ð¼ÐºÐ°Ñ ÑÐµÐºÑÑÐµÐ³Ð¾ Ð¿ÑÐ¾Ð³Ð¾Ð½Ð° Ð½Ðµ ÑÐ´Ð°Ð»Ð¾ÑÑ Ð·Ð°ÑÐ¸ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ ÑÑÑÐ°Ð½Ð¸ÑÑ Ñ Ð²Ð¸Ð´Ð¸Ð¼Ð¾Ð¹ ÑÐµÐ½Ð¾Ð¹",
+    "image_url": null,
+    "price_type": "ð½ðµ ð½ð°ð¹ð´ðµð½ð¾ (ñðµð½ð°)",
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "`not found`",
+        "page_type": "catalog",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": ""
+      }
+    ]
   },
-  "refresh_trace": {
-    "refresh_mode": "local_catalog_refresh_v1",
-    "content_seed_applied": true,
-    "content_seed_source": "insales_import_seed",
-    "photo_verdict_cache_applied": true,
-    "photo_verdict_value": "REJECT",
-    "merchandising_attached": false,
-    "merchandising_image_status": "rejected",
-    "card_status_source": "photo_verdict_override",
-    "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": false
-  }
+  "dr_category": "Ð ÑÐ°Ð¼ÐºÐ°Ñ ÑÐµÐºÑÑÐµÐ³Ð¾ Ð¿ÑÐ¾Ð³Ð¾Ð½Ð° Ð½Ðµ ÑÐ´Ð°Ð»Ð¾ÑÑ Ð·Ð°ÑÐ¸ÐºÑÐ¸ÑÐ¾Ð²Ð°ÑÑ ÑÑÑÐ°Ð½Ð¸ÑÑ Ñ Ð²Ð¸Ð´Ð¸Ð¼Ð¾Ð¹ ÑÐµÐ½Ð¾Ð¹",
+  "dr_price_type": "ð½ðµ ð½ð°ð¹ð´ðµð½ð¾ (ñðµð½ð°)",
+  "dr_sources": [
+    {
+      "url": "https://www.alibaba.com/trade/search?SearchText=honeywell+105411",
+      "page_type": "marketplace",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "alibaba.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.347482+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "COMPONENT",
+    "source_url": null,
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.alibaba.com/trade/search?SearchText=honeywell+105411",
+        "page_type": "marketplace",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "alibaba.com"
+      }
+    ]
+  },
+  "deep_research": {
+    "title_ru": "unknown",
+    "description_ru": "Гибкий прозрачный чехол для тумблеров, позволяющий видеть положение рычага переключателя. Защищает узел переключения от брызг воды и мелкодисперсной пыли. Подходит для использования в пищевой промышленности благодаря легкости очистки. Устанавливается под стандартную крепежную гайку.",
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "В рамках текущего прогона не удалось зафиксировать страницу с видимой ценой"
+    ],
+    "sources": [
+      {
+        "url": "`not found`",
+        "type": "unknown",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:42:39.642139+00:00",
+    "merge_source": "result_105411.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report-prompt-v1.md"
+  },
+  "dr_image_url": "Не найдено",
+  "dr_price": 23.51,
+  "dr_currency": "USD",
+  "dr_price_source": null
 }

@@ -1,0 +1,131 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_N3424",
+  "entity_id": "N3424",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Damper actuator",
+    "description_ru": "SmartAct N34 series; 24V variant of N34230",
+    "category_suggestion": "actuator",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 358.78,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.mytub.co.uk/honeywell-n3424-smartact-actuator-34nm-24v-product-307846",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://i.ebayimg.com/images/g/CBYAAOSwtxpj9rrY/s-l1600.jpg",
+    "specs": {
+      "raw": "34 Nm; 24 VAC ±15%; floating/2-position; IP54; non-spring return; damper area up to 7.8 m²",
+      "aliases": [
+        "MN6134A1003"
+      ]
+    },
+    "key_findings": [
+      "SmartAct N34 series; 24V variant of N34230",
+      "Aliases: MN6134A1003"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-n3424-smartact-actuator-34nm-24v-product-307846",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/294472150332",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-n3424-smartact-actuator-34nm-24v-product-307846",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://kempstoncontrols.com/N3424",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://blackhawksupply.com/products/honeywell-mn6134a1003...",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://bolasystems.com/actuator-smartact-honeywell-n3424-34nm-24vac",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+      },
+      {
+        "url": "https://www.bolasystems.com/damper-actuator-honeywell-n3424",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      },
+      {
+        "url": "https://www.ebay.com/itm/294472150332",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "deep-research-report (6).md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.mytub.co.uk/honeywell-n3424-smartact-actuator-34nm-24v-product-307846",
+      "type": "distributor",
+      "domain": "www.mytub.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.ebay.com/itm/294472150332",
+      "type": "gray_market",
+      "domain": "www.ebay.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.948491+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (6).md"
+}

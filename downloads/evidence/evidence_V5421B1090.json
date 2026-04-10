@@ -1,0 +1,596 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "V5421B1090",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Центрический дисковый клапан Honeywell V5421B1090",
+  "assembled_title": "Клапан Honeywell V5421B1090",
+  "our_price_raw": "66907,33",
+  "expected_category": "Клапан",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+    "PDF_NOT_EXACT_CONFIRMED"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_V5421B1090",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "REVIEW_REQUIRED",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_V5421B1090"
+        ],
+        "evidence_ids": [
+          "ev_image_V5421B1090"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_V5421B1090"
+        ],
+        "evidence_ids": [
+          "ev_price_V5421B1090"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+        "field": "pdf",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_pdf_V5421B1090"
+        ],
+        "evidence_ids": [
+          "ev_pdf_V5421B1090"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-06B",
+    "identity_boost_signals": [
+      "structured_pn_match:title"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.926760+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "REVIEW_REQUIRED"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_V5421B1090"
+      ],
+      "evidence_ids": [
+        "ev_title_V5421B1090"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_V5421B1090"
+      ],
+      "evidence_ids": [
+        "ev_image_V5421B1090"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_V5421B1090"
+      ],
+      "evidence_ids": [
+        "ev_price_V5421B1090"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+      "field": "pdf",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_pdf_V5421B1090"
+      ],
+      "evidence_ids": [
+        "ev_pdf_V5421B1090"
+      ],
+      "policy_rule_id": "CAP-09B",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.427,
+    "image_confidence": 0.192,
+    "price_confidence": 0.35,
+    "overall": 0.299,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\V5421B1090.jpg",
+      "canonical_filename": "HONEYWELL_V5421B1090_c6bb8c9a.jpg",
+      "public_url": null,
+      "origin_ref": "google:https://honeywell.nt-rt.ru/price/product/351834",
+      "origin_page_url": "https://honeywell.nt-rt.ru/price/product/351834",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090-corps-de-vannes-dn-200-2-voies-3-460-m%C2%B3-h/",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090-corps-de-vannes-dn-200-2-voies-3-460-m%C2%B3-h/",
+      "replacement_url": "https://www.bolasystems.com/rotary-actuator-for-damper-honeywell-m6422l1003-v5421b1090-40nm-230vac",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CZqr7ismkKh8tsoih86cZ'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\V5421B1090.jpg",
+    "sha1": "c6bb8c9af1bd17f5574655cd5a47e72540913878",
+    "canonical_filename": "HONEYWELL_V5421B1090_c6bb8c9a.jpg",
+    "public_url": null,
+    "width": 500,
+    "height": 500,
+    "size_kb": 23,
+    "source": "google:https://honeywell.nt-rt.ru/price/product/351834",
+    "phash": "b0269693c96e669b",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090-corps-de-vannes-dn-200-2-voies-3-460-m%C2%B3-h/",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090-corps-de-vannes-dn-200-2-voies-3-460-m%C2%B3-h/",
+    "price_source_domain": "emoteek.net",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "title",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": true,
+    "price_source_replacement_url": "https://www.bolasystems.com/rotary-actuator-for-damper-honeywell-m6422l1003-v5421b1090-40nm-230vac",
+    "price_source_replacement_domain": "bolasystems.com",
+    "price_source_replacement_tier": "industrial",
+    "price_source_replacement_engine": "google_us",
+    "price_source_replacement_exact_lineage_confirmed": true,
+    "price_source_replacement_match_location": "title",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": true,
+    "transient_failure_codes": [
+      "llm_timeout"
+    ]
+  },
+  "datasheet": {
+    "datasheet_status": "found",
+    "pdf_url": "https://honeywell-ec.ru/UserFiles/File/rotary/v5421b-pd-ur01r0414.pdf",
+    "pdf_source_tier": "ru_b2b",
+    "pdf_title": "V5421B",
+    "pdf_specs": {
+      "• Совместимы с приводами": "- M6061 для Ду 25-150 мм",
+      "ОБЩИЕ СВЕДЕНИЯ Рабочая среда Вода с макс": "50% гликоля",
+      "Температура воды -10": "+130 °C",
+      "M6061/M7061/M6422L1003": "Приводы не входят в комплект",
+      "отдельно": "Корпус клапана Чугун GGG40",
+      "Шток Нерж": "сталь 1.4028",
+      "Момент Управляющий сигнал Эл": "параметры (B, BA) Продолжит. цикла, мин Модель привода",
+      "20 Нм 3-поз": "24; 3,5 1,6 M6061A1021",
+      "3-поз": "230; 7 2.5 M6422L1003*",
+      "30 Нм 3-поз": "24; 3,5 2,3 M6061A1039",
+      "40 Нм 3-поз": "24; 3,5 3,5 M6061A1047"
+    },
+    "pdf_text_excerpt": "V5421B ПОВОРОТНЫЕ ЗАСЛОНКИ Ру 16; T =130°C max ТЕХНИЧЕСКОЕ ОПИСАНИЕ ОСОБЕННОСТИ • Не требуются дополнительные принадлежности • Простота и легкость монтажа • Рабочий элемент расположен по центру и имеет линейную характеристику • Широкий диапазон конструктивных размеров • Для горячей воды с содержанием <50% гликоля • Изменяемая линейность • Стойкое к коррозии исполнение • Совместимы с приводами: - M6061 для Ду 25-150 мм - M7061 для Ду 25-65 мм - M6422L1003 для Ду 200 мм ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ ОБЩИЕ СВЕДЕНИЯ Рабочая среда Вода с макс. 50% гликоля Вместе с приводами M6061 и Номинальное давлени",
+    "num_pages": 2,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": true
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "title"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_visible_price_exact_page",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {
+      "характеристики": "Значение",
+      "корпус_клапана": "Чугун GGG40",
+      "уплотнение": "EPDM-HT",
+      "диск": "Чугун GGG40",
+      "шток": "Нержавеющая сталь 1.4028",
+      "рабочая_среда": "Вода/Гликоль (смесь до 50%)",
+      "номинальное_давление_мпа": "16",
+      "максимальный_перепад_кпа": "1600",
+      "температура_воды_c": "-10...+130",
+      "диаметр_заслонки_мм": "32",
+      "kvs_заслонки_м3": "52,0",
+      "усилие_на_штоке_нм": "5",
+      "присоединение_к_трубам": "Межфланцевое DN 32",
+      "масса_кг": "2,5"
+    },
+    "description": "Центрический дисковый клапан Honeywell V5421B1090 предназначен для управления потоками в системах водоснабжения и отопления. Имеет диаметр DN200, что делает его подходящим для крупных промышленных систем.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Клапан",
+    "seed_name": "Центрический дисковый клапан Honeywell V5421B1090",
+    "description_long_ru": "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "title",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": true,
+    "exact_h1_pn_match": true,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": true,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "admissible_replacement_confirmed",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_visible_price_exact_page"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:V5421B1090:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:V5421B1090:417b91c92e5b8822f429a2b8",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG",
+        "PDF_REVIEW_REQUIRED"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:V5421B1090:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:V5421B1090:417b91c92e5b8822f429a2b8",
+      "pn_primary": "V5421B1090",
+      "normalized_title": "Клапан Honeywell V5421B1090",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "REVIEW_REQUIRED"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_V5421B1090"
+          ],
+          "evidence_ids": [
+            "ev_title_V5421B1090"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_V5421B1090"
+          ],
+          "evidence_ids": [
+            "ev_image_V5421B1090"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_V5421B1090"
+          ],
+          "evidence_ids": [
+            "ev_price_V5421B1090"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "PDF_NOT_EXACT_CONFIRMED",
+          "field": "pdf",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_pdf_V5421B1090"
+          ],
+          "evidence_ids": [
+            "ev_pdf_V5421B1090"
+          ],
+          "policy_rule_id": "CAP-09B",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "ru_b2b",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": true,
+        "exact_h1_pn_match": true,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "title"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": true,
+        "pdf_source_tier": "ru_b2b"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "AMBIGUOUS_EXACTNESS",
+        "IDENTITY_NOT_STRONG",
+        "PDF_REVIEW_REQUIRED"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "valve",
+    "description_ru": "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade",
+    "specs": {
+      "raw": "DN200; Kvs 3460; PN6/10/16; wafer flange; 2-way butterfly; ductile iron GGG40; max DP 3bar"
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade"
+    ],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.ebay.com/itm/226662421193",
+        "type": "gray_market",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:25.027100+00:00",
+    "merge_source": "result_V5421B1090.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report (6).md"
+  },
+  "dr_category": "valve",
+  "dr_image_url": "https://i.ebayimg.com/images/g/zZ8AAOSwmZFn4RHv/s-l1600.jpg",
+  "dr_price": 1038.16,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/"
+}

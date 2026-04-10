@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_P2217H",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "P2217H",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN P2217H (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=P2217H",
+    "What is the full product name and product family for Honeywell P2217H?",
+    "Is P2217H a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell P2217H"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://computerspace.in/products/dell-p2217h-black-21-5-inch-54-6-cm-professional-led-monitor?srsltid=AfmBOoq5TOHwILVCBRFu-nGZrGYGtMZOw6597iIS7FzQhbM05ZEP4NDn",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Системный блок Honeywell P2217H",
+    "assembled_title": "Системный блок Honeywell P2217H",
+    "expected_category": "Системный блок",
+    "our_price_raw": "13186,80",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://computerspace.in/products/dell-p2217h-black-21-5-inch-54-6-cm-professional-led-monitor?srsltid=AfmBOoq5TOHwILVCBRFu-nGZrGYGtMZOw6597iIS7FzQhbM05ZEP4NDn",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_P2217H.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.508411Z"
+}

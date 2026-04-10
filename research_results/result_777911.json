@@ -1,0 +1,101 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_777911",
+  "entity_id": "777911",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "PEHA insert",
+    "description_ru": "Not found online; 777xxx series = Dialog Exclusiv braun/gold; \"9\" position doesn't match standard frame numbering",
+    "category_suggestion": "PEHA insert",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 496.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "https://volzhsk.aelektro.ru/catalog/rozetki/elektricheskie/nakladka-honeywell-dialog-na-3-razema-tv-temno-korichnevyi-777911",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://volzhsk.aelektro.ru/content/photo/full/P777911_img1.jpg",
+    "specs": {
+      "raw": "Color likely braun/gold based on 777xxx series pattern",
+      "aliases": [
+        "00777911 (assumed)"
+      ]
+    },
+    "key_findings": [
+      "Not found online; 777xxx series = Dialog Exclusiv braun/gold; \"9\" position doesn't match standard frame numbering",
+      "Aliases: 00777911 (assumed)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      },
+      {
+        "url": "https://volzhsk.aelektro.ru/catalog/rozetki/elektricheskie/nakladka-honeywell-dialog-na-3-razema-tv-temno-korichnevyi-777911",
+        "type": "distributor",
+        "domain": "volzhsk.aelektro.ru",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md. Price: no, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.manomano.de/p/peha-d-955722661-dialog-rahmen-2fach-braun-gold-5-00777211-neu-8944717",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.eibabo.us",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    },
+    {
+      "url": "https://volzhsk.aelektro.ru/catalog/rozetki/elektricheskie/nakladka-honeywell-dialog-na-3-razema-tv-temno-korichnevyi-777911",
+      "type": "distributor",
+      "domain": "volzhsk.aelektro.ru",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.973646+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (8).md"
+}

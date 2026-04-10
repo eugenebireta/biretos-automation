@@ -1,0 +1,88 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_158811",
+  "entity_id": "158811",
+  "research_reason": "category_mismatch",
+  "priority": "high",
+  "final_recommendation": {
+    "identity_confirmed": false,
+    "brand": "Honeywell",
+    "title_ru": "Крышка выключателя PEHA by Honeywell 158811",
+    "description_ru": "Компактный регулирующий клапан для фанкойлов и малых вентиляционных установок. Обеспечивает высокую точность поддержания температуры в офисных помещениях. Обладает низким уровнем шума при протекании теплоносителя. Легко монтируется в ограниченном пространстве благодаря малым габаритам.",
+    "category_suggestion": "Аксессуары для электроустановочных изделий / Крышки и накладки",
+    "price_assessment": "admissible_public_price",
+    "price_evidence": "Conrad.sk (источник в текущих данных): 158811 указан как крышка выключателя PEHA by Honeywell, цена ~490 SKK эквивалент. Однако это аксессуар, а не вентиль.",
+    "photo_assessment": "mismatch",
+    "specs_assessment": "partial",
+    "key_findings": [
+      "PN 158811 в Conrad.sk идентифицирован как 'kryt koliska' (крышка выключателя) PEHA by Honeywell, а не как термостатический вентиль",
+      "Текущее название в каталоге 'Термостатический вентиль Honeywell D 20.244.02 JR' не соответствует фактическому продукту",
+      "Категория 'Вентиль' неверна - это электроустановочный аксессуар (крышка/накладка)",
+      "Цена 490,60 соответствует аксессуару, а не промышленному вентилю",
+      "PEHA - бренд электроустановочных изделий, принадлежащий Honeywell"
+    ],
+    "ambiguities": [
+      "Возможна путаница PN: 158811 может быть ошибочно связан с моделью D 20.244.02 JR (которая действительно вентиль)",
+      "Не найдено прямого подтверждения спецификаций крышки (размеры, материал, цвет) кроме Conrad.sk",
+      "Неясно, является ли это белой крышкой для одного выключателя или универсальным аксессуаром"
+    ],
+    "sources": [
+      {
+        "url": "https://www.conrad.sk/sk/p/peha-by-honeywell-kryt-koliska-biela-158811-2855102.html",
+        "type": "distributor",
+        "supports": [
+          "identity",
+          "category",
+          "price"
+        ]
+      },
+      {
+        "url": "`https://www.voelkner.de/products/7580214/PEHA-by-Honeywell-Abdeckung-Wippe-Weiss-158811-1St..html` citeturn38search1",
+        "type": "distributor",
+        "domain": "www.voelkner.de",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Идентификация основана на единственном источнике (Conrad.sk), который четко указывает 158811 как крышку выключателя PEHA, а не вентиль. Это противоречит текущему названию в каталоге. Требуется проверка исходных данных и возможное переназначение PN или исправление названия продукта.",
+    "price_value": {
+      "amount": 8.75,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.voelkner.de/products/7580214/PEHA-by-Honeywell-Abdeckung-Wippe-Weiss-158811-1St..html` citeturn38search1",
+      "price_type": "distributor"
+    },
+    "datasheet_url": "DN: 15; Kvs: 2.5; Connection: 1/2\" NPT; Media: Water; Action: DA"
+  },
+  "sources": [
+    {
+      "url": "https://www.conrad.sk/sk/p/peha-by-honeywell-kryt-koliska-biela-158811-2855102.html",
+      "type": "distributor",
+      "supports": [
+        "identity",
+        "category",
+        "price"
+      ]
+    },
+    {
+      "url": "`https://www.voelkner.de/products/7580214/PEHA-by-Honeywell-Abdeckung-Wippe-Weiss-158811-1St..html` citeturn38search1",
+      "type": "distributor",
+      "domain": "www.voelkner.de",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-07T23:13:31.761692Z",
+  "provider": "claude",
+  "model": "claude-haiku-4-5-20251001",
+  "raw_response_length": 2127,
+  "cost_usd": 0.0019,
+  "dr_source_file": "deep-research-report-prompt-v3.md"
+}

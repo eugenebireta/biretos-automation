@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_TPPR-V-1030",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "TPPR-V-1030",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN TPPR-V-1030 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=TPPR-V-1030",
+    "What is the full product name and product family for Honeywell TPPR-V-1030?",
+    "Is TPPR-V-1030 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell TPPR-V-1030"
+  ],
+  "current_state": {
+    "card_status": "DRAFT_ONLY",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "ambiguous_offer",
+    "price_source_url": "https://www.isssafety.com/products/tppr-v-1030-honeywell-digital-input-module?srsltid=AfmBOoqJsattVpqo3y47rQIDHieFKxlCMRnmbahnd74Mhw_AUE_FIuYQ",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Модуль цифрового ввода Honeywell TPPR-V-1030",
+    "assembled_title": "Модуль Honeywell TPPR-V-1030",
+    "expected_category": "Модуль",
+    "our_price_raw": "142340,50",
+    "has_content_seed": true,
+    "price_currency": "GBP",
+    "price_native_value": 881.0,
+    "price_rub": 98672.0,
+    "existing_source_url": "https://www.isssafety.com/products/tppr-v-1030-honeywell-digital-input-module?srsltid=AfmBOoqJsattVpqo3y47rQIDHieFKxlCMRnmbahnd74Mhw_AUE_FIuYQ",
+    "pn_variants": [
+      "TPPR.V.1030",
+      "TPPRV1030"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_TPPR-V-1030.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.539411Z"
+}

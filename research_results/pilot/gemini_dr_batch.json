@@ -1,0 +1,93 @@
+[
+  {
+    "pn": "033588.17",
+    "brand": "Honeywell",
+    "stratum": "auto_publish",
+    "provider": "gemini_dr",
+    "prompt": "Use web search to research this industrial product:\n\nPart Number: 033588.17\nBrand: Honeywell\nProduct Name: Шарнирное соединение для настенного монтажа\nExpected Category: Соединение\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "AUTO_PUBLISH",
+      "has_price": true,
+      "has_photo": true
+    }
+  },
+  {
+    "pn": "CATALIST",
+    "brand": "Honeywell",
+    "stratum": "review_required",
+    "provider": "gemini_dr",
+    "prompt": "Use web search to research this industrial product:\n\nPart Number: CATALIST\nBrand: Honeywell\nProduct Name: Свитч Honeywell CATALIST\nExpected Category: Свитч\nTASK: Price not found — find current market price (RUB)\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "REVIEW_REQUIRED",
+      "has_price": false,
+      "has_photo": true
+    }
+  },
+  {
+    "pn": "P2421D",
+    "brand": "Honeywell",
+    "stratum": "draft_with_price",
+    "provider": "gemini_dr",
+    "prompt": "Use web search to research this industrial product:\n\nPart Number: P2421D\nBrand: Honeywell\nProduct Name: Монитор P2421D\nExpected Category: Монитор\nTASK: Identity weak — confirm this is a real product\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "weak",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": true
+    }
+  },
+  {
+    "pn": "EDA61K-HB-2",
+    "brand": "Honeywell",
+    "stratum": "draft_with_price",
+    "provider": "gemini_dr",
+    "prompt": "Use web search to research this industrial product:\n\nPart Number: EDA61K-HB-2\nBrand: Honeywell\nProduct Name: Зарядное устройство для ТСД Honeywell EDA61K-HB-2\nExpected Category: Зарядное устройство\nTASK: Identity weak — confirm this is a real product\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "weak",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": true
+    }
+  },
+  {
+    "pn": "1012541",
+    "brand": "Honeywell",
+    "stratum": "draft_with_price",
+    "provider": "gemini_dr",
+    "prompt": "Use web search to research this industrial product:\n\nPart Number: 1012541\nBrand: Honeywell\nProduct Name: Наушники противошумные EARMUFF-LEIGHTNING L3H EU\nExpected Category: Наушники\nTASK: Identity weak — confirm this is a real product\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "weak",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": true
+    }
+  },
+  {
+    "pn": "36024-RU",
+    "brand": "Honeywell",
+    "stratum": "weak_any",
+    "provider": "gemini_dr",
+    "prompt": "Use web search to research this industrial product:\n\nPart Number: 36024-RU\nBrand: Honeywell\nProduct Name: Горизонтальный угол 200x80мм 36024-RU\nExpected Category: Угол\nTASK: Price not found — find current market price (RUB)\nTASK: Identity weak — confirm this is a real product\nTASK: No photo — find official product image URL\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "weak",
+      "card_status": "DRAFT_ONLY",
+      "has_price": false,
+      "has_photo": false
+    }
+  },
+  {
+    "pn": "PCD3.W340",
+    "brand": "Honeywell",
+    "stratum": "weak_any",
+    "provider": "gemini_dr",
+    "prompt": "Use web search to research this industrial product:\n\nPart Number: PCD3.W340\nBrand: Honeywell\nProduct Name: Универсальный аналоговый входной модуль PCD3.W340\nExpected Category: Модуль\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": true
+    }
+  }
+]

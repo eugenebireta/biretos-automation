@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "033588.17",
   "pn_variants": [
     "33588.17",
@@ -13,49 +13,21 @@
   "assembled_title": "Соединение Honeywell 033588.17",
   "our_price_raw": "3025,82",
   "expected_category": "Соединение",
-  "card_status": "REVIEW_REQUIRED",
-  "review_reasons": [
-    "LEGACY_AUTO_PUBLISH_HOLDOUT"
-  ],
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [],
   "policy_decision_v2": {
     "decision_id": "dec_033588.17",
     "policy_version": "catalog_evidence_policy_v1",
     "family_photo_policy_version": "family_photo_policy_v1",
     "source_matrix_version": "source_role_field_matrix_v1",
     "review_schema_version": "review_reason_schema_v1",
-    "identity_level": "weak",
+    "identity_level": "strong",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "ACCEPTED",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
     "review_reasons": [
-      {
-        "reason_code": "IDENTITY_WEAK",
-        "field": "identity",
-        "severity": "ERROR",
-        "candidate_ids": [
-          "cand_title_033588.17"
-        ],
-        "evidence_ids": [
-          "ev_title_033588.17"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_033588.17"
-        ],
-        "evidence_ids": [
-          "ev_image_033588.17"
-        ],
-        "policy_rule_id": "CAP-09",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
-      },
       {
         "reason_code": "NO_PDF_EVIDENCE",
         "field": "pdf",
@@ -66,16 +38,14 @@
         "evidence_ids": [
           "ev_pdf_033588.17"
         ],
-        "policy_rule_id": "CAP-09",
+        "policy_rule_id": "CAP-01",
         "bucket": "PDF_CONFLICT"
       }
     ],
     "review_buckets": [
-      "IDENTITY_CONFLICT",
-      "MISSING_MINIMUM_EVIDENCE",
       "PDF_CONFLICT"
     ],
-    "policy_rule_id": "CAP-09"
+    "policy_rule_id": "CAP-01"
   },
   "field_statuses_v2": {
     "title_status": "ACCEPTED",
@@ -156,23 +126,23 @@
     "replacement_required": false
   },
   "price": {
-    "price_status": "rfq_only",
+    "price_status": "public_price",
     "price_per_unit": 33.0,
     "currency": "EUR",
     "rub_price": 3135.0,
     "fx_rate_used": 95.0,
     "fx_provider": "stub",
-    "price_confidence": 80,
-    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=54106-kugelgelenk-viewguard-scm-03358817",
-    "source_type": "other",
+    "price_confidence": 95,
     "source_tier": "authorized",
-    "stock_status": "rfq",
+    "stock_status": "backorder",
     "offer_unit_basis": "piece",
     "offer_qty": 1,
-    "lead_time_detected": false,
+    "lead_time_detected": true,
+    "page_product_class": "",
+    "source_url": "https://www.igs-hagen.de/produktsuche/produktdaten?showproduct=54106-kugelgelenk-viewguard-scm-03358817",
+    "source_type": "authorized_distributor",
     "suffix_conflict": false,
     "category_mismatch": false,
-    "page_product_class": "Соединение",
     "brand_mismatch": false,
     "price_median_clean": null,
     "price_min_clean": null,
@@ -217,7 +187,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Соединение",
-    "seed_name": "Шарнирное соединение для настенного монтажа"
+    "seed_name": "Шарнирное соединение для настенного монтажа",
+    "description_long_ru": "ABB product, not Vanderbilt/Honeywell. Details gated behind ABB inquiry form. .17 suffix likely denotes variant."
   },
   "trace": {
     "pn_match_location": "",
@@ -393,9 +364,44 @@
     "merchandising_image_status": "placeholder",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true,
-    "holdout_applied": true,
-    "holdout_reason": "AUTO_PUBLISH_V2_MISMATCH_OWNER_DECISION_20260402",
-    "holdout_previous_card_status": "AUTO_PUBLISH"
-  }
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.502680+00:00"
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Connector (ABB)",
+    "description_ru": "Регулируемый кронштейн для точной установки извещателей движения серий Viewguard и SCM. Позволяет изменять угол обзора детектора по горизонтали и вертикали для исключения мертвых зон в охраняемом помещении.7",
+    "specs": {
+      "raw": "—",
+      "aliases": [
+        "033588",
+        "ABB code 7B033588"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "ABB product, not Vanderbilt/Honeywell. Details gated behind ABB inquiry form. .17 suffix likely denotes variant.",
+      "Aliases: 033588; ABB code 7B033588"
+    ],
+    "sources": [
+      {
+        "url": "https://new.abb.com/products/7B033588/033588",
+        "type": "—",
+        "domain": "new.abb.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:42:39.635629+00:00",
+    "merge_source": "result_033588.17.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "deep-research-report-prompt-v3.md"
+  },
+  "dr_category": "Connector (ABB)",
+  "dr_image_url": "https://cdn.productimages.abb.com/9PAA00000071734_400x400.jpg"
 }

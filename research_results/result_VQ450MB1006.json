@@ -1,0 +1,102 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_VQ450MB1006",
+  "entity_id": "VQ450MB1006",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Газовый комбинированный клапан",
+    "description_ru": "В наличии на витрине каталога. citeturn17search1",
+    "category_suggestion": "Газовый комбинированный клапан",
+    "price_assessment": "ambiguous_offer",
+    "price_value": {
+      "amount": 544410.0,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://shop.vitaprom.ru/shop/klapany-honeywell-dvojnye-elektromagnitnye/` citeturn17search1",
+      "price_type": "gray_market"
+    },
+    "photo_url": "https://nikelectronika.com/files/styles/product_preview/public/2023-02/vq440.png",
+    "specs": {
+      "aliases": [
+        "534.322.210"
+      ]
+    },
+    "key_findings": [
+      "В наличии на витрине каталога. citeturn17search1",
+      "Aliases: 534.322.210"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://shop.vitaprom.ru/shop/klapany-honeywell-dvojnye-elektromagnitnye/` citeturn17search1",
+        "type": "gray_market",
+        "domain": "shop.vitaprom.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://nikelectronika.com/kombinirovannyy-klapan-honeywell-vq450-vq-modular",
+        "type": "distributor",
+        "domain": "nikelectronika.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes.",
+    "documents": [
+      {
+        "url": "https://nikelectronika.com/kombinirovannyy-klapan-honeywell-vq450-vq-modular",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      },
+      {
+        "url": "https://krom.lt/catalog/vq450-gas-valves",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "`https://shop.vitaprom.ru/shop/klapany-honeywell-dvojnye-elektromagnitnye/` citeturn17search1",
+      "type": "gray_market",
+      "domain": "shop.vitaprom.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://nikelectronika.com/kombinirovannyy-klapan-honeywell-vq450-vq-modular",
+      "type": "distributor",
+      "domain": "nikelectronika.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.018639+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-c528f514-e78f-46c8-965f-9878cb713664_text_markdown.md"
+}

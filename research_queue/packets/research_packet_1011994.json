@@ -1,0 +1,63 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_1011994",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "1011994",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 1011994 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "low",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=1011994",
+    "What is the full product name and product family for Honeywell 1011994?",
+    "Is 1011994 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 1011994"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "weak",
+    "photo_verdict": "KEEP",
+    "price_status": "public_price",
+    "price_source_url": "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": []
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
+    "assembled_title": "Наушники Honeywell 1011994",
+    "expected_category": "Наушники",
+    "our_price_raw": "1741,63",
+    "has_content_seed": true,
+    "price_currency": "USD",
+    "price_native_value": 9.95,
+    "price_rub": 875.6,
+    "existing_source_url": "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_1011994.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-07T23:08:51.936732Z"
+}

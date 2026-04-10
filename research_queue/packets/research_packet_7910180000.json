@@ -1,0 +1,68 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_7910180000",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "7910180000",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN 7910180000 (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=7910180000",
+    "What is the full product name and product family for Honeywell 7910180000?",
+    "Is 7910180000 a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell 7910180000"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://eshop.weidmueller.com/en/wtr-4/p/7910180000",
+    "category_mismatch": false,
+    "overall_confidence": "LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Клемма отключения WTR4 без STB 7910180000",
+    "assembled_title": "Клемма Honeywell 7910180000",
+    "expected_category": "Клемма",
+    "our_price_raw": "165,06",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://eshop.weidmueller.com/en/wtr-4/p/7910180000",
+    "pn_variants": []
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_7910180000.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.425260Z"
+}

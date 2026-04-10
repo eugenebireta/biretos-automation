@@ -1,0 +1,615 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "KCD2090XI",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Монитор KCD2090XI",
+  "assembled_title": "Монитор Honeywell KCD2090XI",
+  "our_price_raw": "4456,00",
+  "expected_category": "Монитор",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_KCD2090XI",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_KCD2090XI"
+        ],
+        "evidence_ids": [
+          "ev_title_KCD2090XI"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_KCD2090XI"
+        ],
+        "evidence_ids": [
+          "ev_image_KCD2090XI"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_KCD2090XI"
+        ],
+        "evidence_ids": [
+          "ev_price_KCD2090XI"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_KCD2090XI"
+        ],
+        "evidence_ids": [
+          "ev_pdf_KCD2090XI"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_KCD2090XI"
+      ],
+      "evidence_ids": [
+        "ev_title_KCD2090XI"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_KCD2090XI"
+      ],
+      "evidence_ids": [
+        "ev_image_KCD2090XI"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_KCD2090XI"
+      ],
+      "evidence_ids": [
+        "ev_price_KCD2090XI"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_KCD2090XI"
+      ],
+      "evidence_ids": [
+        "ev_pdf_KCD2090XI"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.35,
+    "overall": 0.07,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\KCD2090XI.jpg",
+      "canonical_filename": "HONEYWELL_KCD2090XI_f82b22b3.jpg",
+      "public_url": null,
+      "origin_ref": "yandex:https://www.manua.ls/honeywell",
+      "origin_page_url": "https://www.manua.ls/honeywell",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "",
+      "quote_cta_url": "",
+      "lineage_source_url": "",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "Термостат Honeywell с дисплеем — устройство управления климатом, товар угадывается",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\KCD2090XI.jpg",
+    "sha1": "f82b22b3cf6102b6c7f048bcb63e8e2b263990bc",
+    "canonical_filename": "HONEYWELL_KCD2090XI_f82b22b3.jpg",
+    "public_url": null,
+    "width": 200,
+    "height": 200,
+    "size_kb": 6,
+    "source": "yandex:https://www.manua.ls/honeywell",
+    "phash": "e4e49b9fe5605039",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "none",
+    "commercial_identity_status": "unclear",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [],
+    "price_admissibility_review_bucket": "",
+    "price_admissibility_review_required": false,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": null,
+    "price_confidence": 0,
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
+    "source_url": null,
+    "source_type": null,
+    "source_tier": null,
+    "source_engine": "",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": false,
+    "page_context_clean": true,
+    "price_source_seen": false,
+    "price_source_url": "",
+    "price_source_domain": "",
+    "price_source_type": "",
+    "price_source_tier": "",
+    "price_source_engine": "",
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_title_pn_match": false,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "",
+    "price_source_clean_product_page": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_lineage_schema_version": "",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": false,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "no_source_candidates",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "not_found",
+    "pdf_url": null,
+    "pdf_source_tier": null,
+    "pdf_title": null,
+    "pdf_specs": {},
+    "pdf_text_excerpt": null,
+    "num_pages": 0,
+    "parse_method": null,
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "no_source_candidates",
+        "source_field": "price.price_no_price_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Монитор KCD2090XI предназначен для использования в системах видеонаблюдения и контроля. Он обеспечивает высокое качество изображения и надежность в эксплуатации.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Видеонаблюдение",
+    "product_type": "Монитор",
+    "seed_name": "Монитор KCD2090XI",
+    "description_long_ru": "Для добора обычно помогает связка «KCD2090XI + category» или поиск по локальным каталогам/фото шильдика."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": true,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": false,
+    "price_source_lineage_confirmed": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "",
+    "price_observed_date": "",
+    "price_date": "",
+    "price_observation_origin": "",
+    "price_exact_product_page": false,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "no_source_candidates"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:KCD2090XI:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:KCD2090XI:76b90a53701f440ef49d7b03",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:KCD2090XI:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:KCD2090XI:76b90a53701f440ef49d7b03",
+      "pn_primary": "KCD2090XI",
+      "normalized_title": "Монитор Honeywell KCD2090XI",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_KCD2090XI"
+          ],
+          "evidence_ids": [
+            "ev_title_KCD2090XI"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_KCD2090XI"
+          ],
+          "evidence_ids": [
+            "ev_image_KCD2090XI"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_KCD2090XI"
+          ],
+          "evidence_ids": [
+            "ev_price_KCD2090XI"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_KCD2090XI"
+          ],
+          "evidence_ids": [
+            "ev_pdf_KCD2090XI"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "",
+        "pdf_source_tier": "",
+        "image_source_tier": ""
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "not_found",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": null
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": null,
+        "page_product_class": "",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.178763+00:00",
+    "source": "chatgpt",
+    "price": null,
+    "currency": "Â",
+    "source_url": "â",
+    "category": "unknown",
+    "image_url": null,
+    "price_type": "â",
+    "alias_found": "â",
+    "specs": "Ð ÑÑÐ¾Ð¹ ÑÐµÑÑÐ¸Ð¸ Ð½Ðµ Ð¿Ð¾Ð»ÑÑÐµÐ½Ð¾ Ð½Ð¸ Ð¾Ð´Ð½Ð¾Ð¹ Ð¸Ð½Ð´ÐµÐºÑÐ°ÑÐ¸Ð¸/ÐºÐ°ÑÑÐ¾ÑÐºÐ¸ Ñ ÑÐµÐ½Ð¾Ð¹ Ð´Ð»Ñ ÑÐ¾ÑÐ½Ð¾Ð³Ð¾ Â«KCD2090XIÂ».",
+    "notes": "ÐÐ»Ñ Ð´Ð¾Ð±Ð¾ÑÐ° Ð¾Ð±ÑÑÐ½Ð¾ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÐµÑ ÑÐ²ÑÐ·ÐºÐ° Â«KCD2090XI + categoryÂ» Ð¸Ð»Ð¸ Ð¿Ð¾Ð¸ÑÐº Ð¿Ð¾ Ð»Ð¾ÐºÐ°Ð»ÑÐ½ÑÐ¼ ÐºÐ°ÑÐ°Ð»Ð¾Ð³Ð°Ð¼/ÑÐ¾ÑÐ¾ ÑÐ¸Ð»ÑÐ´Ð¸ÐºÐ°.",
+    "sources": [
+      {
+        "url": "not found",
+        "page_type": "catalog",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "â"
+      }
+    ]
+  },
+  "dr_category": "unknown",
+  "dr_price_type": "â",
+  "dr_sources": [
+    {
+      "url": "https://www.nseautomation.com/",
+      "page_type": "marketplace",
+      "has_price": "No",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "nseautomation.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:44:45.077304+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "I/O MODULE",
+    "source_url": "DCS Component",
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": "",
+    "sources": [
+      {
+        "url": "https://www.nseautomation.com/",
+        "page_type": "marketplace",
+        "has_price": "No",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "nseautomation.com"
+      }
+    ]
+  },
+  "deep_research": {
+    "title_ru": "unknown",
+    "description_ru": "Для добора обычно помогает связка «KCD2090XI + category» или поиск по локальным каталогам/фото шильдика.",
+    "specs": {
+      "raw": "В этой сессии не получено ни одной индексации/карточки с ценой для точного «KCD2090XI».",
+      "aliases": [
+        "—"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Для добора обычно помогает связка «KCD2090XI + category» или поиск по локальным каталогам/фото шильдика.",
+      "Aliases: —"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.938994+00:00",
+    "merge_source": "result_KCD2090XI.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (2).md"
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "806602",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "NS 35/15 WH PERF 2000MM 806602",
+  "assembled_title": "Рейка Honeywell 806602",
+  "our_price_raw": "4188,30",
+  "expected_category": "Рейка",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "NO_PRICE_EVIDENCE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_806602",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_806602"
+        ],
+        "evidence_ids": [
+          "ev_title_806602"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_806602"
+        ],
+        "evidence_ids": [
+          "ev_image_806602"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PRICE_EVIDENCE",
+        "field": "price",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_price_806602"
+        ],
+        "evidence_ids": [
+          "ev_price_806602"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_806602"
+        ],
+        "evidence_ids": [
+          "ev_pdf_806602"
+        ],
+        "policy_rule_id": "CAP-09",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_806602"
+      ],
+      "evidence_ids": [
+        "ev_title_806602"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_806602"
+      ],
+      "evidence_ids": [
+        "ev_image_806602"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PRICE_EVIDENCE",
+      "field": "price",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_price_806602"
+      ],
+      "evidence_ids": [
+        "ev_price_806602"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_806602"
+      ],
+      "evidence_ids": [
+        "ev_pdf_806602"
+      ],
+      "policy_rule_id": "CAP-09",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.1,
+    "overall": 0.02,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\806602.jpg",
+      "canonical_filename": "HONEYWELL_806602_0376fab5.jpg",
+      "public_url": null,
+      "origin_ref": "yandex:https://www.quad-industry.com/catalog/abbcatalog/32997/994135.html",
+      "origin_page_url": "https://www.quad-industry.com/catalog/abbcatalog/32997/994135.html",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.findchips.com/search/80660scs",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://www.findchips.com/search/80660scs",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "баннер/шапка сайта 220x58px",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\806602.jpg",
+    "sha1": "0376fab552518e5b7a3244c1f611b9a70cafe379",
+    "canonical_filename": "HONEYWELL_806602_0376fab5.jpg",
+    "public_url": null,
+    "width": 220,
+    "height": 58,
+    "size_kb": 21,
+    "source": "yandex:https://www.quad-industry.com/catalog/abbcatalog/32997/994135.html",
+    "phash": "f88787f0017e077c",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "category_mismatch_only",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "component_or_accessory",
+    "offer_admissibility_status": "ambiguous_offer",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_COMPONENT_OR_ACCESSORY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": 53.1,
+    "currency": "USD",
+    "rub_price": 4672.8,
+    "fx_rate_used": 88.0,
+    "fx_provider": "stub",
+    "price_confidence": 25,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.findchips.com/search/80660scs",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "yandex",
+    "stock_status": "in_stock",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": true,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "DIN Rail / Mounting Hardware",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": false,
+    "price_source_seen": true,
+    "price_source_url": "https://www.findchips.com/search/80660scs",
+    "price_source_domain": "findchips.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "yandex",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": false,
+    "price_source_exact_h1_pn_match": false,
+    "price_source_exact_jsonld_pn_match": false,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "",
+    "price_source_clean_product_page": false,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "structured_exact_match_missing",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": false,
+    "price_page_context_clean": false,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [
+      "noisy_page_context",
+      "source_tier_not_admissible"
+    ],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": false,
+    "transient_failure_codes": []
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "public_price_rejection",
+        "code": "noisy_page_context",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "public_price_rejection",
+        "code": "source_tier_not_admissible",
+        "source_field": "price.public_price_rejection_reasons"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "NS 35/15 WH PERF 2000MM представляет собой перфорированную монтажную рейку, используемую для установки и крепления электрических компонентов в шкафах управления. Изготовлена из высококачественного материала, обеспечивающего долговечность и надежность.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Рейка",
+    "seed_name": "NS 35/15 WH PERF 2000MM 806602",
+    "description_long_ru": "Если это внутренний код Honeywell — без контекста срывается в «общие» артикулы других отраслей."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": false,
+    "price_source_lineage_reason_code": "structured_exact_match_missing",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": false,
+    "price_source_replacement_reason_code": "no_exact_lineage_for_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": false,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": ""
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:806602:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:806602:1513eeee5c778f2619b4ace6",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:806602:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:806602:1513eeee5c778f2619b4ace6",
+      "pn_primary": "806602",
+      "normalized_title": "Рейка Honeywell 806602",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_806602"
+          ],
+          "evidence_ids": [
+            "ev_title_806602"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_806602"
+          ],
+          "evidence_ids": [
+            "ev_image_806602"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PRICE_EVIDENCE",
+          "field": "price",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_price_806602"
+          ],
+          "evidence_ids": [
+            "ev_price_806602"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_806602"
+          ],
+          "evidence_ids": [
+            "ev_pdf_806602"
+          ],
+          "policy_rule_id": "CAP-09",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "category_mismatch_only",
+        "source_tier": "unknown",
+        "page_product_class": "DIN Rail / Mounting Hardware",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.179765+00:00",
+    "source": "chatgpt",
+    "price": null,
+    "currency": "Â",
+    "source_url": "â",
+    "category": "unknown",
+    "image_url": null,
+    "price_type": "â",
+    "alias_found": "ÑÑÐ¼: Â«806602Â» Ð°Ð²ÑÐ¾âÐ´ÐµÑÐ°Ð»Ð¸",
+    "specs": "ÐÐ°Ð¹Ð´ÐµÐ½ Ð½ÐµÑÐµÐ»ÐµÐ²Ð°Ð½ÑÐ½ÑÐ¹ ÑÑÐ¼: Ð°Ð²ÑÐ¾Ð·Ð°Ð¿ÑÐ°ÑÑÐ¸/Ð¸Ð½ÑÑÑÑÐ¼ÐµÐ½ÑÐ°Ð»ÑÐ½ÑÐµ ÐºÐ¾Ð´Ñ; Ð¿Ð¾Ð´ÑÐ²ÐµÑÐ¶Ð´ÑÐ½Ð½Ð¾Ð¹ HoneywellâÐºÐ°ÑÑÐ¾ÑÐºÐ¸ Ñ ÑÐµÐ½Ð¾Ð¹ Ð½ÐµÑ.",
+    "notes": "ÐÑÐ»Ð¸ ÑÑÐ¾ Ð²Ð½ÑÑÑÐµÐ½Ð½Ð¸Ð¹ ÐºÐ¾Ð´ Honeywell â Ð±ÐµÐ· ÐºÐ¾Ð½ÑÐµÐºÑÑÐ° ÑÑÑÐ²Ð°ÐµÑÑÑ Ð² Â«Ð¾Ð±ÑÐ¸ÐµÂ» Ð°ÑÑÐ¸ÐºÑÐ»Ñ Ð´ÑÑÐ³Ð¸Ñ Ð¾ÑÑÐ°ÑÐ»ÐµÐ¹.",
+    "sources": [
+      {
+        "url": "https://www.wbparts.com/rfq/5120-01-631-9214.html",
+        "page_type": "catalog",
+        "has_price": "no",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "wbparts.com"
+      },
+      {
+        "url": "https://www.ebay.com/itm/285797205427",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "dr_category": "unknown",
+  "dr_price_type": "â",
+  "dr_sources": [
+    {
+      "url": "https://www.wbparts.com/rfq/5120-01-631-9214.html",
+      "page_type": "catalog",
+      "has_price": "no",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "wbparts.com"
+    },
+    {
+      "url": "https://www.ebay.com/itm/285797205427",
+      "page_type": "marketplace",
+      "has_price": "yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:44:45.079306+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "INDUSTRIAL",
+    "source_url": null,
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": ""
+  },
+  "deep_research": {
+    "title_ru": "unknown",
+    "description_ru": "Если это внутренний код Honeywell — без контекста срывается в «общие» артикулы других отраслей.",
+    "specs": {
+      "raw": "Найден нерелевантный шум: автозапчасти/инструментальные коды; подтверждённой Honeywell‑карточки с ценой нет. citeturn45search9turn45search0",
+      "aliases": [
+        "шум: «806602» авто‑детали"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "Если это внутренний код Honeywell — без контекста срывается в «общие» артикулы других отраслей.",
+      "Aliases: шум: «806602» авто‑детали"
+    ],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:24.861655+00:00",
+    "merge_source": "result_806602.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (2).md"
+  }
+}

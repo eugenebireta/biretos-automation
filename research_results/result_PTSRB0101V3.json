@@ -1,0 +1,101 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_PTSRB0101V3",
+  "entity_id": "PTSRB0101V3",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Electronic pressure transmitter",
+    "description_ru": "Honeywell FEMA Smart SN series. Price excl. VAT. RoHS compliant",
+    "category_suggestion": "Electronic pressure transmitter",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 815.33,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-bms-pthrb0401a2-smart-sn-hmi-electronic-pressure-transmitter-primaryimage",
+    "specs": {
+      "raw": "G1/2; 4–20mA (3-wire) / 0-10V; 0–10 bar; IP67; ±0.5% FS; microprocessor; 100ms cycle",
+      "aliases": [
+        "PTSRB0101A2 (2-wire)",
+        "PTSRB0161V3 (0-16 bar)",
+        "PTSRB0041V3 (0-4 bar)"
+      ]
+    },
+    "key_findings": [
+      "Honeywell FEMA Smart SN series. Price excl. VAT. RoHS compliant",
+      "Aliases: PTSRB0101A2 (2-wire); PTSRB0161V3 (0-16 bar); PTSRB0041V3 (0-4 bar)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/",
+        "type": "distributor",
+        "domain": "emoteek.net",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://buildings.honeywell.com/ae/en/products/by-category/sensors/pressure-switches-and-sensors/smart-sn-microprocessor-supported-pressure-transducers",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.worldwayelec.com/pro/honeywell/ptsrb0101v3/1394110",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.kontrolyum.com/ptsrb0101v3-honeywell-liquid-pressure-transmitter",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://emoteek.net/en/product/sonde-ptsrb0101v3-honeywell-sonde-de-pression-sans-hmi-gaz-liquide-3-fils-010-v-010-bar-ip67/",
+      "type": "distributor",
+      "domain": "emoteek.net",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.990061+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}

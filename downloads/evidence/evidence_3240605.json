@@ -1,0 +1,600 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-07T23:04:02.027168Z",
+  "pn": "3240605",
+  "pn_variants": [],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Кабельный канал 3240605",
+  "assembled_title": "Канал Honeywell 3240605",
+  "our_price_raw": "1491,10",
+  "expected_category": "Канал",
+  "card_status": "DRAFT_ONLY",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_3240605",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "weak",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "DRAFT_ONLY",
+    "review_reasons": [
+      {
+        "reason_code": "IDENTITY_WEAK",
+        "field": "identity",
+        "severity": "ERROR",
+        "candidate_ids": [
+          "cand_title_3240605"
+        ],
+        "evidence_ids": [
+          "ev_title_3240605"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "IDENTITY_CONFLICT"
+      },
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_3240605"
+        ],
+        "evidence_ids": [
+          "ev_image_3240605"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_3240605"
+        ],
+        "evidence_ids": [
+          "ev_price_3240605"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_3240605"
+        ],
+        "evidence_ids": [
+          "ev_pdf_3240605"
+        ],
+        "policy_rule_id": "CAP-09T",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "IDENTITY_CONFLICT",
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT"
+    ],
+    "policy_rule_id": "CAP-09T"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_3240605"
+      ],
+      "evidence_ids": [
+        "ev_title_3240605"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_3240605"
+      ],
+      "evidence_ids": [
+        "ev_image_3240605"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_3240605"
+      ],
+      "evidence_ids": [
+        "ev_price_3240605"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_3240605"
+      ],
+      "evidence_ids": [
+        "ev_pdf_3240605"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.0,
+    "image_confidence": 0.0,
+    "price_confidence": 0.1,
+    "overall": 0.02,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\3240605.jpg",
+      "canonical_filename": "HONEYWELL_3240605_02ab7ab9.jpg",
+      "public_url": null,
+      "origin_ref": "img:https://m.media-amazon.com/images/I/41GaF-T5xhL._AC_SR175,263_QL70_.jpg",
+      "origin_page_url": "https://m.media-amazon.com/images/I/41GaF-T5xhL._AC_SR175,263_QL70_.jpg",
+      "origin_kind": "image_search"
+    },
+    "price": {
+      "observed_page_url": "https://tz.y-ic.com/pdf/Phoenix-Contact/3240605.html",
+      "quote_cta_url": "",
+      "lineage_source_url": "https://tz.y-ic.com/pdf/Phoenix-Contact/3240605.html",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "REJECT",
+    "verdict_reason": "На изображении микровыключатель/концевой выключатель, а не кабельный канал",
+    "photo_status": "rejected",
+    "photo_evidence_role": "none",
+    "photo_is_temporary": false,
+    "replacement_required": false,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\3240605.jpg",
+    "sha1": "02ab7ab91f499f2771ff8954105a9a33efa53010",
+    "canonical_filename": "HONEYWELL_3240605_02ab7ab9.jpg",
+    "public_url": null,
+    "width": 175,
+    "height": 263,
+    "size_kb": 4,
+    "source": "img:https://m.media-amazon.com/images/I/41GaF-T5xhL._AC_SR175,263_QL70_.jpg",
+    "phash": "a964d29b0d683b37",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "ambiguous_offer",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "ambiguous_offer",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": 128.67,
+    "currency": "USD",
+    "rub_price": 11322.96,
+    "fx_rate_used": 88.0,
+    "fx_provider": "stub",
+    "price_confidence": 25,
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "source_url": "https://tz.y-ic.com/pdf/Phoenix-Contact/3240605.html",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "piece",
+    "offer_qty": 1,
+    "lead_time_detected": true,
+    "quote_cta_url": null,
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Wire Duct / Cable Raceway",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://tz.y-ic.com/pdf/Phoenix-Contact/3240605.html",
+    "price_source_domain": "tz.y-ic.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": true,
+    "price_source_exact_product_context_match": false,
+    "price_source_structured_match_location": "jsonld",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": false,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [
+      "source_tier_not_admissible"
+    ],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": true,
+    "transient_failure_codes": [
+      "llm_timeout"
+    ]
+  },
+  "datasheet": {
+    "datasheet_status": "skipped"
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "exact_structured_pn_match": false,
+    "structured_pn_match_location": ""
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "public_price_rejection",
+        "code": "source_tier_not_admissible",
+        "source_field": "price.public_price_rejection_reasons"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Кабельный канал предназначен для прокладки и защиты кабелей в промышленных системах. Обеспечивает аккуратность и безопасность кабельных трасс.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Канал",
+    "seed_name": "Кабельный канал 3240605"
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "",
+    "exact_structured_pn_match": false,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": false,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-07T23:04:02.027168Z",
+    "price_observed_date": "2026-04-07",
+    "price_date": "2026-04-07",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": ""
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:3240605:2026-04-07T23:04:02.027168Z",
+    "idempotency_key": "catalog_verifier:3240605:60aa50116bb49067a8a560b9",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:3240605:2026-04-07T23:04:02.027168Z",
+      "idempotency_key": "catalog_verifier:3240605:60aa50116bb49067a8a560b9",
+      "pn_primary": "3240605",
+      "normalized_title": "Канал Honeywell 3240605",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_3240605"
+          ],
+          "evidence_ids": [
+            "ev_title_3240605"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_3240605"
+          ],
+          "evidence_ids": [
+            "ev_image_3240605"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_3240605"
+          ],
+          "evidence_ids": [
+            "ev_price_3240605"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_3240605"
+          ],
+          "evidence_ids": [
+            "ev_pdf_3240605"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": false,
+        "exact_structured_pn_match": false,
+        "structured_pn_match_location": ""
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "skipped",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": ""
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "REJECT",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "ambiguous_offer",
+        "source_tier": "unknown",
+        "page_product_class": "Wire Duct / Cable Raceway",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.300335+00:00",
+    "source": "chatgpt",
+    "price": 42.02,
+    "currency": "RON",
+    "source_url": "https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V",
+    "category": "door microswitch",
+    "image_url": "â",
+    "price_type": "distributor",
+    "alias_found": "#3240605",
+    "specs": "10A; 250V",
+    "notes": "Maivis Ð¿Ð¾ÐºÐ°Ð·ÑÐ²Ð°ÐµÑ âMicointrerupator usa â¦ 10A 250V #3240605â Ð¸ ÑÐµÐ½Ñ 42,02 Lei.",
+    "sources": [
+      {
+        "url": "https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V",
+        "page_type": "marketplace",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "maivis.ro"
+      }
+    ]
+  },
+  "dr_price": 42.02,
+  "dr_currency": "RON",
+  "dr_price_source": "https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V",
+  "dr_image_url": "â",
+  "dr_category": "door microswitch",
+  "dr_price_type": "distributor",
+  "dr_sources": [
+    {
+      "url": "https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V",
+      "page_type": "marketplace",
+      "has_price": "yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "maivis.ro"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.243456+00:00",
+    "source": "gemini",
+    "price": null,
+    "currency": "CONTROLLER",
+    "source_url": "Power supply unit",
+    "category": null,
+    "image_url": null,
+    "price_type": null,
+    "alias_found": null,
+    "specs": null,
+    "notes": ""
+  },
+  "deep_research": {
+    "confidence": "low",
+    "merge_ts": "2026-04-09T12:01:24.818590+00:00",
+    "merge_source": "result_3240605.json",
+    "title_ru": "door microswitch",
+    "sources": [
+      {
+        "url": "`https://maivis.ro/index.php?order=DESC&page=9&route=product%2Fsearch&sort=p.price&tag=250V`",
+        "type": "distributor",
+        "domain": "maivis.ro",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "provider": "unknown",
+    "model": "unknown",
+    "source_file": "deep-research-report (3).md"
+  }
+}

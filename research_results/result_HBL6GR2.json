@@ -1,0 +1,133 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_HBL6GR2",
+  "entity_id": "HBL6GR2",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "IP camera (bullet)",
+    "description_ru": "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine",
+    "category_suggestion": "IP camera (bullet)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 1982.49,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html",
+      "price_type": "distributor"
+    },
+    "photo_url": "(available on A1 Security Cameras and JMAC product pages)",
+    "specs": {
+      "raw": "6MP 3072×2048; 1/1.8\" CMOS; 4.1–16.4mm MFZ F1.53; digital WDR; 50m IR; H.265/H.264; PoE+; IP67; IK10; 128GB SD; face detection; people counting",
+      "aliases": [
+        "HBL6GR2-LPR (with license plate recognition)"
+      ]
+    },
+    "key_findings": [
+      "Honeywell equIP series; discontinued — no direct replacement; base model login-gated pricing; LPR variant includes VehicleTrace engine",
+      "Aliases: HBL6GR2-LPR (with license plate recognition)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html",
+        "type": "distributor",
+        "domain": "www.neobits.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      },
+      {
+        "url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm",
+        "type": "distributor",
+        "domain": "www.jmac.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.a1securitycameras.com/honeywell-hbl6gr2-6mp-ir-low-light-rugged-bullet-ip-security-camera.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.jmac.com/Honeywell_Video_HBL6GR2_p/honeywell-video-hbl6gr2.htm",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.amazon.com/Honeywell-Video-HBL6GR2/dp/B07B1JJCPD",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.sourcesecurity.com/honeywell-security-hbl6gr2-ip-camera-technical-details.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      },
+      {
+        "url": "https://device.report/honeywell/hbl6gr2",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.neobits.com/honeywell_hbl6gr2_lpr_honeywell_home_equip_hbl6gr2_p15893704.html",
+      "type": "distributor",
+      "domain": "www.neobits.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    },
+    {
+      "url": "https://www.jmac.com/Honeywell_HBL6GR2_LPR_p/honeywell-hbl6gr2-lpr.htm",
+      "type": "distributor",
+      "domain": "www.jmac.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.001573+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (9).md"
+}

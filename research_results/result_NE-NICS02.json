@@ -1,0 +1,110 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_NE-NICS02",
+  "entity_id": "NE-NICS02",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Network interface card",
+    "description_ru": "Honeywell Experion PKS DCS part. Quote-only via gray-market resellers. ~3 kg shipping weight",
+    "category_suggestion": "Network interface card",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 789.0,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": null
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "1000 Dual NIC PCIe; dual port STP; Gigabit Ethernet; for Experion PKS FTE",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Honeywell Experion PKS DCS part. Quote-only via gray-market resellers. ~3 kg shipping weight",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://process.honeywell.com/us/en/products/control-and-supervisory-systems/distributed-control-systems-dcs/experion-pks/infrastructure/fault-tolerant-ethernet",
+        "type": "—",
+        "domain": "process.honeywell.com",
+        "supports": [
+          "identity",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: no, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://process.honeywell.com/us/en/products/control-and-supervisory-systems/distributed-control-systems-dcs/experion-pks/infrastructure/fault-tolerant-ethernet",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.onrion.com/NE_NICS02-USA_Sales_Price-Honeywell-0-2464",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.quicktimeonline.my/products/ne-nics02",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.teknihaus.com/ne-nics02",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.radward.co.uk/honeywell/ne-nics02",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.eceurope.com/electrical-systems-and-lighting-and-components/electrical-equipment-and-components/honeywell-ne-nics02-tp-fpd214-100-new-in-stock-i39210.html",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://process.honeywell.com/us/en/products/control-and-supervisory-systems/distributed-control-systems-dcs/experion-pks/infrastructure/fault-tolerant-ethernet",
+      "type": "—",
+      "domain": "process.honeywell.com",
+      "supports": [
+        "identity",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.986062+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (7).md"
+}

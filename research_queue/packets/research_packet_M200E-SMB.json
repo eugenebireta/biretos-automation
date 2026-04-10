@@ -1,0 +1,71 @@
+{
+  "packet_version": "v1",
+  "task_id": "enrichment_research_M200E-SMB",
+  "domain": "enrichment",
+  "entity_type": "pn",
+  "entity_id": "M200E-SMB",
+  "brand_hint": "Honeywell",
+  "goal": "Close unresolved enrichment gaps for PN M200E-SMB (Honeywell)",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "questions_to_resolve": [
+    "Confirm the exact product identity for Honeywell PN=M200E-SMB",
+    "What is the full product name and product family for Honeywell M200E-SMB?",
+    "Is M200E-SMB a current, discontinued, or superseded part number?",
+    "Provide any relevant Russian-language product description for Honeywell M200E-SMB"
+  ],
+  "current_state": {
+    "card_status": "REVIEW_REQUIRED",
+    "identity_level": "strong",
+    "photo_verdict": "KEEP",
+    "price_status": "no_price_found",
+    "price_source_url": "https://advancegemsfire.com/product/surface-mounting-box-m200e-smb",
+    "category_mismatch": false,
+    "overall_confidence": "VERY_LOW",
+    "review_reasons": [
+      "IDENTITY_WEAK",
+      "NO_IMAGE_EVIDENCE",
+      "ADMISSIBLE_SOURCE_NO_PRICE_EXACT_LINEAGE",
+      "NO_PDF_EVIDENCE"
+    ]
+  },
+  "known_facts": {
+    "brand": "Honeywell",
+    "name": "Корпус настенной установки M200E-SMB",
+    "assembled_title": "Корпус Honeywell M200E-SMB",
+    "expected_category": "Корпус",
+    "our_price_raw": "792,68",
+    "has_content_seed": true,
+    "price_currency": null,
+    "price_native_value": null,
+    "price_rub": null,
+    "existing_source_url": "https://advancegemsfire.com/product/surface-mounting-box-m200e-smb",
+    "pn_variants": [
+      "M200E.SMB",
+      "M200ESMB"
+    ]
+  },
+  "existing_evidence_refs": [
+    "downloads/evidence/evidence_M200E-SMB.json"
+  ],
+  "constraints": [
+    "Use public web evidence only",
+    "Do not use xlsx price as market price",
+    "Do not invent specs if not found",
+    "If uncertain, return ambiguity explicitly",
+    "Prefer exact PN evidence over family-level evidence",
+    "Cite specific URLs for any claim"
+  ],
+  "required_output": {
+    "identity": true,
+    "title_ru": true,
+    "description_ru": true,
+    "category": true,
+    "price_assessment": true,
+    "photo_assessment": true,
+    "specs_assessment": true,
+    "citations_required": true,
+    "ambiguities_required": true
+  },
+  "generated_at": "2026-04-08T10:04:20.493266Z"
+}

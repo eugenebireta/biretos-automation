@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-03-31T21:56:14.286583Z",
+  "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "129464N/U",
   "pn_variants": [],
   "brand": "Honeywell",
@@ -9,7 +9,7 @@
   "assembled_title": "Трубка Honeywell 129464N/U",
   "our_price_raw": "1997,60",
   "expected_category": "Трубка",
-  "card_status": "REVIEW_REQUIRED",
+  "card_status": "DRAFT_ONLY",
   "review_reasons": [
     "category_mismatch",
     "mismatch_blocks_publish"
@@ -22,7 +22,7 @@
     "review_schema_version": "review_reason_schema_v1",
     "identity_level": "weak",
     "title_status": "ACCEPTED",
-    "image_status": "REVIEW_REQUIRED",
+    "image_status": "ACCEPTED",
     "price_status": "INSUFFICIENT",
     "pdf_status": "INSUFFICIENT",
     "card_status": "DRAFT_ONLY",
@@ -52,19 +52,6 @@
         ],
         "policy_rule_id": "CAP-10",
         "bucket": "IDENTITY_CONFLICT"
-      },
-      {
-        "reason_code": "IMAGE_UNKNOWN",
-        "field": "image",
-        "severity": "WARNING",
-        "candidate_ids": [
-          "cand_image_129464N/U"
-        ],
-        "evidence_ids": [
-          "ev_image_129464N/U"
-        ],
-        "policy_rule_id": "CAP-10",
-        "bucket": "MISSING_MINIMUM_EVIDENCE"
       },
       {
         "reason_code": "NO_PRICE_EVIDENCE",
@@ -289,7 +276,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Трубка",
-    "seed_name": "Миниатюрная трубка Honeywell Mini Peeper 129464N/U"
+    "seed_name": "Миниатюрная трубка Honeywell Mini Peeper 129464N/U",
+    "description_long_ru": "Сменная фоточувствительная трубка для обнаружения ультрафиолетового излучения пламени. Предназначена для использования в газовых и жидкотопливных горелках промышленного назначения. Является ключевым компонентом систем с динамической самопроверкой для предотвращения аварий. Работает в широком температурном диапазоне до \\+121 °C."
   },
   "trace": {
     "pn_match_location": "",
@@ -493,6 +481,121 @@
     "merchandising_image_status": "",
     "card_status_source": "base_bundle_preserved",
     "policy_card_status_historical": "DRAFT_ONLY",
-    "policy_card_status_mismatch": true
+    "policy_card_status_mismatch": false,
+    "policy_card_status_fix_trace_id": "fix_card_status_mismatch_20260408",
+    "policy_card_status_fix_ts": "2026-04-08T20:28:35.506678+00:00"
+  },
+  "identity_level": "weak",
+  "deep_research_chatgpt": {
+    "imported_at": "2026-04-08T18:40:17.294333+00:00",
+    "source": "chatgpt",
+    "price": 84.0,
+    "currency": "USD",
+    "source_url": "https://www.imssupply.com/catalog/honeywell/129464n.html",
+    "category": "UV sensing tube",
+    "image_url": "â",
+    "price_type": "gray_market",
+    "alias_found": "129464N/U; IR-130-5863",
+    "specs": "-40â¦250Â°F; replacement UV power tube; sold individually; IMS: New â Open Box",
+    "notes": "IMS ÑÐºÐ°Ð·ÑÐ²Ð°ÐµÑ âStarting At $84.00â Ð¸ âNew - Open Boxâ; Ð°Ð»ÑÑÐµÑÐ½Ð°ÑÐ¸Ð²Ð½ÑÐµ ÑÐµÐ½Ð½Ð¸ÐºÐ¸ Ð·Ð°Ð¼ÐµÑÐ½Ð¾ Ð²ÑÑÐµ.",
+    "sources": [
+      {
+        "url": "https://www.imssupply.com/catalog/honeywell/129464n.html",
+        "page_type": "distributor",
+        "has_price": "yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "imssupply.com"
+      }
+    ]
+  },
+  "dr_price": 246.66,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.ebay.com/itm/388510039698",
+  "dr_image_url": "https://i.ebayimg.com/images/g/H~AAAOSw~R1m~W~q/s-l1600.jpg",
+  "dr_category": "UV Tube",
+  "dr_price_type": "surplus",
+  "dr_sources": [
+    {
+      "url": "https://www.ebay.com/itm/388510039698",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    },
+    {
+      "url": "https://www.ebay.com/itm/389106407042",
+      "page_type": "marketplace",
+      "has_price": "Yes",
+      "has_specs": "",
+      "has_photo": "",
+      "domain": "ebay.com"
+    }
+  ],
+  "deep_research_gemini": {
+    "imported_at": "2026-04-08T18:48:23.238456+00:00",
+    "source": "gemini",
+    "price": 246.66,
+    "currency": "USD",
+    "source_url": "https://www.ebay.com/itm/388510039698",
+    "category": "UV Tube",
+    "image_url": "https://i.ebayimg.com/images/g/H~AAAOSw~R1m~W~q/s-l1600.jpg",
+    "price_type": "surplus",
+    "alias_found": "129464",
+    "specs": null,
+    "notes": "12 available; 185-260nm; 129464U",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/itm/388510039698",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      },
+      {
+        "url": "https://www.ebay.com/itm/389106407042",
+        "page_type": "marketplace",
+        "has_price": "Yes",
+        "has_specs": "",
+        "has_photo": "",
+        "domain": "ebay.com"
+      }
+    ]
+  },
+  "deep_research": {
+    "title_ru": "UV sensing tube",
+    "specs": {
+      "raw": "-40…250°F; replacement UV power tube; sold individually; IMS: New – Open Box",
+      "aliases": [
+        "129464N/U",
+        "IR-130-5863"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "low",
+    "key_findings": [
+      "IMS указывает “Starting At $84.00” и “New - Open Box”; альтернативные ценники заметно выше. citeturn59search1turn59search0turn58search2",
+      "Aliases: 129464N/U; IR-130-5863"
+    ],
+    "sources": [
+      {
+        "url": "`https://www.imssupply.com/catalog/honeywell/129464n.html`",
+        "type": "gray_market",
+        "domain": "www.imssupply.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:42:13.323662+00:00",
+    "merge_source": "result_129464N_U.json",
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "deep-research-report (3).md",
+    "description_ru": "Сменная фоточувствительная трубка для обнаружения ультрафиолетового излучения пламени. Предназначена для использования в газовых и жидкотопливных горелках промышленного назначения. Является ключевым компонентом систем с динамической самопроверкой для предотвращения аварий. Работает в широком температурном диапазоне до \\+121 °C."
   }
 }

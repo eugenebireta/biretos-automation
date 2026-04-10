@@ -1,0 +1,107 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CR-M4LC",
+  "entity_id": "CR-M4LC",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Relay socket",
+    "description_ru": "ABB CR-M series. Also £7.11 GBP at Electrika UK. Min order qty 10.",
+    "category_suggestion": "Relay socket",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 11.28,
+      "currency": "USD",
+      "unit_basis": "piece",
+      "source_url": "https://www.logic-control.com/abb-controls-1svr405651r3200",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://images.onetimepim.com/acc-102/images/2cdc291002s0015_720x540.jpg",
+    "specs": {
+      "raw": "Spring terminals; for 2c/o or 4c/o CR-M relay; 31×42.5×95mm; 0.075 kg; DIN rail mount",
+      "aliases": [
+        "1SVR405651R3200",
+        "CR-M4LS (screw variant)"
+      ]
+    },
+    "key_findings": [
+      "ABB CR-M series. Also £7.11 GBP at Electrika UK. Min order qty 10.",
+      "Aliases: 1SVR405651R3200; CR-M4LS (screw variant)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.logic-control.com/abb-controls-1svr405651r3200",
+        "type": "distributor",
+        "domain": "www.logic-control.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.logic-control.com/abb-controls-1svr405651r3200",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.electrika.com/catalogues/abb/.../pluggable-interface-relays-cr-m/partsgrids/267570",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://new.abb.com/products/1SVR405651R3200/cr-m4lc-logical-socket-for-2c-o-or-4c-o-cr-m-relay",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://library.e.abb.com/public/753889695f69df5fc1257aad00559eca/2CDC117002D0205.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      },
+      {
+        "url": "https://www.santaclarasystems.com/abb/cr-m4lc",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.logic-control.com/abb-controls-1svr405651r3200",
+      "type": "distributor",
+      "domain": "www.logic-control.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.007122+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+}

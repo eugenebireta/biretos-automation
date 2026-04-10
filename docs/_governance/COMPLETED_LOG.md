@@ -1,4 +1,276 @@
 ---
+DATE: 2026-04-08
+TITLE: R1 Revenue — Enrichment Improvements Batch v2 (9 blocks)
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (seq 68, feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - fix: response_raw=None for API failures, response_raw_present + truncated fields
+  - feat: extract_full_jsonld() — brand, mpn, gtin, dims, rating, seller, additionalProperty
+  - feat: spec_extractor.py — 3-strategy HTML spec parser (tables, dl, spec divs)
+  - feat: YAML brand config registry — honeywell/peha/esser + brand_knowledge.py
+  - feat: multi_source_prices.py — optional distributor cross-validation (off by default)
+  - feat: brand_experience_writer.py — BrandExperienceRecord + pipeline integration
+  - feat: conditional datasheets — auto-trigger for no_price/no_photo/category_mismatch
+  - feat: training_dataset_export.py — 4 datasets, 938 examples exported
+  - feat: correction_logger.py — 44 retrospective records (33 PEHA + 11 sanity)
+TEST_EVIDENCE: 767/767 PASS (121 new tests across 9 blocks)
+KEY_FINDINGS:
+  - Training data: 938 examples (723 price_extraction, 146 photo_verdict, 69 category)
+  - Sub-brand detection working: 153711→PEHA, 804950→Esser, 1000106→Honeywell
+  - 44 retrospective correction/warning records with salience 7-9 for training
+  - Spec extraction active on all visited pages (3 strategies)
+  - JSON-LD full data now in bundle["jsonld_full"] (additive, non-breaking)
+
+---
+DATE: 2026-04-08
+TITLE: R1 Revenue — Overnight Batch 1+2 (price sanity + enrichment + research)
+RISK_LEVEL: SEMI
+STATUS: IN_PROGRESS (seq 67, feat/rev-r1-catalog, awaiting batch completion)
+SCOPE:
+  - scripts/price_sanity.py: 5-rule price validator (REJECT/WARNING/PASS)
+  - photo_pipeline.py: price sanity integrated after extraction
+  - Retrospective sanity audit: 69 SKU (PASS=31, WARNING=11, REJECT=0)
+  - Enrichment batch: running background (301 new SKU, budget-limited)
+  - Self-audit 10 sample SKU: systematic PEHA category_mismatch identified
+  - Category fix: 33 PEHA SKUs corrected (30 price_now_admissible)
+  - scripts/research_queue.py: research packet emitter (69 packets)
+  - scripts/research_runner.py: Claude API deep-research + budget guard
+  - Batch research: 37 high-priority SKUs (running background)
+TEST_EVIDENCE: 646/646 PASS (69 new tests)
+KEY_FINDINGS:
+  - All 34 category_mismatch SKUs are PEHA electrical accessories mislabeled in xlsx
+  - 33 PEHA categories fixed deterministically from assembled_title
+  - 1 AED price suspicious (1000106 earplug: $18.61 instead of ~$0.60)
+  - Research queue: 37 high-priority, 32 low-priority; category_mismatch=34, identity_weak=28
+  - Enrichment progress: 69→N/370 (N TBD after batch completes overnight)
+TIER1_CLEAN: true
+---
+DATE: 2026-04-07
+TITLE: R1 Revenue — Photo Recovery + Price Scout (structural gap confirmed)
+RISK_LEVEL: LOW
+STATUS: COMPLETED (seq 64, feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - config/.env.providers created (ANTHROPIC_API_KEY for providers.py step2b)
+  - .claude/settings.local.json created (SERPAPI_KEY + OPENAI_API_KEY persistent)
+  - .gitignore updated
+  - photo_pipeline.py --queue: 14/14 REJECT, 0 improved
+  - run_price_only_scout_pilot.py --queue: 0/8 new admissible prices
+  - local_catalog_refresh.py: 0 auto_publish, 13 review_required, 12 draft_only
+TEST_EVIDENCE: 849/849 PASS
+KEY_FINDINGS:
+  - 7 SKU have PN collisions with Peha by Honeywell home products
+  - Automated recovery impossible for PN-collision SKU
+  - 3 genuinely unseeded SKU (not in catalog or no web presence)
+  - 3 admissibility_review SKU need owner judgment
+  - price_followup=17, photo_recovery=14 remain
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: R1 Revenue — Stash Batch Drain (supervisor + enrichment hardening + pipeline refactor)
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (commits 34ac66e..b5218b3 to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - scripts/supervisor/ (NEW — 11 modules, FSM + Telegram packet delivery)
+  - scripts/providers.py (NEW — Anthropic provider adapter)
+  - 7 scripts updated (photo_pipeline, price_manual_scout, merge_manifests,
+    price_evidence_cache, catalog_verifier, captcha_solver, local_catalog_refresh,
+    export_pipeline)
+  - config/catalog_enum_contract_v1.json extended
+  - 79 new tests added across 8 test files
+TEST_EVIDENCE: 849/849 PASS (zero regression)
+KEY_CHANGES:
+  - materialize_price_admissibility() now called in manifest + merge output rows
+  - llm_quota/rate_limit (was openai_quota) — provider-agnostic naming
+  - Captcha false-positive detection restored (ServicePipe, Qrator)
+  - local_catalog_refresh decomposed into testable unit functions
+  - queue-addressable runners: load_run_dataframe(queue_path=) for photo pipeline
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: R1 Revenue — Price Integration Wave2 + Canonical Refresh Promote
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed 70beec3 to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - Wave2 price scout: 6 SKUs from seed_target20 → 1 admissible (1011994 USD 9.95)
+  - Merged manifest: downloads/scout_cache/price_manual_manifest_merged.jsonl (11 rows)
+  - Canonical evidence refresh promoted: 25 bundles updated
+  - InSales export: 13/15 REVIEW_REQUIRED rows have prices
+REAL_RUN:
+  - price_followup=13 (down from 14), photo_recovery=14
+  - review_required=15, draft_only=10, auto_publish=0
+KNOWN_GAPS:
+  - 8 price-followup SKUs have no product page seed
+  - 5 price-followup SKUs blocked by CAPTCHA (Conrad SK/NL, etm.ru, tameson)
+  - 14 photo-recovery SKUs need SerpAPI (not configured)
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: R1 Revenue — Price Evidence Integrator
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (committed to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - scripts/price_evidence_integrator.py (NEW — integrate_manifest + build_price_section)
+  - tests/enrichment/test_price_evidence_integrator.py (NEW — 32 deterministic tests)
+  - downloads/evidence/ — 5 evidence bundles updated (price_status=ACCEPTED)
+  - downloads/audits/price_integration_<ts>/ — integration audit trace
+TEST_EVIDENCE: 32/32 integrator tests PASS; 798/798 total PASS (zero regression)
+GOVERNANCE:
+  - SEMI risk. Two-round live API audit (Gemini 3.1 Pro CRITIC + Opus 4.6 JUDGE)
+  - Round 1: Gemini CONCERNS (sys.path.insert in proposal, trace_id timestamp)
+  - Revision: sys.path at module level, trace_id uses now_fn() timestamp
+  - Round 2: Gemini APPROVE + Opus CONCERNS → BATCH_APPROVAL (quality gate passed)
+KEY_DECISIONS:
+  - Does NOT touch card_status — left to local_catalog_refresh.py
+  - field_statuses_v2.price_status + policy_decision_v2.price_status set to ACCEPTED
+  - Explicit _PRICE_FIELD_MAP allowlist prevents schema drift
+  - Idempotent: overwriting price section with same trace_id is safe
+REAL_RUN:
+  - 5/5 admissible rows integrated from price_manual_manifest.jsonl (20 rows total)
+  - local_catalog_refresh result: review_required=15 (up from 9), draft_only=10, auto_publish=0
+  - build_catalog_followup_queues: price_followup=14, photo_recovery=14
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: Meta Orchestrator — M4 Executor Bridge
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (committed e3c5b77 to feat/rev-r1-catalog, PR #38)
+SCOPE:
+  - orchestrator/executor_bridge.py (NEW — run()+run_with_collect(), structured error taxonomy)
+  - orchestrator/main.py (UPDATED — _run_executor_bridge, auto_execute wiring)
+  - orchestrator/config.yaml (UPDATED — auto_execute/auto_pytest/executor_timeout_seconds)
+  - tests/orchestrator/test_executor_bridge.py (NEW — 43 deterministic tests)
+TEST_EVIDENCE: 43/43 executor_bridge tests PASS; 308/308 orchestrator tests PASS
+GOVERNANCE:
+  - SEMI risk. Two-round live API audit (Gemini 3.1 Pro + Opus 4.6)
+  - Round 1: Gemini REJECT (sys.path.insert, no structured logging, generic Exception)
+  - Revision: removed sys.path.insert, added logging, split PERMANENT/TRANSIENT error classes
+  - Round 2: Gemini APPROVE + Opus CONCERNS → BATCH_APPROVAL (quality gate passed)
+KEY_DECISIONS:
+  - auto_execute defaults to false — opt-in; manual fallback always printed on failure
+  - PERMANENT errors: FileNotFoundError, PermissionError, UnicodeDecodeError (not retriable)
+  - collect_packet failure is non-fatal: result.status stays "completed", packet=None
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: Meta Orchestrator — M3 Decision Synthesizer + Gemini Auditor
+RISK_LEVEL: CORE
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/synthesizer.py (NEW — 7-rule engine R1-R7, pure function)
+  - orchestrator/main.py (UPDATED — M3 wired; CORE_GATE routes to auditor_system)
+  - auditor_system/providers/gemini_auditor.py (NEW — Gemini 3.1 Pro, replaces OpenAI)
+  - auditor_system/cli.py (UPDATED — GeminiAuditor replaces OpenAIAuditor)
+  - auditor_system/config/models.yaml (UPDATED — gemini+claude-opus-4-6)
+  - tests/orchestrator/test_synthesizer.py (NEW — 61 tests)
+TEST_EVIDENCE: 61/61 synthesizer tests PASS; 723/723 total PASS (zero regression)
+GOVERNANCE:
+  - M3 architecture reviewed via live API before implementation (CORE protocol)
+  - CRITIC: Gemini 3.1 Pro — CONCERNS (R3 silent strip → BLOCKED, R6 SEMI→ESCALATE)
+  - JUDGE: Claude Opus 4.6 — CONCERNS (same + R5 structured field)
+  - Manual: Opus chat APPROVED with 2 mandatory fixes; GPT rejected (5 action names)
+  - All critical issues resolved in implementation
+KEY_DECISIONS:
+  - R3: stripped_files non-empty → BLOCKED (not silent strip+proceed)
+  - R6: empty scope + SEMI risk → ESCALATE (not NO_OP); LOW → NO_OP
+  - R5: addresses_blocker structured field takes priority over "unblock" keyword
+  - Gemini replaces OpenAI as CRITIC auditor (quota issue resolved)
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: Meta Orchestrator — M2 Claude Advisor API Integration
+RISK_LEVEL: SEMI
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/advisor.py (NEW — Anthropic SDK, JSON parse+extract, retry, escalation write)
+  - orchestrator/main.py (UPDATED — _run_advisor(), _build_directive(), advisor escalation gate)
+  - tests/orchestrator/test_advisor.py (NEW — 42 tests: success/retry/escalation/missing-key)
+TEST_EVIDENCE: 42/42 M2 tests PASS; 662/662 total PASS (zero regression)
+KEY_DECISIONS:
+  - Error chain: attempt 1 (full context) → attempt 2 (simplified prompt) → ESCALATE
+  - ESCALATE writes last_escalation.json, sets fsm_state=awaiting_owner_reply, returns
+  - _build_directive() replaces _build_stub_directive() — real next_step+scope from verdict
+  - Missing ANTHROPIC_API_KEY → immediate escalation (not exception)
+  - issued_at auto-patched if absent in response
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: Meta Orchestrator — M1 Task Intake + Classifier + Context Pruner
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/classifier.py (NEW — deterministic risk engine, rules C1-C4 CORE + S1-S3 SEMI)
+  - orchestrator/intake.py (NEW — ContextBundle, soft file reads, diff pruning, staleness warn)
+  - orchestrator/main.py (UPDATED — _run_intake(), _run_classify(), CORE gate, classify subcommand)
+  - tests/orchestrator/test_classifier.py (NEW — 52 tests, all 7 rules covered)
+  - tests/orchestrator/test_intake.py (NEW — 27 tests: soft failures, truncation, rendering)
+TEST_EVIDENCE: 79/79 M1 tests PASS; 620/620 total PASS (zero regression)
+KEY_DECISIONS:
+  - CORE gate in cmd_cycle: if risk_class==CORE → fsm_state=awaiting_owner_reply, no directive written
+  - classify subcommand added for standalone diagnostic use
+  - _build_stub_directive now accepts bundle+classification → embeds risk_line + context section
+  - _run_intake/_run_classify are thin wrappers — importable, mockable, testable
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-07
+TITLE: Meta Orchestrator — M0.5 Artifact Schemas
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/schemas/advisor_verdict_v1.json (NEW)
+  - orchestrator/schemas/manifest_v1.json (NEW)
+  - orchestrator/schemas/escalation_v1.json (NEW)
+  - orchestrator/schemas.py (NEW — validate/validate_soft/is_valid, jsonschema draft-07)
+  - tests/orchestrator/test_schemas.py (NEW — 53 tests)
+TEST_EVIDENCE: 53/53 schema tests PASS; 541/541 total PASS (zero regression)
+KEY_DECISIONS:
+  - confidence_score rejected from advisor_verdict (AI-driven, violates deterministic rule engine)
+  - cost_estimate + affected_sku_count removed from escalation base schema (use affected_entity_count)
+  - validate_soft() returns error list, never raises — safe for rule engine use in M3
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
+DATE: 2026-04-06
+TITLE: Meta Orchestrator — M0 Execution Interface Spike
+RISK_LEVEL: LOW
+STATUS: COMPLETED (committed to feat/rev-r1-catalog)
+SCOPE:
+  - orchestrator/__init__.py (NEW)
+  - orchestrator/main.py (NEW — FSM skeleton, one-cycle runner)
+  - orchestrator/collect_packet.py (NEW — deterministic git+pytest post-processor)
+  - orchestrator/config.yaml (NEW — thresholds)
+  - orchestrator/schemas/directive_v1.json (NEW — JSON Schema draft-07)
+  - orchestrator/schemas/execution_packet_v1.json (NEW — JSON Schema draft-07)
+  - orchestrator/spike_findings.md (NEW — physical interface findings)
+  - tests/orchestrator/__init__.py (NEW)
+  - tests/orchestrator/conftest.py (NEW)
+  - tests/orchestrator/test_collect_packet.py (NEW — 30 mocked tests)
+TEST_EVIDENCE: 30/30 orchestrator tests PASS; 509/509 enrichment tests PASS (zero regression)
+KEY_FINDINGS:
+  - Physical interface: cat directive.md | claude -p (stdin piped to --print mode)
+  - FSM: 5 states, 12 transitions defined
+  - base_commit auto-resolution: merge-base origin/master → HEAD~1 fallback
+  - collect_packet.py: deterministic, mocked, no live API dependencies
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true
+
+---
 DATE: 2026-04-03
 TITLE: BVS deterministic merge tool
 RISK_LEVEL: SEMI
@@ -179,3 +451,28 @@ SMOKE_TEST: PASS (Mermaid, no image tool call)
 NOTES:
   MULTIMODEL_TRACE explicitly disambiguated from multimodal capabilities.
 ---
+## 2026-04-07 R1-revenue-price-scout-batch2 (seq 66) — LOW — CLOSED
+Price scout batch2: 17 new SKUs, 11 admissible_public_price (Esser/HVAC/barcode). trust.py +7 domains. 849/849 PASS.
+
+---
+DATE: 2026-04-08
+TITLE: AI Construction Bootstrap — Tasks 1–5 (infra/acceleration-bootstrap plan v1.4 FINAL)
+RISK_LEVEL: LOW/SEMI
+STATUS: COMPLETED (infra/acceleration-bootstrap, 5 commits)
+BRANCH: infra/acceleration-bootstrap
+SCOPE:
+  - Task 1: scripts/photo_pipeline.py — per-SKU batch resilience (try/except isolation,
+    graceful SIGTERM shutdown, lease file heartbeat, checkpoint _status field)
+  - Task 2: scripts/budget_tracker.py (NEW) + config/budget_guardrails.json (NEW) —
+    persistent daily cost tracking, BudgetExceeded pre-gate in providers.py
+  - Task 3: shadow_log/experience_writer.py (NEW) — unified ExperienceRecord schema,
+    write_experience() append-only JSONL, 3 adapters for existing log formats
+  - Task 4: orchestrator/experience_loader.py (NEW) + orchestrator/intake.py —
+    context injection: load_relevant_experience() + ContextBundle.experience_summary
+    + to_advisor_prompt_context() "## Relevant past experience" section
+  - Task 5: auditor_system/runner_factory.py (NEW) + orchestrator/core_gate_bridge.py (NEW)
+    + orchestrator/main.py + orchestrator/schemas/manifest_v1.json — CORE_GATE automated
+    audit bridge: SynthesizerDecision → TaskPack → dual audit → fsm state
+TEST_EVIDENCE: 916/916 PASS (zero regression)
+TIER1_CLEAN: true
+PINNED_API_CLEAN: true

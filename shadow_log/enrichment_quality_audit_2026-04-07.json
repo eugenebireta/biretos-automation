@@ -1,0 +1,18 @@
+{
+  "audit_date": "2026-04-07T23:11:25.758300Z",
+  "sample_size": 10,
+  "total_bundles": 69,
+  "card_status_breakdown": {
+    "DRAFT_ONLY": 58,
+    "REVIEW_REQUIRED": 11
+  },
+  "quality_issues_found": [
+    "34 PEHA SKUs with wrong expected_category in xlsx (Детектор/Вентиль instead of Рамки/Клавиши)",
+    "1 AED price suspicious (1000106: 68.25 AED ≈ 8.61 for earplug)",
+    "Numeric guard blocks photos for PEHA items (correct behavior for dotted PNs)"
+  ],
+  "false_reject_rate": "14.5% of photos blocked by numeric guard",
+  "price_warning_count": 0,
+  "category_fixes_applied": 33,
+  "recommendation": "continue — 33 PEHA category fixes applied; main blocker is identity_weak for PEHA items (need full catalog reclassification)"
+}

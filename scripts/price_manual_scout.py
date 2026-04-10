@@ -10,16 +10,20 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
 import requests
 
+log = logging.getLogger(__name__)
+
 from deterministic_false_positive_controls import tighten_public_price_result
 from fx import convert_to_rub, fx_meta
 from no_price_coverage import materialize_no_price_coverage
 from photo_pipeline import BROWSER_HEADERS, BRAND
+from price_admissibility import materialize_price_admissibility
 from price_lineage import materialize_pre_llm_price_lineage
 from price_source_surface_stability import build_source_surface_cache_payload_from_run_dirs, materialize_source_surface_stability
 from source_trust import get_source_role, is_denied
@@ -158,9 +162,16 @@ def materialize_seed_record(
     surface_cache_payload: dict[str, Any] | None,
 ) -> dict[str, Any]:
     page_url = record["page_url"]
-    response = requests.get(page_url, headers=BROWSER_HEADERS, timeout=20)
-    html = response.text if response.status_code == 200 else ""
-    content_type = response.headers.get("Content-Type", "")
+    try:
+        response = requests.get(page_url, headers=BROWSER_HEADERS, timeout=20)
+        html = response.text if response.status_code == 200 else ""
+        content_type = response.headers.get("Content-Type", "")
+        status_code = response.status_code
+    except (requests.exceptions.SSLError, requests.exceptions.ConnectionError, requests.exceptions.Timeout) as exc:
+        log.warning("  fetch error %s: %s", page_url[:60], exc.__class__.__name__)
+        html = ""
+        content_type = ""
+        status_code = 0
 
     trust = get_source_trust(page_url)
     source_role = get_source_role(page_url)
@@ -216,7 +227,7 @@ def materialize_seed_record(
         source_tier=trust.get("tier", "unknown"),
         source_engine="manual_seed",
         content_type=content_type,
-        status_code=response.status_code,
+        status_code=status_code,
     )
     price_result = materialize_no_price_coverage(price_result)
     price_result = tighten_public_price_result(price_result)
@@ -235,12 +246,16 @@ def materialize_seed_record(
     review_required = any(
         (
             is_denied(page_url),
-            response.status_code != 200,
+            status_code != 200,
             not price_result.get("price_source_exact_product_lineage_confirmed", False),
             bool(price_result.get("price_source_surface_conflict_detected", False)),
             str(price_result.get("price_status", "")) in {"ambiguous_offer", "category_mismatch_only"},
         )
     )
+
+    # Materialize full admissibility classification into manifest row
+    _adm_row = {**price_result, "part_number": record["part_number"]}
+    admissibility = materialize_price_admissibility(_adm_row)
 
     return {
         "part_number": record["part_number"],
@@ -254,7 +269,7 @@ def materialize_seed_record(
         "source_type": source_type,
         "source_tier": trust.get("tier", "unknown"),
         "source_weight": trust.get("weight", 0.4),
-        "http_status": response.status_code,
+        "http_status": status_code,
         "price_status": price_result.get("price_status", "no_price_found"),
         "price_per_unit": price_result.get("price_usd"),
         "currency": price_result.get("currency"),
@@ -276,6 +291,13 @@ def materialize_seed_record(
         "price_source_surface_stable": bool(price_result.get("price_source_surface_stable")),
         "price_source_surface_conflict_detected": bool(price_result.get("price_source_surface_conflict_detected")),
         "price_source_surface_conflict_reason_code": price_result.get("price_source_surface_conflict_reason_code", ""),
+        "price_admissibility_schema_version": admissibility.get("price_admissibility_schema_version", ""),
+        "string_lineage_status": admissibility.get("string_lineage_status", ""),
+        "commercial_identity_status": admissibility.get("commercial_identity_status", ""),
+        "offer_admissibility_status": admissibility.get("offer_admissibility_status", ""),
+        "staleness_or_conflict_status": admissibility.get("staleness_or_conflict_status", ""),
+        "price_admissibility_reason_codes": admissibility.get("admissibility_rejection_reasons", []),
+        "price_admissibility_review_bucket": admissibility.get("price_admissibility_review_bucket", ""),
         "source_price_value": record.get("source_price_value"),
         "source_price_currency": record.get("source_price_currency"),
         "source_offer_qty": record.get("source_offer_qty"),

@@ -1,0 +1,59 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_36204-RU",
+  "entity_id": "36204-RU",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "unknown",
+    "description_ru": "Для добора нужен контекст (семейство/регион/категория).",
+    "category_suggestion": "unknown",
+    "price_assessment": "no_public_price",
+    "price_value": null,
+    "photo_url": null,
+    "specs": {
+      "raw": "Поиск «36204‑RU»/«36204» дал нерелевантные совпадения (не Honeywell каталожные карточки с ценой не извлечены). citeturn49search10turn49search13",
+      "aliases": [
+        "—"
+      ]
+    },
+    "key_findings": [
+      "Для добора нужен контекст (семейство/регион/категория).",
+      "Aliases: —"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "—",
+        "type": "—",
+        "domain": "",
+        "supports": [
+          "identity"
+        ]
+      }
+    ],
+    "confidence": "low",
+    "confidence_notes": "Imported from DR file deep-research-report (2).md. Price: no, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "—",
+      "type": "—",
+      "domain": "",
+      "supports": [
+        "identity"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.049727+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (2).md"
+}

@@ -1,0 +1,83 @@
+Research 20 industrial part numbers for a professional B2B catalog.
+You will produce BOTH a narrative technical review AND structured data tables.
+
+## Search protocol
+
+For each part number:
+1. Google `"{PN}"` in quotes -- identify the product
+2. Google `"{PN}" datasheet` -- find official documentation
+3. If nothing: remove suffix (`.10`, `-RU`, `-L3`, `/U`) and retry
+4. If still nothing: add brand prefix (`Honeywell {PN}`, `PEHA {PN}`, `Esser {PN}`)
+5. Check eBay (ebay.de + ebay.com) for photos and surplus pricing
+6. Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, electropara.ru, tinko.ru
+
+## Product context
+
+- **PEHA by Honeywell** -- German electrical installation (frames, switches, sockets, inserts). Suffix `.10`=white, `.20`=cream. Search: ebay.de, conrad.de, voelkner.de, electropara.ru
+
+## Part Numbers
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | AT-MMCR18-60-RU | rack chassis |
+| 2 | AF00-B65 | sensor |
+| 3 | DPTE1000S | sensor |
+| 4 | DTI6 | sensor |
+| 5 | PTSRB0101V3 | sensor |
+| 6 | SF00-B54 | sensor |
+| 7 | T7460A1018 | sensor |
+| 8 | T7560B1008 | sensor |
+| 9 | VF00-3B65NW | sensor |
+| 10 | MZ-PCWS77 | workstation |
+| 11 | MZ-PCWS84 | workstation |
+| 12 | 101411 | PEHA AURA frame |
+| 13 | 174411 | PEHA AURA frame |
+| 14 | 125711 | PEHA AURA insert |
+| 15 | 174813 | PEHA AURA insert |
+| 16 | 104011 | PEHA AURA rocker switch |
+| 17 | 109411 | PEHA AURA rocker switch |
+| 18 | 127411 | PEHA AURA socket |
+| 19 | 603111 | PEHA COMPACTA frame |
+| 20 | 369211 | PEHA DIALOG frame |
+
+## Required output
+
+### Part 1: Technical review (Russian narrative)
+
+Напиши связный технический обзор на русском языке, охватывающий все 20 товаров.
+Группируй по категориям. Для каждого товара напиши 100-200 слов:
+- Что это, серия/семейство, производитель
+- Принцип работы, ключевая функция
+- Технические характеристики с числами (размеры, номиналы, диапазоны)
+- Где применяется (типы объектов, систем)
+- Чем отличается данная модификация
+
+Пиши как технический редактор профессионального каталога.
+Используй естественный русский язык, НЕ буквальный перевод.
+
+### Part 2: Structured tables
+
+**Table 1 -- Product data (ALL 20 rows, every PN must appear)**
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (structured: param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+- Every input PN MUST have a row, even if price is "Not found"
+- NEVER invent prices
+- Description: 3-5 предложений на русском языке
+
+**Table 2 -- Sources visited (ALL 20 PNs)**
+
+| Part Number | URL | Page Type | Has Price | Has Specs | Has Photo | Has Datasheet |
+|---|---|---|---|---|---|---|
+
+2-4 real URLs per PN. Even for "not found" items, show where you searched.
+
+## Rules
+
+- NEVER invent or estimate prices. "Not found" is always better than a guess.
+- Every PN MUST appear in Table 1 and Table 2.
+- Russian prices (RUB) from vseinstrumenti.ru, lemanapro.ru are HIGH PRIORITY.
+- Narrative descriptions and Table 1 descriptions MUST be in Russian.
+- Any currency accepted (EUR, USD, GBP, RUB, CHF).
+- Surplus/eBay photos are acceptable.

@@ -1,0 +1,69 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_CABLE-0.22-8T",
+  "entity_id": "CABLE-0.22-8T",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Signal cable (security)",
+    "description_ru": "PN интерпретирован как «0.22 мм² × 8 жил»; суффикс 8T в открытом retail не стандартизирован. citeturn47view0",
+    "category_suggestion": "Signal cable (security)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 544.0,
+      "currency": "UAH",
+      "unit_basis": "piece",
+      "source_url": "https://chime.com.ua/viatec-kabel-8x022-buhta-signalnogo-kabelya-8x022-100-m",
+      "price_type": "distributor"
+    },
+    "photo_url": "https://chime.com.ua/image/catalog/product/kabel-dlya-videonablyudeniya/IMGbaf2bd71d3f0a9e3ba3ca916b84ef638.jpg citeturn48view0",
+    "specs": {
+      "raw": "8 жил; лужёная медь; 8×7/0.22 мм; сопротивление 6.73 Ω/300 м citeturn47view0",
+      "aliases": [
+        "8×0.22 (100 м)"
+      ]
+    },
+    "key_findings": [
+      "PN интерпретирован как «0.22 мм² × 8 жил»; суффикс 8T в открытом retail не стандартизирован. citeturn47view0",
+      "Aliases: 8×0.22 (100 м)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://chime.com.ua/viatec-kabel-8x022-buhta-signalnogo-kabelya-8x022-100-m",
+        "type": "distributor",
+        "domain": "chime.com.ua",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (4).md. Price: yes, Image: yes, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "https://chime.com.ua/viatec-kabel-8x022-buhta-signalnogo-kabelya-8x022-100-m",
+      "type": "distributor",
+      "domain": "chime.com.ua",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.058236+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (4).md"
+}

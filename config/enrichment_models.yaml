@@ -1,0 +1,14 @@
+text:
+  provider: anthropic
+  model: claude-haiku-4-5
+
+vision:
+  provider: anthropic
+  model: claude-sonnet-4-6
+
+rate_limits:
+  anthropic:
+    requests_per_minute: 50
+    burst: 5
+    retry_backoff_seconds: [2, 4, 8]
+    max_retries: 3

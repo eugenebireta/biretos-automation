@@ -1,0 +1,66 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_7508001858",
+  "entity_id": "7508001858",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Interface/terminal assembly (FTA-C300)",
+    "description_ru": "На странице указан статус “под заказ” и цена 48 679.19 ₽. citeturn34search0",
+    "category_suggestion": "Interface/terminal assembly (FTA-C300)",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 48679.19,
+      "currency": "RUB",
+      "unit_basis": "piece",
+      "source_url": "`https://opttools.ru/catalog/raznoe/7508001858_weidmueller_fta_c300_16do_f_slim_g3_s_0/` citeturn34search0",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "aliases": [
+        "WEIDMULLER FTA-C300-16DO-F-SLIM-G3-S"
+      ]
+    },
+    "key_findings": [
+      "На странице указан статус “под заказ” и цена 48 679.19 ₽. citeturn34search0",
+      "Aliases: WEIDMULLER FTA-C300-16DO-F-SLIM-G3-S"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://opttools.ru/catalog/raznoe/7508001858_weidmueller_fta_c300_16do_f_slim_g3_s_0/` citeturn34search0",
+        "type": "distributor",
+        "domain": "opttools.ru",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (1).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://opttools.ru/catalog/raznoe/7508001858_weidmueller_fta_c300_16do_f_slim_g3_s_0/` citeturn34search0",
+      "type": "distributor",
+      "domain": "opttools.ru",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.018639+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (1).md"
+}

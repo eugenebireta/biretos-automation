@@ -1,0 +1,63 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_820111",
+  "entity_id": "820111",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "switch frame",
+    "description_ru": "На странице есть старая цена 5.99€ и новая 4.29€",
+    "category_suggestion": "switch frame",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 4.29,
+      "currency": "EUR",
+      "unit_basis": "piece",
+      "source_url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-reinweiss-820111-1-st-2855993.html` citeturn40search2",
+      "price_type": "distributor"
+    },
+    "photo_url": null,
+    "specs": {
+      "raw": "IP20; RAL 9010; 1 шт; -28% (на странице)"
+    },
+    "key_findings": [
+      "На странице есть старая цена 5.99€ и новая 4.29€"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-reinweiss-820111-1-st-2855993.html` citeturn40search2",
+        "type": "distributor",
+        "domain": "www.conrad.at",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file deep-research-report (5).md. Price: yes, Image: no, Category: yes."
+  },
+  "sources": [
+    {
+      "url": "`https://www.conrad.at/de/p/peha-by-honeywell-rahmen-rahmen-reinweiss-820111-1-st-2855993.html` citeturn40search2",
+      "type": "distributor",
+      "domain": "www.conrad.at",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:40.071746+00:00",
+  "provider": "dr_claude",
+  "model": "claude-opus-4",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report (5).md"
+}

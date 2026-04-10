@@ -1,0 +1,93 @@
+[
+  {
+    "pn": "1015021",
+    "brand": "Honeywell",
+    "stratum": "auto_publish",
+    "provider": "claude_pro",
+    "prompt": "Research this industrial product and find all available information:\n\nPart Number: 1015021\nBrand: Honeywell\nProduct Name: Наушники противошумные EARMUFF-LEIGHTNG L1H HV Hi-Vis\nExpected Category: Наушники\nTASK: Price not found — find current market price (RUB)\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "AUTO_PUBLISH",
+      "has_price": false,
+      "has_photo": true
+    }
+  },
+  {
+    "pn": "DTI6",
+    "brand": "Honeywell",
+    "stratum": "review_required",
+    "provider": "claude_pro",
+    "prompt": "Research this industrial product and find all available information:\n\nPart Number: DTI6\nBrand: Honeywell\nProduct Name: Датчик давления Honeywell DTI6\nExpected Category: Датчик\nTASK: Price not found — find current market price (RUB)\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "REVIEW_REQUIRED",
+      "has_price": false,
+      "has_photo": true
+    }
+  },
+  {
+    "pn": "57511",
+    "brand": "Honeywell",
+    "stratum": "review_required",
+    "provider": "claude_pro",
+    "prompt": "Research this industrial product and find all available information:\n\nPart Number: 57511\nBrand: Honeywell\nProduct Name: Устройство Honeywell D 20.677.702-Z\nExpected Category: Устройство\nTASK: Price not found — find current market price (RUB)\nTASK: No photo — find official product image URL\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "REVIEW_REQUIRED",
+      "has_price": false,
+      "has_photo": false
+    }
+  },
+  {
+    "pn": "P2212HB",
+    "brand": "Honeywell",
+    "stratum": "draft_with_price",
+    "provider": "claude_pro",
+    "prompt": "Research this industrial product and find all available information:\n\nPart Number: P2212HB\nBrand: Honeywell\nProduct Name: Монитор Honeywell P2212HB\nExpected Category: Монитор\nTASK: Identity weak — confirm this is a real product\nTASK: No photo — find official product image URL\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "weak",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": false
+    }
+  },
+  {
+    "pn": "806602",
+    "brand": "Honeywell",
+    "stratum": "draft_with_price",
+    "provider": "claude_pro",
+    "prompt": "Research this industrial product and find all available information:\n\nPart Number: 806602\nBrand: Honeywell\nProduct Name: NS 35/15 WH PERF 2000MM 806602\nExpected Category: Рейка\nTASK: Identity weak — confirm this is a real product\nTASK: No photo — find official product image URL\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "weak",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": false
+    }
+  },
+  {
+    "pn": "188091",
+    "brand": "Honeywell",
+    "stratum": "weak_any",
+    "provider": "claude_pro",
+    "prompt": "Research this industrial product and find all available information:\n\nPart Number: 188091\nBrand: Honeywell\nProduct Name: Детектор пламени Honeywell D 20.673.201.702\nExpected Category: Детектор\nTASK: No photo — find official product image URL\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": false
+    }
+  },
+  {
+    "pn": "FX808430.18R",
+    "brand": "Honeywell",
+    "stratum": "weak_any",
+    "provider": "claude_pro",
+    "prompt": "Research this industrial product and find all available information:\n\nPart Number: FX808430.18R\nBrand: Honeywell\nProduct Name: Тяжелый ящик FX808430.18R\nExpected Category: Ящик\n\nCRITICAL: Your response MUST end with a JSON block:\n```json\n{\n  \"pn_confirmed\": true/false,\n  \"product_name\": \"...\",\n  \"category\": \"...\",\n  \"price_rub\": null or number,\n  \"price_source_url\": \"...\",\n  \"image_url\": null or \"...\",\n  \"datasheet_url\": null or \"...\",\n  \"confidence\": \"high\"|\"medium\"|\"low\",\n  \"notes\": \"...\"\n}\n```",
+    "context": {
+      "identity_level": "strong",
+      "card_status": "DRAFT_ONLY",
+      "has_price": true,
+      "has_photo": true
+    }
+  }
+]

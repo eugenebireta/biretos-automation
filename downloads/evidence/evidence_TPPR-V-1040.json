@@ -1,0 +1,605 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-04-08T00:15:26.831080Z",
+  "pn": "TPPR-V-1040",
+  "pn_variants": [
+    "TPPR.V.1040",
+    "TPPRV1040"
+  ],
+  "brand": "Honeywell",
+  "subbrand": "",
+  "name": "Модуль цифрового ввода Honeywell TPPR-V-1040",
+  "assembled_title": "Модуль Honeywell TPPR-V-1040",
+  "our_price_raw": "100189,56",
+  "expected_category": "Модуль",
+  "card_status": "REVIEW_REQUIRED",
+  "review_reasons": [
+    "IDENTITY_WEAK",
+    "NO_IMAGE_EVIDENCE",
+    "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+    "NO_PDF_EVIDENCE"
+  ],
+  "policy_decision_v2": {
+    "decision_id": "dec_TPPR-V-1040",
+    "policy_version": "catalog_evidence_policy_v1",
+    "family_photo_policy_version": "family_photo_policy_v1",
+    "source_matrix_version": "source_role_field_matrix_v1",
+    "review_schema_version": "review_reason_schema_v1",
+    "identity_level": "strong",
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "REVIEW_REQUIRED",
+    "pdf_status": "INSUFFICIENT",
+    "card_status": "REVIEW_REQUIRED",
+    "review_reasons": [
+      {
+        "reason_code": "NO_IMAGE_EVIDENCE",
+        "field": "image",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_image_TPPR-V-1040"
+        ],
+        "evidence_ids": [
+          "ev_image_TPPR-V-1040"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "MISSING_MINIMUM_EVIDENCE"
+      },
+      {
+        "reason_code": "PRICE_ROLE_NOT_ADMISSIBLE",
+        "field": "price",
+        "severity": "WARNING",
+        "candidate_ids": [
+          "cand_price_TPPR-V-1040"
+        ],
+        "evidence_ids": [
+          "ev_price_TPPR-V-1040"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PRICE_AMBIGUITY"
+      },
+      {
+        "reason_code": "NO_PDF_EVIDENCE",
+        "field": "pdf",
+        "severity": "INFO",
+        "candidate_ids": [
+          "cand_pdf_TPPR-V-1040"
+        ],
+        "evidence_ids": [
+          "ev_pdf_TPPR-V-1040"
+        ],
+        "policy_rule_id": "CAP-06B",
+        "bucket": "PDF_CONFLICT"
+      }
+    ],
+    "review_buckets": [
+      "MISSING_MINIMUM_EVIDENCE",
+      "PDF_CONFLICT",
+      "PRICE_AMBIGUITY"
+    ],
+    "policy_rule_id": "CAP-06B",
+    "identity_boost_signals": [
+      "structured_pn_match:product_context"
+    ],
+    "identity_boost_source": "retrospective_structured_match",
+    "identity_boost_ts": "2026-04-08T07:49:30.924758+00:00"
+  },
+  "field_statuses_v2": {
+    "title_status": "ACCEPTED",
+    "image_status": "INSUFFICIENT",
+    "price_status": "INSUFFICIENT",
+    "pdf_status": "INSUFFICIENT"
+  },
+  "review_reasons_v2": [
+    {
+      "reason_code": "IDENTITY_WEAK",
+      "field": "identity",
+      "severity": "ERROR",
+      "candidate_ids": [
+        "cand_title_TPPR-V-1040"
+      ],
+      "evidence_ids": [
+        "ev_title_TPPR-V-1040"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "IDENTITY_CONFLICT"
+    },
+    {
+      "reason_code": "NO_IMAGE_EVIDENCE",
+      "field": "image",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_image_TPPR-V-1040"
+      ],
+      "evidence_ids": [
+        "ev_image_TPPR-V-1040"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+      "field": "price",
+      "severity": "WARNING",
+      "candidate_ids": [
+        "cand_price_TPPR-V-1040"
+      ],
+      "evidence_ids": [
+        "ev_price_TPPR-V-1040"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "MISSING_MINIMUM_EVIDENCE"
+    },
+    {
+      "reason_code": "NO_PDF_EVIDENCE",
+      "field": "pdf",
+      "severity": "INFO",
+      "candidate_ids": [
+        "cand_pdf_TPPR-V-1040"
+      ],
+      "evidence_ids": [
+        "ev_pdf_TPPR-V-1040"
+      ],
+      "policy_rule_id": "CAP-09T",
+      "bucket": "PDF_CONFLICT"
+    }
+  ],
+  "confidence": {
+    "pn_confidence": 0.383,
+    "image_confidence": 0.172,
+    "price_confidence": 0.35,
+    "overall": 0.275,
+    "overall_label": "VERY_LOW",
+    "publishability": "DRAFT_ONLY",
+    "notes": [
+      "pn_not_confirmed",
+      "no_usable_image"
+    ]
+  },
+  "evidence_paths": {
+    "photo": {
+      "local_artifact_path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\TPPR-V-1040.jpg",
+      "canonical_filename": "HONEYWELL_TPPR-V-1040_4e17f5f4.jpg",
+      "public_url": null,
+      "origin_ref": "yandex:https://www.safetygearstore.co.uk/relay-output-module",
+      "origin_page_url": "https://www.safetygearstore.co.uk/relay-output-module",
+      "origin_kind": "search_result_page"
+    },
+    "price": {
+      "observed_page_url": "https://www.isssafety.com/products/tppr-v-1040-honeywell-relay-output-module?srsltid=AfmBOoo-OGKyi0Wsmt-ekkPdg3dkfnDE6W6hqoIqXWDWmKs_H75hk_sb",
+      "quote_cta_url": "sales@isscomplete.com",
+      "lineage_source_url": "https://www.isssafety.com/products/tppr-v-1040-honeywell-relay-output-module?srsltid=AfmBOoo-OGKyi0Wsmt-ekkPdg3dkfnDE6W6hqoIqXWDWmKs_H75hk_sb",
+      "replacement_url": "",
+      "cache_bundle_ref": "",
+      "preserved_surface_bundle_ref": ""
+    }
+  },
+  "photo": {
+    "verdict": "KEEP",
+    "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqT2pZGGBRivHZz1WytK'}",
+    "photo_status": "placeholder",
+    "photo_evidence_role": "merch_only",
+    "photo_is_temporary": true,
+    "replacement_required": true,
+    "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\TPPR-V-1040.jpg",
+    "sha1": "4e17f5f407d6144b5e8d1b3a477355f2e146705c",
+    "canonical_filename": "HONEYWELL_TPPR-V-1040_4e17f5f4.jpg",
+    "public_url": null,
+    "width": 387,
+    "height": 285,
+    "size_kb": 21,
+    "source": "yandex:https://www.safetygearstore.co.uk/relay-output-module",
+    "phash": "eb03c3c674dc8b61",
+    "stock_photo_flag": false,
+    "mpn_confirmed_via_jsonld": false,
+    "numeric_keep_guard_applied": false,
+    "numeric_keep_guard_reasons": []
+  },
+  "price": {
+    "price_status": "no_price_found",
+    "price_admissibility_schema_version": "price_admissibility_v1",
+    "string_lineage_status": "weak",
+    "commercial_identity_status": "family_or_series_only",
+    "offer_admissibility_status": "no_price_found",
+    "staleness_or_conflict_status": "clean",
+    "price_admissibility_reason_codes": [
+      "PRICE_FAMILY_SERIES_ONLY"
+    ],
+    "price_admissibility_review_bucket": "PRICE_ADMISSIBILITY_REVIEW",
+    "price_admissibility_review_required": true,
+    "queue_price_status": "",
+    "historical_state_price_status": "",
+    "price_per_unit": null,
+    "currency": null,
+    "rub_price": null,
+    "fx_rate_used": null,
+    "fx_provider": "stub",
+    "price_confidence": 0,
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "source_url": "https://www.isssafety.com/products/tppr-v-1040-honeywell-relay-output-module?srsltid=AfmBOoo-OGKyi0Wsmt-ekkPdg3dkfnDE6W6hqoIqXWDWmKs_H75hk_sb",
+    "source_type": "other",
+    "source_tier": "unknown",
+    "source_engine": "google_us",
+    "stock_status": "unknown",
+    "offer_unit_basis": "unknown",
+    "offer_qty": null,
+    "lead_time_detected": false,
+    "quote_cta_url": "sales@isscomplete.com",
+    "suffix_conflict": false,
+    "category_mismatch": false,
+    "page_product_class": "Relay Output Module",
+    "brand_mismatch": false,
+    "price_median_clean": null,
+    "price_min_clean": null,
+    "price_max_clean": null,
+    "price_sample_size": 1,
+    "pn_exact_confirmed": true,
+    "page_context_clean": true,
+    "price_source_seen": true,
+    "price_source_url": "https://www.isssafety.com/products/tppr-v-1040-honeywell-relay-output-module?srsltid=AfmBOoo-OGKyi0Wsmt-ekkPdg3dkfnDE6W6hqoIqXWDWmKs_H75hk_sb",
+    "price_source_domain": "isssafety.com",
+    "price_source_type": "other",
+    "price_source_tier": "unknown",
+    "price_source_engine": "google_us",
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_title_pn_match": true,
+    "price_source_exact_h1_pn_match": true,
+    "price_source_exact_jsonld_pn_match": true,
+    "price_source_exact_product_context_match": true,
+    "price_source_structured_match_location": "jsonld",
+    "price_source_clean_product_page": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_lineage_schema_version": "price_lineage_v1",
+    "price_source_replacement_candidate_found": false,
+    "price_source_replacement_url": "",
+    "price_source_replacement_domain": "",
+    "price_source_replacement_tier": "",
+    "price_source_replacement_engine": "",
+    "price_source_replacement_exact_lineage_confirmed": false,
+    "price_source_replacement_match_location": "",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_replacement_schema_version": "price_source_replacement_v1",
+    "price_source_surface_stable": false,
+    "price_source_surface_seen_current_run": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_source_surface_preserved_source_run_id": "",
+    "price_source_surface_preserved_bundle_ref": "",
+    "price_source_surface_stability_schema_version": "price_source_surface_stability_v1",
+    "price_exact_product_page": true,
+    "price_page_context_clean": true,
+    "price_quote_required": true,
+    "price_rfq_only": false,
+    "price_no_price_reason_code": "quote_required",
+    "price_reviewable_no_price_candidate": false,
+    "price_source_observed_only": false,
+    "no_price_coverage_schema_version": "no_price_coverage_v1",
+    "public_price_rejection_reasons": [],
+    "cache_fallback_used": false,
+    "cache_fallback_reason": "",
+    "cache_schema_version": "",
+    "cache_policy_version": "",
+    "cache_source_run_id": "",
+    "cache_bundle_ref": "",
+    "transient_failure_detected": true,
+    "transient_failure_codes": [
+      "llm_timeout"
+    ]
+  },
+  "datasheet": {
+    "datasheet_status": "no_pn_confirm",
+    "pdf_url": "https://www.instrumart.com/assets/Honeywell-Industrial-Fixed-Product-Guide-2018.pdf?srsltid=AfmBOorNCYt1HgQyi5-bT2AX3L2qd8YsrpRLVmIA0rrEupcMPo_Pgyph",
+    "pdf_source_tier": "industrial",
+    "pdf_title": "2018 Product Guide Americas",
+    "pdf_specs": {
+      "Issue": "1V0",
+      "1. Explosion-Proof Transmitters": "Quick Reference Chart.................................................................. 3",
+      "2. XNX™ Universal Transmitter": "4",
+      "3. Sensepoint XRL": "10",
+      "4. Sensepoint XCD": "14",
+      "5. Sensepoint XCD RFD": "22",
+      "6. 705 Combustible Gas Detector": "24",
+      "7. Sensepoint XCD RTD": "25",
+      "8. Sensepoint Sensors": "29",
+      "9. Sensepoint with Junction Box": "32",
+      "10. Safe Area XCD": "34",
+      "11. Series 3000 MkII and MkIII": "35",
+      "12. Infrared Transmitters: Quick Reference Chart": "38",
+      "13. OELD Smart Junction Box": "39",
+      "14. Searchpoint Optima Plus": "40",
+      "15. Searchpoint Optima Plus Calibrations": "46",
+      "16. Searchline Excel": "50",
+      "17. Searchline Excel XD": "56",
+      "18. FSX Detectors: Quick Reference Chart": "58",
+      "19. FSX Detectors Applications Chart": "59",
+      "20. Model FS24X": "60",
+      "21. Model FS20X": "65",
+      "22. FS10 Fire Detection Systems": "68",
+      "23. FS7 Flame Detector": "71",
+      "24. SS Series Flame Detectors": "Quick Reference Chart........................................................................ 73",
+      "25. SS4-A2, AS, & AUV Series": "74",
+      "26. SS2-AM Series": "79",
+      "27. FSL100 Flame Detector": "80",
+      "28. RAEGuard 2 PID": "81",
+      "29. Gas Detection Controllers": "Quick Reference Chart........................................................................ 84",
+      "30. Touchpoint Pro Digital Gas Controller": "85",
+      "31. Touchpoint Plus Digital Gas Controller": "107",
+      "32. HA20 & HA40 Digital Gas Controllers": "113",
+      "33. HA71 Digital Gas Controller": "116",
+      "34. HA72 Digital Gas Controller": "118"
+    },
+    "pdf_text_excerpt": "2018 Product Guide Americas Industrial Fixed Gas and Flame Detection Issue: 1V0 Table Of Contents Table of Contents Page 1. Explosion-Proof Transmitters: Quick Reference Chart.................................................................. 3 2. XNX™ Universal Transmitter......................................................................................................... 4 3. Sensepoint XRL..............................................................................................................................10 4. Sensepoint XCD........................................................",
+    "num_pages": 148,
+    "parse_method": "pdfplumber",
+    "pn_confirmed_in_pdf": false
+  },
+  "structured_identity": {
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": true,
+    "exact_structured_pn_match": true,
+    "structured_pn_match_location": "product_context"
+  },
+  "negative_evidence": {
+    "photo": [],
+    "price": [
+      {
+        "class": "no_price_reason",
+        "code": "quote_required",
+        "source_field": "price.price_no_price_reason_code"
+      },
+      {
+        "class": "terminal_weak_lineage",
+        "code": "weak_exact_lineage_no_admissible_replacement",
+        "source_field": "price.price_source_replacement_reason_code"
+      }
+    ],
+    "identity": []
+  },
+  "content": {
+    "specs": {},
+    "description": "Модуль цифрового ввода Honeywell TPPR-V-1040 используется для подключения и управления различными устройствами в системах автоматизации. Он обеспечивает высокую надежность и скорость обработки данных.",
+    "description_source": "insales_import_seed",
+    "site_placement": "Каталог/Промышленная автоматизация",
+    "product_type": "Модуль",
+    "seed_name": "Модуль цифрового ввода Honeywell TPPR-V-1040",
+    "description_long_ru": "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified."
+  },
+  "trace": {
+    "pn_match_location": "",
+    "pn_match_confidence": 0,
+    "pn_match_is_numeric": false,
+    "numeric_pn_guard_triggered": false,
+    "brand_cooccurrence": false,
+    "jsonld_hit": false,
+    "source_trust_weight": null,
+    "structured_pn_match_location": "product_context",
+    "exact_structured_pn_match": true,
+    "exact_jsonld_pn_match": false,
+    "exact_title_pn_match": false,
+    "exact_h1_pn_match": false,
+    "exact_product_context_pn_match": true,
+    "price_source_seen": true,
+    "price_source_lineage_confirmed": true,
+    "price_source_exact_product_lineage_confirmed": true,
+    "price_source_lineage_reason_code": "structured_exact_product_page_weak_tier",
+    "price_source_admissible_replacement_confirmed": false,
+    "price_source_terminal_weak_lineage": true,
+    "price_source_replacement_reason_code": "weak_exact_lineage_no_admissible_replacement",
+    "price_source_surface_stable": false,
+    "price_source_surface_preserved_from_prior_run": false,
+    "price_source_surface_drop_detected": false,
+    "price_source_surface_conflict_detected": false,
+    "price_source_surface_preservation_reason_code": "no_prior_surface_available",
+    "price_source_surface_drop_reason_code": "",
+    "price_source_surface_conflict_reason_code": "",
+    "price_observed_at": "2026-04-08T00:15:26.831080Z",
+    "price_observed_date": "2026-04-08",
+    "price_date": "2026-04-08",
+    "price_observation_origin": "current_run",
+    "price_exact_product_page": true,
+    "price_reviewable_no_price_candidate": false,
+    "price_no_price_reason_code": "quote_required"
+  },
+  "verifier_shadow": {
+    "schema_version": "catalog_verifier_shadow_record_v1",
+    "policy_version": "catalog_verifier_policy_v1",
+    "mode": "shadow",
+    "feature_enabled": false,
+    "trace_id": "catalog_verifier:TPPR-V-1040:2026-04-08T00:15:26.831080Z",
+    "idempotency_key": "catalog_verifier:TPPR-V-1040:3a5b0e5726e8e3c379e1a4c9",
+    "transport": "responses_api",
+    "router": {
+      "should_route": true,
+      "trigger_codes": [
+        "IDENTITY_NOT_STRONG"
+      ],
+      "deterministic_card_status": "DRAFT_ONLY",
+      "deterministic_identity_level": "weak"
+    },
+    "decision_merger": {
+      "final_decision_source": "deterministic_policy",
+      "decision_effect": "none",
+      "allow_auto_publish_unlock": false,
+      "allow_verifier_override": false,
+      "owner_approval_required_for_influence": true,
+      "effective_card_status": "DRAFT_ONLY"
+    },
+    "packet": {
+      "schema_version": "catalog_verifier_input_schema_v1",
+      "trace_id": "catalog_verifier:TPPR-V-1040:2026-04-08T00:15:26.831080Z",
+      "idempotency_key": "catalog_verifier:TPPR-V-1040:3a5b0e5726e8e3c379e1a4c9",
+      "pn_primary": "TPPR-V-1040",
+      "normalized_title": "Модуль Honeywell TPPR-V-1040",
+      "card_status": "DRAFT_ONLY",
+      "field_statuses": {
+        "title_status": "ACCEPTED",
+        "image_status": "INSUFFICIENT",
+        "price_status": "INSUFFICIENT",
+        "pdf_status": "INSUFFICIENT"
+      },
+      "review_reasons": [
+        {
+          "reason_code": "IDENTITY_WEAK",
+          "field": "identity",
+          "severity": "ERROR",
+          "candidate_ids": [
+            "cand_title_TPPR-V-1040"
+          ],
+          "evidence_ids": [
+            "ev_title_TPPR-V-1040"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "IDENTITY_CONFLICT"
+        },
+        {
+          "reason_code": "NO_IMAGE_EVIDENCE",
+          "field": "image",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_image_TPPR-V-1040"
+          ],
+          "evidence_ids": [
+            "ev_image_TPPR-V-1040"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "TERMINAL_WEAK_NO_PRICE_LINEAGE",
+          "field": "price",
+          "severity": "WARNING",
+          "candidate_ids": [
+            "cand_price_TPPR-V-1040"
+          ],
+          "evidence_ids": [
+            "ev_price_TPPR-V-1040"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "MISSING_MINIMUM_EVIDENCE"
+        },
+        {
+          "reason_code": "NO_PDF_EVIDENCE",
+          "field": "pdf",
+          "severity": "INFO",
+          "candidate_ids": [
+            "cand_pdf_TPPR-V-1040"
+          ],
+          "evidence_ids": [
+            "ev_pdf_TPPR-V-1040"
+          ],
+          "policy_rule_id": "CAP-09T",
+          "bucket": "PDF_CONFLICT"
+        }
+      ],
+      "review_buckets": [
+        "IDENTITY_CONFLICT",
+        "MISSING_MINIMUM_EVIDENCE",
+        "PDF_CONFLICT"
+      ],
+      "source_role_evidence_summary": {
+        "title_source_role": "deterministic_title_assembly",
+        "price_source_tier": "unknown",
+        "pdf_source_tier": "industrial",
+        "image_source_tier": "unknown"
+      },
+      "structured_identity": {
+        "exact_jsonld_pn_match": false,
+        "exact_title_pn_match": false,
+        "exact_h1_pn_match": false,
+        "exact_product_context_pn_match": true,
+        "exact_structured_pn_match": true,
+        "structured_pn_match_location": "product_context"
+      },
+      "pdf_evidence_summary": {
+        "datasheet_status": "no_pn_confirm",
+        "pdf_exact_pn_confirmed": false,
+        "pn_confirmed_in_pdf": false,
+        "pdf_source_tier": "industrial"
+      },
+      "image_evidence_summary": {
+        "photo_verdict": "KEEP",
+        "stock_photo_flag": false,
+        "mpn_confirmed_via_jsonld": false
+      },
+      "price_evidence_summary": {
+        "price_status": "no_price_found",
+        "source_tier": "unknown",
+        "page_product_class": "Relay Output Module",
+        "category_mismatch": false,
+        "brand_mismatch": false
+      },
+      "policy_versions": {
+        "policy_version": "catalog_evidence_policy_v1",
+        "family_photo_policy_version": "family_photo_policy_v1",
+        "source_matrix_version": "source_role_field_matrix_v1",
+        "review_schema_version": "review_reason_schema_v1"
+      },
+      "risk_reason_codes": [
+        "IDENTITY_NOT_STRONG"
+      ]
+    },
+    "response": null,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "reasoning_tokens": 0,
+      "estimated_cost_usd": 0.0
+    },
+    "call_state": "feature_flag_off",
+    "error": "",
+    "llm_request_id": ""
+  },
+  "identity_level": "strong",
+  "deep_research": {
+    "title_ru": "Relay output module (gas detection)",
+    "description_ru": "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified.",
+    "specs": {
+      "raw": "4-ch relay; 4× SPCO; 24V DC aux; 0–25mA; IP20; 35×99.5×114.5mm; DIN-rail; 2.5mm² max wire",
+      "aliases": [
+        "Related: TPPR-V-1000",
+        "TPPR-V-1010",
+        "TPPR-V-1030"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Honeywell Analytics Touchpoint Pro system. Also $1,098.97 at GasDetectorsUSA; £600 at ISS Safety UK. IECEx/ATEX certified.",
+      "Aliases: Related: TPPR-V-1000; TPPR-V-1010; TPPR-V-1030"
+    ],
+    "sources": [
+      {
+        "url": "https://www.jjstech.com/tppr-v-1040.html",
+        "type": "distributor",
+        "domain": "www.jjstech.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "merge_ts": "2026-04-09T12:01:25.010570+00:00",
+    "merge_source": "result_TPPR-V-1040.json",
+    "provider": "dr_gpt",
+    "model": "gpt-4o",
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+  },
+  "dr_category": "Relay output module (gas detection)",
+  "dr_image_url": "(available on ISS Safety page)",
+  "dr_price": 900.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.jjstech.com/tppr-v-1040.html"
+}

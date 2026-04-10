@@ -1,0 +1,116 @@
+{
+  "result_version": "v1",
+  "task_id": "enrichment_research_1000106",
+  "entity_id": "1000106",
+  "research_reason": "identity_weak",
+  "priority": "high",
+  "final_recommendation": {
+    "confidence": "low",
+    "price_value": {
+      "amount": 53.75,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+      "price_type": "distributor"
+    },
+    "price_assessment": "admissible_public_price",
+    "sources": [
+      {
+        "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+        "type": "distributor",
+        "domain": "www.amazon.co.uk",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      },
+      {
+        "url": "https://www.modern-eastern.com/en/home/honeywell-earplugs-304l-large-Box-of-100-pairs-1000106",
+        "type": "distributor",
+        "domain": "www.modern-eastern.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "photo_url": "https://www.modern-eastern.com/content/product_images/8808176105869.jpg",
+    "title_ru": "Беруши Howard Leight Bilsom 304L, на шнурке, SNR 33 дБ",
+    "description_ru": "Одноразовые противошумные вставки из мягкого полиуретана с высокой степенью ослабления шума. Гладкая, грязеотталкивающая поверхность предотвращает накопление загрязнений и обеспечивает комфорт при длительном ношении.1",
+    "documents": [
+      {
+        "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://klloyds.com/shop/product/honeywell-1000106-howard-leight-bilsom-304lindividually-wrapped-corded-earplugs/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://www.workwearexpress.com/honeywell-1000106-304l-corded-ear-plug-100-pairslrg-snr33",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://automation.honeywell.com/us/en/products/personal-protective-equipment/hearing-protection/earplugs/bilsom-303",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://sps-support.honeywell.com/s/article/1000106-Bilsom-304L-Datasheet-in-English",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      },
+      {
+        "url": "https://eaglesafety.us/shop/honeywell-howard-leight-1000106-bilsom-304l-foamplug-corded/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+      "type": "distributor",
+      "domain": "www.amazon.co.uk",
+      "supports": [
+        "identity",
+        "price"
+      ]
+    },
+    {
+      "url": "https://www.modern-eastern.com/en/home/honeywell-earplugs-304l-large-Box-of-100-pairs-1000106",
+      "type": "distributor",
+      "domain": "www.modern-eastern.com",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "low",
+  "parse_error": "",
+  "timestamp": "2026-04-08T20:48:00.050763Z",
+  "provider": "unknown",
+  "model": "unknown",
+  "raw_response_length": 21,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "deep-research-report-prompt-v1.md"
+}

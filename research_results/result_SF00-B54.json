@@ -1,0 +1,99 @@
+{
+  "result_version": "v1",
+  "task_id": "dr_import_SF00-B54",
+  "entity_id": "SF00-B54",
+  "research_reason": "dr_import",
+  "priority": "medium",
+  "final_recommendation": {
+    "identity_confirmed": true,
+    "brand": "unknown",
+    "title_ru": "Strap-on temperature sensor",
+    "description_ru": "Also £112.00 at hvac-sanitary.co.uk; $92.39 new-open box on eBay. Honeywell Switzerland",
+    "category_suggestion": "Strap-on temperature sensor",
+    "price_assessment": "admissible_public_price",
+    "price_value": {
+      "amount": 27.76,
+      "currency": "GBP",
+      "unit_basis": "piece",
+      "source_url": "https://www.mytub.co.uk/honeywell-sf00-b54-strap-on-water-temp-sensor-product-742802",
+      "price_type": "distributor"
+    },
+    "photo_url": "—",
+    "specs": {
+      "raw": "Pt1000; -30…+110°C; IP54; max wiring 200m; 80.8×55.3×42 mm",
+      "aliases": [
+        "SF00-B54-R (updated reference)"
+      ]
+    },
+    "key_findings": [
+      "Also £112.00 at hvac-sanitary.co.uk; $92.39 new-open box on eBay. Honeywell Switzerland",
+      "Aliases: SF00-B54-R (updated reference)"
+    ],
+    "ambiguities": [],
+    "sources": [
+      {
+        "url": "https://www.mytub.co.uk/honeywell-sf00-b54-strap-on-water-temp-sensor-product-742802",
+        "type": "distributor",
+        "domain": "www.mytub.co.uk",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "confidence": "medium",
+    "confidence_notes": "Imported from DR file compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md. Price: yes, Image: yes, Category: yes.",
+    "documents": [
+      {
+        "url": "https://www.ebay.com/itm/186326651871",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.mytub.co.uk/honeywell-sf00-b54-strap-on-water-temp-sensor-product-742802",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://www.hvac-sanitary.co.uk/product/sf00-b54-hwl-sf00-b54-strap-on-water-temp-sensor-honeywell/",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      },
+      {
+        "url": "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/bms-from-hco-030923/hbt-bms-en0b0725-ge51r1219.pdf",
+        "doc_type": "Document",
+        "language": "",
+        "description": "",
+        "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.mytub.co.uk/honeywell-sf00-b54-strap-on-water-temp-sensor-product-742802",
+      "type": "distributor",
+      "domain": "www.mytub.co.uk",
+      "supports": [
+        "identity",
+        "price",
+        "photo"
+      ]
+    }
+  ],
+  "confidence": "medium",
+  "parse_error": "",
+  "timestamp": "2026-04-08T21:08:39.990061+00:00",
+  "provider": "dr_gpt",
+  "model": "gpt-4o",
+  "raw_response_length": 0,
+  "cost_usd": 0.0,
+  "web_search_used": true,
+  "dr_source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+}
