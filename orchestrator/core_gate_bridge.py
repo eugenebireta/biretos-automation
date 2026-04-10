@@ -82,6 +82,92 @@ _PINNED_API_HASHES: dict[str, str] = {
 }
 
 _WINDMILL_ROOT = ROOT / ".cursor" / "windmill-core-v1"
+_TIER1_MANIFEST = _WINDMILL_ROOT / ".tier1-hashes.sha256"
+
+
+def _load_tier1_manifest() -> dict[str, str]:
+    """Load the Tier-1 hash manifest (CI source of truth). Fail-closed.
+
+    Returns: {relative_path: expected_sha256_hex}
+    Raises RuntimeError if manifest is missing, empty, or unparseable.
+    """
+    if not _TIER1_MANIFEST.exists():
+        raise RuntimeError(
+            f"Tier-1 manifest not found: {_TIER1_MANIFEST} — "
+            "cannot verify frozen files (fail-closed)"
+        )
+    text = _TIER1_MANIFEST.read_text(encoding="utf-8").strip()
+    if not text:
+        raise RuntimeError("Tier-1 manifest is empty — fail-closed")
+
+    manifest: dict[str, str] = {}
+    for line_no, line in enumerate(text.splitlines(), 1):
+        line = line.strip()
+        if not line:
+            continue
+        parts = line.split("  ", 1)
+        if len(parts) != 2 or len(parts[0]) != 64:
+            raise RuntimeError(
+                f"Tier-1 manifest parse error line {line_no}: {line!r}"
+            )
+        expected_hash, rel_path = parts
+        manifest[rel_path] = expected_hash
+
+    if not manifest:
+        raise RuntimeError("Tier-1 manifest parsed but empty — fail-closed")
+    return manifest
+
+
+def _check_frozen_files(changed_files: list[str]) -> tuple[str, list[str]]:
+    """Check frozen files: path match + SHA-256 hash verification (DNA §3).
+
+    Two checks:
+      1. Path check: if any changed file matches a frozen file → fail
+      2. Hash check: verify all 19 frozen files match CI manifest → fail on mismatch
+
+    CRLF-safe: strips \\r before hashing (matches CI behavior).
+    Fail-closed: manifest missing/corrupt → fail.
+    """
+    violations: list[str] = []
+
+    # Load manifest (fail-closed)
+    try:
+        manifest = _load_tier1_manifest()
+    except RuntimeError as exc:
+        return "fail", [f"manifest_error: {exc}"]
+
+    # Build full paths for frozen files
+    frozen_full_paths: dict[str, str] = {}  # full_path → rel_path
+    for rel_path in manifest:
+        full = _WINDMILL_ROOT / rel_path
+        # Normalize for comparison: forward slashes
+        frozen_full_paths[str(full).replace("\\", "/")] = rel_path
+        # Also store the bare relative path for partial matching
+        frozen_full_paths[rel_path] = rel_path
+
+    # Check 1: path match — changed files must not touch frozen files
+    for fpath in changed_files:
+        normalized = fpath.replace("\\", "/")
+        for frozen_key, rel in frozen_full_paths.items():
+            if normalized.endswith(rel) or normalized == frozen_key:
+                violations.append(f"path_frozen: {fpath} matches frozen {rel}")
+                break
+
+    # Check 2: hash verification — all 19 files must match manifest
+    for rel_path, expected_hash in manifest.items():
+        full = _WINDMILL_ROOT / rel_path
+        if not full.exists():
+            violations.append(f"missing: {rel_path} not found on disk")
+            continue
+        content = full.read_bytes().replace(b"\r", b"")
+        actual = hashlib.sha256(content).hexdigest()
+        if actual != expected_hash:
+            violations.append(
+                f"hash_mismatch: {rel_path} "
+                f"expected={expected_hash[:16]} actual={actual[:16]}"
+            )
+
+    return ("fail" if violations else "pass"), violations
 
 
 def _read_changed_file(filepath: str) -> str | None:
@@ -186,15 +272,11 @@ def run_preflight_guards(changed_files: list[str], trace_id: str) -> dict:
     results = {}
     blocked_by = None
 
-    # Guard: frozen files (DNA §3)
-    frozen_patterns = {
-        "core/", "domain/reconciliation", "infra/guardian",
-        "migrations/001", "migrations/002", "migrations/003",
-    }
-    touched_frozen = [f for f in changed_files if any(p in f for p in frozen_patterns)]
-    results["frozen_files"] = "fail" if touched_frozen else "pass"
-    if touched_frozen and not blocked_by:
-        blocked_by = f"frozen_files: {touched_frozen[:5]}"
+    # Guard: frozen files — manifest-driven path + SHA-256 hash check (DNA §3)
+    frozen_status, frozen_violations = _check_frozen_files(changed_files)
+    results["frozen_files"] = frozen_status
+    if frozen_violations and not blocked_by:
+        blocked_by = f"frozen_files: {frozen_violations[:3]}"
 
     # Guard: forbidden imports (DNA §5)
     imports_status, imports_violations = _check_forbidden_imports(changed_files)
