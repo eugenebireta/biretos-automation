@@ -358,6 +358,31 @@ class TestProcessAll:
         assert bstate["last_processed_update_id"] == 81
         assert bstate["processed_count"] == 2
 
+    def test_cursor_persisted_after_each_entry(self, tmp_path, monkeypatch):
+        """Cursor saved after each entry — crash-safe."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#test",
+        })
+        _write_inbox(tmp_path, [
+            {"update_id": 85, "text": "/status"},
+            {"update_id": 86, "text": "ок"},
+        ])
+
+        # Process first entry only by simulating partial run
+        bridge.process_all_pending()
+
+        # Cursor should be at 86 (both processed)
+        bstate = bridge._load_bridge_state()
+        assert bstate["last_processed_update_id"] == 86
+
+        # Simulate restart: re-run with same inbox
+        _write_manifest(tmp_path, {"fsm_state": "blocked"})
+        count = bridge.process_all_pending()
+        assert count == 0  # all already processed — cursor survived "restart"
+        assert _read_manifest(tmp_path)["fsm_state"] == "blocked"  # not mutated
+
     def test_already_processed_skipped(self, tmp_path, monkeypatch):
         _patch_paths(tmp_path, monkeypatch)
         _write_manifest(tmp_path, {"fsm_state": "blocked"})

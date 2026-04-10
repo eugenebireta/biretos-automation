@@ -482,10 +482,10 @@ def process_all_pending() -> int:
         ok = process_inbox_entry(entry, bridge_state)
         if ok:
             count += 1
+            _save_bridge_state(bridge_state)  # persist after EACH entry — crash-safe
         else:
             break  # manifest locked — retry later
 
-    _save_bridge_state(bridge_state)
     return count
 
 
