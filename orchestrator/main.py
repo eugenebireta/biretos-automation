@@ -94,6 +94,24 @@ def _notify_park(manifest: dict) -> None:
         pass
 
 
+def _send_query_answer(output: str, trace_id: str, task_id: str) -> None:
+    """Send executor text output to Telegram outbox. For query/analytical tasks."""
+    try:
+        from telegram_gateway import enqueue_outbox
+        # Truncate to Telegram limit (~4000 chars)
+        text = output[:3900]
+        if len(output) > 3900:
+            text += "\n\n… (обрезано)"
+        enqueue_outbox(
+            text,
+            run_id=trace_id,
+            event_type="query_answer",
+            state="idle",
+        )
+    except Exception:
+        pass
+
+
 def _ensure_run_dir(trace_id: str) -> Path:
     """Create and return per-run directory for artifacts isolation."""
     run_dir = RUNS_DIR / trace_id
@@ -1663,28 +1681,53 @@ def _run_executor_bridge(manifest: dict, trace_id: str, cfg: dict) -> None:
                 print("Resolve and set fsm_state=ready in manifest.json")
                 print("=" * 60)
         else:
-            # B10: revert any executor commits on gate failure
-            _revert_to_base(base_commit, trace_id)
+            # G1:EMPTY with executor stdout = query/analytical task.
+            # Send answer to Telegram outbox and go idle (not error).
+            executor_output = (exec_result.stdout or "").strip()
+            is_query = (gate_result.rule == "G1:EMPTY" and len(executor_output) > 20)
 
-            manifest["fsm_state"] = "awaiting_owner_reply"
-            manifest["last_verdict"] = "BATCH_GATE_FAILED"
-            manifest["park_reason"] = f"#batch_gate_failed: {gate_result.reason[:200]}"
-            save_manifest(manifest)
-            append_run({"ts": _now(), "event": "batch_gate_failed",
-                        "status": "gate_failed",
-                        "state_before": "awaiting_execution",
-                        "state_after": "awaiting_owner_reply",
-                        "trace_id": trace_id,
-                        "gate_rule": gate_result.rule,
-                        "gate_reason": gate_result.reason,
-                        "acceptance_passed": acceptance.passed})
-            _notify_park(manifest)
-            print()
-            print("=" * 60)
-            print(f"BATCH GATE FAILED: {gate_result.rule}")
-            print(f"Reason: {gate_result.reason}")
-            print("Resolve and set fsm_state=ready in manifest.json")
-            print("=" * 60)
+            if is_query:
+                # Query mode: send executor output to Telegram
+                _send_query_answer(executor_output, trace_id, task_id)
+                manifest["fsm_state"] = "idle"
+                manifest["last_verdict"] = "QUERY_ANSWERED"
+                manifest["park_reason"] = None
+                manifest["current_task_id"] = ""
+                manifest["current_sprint_goal"] = ""
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "query_answered",
+                            "status": "query_answered",
+                            "trace_id": trace_id,
+                            "output_chars": len(executor_output)})
+                print()
+                print("=" * 60)
+                print("QUERY ANSWERED — sent to Telegram, returning to idle.")
+                print("=" * 60)
+            else:
+                # B10: revert any executor commits on gate failure
+                _revert_to_base(base_commit, trace_id)
+
+                manifest["fsm_state"] = "awaiting_owner_reply"
+                manifest["last_verdict"] = "BATCH_GATE_FAILED"
+                manifest["park_reason"] = (
+                    f"#batch_gate_failed: {gate_result.reason[:200]}"
+                )
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "batch_gate_failed",
+                            "status": "gate_failed",
+                            "state_before": "awaiting_execution",
+                            "state_after": "awaiting_owner_reply",
+                            "trace_id": trace_id,
+                            "gate_rule": gate_result.rule,
+                            "gate_reason": gate_result.reason,
+                            "acceptance_passed": acceptance.passed})
+                _notify_park(manifest)
+                print()
+                print("=" * 60)
+                print(f"BATCH GATE FAILED: {gate_result.rule}")
+                print(f"Reason: {gate_result.reason}")
+                print("Resolve and set fsm_state=ready in manifest.json")
+                print("=" * 60)
 
     elif exec_result.status == "completed" and packet is None:
         # P0-3: Executor succeeded but packet collection FAILED — do NOT mask as success
