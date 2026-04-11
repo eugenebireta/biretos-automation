@@ -17,7 +17,6 @@ import argparse
 import asyncio
 import json
 import logging
-import os
 import sys
 from pathlib import Path
 
@@ -36,10 +35,22 @@ _SECRETS_PATH = Path("auditor_system/config/.env.auditors")
 
 def _load_secrets() -> dict[str, str]:
     """
-    Loads API keys from .env.auditors via dotenv_values().
+    Loads API keys. Centralized hub first, then legacy .env.auditors.
     NEVER uses load_dotenv() — that would pollute os.environ.
-    NEVER falls back to os.environ for ANTHROPIC_API_KEY.
     """
+    # Try centralized secrets hub first
+    try:
+        from scripts.secrets import get_secret, has_secret
+        if has_secret("ANTHROPIC_API_KEY") and has_secret("GEMINI_API_KEY"):
+            return {
+                "ANTHROPIC_API_KEY": get_secret("ANTHROPIC_API_KEY"),
+                "GEMINI_API_KEY": get_secret("GEMINI_API_KEY"),
+                "OPENAI_API_KEY": get_secret("OPENAI_API_KEY", ""),
+            }
+    except (ImportError, KeyError):
+        pass  # Fall through to legacy loader
+
+    # Legacy: .env.auditors
     try:
         from dotenv import dotenv_values
     except ImportError:
@@ -49,26 +60,18 @@ def _load_secrets() -> dict[str, str]:
     secrets_path = _SECRETS_PATH
     if not secrets_path.exists():
         logger.error(
-            "Secrets file not found: %s\n"
-            "Create it with ANTHROPIC_API_KEY and OPENAI_API_KEY.",
-            secrets_path,
+            "Secrets not found in centralized hub or %s\n"
+            "Add keys to config/.secrets.env or %s",
+            secrets_path, secrets_path,
         )
         sys.exit(1)
 
     secrets = dict(dotenv_values(str(secrets_path)))
 
-    if not secrets.get("ANTHROPIC_API_KEY"):
-        logger.error(
-            "ANTHROPIC_API_KEY missing in %s (required for live auditor)", secrets_path
-        )
-        sys.exit(1)
-
-    # GEMINI_API_KEY: required for Gemini auditor (replaces OpenAI)
-    if not secrets.get("GEMINI_API_KEY"):
-        logger.error(
-            "GEMINI_API_KEY missing in %s (required for live Gemini auditor)", secrets_path
-        )
-        sys.exit(1)
+    for key in ("ANTHROPIC_API_KEY", "GEMINI_API_KEY"):
+        if not secrets.get(key):
+            logger.error("%s missing in %s", key, secrets_path)
+            sys.exit(1)
 
     return secrets
 
@@ -154,7 +157,12 @@ def _load_task_from_args(args):
         task_data = json.loads(task_path.read_text(encoding="utf-8"))
     else:
         # Validate required args when no task file
-        missing = [f for f, v in [("--title", args.title), ("--stage", args.stage), ("--why-now", args.why_now), ("--risk", args.risk)] if not v]
+        missing = [
+            f for f, v in [
+                ("--title", args.title), ("--stage", args.stage),
+                ("--why-now", args.why_now), ("--risk", args.risk),
+            ] if not v
+        ]
         if missing:
             print(f"ERROR: required args missing: {missing} (or use --task-file)")
             sys.exit(1)
@@ -217,7 +225,6 @@ async def _run_task(args, live: bool = False):
             print(summary_path.read_text(encoding="utf-8"))
         except UnicodeEncodeError:
             # Windows terminal can't display some Unicode — write to file instead
-            import re
             text = summary_path.read_text(encoding="utf-8")
             text_ascii = text.encode("ascii", errors="replace").decode("ascii")
             print(text_ascii)
@@ -266,7 +273,7 @@ async def _dry_run(args):
     print(f"{'='*60}")
     for run in results:
         print(f"  {run.task.risk.value.upper():5} | {run.approval_route.value:20} | {run.task.title}")
-    print(f"\nCheck artifacts in: runs/")
+    print("\nCheck artifacts in: runs/")
     return results
 
 
@@ -409,12 +416,12 @@ async def _verdict(args):
     run_store.save_manifest(run)
 
     print(f"\n{'='*60}")
-    print(f"Verdict recorded")
+    print("Verdict recorded")
     print(f"  Run ID:  {run_id}")
     print(f"  Verdict: {verdict}")
     if notes:
         print(f"  Notes:   {notes}")
-    print(f"\nDPO record written to: experience_log/ or anti_patterns/")
+    print("\nDPO record written to: experience_log/ or anti_patterns/")
     print(f"{'='*60}\n")
 
 

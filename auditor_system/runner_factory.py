@@ -91,16 +91,28 @@ def create_review_runner(
 
 def _load_secrets_safe() -> dict[str, str]:
     """
-    Load API secrets from .env.auditors.
+    Load API secrets. Tries centralized hub first, then legacy .env.auditors.
 
-    Raises ConfigError (not sys.exit) when file or keys are missing.
-    This allows callers to handle the error gracefully.
+    Raises ConfigError (not sys.exit) when required keys are missing.
     """
+    # Try centralized secrets hub first
+    try:
+        from scripts.secrets import get_secret, has_secret
+        if has_secret("ANTHROPIC_API_KEY") and has_secret("GEMINI_API_KEY"):
+            return {
+                "ANTHROPIC_API_KEY": get_secret("ANTHROPIC_API_KEY"),
+                "GEMINI_API_KEY": get_secret("GEMINI_API_KEY"),
+                "OPENAI_API_KEY": get_secret("OPENAI_API_KEY", ""),
+            }
+    except (ImportError, KeyError):
+        pass  # Fall through to legacy loader
+
+    # Legacy: load from .env.auditors directly
     secrets_path = _SECRETS_PATH
     if not secrets_path.exists():
         raise ConfigError(
-            f"Secrets file not found: {secrets_path}\n"
-            "Create it with GEMINI_API_KEY and ANTHROPIC_API_KEY."
+            f"Secrets not found in centralized hub or {secrets_path}\n"
+            "Add keys to config/.secrets.env or auditor_system/config/.env.auditors"
         )
 
     try:
