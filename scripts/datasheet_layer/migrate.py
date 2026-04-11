@@ -54,6 +54,7 @@ def migrate_all(
         "found": 0,
         "ingested": 0,
         "dedup_skipped": 0,
+        "no_content": 0,
         "errors": 0,
     }
 
@@ -91,7 +92,7 @@ def migrate_all(
             if pdf_path and Path(pdf_path).exists():
                 stats["ingested"] += 1
             else:
-                stats["dedup_skipped"] += 1  # would be skipped: no content hash
+                stats["no_content"] += 1  # no PDF available — cannot compute hash
             continue
 
         try:

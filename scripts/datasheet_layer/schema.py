@@ -44,7 +44,11 @@ class DatasheetRecord(BaseModel):
 
     @model_validator(mode="after")
     def _auto_idempotency_key(self) -> DatasheetRecord:
-        if not self.idempotency_key and self.pn and self.content_hash:
+        if not self.pn:
+            raise ValueError("pn must not be empty — dedup depends on it")
+        if not self.content_hash:
+            raise ValueError("content_hash must not be empty — dedup depends on it")
+        if not self.idempotency_key:
             self.idempotency_key = f"{self.pn}:{self.content_hash}"
         return self
 
