@@ -51,6 +51,7 @@ def _pick_price(evidence: dict) -> tuple[float | None, str | None, str | None]:
     Priority:
       1. price_contract.dr_value (DR pipeline, has unit_basis judgment attached)
       2. price.price_per_unit (Phase A SerpAPI pipeline)
+      3. price_contract.our_price_parsed (RUB estimate from internal Excel, ~2022 rate)
     """
     pc = evidence.get("price_contract") or {}
     dr_val = pc.get("dr_value")
@@ -77,6 +78,18 @@ def _pick_price(evidence: dict) -> tuple[float | None, str | None, str | None]:
             log.warning(
                 "normalize: price.price_per_unit not numeric pn=%s val=%r",
                 evidence.get("pn"), p1_val,
+                extra={"error_class": "PERMANENT", "severity": "WARNING", "retriable": False},
+            )
+
+    # Fallback: internal RUB market estimate from Excel (currency inferred as RUB)
+    our_val = pc.get("our_price_parsed")
+    if our_val is not None:
+        try:
+            return float(our_val), "RUB", "our_estimate"
+        except (TypeError, ValueError):
+            log.warning(
+                "normalize: price_contract.our_price_parsed not numeric pn=%s val=%r",
+                evidence.get("pn"), our_val,
                 extra={"error_class": "PERMANENT", "severity": "WARNING", "retriable": False},
             )
 
@@ -247,6 +260,7 @@ def run(dry_run: bool = False) -> None:
         "errors": 0,
         "price_price_contract": 0,
         "price_pipeline1": 0,
+        "price_our_estimate": 0,
         "price_none": 0,
         "desc_dr": 0,
         "desc_content": 0,
@@ -290,6 +304,8 @@ def run(dry_run: bool = False) -> None:
             stats["price_price_contract"] += 1
         elif src == "pipeline1":
             stats["price_pipeline1"] += 1
+        elif src == "our_estimate":
+            stats["price_our_estimate"] += 1
         else:
             stats["price_none"] += 1
 
@@ -336,6 +352,7 @@ def run(dry_run: bool = False) -> None:
     print("PRICE (best_price_source):")
     print(f"  price_contract:  {stats['price_price_contract']}")
     print(f"  pipeline1:       {stats['price_pipeline1']}")
+    print(f"  our_estimate:    {stats['price_our_estimate']}  (RUB, ~2022 rate)")
     print(f"  none:            {stats['price_none']}")
     if total:
         print(f"  coverage:        {(total - stats['price_none']) / total * 100:.1f}%")
@@ -395,6 +412,16 @@ def _run_tests() -> None:
     }
     v, c, s = _pick_price(e_both)
     check("price/priority_pc_over_p1", (v, c, s), (10.0, "EUR", "price_contract"))
+
+    e_our = {"price_contract": {"our_price_parsed": 714.1}}
+    v, c, s = _pick_price(e_our)
+    check("price/our_estimate", (v, c, s), (714.1, "RUB", "our_estimate"))
+
+    e_our_skip = {
+        "price_contract": {"dr_value": 50.0, "dr_currency": "EUR", "our_price_parsed": 714.1}
+    }
+    v, c, s = _pick_price(e_our_skip)
+    check("price/dr_beats_our_estimate", (v, c, s), (50.0, "EUR", "price_contract"))
 
     e_none = {}
     v, c, s = _pick_price(e_none)
