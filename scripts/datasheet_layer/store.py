@@ -150,7 +150,7 @@ def write_version(
     record_dict: dict,
     trace_id: str = "",
     auto_version: bool = False,
-) -> tuple[Path, int]:
+) -> tuple[Path, int, dict]:
     """
     Write a versioned datasheet record. Thread/process safe via file lock.
 
@@ -170,6 +170,9 @@ def write_version(
 
     pn_dir = get_pn_dir(base_dir, pn)
 
+    # Global lock (base_dir level) — serialises all PNs. Acceptable for
+    # current scale (<500 PNs, max ~5 versions each). For bulk migration
+    # the bottleneck is I/O, not lock contention.
     with _file_lock(base_dir, trace_id=trace_id):
         # Dedup check under lock — no TOCTOU race
         if idem_key:
@@ -218,7 +221,7 @@ def write_version(
         pn=pn, version=version,
         spec_count=len(record_dict.get("specs", {})),
     )
-    return version_path, version
+    return version_path, version, record_dict
 
 
 def read_version(base_dir: Path, pn: str, version: int, trace_id: str = "") -> dict | None:
