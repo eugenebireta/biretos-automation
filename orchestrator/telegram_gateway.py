@@ -45,8 +45,10 @@ ORCH_DIR = ROOT / "orchestrator"
 INBOX_PATH = ORCH_DIR / "owner_inbox.jsonl"
 OUTBOX_PATH = ORCH_DIR / "owner_outbox.jsonl"
 HEARTBEAT_PATH = ORCH_DIR / "gateway_heartbeat.json"
+RECV_DEDUP_PATH = ORCH_DIR / "gateway_recv_dedup.json"
 LOG_PATH = ORCH_DIR / "gateway.log"
 ENV_PATH = ORCH_DIR / ".env.telegram"
+_RECV_DEDUP_MAXSIZE = 1000
 
 # Redaction patterns — never send these to messenger
 _REDACT_PATTERNS = [
@@ -166,11 +168,29 @@ class TelegramGateway:
         self.data_dir = data_dir
 
         self._sent_dedup: collections.deque[str] = collections.deque(maxlen=500)
-        self._recv_dedup: collections.deque[str] = collections.deque(maxlen=500)
+        self._recv_dedup: collections.deque[str] = collections.deque(maxlen=_RECV_DEDUP_MAXSIZE)
         self._started_at = datetime.now(timezone.utc)
         self._inbox_count = 0
         self._outbox_count = 0
         self._error_count = 0
+        self._load_recv_dedup()
+
+    def _load_recv_dedup(self) -> None:
+        """Load persisted seen-hashes so dedup survives gateway restarts."""
+        try:
+            if RECV_DEDUP_PATH.exists():
+                data = json.loads(RECV_DEDUP_PATH.read_text(encoding="utf-8"))
+                for h in data.get("seen", []):
+                    self._recv_dedup.append(h)
+        except Exception:
+            pass
+
+    def _save_recv_dedup(self) -> None:
+        """Write current seen-hashes to disk."""
+        try:
+            _atomic_write_json(RECV_DEDUP_PATH, {"seen": list(self._recv_dedup)})
+        except Exception:
+            pass
 
     # ── Logging ─────────────────────────────────────────────────────
 
@@ -250,6 +270,7 @@ class TelegramGateway:
             return
         if dedup_key:
             self._recv_dedup.append(dedup_key)
+            self._save_recv_dedup()
 
         # Write to inbox — canonical event envelope
         entry = {
