@@ -609,14 +609,15 @@
     "dr_source_url": "https://www.ebay.com/itm/388510039698",
     "our_price_raw": "1997,60",
     "our_price_parsed": 1997.6,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_en",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "tube/probe, 'Open Box' triggered pack_marker — false positive"
   }
 }

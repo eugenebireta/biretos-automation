@@ -590,14 +590,15 @@
     "dr_source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
     "our_price_raw": "22295,68",
     "our_price_parsed": 22295.68,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_en",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "Esser fire alarm card, 'open box' on eBay triggered 'box' — false positive"
   }
 }

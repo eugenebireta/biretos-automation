@@ -548,14 +548,15 @@
     "dr_source_url": "https://energycontrolsonline.co.uk/products/differential-pressure-transmitter-3-wire-1000pa-1000pa",
     "our_price_raw": "55842,00",
     "our_price_parsed": 55842.0,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_en",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "differential pressure sensor, 'Duct Kit' triggered pack_marker — kit = product type not multi-pack"
   }
 }

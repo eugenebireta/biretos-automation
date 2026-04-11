@@ -630,14 +630,15 @@
     "dr_source_url": "Fuse",
     "our_price_raw": "584,03",
     "our_price_parsed": 584.03,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "fuse 20A, '5X20' is physical size 5mm×20mm, not pack quantity"
   }
 }

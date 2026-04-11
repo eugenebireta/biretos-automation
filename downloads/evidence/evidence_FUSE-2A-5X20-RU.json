@@ -663,14 +663,15 @@
     "dr_source_url": "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
     "our_price_raw": "151,90",
     "our_price_parsed": 151.9,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "fuse 2A, '5X20' is physical size 5mm×20mm, not pack quantity"
   }
 }

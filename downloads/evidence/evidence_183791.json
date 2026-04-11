@@ -649,14 +649,15 @@
     "dr_source_url": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
     "our_price_raw": "3348,82",
     "our_price_parsed": 3348.82,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": 10
+    "pack_qty": 10,
+    "judge_reason": "PEHA NOVA frame, qty=10 detected in context. Known pack trap."
   }
 }

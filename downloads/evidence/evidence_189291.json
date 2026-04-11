@@ -654,14 +654,15 @@
     "dr_source_url": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189291-5-st-2856763.html",
     "our_price_raw": "9291,30",
     "our_price_parsed": 9291.3,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_ru",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "PEHA NOVA 3-gang frame, CHF 443.95 — known pack trap, unit price should be ~€40-60 range"
   }
 }

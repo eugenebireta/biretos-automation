@@ -553,14 +553,15 @@
     "dr_source_url": "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx",
     "our_price_raw": "1808,89",
     "our_price_parsed": 1808.89,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "cable channel, quantity in specs text is dimensions not pack"
   }
 }

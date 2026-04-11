@@ -599,14 +599,15 @@
     "dr_source_url": "https://it.wiautomation.com/phoenix-contact/altri-prodotti/3240199-phoenix-contact-cd-60x80",
     "our_price_raw": "3159,72",
     "our_price_parsed": 3159.72,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "cable channel, quantity pattern in specs is dimensions"
   }
 }
