@@ -163,7 +163,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -329,7 +336,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Соединитель",
-    "seed_name": "Т-образный соединитель 200x80мм 36144-RU"
+    "seed_name": "Т-образный соединитель 200x80мм 36144-RU",
+    "description_long_ru": "Not found on any platform. Proprietary Russian-market code"
   },
   "trace": {
     "pn_match_location": "",
@@ -595,10 +603,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.824101+00:00",
+    "merge_ts": "2026-04-10T11:05:35.112588+00:00",
     "merge_source": "result_36144-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (3).md"
-  }
+    "source_file": "deep-research-report (3).md",
+    "description_ru": "Not found on any platform. Proprietary Russian-market code"
+  },
+  "product_category": "Optical/Heat; RU spec"
 }

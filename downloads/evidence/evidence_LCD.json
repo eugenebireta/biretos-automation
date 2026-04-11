@@ -146,7 +146,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -342,7 +349,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Видеонаблюдение",
     "product_type": "Монитор",
-    "seed_name": "Монитор LCD"
+    "seed_name": "Монитор LCD",
+    "description_long_ru": "Generic placeholder PN. Not researchable as a specific product"
   },
   "trace": {
     "pn_match_location": "",
@@ -620,10 +628,13 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.946503+00:00",
+    "merge_ts": "2026-04-10T11:05:35.466176+00:00",
     "merge_source": "result_LCD.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Generic placeholder PN. Not researchable as a specific product"
+  },
+  "dr_image_url": "https://www.axiomtek.com/images/products/P6191PR-DC.jpg",
+  "product_category": "monitor"
 }

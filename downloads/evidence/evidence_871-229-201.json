@@ -176,12 +176,19 @@
     "image_confidence": 0.018,
     "price_confidence": 0.1,
     "overall": 0.079,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -202,7 +209,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqKYYfShaMrwFp4u9L3E'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -220,7 +227,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://scanberry.ru/catalog/kupit/zaryadnoe_ustroystvo_dlya_ck3_4_slota_871_229"
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -367,7 +377,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленные сканеры",
     "product_type": "Зарядная станция",
-    "seed_name": "Зарядная станция Honeywell MULTIDOCK, CHARGE ONLY CK3, AD22"
+    "seed_name": "Зарядная станция Honeywell MULTIDOCK, CHARGE ONLY CK3, AD22",
+    "description_long_ru": "Also $440.97 at logiscenter.us (MSRP $734.59). Not TAA compliant."
   },
   "trace": {
     "pn_match_location": "",
@@ -580,5 +591,45 @@
     "image_url": null,
     "specs": null,
     "notes": ""
-  }
+  },
+  "deep_research": {
+    "title_ru": "Charging station",
+    "description_ru": "Also $440.97 at logiscenter.us (MSRP $734.59). Not TAA compliant.",
+    "specs": {
+      "raw": "4-slot charge-only dock; CK3/CK3X/CK3R/CK65; requires PSU 851-064-416; UPC 650361190737",
+      "aliases": [
+        "Intermec 871-229-201",
+        "replaces 871-229-101"
+      ]
+    },
+    "identity_confirmed": true,
+    "confidence": "medium",
+    "key_findings": [
+      "Also $440.97 at logiscenter.us (MSRP $734.59). Not TAA compliant.",
+      "Aliases: Intermec 871-229-201; replaces 871-229-101"
+    ],
+    "sources": [
+      {
+        "url": "https://www.amazon.com/Intermec-871-229-201-Multi-Charges-Entire/dp/B01IK7KFWC",
+        "type": "distributor",
+        "domain": "www.amazon.com",
+        "supports": [
+          "identity",
+          "price",
+          "photo"
+        ]
+      }
+    ],
+    "provider": "dr_claude",
+    "model": "claude-opus-4",
+    "source_file": "claude_compass_batch5_variantA.md",
+    "merge_ts": "2026-04-10T11:47:36.520442+00:00",
+    "merge_source": "result_871-229-201.json"
+  },
+  "dr_category": "Charging station",
+  "dr_image_url": "https://www.provantage.com/honeywell-871-229-201~7ITCA3PJ.htm",
+  "dr_price": 320.0,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.amazon.com/Intermec-871-229-201-Multi-Charges-Entire/dp/B01IK7KFWC",
+  "product_category": "Charging station"
 }

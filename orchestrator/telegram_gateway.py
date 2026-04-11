@@ -10,6 +10,9 @@ Responsibilities:
     3. Auth: only accept messages from owner_chat_id
     4. Heartbeat + structured logging
 
+Now uses MessengerTransport abstraction (Wave 1 refactor).
+All Telegram API calls are delegated to TelegramAdapter.
+
 Usage:
     python orchestrator/telegram_gateway.py
 
@@ -29,7 +32,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import httpx
+# Import transport abstraction
+try:
+    from orchestrator.messaging.base import MessengerTransport, CanonicalEvent
+    from orchestrator.messaging.telegram_adapter import TelegramAdapter
+except ModuleNotFoundError:
+    from messaging.base import MessengerTransport, CanonicalEvent
+    from messaging.telegram_adapter import TelegramAdapter
 
 ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
@@ -39,17 +48,16 @@ HEARTBEAT_PATH = ORCH_DIR / "gateway_heartbeat.json"
 LOG_PATH = ORCH_DIR / "gateway.log"
 ENV_PATH = ORCH_DIR / ".env.telegram"
 
-# Telegram limits
-TG_MAX_TEXT = 4096
-TG_TRUNCATE_AT = 4000
-
-# Redaction patterns — never send these to Telegram
+# Redaction patterns — never send these to messenger
 _REDACT_PATTERNS = [
     "\\Users\\",
     "/home/",
     "Traceback (most recent",
     "File \"",
 ]
+
+# Truncation limit for outbound text
+_TRUNCATE_AT = 4000
 
 
 def _iso_z(dt: datetime | None = None) -> str:
@@ -79,8 +87,8 @@ def _redact(text: str) -> str:
         if not redacted:
             clean.append(line)
     result = "\n".join(clean).strip()
-    if len(result) > TG_TRUNCATE_AT:
-        result = result[:TG_TRUNCATE_AT] + "\n[...обрезано]"
+    if len(result) > _TRUNCATE_AT:
+        result = result[:_TRUNCATE_AT] + "\n[...обрезано]"
     return result
 
 
@@ -145,21 +153,23 @@ def _load_env() -> tuple[str, int | None]:
 
 
 class TelegramGateway:
-    """Single-process Telegram transport. Dumb pipe — no business logic."""
+    """Single-process gateway. Transport-agnostic inbox/outbox bridge.
 
-    def __init__(self, token: str, owner_chat_id: int | None, data_dir: Path):
-        self.token = token
+    Uses MessengerTransport for all platform API calls.
+    Owns: auth, redaction, dedup, inbox/outbox file I/O, heartbeat.
+    """
+
+    def __init__(self, transport: MessengerTransport, owner_chat_id: int | None,
+                 data_dir: Path):
+        self.transport = transport
         self.owner_chat_id = owner_chat_id
         self.data_dir = data_dir
-        self.api_base = f"https://api.telegram.org/bot{token}"
 
-        self._last_update_id = 0
         self._sent_dedup: collections.deque[str] = collections.deque(maxlen=500)
         self._started_at = datetime.now(timezone.utc)
         self._inbox_count = 0
         self._outbox_count = 0
         self._error_count = 0
-        self._client = httpx.Client(timeout=40)
 
     # ── Logging ─────────────────────────────────────────────────────
 
@@ -169,15 +179,14 @@ class TelegramGateway:
             _locked_append(LOG_PATH, json.dumps(entry, ensure_ascii=False))
         except Exception:
             pass
-        # Also print to console for PC visibility
         print(f"[{entry['ts'][:19]}] {level} {event} {kw or ''}", flush=True)
 
     # ── Auth ────────────────────────────────────────────────────────
 
-    def _is_authorized(self, chat_id: int) -> bool:
+    def _is_authorized(self, chat_id: int | str) -> bool:
         if self.owner_chat_id is None:
             return True  # first message sets owner
-        return chat_id == self.owner_chat_id
+        return int(chat_id) == self.owner_chat_id
 
     def _save_owner_chat_id(self, chat_id: int) -> None:
         """Persist owner chat_id on first /start."""
@@ -190,62 +199,19 @@ class TelegramGateway:
         ENV_PATH.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
         self._log("INFO", "owner_registered", chat_id=chat_id)
 
-    # ── Polling ─────────────────────────────────────────────────────
-
-    def _poll_updates(self) -> list[dict]:
-        """Long-poll Telegram. Returns list of Update dicts."""
-        params = {
-            "offset": self._last_update_id + 1,
-            "limit": 20,
-            "timeout": 30,
-            "allowed_updates": json.dumps(["message"]),
-        }
-        try:
-            resp = self._client.get(f"{self.api_base}/getUpdates", params=params)
-            resp.raise_for_status()
-            data = resp.json()
-            if not data.get("ok"):
-                self._log("WARNING", "poll_not_ok", description=data.get("description"))
-                return []
-            updates = data.get("result", [])
-            for u in updates:
-                uid = u.get("update_id", 0)
-                if uid > self._last_update_id:
-                    self._last_update_id = uid
-            return updates
-        except httpx.HTTPStatusError as e:
-            if e.response.status_code == 409:
-                self._log("ERROR", "poll_conflict",
-                          detail="Another client is polling. Stop it first.")
-                time.sleep(10)
-            elif e.response.status_code == 429:
-                retry_after = int(e.response.headers.get("Retry-After", "30"))
-                self._log("WARNING", "poll_rate_limited", retry_after=retry_after)
-                time.sleep(retry_after)
-            else:
-                self._log("ERROR", "poll_http_error", status=e.response.status_code)
-                self._error_count += 1
-                time.sleep(5)
-            return []
-        except (httpx.ConnectError, httpx.TimeoutException) as e:
-            self._log("WARNING", "poll_network_error", error=str(e)[:200])
-            time.sleep(5)
-            return []
-
     # ── Inbound processing ──────────────────────────────────────────
 
-    def _process_update(self, update: dict) -> None:
-        msg = update.get("message") or {}
-        chat = msg.get("chat") or {}
-        chat_id = chat.get("id")
-        text = (msg.get("text") or "").strip()
+    def _process_event(self, event: CanonicalEvent) -> None:
+        """Process one canonical event from the transport."""
+        chat_id = event.chat_id
+        text = event.text
 
         if not chat_id:
             return
 
         # Auth gate
         if self.owner_chat_id is None:
-            self._save_owner_chat_id(chat_id)
+            self._save_owner_chat_id(int(chat_id))
         elif not self._is_authorized(chat_id):
             self._log("WARNING", "auth_rejected", chat_id=chat_id)
             return
@@ -256,30 +222,34 @@ class TelegramGateway:
         # /ping or /health — respond directly (no bridge needed)
         if text.lower() in ("/ping", "/health"):
             uptime = int((datetime.now(timezone.utc) - self._started_at).total_seconds())
-            self._send_message(
+            self.transport.send_message(
+                str(self.owner_chat_id),
                 f"Gateway alive.\n"
                 f"Uptime: {uptime}s\n"
                 f"Inbox: {self._inbox_count}\n"
                 f"Outbox sent: {self._outbox_count}\n"
-                f"Errors: {self._error_count}"
+                f"Errors: {self._error_count}",
             )
             return
 
-        # Write to inbox
+        # Write to inbox — canonical event envelope
         entry = {
             "ts": _iso_z(),
-            "msg_id": msg.get("message_id"),
-            "update_id": update.get("update_id"),
+            "msg_id": event.message_id,
+            "update_id": event.update_id,
             "chat_id": chat_id,
             "text": text,
-            "source": "telegram_gateway",
+            "source": event.source,
+            "event_type": event.event_type,
+            "raw_hash": event.raw_hash,
         }
         _locked_append(INBOX_PATH, json.dumps(entry, ensure_ascii=False))
         self._inbox_count += 1
-        self._log("INFO", "inbox_write", msg_id=entry["msg_id"], text_preview=text[:80])
+        self._log("INFO", "inbox_write", msg_id=entry["msg_id"],
+                  text_preview=text[:80])
 
         # Acknowledge to owner
-        self._send_message("Принял. Передам.")
+        self.transport.send_message(str(self.owner_chat_id), "Принял. Передам.")
 
     # ── Outbox dispatch ─────────────────────────────────────────────
 
@@ -296,6 +266,7 @@ class TelegramGateway:
         if not lines:
             return
 
+        transport_name = self.transport.transport_name
         remaining = []
         for line in lines:
             line = line.strip()
@@ -308,7 +279,13 @@ class TelegramGateway:
 
             status = entry.get("status", "pending")
             if status != "pending":
-                continue  # skip already processed
+                continue
+
+            # Target filter: only process messages for this transport
+            target = entry.get("target")
+            if target and target != transport_name:
+                remaining.append(line)  # keep for other gateway
+                continue
 
             dedup_key = entry.get("dedup_key", "")
             if dedup_key and dedup_key in self._sent_dedup:
@@ -319,8 +296,8 @@ class TelegramGateway:
             if not text:
                 continue
 
-            ok = self._send_message(text)
-            if ok:
+            ref = self.transport.send_message(str(self.owner_chat_id), text)
+            if ref.success:
                 self._outbox_count += 1
                 if dedup_key:
                     self._sent_dedup.append(dedup_key)
@@ -328,52 +305,34 @@ class TelegramGateway:
             else:
                 # Keep for retry next cycle
                 remaining.append(line)
-                self._log("WARNING", "outbox_send_failed", msg_id=entry.get("msg_id"))
+                self._log("WARNING", "outbox_send_failed",
+                          msg_id=entry.get("msg_id"))
 
         # Rewrite outbox with only unsent items
         try:
             if remaining:
-                _atomic_write_json(OUTBOX_PATH, {})  # placeholder
-                OUTBOX_PATH.write_text("\n".join(remaining) + "\n", encoding="utf-8")
+                OUTBOX_PATH.write_text("\n".join(remaining) + "\n",
+                                       encoding="utf-8")
             else:
                 OUTBOX_PATH.write_text("", encoding="utf-8")
         except Exception as e:
             self._log("ERROR", "outbox_rewrite_failed", error=str(e)[:200])
 
-    # ── Send ────────────────────────────────────────────────────────
-
-    def _send_message(self, text: str) -> bool:
-        """Send text to owner. Returns True on success."""
-        if not self.owner_chat_id:
-            return False
-        payload = {"chat_id": self.owner_chat_id, "text": text[:TG_MAX_TEXT]}
-        try:
-            resp = self._client.post(f"{self.api_base}/sendMessage", json=payload)
-            if resp.status_code == 429:
-                retry_after = int(resp.headers.get("Retry-After", "30"))
-                self._log("WARNING", "send_rate_limited", retry_after=retry_after)
-                time.sleep(retry_after)
-                resp = self._client.post(f"{self.api_base}/sendMessage", json=payload)
-            resp.raise_for_status()
-            return True
-        except Exception as e:
-            self._log("ERROR", "send_failed", error=str(e)[:200])
-            self._error_count += 1
-            return False
-
     # ── Heartbeat ───────────────────────────────────────────────────
 
     def _write_heartbeat(self) -> None:
         uptime = int((datetime.now(timezone.utc) - self._started_at).total_seconds())
+        transport_status = self.transport.get_status()
         data = {
             "pid": os.getpid(),
+            "transport": self.transport.transport_name,
             "started_at": _iso_z(self._started_at),
             "last_poll_ts": _iso_z(),
-            "last_update_id": self._last_update_id,
             "inbox_lines_written": self._inbox_count,
             "outbox_lines_sent": self._outbox_count,
             "errors_last_hour": self._error_count,
             "uptime_seconds": uptime,
+            **transport_status,
         }
         try:
             _atomic_write_json(HEARTBEAT_PATH, data)
@@ -383,10 +342,12 @@ class TelegramGateway:
     # ── Main loop ───────────────────────────────────────────────────
 
     def run(self) -> None:
-        self._log("INFO", "gateway_start", pid=os.getpid())
+        transport_label = self.transport.transport_name.upper()
+        self._log("INFO", "gateway_start", pid=os.getpid(),
+                  transport=transport_label)
         print(flush=True)
         print("=" * 50, flush=True)
-        print("  TELEGRAM GATEWAY v1.0", flush=True)
+        print(f"  {transport_label} GATEWAY v2.0", flush=True)
         print("  Dumb pipe — inbox/outbox only", flush=True)
         print("=" * 50, flush=True)
         print(flush=True)
@@ -394,9 +355,9 @@ class TelegramGateway:
         try:
             while True:
                 try:
-                    updates = self._poll_updates()
-                    for u in updates:
-                        self._process_update(u)
+                    events = self.transport.receive_updates()
+                    for ev in events:
+                        self._process_event(ev)
                     self._flush_outbox()
                     self._write_heartbeat()
                 except KeyboardInterrupt:
@@ -420,8 +381,13 @@ def enqueue_outbox(
     event_type: str = "message",
     state: str | None = None,
     reason_code: str | None = None,
+    target: str = "telegram",
 ) -> str:
     """Write a message to owner_outbox.jsonl for Gateway to deliver.
+
+    Args:
+        target: transport name filter. Gateway only sends messages
+                matching its own transport_name. Default: "telegram".
 
     Returns the msg_id.
     """
@@ -440,6 +406,7 @@ def enqueue_outbox(
         "status": "pending",
         "run_id": run_id,
         "event_type": event_type,
+        "target": target,
     }
     _locked_append(OUTBOX_PATH, json.dumps(entry, ensure_ascii=False))
     return msg_id
@@ -450,7 +417,8 @@ def enqueue_outbox(
 
 def main():
     token, chat_id = _load_env()
-    gw = TelegramGateway(token, chat_id, ORCH_DIR)
+    adapter = TelegramAdapter(token)
+    gw = TelegramGateway(adapter, chat_id, ORCH_DIR)
     gw.run()
 
 

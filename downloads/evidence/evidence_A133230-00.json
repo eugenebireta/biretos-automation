@@ -176,12 +176,19 @@
     "image_confidence": 0.017,
     "price_confidence": 0.1,
     "overall": 0.076,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -202,7 +209,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqKs3wq8vNNAaEadn6rh'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -220,7 +227,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://www.bicotender.ru/tender184558738.html"
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -379,7 +389,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Модуль",
-    "seed_name": "Коммуникационный модуль Honeywell STRAALH.COMMMK2, BISON., STAND."
+    "seed_name": "Коммуникационный модуль Honeywell STRAALH.COMMMK2, BISON., STAND.",
+    "description_long_ru": "NOT a communication module — it is a supplied-air shotblasting helmet (Honeywell North brand). Dutch: Straalhelm=shotblasting helmet"
   },
   "trace": {
     "pn_match_location": "",
@@ -676,10 +687,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.877163+00:00",
+    "merge_ts": "2026-04-10T11:05:35.276309+00:00",
     "merge_source": "result_A133230-00.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
-  }
+    "source_file": "deep-research-report (1).md",
+    "description_ru": "NOT a communication module — it is a supplied-air shotblasting helmet (Honeywell North brand). Dutch: Straalhelm=shotblasting helmet"
+  },
+  "product_category": "PPE sandblasting helmet"
 }

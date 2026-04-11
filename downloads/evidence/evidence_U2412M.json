@@ -159,7 +159,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -331,7 +338,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Монитор",
-    "seed_name": "Монитор Honeywell U2412M"
+    "seed_name": "Монитор Honeywell U2412M",
+    "description_long_ru": "Dell UltraSharp; ref price 9,913 RUB is reasonable vs market"
   },
   "trace": {
     "pn_match_location": "",
@@ -605,10 +613,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:25.012077+00:00",
+    "merge_ts": "2026-04-10T11:05:35.633084+00:00",
     "merge_source": "result_U2412M.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
-  }
+    "source_file": "deep-research-report (1).md",
+    "description_ru": "Dell UltraSharp; ref price 9,913 RUB is reasonable vs market"
+  },
+  "product_category": "monitor"
 }

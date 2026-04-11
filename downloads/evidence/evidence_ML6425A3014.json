@@ -141,12 +141,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -167,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Привод Honeywell ML6425A3014 с возвратной пружиной чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -185,7 +192,9 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "no_price_found",
@@ -553,5 +562,6 @@
   "dr_category": "Valve actuator (spring return)",
   "dr_price": 721.17,
   "dr_currency": "EUR",
-  "dr_price_source": "https://lafipa.lv/en/produkti/siltumapgade-en/automation-control-systems/valve-actuators/ml6425a3014-2/"
+  "dr_price_source": "https://lafipa.lv/en/produkti/siltumapgade-en/automation-control-systems/valve-actuators/ml6425a3014-2/",
+  "product_category": "valve actuator"
 }

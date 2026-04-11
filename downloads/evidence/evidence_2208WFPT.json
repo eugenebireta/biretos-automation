@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -569,5 +576,6 @@
   },
   "deep_research": {
     "description_ru": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell."
-  }
+  },
+  "product_category": "monitor"
 }

@@ -118,9 +118,16 @@
     "image_confidence": 0.769,
     "price_confidence": 0.769,
     "overall": 0.727,
-    "overall_label": "MEDIUM",
+    "overall_label": "HIGH",
     "publishability": "AUTO_PUBLISH",
-    "notes": []
+    "notes": [],
+    "overall_label_prior": "MEDIUM",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": true
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -141,7 +148,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Виден промышленный модульный блок/корпус белого цвета, соответствует расширению блока питания Honeywell",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -159,7 +166,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/kontrolnye_p"
   },
   "price": {
     "price_status": "public_price",
@@ -493,5 +503,6 @@
   "dr_image_url": "https://www.esser-systems.com/productimages/system-flexes-control/power-supply-expansion//fx808364-power-supply-extension-24-v24-ah_Inherited_product_pic_300_300_BMFX8083_64xxx_GEPE_SF3C_03.jpg",
   "dr_price": 1.015,
   "dr_currency": "EUR",
-  "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes"
+  "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+  "product_category": "Fire alarm PSU extension"
 }

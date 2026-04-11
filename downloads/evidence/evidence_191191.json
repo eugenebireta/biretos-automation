@@ -173,12 +173,19 @@
     "image_confidence": 0.036,
     "price_confidence": 0.1,
     "overall": 0.105,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -368,7 +375,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Детектор",
-    "seed_name": "Детектор пламени Honeywell D 20.674.222.022"
+    "seed_name": "Детектор пламени Honeywell D 20.674.222.022",
+    "description_long_ru": "NOT a flame detector — it is a cover frame. Price for sister variant"
   },
   "trace": {
     "pn_match_location": "",
@@ -642,11 +650,16 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.800565+00:00",
+    "merge_ts": "2026-04-10T11:05:35.026442+00:00",
     "merge_source": "result_191191.json",
     "title_ru": "Unknown",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (1).md"
-  }
+    "source_file": "deep-research-report (1).md",
+    "description_ru": "NOT a flame detector — it is a cover frame. Price for sister variant"
+  },
+  "dr_price": 18.7,
+  "dr_currency": "EUR",
+  "dr_price_source": "https://www.ebay.de",
+  "product_category": "PEHA NOVA frame"
 }

@@ -146,7 +146,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -586,5 +593,6 @@
   "dr_image_url": "Не найдено",
   "dr_price": 23.51,
   "dr_currency": "USD",
-  "dr_price_source": null
+  "dr_price_source": null,
+  "product_category": "PEHA rocker switch"
 }

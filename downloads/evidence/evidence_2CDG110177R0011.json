@@ -155,12 +155,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -181,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqFhvpjMk9hkKLAfNEEW'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -199,7 +206,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://www.dcscpu.com/ABB-SA-S-4-16-1-2CDG-110-063-R0011-SWITCH-ACTUATOR-p30072"
   },
   "price": {
     "price_status": "no_price_found",
@@ -350,7 +360,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Интерфейс",
-    "seed_name": "IP-интерфейс Honeywell IPS/S3.1.1"
+    "seed_name": "IP-интерфейс Honeywell IPS/S3.1.1",
+    "description_long_ru": "Модуль ввода-вывода для системы автоматизации зданий ABB KNX. Обеспечивает интеграцию датчиков и исполнительных устройств в шину KNX для управления освещением, климатом и жалюзи."
   },
   "trace": {
     "pn_match_location": "",
@@ -563,5 +574,14 @@
   "dr_price": 567721.12,
   "dr_currency": "ARS",
   "dr_price_source": "https://ar.wiautomation.com/abb/comunicacion-industrial/2cdg110177r0011-abb-ips-s311",
-  "dr_category": "IP Interface module"
+  "dr_category": "IP Interface module",
+  "deep_research": {
+    "title_ru": "Модуль ввода/вывода ABB KNX 2CDG110177R0011",
+    "description_ru": "Модуль ввода-вывода для системы автоматизации зданий ABB KNX. Обеспечивает интеграцию датчиков и исполнительных устройств в шину KNX для управления освещением, климатом и жалюзи.",
+    "provider": "gemini-batch-batch_gemini_v8_nodesc_b2",
+    "model": "gemini-2.5-pro",
+    "merge_ts": "2026-04-10T10:26:24.851421+00:00",
+    "merge_source": "result_2CDG110177R0011.json"
+  },
+  "product_category": "IP Interface module"
 }

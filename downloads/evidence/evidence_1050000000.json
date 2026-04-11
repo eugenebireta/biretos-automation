@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -645,5 +652,6 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
     "description_ru": "Изоляционная пластина для закрытия открытой стороны клеммного ряда на DIN-рейке. Предотвращает случайный контакт с токоведущими частями и механически защищает клеммы. Изготовлена из бежевого полиамида PA 66 с высокой степенью пожаробезопасности. Совместима с клеммами шириной от 2.5 до 10 мм."
-  }
+  },
+  "product_category": "terminal"
 }

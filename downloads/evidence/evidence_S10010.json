@@ -141,12 +141,19 @@
     "image_confidence": 0.0,
     "price_confidence": 0.35,
     "overall": 0.07,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -167,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Привод заслонки Honeywell чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -185,7 +192,9 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate"
   },
   "price": {
     "price_status": "no_price_found",
@@ -693,5 +702,6 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
     "description_ru": "Поворотный привод серии SmartAct с крутящим моментом 10Нм и защитной функцией пружинного возврата. Используется для управления воздушными заслонками и обеспечивает их автоматическое закрытие при отключении питания. Оснащен самоцентрирующимся адаптером для быстрой установки на вал."
-  }
+  },
+  "product_category": "actuator"
 }

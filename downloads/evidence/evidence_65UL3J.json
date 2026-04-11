@@ -146,12 +146,19 @@
     "image_confidence": 0.154,
     "price_confidence": 0.35,
     "overall": 0.253,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -172,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Светодиодная панель/дисплей угадывается — виден экран с контентом",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -190,7 +197,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://3postulat.ru/catalog/periferiya-ofisnoe-oborudovanie-ups/monitory/monito"
   },
   "price": {
     "price_status": "no_price_found",
@@ -540,5 +550,6 @@
     "model": "gpt-4o",
     "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
-  "dr_category": "LED indicator"
+  "dr_category": "LED indicator",
+  "product_category": "LED indicator"
 }

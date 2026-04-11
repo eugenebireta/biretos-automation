@@ -145,12 +145,19 @@
     "image_confidence": 0.203,
     "price_confidence": 0.1,
     "overall": 0.261,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -171,7 +178,7 @@
     }
   },
   "photo": {
-    "verdict": "KEEP",
+    "verdict": "ACCEPT",
     "verdict_reason": "Кабельный канал серого цвета с перфорированной крышкой чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -189,7 +196,10 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": []
+    "numeric_keep_guard_reasons": [],
+    "verdict_prior": "KEEP",
+    "promotion_reason": "promoted_by_quality_gate",
+    "photo_url": "https://www.sager.com/product/3240197-phoenix-contact/3099502?srsltid=AfmBOooBl4"
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -320,7 +330,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Канал",
-    "seed_name": "Кабельный канал 3240197"
+    "seed_name": "Кабельный канал 3240197",
+    "description_long_ru": "€186.01 per 10-pack = €18.60/pc. Also on DigiKey, Mouser. Brand is Phoenix Contact, not Honeywell."
   },
   "trace": {
     "pn_match_location": "",
@@ -562,7 +573,7 @@
   },
   "deep_research": {
     "confidence": "low",
-    "merge_ts": "2026-04-09T12:01:24.815590+00:00",
+    "merge_ts": "2026-04-10T11:47:36.496918+00:00",
     "merge_source": "result_3240197.json",
     "title_ru": "wiring duct / raceway",
     "sources": [
@@ -579,6 +590,8 @@
     ],
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (3).md"
-  }
+    "source_file": "deep-research-report (3).md",
+    "description_ru": "€186.01 per 10-pack = €18.60/pc. Also on DigiKey, Mouser. Brand is Phoenix Contact, not Honeywell."
+  },
+  "product_category": "wire duct / raceway"
 }

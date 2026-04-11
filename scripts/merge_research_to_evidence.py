@@ -48,6 +48,407 @@ EVIDENCE_DIR = ROOT / "downloads" / "evidence"
 
 ADMISSIBLE_PRICES = {"admissible_public_price", "public_price"}
 
+# ── DR Price Sanity Configuration ─────────────────────────────────────────────────
+
+# Maximum allowed divergence between DR price (in RUB) and reference price.
+# If ratio > (1 + threshold) or ratio < 1/(1 + threshold), merge is blocked.
+DR_PRICE_DIVERGENCE_THRESHOLD = 0.30  # 30% default
+
+# Canonical product categories with per-unit price caps and pack-sale flag.
+# max_eur: conservative upper bound for a SINGLE UNIT retail price.
+# can_be_pack: True if this product is commonly sold in packs/boxes (Conrad, voelkner, etc.)
+# Prices above max_eur → DR_PACK_SIGNAL_DETECTED flag → merge blocked.
+# product_category in evidence is the authoritative field (normalized at import time).
+CANONICAL_CATEGORIES: dict[str, dict] = {
+    # PEHA electrical accessories — sold per 10/5 packs on Conrad/voelkner/puhy.cz
+    "PEHA AURA frame":          {"max_eur": 80,   "can_be_pack": True},
+    "PEHA NOVA frame":          {"max_eur": 150,  "can_be_pack": True},
+    "PEHA DIALOG frame":        {"max_eur": 80,   "can_be_pack": True},
+    "PEHA COMPACTA frame":      {"max_eur": 60,   "can_be_pack": True},
+    "PEHA frame":               {"max_eur": 150,  "can_be_pack": True},
+    "PEHA rocker switch":       {"max_eur": 20,   "can_be_pack": True},
+    "PEHA push button":         {"max_eur": 25,   "can_be_pack": True},
+    "PEHA insert":              {"max_eur": 30,   "can_be_pack": True},
+    "PEHA socket":              {"max_eur": 40,   "can_be_pack": True},
+    "PEHA electrical accessory":{"max_eur": 100,  "can_be_pack": True},
+    "switch frame":             {"max_eur": 150,  "can_be_pack": True},
+    "rocker switch":            {"max_eur": 20,   "can_be_pack": True},
+    "rocker cover (wippe)":     {"max_eur": 20,   "can_be_pack": True},
+    "socket insert (SCHUKO)":   {"max_eur": 30,   "can_be_pack": True},
+    "socket cover plate":       {"max_eur": 30,   "can_be_pack": True},
+    "cover plate":              {"max_eur": 50,   "can_be_pack": True},
+    "blank plate":              {"max_eur": 30,   "can_be_pack": True},
+    "blanking cover":           {"max_eur": 30,   "can_be_pack": True},
+    # Fiber / cable — sold per unit, no pack trap
+    "fiber pigtail":            {"max_eur": 5,    "can_be_pack": False},
+    "fiber patch cable":        {"max_eur": 15,   "can_be_pack": False},
+    "fiber patch panel":        {"max_eur": 200,  "can_be_pack": False},
+    "cable":                    {"max_eur": 50,   "can_be_pack": False},
+    "wire duct / raceway":      {"max_eur": 60,   "can_be_pack": False},
+    # Small components — sometimes sold in bulk packs
+    "fuse":                     {"max_eur": 10,   "can_be_pack": True},
+    "terminal":                 {"max_eur": 10,   "can_be_pack": True},
+    "terminal block":           {"max_eur": 30,   "can_be_pack": True},
+    # PPE
+    "earplugs (PPE)":           {"max_eur": 15,   "can_be_pack": True},
+    "hearing protection":       {"max_eur": 60,   "can_be_pack": True},
+    # Fire safety
+    "fire detector":            {"max_eur": 300,  "can_be_pack": False},
+    "detector base":            {"max_eur": 50,   "can_be_pack": False},
+    "PA speaker":               {"max_eur": 200,  "can_be_pack": False},
+    "Esser transponder":        {"max_eur": 500,  "can_be_pack": False},
+    # HVAC
+    "valve":                    {"max_eur": 500,  "can_be_pack": False},
+    "valve actuator":           {"max_eur": 400,  "can_be_pack": False},
+    "actuator":                 {"max_eur": 400,  "can_be_pack": False},
+    "thermostat":               {"max_eur": 200,  "can_be_pack": False},
+    # IT / computing
+    "monitor":                  {"max_eur": 2000, "can_be_pack": False},
+    "workstation":              {"max_eur": 5000, "can_be_pack": False},
+    "media converter":          {"max_eur": 300,  "can_be_pack": False},
+    "network switch":           {"max_eur": 1000, "can_be_pack": False},
+}
+
+# Backward-compat alias so existing callers of CATEGORY_UNIT_PRICE_LIMITS_EUR still work.
+CATEGORY_UNIT_PRICE_LIMITS_EUR = {k: v["max_eur"] for k, v in CANONICAL_CATEGORIES.items()}
+
+
+def _classify_from_title(assembled_title: str) -> str:
+    """Classify product category from Russian assembled_title keywords.
+    Returns canonical category name or empty string if unknown.
+    """
+    t = assembled_title
+    if "PEHA AURA" in t:
+        if "Рамка" in t:
+            return "PEHA AURA frame"
+        if "Клавиша" in t:
+            return "PEHA rocker switch"
+        if "Вставка" in t:
+            return "PEHA insert"
+        if "Розетка" in t:
+            return "PEHA socket"
+        return "PEHA electrical accessory"
+    if "PEHA NOVA" in t:
+        if "Рамка" in t:
+            return "PEHA NOVA frame"
+        if "Клавиша" in t:
+            return "PEHA rocker switch"
+        return "PEHA electrical accessory"
+    if "PEHA DIALOG" in t:
+        if "Рамка" in t:
+            return "PEHA DIALOG frame"
+        if "Клавиша" in t:
+            return "PEHA rocker switch"
+        return "PEHA electrical accessory"
+    if "PEHA COMPACTA" in t:
+        return "PEHA COMPACTA frame"
+    if "PEHA" in t:
+        if "Рамка" in t:
+            return "PEHA frame"
+        if "Клавиша" in t:
+            return "PEHA rocker switch"
+        if "Кнопка" in t:
+            return "PEHA push button"
+        if "Розетка" in t:
+            return "PEHA socket"
+        if "Вставка" in t:
+            return "PEHA insert"
+        return "PEHA electrical accessory"
+    if "Пигтейл" in t:
+        return "fiber pigtail"
+    if "Клапан" in t:
+        return "valve"
+    if "Привод" in t:
+        return "valve actuator"
+    if "Термостат" in t:
+        return "thermostat"
+    if "Извещатель" in t:
+        return "fire detector"
+    if "Предохранитель" in t:
+        return "fuse"
+    if "Клемм" in t:
+        return "terminal block"
+    if "Беруши" in t:
+        return "earplugs (PPE)"
+    if "Наушники" in t:
+        return "hearing protection"
+    if "Монитор" in t:
+        return "monitor"
+    if "Рабочая станция" in t or "Ноутбук" in t:
+        return "workstation"
+    if "Медиаконвертер" in t:
+        return "media converter"
+    if "Свитч" in t:
+        return "network switch"
+    if "Кабель-канал" in t:
+        return "wire duct / raceway"
+    if "Кабель" in t:
+        return "cable"
+    return ""
+
+
+def _normalize_category(raw_cat: str, assembled_title: str = "") -> str:
+    """Normalize raw DR category string → canonical name from CANONICAL_CATEGORIES.
+
+    Priority:
+    1. Direct case-insensitive key match
+    2. PEHA sub-series detection from assembled_title
+    3. Keyword-based mapping from raw_cat
+    4. classify_from_title fallback
+    5. Returns raw_cat stripped if nothing matches (stored as-is)
+    """
+    # Treat garbage / placeholder values as empty
+    _GARBAGE = {"not_found", "not found", "none", "null", "n/a", "-----------", "no", "-", "unknown"}
+    if not raw_cat or raw_cat.strip().lower() in _GARBAGE:
+        return _classify_from_title(assembled_title)
+
+    # 1. Direct case-insensitive match
+    raw_lower = raw_cat.strip().lower()
+    for key in CANONICAL_CATEGORIES:
+        if key.lower() == raw_lower:
+            return key
+
+    # 2. PEHA: use assembled_title for sub-series (more reliable than DR text)
+    title_upper = assembled_title.upper()
+    if "PEHA" in title_upper or "PEHA" in raw_cat.upper():
+        result = _classify_from_title(assembled_title)
+        if result:
+            return result
+        return "PEHA electrical accessory"
+
+    # 3. Keyword rules on raw_cat
+    KEYWORD_MAP = [
+        (["frame", "switch frame"],               "switch frame"),
+        (["rocker", "wippe"],                     "rocker cover (wippe)"),
+        (["socket insert"],                       "socket insert (SCHUKO)"),
+        (["socket cover", "socket faceplate"],    "socket cover plate"),
+        (["cover plate", "blanking cover", "blank plate"], "cover plate"),
+        (["valve actuator"],                      "valve actuator"),
+        (["globe valve", "ball valve", "butterfly valve", "valve"], "valve"),
+        (["actuator"],                            "actuator"),
+        (["thermostat"],                          "thermostat"),
+        (["pigtail"],                             "fiber pigtail"),
+        (["patch cable", "patch cord"],           "fiber patch cable"),
+        (["patch panel"],                         "fiber patch panel"),
+        (["wire duct", "raceway", "cable duct"],  "wire duct / raceway"),
+        (["fuse"],                                "fuse"),
+        (["terminal block"],                      "terminal block"),
+        (["terminal"],                            "terminal"),
+        (["earplug", "ear plug"],                 "earplugs (PPE)"),
+        (["hearing protection", "earmuff"],       "hearing protection"),
+        (["fire detector", "smoke detector", "heat detector", "detector"], "fire detector"),
+        (["detector base", "mounting base"],      "detector base"),
+        (["speaker", "pa speaker", "pa cabinet"],"PA speaker"),
+        (["transponder"],                         "Esser transponder"),
+        (["media converter"],                     "media converter"),
+        (["network switch", "managed switch"],    "network switch"),
+        (["monitor", "display"],                  "monitor"),
+        (["workstation", "laptop", "desktop"],    "workstation"),
+        (["cable"],                               "cable"),
+    ]
+    for keywords, canonical in KEYWORD_MAP:
+        for kw in keywords:
+            if kw in raw_lower:
+                return canonical
+
+    # 4. Fallback: assembled_title rules
+    result = _classify_from_title(assembled_title)
+    if result:
+        return result
+
+    # 5. Unknown — return raw stripped (logged by caller)
+    return raw_cat.strip()
+
+# Pack detection via source URL patterns (Conrad/voelkner sell in packs)
+_PACK_URL_MARKERS = re.compile(
+    r"[-_](?:10|5|25|50|100)[-_]?(?:st|stk|pcs|pc|pack|box)\b"
+    r"|[?&](?:qty|quantity|menge)=(?:[2-9]|\d{2,})"
+    r"|/(?:10|5|25|50|100)-(?:st|stk|pcs|stueck)",
+    re.IGNORECASE,
+)
+
+# Pack/kit/set markers that indicate price may be for a bundle, not a unit
+_PACK_MARKERS = re.compile(
+    r"(?:pack|box|lot|kit|set|bundle|case|carton|"
+    r"упаковк|упак\b|коробк|набор|комплект|лот\b|пачк)",
+    re.IGNORECASE,
+)
+
+
+def _parse_our_price_rub(raw: str | None) -> float | None:
+    """Parse our_price_raw field from evidence (RUB, comma decimal).
+
+    Examples: "2018,40" → 2018.40, "0,00" → None (zero = no price).
+    """
+    if not raw or not isinstance(raw, str):
+        return None
+    cleaned = raw.strip().replace("\xa0", "").replace(" ", "").replace(",", ".")
+    try:
+        val = float(cleaned)
+        return val if val > 0 else None
+    except ValueError:
+        return None
+
+
+def _dr_price_to_rub(amount: float, currency: str) -> float | None:
+    """Convert DR price to RUB using live FX. Returns None if conversion fails."""
+    if not amount or amount <= 0:
+        return None
+    cur = (currency or "").upper()
+    if cur == "RUB":
+        return amount
+    try:
+        from fx import convert_to_rub
+        return convert_to_rub(amount, cur)
+    except Exception:
+        return None
+
+
+def _has_pack_signal(fr: dict, category: str = "", product_category: str = "") -> bool:
+    """Check if final_recommendation has pack/kit/set signals.
+
+    Checks:
+    1. Pack keywords in text (title, description, context)
+    2. Pack patterns in source URL (Conrad/voelkner -10-st, -5-stk, etc.)
+    3. Category price limit exceeded — uses product_category (evidence) if set,
+       falls back to raw category (DR suggestion) otherwise.
+
+    Args:
+        fr: final_recommendation dict from result file
+        category: raw category string from DR (category_suggestion)
+        product_category: normalized canonical category from evidence (preferred)
+    """
+    text_parts = [
+        str(fr.get("title_ru", "")),
+        str(fr.get("description_ru", "")),
+        str(fr.get("price_context", "")),
+        str(fr.get("unit_info", "")),
+    ]
+    pv = fr.get("price_value", {})
+    if isinstance(pv, dict):
+        text_parts.append(str(pv.get("context", "")))
+        text_parts.append(str(pv.get("unit", "")))
+    combined = " ".join(text_parts)
+
+    # 1. Text-based pack keywords
+    if _PACK_MARKERS.search(combined):
+        return True
+
+    # 2. URL-based pack patterns
+    source_url = pv.get("source_url", "") if isinstance(pv, dict) else ""
+    if source_url and _PACK_URL_MARKERS.search(source_url):
+        return True
+
+    # 3. Category price limit check — prefer product_category (evidence-side, normalized)
+    cat = (product_category or category or fr.get("category_suggestion", "") or "").strip()
+    cat_info = CANONICAL_CATEGORIES.get(cat)
+    limit = cat_info["max_eur"] if cat_info else None
+    if limit and isinstance(pv, dict):
+        amount = pv.get("amount", 0) or 0
+        currency = (pv.get("currency", "") or "").upper()
+        # Rough EUR conversion factors for pack limit check
+        _TO_EUR = {"EUR": 1.0, "USD": 0.93, "GBP": 1.17, "CHF": 1.05,
+                   "CZK": 0.040, "PLN": 0.23, "DKK": 0.134, "RUB": 0.010,
+                   "SEK": 0.088, "NOK": 0.088, "HUF": 0.0026}
+        rate = _TO_EUR.get(currency, None)
+        if rate is not None:
+            amount_eur = float(amount) * rate
+            if amount_eur > limit:
+                return True
+
+    return False
+
+
+def check_dr_price_sanity(
+    dr_amount: float,
+    dr_currency: str,
+    reference_rub: float | None,
+    fr: dict,
+    threshold: float = DR_PRICE_DIVERGENCE_THRESHOLD,
+    product_category: str = "",
+) -> dict:
+    """Validate DR price against reference before merge.
+
+    Returns:
+        {"allow_merge": bool, "reason": str, "flags": list[str],
+         "dr_rub": float|None, "reference_rub": float|None, "ratio": float|None}
+    """
+    flags: list[str] = []
+    dr_rub = _dr_price_to_rub(dr_amount, dr_currency)
+
+    # Pack/kit signal detection (text + URL + category price limit)
+    category = fr.get("category_suggestion", "")
+    if _has_pack_signal(fr, category=category, product_category=product_category):
+        flags.append("DR_PACK_SIGNAL_DETECTED")
+
+    # If we can't convert DR price to RUB, still merge but flag it
+    if dr_rub is None:
+        flags.append("DR_PRICE_FX_FAILED")
+        return {
+            "allow_merge": len(flags) == 1,  # allow if only FX failed, block if pack signal too
+            "reason": "cannot convert DR price to RUB" if not flags else "; ".join(flags),
+            "flags": flags,
+            "dr_rub": None,
+            "reference_rub": reference_rub,
+            "ratio": None,
+        }
+
+    # No reference price — can't validate, merge with flag
+    if reference_rub is None:
+        flags.append("NO_REFERENCE_PRICE")
+        allow = "DR_PACK_SIGNAL_DETECTED" not in flags
+        return {
+            "allow_merge": allow,
+            "reason": "no reference price for sanity check" if allow else "pack signal without reference",
+            "flags": flags,
+            "dr_rub": dr_rub,
+            "reference_rub": None,
+            "ratio": None,
+        }
+
+    # Compute ratio
+    ratio = dr_rub / reference_rub if reference_rub > 0 else None
+    if ratio is None:
+        return {
+            "allow_merge": True,
+            "reason": "reference_rub is zero",
+            "flags": flags,
+            "dr_rub": dr_rub,
+            "reference_rub": reference_rub,
+            "ratio": None,
+        }
+
+    # Check divergence
+    too_high = ratio > (1 + threshold)
+    too_low = ratio < 1 / (1 + threshold)
+
+    if too_high:
+        flags.append(f"DR_PRICE_TOO_HIGH: ratio={ratio:.2f} (>{1+threshold:.2f})")
+    if too_low:
+        flags.append(f"DR_PRICE_TOO_LOW: ratio={ratio:.2f} (<{1/(1+threshold):.2f})")
+
+    has_divergence = too_high or too_low
+    has_pack = "DR_PACK_SIGNAL_DETECTED" in flags
+
+    if has_divergence or has_pack:
+        return {
+            "allow_merge": False,
+            "reason": "; ".join(flags),
+            "flags": flags,
+            "dr_rub": dr_rub,
+            "reference_rub": reference_rub,
+            "ratio": ratio,
+        }
+
+    return {
+        "allow_merge": True,
+        "reason": "sanity passed",
+        "flags": flags,
+        "dr_rub": dr_rub,
+        "reference_rub": reference_rub,
+        "ratio": ratio,
+    }
+
 
 def _is_empty(val) -> bool:
     """Check if a value is effectively empty."""
@@ -215,11 +616,19 @@ def merge_one(pn: str, dry_run: bool = False) -> dict:
 
     # -- Top-level dr_ fields (only if not already set) --
 
-    # dr_category
+    # dr_category (raw DR output) + product_category (normalized canonical)
     cat = fr.get("category_suggestion", "")
+    assembled_title = evidence.get("assembled_title", "")
     if not _is_empty(cat) and _is_empty(evidence.get("dr_category")):
         evidence["dr_category"] = cat.strip()
         fields_added.append("dr_category")
+    # product_category: always recompute if missing (authoritative for price checks)
+    if _is_empty(evidence.get("product_category")):
+        raw_for_norm = cat if not _is_empty(cat) else evidence.get("dr_category", "")
+        product_cat = _normalize_category(raw_for_norm, assembled_title)
+        if product_cat:
+            evidence["product_category"] = product_cat
+            fields_added.append("product_category")
 
     # dr_image_url
     photo = fr.get("photo_url", "")
@@ -227,26 +636,117 @@ def merge_one(pn: str, dry_run: bool = False) -> dict:
         evidence["dr_image_url"] = photo.strip()
         fields_added.append("dr_image_url")
 
-    # dr_price, dr_currency, dr_price_source
+    # dr_price, dr_currency, dr_price_source — WITH sanity check
     price_assessment = fr.get("price_assessment", "")
     price_value = fr.get("price_value", {})
     if (price_assessment in ADMISSIBLE_PRICES
             and isinstance(price_value, dict)
             and price_value.get("amount")
             and _is_empty(evidence.get("dr_price"))):
-        evidence["dr_price"] = price_value["amount"]
-        evidence["dr_currency"] = price_value.get("currency", "")
-        evidence["dr_price_source"] = price_value.get("source_url", "")
-        fields_added.append("dr_price")
+        dr_amount = price_value["amount"]
+        dr_currency = price_value.get("currency", "")
+
+        # Sanity check against reference price (our_price_raw from xlsx)
+        reference_rub = _parse_our_price_rub(evidence.get("our_price_raw"))
+        sanity = check_dr_price_sanity(
+            dr_amount=dr_amount,
+            dr_currency=dr_currency,
+            reference_rub=reference_rub,
+            fr=fr,
+            product_category=evidence.get("product_category", ""),
+        )
+
+        if sanity["allow_merge"]:
+            evidence["dr_price"] = dr_amount
+            evidence["dr_currency"] = dr_currency
+            evidence["dr_price_source"] = price_value.get("source_url", "")
+            fields_added.append("dr_price")
+            if sanity["flags"]:
+                evidence["dr_price_sanity_flags"] = sanity["flags"]
+        else:
+            # Block merge — store both values for review
+            evidence["dr_price_blocked"] = {
+                "amount": dr_amount,
+                "currency": dr_currency,
+                "source_url": price_value.get("source_url", ""),
+                "reason": sanity["reason"],
+                "flags": sanity["flags"],
+                "dr_rub": sanity["dr_rub"],
+                "reference_rub": sanity["reference_rub"],
+                "ratio": sanity["ratio"],
+                "blocked_ts": datetime.now(timezone.utc).isoformat(),
+            }
+            fields_added.append("dr_price_blocked")
+            log.warning(
+                f"  DR price blocked for {pn}: {dr_amount} {dr_currency} "
+                f"(reason: {sanity['reason']})"
+            )
 
     if not fields_added:
         return {"pn": pn, "action": "skipped", "fields_added": [],
                 "reason": "all fields already populated"}
 
+    # Multi-source validation for DR prices (bounded — only high-risk SKUs)
+    if "dr_price" in fields_added and not dry_run:
+        try:
+            from multi_source_prices import should_validate_multi_source, validate_dr_price_multi_source
+            should_validate, trigger_reason = should_validate_multi_source(
+                evidence, trigger_source="dr_only"
+            )
+            if should_validate:
+                brand = evidence.get("brand", "")
+                validate_dr_price_multi_source(evidence, pn, brand)
+                if evidence.get("price_cross_validation") == "divergent":
+                    fields_added.append("multi_source_divergent")
+                    log.info(f"  multi-source validation: DIVERGENT for {pn}")
+                elif evidence.get("price_cross_validation") == "consistent":
+                    fields_added.append("multi_source_consistent")
+        except Exception as e:
+            log.debug(f"multi-source validation skipped for {pn}: {e}")
+
     if not dry_run:
         ev_path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")
 
     return {"pn": pn, "action": "merged", "fields_added": fields_added, "reason": ""}
+
+
+def backfill_product_categories(dry_run: bool = False) -> dict:
+    """Backfill product_category for existing evidence files that have dr_category but no product_category.
+
+    Safe to run repeatedly — skips files that already have product_category.
+    Returns summary: {total, updated, skipped, dry_run}
+    """
+    evidence_files = sorted(EVIDENCE_DIR.glob("evidence_*.json"))
+    updated = 0
+    skipped = 0
+
+    for ev_path in evidence_files:
+        try:
+            evidence = json.loads(ev_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+
+        if not _is_empty(evidence.get("product_category")):
+            skipped += 1
+            continue
+
+        assembled_title = evidence.get("assembled_title", "")
+        raw_cat = evidence.get("dr_category", "")
+        product_cat = _normalize_category(raw_cat, assembled_title)
+
+        if not product_cat:
+            skipped += 1
+            continue
+
+        log.info(f"  backfill {evidence.get('pn','?')}: dr_category={raw_cat!r} → product_category={product_cat!r}")
+        evidence["product_category"] = product_cat
+        updated += 1
+
+        if not dry_run:
+            ev_path.write_text(json.dumps(evidence, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    log.info(f"Backfill complete: {updated} updated, {skipped} skipped")
+    return {"total": len(evidence_files), "updated": updated, "skipped": skipped, "dry_run": dry_run}
 
 
 def run(dry_run: bool = False, pn_filter: str | None = None) -> dict:
@@ -308,9 +808,14 @@ def main():
     parser = argparse.ArgumentParser(description="Merge research results into evidence files")
     parser.add_argument("--dry-run", action="store_true", help="Show what would be merged without writing")
     parser.add_argument("--pn", type=str, default=None, help="Process only this PN")
+    parser.add_argument("--backfill-categories", action="store_true",
+                        help="Backfill product_category for existing evidence files (uses dr_category + assembled_title)")  # noqa: E501
     args = parser.parse_args()
 
-    summary = run(dry_run=args.dry_run, pn_filter=args.pn)
+    if args.backfill_categories:
+        summary = backfill_product_categories(dry_run=args.dry_run)
+    else:
+        summary = run(dry_run=args.dry_run, pn_filter=args.pn)
 
     print(json.dumps(summary, indent=2, ensure_ascii=False))
 

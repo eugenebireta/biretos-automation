@@ -159,7 +159,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -329,7 +336,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Монитор",
-    "seed_name": "Монитор Honeywell U2410F"
+    "seed_name": "Монитор Honeywell U2410F",
+    "description_long_ru": "Dell UltraSharp; Honeywell NOTIFIER ONYXWorks accessory; ref price 2,970 RUB is below market ($50-200)"
   },
   "trace": {
     "pn_match_location": "",
@@ -601,10 +609,15 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:25.012077+00:00",
+    "merge_ts": "2026-04-10T11:05:35.624576+00:00",
     "merge_source": "result_U2410F.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (3).md"
-  }
+    "source_file": "deep-research-report (3).md",
+    "description_ru": "Dell UltraSharp; Honeywell NOTIFIER ONYXWorks accessory; ref price 2,970 RUB is below market ($50-200)"
+  },
+  "dr_price": 129.99,
+  "dr_currency": "USD",
+  "dr_price_source": "https://refreshcomputers.net/product/dell-u2410f-24-lcd-monitor",
+  "product_category": "monitor"
 }

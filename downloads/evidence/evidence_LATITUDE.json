@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -355,7 +362,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Ноутбук",
-    "seed_name": "Ноутбук LATITUDE"
+    "seed_name": "Ноутбук LATITUDE",
+    "description_long_ru": "Actual mfr: Dell. Generic product line, not specific PN. Refurb $150-400"
   },
   "trace": {
     "pn_match_location": "",
@@ -618,10 +626,23 @@
       "Встречается как термин «latitude/longitude» в аэрокосмических материалах, но не как PN для закупки. citeturn64search2turn64search18",
       "Aliases: —"
     ],
-    "merge_ts": "2026-04-09T12:01:24.945504+00:00",
+    "merge_ts": "2026-04-10T11:05:35.458668+00:00",
     "merge_source": "result_LATITUDE.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Actual mfr: Dell. Generic product line, not specific PN. Refurb $150-400",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/b/Dell-Latitude-PC-Laptops-Netbooks/177/bn_7118472159",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ]
+  },
+  "product_category": "workstation"
 }

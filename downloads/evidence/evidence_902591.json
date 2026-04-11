@@ -173,12 +173,19 @@
     "image_confidence": 0.017,
     "price_confidence": 0.1,
     "overall": 0.076,
-    "overall_label": "VERY_LOW",
+    "overall_label": "LOW",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -380,7 +387,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Извещатель",
-    "seed_name": "Оптический извещатель Esser D 1930/4.02 O.A."
+    "seed_name": "Оптический извещатель Esser D 1930/4.02 O.A.",
+    "description_long_ru": "NOT an optical detector — it is a speaker connection socket. \"O.A.\" = ohne Aufdruck. Also EUR 22.52 at voltking.de"
   },
   "trace": {
     "pn_match_location": "",
@@ -661,10 +669,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.874162+00:00",
+    "merge_ts": "2026-04-10T11:05:35.263796+00:00",
     "merge_source": "result_902591.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (3).md"
-  }
+    "source_file": "deep-research-report (3).md",
+    "description_ru": "NOT an optical detector — it is a speaker connection socket. \"O.A.\" = ohne Aufdruck. Also EUR 22.52 at voltking.de"
+  },
+  "product_category": "PEHA electrical accessory"
 }

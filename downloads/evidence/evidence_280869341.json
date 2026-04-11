@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -326,7 +333,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Комплект",
-    "seed_name": "Комплект Honeywell ASD1/V2-COMPLETE"
+    "seed_name": "Комплект Honeywell ASD1/V2-COMPLETE",
+    "description_long_ru": "Direct Honeywell channels only; KCC cert confirms product exists"
   },
   "trace": {
     "pn_match_location": "",
@@ -596,10 +604,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.808075+00:00",
+    "merge_ts": "2026-04-10T11:05:35.041460+00:00",
     "merge_source": "result_280869341.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
-  }
+    "source_file": "deep-research-report (1).md",
+    "description_ru": "Direct Honeywell channels only; KCC cert confirms product exists"
+  },
+  "product_category": "ASD1/V2-COMPLETE"
 }

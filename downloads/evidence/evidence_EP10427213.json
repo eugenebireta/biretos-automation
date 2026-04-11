@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -341,7 +348,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Датчик",
-    "seed_name": "Датчик присутствия Honeywell PD-ATMO360i/8 T KNX"
+    "seed_name": "Датчик присутствия Honeywell PD-ATMO360i/8 T KNX",
+    "description_long_ru": "ESYLUX; list ~EUR 314; \"T\" = temp only (no humidity)"
   },
   "trace": {
     "pn_match_location": "",
@@ -623,10 +631,12 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-09T12:01:24.907701+00:00",
+    "merge_ts": "2026-04-10T11:05:35.373074+00:00",
     "merge_source": "result_EP10427213.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
-  }
+    "source_file": "deep-research-report (1).md",
+    "description_ru": "ESYLUX; list ~EUR 314; \"T\" = temp only (no humidity)"
+  },
+  "product_category": "Processing"
 }

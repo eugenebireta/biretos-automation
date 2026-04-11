@@ -160,7 +160,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -372,7 +379,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Системный блок",
-    "seed_name": "Системный блок Dell Optiplex"
+    "seed_name": "Системный блок Dell Optiplex",
+    "description_long_ru": "Actual mfr: Dell. Generic product line. Dell refurb from ~$150"
   },
   "trace": {
     "pn_match_location": "",
@@ -635,10 +643,23 @@
       "Встречается как линейка ПК (Dell) в контексте инфраструктуры/замены, но без PN-закупки «Honeywell OPTIPLEX». citeturn64search12turn64search4",
       "Aliases: —"
     ],
-    "merge_ts": "2026-04-09T12:01:24.969531+00:00",
+    "merge_ts": "2026-04-10T11:05:35.482521+00:00",
     "merge_source": "result_OPTIPLEX.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
-  }
+    "source_file": "deep-research-report (4).md",
+    "description_ru": "Actual mfr: Dell. Generic product line. Dell refurb from ~$150",
+    "sources": [
+      {
+        "url": "https://www.ebay.com/b/Dell-Optiplex-Desktops/179/bn_7114050175",
+        "type": "surplus",
+        "domain": "www.ebay.com",
+        "supports": [
+          "identity",
+          "price"
+        ]
+      }
+    ]
+  },
+  "product_category": "workstation"
 }

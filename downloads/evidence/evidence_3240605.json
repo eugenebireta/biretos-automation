@@ -159,7 +159,14 @@
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": false,
+      "photo_ok": false,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
@@ -336,7 +343,8 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Канал",
-    "seed_name": "Кабельный канал 3240605"
+    "seed_name": "Кабельный канал 3240605",
+    "description_long_ru": "Phoenix Contact product; list $107.41; ref price of ~$16 seems far too low"
   },
   "trace": {
     "pn_match_location": "",
@@ -578,7 +586,7 @@
   },
   "deep_research": {
     "confidence": "low",
-    "merge_ts": "2026-04-09T12:01:24.818590+00:00",
+    "merge_ts": "2026-04-10T11:05:35.085570+00:00",
     "merge_source": "result_3240605.json",
     "title_ru": "door microswitch",
     "sources": [
@@ -595,6 +603,8 @@
     ],
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (3).md"
-  }
+    "source_file": "deep-research-report (3).md",
+    "description_ru": "Phoenix Contact product; list $107.41; ref price of ~$16 seems far too low"
+  },
+  "product_category": "door microswitch"
 }
