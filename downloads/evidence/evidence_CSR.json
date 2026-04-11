@@ -4,7 +4,7 @@
   "pn": "CSR",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Основание неглубокое красное Honeywell CSR",
   "assembled_title": "Основание Honeywell CSR",
   "our_price_raw": "1353,15",
@@ -564,5 +564,23 @@
     "model": "gpt-4o",
     "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
-  "dr_category": "Detector base"
+  "dr_category": "Detector base",
+  "training_urls": [
+    "https://buildings.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/catalogs/Morley-IAS-Product-Catalog-Nordics-2023.pdf",
+    "https://unicat.msf.org/cat/product/95627",
+    "https://www.esser-systems.com/en/products/list/automatic-detectors/base-series-iq8quad-es-detect/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "1353,15",
+    "our_price_parsed": 1353.15,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  }
 }

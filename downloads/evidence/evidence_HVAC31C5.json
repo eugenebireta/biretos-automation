@@ -4,7 +4,7 @@
   "pn": "HVAC31C5",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Инвертор HVAC NXL 15KW/400V/31A/IP54 HVAC31C5",
   "assembled_title": "Инвертор Honeywell HVAC31C5",
   "our_price_raw": "330186,67",
@@ -599,5 +599,23 @@
     "model": "gpt-4o",
     "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
-  "dr_category": "HVAC inverter (VFD)"
+  "dr_category": "HVAC inverter (VFD)",
+  "training_urls": [
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/bms-from-hco-030923/hbt-bms-en0b0619-ge51r0511.pdf",
+    "https://www.kempstoncontrols.com/HVAC31C5/Honeywell-Fema/sku/872687",
+    "https://www.manualslib.com/manual/70023/Honeywell-Nxl.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "330186,67",
+    "our_price_parsed": 330186.67,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  }
 }

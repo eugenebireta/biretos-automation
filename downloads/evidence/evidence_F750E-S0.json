@@ -7,7 +7,7 @@
     "F750ES0"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Блок питания Honeywell F750E-S0",
   "assembled_title": "Блок питания Honeywell F750E-S0",
   "our_price_raw": "12432,50",
@@ -619,5 +619,26 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://www.amazon.com/750W-Power-Supply-Unit-F750E-S0/dp/B0BJNMKYRL",
+    "https://www.burnerparts.nl/",
+    "https://www.cpumedics.com/dell-f750e-s0-750w-power-supply-80-plus-platinum-for-poweredge-r520-r620-r720-r820-t320-t420-t620-powervault-nx3200-nx3300/",
+    "https://www.ebay.com/itm/336015468620",
+    "https://www.impactcomputers.com/products/dell-f750e-s0",
+    "https://www.newegg.com/p/1A0-002Y-01C43"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 25.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.intexys.fr/dell-750w-80-plus-platinum-f750e-s0.html",
+    "our_price_raw": "12432,50",
+    "our_price_parsed": 12432.5,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

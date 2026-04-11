@@ -4,7 +4,7 @@
   "pn": "PAVILION",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Ноутбук PAVILION",
   "assembled_title": "Ноутбук Honeywell PAVILION",
   "our_price_raw": "0,00",
@@ -621,5 +621,23 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://www.ebay.com/shop/hp-pavilion-laptop",
+    "https://www.pcbuildadvisor.com/how-much-can-i-sell-a-used-hp-laptop-for/",
+    "https://www.touchwindow.com/p/PAV-2DSCAN.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 900.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/Honeywell-Pavilion-Software-Node",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

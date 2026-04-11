@@ -4,7 +4,7 @@
   "pn": "280869341",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Комплект Honeywell ASD1/V2-COMPLETE",
   "assembled_title": "Комплект Honeywell 280869341",
   "our_price_raw": "25664,60",
@@ -601,5 +601,22 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://fccid.io/RR-HWL-SLCM_ASDV4",
+    "https://www.radwell.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "25664,60",
+    "our_price_parsed": 25664.6,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

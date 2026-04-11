@@ -4,7 +4,7 @@
   "pn": "U2412M",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Монитор Honeywell U2412M",
   "assembled_title": "Монитор Honeywell U2412M",
   "our_price_raw": "9913,69",
@@ -610,5 +610,27 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://dl.dell.com/manuals/all-products/esuprt_display_projector/esuprt_display/dell-u2412m_user%27s%20guide_en-us.pdf",
+    "https://www.amazon.com/Dell-UltraSharp-24-Inch-LED-Lit-Monitor/dp/B005JN9310",
+    "https://www.bhphotovideo.com/c/product/883561-REG/Dell_U2412M_UltraSharp_24_LED.html",
+    "https://www.displayspecifications.com/en/model/8d00557",
+    "https://www.ebay.com/itm/395402227859",
+    "https://www.newegg.com/dell-u2412m-24/p/N82E16824260047",
+    "https://www.walmart.com/ip/Dell-UltraSharp-U2412M-LED-monitor-24/21281827"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 407.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/395402227859",
+    "our_price_raw": "9913,69",
+    "our_price_parsed": 9913.69,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

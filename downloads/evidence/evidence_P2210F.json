@@ -4,7 +4,7 @@
   "pn": "P2210F",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Монитор Honeywell P2210F",
   "assembled_title": "Монитор Honeywell P2210F",
   "our_price_raw": "15917,00",
@@ -629,5 +629,26 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://refreshcomputers.net/product/dell-professional-p2210f-22-lcd-monitor",
+    "https://refreshcomputers.net/product/dell-professional-p2210f-22-lcd-monitor-w-vga-dvi-usb/",
+    "https://www.ebay.com/itm/",
+    "https://www.ebay.com/p/1800722489",
+    "https://www.newegg.com/dell-p2210f-22/p/N82E16824260541",
+    "https://www.walmart.com/ip/Restored-Dell-Monitor-P2210F-22-Refurbished/1861429144"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 45.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/",
+    "our_price_raw": "15917,00",
+    "our_price_parsed": 15917.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

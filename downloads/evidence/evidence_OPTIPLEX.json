@@ -4,7 +4,7 @@
   "pn": "OPTIPLEX",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Системный блок Dell Optiplex",
   "assembled_title": "Системный блок Honeywell OPTIPLEX",
   "our_price_raw": "0,00",
@@ -640,5 +640,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://discountcomputerdepot.com/categories/refurbished-computers/desktop-computers/computer-brands/dell-desktops/dell-optiplex-desktops.html",
+    "https://www.dell.com/en-us/dfb/lp/refurbished-optiplex",
+    "https://www.ebay.com/b/Dell-Optiplex-Desktops/179/bn_7114050175",
+    "https://www.ebay.com/sch/i.html?_nkw=honeywell+optiplex"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2100.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/Honeywell-Experion-Optiplex-DCS",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

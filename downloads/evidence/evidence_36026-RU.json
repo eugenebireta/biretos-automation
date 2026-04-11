@@ -7,7 +7,7 @@
     "36026RU"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Горизонтальный угол 400x80мм 36026-RU",
   "assembled_title": "Угол Honeywell 36026-RU",
   "our_price_raw": "3048,00",
@@ -598,5 +598,22 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/electrical-and-wiring/cable-management/trunking-fittings",
+    "https://krakowparts.pl/AG-36026-ru"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 84.88,
+    "dr_currency": "PLN",
+    "dr_source_url": "https://krakowparts.pl/AG-36026-ru",
+    "our_price_raw": "3048,00",
+    "our_price_parsed": 3048.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

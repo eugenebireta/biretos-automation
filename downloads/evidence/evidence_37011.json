@@ -4,7 +4,7 @@
   "pn": "37011",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Устройство Honeywell D 20.530.192",
   "assembled_title": "Клавиша PEHA NOVA, 37011",
   "our_price_raw": "841,60",
@@ -623,5 +623,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.ebay.de/sch/i.html?_nkw=%2237011%22+PEHA"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 10.99,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.conrad.fr/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-37011-1-pc-s-2855240.html",
+    "our_price_raw": "841,60",
+    "our_price_parsed": 841.6,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

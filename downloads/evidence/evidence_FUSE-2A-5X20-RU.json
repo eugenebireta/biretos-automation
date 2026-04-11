@@ -7,7 +7,7 @@
     "FUSE2A5X20RU"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Предохранитель плавкий Honeywell FUSE-2A-5X20",
   "assembled_title": "Предохранитель Honeywell FUSE-2A-5X20-RU",
   "our_price_raw": "151,90",
@@ -647,5 +647,26 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/fuses/2a-glass-fuse",
+    "https://tormach.com/fuse-2a-glass-5x20-31123.html",
+    "https://vseinstrumenti.ru/category/predohraniteli-10257/",
+    "https://www.amazon.com/2A-250V-5x20mm-fuse-volts/dp/B00UO08IOQ",
+    "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+    "https://www.phoenixcontact.com/en-us/products/replacement-fuse-adt-fuse-5x20-2a-t-250v-1457326"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 0.85,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+    "our_price_raw": "151,90",
+    "our_price_parsed": 151.9,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

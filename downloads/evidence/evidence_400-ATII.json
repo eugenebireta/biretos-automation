@@ -7,7 +7,7 @@
     "400ATII"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Жесткий диск Honeywell 400-ATII, 300GB 15K RPM SAS 12Gbps",
   "assembled_title": "Жесткий диск Honeywell 400-ATII",
   "our_price_raw": "18259,00",
@@ -621,5 +621,26 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://www.amazon.com/dp/B076FJFXNV",
+    "https://www.dell.com/en-us/shop/dell-300gb-15k-rpm-sas-12gbps-512n-25in-hot-plug-hard-drive/apd/400-atii/storage-drives-media",
+    "https://www.disctech.com/Dell-400-ATII-300GB-SAS-Hard-Drive-Kit",
+    "https://www.newegg.com/dell-400-atii-300gb/p/1Z4-000J-00991",
+    "https://www.serversupply.com/HARD%20DRIVES%20W-TRAY/SAS-12GBPS/300GB-15000RPM/DELL/400-ATII_301256.htm",
+    "https://www.surplusindustrial.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 140.69,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.senetic.de/product/400-ATII",
+    "our_price_raw": "18259,00",
+    "our_price_parsed": 18259.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

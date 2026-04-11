@@ -4,7 +4,7 @@
   "pn": "806602",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "NS 35/15 WH PERF 2000MM 806602",
   "assembled_title": "Рейка Honeywell 806602",
   "our_price_raw": "4188,30",
@@ -618,5 +618,22 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md"
+  },
+  "training_urls": [
+    "https://www.ebay.com/itm/285797205427",
+    "https://www.wbparts.com/rfq/5120-01-631-9214.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "4188,30",
+    "our_price_parsed": 4188.3,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

@@ -4,7 +4,7 @@
   "pn": "35111",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Датчик давления D 20.671.192 T",
   "assembled_title": "Рамка 1-постовая PEHA NOVA, 35111",
   "our_price_raw": "625,93",
@@ -645,5 +645,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.motion.com/products/sku/03734855"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 24.2,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.motion.com/products/sku/03734855",
+    "our_price_raw": "625,93",
+    "our_price_parsed": 625.93,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

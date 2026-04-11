@@ -4,7 +4,7 @@
   "pn": "583520",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Цифровая станция вызова Honeywell DCS Plus e54-16",
   "assembled_title": "Станция вызова Honeywell 583520",
   "our_price_raw": "126089,93",
@@ -558,5 +558,25 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report.md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/public-address-and-voice-alarm/call-stations/digital-call-station-dcs-plus",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/notifier-it/HBT-Fire-202203110958-DCS-DKMplus-dep-eng.pdf",
+    "https://www.acornfiresecurity.com/notifier-honeywell-dcs-plus-digital-call-station-583520",
+    "https://www.esser-systems.com/en/products/details/voice-alarm-system-variodynR-d1/sprechstellen/583520-digital-call-station-dcs-plus/",
+    "https://www.esser-systems.com/en/products/details/voice-alarm-system-variodynR-one/call-stations/583520-digital-call-station-dcs-plus-1/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1759.0,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://www.scribd.com/document/510025231/NOTIFIER-UK-2020-Price-List",
+    "our_price_raw": "126089,93",
+    "our_price_parsed": 126089.93,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

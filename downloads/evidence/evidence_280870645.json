@@ -4,7 +4,7 @@
   "pn": "280870645",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Кабель соединительный Honeywell ATR1-CONNECTING CABLE-2POL",
   "assembled_title": "Кабель Honeywell 280870645",
   "our_price_raw": "11,33",
@@ -611,5 +611,23 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/access-control/accessories/cables/connecting-cable",
+    "https://www.ebay.com/itm/325112182471",
+    "https://www.radwell.com/Search?q=280870645"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 149.99,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/325112182471",
+    "our_price_raw": "11,33",
+    "our_price_parsed": 11.33,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

@@ -7,7 +7,7 @@
     "MCPPROM"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Ручной извещатель MCP-PRO-M",
   "assembled_title": "Извещатель Honeywell MCP-PRO-M",
   "our_price_raw": "607,20",
@@ -647,5 +647,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.notifier.com.au/product/notifier-mcp-pro-m/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1265.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf",
+    "our_price_raw": "607,20",
+    "our_price_parsed": 607.2,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

@@ -7,7 +7,7 @@
     "36022RU"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Горизонтальный угол 100x80мм 36022-RU",
   "assembled_title": "Угол Honeywell 36022-RU",
   "our_price_raw": "2507,27",
@@ -606,5 +606,22 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/electrical-and-wiring/cable-management/trunking-fittings",
+    "https://www.tinko.ru/catalog/product/230101/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "2507,27",
+    "our_price_parsed": 2507.27,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

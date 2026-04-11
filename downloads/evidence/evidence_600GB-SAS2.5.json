@@ -8,7 +8,7 @@
     "600GBSAS25"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Жесткий диск Honeywell 600GB-SAS2.5, 600 GB SAS 10K",
   "assembled_title": "Жесткий диск Honeywell 600GB-SAS2.5",
   "our_price_raw": "27720,00",
@@ -617,5 +617,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://www.amazon.com/Seagate-ST600MM0026-600GB-SAS-6GB-Renewed/dp/B08F9H7SCR",
+    "https://www.ebay.com/",
+    "https://www.serverbasket.net/p/600gb-10k-sas-2-5-inch-hdd/",
+    "https://www.servermonkey.com/parts-and-upgrades/drives/sas.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 145.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/",
+    "our_price_raw": "27720,00",
+    "our_price_parsed": 27720.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

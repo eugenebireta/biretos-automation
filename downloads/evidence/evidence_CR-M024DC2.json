@@ -7,7 +7,7 @@
     "CRM024DC2"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Реле Honeywell CR-M024DC2",
   "assembled_title": "Реле Honeywell CR-M024DC2",
   "our_price_raw": "676,50",
@@ -639,5 +639,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.kempstoncontrols.com/1SVR405611R1000/ABB/sku/224470"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 8.88,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/383040790448",
+    "our_price_raw": "676,50",
+    "our_price_parsed": 676.5,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

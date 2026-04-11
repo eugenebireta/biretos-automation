@@ -4,7 +4,7 @@
   "pn": "887111",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Тепловой извещатель Esser D 95.244.02 T",
   "assembled_title": "Клавиша PEHA DIALOG, 887111",
   "our_price_raw": "490,50",
@@ -655,5 +655,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.equipt.com/brands/oem/country/united-states/state/florida/condition/new"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 59.99,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.equipt.com/brands/oem/country/united-states/state/florida/condition/new",
+    "our_price_raw": "490,50",
+    "our_price_parsed": 490.5,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

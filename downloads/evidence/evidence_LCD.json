@@ -4,7 +4,7 @@
   "pn": "LCD",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Монитор LCD",
   "assembled_title": "Монитор Honeywell LCD",
   "our_price_raw": "0,00",
@@ -625,5 +625,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/fire-control-panels/fire-alarm-control-panels/lcd-touchscreen-monitor",
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/monitors-and-displays",
+    "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+    "https://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=26580&upcat=158"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 320.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

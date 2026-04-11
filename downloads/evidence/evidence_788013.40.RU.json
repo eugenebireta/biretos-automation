@@ -7,7 +7,7 @@
     "78801340RU"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Панель управления пожаротушением Exting. control panel 8010, RU",
   "assembled_title": "Панель управления Honeywell 788013.40.RU",
   "our_price_raw": "169951,00",
@@ -606,5 +606,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com",
+    "https://www.ebay.com/itm/314578478790",
+    "https://www.ebay.de/",
+    "https://www.esser-systems.com/en/products/details/extinguishing-control-panels/wall-mountingsystem-8010/78801340-extinguishing-panel-8010-series-4-with-operating-unit-german/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 315.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.ebay.de/",
+    "our_price_raw": "169951,00",
+    "our_price_parsed": 169951.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

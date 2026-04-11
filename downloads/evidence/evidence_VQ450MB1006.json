@@ -4,7 +4,7 @@
   "pn": "VQ450MB1006",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Комбинированный клапан Honeywell VQ450MB1006",
   "assembled_title": "Клапан Honeywell VQ450MB1006",
   "our_price_raw": "64861,87",
@@ -605,5 +605,22 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://images.kempstoncontrols.com/page_assets/manu_landing/honeywell/Honeywell%20Thermal%20solutions%20catalogue.pdf",
+    "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1275.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450",
+    "our_price_raw": "64861,87",
+    "our_price_parsed": 64861.87,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

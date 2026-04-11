@@ -4,7 +4,7 @@
   "pn": "LATITUDE",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Ноутбук LATITUDE",
   "assembled_title": "Ноутбук Honeywell LATITUDE",
   "our_price_raw": "0,00",
@@ -623,5 +623,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://www.backmarket.com/en-us/l/dell-latitude/",
+    "https://www.dellrefurbished.com/laptops",
+    "https://www.ebay.com/b/Dell-Latitude-PC-Laptops-Netbooks/177/bn_7118472159",
+    "https://www.ebay.com/sch/i.html?_nkw=honeywell+latitude"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1850.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/Dell-Latitude-Honeywell-Experion",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

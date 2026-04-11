@@ -7,7 +7,7 @@
     "TRAY3"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Сплайс-бокс Honeywell TRAY-3",
   "assembled_title": "Сплайс-бокс Honeywell TRAY-3",
   "our_price_raw": "4255,86",
@@ -635,5 +635,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md"
+  },
+  "training_urls": [
+    "https://www.ebay.com/itm/401230128572"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 950.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/401230128572",
+    "our_price_raw": "4255,86",
+    "our_price_parsed": 4255.86,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

@@ -4,7 +4,7 @@
   "pn": "SK8115",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Док-станция Honeywell SK8115",
   "assembled_title": "Док-станция Honeywell SK8115",
   "our_price_raw": "297,00",
@@ -617,5 +617,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.radwell.com/Buy/DELL/DELL/SK-8115"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 71.61,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.radwell.com/Buy/DELL/DELL/SK-8115",
+    "our_price_raw": "297,00",
+    "our_price_parsed": 297.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

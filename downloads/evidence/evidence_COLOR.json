@@ -4,7 +4,7 @@
   "pn": "COLOR",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Принтер Honeywell COLOR",
   "assembled_title": "Принтер Honeywell COLOR",
   "our_price_raw": "0,00",
@@ -600,5 +600,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/intrusion-detection/keypads-and-user-interfaces/6280-color-graphic-voice-touchscreen-keypad",
+    "https://www.honeywellstore.com/store/products/honeywell-wifi-smart-thermostat-rth9585wf1004.htm",
+    "https://www.hp.com/us-en/shop/pdp/hp-color-laserjet-pro-3201dw-printer",
+    "https://www.staples.com/Color-Printers/cat_CL167883/8n5ew?pn=2"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 450.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://prod-edata.honeywell.com/",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

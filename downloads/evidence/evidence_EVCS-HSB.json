@@ -7,7 +7,7 @@
     "EVCSHSB"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Пульт вызова Honeywell EVCS-HSB",
   "assembled_title": "Пульт Honeywell EVCS-HSB",
   "our_price_raw": "14960,00",
@@ -673,5 +673,25 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/morley-ias-uk/hba-fire-HON-EVCS-TypeB-Outstation-2020.pdf",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/notifier-uk/hba-fire-990-142-0313-EVCS-Compact5-and-Compact9.pdf",
+    "https://www.firealarmengineers.com/",
+    "https://www.thesafetycentre.co.uk/honeywell-evcs-hsb-disabled-refuge-intercom-outstation-type-b-red",
+    "https://www.thesafetycentreshop.co.uk/store/brands/honeywell/honeywell_disabled_refuge_system/honeywell_evcs_cmpt9_9_line_evcs_disabled_refuge_compact_master_panel"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 185.0,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://www.firealarmengineers.com/",
+    "our_price_raw": "14960,00",
+    "our_price_parsed": 14960.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

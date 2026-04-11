@@ -4,7 +4,7 @@
   "pn": "PP11L",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Ноутбук PP11L",
   "assembled_title": "Ноутбук Honeywell PP11L",
   "our_price_raw": "11816,00",
@@ -628,5 +628,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://www.ebay.com/p/9018591132",
+    "https://www.laptoppartsexpert.com/c-52093-dell-pp11l-latitude-notebook-repair-parts-accessories.html",
+    "https://www.radwell.com/",
+    "https://www.recycledgoods.com/dell-pp11l-cpu-pentium-m-2-0ghz-1gb-ram-laptop-computer-as-is-for-parts/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 420.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.radwell.com/",
+    "our_price_raw": "11816,00",
+    "our_price_parsed": 11816.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

@@ -7,7 +7,7 @@
     "N0524SW2"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод заслонки Honeywell N0524-SW2",
   "assembled_title": "Привод Honeywell N0524-SW2",
   "our_price_raw": "16371,50",
@@ -614,5 +614,21 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
     "description_ru": "Электрический актуатор без возвратной пружины с крутящим моментом 5Нм для управления небольшими воздушными заслонками. Оснащен двумя вспомогательными переключателями для контроля положений. Работает от напряжения 24В и поддерживает двухпозиционное или трехпозиционное управление."
+  },
+  "training_urls": [
+    "https://www.ebay.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 115.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/",
+    "our_price_raw": "16371,50",
+    "our_price_parsed": 16371.5,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

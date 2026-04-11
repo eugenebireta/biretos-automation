@@ -4,7 +4,7 @@
   "pn": "CB015A",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Принтер Honeywell CB015A",
   "assembled_title": "Принтер Honeywell CB015A",
   "our_price_raw": "25560,00",
@@ -613,5 +613,26 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://automation.honeywell.com/us/en/products/productivity-solutions/printers",
+    "https://www.barcodefactory.com/honeywell/printers",
+    "https://www.nseautomation.com/",
+    "https://www.officedepot.com/a/products/404180/HP-Officejet-Pro-K8600-Wide-Format/",
+    "https://www.printerbase.co.uk/spec/pdf/K8600%20270308.pdf",
+    "https://www.toner2print.com/printers/hp/all-in-one_inkjet/CB015A/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 3200.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.nseautomation.com/",
+    "our_price_raw": "25560,00",
+    "our_price_parsed": 25560.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

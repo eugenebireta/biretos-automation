@@ -7,7 +7,7 @@
     "FUSE20A5X20"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Предохранитель плавкий Honeywell FUSE-20A-5X20",
   "assembled_title": "Предохранитель Honeywell FUSE-20A-5X20",
   "our_price_raw": "584,03",
@@ -619,5 +619,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.amazon.com/20A-5x20mm-Fast-Blow-Fuses/dp/B004HLYV8G"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 0.5,
+    "dr_currency": "USD",
+    "dr_source_url": "Fuse",
+    "our_price_raw": "584,03",
+    "our_price_parsed": 584.03,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

@@ -4,7 +4,7 @@
   "pn": "EASY",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Серверный шкаф Honeywell EASY",
   "assembled_title": "Шкаф Honeywell EASY",
   "our_price_raw": "0,00",
@@ -619,5 +619,28 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://automation.honeywell.com/us/en/products-backup/sensing-solutions/intelligent-life-care/call-systems/patient-room-components/systevo-call-easy-din-plug-3m-ip67",
+    "https://buildings.honeywell.com/pl/en/products/by-category/video-systems/recorders-and-storage/accessories/racks-and-hardware/rack-cabinet",
+    "https://eu.shi.com/product/42894438/APC-Easy-Rack-Rack-cabinet",
+    "https://global.microless.com/product/apc-24u-easy-rack-cabinet-er6482/",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/HBT-SEC-ACS-PRO-19INCH-ENCL-DS-UK-EN.pdf",
+    "https://www.bechtle.com/de-en/shop/apc-easy-rack-24u-600x800--4784624--p",
+    "https://www.se.com/ng/en/product/ER8812/",
+    "https://www.se.com/nl/en/product/ER8222/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 120.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://prod-edata.honeywell.com/",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

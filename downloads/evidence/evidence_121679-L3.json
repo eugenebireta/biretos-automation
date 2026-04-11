@@ -7,7 +7,7 @@
     "121679L3"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Ручной аспиратор Honeywell 121679-L3",
   "assembled_title": "Аспиратор Honeywell 121679-L3",
   "our_price_raw": "17168,64",
@@ -619,5 +619,21 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report-prompt-v3.md",
     "description_ru": "Комплект для ручного забора проб воздуха, совместимый с портативными газоанализаторами MicroClip XL и X3. Позволяет проводить мониторинг загазованности в колодцах и замкнутых пространствах перед входом персонала.25"
+  },
+  "training_urls": [
+    "https://www.galco.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 550.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.galco.com/",
+    "our_price_raw": "17168,64",
+    "our_price_parsed": 17168.64,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

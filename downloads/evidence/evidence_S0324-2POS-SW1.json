@@ -7,7 +7,7 @@
     "S03242POSSW1"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод заслонки S0324-2POS-SW1",
   "assembled_title": "Привод Honeywell S0324-2POS-SW1",
   "our_price_raw": "18182,50",
@@ -612,5 +612,21 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
     "description_ru": "Пружинный привод для воздушных заслонок с двухпозиционным управлением «открыто-закрыто». Обладает крутящим моментом 3Нм и обеспечивает гарантированный возврат заслонки в безопасное положение. Включает один встроенный вспомогательный переключатель."
+  },
+  "training_urls": [
+    "https://www.industry-mall.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 85.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.industry-mall.com/",
+    "our_price_raw": "18182,50",
+    "our_price_parsed": 18182.5,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

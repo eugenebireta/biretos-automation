@@ -4,7 +4,7 @@
   "pn": "805590",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "База извещателя стандартная 805590",
   "assembled_title": "База Honeywell 805590",
   "our_price_raw": "810,28",
@@ -607,5 +607,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.esser-systems.com/en/products/fire-alarm-technology/detectors/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 22.4,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://ru.scribd.com/document/445977436/gggggggggg",
+    "our_price_raw": "810,28",
+    "our_price_parsed": 810.28,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

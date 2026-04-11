@@ -4,7 +4,7 @@
   "pn": "369111",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Устройство Honeywell D 95.571.78",
   "assembled_title": "Рамка 1-постовая PEHA DIALOG, 369111",
   "our_price_raw": "517,70",
@@ -667,5 +667,21 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
+  },
+  "training_urls": [
+    "https://www.sec.gov/Archives/edgar/data/70858/0000070858-04-000523.txt"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 493.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://liveinlight.ru/ramki/ramki-1-post/ramka-1-post-peha-by-honeywell-dialog-bronzovyy-2",
+    "our_price_raw": "517,70",
+    "our_price_parsed": 517.7,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

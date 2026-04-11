@@ -4,7 +4,7 @@
   "pn": "1061200000",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Конечный кронштейн Weidmuller WEW 35/2, бежевый",
   "assembled_title": "Кронштейн Honeywell 1061200000",
   "our_price_raw": "131,08",
@@ -533,5 +533,22 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
     "description_ru": "Механический фиксатор для надежного закрепления клеммных блоков на монтажной шине. Изготовлен из усиленного стекловолокном полиамида, устойчивого к вибрации и экстремальным температурам.19"
+  },
+  "training_urls": [
+    "https://www.digikey.com/en/products/detail/weidm%C3%BCller/1061200000/385503",
+    "https://www.specialtycontrolsystems.com/proddetail.php?prod=106120"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2.08,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.specialtycontrolsystems.com/proddetail.php?prod=106120",
+    "our_price_raw": "131,08",
+    "our_price_parsed": 131.08,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

@@ -7,7 +7,7 @@
     "PANC30004"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Панель удаленных модулей C300 Panel PANC300-04",
   "assembled_title": "Панель Honeywell PANC300-04",
   "our_price_raw": "3886297,00",
@@ -615,5 +615,22 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://www.ebay.de/sch/i.html?_nkw=PANC300-04",
+    "https://www.nseautomation.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2800.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.nseautomation.com/",
+    "our_price_raw": "3886297,00",
+    "our_price_parsed": 3886297.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

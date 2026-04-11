@@ -8,7 +8,7 @@
     "FUSE05A5X20"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Предохранитель плавкий Honeywell FUSE-0.5A-5X20",
   "assembled_title": "Предохранитель Honeywell FUSE-0.5A-5X20",
   "our_price_raw": "90,79",
@@ -625,5 +625,22 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md"
+  },
+  "training_urls": [
+    "https://ielectrony.com/en/product/fuse-5x20-mm-0-5a-250v/",
+    "https://www.homedepot.com/p/Cooper-Bussmann-GMA-Series-500-mA-Silver-5mm-x-20mm-Fuses-2-Pack-BP-GMA-500MA/100149086"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2.99,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.homedepot.com/p/Cooper-Bussmann-GMA-Series-500-mA-Silver-5mm-x-20mm-Fuses-2-Pack-BP-GMA-500MA/100149086",
+    "our_price_raw": "90,79",
+    "our_price_parsed": 90.79,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

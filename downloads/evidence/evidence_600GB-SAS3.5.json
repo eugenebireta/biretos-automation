@@ -8,7 +8,7 @@
     "600GBSAS35"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Жесткий диск 3.5\" HDD 600 GB SATA",
   "assembled_title": "Жесткий диск Honeywell 600GB-SAS3.5",
   "our_price_raw": "23256,75",
@@ -617,5 +617,26 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://techatlantix.com/st3600057ss-seagate-cheetah-15k-7-series-600gb-15000rpm-sas-6gb-s-16mb-cache-ce-3-5-inch-hard-drive.html",
+    "https://www.ebay.com/",
+    "https://www.ebay.com/itm/180869548458",
+    "https://www.serverparts4less.com/st3600057ss-seagate-600gb-15k-rpm-lff-3-5-sas-hard-drive/",
+    "https://www.serversupply.com/HARD%20DRIVES/SAS-6GBPS/600GB-15000RPM/SEAGATE/ST3600057SS_201735.htm",
+    "https://www.walmart.com/ip/Seagate-ST3600057SS-15000RPM-6-0Gp-s-600GB-SAS-3-5-HDD/272000563"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 110.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/",
+    "our_price_raw": "23256,75",
+    "our_price_parsed": 23256.75,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

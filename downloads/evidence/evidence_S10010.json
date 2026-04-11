@@ -4,7 +4,7 @@
   "pn": "S10010",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод заслонки 10NM 24V S10010",
   "assembled_title": "Привод Honeywell S10010",
   "our_price_raw": "8870,00",
@@ -693,5 +693,23 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
     "description_ru": "Поворотный привод серии SmartAct с крутящим моментом 10Нм и защитной функцией пружинного возврата. Используется для управления воздушными заслонками и обеспечивает их автоматическое закрытие при отключении питания. Оснащен самоцентрирующимся адаптером для быстрой установки на вал."
+  },
+  "training_urls": [
+    "https://www.bolasystems.com/honeywell-smartact-s10010",
+    "https://www.ebay.com/itm/275507412814",
+    "https://www.orbit-surplus.com/product/honeywell-s10010"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 150.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/275507412814",
+    "our_price_raw": "8870,00",
+    "our_price_parsed": 8870.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

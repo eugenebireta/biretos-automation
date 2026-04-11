@@ -7,7 +7,7 @@
     "PANC30003"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Панель удаленных модулей C300 Panel PANC300-03",
   "assembled_title": "Панель Honeywell PANC300-03",
   "our_price_raw": "3886297,00",
@@ -623,5 +623,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md"
+  },
+  "training_urls": [
+    "https://process.honeywell.com/us/en/products/control-and-supervisory-systems/human-machine-interfaces-hmi/experion-panel-pc",
+    "https://www.indiamart.com/proddetail/honeywell-experion-pc-c300-dcs-system-24977893848.html",
+    "https://www.nseautomation.com/Honeywell-8C-PCNT03-PANC300-03-C300-Controller-Module-p1548232.html",
+    "https://www.radwell.com/Search?q=PANC300-03"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2450.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.nseautomation.com/Honeywell-8C-PCNT03-PANC300-03-C300-Controller-Module-p1548232.html",
+    "our_price_raw": "3886297,00",
+    "our_price_parsed": 3886297.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

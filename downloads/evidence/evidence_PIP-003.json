@@ -7,7 +7,7 @@
     "PIP003"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Союзное соединение ASD SOCKET UNION 25MM PK10 PIP-003",
   "assembled_title": "Соединение Honeywell PIP-003",
   "our_price_raw": "3083,85",
@@ -614,5 +614,24 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md"
+  },
+  "training_urls": [
+    "https://buildings.honeywell.com/gb/en/products/by-category/fire-life-safety/sensors-and-detectors/aspirating-smoke-detection/parts-and-accessories/asd-socket-union-25mm",
+    "https://process.honeywell.com/",
+    "https://www.atpsolutions.co/pip-003-asd-barrel-union/",
+    "https://www.firesafetycentre.online/product/vesda-xtralis-pip-003-25mm-red-socket-union/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 34.02,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://dema.net/vesda-xtralis-pip-003-25mm-socket-union-pack-of-10.html",
+    "our_price_raw": "3083,85",
+    "our_price_parsed": 3083.85,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
   }
 }

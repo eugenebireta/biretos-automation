@@ -4,7 +4,7 @@
   "pn": "13960",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Источник питания Honeywell PSU 52Ah для MB-Secure",
   "assembled_title": "Источник питания Honeywell 13960",
   "our_price_raw": "46288,36",
@@ -552,5 +552,22 @@
     "model": "unknown",
     "source_file": "deep-research-report-prompt-v3.md"
   },
-  "dr_image_url": "https://i.ebayimg.com/images/g/m8sAAeSwZLZochGf/s-l500.jpg"
+  "dr_image_url": "https://i.ebayimg.com/images/g/m8sAAeSwZLZochGf/s-l500.jpg",
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/building-management/controllers/parts-and-accessories/power-supplies/external-power-supply-unit",
+    "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/power-supplies/power-supplies"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "46288,36",
+    "our_price_parsed": 46288.36,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  }
 }
