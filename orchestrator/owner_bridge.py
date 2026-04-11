@@ -171,11 +171,13 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
 
         project_ctx = (
             "О проекте biretos-automation:\n"
-            "Система обогащения каталога товаров (Honeywell/PEHA/Esser — "
-            "пожарная безопасность, электроустановка, датчики).\n"
-            "Пайплайн: DR → evidence JSON → title_ru + description + цена + фото → InSales.\n"
+            "Система обогащения каталога товаров для интернет-магазина Biretos.\n"
+            "Товары: Honeywell, PEHA, Esser — пожарная безопасность, электроустановка, датчики.\n"
+            "DR = Deep Research (глубокое исследование) — автоматический сбор данных о товарах "
+            "через API Gemini/Claude. Результат: evidence JSON с title_ru, description, ценой, фото.\n"
+            "Пайплайн: DR → evidence JSON → обогащение → экспорт в InSales (CMS магазина).\n"
             "Скрипты: scripts/. Оркестратор: orchestrator/. Данные: downloads/evidence/.\n"
-            f"Состояние: fsm={state}, task={task}, goal={goal}, park={park}\n"
+            f"Состояние оркестратора: fsm={state}, task={task}, goal={goal}, park={park}\n"
         )
 
         # Inject last N history turns into prompt
@@ -393,12 +395,16 @@ def _save_manifest(m: dict) -> None:
 
 # ── Bridge state (cursor + dedup) ──────────────────────────────────────
 
+_MSG_ID_DEDUP_MAX = 500  # keep last N processed msg_ids in bridge_state
+
+
 def _load_bridge_state() -> dict:
     return _load_json(BRIDGE_STATE_PATH, {
         "last_processed_update_id": 0,
         "last_processed_line": 0,
         "processed_count": 0,
         "dlq_count": 0,
+        "processed_msg_ids": [],
     })
 
 
@@ -490,6 +496,12 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
     if update_id and update_id <= last_processed:
         return True  # skip, already handled
 
+    # Dedup by msg_id — handles MAX duplicates that slip past line cursor
+    msg_id = entry.get("msg_id") or entry.get("update_id") or ""
+    processed_ids: list = bridge_state.setdefault("processed_msg_ids", [])
+    if msg_id and msg_id in processed_ids:
+        return True  # already handled this exact message
+
     text = (entry.get("text") or "").strip()
     if not text:
         _send_to_dlq(entry, "empty_text")
@@ -518,11 +530,11 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
     if route.stream in _READ_ONLY_STREAMS:
         # FAST PATH: no manifest lock, no FSM mutation
         return _process_read_only(entry, bridge_state, manifest,
-                                  input_type, payload, update_id)
+                                  input_type, payload, update_id, msg_id)
     else:
         # FSM PATH: acquire lock, re-read manifest, mutate
         return _process_fsm(entry, bridge_state, manifest,
-                            input_type, payload, update_id)
+                            input_type, payload, update_id, msg_id)
 
 
 def _process_read_only(
@@ -532,6 +544,7 @@ def _process_read_only(
     input_type: str,
     payload: dict,
     update_id: int,
+    msg_id: str = "",
 ) -> bool:
     """Fast path for QUERY/COMMAND — no manifest lock, no FSM mutation."""
     try:
@@ -556,13 +569,25 @@ def _process_read_only(
                    error_class="TRANSIENT", retriable=True)
         return True
 
-    # Advance cursor
+    # Advance cursor + record msg_id
     if update_id:
         bridge_state["last_processed_update_id"] = max(
             bridge_state.get("last_processed_update_id", 0), update_id
         )
+    _record_msg_id(bridge_state, msg_id)
     bridge_state["processed_count"] = bridge_state.get("processed_count", 0) + 1
     return True
+
+
+def _record_msg_id(bridge_state: dict, msg_id: str) -> None:
+    """Add msg_id to processed set, trim to max size."""
+    if not msg_id:
+        return
+    ids: list = bridge_state.setdefault("processed_msg_ids", [])
+    if msg_id not in ids:
+        ids.append(msg_id)
+    if len(ids) > _MSG_ID_DEDUP_MAX:
+        bridge_state["processed_msg_ids"] = ids[-_MSG_ID_DEDUP_MAX:]
 
 
 def _process_fsm(
@@ -572,6 +597,7 @@ def _process_fsm(
     input_type: str,
     payload: dict,
     update_id: int,
+    msg_id: str = "",
 ) -> bool:
     """FSM path for TASK/CALLBACK — acquires manifest lock, may mutate."""
     lock_fh = _acquire_manifest_lock()
@@ -629,11 +655,12 @@ def _process_fsm(
     finally:
         _release_manifest_lock(lock_fh)
 
-    # Advance cursor
+    # Advance cursor + record msg_id
     if update_id:
         bridge_state["last_processed_update_id"] = max(
             bridge_state.get("last_processed_update_id", 0), update_id
         )
+    _record_msg_id(bridge_state, msg_id)
     bridge_state["processed_count"] = bridge_state.get("processed_count", 0) + 1
     return True
 

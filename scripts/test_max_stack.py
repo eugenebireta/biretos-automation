@@ -56,11 +56,42 @@ def _outbox_lines_after(snapshot_count: int) -> list[dict]:
     return result
 
 
+def _advance_bridge_cursor_to_end() -> None:
+    """Set bridge last_processed_line to current inbox end.
+
+    This skips all historical inbox entries so the bridge only processes
+    the selftest entry, avoiding a long queue of old messages.
+    """
+    state_path = ORCH / "bridge_state.json"
+    try:
+        if not INBOX_PATH.exists():
+            return
+        line_count = len([
+            ln for ln in INBOX_PATH.read_text(encoding="utf-8").splitlines()
+            if ln.strip()
+        ])
+        if state_path.exists():
+            state = json.loads(state_path.read_text(encoding="utf-8"))
+        else:
+            state = {}
+        state["last_processed_line"] = line_count
+        tmp = state_path.with_suffix(".tmp.selftest")
+        tmp.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+        import os
+        os.replace(str(tmp), str(state_path))
+    except Exception:
+        pass
+
+
 def run_selftest(question: str, verbose: bool = False) -> tuple[bool, str]:
     """
     Inject question → wait for bridge response → return (pass, response_text).
+    Advances bridge cursor to skip old inbox entries before injecting.
     """
     uid = f"selftest_{hashlib.md5(f'{time.time()}'.encode()).hexdigest()[:8]}"
+
+    # Skip old inbox backlog — bridge only processes this new entry
+    _advance_bridge_cursor_to_end()
 
     entry = {
         "ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -105,7 +136,7 @@ def run_selftest(question: str, verbose: bool = False) -> tuple[bool, str]:
                 continue
             return True, text
 
-    return False, "TIMEOUT — no response within {}s".format(TIMEOUT_S)
+    return False, f"TIMEOUT — no response within {TIMEOUT_S}s"
 
 
 def main() -> None:
