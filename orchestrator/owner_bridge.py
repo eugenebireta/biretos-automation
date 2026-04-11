@@ -435,8 +435,9 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
         else:
             route = _router.classify(text, manifest)
         input_type, payload = route.input_type, route.payload
+        trace_id = manifest.get("trace_id", "")
         _log_event("INFO", "classify", stream=route.stream.value,
-                   input_type=input_type,
+                   input_type=input_type, trace_id=trace_id,
                    text_preview=text[:60], fsm_state=manifest.get("fsm_state"))
 
         # Get handler

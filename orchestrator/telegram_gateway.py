@@ -234,7 +234,10 @@ class TelegramGateway:
 
         # Callback events: acknowledge immediately, then write to inbox
         if event.event_type == "callback" and event.callback_data:
-            self.transport.answer_callback(event.callback_data)
+            try:
+                self.transport.answer_callback(event.callback_data)
+            except Exception as e:
+                self._log("WARNING", "callback_ack_failed", error=str(e)[:200])
 
         # Write to inbox — canonical event envelope
         entry = {
