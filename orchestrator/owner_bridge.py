@@ -151,68 +151,95 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 
 def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Direct chat — Anthropic API (Claude) with persistent conversation history.
+    """Direct chat — Claude Code CLI on VPS via SSH (subscription, no API billing).
 
-    No manifest mutation. Uses Anthropic API directly so no new Claude Code
-    chat windows are spawned per message. History is loaded from
-    owner_chat_history.jsonl and replayed as messages array.
+    No manifest mutation. Runs `claude --print` on biretos VPS via SSH.
+    History from owner_chat_history.jsonl is injected as context in the prompt.
+    Falls back to Anthropic API if SSH fails.
     """
     message = payload["message"]
     try:
         try:
             from chat_session import load_history, save_turn
-            from chat_engine import _load_anthropic_key, _manifest_summary
         except ImportError:
             from orchestrator.chat_session import load_history, save_turn
-            from orchestrator.chat_engine import _load_anthropic_key, _manifest_summary
-
-        key = _load_anthropic_key()
-        if not key:
-            return {}, f"(Нет ключа Anthropic)\n{_manifest_summary(manifest)}"
-
-        import anthropic  # type: ignore[import-untyped]
 
         state = manifest.get("fsm_state", "unknown")
         task = manifest.get("current_task_id") or "нет"
         goal = manifest.get("current_sprint_goal") or "нет"
         park = manifest.get("park_reason") or "нет"
 
-        system = (
-            "Ты — AI-ассистент проекта biretos-automation, общаешься с владельцем "
-            "через MAX мессенджер. Отвечай кратко, по-русски, строго по теме. "
-            "Не придумывай задачи и не рапортуй о несуществующей работе.\n\n"
-            "О проекте:\n"
-            "biretos-automation — система обогащения каталога товаров для интернет-магазина.\n"
-            "Товары: Honeywell/PEHA/Esser (пожарная безопасность, электроустановка, датчики).\n"
-            "Пайплайн: DR (deep research через Gemini/Claude API) → evidence JSON → "
-            "title_ru + description + insales_category + цена + фото → экспорт в InSales.\n"
-            "Скрипты в scripts/. Оркестратор в orchestrator/. "
-            "Данные в downloads/evidence/ и research_results/.\n\n"
-            f"Состояние оркестратора: fsm={state}, task={task}, goal={goal}, park={park}"
+        project_ctx = (
+            "О проекте biretos-automation:\n"
+            "Система обогащения каталога товаров (Honeywell/PEHA/Esser — "
+            "пожарная безопасность, электроустановка, датчики).\n"
+            "Пайплайн: DR → evidence JSON → title_ru + description + цена + фото → InSales.\n"
+            "Скрипты: scripts/. Оркестратор: orchestrator/. Данные: downloads/evidence/.\n"
+            f"Состояние: fsm={state}, task={task}, goal={goal}, park={park}\n"
         )
 
-        # Build messages array with conversation history
-        history_turns = load_history()
-        messages = []
-        for turn in history_turns:
-            messages.append({"role": "user", "content": turn["user"]})
-            messages.append({"role": "assistant", "content": turn["assistant"]})
-        messages.append({"role": "user", "content": message})
+        # Inject last N history turns into prompt
+        history_turns = load_history()[-6:]  # last 6 exchanges max
+        history_text = ""
+        if history_turns:
+            lines = []
+            for turn in history_turns:
+                lines.append(f"Владелец: {turn['user']}")
+                lines.append(f"Ты: {turn['assistant']}")
+            history_text = "\n[История]\n" + "\n".join(lines) + "\n"
 
-        client = anthropic.Anthropic(api_key=key)
-        response = client.messages.create(
-            model="claude-haiku-4-5-20251001",
-            max_tokens=1024,
-            system=system,
-            messages=messages,
+        prompt = (
+            "Ты — ассистент проекта biretos-automation, общаешься через MAX мессенджер.\n"
+            "Отвечай кратко, по-русски, строго по теме. Не придумывай.\n\n"
+            f"{project_ctx}"
+            f"{history_text}\n"
+            f"Владелец: {message}\nТы:"
         )
-        answer = (response.content[0].text or "").strip()[:3900]
+
+        import subprocess
+        result = subprocess.run(
+            ["ssh", "-o", "ConnectTimeout=10", "-o", "BatchMode=yes",
+             "biretos", f"claude --print {_shell_quote(prompt)}"],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=60,
+        )
+        answer = result.stdout.strip()[:3900]
+        if not answer:
+            raise RuntimeError(result.stderr[:200] or "empty response")
 
         save_turn(message, answer)
 
     except Exception as exc:
-        answer = f"Ошибка: {str(exc)[:200]}"
+        # Fallback: Anthropic API
+        try:
+            try:
+                from chat_engine import _load_anthropic_key
+            except ImportError:
+                from orchestrator.chat_engine import _load_anthropic_key
+            import anthropic  # type: ignore[import-untyped]
+            key = _load_anthropic_key()
+            if key:
+                client = anthropic.Anthropic(api_key=key)
+                resp = client.messages.create(
+                    model="claude-haiku-4-5-20251001",
+                    max_tokens=512,
+                    messages=[{"role": "user", "content": message}],
+                )
+                answer = resp.content[0].text.strip()[:3900]
+                save_turn(message, answer)
+            else:
+                answer = f"(SSH и API недоступны: {str(exc)[:120]})"
+        except Exception as exc2:
+            answer = f"Ошибка: {str(exc)[:100]} / {str(exc2)[:100]}"
     return {}, answer
+
+
+def _shell_quote(s: str) -> str:
+    """Wrap string in single quotes for SSH, escaping internal single quotes."""
+    return "'" + s.replace("'", "'\\''") + "'"
 
 
 def _handle_new_task(manifest: dict, payload: dict) -> tuple[dict, str]:
