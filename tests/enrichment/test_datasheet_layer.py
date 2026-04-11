@@ -96,6 +96,16 @@ class TestDatasheetRecord:
         with pytest.raises(Exception):
             _make_record(version=0)
 
+    def test_empty_pn_rejected(self):
+        import pytest
+        with pytest.raises(ValueError, match="pn must not be empty"):
+            _make_record(pn="")
+
+    def test_empty_content_hash_rejected(self):
+        import pytest
+        with pytest.raises(ValueError, match="content_hash must not be empty"):
+            _make_record(content_hash="")
+
     def test_defaults(self):
         r = _make_record()
         assert r.pn_confirmed is False
@@ -489,7 +499,7 @@ class TestMigrate:
 
         stats = migrate_all(evidence_dir=evidence_dir, base_dir=ds_dir, dry_run=True)
         assert stats["ingested"] == 0
-        assert stats["dedup_skipped"] == 1  # no pdf = would be skipped
+        assert stats["no_content"] == 1  # no pdf = cannot compute hash
 
     def test_migrate_no_evidence_dir(self, tmp_path):
         stats = migrate_all(
@@ -545,18 +555,42 @@ class TestConcurrency:
 
 class TestErrorPaths:
     def test_lock_timeout_raises(self, tmp_path):
-        """Lock timeout must raise TimeoutError, not proceed unlocked."""
+        """Lock timeout must raise TimeoutError, not proceed unlocked.
+
+        Lock file is touched with recent mtime so stale-lock detection
+        does NOT remove it (stale threshold is 60s).
+        """
         import pytest
         from scripts.datasheet_layer.store import _file_lock
 
-        # Create a stale lock file to simulate held lock
+        # Create a fresh lock file — recent mtime means NOT stale
+        lock_path = tmp_path / ".datasheet_store.lock"
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
+        import os
+        fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.close(fd)
+
+        with pytest.raises(TimeoutError, match="lock acquisition timed out"):
+            with _file_lock(tmp_path, timeout=0.2, trace_id="test_timeout"):
+                pass  # should never reach here
+        # Clean up
+        lock_path.unlink(missing_ok=True)
+
+    def test_stale_lock_auto_removed(self, tmp_path):
+        """Lock file older than threshold must be auto-removed."""
+        import os
+        from scripts.datasheet_layer.store import _file_lock
+
         lock_path = tmp_path / ".datasheet_store.lock"
         lock_path.parent.mkdir(parents=True, exist_ok=True)
         lock_path.write_text("stale")
+        # Backdate mtime to 120s ago
+        old_time = os.path.getmtime(str(lock_path)) - 120
+        os.utime(str(lock_path), (old_time, old_time))
 
-        with pytest.raises(TimeoutError, match="lock acquisition timed out"):
-            with _file_lock(tmp_path, timeout=0.1, trace_id="test_timeout"):
-                pass  # should never reach here
+        # Should acquire lock despite existing file (stale removal)
+        with _file_lock(tmp_path, timeout=1.0, trace_id="test_stale"):
+            pass  # success = stale lock was removed
 
     def test_index_load_error_raises(self, tmp_path):
         """Corrupt index.json must raise, not silently return empty dict."""

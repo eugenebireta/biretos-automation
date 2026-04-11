@@ -315,9 +315,11 @@ class TestQueryTaskSplitE2E:
         assert count == 1
 
         outbox = _read_outbox(tmp_path)
-        assert len(outbox) == 1
-        assert "Gateway" in outbox[0]["text"]
-        assert outbox[0]["event_type"] == "bridge_chat"
+        # 2 entries: "Думаю…" ack + actual Claude response
+        assert len(outbox) == 2
+        assert outbox[0]["event_type"] == "bridge_chat_ack"
+        assert "Gateway" in outbox[1]["text"]
+        assert outbox[1]["event_type"] == "bridge_chat"
 
         # Manifest untouched
         assert _read_manifest(tmp_path)["fsm_state"] == "idle"

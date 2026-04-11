@@ -72,6 +72,24 @@ VERDICT_SCHEMA: dict[str, Any] = {
 # Prompt builders
 # ---------------------------------------------------------------------------
 
+def _tier3_conditional_rules(surface: list[str]) -> str:
+    """Include Tier-3 rules only when the task surface matches."""
+    rules = []
+    # Webhook HMAC — only for modules that handle inbound webhooks
+    if any(s in surface for s in ("webhook_ingest", "webhook_handler")):
+        rules.append("  - Webhook workers must validate HMAC signature BEFORE processing")
+    # SQL dedup — only for modules that use SQL storage
+    if any(s in surface for s in ("sql_mutation", "idempotency_replay", "database")):
+        rules.append("  - Inbound event dedup via INSERT ON CONFLICT DO NOTHING")
+    # File-based modules get file-appropriate dedup rule instead
+    if not rules:
+        rules.append(
+            "  - NOTE: This module does NOT use webhooks or SQL. "
+            "Do NOT flag missing HMAC or INSERT ON CONFLICT — they are not applicable."
+        )
+    return "\n".join(rules)
+
+
 def _build_system_prompt(context: dict[str, Any]) -> str:
     """Builds system prompt dynamically from ContextAssembler context (SPEC §19.4)."""
     risk = context.get("risk", "unknown")
@@ -107,8 +125,7 @@ Every new module MUST have:
   - Structured error logging: error_class (TRANSIENT/PERMANENT/POLICY_VIOLATION), severity, retriable
   - No silent exception swallowing
   - At least one deterministic test (no live API, no unmocked time)
-  - Webhook workers must validate HMAC signature BEFORE processing
-  - Inbound event dedup via INSERT ON CONFLICT DO NOTHING
+{_tier3_conditional_rules(surface)}
 
 ## FSM rules
   - Linear FSM only, max 5 states

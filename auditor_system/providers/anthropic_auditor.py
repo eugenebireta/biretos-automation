@@ -111,7 +111,30 @@ class AnthropicAuditor(AuditorProvider):
         )
 
         json_text = self._extract_json(raw_text)
-        verdict = validate_and_parse("anthropic", json_text)
+        try:
+            verdict = validate_and_parse("anthropic", json_text)
+        except Exception:
+            # Retry once with strict JSON instruction (parity with Gemini)
+            logger.warning(
+                "anthropic_auditor: parse failed, retrying with strict JSON prompt task_id=%s",
+                task.task_id,
+            )
+            response2 = await self._client.messages.create(
+                model=self.model,
+                max_tokens=self._max_tokens,
+                system=system_prompt,
+                messages=[
+                    {"role": "user", "content": (
+                        "You must respond with ONLY a valid JSON object, nothing else.\n"
+                        "No markdown, no prose, no code fences. Start with { and end with }.\n\n"
+                        + user_prompt
+                    )},
+                ],
+                temperature=0.0,
+            )
+            raw_text = response2.content[0].text if response2.content else ""
+            json_text = self._extract_json(raw_text)
+            verdict = validate_and_parse("anthropic", json_text)
         logger.info(
             "anthropic_auditor: verdict=%s critical=%d warnings=%d task_id=%s",
             verdict.verdict.value, verdict.critical_count, verdict.warning_count, task.task_id,

@@ -154,6 +154,7 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
     """Direct chat — run claude -p with user message, return answer.
 
     No manifest mutation. Runs claude CLI as subprocess.
+    Caller sends immediate ack before invoking this handler.
     """
     message = payload["message"]
     try:
@@ -472,10 +473,17 @@ def _process_read_only(
             return True
 
         _log_event("INFO", "fast_path_start", input_type=input_type)
-        _, response_text = handler(manifest, payload)
 
+        # For slow handlers (chat subprocess ~10-120s), send immediate ack
+        # so user sees feedback within 1-2s (next gateway outbox flush)
         source = entry.get("source", "telegram_gateway")
         target = _router.target_from_source(source)
+        if input_type == "chat":
+            _enqueue_response("Думаю…", run_id=manifest.get("trace_id"),
+                              event_type="bridge_chat_ack", target=target)
+
+        _, response_text = handler(manifest, payload)
+
         _enqueue_response(response_text, run_id=manifest.get("trace_id"),
                           event_type=f"bridge_{input_type}", target=target)
         _log_event("INFO", "fast_path_done", input_type=input_type)
@@ -487,11 +495,8 @@ def _process_read_only(
                    error_class="TRANSIENT", retriable=True)
         return True
 
-    # Advance cursor
-    if update_id:
-        bridge_state["last_processed_update_id"] = max(
-            bridge_state.get("last_processed_update_id", 0), update_id
-        )
+    # Note: cursor advancement moved to process_all_pending()
+    # to prevent advancing past deferred entries
     bridge_state["processed_count"] = bridge_state.get("processed_count", 0) + 1
     return True
 
@@ -560,11 +565,8 @@ def _process_fsm(
     finally:
         _release_manifest_lock(lock_fh)
 
-    # Advance cursor
-    if update_id:
-        bridge_state["last_processed_update_id"] = max(
-            bridge_state.get("last_processed_update_id", 0), update_id
-        )
+    # Note: cursor advancement moved to process_all_pending()
+    # to prevent advancing past deferred entries
     bridge_state["processed_count"] = bridge_state.get("processed_count", 0) + 1
     return True
 
@@ -601,6 +603,8 @@ def process_all_pending() -> int:
             continue
 
     count = 0
+    min_deferred_uid: int | None = None  # lowest deferred update_id
+    min_deferred_idx: int | None = None  # lowest deferred line index
     for idx, entry in entries:
         # Skip by line index (primary cursor)
         if idx < last_line:
@@ -614,11 +618,34 @@ def process_all_pending() -> int:
         ok = process_inbox_entry(entry, bridge_state)
         if ok:
             count += 1
-            # Advance line cursor
-            bridge_state["last_processed_line"] = idx + 1
-            _save_bridge_state(bridge_state)
+            # Only advance cursors if no earlier deferred entry exists —
+            # otherwise we'd skip the deferred entry on restart.
+            # Trade-off: entries AFTER a deferred one may be re-processed
+            # on the next cycle. This is safe because read-only queries
+            # are idempotent (duplicate status in outbox is harmless).
+            if min_deferred_idx is None:
+                bridge_state["last_processed_line"] = idx + 1
+                if update_id:
+                    bridge_state["last_processed_update_id"] = max(
+                        bridge_state.get("last_processed_update_id", 0),
+                        update_id,
+                    )
+                _save_bridge_state(bridge_state)
         else:
-            break  # manifest locked — retry later
+            # FSM path couldn't get lock — defer this entry but
+            # continue processing remaining entries (queries won't
+            # need the lock and should not be head-of-line blocked)
+            if min_deferred_idx is None:
+                min_deferred_idx = idx
+            if update_id and (min_deferred_uid is None
+                              or update_id < min_deferred_uid):
+                min_deferred_uid = update_id
+            _log_event("DEBUG", "entry_deferred", idx=idx,
+                       update_id=update_id, reason="manifest_locked")
+
+    if min_deferred_idx is not None:
+        _log_event("INFO", "deferred_entries_pending",
+                   min_idx=min_deferred_idx, reason="manifest_locked")
 
     return count
 

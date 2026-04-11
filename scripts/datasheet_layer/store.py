@@ -57,6 +57,24 @@ def _file_lock(base_dir: Path, timeout: float = 10.0, trace_id: str = ""):
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     fd = None
     import time
+
+    # Stale lock detection: if lock file exists and is older than 60s,
+    # assume the holder crashed and remove it (PID-based detection is
+    # unreliable cross-platform; age-based is sufficient for our scale).
+    _STALE_LOCK_AGE_S = 60.0
+    if lock_path.exists():
+        try:
+            lock_age = time.time() - lock_path.stat().st_mtime
+            if lock_age > _STALE_LOCK_AGE_S:
+                lock_path.unlink(missing_ok=True)
+                _structured_log(
+                    trace_id, "stale_lock_removed",
+                    severity="WARNING",
+                    lock_age_s=round(lock_age, 1),
+                )
+        except OSError:
+            pass  # race with another process removing it — fine
+
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
         try:
@@ -209,9 +227,12 @@ def write_version(
         # Update index after version file is safely written
         if not auto_version:
             index = _load_index(base_dir, trace_id=trace_id)
+        # Count actual version files on disk (not version number — may differ
+        # for non-sequential manual writes).
+        actual_count = len(list(pn_dir.glob("v*.json"))) if pn_dir.exists() else 1
         index[pn] = {
             "latest_version": version,
-            "version_count": version,
+            "version_count": actual_count,
             "last_updated": record_dict.get("ingested_at", ""),
         }
         _save_index(base_dir, index)

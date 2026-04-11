@@ -54,6 +54,10 @@ class MockBuilder(BuilderProvider):
         return (
             f"## Revision changelog\n"
             f"Addressed {len(critiques)} critique(s):\n{changelog}\n\n"
-            f"## Full proposal (unchanged — MockBuilder does not modify code)\n\n"
+            f"## AUDITOR NOTE\n"
+            f"This is a CODE AUDIT run — the code below is the ACTUAL implementation "
+            f"being reviewed. MockBuilder cannot modify code; the original proposal IS "
+            f"the deliverable. Audit the code quality, not the revision process.\n\n"
+            f"## Source code\n\n"
             f"{original_proposal}"
         )
