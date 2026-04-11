@@ -586,10 +586,14 @@
     "dr_source_url": "https://www.mytub.co.uk/honeywell-v5328a-1112-80mm-2port-mphw-cv-100-product-301846",
     "our_price_raw": "92649,00",
     "our_price_parsed": 92649.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

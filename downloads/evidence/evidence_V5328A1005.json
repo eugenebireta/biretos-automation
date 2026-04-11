@@ -565,10 +565,14 @@
     "dr_source_url": "https://www.hlkshop.ch/en/honeywell-durchgangsventil-pn-16-flansch-niro-garnitur-dn-15-kvs-wert-10-artnr-v5328a1005",
     "our_price_raw": "77177,00",
     "our_price_parsed": 77177.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

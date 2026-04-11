@@ -685,10 +685,14 @@
     "dr_source_url": "https://www.computersalg.se/i/10462259/peha-by-honeywell-311513-t%C3%A4cklock-t%C3%A4cklock-aluminium",
     "our_price_raw": "1849,00",
     "our_price_parsed": 1849.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

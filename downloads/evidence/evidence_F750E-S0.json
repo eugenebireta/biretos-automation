@@ -635,10 +635,14 @@
     "dr_source_url": "https://www.intexys.fr/dell-750w-80-plus-platinum-f750e-s0.html",
     "our_price_raw": "12432,50",
     "our_price_parsed": 12432.5,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

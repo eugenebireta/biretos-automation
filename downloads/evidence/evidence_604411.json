@@ -665,10 +665,14 @@
     "dr_source_url": "https://www.voelkner.de/products/7579916/PEHA-by-Honeywell-604411-Schalterdose-1St..html",
     "our_price_raw": "238,33",
     "our_price_parsed": 238.33,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_ru",
+    "pack_qty": null
   }
 }

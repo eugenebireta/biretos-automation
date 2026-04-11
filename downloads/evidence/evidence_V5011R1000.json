@@ -571,10 +571,14 @@
     "dr_source_url": "https://www.hlkshop.ch/de/honeywell-durchgangsventil-pn-16-messing-ig-dn-15-kvs-wert-063-artnr-v5011r1000",
     "our_price_raw": "14969,00",
     "our_price_parsed": 14969.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

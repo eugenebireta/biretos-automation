@@ -648,10 +648,14 @@
     "dr_source_url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/MGATE%20MB3480",
     "our_price_raw": "42020,00",
     "our_price_parsed": 42020.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

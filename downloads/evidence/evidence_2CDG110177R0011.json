@@ -572,10 +572,14 @@
     "dr_source_url": "https://ar.wiautomation.com/abb/comunicacion-industrial/2cdg110177r0011-abb-ips-s311",
     "our_price_raw": "66119,00",
     "our_price_parsed": 66119.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": null
   }
 }

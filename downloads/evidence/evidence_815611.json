@@ -635,10 +635,14 @@
     "dr_source_url": "https://www.watt24.com/en/p/peha-zentralplatte-d-95.610.02-tv-na-00815611/",
     "our_price_raw": "462,47",
     "our_price_parsed": 462.47,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

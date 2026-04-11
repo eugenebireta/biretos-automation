@@ -554,10 +554,14 @@
     "dr_source_url": "https://www.heiz24.de/PEHA-D-95651102-00820011-Dialogue-socket-outlet-SCHUKO-pure-white-NEW",
     "our_price_raw": "1063,31",
     "our_price_parsed": 1063.31,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

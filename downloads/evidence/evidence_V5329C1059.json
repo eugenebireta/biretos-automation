@@ -569,10 +569,14 @@
     "dr_source_url": "https://www.hlkshop.ch/de/honeywell-dreiwegeventil-pn-6-flansch-niro-garnitur-dn-40-kvs-wert-25-artnr-v5329c1059",
     "our_price_raw": "43659,90",
     "our_price_parsed": 43659.9,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

@@ -553,10 +553,14 @@
     "dr_source_url": "https://www.omnical.co/products/peha/00035211/1107237",
     "our_price_raw": "1226,33",
     "our_price_parsed": 1226.33,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

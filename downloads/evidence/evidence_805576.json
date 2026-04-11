@@ -614,10 +614,14 @@
     "dr_source_url": "https://www.acornfiresecurity.com/gent-805576-s-quad-base-label-plate-pack-of-10",
     "our_price_raw": "2057,96",
     "our_price_parsed": 2057.96,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_en",
+    "pack_qty": null
   }
 }

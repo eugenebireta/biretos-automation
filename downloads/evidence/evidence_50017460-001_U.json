@@ -590,10 +590,14 @@
     "dr_source_url": "https://www.zoro.com/honeywell-transformer-kit-input-v-24120240-50017460-001/i/G4841127/",
     "our_price_raw": "14960,00",
     "our_price_parsed": 14960.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_en",
+    "pack_qty": null
   }
 }

@@ -603,10 +603,14 @@
     "dr_source_url": "https://pc-cn.com/collections/all-products?page=285",
     "our_price_raw": "1808,90",
     "our_price_parsed": 1808.9,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": null
   }
 }

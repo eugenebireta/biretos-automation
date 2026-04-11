@@ -627,10 +627,14 @@
     "dr_source_url": "https://elnik.shop/truba-pvh-gnuchka-gofrovana-diametr-40mm-standartna-z-protyagkoyu-sirij-kolir-20-m-p-octopus-dks-91940-ru",
     "our_price_raw": "49,41",
     "our_price_parsed": 49.41,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_ru",
+    "pack_qty": null
   }
 }

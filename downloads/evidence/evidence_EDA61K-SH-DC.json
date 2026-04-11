@@ -513,10 +513,14 @@
     "dr_source_url": "https://www.amazon.com/Honeywell-dockable-homebase-W125766233-EDA61K-SH-DC/dp/B08F46Z3HH",
     "our_price_raw": "10226,32",
     "our_price_parsed": 10226.32,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

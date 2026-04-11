@@ -571,10 +571,14 @@
     "dr_source_url": "https://www.mytub.co.uk/honeywell-v5050a1090-valve-3-port-38mm-stroke-product-713755",
     "our_price_raw": "193916,92",
     "our_price_parsed": 193916.92,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

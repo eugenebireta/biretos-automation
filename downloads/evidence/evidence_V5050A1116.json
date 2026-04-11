@@ -565,10 +565,14 @@
     "dr_source_url": "https://www.sanitaershop24.ch/en/honeywell-dreiwegeventil-pn-16-flansch-din-gepruft-niro-garnitur-dn-150-kvs-wert-360-artnr-v5050a1116",
     "our_price_raw": "110387,00",
     "our_price_parsed": 110387.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

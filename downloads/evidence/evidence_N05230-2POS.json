@@ -564,10 +564,14 @@
     "dr_source_url": "https://emoteek.net/en/product/servomoteurs-de-clapet-dair-n05230-2pos-honeywell-actionneur-de-volet-n05-230-v-2-pts-3-pts-sans-interrupteur-auxiliaire/",
     "our_price_raw": "16735,00",
     "our_price_parsed": 16735.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

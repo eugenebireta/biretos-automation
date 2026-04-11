@@ -596,10 +596,14 @@
     "dr_source_url": "https://www.supplyhouse.com/Honeywell-M7294Q1015-24V-Non-Spring-Return-Foot-Mounted-Actuator-w-2-Aux-Switches-4-20mA-Control-300-lb-in",
     "our_price_raw": "20475,50",
     "our_price_parsed": 20475.5,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

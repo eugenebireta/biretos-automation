@@ -630,10 +630,14 @@
     "dr_source_url": "Fuse",
     "our_price_raw": "584,03",
     "our_price_parsed": 584.03,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": null
   }
 }

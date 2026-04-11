@@ -561,10 +561,14 @@
     "dr_source_url": "http://www.eaccu-tech.com/siemon/hcm-4-2u-siemon-solutions/",
     "our_price_raw": "9290,50",
     "our_price_parsed": 9290.5,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

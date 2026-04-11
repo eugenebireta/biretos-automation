@@ -506,10 +506,14 @@
     "dr_source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
     "our_price_raw": "14741,80",
     "our_price_parsed": 14741.8,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

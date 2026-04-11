@@ -574,10 +574,14 @@
     "dr_source_url": "https://www.heiz24.de/Honeywell-ML6421A3013-Valve-actuator-230-V-NEW",
     "our_price_raw": "48149,00",
     "our_price_parsed": 48149.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

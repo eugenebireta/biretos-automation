@@ -590,10 +590,14 @@
     "dr_source_url": "https://www.walmart.com/ip/Dell-P2422H-24-23-8-Viewable-1920-x-1080-Full-HD-IPS-VGA-DisplayPort-HDMI-USB-3-2-VESA-Swivel-Tilt-Height-Adjust-LED-Backlit-Monitor/1552350429",
     "our_price_raw": "8928,00",
     "our_price_parsed": 8928.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

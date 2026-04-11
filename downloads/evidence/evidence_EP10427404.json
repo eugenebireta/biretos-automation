@@ -642,10 +642,14 @@
     "dr_source_url": "https://www.classicautomation.com/",
     "our_price_raw": "22235,86",
     "our_price_parsed": 22235.86,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

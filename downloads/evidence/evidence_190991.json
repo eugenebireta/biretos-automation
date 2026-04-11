@@ -683,10 +683,14 @@
     "dr_source_url": "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-190991-5-ks-1641437.html",
     "our_price_raw": "11874,00",
     "our_price_parsed": 11874.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_ru",
+    "pack_qty": null
   }
 }

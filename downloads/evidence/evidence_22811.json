@@ -573,10 +573,14 @@
     "dr_source_url": "https://www.beslist.be/products/klussen/klussen_486171_488691/c/merk~2433526",
     "our_price_raw": "2021,00",
     "our_price_parsed": 2021.0,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

@@ -608,10 +608,14 @@
     "dr_source_url": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
     "our_price_raw": "26083,14",
     "our_price_parsed": 26083.14,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

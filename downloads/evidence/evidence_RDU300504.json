@@ -617,10 +617,14 @@
     "dr_source_url": "https://www.scatts.co.uk/redapt-rdu300504-series-rdu-ex-reducer-stainless-steel-m25-male-to-m20-female-for-zones-1-2-21-22-21479293636023",
     "our_price_raw": "3002,25",
     "our_price_parsed": 3002.25,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

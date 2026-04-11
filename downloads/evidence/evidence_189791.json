@@ -643,10 +643,14 @@
     "dr_source_url": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189791-5-st-2856757.html",
     "our_price_raw": "5469,29",
     "our_price_parsed": 5469.29,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": 5
   }
 }

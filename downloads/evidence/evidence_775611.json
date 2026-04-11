@@ -576,10 +576,14 @@
     "dr_source_url": "https://volzhsk.aelektro.ru/catalog/rozetki/elektricheskie/rozetka-honeywell-dialog-skrytyi-montazh-s-zazemleniem-s-kryshkoi-temno-korichnevyi-775611",
     "our_price_raw": "1871,75",
     "our_price_parsed": 1871.75,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

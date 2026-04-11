@@ -634,10 +634,14 @@
     "dr_source_url": "https://stms.kz/catalog/zatvory/zatvory-diskovye/zatvor-diskovyy-povorotnyy-vafernyy-c4-pn16-dn125/",
     "our_price_raw": "4131,64",
     "our_price_parsed": 4131.64,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": null
   }
 }

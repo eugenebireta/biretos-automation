@@ -568,10 +568,14 @@
     "dr_source_url": "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm",
     "our_price_raw": "82115,33",
     "our_price_parsed": 82115.33,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

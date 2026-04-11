@@ -558,10 +558,14 @@
     "dr_source_url": "https://www.formagroup.ru/brends/honeywell/sistemy_opoveweniya/gromkogovoriteli/esser_581270/",
     "our_price_raw": "2242,25",
     "our_price_parsed": 2242.25,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

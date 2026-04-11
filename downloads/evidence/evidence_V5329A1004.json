@@ -560,10 +560,14 @@
     "dr_source_url": "https://www.sanitaershop24.ch/en/honeywell-dreiwegeventil-pn-16-flansch-niro-garnitur-dn-15-kvs-wert-25-artnr-v5329a1004",
     "our_price_raw": "35041,80",
     "our_price_parsed": 35041.8,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

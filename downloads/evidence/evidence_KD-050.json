@@ -655,10 +655,14 @@
     "dr_source_url": "https://www.denzaido.com/page/590769/",
     "our_price_raw": "0,00",
     "our_price_parsed": null,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": null
   }
 }

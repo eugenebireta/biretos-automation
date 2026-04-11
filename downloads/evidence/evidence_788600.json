@@ -573,10 +573,14 @@
     "dr_source_url": "https://electric-house.com/en/esser-housing-surface-mount-for-esserbus-transponders-189x131x47-mm-grey.html",
     "our_price_raw": "806,65",
     "our_price_parsed": 806.65,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "unknown",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": null
   }
 }

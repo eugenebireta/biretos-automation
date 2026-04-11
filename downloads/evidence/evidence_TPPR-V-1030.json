@@ -569,10 +569,14 @@
     "dr_source_url": "https://www.isssafety.com/products/tppr-v-1030-honeywell-digital-input-module",
     "our_price_raw": "142340,50",
     "our_price_parsed": 142340.5,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }

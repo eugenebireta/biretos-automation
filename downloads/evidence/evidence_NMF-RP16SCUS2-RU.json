@@ -563,10 +563,14 @@
     "dr_source_url": "https://e-kc.ru/cena/opticheskij-kross-nikomax-19-1u-ukomplektovannyj-na-16-portov-scupc16-odinarnykh-scupc-adapterov-eko48820-nikomaxnikolan-nmf-rp16scus2-ws-es-1u-gy",
     "our_price_raw": "3048,50",
     "our_price_parsed": 3048.5,
-    "judge_status": "pending",
-    "unit_basis": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
-    "pack_suspect": false
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
   }
 }
