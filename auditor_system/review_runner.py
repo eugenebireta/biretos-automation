@@ -17,14 +17,13 @@ from __future__ import annotations
 import asyncio
 import logging
 from pathlib import Path
-from typing import Any
 
 from .hard_shell.approval_router import ApprovalRouter
 from .hard_shell.context_assembler import ContextAssembler
 from .hard_shell.contracts import (
     ApprovalRoute,
+    AuditVerdictValue,
     ErrorClass,
-    ModelName,
     ProtocolRun,
     RiskLevel,
     TaskPack,
@@ -84,7 +83,6 @@ class ReviewRunner:
         Returns: list of valid AuditVerdict
         Raises:  AuditorFailureError for CORE failures or unrecoverable SEMI failures
         """
-        from typing import cast
 
         results = await asyncio.gather(*coros, return_exceptions=True)
         auditor_ids = [a.auditor_id for a in self.auditors]
@@ -225,21 +223,36 @@ class ReviewRunner:
             run.run_id, {v.auditor_id: v.verdict.value for v in run.critiques},
         )
 
-        # --- Шаг 5: Builder revision (один раз) ---
-        run.revised_proposal = await self.builder.revise(
-            task, run.proposal, run.critiques, context
+        # --- LOW fast path: skip round-2 if critiques are clean ---
+        # For LOW risk, if all critiques approve → use critiques as final verdicts.
+        # Round-2 (revision + final audit) adds overhead with zero signal for LOW.
+        _all_approve = all(
+            c.verdict == AuditVerdictValue.APPROVE for c in run.critiques
         )
-        self.run_store.save_revised_proposal(run)
+        if task.risk == RiskLevel.LOW and _all_approve:
+            logger.info(
+                "review_runner: LOW fast path — skipping round-2 (all critiques approve) run_id=%s",
+                run.run_id,
+            )
+            run.revised_proposal = run.proposal  # no revision needed
+            run.final_verdicts = list(run.critiques)  # promote critiques to final
+        else:
+            # --- Шаг 5: Builder revision (один раз) ---
+            run.revised_proposal = await self.builder.revise(
+                task, run.proposal, run.critiques, context
+            )
+            self.run_store.save_revised_proposal(run)
 
-        # --- Шаг 6: Dual final audit (параллельно) ---
-        final_tasks = [
-            auditor.final_audit(run.revised_proposal, task, context)
-            for auditor in self.auditors
-        ]
-        final_verdicts = await self._gather_safe(final_tasks, task, stage="final_audit")
-        run.final_verdicts = list(final_verdicts)
-        for i, verdict in enumerate(run.final_verdicts, start=1):
-            self.run_store.save_final_verdict(run, verdict, i)
+            # --- Шаг 6: Dual final audit (параллельно) ---
+            final_tasks = [
+                auditor.final_audit(run.revised_proposal, task, context)
+                for auditor in self.auditors
+            ]
+            final_verdicts = await self._gather_safe(final_tasks, task, stage="final_audit")
+            run.final_verdicts = list(final_verdicts)
+            for i, verdict in enumerate(run.final_verdicts, start=1):
+                self.run_store.save_final_verdict(run, verdict, i)
+
         logger.info(
             "review_runner: final verdicts run_id=%s verdicts=%s",
             run.run_id, {v.auditor_id: v.verdict.value for v in run.final_verdicts},
