@@ -166,6 +166,7 @@ class TelegramGateway:
         self.data_dir = data_dir
 
         self._sent_dedup: collections.deque[str] = collections.deque(maxlen=500)
+        self._recv_dedup: collections.deque[str] = collections.deque(maxlen=500)
         self._started_at = datetime.now(timezone.utc)
         self._inbox_count = 0
         self._outbox_count = 0
@@ -240,6 +241,15 @@ class TelegramGateway:
                 self._log("WARNING", "callback_ack_failed",
                           error=str(e)[:200],
                           error_class="TRANSIENT", retriable=True)
+
+        # Inbound dedup — skip if same raw_hash seen this session
+        dedup_key = event.raw_hash or event.message_id
+        if dedup_key and dedup_key in self._recv_dedup:
+            self._log("INFO", "inbox_skip_dup", msg_id=event.message_id,
+                      text_preview=text[:40])
+            return
+        if dedup_key:
+            self._recv_dedup.append(dedup_key)
 
         # Write to inbox — canonical event envelope
         entry = {
