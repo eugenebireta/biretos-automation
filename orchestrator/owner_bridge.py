@@ -151,25 +151,19 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 
 def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Direct chat — run `claude --print` with manifest context, return answer.
+    """Direct chat — run `claude --print` with conversation history + manifest context.
 
-    No manifest mutation. Spawns claude CLI subprocess — same model, full
-    tool access, reads CLAUDE.md. Fresh session (no chat history), but can
-    answer questions and execute tasks with full project context.
+    No manifest mutation. Uses chat_session to maintain conversation continuity:
+    history is loaded, injected into prompt, response is saved back.
     """
     message = payload["message"]
-    state = manifest.get("fsm_state", "unknown")
-    task = manifest.get("current_task_id") or "нет"
-    goal = manifest.get("current_sprint_goal") or "нет"
-    park = manifest.get("park_reason") or "нет"
-
-    # Inject current system state so Claude can answer contextually
-    prompt = (
-        f"Контекст системы — FSM: {state}, задача: {task}, "
-        f"цель: {goal}, причина паузы: {park}.\n\n"
-        f"{message}"
-    )
     try:
+        try:
+            from chat_session import build_prompt, save_turn
+        except ImportError:
+            from orchestrator.chat_session import build_prompt, save_turn
+
+        prompt = build_prompt(message, manifest)
         import subprocess as _sp
         result = _sp.run(
             ["claude", "--print", prompt],
@@ -184,6 +178,10 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
             answer = "(Нет ответа от Claude)"
         if len(answer) > 3900:
             answer = answer[:3900] + "\n\n… (обрезано)"
+
+        # Save turn to history for next message
+        save_turn(message, answer)
+
     except _sp.TimeoutExpired:
         answer = "Таймаут (>3 мин). Попробуй попозже или сократи вопрос."
     except FileNotFoundError:
