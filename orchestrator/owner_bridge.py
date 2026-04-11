@@ -414,10 +414,17 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
         entirely, so they never block the FSM pipeline and respond fast.
         TASK and CALLBACK streams acquire the manifest lock for FSM mutations.
     """
-    update_id = entry.get("update_id") or 0
+    _raw_uid = entry.get("update_id") or 0
+    # MAX uses string message IDs ("mid.xxx"); Telegram uses ints.
+    # Normalize to int — non-numeric IDs (MAX) are treated as 0,
+    # so line-cursor dedup is used instead of uid-cursor for MAX.
+    try:
+        update_id: int = int(_raw_uid)
+    except (TypeError, ValueError):
+        update_id = 0
     last_processed = bridge_state.get("last_processed_update_id", 0)
 
-    # Dedup: already processed
+    # Dedup: already processed (Telegram only; MAX relies on line cursor)
     if update_id and update_id <= last_processed:
         return True  # skip, already handled
 
@@ -606,8 +613,11 @@ def process_all_pending() -> int:
         if idx < last_line:
             continue
 
-        # Also skip by update_id if present (secondary cursor)
-        update_id = entry.get("update_id") or 0
+        # Also skip by update_id if present (secondary cursor, Telegram only)
+        try:
+            update_id: int = int(entry.get("update_id") or 0)
+        except (TypeError, ValueError):
+            update_id = 0
         if update_id and update_id <= last_uid:
             continue
 
