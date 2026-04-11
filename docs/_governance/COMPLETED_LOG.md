@@ -1,5 +1,22 @@
 ---
 DATE: 2026-04-11
+TITLE: export_ready.py — normalized{} integration
+RISK_LEVEL: LOW
+STATUS: COMPLETED (feat/rev-r1-catalog, commit d7f5faf)
+SCOPE:
+  - fix: export_ready.py reads from normalized{} block instead of raw evidence fields
+  - All 3 pipelines now unified: price_contract / pipeline1 / our_estimate
+  - desc_status now reads normalized.best_description (100% coverage vs ~60%)
+  - photo_url now reads normalized.best_photo_url (respects photo.verdict)
+KEY_FINDINGS:
+  - EXPORT_READY: 224 → 235 (+11 pipeline1 prices now treated as market price)
+  - DRAFT_EXPORT: 68 → 58 (our_estimate group, correct)
+  - Description coverage: ~60% → 100% (normalized combines dr + content pipelines)
+  - Photo missing: 0/370 (unchanged)
+NEXT: Owner decision on next batch
+
+---
+DATE: 2026-04-11
 TITLE: Evidence Foundation Hardening (3 batches)
 RISK_LEVEL: LOW
 STATUS: COMPLETED (feat/rev-r1-catalog)

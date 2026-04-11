@@ -27,11 +27,11 @@ now:
       - "product_category backfilled 361/374 evidence files"
       - "dr_prompt_generator.py: catalog_brand dynamic from evidence brand field"
 known_gap: |
-  224 EXPORT_READY but price FX is stub (±5-10% error on non-RUB prices) — fx.py P0-1 still open.
+  235 EXPORT_READY but price FX is stub (±5-10% error on non-RUB prices) — fx.py P0-1 still open.
   67 REVIEW_BLOCKED (CRITICAL_MISMATCH) — needs targeted DR re-run with subbrand-first.
-  68 DRAFT_EXPORT — only our_price_raw, needs market price DR batch.
-  89 local photos not yet uploaded to cloud — next step is cloud upload + URL fill.
-awaiting: "Owner decision: (A) cloud photo upload for 89 local files, OR (B) DR batch for 79 missing-price SKUs, OR (C) identity fix batch for 67 CRITICAL_MISMATCH SKUs"
+  58 DRAFT_EXPORT — only our_estimate (RUB ~2022), needs market price DR batch.
+  62 local photos not yet uploaded to cloud — next step is cloud upload + URL fill.
+awaiting: "Owner decision: (A) cloud photo upload for 62 local files, OR (B) DR batch for 10 no-price SKUs, OR (C) identity fix batch for 67 CRITICAL_MISMATCH SKUs"
 note: "P7 budget_tracker.py: estimate_cost (model pricing table), record_call (JSONL persist), get_trace_cost, get_daily_summary (by_stage/model/provider), check_budget (daily+per-run limits). Wired into main.py: budget check at cycle start, advisor/executor/auditor cost recording, trace cost summary. 23 budget tests. Comprehensive audit test suite (test_audit_comprehensive.py): 47 tests across 9 categories (FSM invariants, risk separation, consensus gate, retry safety, budget enforcement, experience loop, queue integrity, directive integrity, cross-module contracts). 650/650 orchestrator tests pass."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
