@@ -211,6 +211,9 @@ class TestTargetFromSource:
     def test_empty_defaults_telegram(self):
         assert self.router.target_from_source("") == "telegram"
 
+    def test_none_defaults_telegram(self):
+        assert self.router.target_from_source(None) == "telegram"
+
     def test_unknown_passthrough(self):
         assert self.router.target_from_source("whatsapp") == "whatsapp"
 
@@ -246,3 +249,51 @@ class TestBackwardCompatibility:
                                   {"fsm_state": "idle"})
         assert r.input_type == "new_task"
         assert "fix the bug" in r.payload["instruction"]
+
+
+class TestClassifyInputWrapper:
+    """Integration: exercise the actual classify_input() from owner_bridge."""
+
+    def setup_method(self):
+        from owner_bridge import classify_input
+        self.classify = classify_input
+
+    def test_status(self):
+        t, p = self.classify("/status", {"fsm_state": "idle"})
+        assert t == "status"
+        assert p == {}
+
+    def test_task(self):
+        t, p = self.classify("/task deploy new version", {"fsm_state": "idle"})
+        assert t == "new_task"
+        assert "deploy" in p["instruction"]
+
+    def test_approve_parked(self):
+        t, p = self.classify("ок", {"fsm_state": "awaiting_owner_reply"})
+        assert t == "approve"
+        assert p == {}
+
+    def test_reject_parked(self):
+        t, p = self.classify("нет", {"fsm_state": "blocked"})
+        assert t == "reject"
+        assert p == {}
+
+    def test_freetext_parked(self):
+        t, p = self.classify("используй другой подход",
+                              {"fsm_state": "error"})
+        assert t == "freetext"
+        assert "другой" in p["instruction"]
+
+    def test_chat_idle(self):
+        t, p = self.classify("как работает система?",
+                              {"fsm_state": "idle"})
+        assert t == "chat"
+        assert "система" in p["message"]
+
+    def test_too_short(self):
+        t, p = self.classify("хм", {"fsm_state": "idle"})
+        assert t == "too_short"
+
+    def test_no_pending_state(self):
+        t, p = self.classify("ок", {"fsm_state": "idle"})
+        assert t == "no_pending_state"

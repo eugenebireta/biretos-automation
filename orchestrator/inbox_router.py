@@ -94,6 +94,10 @@ class InboxRouter:
         fsm_state = manifest.get("fsm_state", "")
 
         # ── TASK stream: A/B/C decision when pending + parked ─────
+        # NOTE: Wave 3 intentionally gates pending_decision on PARK_STATES.
+        # Old classify_input() checked pending_decision before PARK_STATES,
+        # allowing decisions in any FSM state — that was a latent bug.
+        # Decision prompts are only presented when parked (owner interaction).
         if fsm_state in PARK_STATES:
             pending = manifest.get("pending_decision")
             if pending and isinstance(pending, dict):
