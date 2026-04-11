@@ -93,14 +93,15 @@ class InboxRouter:
 
         fsm_state = manifest.get("fsm_state", "")
 
-        # ── TASK stream: A/B/C decision when pending ──────────────
-        pending = manifest.get("pending_decision")
-        if pending and isinstance(pending, dict):
-            options = pending.get("options", {})
-            key = text.strip().upper()
-            if key in options:
-                return RouteResult(Stream.TASK, "decision",
-                                   {"key": key, "text": options[key]})
+        # ── TASK stream: A/B/C decision when pending + parked ─────
+        if fsm_state in PARK_STATES:
+            pending = manifest.get("pending_decision")
+            if pending and isinstance(pending, dict):
+                options = pending.get("options", {})
+                key = text.strip().upper()
+                if key in options:
+                    return RouteResult(Stream.TASK, "decision",
+                                       {"key": key, "text": options[key]})
 
         # ── TASK stream: parked state → approve/reject/freetext ───
         if fsm_state in PARK_STATES:
@@ -138,4 +139,5 @@ class InboxRouter:
         """
         if not source:
             return "telegram"
-        return source.replace("_gateway", "")
+        # removesuffix — only strip '_gateway' at the end, not mid-string
+        return source.removesuffix("_gateway")

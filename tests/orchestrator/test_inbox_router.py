@@ -100,6 +100,16 @@ class TestStreamClassification:
         r = self.router.classify("ок", manifest)
         assert r.input_type == "approve"  # falls through to approve
 
+    def test_decision_ignored_when_not_parked(self):
+        """pending_decision is ignored when fsm_state is not in PARK_STATES."""
+        manifest = {
+            "fsm_state": "running",
+            "pending_decision": {"options": {"A": "opt A", "B": "opt B"}},
+        }
+        r = self.router.classify("A", manifest)
+        # Should NOT be decision — "A" is too short for chat, goes to too_short
+        assert r.input_type != "decision"
+
     # ── QUERY stream: chat when not parked ─────────────────────────
 
     def test_chat_when_idle(self):
@@ -203,6 +213,13 @@ class TestTargetFromSource:
 
     def test_unknown_passthrough(self):
         assert self.router.target_from_source("whatsapp") == "whatsapp"
+
+    def test_gateway_in_middle_not_stripped(self):
+        """removesuffix only strips suffix, not mid-string occurrences."""
+        assert self.router.target_from_source("gateway_proxy") == "gateway_proxy"
+
+    def test_my_gateway_service_not_mangled(self):
+        assert self.router.target_from_source("my_gateway_service") == "my_gateway_service"
 
 
 class TestBackwardCompatibility:
