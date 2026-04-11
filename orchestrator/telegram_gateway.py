@@ -259,12 +259,6 @@ class TelegramGateway:
                   event_type=event.event_type,
                   text_preview=text[:80])
 
-        # Acknowledge to owner (skip for callbacks — already acked above)
-        if event.event_type != "callback":
-            self.transport.send_message(
-                str(self.owner_chat_id), "Принял. Передам."
-            )
-
     # ── Outbox dispatch ─────────────────────────────────────────────
 
     def _flush_outbox(self) -> None:

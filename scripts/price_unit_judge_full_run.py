@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -194,6 +195,14 @@ def run(dry_run: bool = False) -> None:
     if dry_run:
         print()
         print("[DRY RUN] No files were written. Remove --dry-run to apply.")
+
+    # Auto-normalize: update normalized{} blocks after evidence modification
+    if not dry_run and stats["files_modified"] > 0:
+        print("\n[auto-normalize] Updating normalized{} blocks...")
+        subprocess.run(
+            [sys.executable, str(_scripts_dir / "evidence_normalize.py")],
+            check=False,
+        )
 
 
 if __name__ == "__main__":

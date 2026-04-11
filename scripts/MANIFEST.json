@@ -117,6 +117,18 @@
     "identity_checker": {
       "file": "identity_checker.py",
       "purpose": "Verify product identity against evidence"
+    },
+    "evidence_lifecycle": {
+      "file": "evidence_lifecycle.py",
+      "purpose": "Batch lifecycle: status / archive / list / restore. Manages accumulate → normalize → archive → next batch cycle.",
+      "triggers": ["архивируй", "archive batch", "следующий батч", "next batch", "restore batch", "статус батча", "batch status"],
+      "usage": "python scripts/evidence_lifecycle.py status | archive --tag TAG | list | restore BATCH_ID"
+    },
+    "evidence_normalize": {
+      "file": "evidence_normalize.py",
+      "purpose": "Normalization layer: unify 3-pipeline data into canonical normalized{} block. Auto-called by merge_research, photo_matcher, confidence_recalculator, price_unit_judge after evidence writes.",
+      "triggers": ["нормализуй", "normalize evidence", "обнови normalized"],
+      "usage": "python scripts/evidence_normalize.py [--dry-run]"
     }
   }
 }

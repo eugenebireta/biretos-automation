@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -244,6 +245,14 @@ def main() -> None:
         print(f"  {t}: {count}")
 
     print(f"\nReport: {args.output_dir / 'confidence_recalc_report.json'}")
+
+    # Auto-normalize: update normalized{} blocks after evidence modification
+    if args.apply and report.get("upgraded", 0) + report.get("downgraded", 0) > 0:
+        print("\n[auto-normalize] Updating normalized{} blocks...")
+        subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "evidence_normalize.py")],
+            check=False,
+        )
 
 
 if __name__ == "__main__":

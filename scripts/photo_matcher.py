@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -313,6 +314,14 @@ def main() -> None:
     print(f"\nReport: {args.output_dir / 'photo_match_report.json'}")
     if report["queued_for_research"] > 0:
         print(f"Queue:  {args.output_dir / 'photo_research_queue.json'}")
+
+    # Auto-normalize: update normalized{} blocks after evidence modification
+    if args.apply and report.get("promoted", 0) > 0:
+        print("\n[auto-normalize] Updating normalized{} blocks...")
+        subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "evidence_normalize.py")],
+            check=False,
+        )
 
 
 if __name__ == "__main__":
