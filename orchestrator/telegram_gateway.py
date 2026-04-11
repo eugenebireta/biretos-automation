@@ -237,7 +237,9 @@ class TelegramGateway:
             try:
                 self.transport.answer_callback(event.callback_data)
             except Exception as e:
-                self._log("WARNING", "callback_ack_failed", error=str(e)[:200])
+                self._log("WARNING", "callback_ack_failed",
+                          error=str(e)[:200],
+                          error_class="TRANSIENT", retriable=True)
 
         # Write to inbox — canonical event envelope
         entry = {
