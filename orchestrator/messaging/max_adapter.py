@@ -18,8 +18,10 @@ Key differences from Telegram:
 """
 from __future__ import annotations
 
+import json
 import time
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
 import httpx
@@ -40,15 +42,43 @@ MAX_MAX_TEXT = 4000
 class MaxAdapter(MessengerTransport):
     """MAX messenger Bot API implementation of MessengerTransport."""
 
-    def __init__(self, token: str, *, timeout: float = 40):
+    def __init__(self, token: str, *, timeout: float = 40,
+                 marker_path: Path | None = None):
         self._token = token
         self._client = httpx.Client(
             base_url=MAX_API_BASE,
             headers={"Authorization": token},
             timeout=timeout,
         )
-        self._marker: int | None = None
+        self._marker_path = marker_path
+        self._marker: int | None = self._load_marker()
         self._poll_errors = 0
+
+    def _load_marker(self) -> int | None:
+        """Load marker from disk (survives restarts — avoids re-delivering old messages)."""
+        if self._marker_path is None or not self._marker_path.exists():
+            return None
+        try:
+            data = json.loads(self._marker_path.read_text(encoding="utf-8"))
+            v = data.get("marker")
+            return int(v) if v is not None else None
+        except Exception:
+            return None
+
+    def _save_marker(self) -> None:
+        """Persist current marker to disk atomically."""
+        if self._marker_path is None or self._marker is None:
+            return
+        try:
+            tmp = self._marker_path.with_suffix(".tmp")
+            tmp.write_text(
+                json.dumps({"marker": self._marker}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            import os
+            os.replace(str(tmp), str(self._marker_path))
+        except Exception:
+            pass
 
     @property
     def transport_name(self) -> str:
@@ -77,10 +107,11 @@ class MaxAdapter(MessengerTransport):
             resp.raise_for_status()
             data = resp.json()
 
-            # Advance marker cursor
+            # Advance marker cursor and persist it
             new_marker = data.get("marker")
             if new_marker is not None:
                 self._marker = new_marker
+                self._save_marker()
 
             raw_updates = data.get("updates", [])
             events: list[CanonicalEvent] = []

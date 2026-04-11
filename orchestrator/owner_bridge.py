@@ -158,27 +158,28 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
     Falls back to Anthropic API if SSH fails.
     """
     message = payload["message"]
+
+    # Build project context outside try — used by both SSH path and API fallback
+    state = manifest.get("fsm_state", "unknown")
+    task = manifest.get("current_task_id") or "нет"
+    goal = manifest.get("current_sprint_goal") or "нет"
+    park = manifest.get("park_reason") or "нет"
+    project_ctx = (
+        "О проекте biretos-automation:\n"
+        "Система обогащения каталога товаров для интернет-магазина Biretos.\n"
+        "Товары: Honeywell, PEHA, Esser — пожарная безопасность, электроустановка, датчики.\n"
+        "DR = Deep Research (глубокое исследование) — автоматический сбор данных о товарах "
+        "через API Gemini/Claude. Результат: evidence JSON с title_ru, description, ценой, фото.\n"
+        "Пайплайн: DR → evidence JSON → обогащение → экспорт в InSales (CMS магазина).\n"
+        "Скрипты: scripts/. Оркестратор: orchestrator/. Данные: downloads/evidence/.\n"
+        f"Состояние оркестратора: fsm={state}, task={task}, goal={goal}, park={park}\n"
+    )
+
     try:
         try:
             from chat_session import load_history, save_turn
         except ImportError:
             from orchestrator.chat_session import load_history, save_turn
-
-        state = manifest.get("fsm_state", "unknown")
-        task = manifest.get("current_task_id") or "нет"
-        goal = manifest.get("current_sprint_goal") or "нет"
-        park = manifest.get("park_reason") or "нет"
-
-        project_ctx = (
-            "О проекте biretos-automation:\n"
-            "Система обогащения каталога товаров для интернет-магазина Biretos.\n"
-            "Товары: Honeywell, PEHA, Esser — пожарная безопасность, электроустановка, датчики.\n"
-            "DR = Deep Research (глубокое исследование) — автоматический сбор данных о товарах "
-            "через API Gemini/Claude. Результат: evidence JSON с title_ru, description, ценой, фото.\n"
-            "Пайплайн: DR → evidence JSON → обогащение → экспорт в InSales (CMS магазина).\n"
-            "Скрипты: scripts/. Оркестратор: orchestrator/. Данные: downloads/evidence/.\n"
-            f"Состояние оркестратора: fsm={state}, task={task}, goal={goal}, park={park}\n"
-        )
 
         # Inject last N history turns into prompt
         history_turns = load_history()[-6:]  # last 6 exchanges max
@@ -215,7 +216,7 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
         save_turn(message, answer)
 
     except Exception as exc:
-        # Fallback: Anthropic API
+        # Fallback: Anthropic API (with same project context)
         try:
             try:
                 from chat_engine import _load_anthropic_key
@@ -228,6 +229,11 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
                 resp = client.messages.create(
                     model="claude-haiku-4-5-20251001",
                     max_tokens=512,
+                    system=(
+                        "Ты — ассистент проекта biretos-automation. "
+                        "Отвечай кратко, по-русски, строго по теме. Не придумывай.\n\n"
+                        f"{project_ctx}"
+                    ),
                     messages=[{"role": "user", "content": message}],
                 )
                 answer = resp.content[0].text.strip()[:3900]
