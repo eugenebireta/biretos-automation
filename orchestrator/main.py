@@ -181,6 +181,35 @@ FSM_TRANSITIONS: dict[tuple[str, str], str] = {
     # Phase 2: blocked_by_consensus — needs owner override
     ("blocked_by_consensus",  "owner_replied"):      "ready",
     ("blocked_by_consensus",  "cycle_start"):        "blocked_by_consensus",
+    # Phase 3: autonomous loop — phase-based FSM states
+    # Each phase runs once per watcher spawn, then transitions to next
+    ("planning",              "plan_approved"):       "building",
+    ("planning",              "escalated"):           "awaiting_owner_reply",
+    ("planning",              "error_detected"):      "error",
+    ("planning",              "cycle_start"):         "planning",
+    ("building",              "build_completed"):     "testing",
+    ("building",              "build_failed"):        "evaluating",
+    ("building",              "error_detected"):      "error",
+    ("building",              "cycle_start"):         "building",
+    ("testing",               "tests_passed"):        "auditing",
+    ("testing",               "tests_passed_low"):    "evaluating",
+    ("testing",               "tests_failed"):        "evaluating",
+    ("testing",               "error_detected"):      "error",
+    ("testing",               "cycle_start"):         "testing",
+    ("auditing",              "audit_passed"):        "evaluating",
+    ("auditing",              "audit_failed"):        "evaluating",
+    ("auditing",              "audit_blocked"):       "evaluating",
+    ("auditing",              "error_detected"):      "error",
+    ("auditing",              "cycle_start"):         "auditing",
+    ("evaluating",            "next_batch"):          "ready",
+    ("evaluating",            "correction"):          "planning",
+    ("evaluating",            "escalated"):           "awaiting_owner_reply",
+    ("evaluating",            "blocked"):             "blocked",
+    ("evaluating",            "error_detected"):      "error",
+    ("evaluating",            "cycle_start"):         "evaluating",
+    # escalated = soft version of awaiting_owner_reply (auto-escalation)
+    ("escalated",             "owner_replied"):       "ready",
+    ("escalated",             "cycle_start"):         "escalated",
 }
 
 
@@ -191,8 +220,14 @@ def load_manifest() -> dict:
 
 
 def save_manifest(m: dict) -> None:
+    """Atomic manifest write: tmp file + os.replace."""
     m["updated_at"] = _now()
-    MANIFEST_PATH.write_text(json.dumps(m, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp_path = MANIFEST_PATH.parent / ".manifest.json.tmp"
+    with open(str(tmp_path), "w", encoding="utf-8") as f:
+        f.write(json.dumps(m, indent=2, ensure_ascii=False))
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(str(tmp_path), str(MANIFEST_PATH))
 
 
 def append_run(entry: dict) -> None:
@@ -256,7 +291,7 @@ def _revert_to_base(base_commit: str | None, trace_id: str) -> bool:
 
         # Reset commits (keep files staged)
         reset = _sp.run(["git", "reset", "--soft", base_commit],
-                        capture_output=True, text=True, cwd=str(ROOT))
+                        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(ROOT))
         if reset.returncode != 0:
             print(f"[orchestrator] B10: git reset failed: {reset.stderr}", file=sys.stderr)
             return False
@@ -274,7 +309,7 @@ def _revert_to_base(base_commit: str | None, trace_id: str) -> bool:
                  "-e", "orchestrator/*.json", "-e", "orchestrator/*.jsonl",
                  "-e", "orchestrator/*.lock", "-e", "orchestrator/*.md",
                  "--", "tests/", "scripts/", ".github/"],
-                capture_output=True, text=True, cwd=str(ROOT))
+                capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=str(ROOT))
 
         print(f"[orchestrator] B10: reverted executor commits back to {base_commit[:8]}")
         return True
@@ -388,6 +423,70 @@ def cmd_cycle(args: argparse.Namespace) -> None:
             print("[orchestrator] Audit in progress. Waiting for completion.")
             return
 
+        if state == "escalated":
+            print("[orchestrator] Escalated to owner. Awaiting decision.")
+            return
+
+        # Phase 3: engine migration — map legacy in-flight states when
+        # engine switches from legacy to phase_runner mid-task.
+        _cfg_pre = _load_config()
+        if _cfg_pre.get("engine") == "phase_runner":
+            _LEGACY_TO_PHASE = {
+                "processing":         "planning",
+                "awaiting_execution":  "building",
+                "audit_in_progress":   "auditing",
+                "audit_passed":        "evaluating",
+            }
+            if state in _LEGACY_TO_PHASE:
+                old_state = state
+                state = _LEGACY_TO_PHASE[state]
+                manifest["fsm_state"] = state
+                manifest.setdefault("_global_attempt", 1)
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": "engine_migration",
+                            "state_before": old_state, "state_after": state,
+                            "engine": "phase_runner",
+                            "trace_id": manifest.get("trace_id")})
+                print(f"[orchestrator] engine migration: {old_state} → {state}")
+                # fall through to phase handler below
+
+        # Phase 3: autonomous loop — phase-based FSM states
+        # Each phase state is handled by PhaseRunner (one phase per spawn)
+        from phase_runner import PHASE_STATES as _PHASE_STATES
+        if state in _PHASE_STATES:
+            # Claim the cycle: set to current phase (prevents concurrent starts)
+            save_manifest(manifest)
+            ready_to_proceed = False  # don't fall through to old flow
+            _release_lock(lock_fh)
+            lock_fh = None
+
+            # Run one phase via PhaseRunner
+            try:
+                from phase_runner import PhaseRunner
+                cfg = _load_config()
+                runner = PhaseRunner(cfg)
+                manifest = runner.run_phase(manifest)
+                save_manifest(manifest)
+                append_run({"ts": _now(), "event": f"phase_{state}_completed",
+                            "status": manifest.get("fsm_state"),
+                            "trace_id": manifest.get("trace_id"),
+                            "state_before": state,
+                            "state_after": manifest.get("fsm_state")})
+                print(f"[orchestrator] Phase {state} → {manifest.get('fsm_state')}")
+
+                # Notify on terminal states only (ready/escalated/blocked)
+                from phase_runner import NOTIFY_STATES
+                if manifest.get("fsm_state") in NOTIFY_STATES:
+                    _notify_park(manifest)
+
+            except Exception as exc:
+                manifest["fsm_state"] = "error"
+                manifest["last_verdict"] = f"PHASE_ERROR_{state.upper()}"
+                save_manifest(manifest)
+                print(f"[orchestrator] Phase {state} ERROR: {exc}", file=sys.stderr)
+
+            return
+
         if state == "processing":
             append_run({"ts": _now(), "event": "cycle_busy",
                         "status": "cycle_busy",
@@ -451,10 +550,31 @@ def cmd_cycle(args: argparse.Namespace) -> None:
                 print(f"[orchestrator] Queue check failed: {_q_exc}")
                 return
 
-        # claim the cycle → processing
-        manifest["fsm_state"] = "processing"
-        save_manifest(manifest)
-        ready_to_proceed = True
+        # Feature flag: route to phase_runner or legacy flow
+        # When engine=phase_runner, new tasks start in "planning" (Phase 3 loop).
+        # When engine=legacy (default), tasks go through old processing flow.
+        _cfg = _load_config()
+        _engine = _cfg.get("engine", "legacy")
+
+        if _engine == "phase_runner":
+            # Phase 3: autonomous loop — start in planning
+            manifest["fsm_state"] = "planning"
+            manifest["_global_attempt"] = 1
+            save_manifest(manifest)
+            # Don't set ready_to_proceed — phase_runner handles it
+            # via the phase state check above (on next watcher cycle)
+            append_run({"ts": _now(), "event": "phase_runner_entry",
+                        "status": "planning",
+                        "engine": "phase_runner",
+                        "trace_id": manifest.get("trace_id"),
+                        "task_id": manifest.get("current_task_id")})
+            print(f"[orchestrator] engine=phase_runner → planning "
+                  f"(task={manifest.get('current_task_id')})")
+        else:
+            # Legacy: claim the cycle → processing
+            manifest["fsm_state"] = "processing"
+            save_manifest(manifest)
+            ready_to_proceed = True
     finally:
         _release_lock(lock_fh)
 

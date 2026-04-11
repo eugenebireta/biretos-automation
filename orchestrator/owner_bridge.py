@@ -173,7 +173,8 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
         import subprocess as _sp
         result = _sp.run(
             ["claude", "--print", prompt],
-            capture_output=True, text=True, timeout=180,
+            capture_output=True, text=True, encoding="utf-8", errors="replace",
+            timeout=180,
             cwd=str(ROOT),
         )
         answer = (result.stdout or "").strip()
