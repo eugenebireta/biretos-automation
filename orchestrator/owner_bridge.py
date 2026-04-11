@@ -208,7 +208,13 @@ def _handle_no_pending(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 def _handle_too_short(manifest: dict, payload: dict) -> tuple[dict, str]:
     """Message too short to be instruction, not a known command."""
-    return {}, "Не понял. Напиши 'ок' / 'нет' или инструкцию (минимум 5 символов)."
+    return {}, "��е понял. Напиши 'ок' / 'нет' или инструкцию (минимум 5 символ��в)."
+
+
+def _handle_callback(manifest: dict, payload: dict) -> tuple[dict, str]:
+    """Generic callback — no FSM mutation, acknowledge with data echo."""
+    data = payload.get("callback_data", "?")
+    return {}, f"Callback: {data}"
 
 
 # Dispatch table: input_type -> handler
@@ -222,6 +228,7 @@ _HANDLERS: dict[str, Any] = {
     "status": _handle_status,
     "no_pending_state": _handle_no_pending,
     "too_short": _handle_too_short,
+    "callback": _handle_callback,
 }
 
 
@@ -420,8 +427,13 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
     try:
         manifest = _load_manifest()
 
-        # Classify input (stream-aware, Wave 3)
-        route = _router.classify(text, manifest)
+        # Classify input (stream-aware, Wave 3 + Wave 4 callbacks)
+        event_type = entry.get("event_type", "message")
+        callback_data = entry.get("callback_data", "")
+        if event_type == "callback" and callback_data:
+            route = _router.classify_callback(callback_data, manifest)
+        else:
+            route = _router.classify(text, manifest)
         input_type, payload = route.input_type, route.payload
         _log_event("INFO", "classify", stream=route.stream.value,
                    input_type=input_type,

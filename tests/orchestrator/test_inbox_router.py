@@ -297,3 +297,62 @@ class TestClassifyInputWrapper:
     def test_no_pending_state(self):
         t, p = self.classify("ок", {"fsm_state": "idle"})
         assert t == "no_pending_state"
+
+
+class TestClassifyCallback:
+    """Wave 4: classify_callback() inline button routing."""
+
+    def setup_method(self):
+        self.router = InboxRouter()
+        self.idle_manifest = {"fsm_state": "idle"}
+        self.parked_manifest = {"fsm_state": "awaiting_owner_reply"}
+
+    def test_approve_callback(self):
+        r = self.router.classify_callback("approve", self.parked_manifest)
+        assert r.stream == Stream.TASK
+        assert r.input_type == "approve"
+
+    def test_reject_callback(self):
+        r = self.router.classify_callback("reject", self.parked_manifest)
+        assert r.stream == Stream.TASK
+        assert r.input_type == "reject"
+
+    def test_ok_callback(self):
+        r = self.router.classify_callback("ok", self.idle_manifest)
+        assert r.stream == Stream.TASK
+        assert r.input_type == "approve"
+
+    def test_decision_callback_when_parked(self):
+        manifest = {
+            "fsm_state": "awaiting_owner_reply",
+            "pending_decision": {"options": {"A": "opt A", "B": "opt B"}},
+        }
+        r = self.router.classify_callback("A", manifest)
+        assert r.stream == Stream.TASK
+        assert r.input_type == "decision"
+        assert r.payload["key"] == "A"
+
+    def test_decision_callback_ignored_when_not_parked(self):
+        manifest = {
+            "fsm_state": "running",
+            "pending_decision": {"options": {"A": "opt A"}},
+        }
+        r = self.router.classify_callback("A", manifest)
+        assert r.stream == Stream.CALLBACK
+        assert r.input_type == "callback"
+
+    def test_generic_callback(self):
+        r = self.router.classify_callback("details", self.idle_manifest)
+        assert r.stream == Stream.CALLBACK
+        assert r.input_type == "callback"
+        assert r.payload["callback_data"] == "details"
+
+    def test_callback_whitespace_stripped(self):
+        r = self.router.classify_callback("  approve  ", self.idle_manifest)
+        assert r.stream == Stream.TASK
+        assert r.input_type == "approve"
+
+    def test_callback_case_insensitive_approve(self):
+        """Approve/reject matching is case-insensitive."""
+        r = self.router.classify_callback("OK", self.idle_manifest)
+        assert r.input_type == "approve"
