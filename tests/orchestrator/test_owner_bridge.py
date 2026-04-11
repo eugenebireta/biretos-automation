@@ -478,19 +478,26 @@ class TestQueryTaskSplit:
         assert outbox[-1]["event_type"] == "bridge_status"
 
     def test_chat_query_skips_lock(self, tmp_path, monkeypatch):
-        """QUERY stream uses fast path — no lock, subprocess for Claude."""
+        """QUERY stream uses fast path — no lock, Gemini for Q&A."""
         _patch_paths(tmp_path, monkeypatch)
         _write_manifest(tmp_path, {"fsm_state": "idle"})
-        # Mock subprocess to avoid real Claude call
-        import subprocess
-        monkeypatch.setattr(
-            subprocess, "run",
-            lambda *a, **kw: type("R", (), {
-                "stdout": "Ответ от Claude",
-                "stderr": "",
-                "returncode": 0,
-            })(),
-        )
+        # Mock chat_engine to avoid real Gemini call
+        import chat_engine
+        import chat_session
+        monkeypatch.setattr(chat_engine, "_load_gemini_key", lambda: "fake-key")
+        monkeypatch.setattr(chat_session, "load_history", lambda: [])
+        monkeypatch.setattr(chat_session, "save_turn", lambda u, a: None)
+        # Mock Gemini client
+        import types as _types
+        fake_response = _types.SimpleNamespace(text="Ответ от Gemini")
+        fake_chat = _types.SimpleNamespace(
+            send_message=lambda msg: fake_response)
+        fake_client = _types.SimpleNamespace(
+            chats=_types.SimpleNamespace(create=lambda **kw: fake_chat))
+        monkeypatch.setattr("google.genai.Client",
+                            lambda **kw: fake_client,
+                            raising=False)
+
         entry = {"update_id": 501, "text": "как работает gateway?"}
         state = {"last_processed_update_id": 0, "processed_count": 0}
 
@@ -498,7 +505,7 @@ class TestQueryTaskSplit:
 
         assert ok is True
         outbox = _read_outbox(tmp_path)
-        assert any("Claude" in o["text"] for o in outbox)
+        assert any("Gemini" in o["text"] for o in outbox)
         assert outbox[-1]["event_type"] == "bridge_chat"
         # Manifest untouched
         m = _read_manifest(tmp_path)

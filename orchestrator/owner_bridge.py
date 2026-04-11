@@ -151,41 +151,64 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 
 def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Direct chat — run `claude --print` with conversation history + manifest context.
+    """Direct chat — Gemini API with persistent conversation history.
 
-    No manifest mutation. Uses chat_session to maintain conversation continuity:
-    history is loaded, injected into prompt, response is saved back.
+    No manifest mutation. Uses Gemini (not claude --print) so no new
+    Claude Code chat windows are spawned per message. History is loaded
+    from owner_chat_history.jsonl and replayed into each Gemini session.
     """
     message = payload["message"]
     try:
         try:
-            from chat_session import build_prompt, save_turn
+            from chat_session import load_history, save_turn
+            from chat_engine import _load_gemini_key, _manifest_summary
         except ImportError:
-            from orchestrator.chat_session import build_prompt, save_turn
+            from orchestrator.chat_session import load_history, save_turn
+            from orchestrator.chat_engine import _load_gemini_key, _manifest_summary
 
-        prompt = build_prompt(message, manifest)
-        import subprocess as _sp
-        result = _sp.run(
-            ["claude", "--print", prompt],
-            capture_output=True, text=True, encoding="utf-8", errors="replace",
-            timeout=180,
-            cwd=str(ROOT),
+        key = _load_gemini_key()
+        if not key:
+            return {}, f"(Нет ключа Gemini)\n{_manifest_summary(manifest)}"
+
+        from google import genai  # type: ignore[import-untyped]
+        from google.genai import types  # type: ignore[import-untyped]
+
+        state = manifest.get("fsm_state", "unknown")
+        task = manifest.get("current_task_id") or "нет"
+        goal = manifest.get("current_sprint_goal") or "нет"
+        park = manifest.get("park_reason") or "нет"
+
+        system = (
+            "Ты — AI-ассистент проекта biretos-automation, общаешься с владельцем "
+            "через MAX мессенджер. Отвечай кратко, по-русски, строго по теме. "
+            "Не придумывай задачи и не рапортуй о несуществующей работе.\n"
+            f"Состояние оркестратора: fsm={state}, task={task}, goal={goal}, park={park}"
         )
-        answer = (result.stdout or "").strip()
-        if not answer and result.stderr:
-            answer = f"(stderr: {result.stderr[:200]})"
-        if not answer:
-            answer = "(Нет ответа от Claude)"
-        if len(answer) > 3900:
-            answer = answer[:3900] + "\n\n… (обрезано)"
 
-        # Save turn to history for next message
+        # Replay saved history into Gemini chat
+        history_turns = load_history()
+        gemini_history = []
+        for turn in history_turns:
+            gemini_history.append(
+                types.Content(role="user",
+                              parts=[types.Part(text=turn["user"])])
+            )
+            gemini_history.append(
+                types.Content(role="model",
+                              parts=[types.Part(text=turn["assistant"])])
+            )
+
+        client = genai.Client(api_key=key)
+        chat = client.chats.create(
+            model="gemini-2.5-flash",
+            config=types.GenerateContentConfig(system_instruction=system),
+            history=gemini_history,
+        )
+        response = chat.send_message(message)
+        answer = (response.text or "").strip()[:3900]
+
         save_turn(message, answer)
 
-    except _sp.TimeoutExpired:
-        answer = "Таймаут (>3 мин). Попробуй попозже или сократи вопрос."
-    except FileNotFoundError:
-        answer = "claude CLI не найден в PATH."
     except Exception as exc:
         answer = f"Ошибка: {str(exc)[:200]}"
     return {}, answer
