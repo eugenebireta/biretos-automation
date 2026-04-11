@@ -65,6 +65,20 @@ class MockAuditor(AuditorProvider):
             issues=self._issues,
         )
 
+    async def debate(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        peer_verdict: AuditVerdict,
+    ) -> AuditVerdict:
+        return AuditVerdict(
+            auditor_id=self.auditor_id,
+            verdict=self._verdict,
+            summary=self._summary + " (debate)",
+            issues=self._issues,
+        )
+
 
 # ---------------------------------------------------------------------------
 # Preset сценарии для тестов

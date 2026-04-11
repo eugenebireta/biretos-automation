@@ -58,3 +58,18 @@ class AuditorProvider(ABC):
     ) -> AuditVerdict:
         """Финальный аудит после revision."""
         ...
+
+    async def debate(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        peer_verdict: AuditVerdict,
+    ) -> AuditVerdict:
+        """
+        Round 2 debate: re-audit with visibility into peer's Round 1 verdict.
+
+        Default: delegates to final_audit (backwards compatible).
+        Override in concrete providers for proper debate prompt.
+        """
+        return await self.final_audit(proposal, task, context)

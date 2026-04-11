@@ -1,14 +1,18 @@
 """
 review_runner.py — главный protocol brain.
 
-Orchestrates bounded 2-round protocol (SPEC §4):
-  1. Builder proposal
-  2. Dual critique (parallel, auditors don't see each other)
-  3. Builder revision (once)
-  4. Dual final audit
-  5. Quality Gate → escalation if needed (max 1)
-  6. ApprovalRouter → route
-  7. Save artifacts + owner_summary
+Orchestrates multi-round debate protocol:
+  Round 1: Dual critique (parallel, isolated — auditors don't see each other)
+  Fast path: all approve + no critical → skip to gate
+  Round 2: Debate (parallel, cross-visible — each sees peer's Round 1 verdict)
+  Round 3: Opus arbiter if still disagree after debate
+  Quality Gate → ApprovalRouter → route
+
+Design based on 7 external critiques consensus:
+  - Debate instead of voting
+  - Compact context, not 69KB blob
+  - Cross-visibility in Round 2, not Round 1
+  - Opus arbiter as separate black box module
 
 Один прогон = одна чистая сессия (SPEC §19.1).
 """
@@ -19,14 +23,13 @@ import logging
 from pathlib import Path
 from typing import Any
 
+from .debate import build_arbiter_pack, needs_arbiter, should_debate
 from .hard_shell.approval_router import ApprovalRouter
 from .hard_shell.context_assembler import ContextAssembler
 from .hard_shell.contracts import (
     ApprovalRoute,
     ErrorClass,
-    ModelName,
     ProtocolRun,
-    RiskLevel,
     TaskPack,
 )
 from .hard_shell.experience_sink import ExperienceSink
@@ -57,12 +60,14 @@ class ReviewRunner:
         runs_dir: str | Path = "runs",
         experience_dir: str | Path = ".",
         model_config_path: str | Path | None = None,
+        arbiter: Any | None = None,
     ):
         if len(auditors) < 1:
             raise ValueError("At least one auditor required")
 
         self.builder = builder
         self.auditors = auditors
+        self.arbiter = arbiter  # OpusArbiter or None (Round 3 black box)
         self.run_store = RunStore(runs_dir)
         self.experience_sink = ExperienceSink(experience_dir)
         self.context_assembler = ContextAssembler()
@@ -84,8 +89,6 @@ class ReviewRunner:
         Returns: list of valid AuditVerdict
         Raises:  AuditorFailureError for CORE failures or unrecoverable SEMI failures
         """
-        from typing import cast
-
         results = await asyncio.gather(*coros, return_exceptions=True)
         auditor_ids = [a.auditor_id for a in self.auditors]
 
@@ -144,7 +147,7 @@ class ReviewRunner:
         owner_model_override: str | None = None,
     ) -> ProtocolRun:
         """
-        Полный цикл: proposal → critique → revision → final → gate → route.
+        Полный цикл: proposal → critique → debate → arbiter → gate → route.
         Возвращает ProtocolRun с артефактами.
         """
         run = ProtocolRun(task=task)
@@ -211,7 +214,9 @@ class ReviewRunner:
         self.run_store.save_proposal(run)
         logger.info("review_runner: proposal generated run_id=%s len=%d", run.run_id, len(run.proposal))
 
-        # --- Шаг 4: Dual critique (параллельно, аудиторы не видят друг друга) ---
+        # =====================================================================
+        # Round 1: Dual critique (parallel, isolated — no cross-visibility)
+        # =====================================================================
         critique_tasks = [
             auditor.critique(run.proposal, task, context)
             for auditor in self.auditors
@@ -221,72 +226,89 @@ class ReviewRunner:
         for i, verdict in enumerate(run.critiques, start=1):
             self.run_store.save_critique(run, verdict, i)
         logger.info(
-            "review_runner: critiques received run_id=%s verdicts=%s",
+            "review_runner: R1 critiques run_id=%s verdicts=%s",
             run.run_id, {v.auditor_id: v.verdict.value for v in run.critiques},
         )
 
-        # --- Шаг 5: Builder revision (один раз) ---
-        run.revised_proposal = await self.builder.revise(
-            task, run.proposal, run.critiques, context
-        )
-        self.run_store.save_revised_proposal(run)
+        # =====================================================================
+        # Fast path: all approve + no critical → skip debate, use R1 as final
+        # =====================================================================
+        if not should_debate(run.critiques, task.risk):
+            logger.info(
+                "review_runner: FAST PATH — all R1 approve, skip debate run_id=%s",
+                run.run_id,
+            )
+            run.revised_proposal = run.proposal  # no revision needed
+            self.run_store.save_revised_proposal(run)
+            run.final_verdicts = list(run.critiques)  # promote R1 to final
+            for i, verdict in enumerate(run.final_verdicts, start=1):
+                self.run_store.save_final_verdict(run, verdict, i)
+            gate = self.quality_gate.check(run.final_verdicts)
+            run.quality_gate = gate
+            self.run_store.save_quality_gate(run)
+        else:
+            # =================================================================
+            # Builder revision (fresh proposal from R1 critiques)
+            # =================================================================
+            run.revised_proposal = await self.builder.revise(
+                task, run.proposal, run.critiques, context
+            )
+            self.run_store.save_revised_proposal(run)
 
-        # --- Шаг 6: Dual final audit (параллельно) ---
-        final_tasks = [
-            auditor.final_audit(run.revised_proposal, task, context)
-            for auditor in self.auditors
-        ]
-        final_verdicts = await self._gather_safe(final_tasks, task, stage="final_audit")
-        run.final_verdicts = list(final_verdicts)
-        for i, verdict in enumerate(run.final_verdicts, start=1):
-            self.run_store.save_final_verdict(run, verdict, i)
-        logger.info(
-            "review_runner: final verdicts run_id=%s verdicts=%s",
-            run.run_id, {v.auditor_id: v.verdict.value for v in run.final_verdicts},
-        )
+            # =================================================================
+            # Round 2: Debate (parallel, cross-visible)
+            # Each auditor sees the revised proposal + peer's R1 verdict
+            # =================================================================
+            run.debate_triggered = True
+            debate_tasks = self._build_debate_tasks(
+                run.revised_proposal, task, context, run.critiques,
+            )
+            debate_verdicts = await self._gather_safe(
+                debate_tasks, task, stage="debate",
+            )
+            run.debate_verdicts = list(debate_verdicts)
+            run.final_verdicts = list(debate_verdicts)  # R2 becomes final by default
+            for i, verdict in enumerate(run.debate_verdicts, start=1):
+                self.run_store.save_final_verdict(run, verdict, i)
+            logger.info(
+                "review_runner: R2 debate run_id=%s verdicts=%s",
+                run.run_id, {v.auditor_id: v.verdict.value for v in run.debate_verdicts},
+            )
 
-        # --- Шаг 7: Quality Gate ---
-        gate = self.quality_gate.check(run.final_verdicts)
-        run.quality_gate = gate
-        self.run_store.save_quality_gate(run)
+            # =============================================================
+            # Gate check after Round 2
+            # =============================================================
+            gate = self.quality_gate.check(run.final_verdicts)
+            run.quality_gate = gate
+            self.run_store.save_quality_gate(run)
 
-        # --- Шаг 8: Escalation (Trigger B, max 1 раз) ---
-        if not gate.passed and not run.escalated:
-            escalation = self.model_selector.escalate(run.model_used)
-            if escalation is not None:
-                new_model, new_effort = escalation
-                run.escalated = True
-                run.escalation_reason = f"quality_gate_failed: {gate.reason}"
-                run.model_used = new_model
-                run.effort = new_effort
+            # =============================================================
+            # Round 3: Opus arbiter if still disagreement
+            # =============================================================
+            if needs_arbiter(run.debate_verdicts, gate) and self.arbiter is not None:
+                run.arbiter_used = True
                 logger.info(
-                    "review_runner: ESCALATING to %s run_id=%s reason=%s",
-                    new_model.value, run.run_id, gate.reason,
+                    "review_runner: R3 arbiter triggered run_id=%s",
+                    run.run_id,
                 )
-                # Повторяем proposal → critique → revision → final с Opus
-                run.proposal = await self.builder.propose(task, context)
-                critiques_opus = await self._gather_safe(
-                    [a.critique(run.proposal, task, context) for a in self.auditors],
-                    task, stage="critique_escalation",
+                arbiter_pack = build_arbiter_pack(
+                    run.proposal, run.revised_proposal,
+                    run.critiques, run.debate_verdicts,
                 )
-                run.critiques = list(critiques_opus)
-                run.revised_proposal = await self.builder.revise(
-                    task, run.proposal, run.critiques, context
+                arbiter_verdict = await self.arbiter.arbitrate(
+                    task, context, arbiter_pack,
                 )
-                final_opus = await self._gather_safe(
-                    [a.final_audit(run.revised_proposal, task, context) for a in self.auditors],
-                    task, stage="final_audit_escalation",
-                )
-                run.final_verdicts = list(final_opus)
+                run.arbiter_verdict = arbiter_verdict
+                run.final_verdicts = [arbiter_verdict]  # arbiter overrides
                 gate = self.quality_gate.check(run.final_verdicts)
                 run.quality_gate = gate
                 self.run_store.save_quality_gate(run)
                 logger.info(
-                    "review_runner: post-escalation gate passed=%s run_id=%s",
-                    gate.passed, run.run_id,
+                    "review_runner: R3 arbiter verdict=%s run_id=%s",
+                    arbiter_verdict.verdict.value, run.run_id,
                 )
 
-        # --- Шаг 9: ApprovalRouter ---
+        # --- ApprovalRouter ---
         route = self.approval_router.route(
             risk=task.risk,
             verdicts=run.final_verdicts,
@@ -296,7 +318,7 @@ class ReviewRunner:
         run.approval_route = route
         self.run_store.save_approval_routing(run)
 
-        # --- Шаг 10: Owner summary ---
+        # --- Owner summary ---
         summary = self.approval_router.build_owner_summary(
             route=route,
             risk=task.risk,
@@ -314,12 +336,46 @@ class ReviewRunner:
         self.run_store.save_manifest(run)
 
         logger.info(
-            "review_runner: DONE run_id=%s route=%s duration_min=%.1f",
+            "review_runner: DONE run_id=%s route=%s debate=%s arbiter=%s duration_min=%.1f",
             run.run_id,
             route.value,
+            run.debate_triggered,
+            run.arbiter_used,
             run.duration_minutes or 0,
         )
         return run
+
+    def _build_debate_tasks(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        round1_verdicts: list,
+    ) -> list:
+        """
+        Build debate coroutines for Round 2.
+
+        Each auditor gets the proposal + peer's Round 1 verdict (cross-visible).
+        With 2 auditors: auditor[0] sees auditor[1]'s verdict and vice versa.
+        With 1 auditor: falls back to final_audit (no peer to debate).
+        """
+        if len(self.auditors) < 2 or len(round1_verdicts) < 2:
+            # Single auditor: no debate possible, use final_audit
+            return [
+                auditor.final_audit(proposal, task, context)
+                for auditor in self.auditors
+            ]
+
+        tasks = []
+        for i, auditor in enumerate(self.auditors):
+            # Find peer verdict: the other auditor's R1 verdict
+            peer_idx = 1 - i if len(self.auditors) == 2 else (i + 1) % len(self.auditors)
+            peer_verdict = round1_verdicts[peer_idx]
+
+            tasks.append(
+                auditor.debate(proposal, task, context, peer_verdict)
+            )
+        return tasks
 
     def record_owner_verdict(
         self,

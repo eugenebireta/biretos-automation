@@ -12,12 +12,11 @@ JSON extracted from text response (Gemini does not guarantee structured output).
 """
 from __future__ import annotations
 
-import json
 import logging
 import re
 from typing import Any
 
-from ..hard_shell.contracts import AuditVerdict, AuditVerdictValue, TaskPack
+from ..hard_shell.contracts import AuditVerdict, TaskPack
 from ..hard_shell.schema_validator import validate_and_parse
 from .base import AuditorProvider
 from .openai_auditor import _build_system_prompt, _build_user_prompt
@@ -166,3 +165,16 @@ class GeminiAuditor(AuditorProvider):
         context: dict[str, Any],
     ) -> AuditVerdict:
         return await self._call(revised_proposal, task, context, stage="revised_proposal")
+
+    async def debate(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        peer_verdict: "AuditVerdict",
+    ) -> AuditVerdict:
+        """Round 2 debate: re-audit with visibility into peer's Round 1 verdict."""
+        from ..debate import build_debate_context
+
+        debate_ctx = build_debate_context(context, peer_verdict)
+        return await self._call(proposal, task, debate_ctx, stage="debate")

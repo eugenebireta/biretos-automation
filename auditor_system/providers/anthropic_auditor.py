@@ -133,3 +133,16 @@ class AnthropicAuditor(AuditorProvider):
         context: dict[str, Any],
     ) -> AuditVerdict:
         return await self._call(revised_proposal, task, context, stage="revised_proposal")
+
+    async def debate(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        peer_verdict: "AuditVerdict",
+    ) -> AuditVerdict:
+        """Round 2 debate: re-audit with visibility into peer's Round 1 verdict."""
+        from ..debate import build_debate_context
+
+        debate_ctx = build_debate_context(context, peer_verdict)
+        return await self._call(proposal, task, debate_ctx, stage="debate")

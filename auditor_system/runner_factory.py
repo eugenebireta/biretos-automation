@@ -64,7 +64,11 @@ def create_review_runner(
     from .providers.mock_builder import MockBuilder
     from .providers.gemini_auditor import GeminiAuditor
     from .providers.anthropic_auditor import AnthropicAuditor
+    from .providers.opus_arbiter import OpusArbiter
     from .review_runner import ReviewRunner
+
+    arbiter_model = models_config.get("arbiter", {}).get("model", "claude-sonnet-4-6")
+    arbiter = OpusArbiter(api_key=secrets["ANTHROPIC_API_KEY"], model=arbiter_model)
 
     runner = ReviewRunner(
         builder=MockBuilder(proposal_text=proposal_text),
@@ -75,6 +79,7 @@ def create_review_runner(
         runs_dir=Path(runs_dir),
         experience_dir=Path(experience_dir),
         model_config_path=_CONFIG_PATH,
+        arbiter=arbiter,
     )
 
     logger.info(
@@ -82,6 +87,7 @@ def create_review_runner(
             "trace_id":    "runner_factory",
             "gemini_model": gemini_model,
             "anthropic_model": anthropic_model,
+            "arbiter_model": arbiter_model,
             "runs_dir":    str(runs_dir),
             "outcome":     "runner_created",
         }, ensure_ascii=False)

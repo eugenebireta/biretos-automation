@@ -131,6 +131,35 @@ Use "info" for suggestions.
     return prompt
 
 
+def _build_debate_instruction(peer_verdict: dict[str, Any]) -> str:
+    """Build debate instruction block for Round 2 cross-visibility."""
+    peer_id = peer_verdict.get("auditor_id", "unknown")
+    peer_v = peer_verdict.get("verdict", "unknown")
+    peer_summary = peer_verdict.get("summary", "")
+    peer_issues = peer_verdict.get("issues", [])
+
+    issues_text = "\n".join(
+        f"  - [{i.get('severity', '?')}] {i.get('area', '?')}: {i.get('description', '')}"
+        for i in peer_issues
+    ) or "  (no issues raised)"
+
+    return f"""
+## DEBATE ROUND — Peer Auditor Verdict
+Another auditor ({peer_id}) has independently reviewed the same proposal.
+Their verdict: **{peer_v.upper()}**
+Their summary: {peer_summary}
+Their issues:
+{issues_text}
+
+## Your task in this debate round
+1. Re-examine the PROPOSAL (not the peer's verdict) with their findings in mind
+2. If the peer found something you missed — acknowledge it
+3. If you disagree with the peer — explain why with evidence from the code
+4. Your verdict should reflect YOUR independent judgment, informed by the debate
+5. Do NOT just agree with the peer to avoid conflict — genuine disagreement is valuable
+"""
+
+
 def _detect_code_content(text: str) -> bool:
     """Detect if proposal contains actual code (not just description)."""
     code_indicators = [
@@ -161,13 +190,19 @@ def _build_user_prompt(
 
     code_flag = f"has_code_diff: {'true' if has_code else 'false'}\n"
 
+    # Debate round: include peer verdict context
+    debate_section = ""
+    peer = context.get("peer_verdict")
+    if peer and context.get("debate_round"):
+        debate_section = _build_debate_instruction(peer)
+
     return f"""## Task
 Title: {task.title}
 Stage: {stage_label}
 Risk: {task.risk.value.upper()}
 Why now: {why_now}
 {files_section}{code_flag}Description: {task.description or '(no description provided)'}
-
+{debate_section}
 ## {stage.upper()} to audit
 {proposal}
 
@@ -258,3 +293,16 @@ class OpenAIAuditor(AuditorProvider):
         context: dict[str, Any],
     ) -> AuditVerdict:
         return await self._call(revised_proposal, task, context, stage="revised_proposal")
+
+    async def debate(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        peer_verdict: "AuditVerdict",
+    ) -> AuditVerdict:
+        """Round 2 debate: re-audit with visibility into peer's Round 1 verdict."""
+        from ..debate import build_debate_context
+
+        debate_ctx = build_debate_context(context, peer_verdict)
+        return await self._call(proposal, task, debate_ctx, stage="debate")

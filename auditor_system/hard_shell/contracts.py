@@ -185,6 +185,12 @@ class ProtocolRun(BaseModel):
     owner_verdict: str | None = None     # "approved" | "rejected" | "rework"
     owner_notes: str = ""
 
+    # Debate (Phase 3 — shared context + debate layer)
+    debate_triggered: bool = False
+    debate_verdicts: list[AuditVerdict] = Field(default_factory=list)   # Round 2
+    arbiter_verdict: AuditVerdict | None = None                         # Round 3
+    arbiter_used: bool = False
+
     # Post-audit
     post_audit_clean: bool | None = None
 
