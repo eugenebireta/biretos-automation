@@ -38,5 +38,22 @@ class MockBuilder(BuilderProvider):
     ) -> str:
         if self._revision is not None:
             return self._revision  # custom — return as-is
-        issue_count = sum(len(c.issues) for c in critiques)
-        return self._DEFAULT_REVISION.format(n=len(critiques), issues=issue_count, title=task.title)
+
+        # If original_proposal has real code (from --proposal-file),
+        # pass it through with a changelog header instead of a stub.
+        # This ensures final_audit sees the actual code, not a one-liner.
+        critique_summary = []
+        for c in critiques:
+            for issue in c.issues:
+                critique_summary.append(
+                    f"- [{issue.severity}] {issue.area}: {issue.description}"
+                )
+
+        changelog = "\n".join(critique_summary) if critique_summary else "(no issues raised)"
+
+        return (
+            f"## Revision changelog\n"
+            f"Addressed {len(critiques)} critique(s):\n{changelog}\n\n"
+            f"## Full proposal (unchanged — MockBuilder does not modify code)\n\n"
+            f"{original_proposal}"
+        )

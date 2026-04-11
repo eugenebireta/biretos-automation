@@ -35,6 +35,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+try:
+    from orchestrator.inbox_router import InboxRouter, Stream
+except ModuleNotFoundError:
+    from inbox_router import InboxRouter, Stream  # noqa: F401
+
 ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
 MANIFEST_PATH = ORCH_DIR / "manifest.json"
@@ -52,87 +57,24 @@ logging.basicConfig(
 log = logging.getLogger("owner_bridge")
 
 
-# ── Park states — must match main.py / telegram_bot.py ──────────────────
+# PARK_STATES imported from inbox_router (canonical source, Wave 3)
+try:
+    from orchestrator.inbox_router import PARK_STATES
+except ModuleNotFoundError:
+    from inbox_router import PARK_STATES
 
-PARK_STATES = frozenset({
-    "awaiting_owner_reply", "error", "blocked", "blocked_by_consensus",
-    "parked_budget_daily", "parked_budget_run", "parked_api_outage",
-})
-
-# ── Input classification ────────────────────────────────────────────────
-
-APPROVE_WORDS = frozenset({"ок", "ok", "да", "yes", "го", "давай", "продолжай"})
-REJECT_WORDS = frozenset({"нет", "no", "стоп", "stop"})
-STATUS_COMMANDS = frozenset({"/status", "/ping", "/health"})
-TASK_PREFIX = "/task"
-MIN_FREETEXT_LEN = 5
+# ── Shared router instance ─────────────────────────────────────────────
+_router = InboxRouter()
 
 
 def classify_input(text: str, manifest: dict) -> tuple[str, dict[str, Any]]:
     """Classify owner message into an action type.
 
-    Returns:
-        (input_type, payload) where input_type is one of:
-        "approve", "reject", "decision", "freetext", "status",
-        "new_task", "chat", "too_short", "no_pending_state"
-
-    Routing:
-        /task <text>  → new_task (orchestrator pipeline)
-        /status       → status
-        ок/нет        → approve/reject (when parked)
-        everything else → chat (direct Claude response)
+    Delegates to InboxRouter (Wave 3) and returns (input_type, payload)
+    for backward compatibility with existing handlers.
     """
-    lower = text.lower().strip()
-
-    # Status commands — always allowed regardless of FSM state
-    if lower in STATUS_COMMANDS:
-        return "status", {}
-
-    # Explicit task command → orchestrator pipeline
-    if lower.startswith(TASK_PREFIX):
-        task_text = text[len(TASK_PREFIX):].strip()
-        if len(task_text) >= MIN_FREETEXT_LEN:
-            return "new_task", {"instruction": task_text}
-        return "too_short", {"length": len(task_text)}
-
-    fsm_state = manifest.get("fsm_state", "")
-
-    # A/B/C decision — check pending_decision first
-    pending = manifest.get("pending_decision")
-    if pending and isinstance(pending, dict):
-        options = pending.get("options", {})
-        key = text.strip().upper()
-        if key in options:
-            return "decision", {"key": key, "text": options[key]}
-
-    # Parked states — approve/reject/freetext instruction
-    if fsm_state in PARK_STATES:
-        if lower in APPROVE_WORDS:
-            return "approve", {}
-        if lower in REJECT_WORDS:
-            return "reject", {}
-        if len(text) >= MIN_FREETEXT_LEN:
-            return "freetext", {"instruction": text}
-        return "too_short", {"length": len(text)}
-
-    # Not parked — chat mode (direct Claude response) or no-op
-    if len(text) >= MIN_FREETEXT_LEN:
-        return "chat", {"message": text}
-    if lower in APPROVE_WORDS or lower in REJECT_WORDS:
-        return "no_pending_state", {"fsm_state": fsm_state}
-    return "too_short", {"length": len(text)}
-
-    # Approve / reject
-    if lower in APPROVE_WORDS:
-        return "approve", {}
-    if lower in REJECT_WORDS:
-        return "reject", {}
-
-    # Free-text instruction
-    if len(text) >= MIN_FREETEXT_LEN:
-        return "freetext", {"instruction": text}
-
-    return "too_short", {"length": len(text)}
+    result = _router.classify(text, manifest)
+    return result.input_type, result.payload
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -478,9 +420,11 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
     try:
         manifest = _load_manifest()
 
-        # Classify input
-        input_type, payload = classify_input(text, manifest)
-        _log_event("INFO", "classify", input_type=input_type,
+        # Classify input (stream-aware, Wave 3)
+        route = _router.classify(text, manifest)
+        input_type, payload = route.input_type, route.payload
+        _log_event("INFO", "classify", stream=route.stream.value,
+                   input_type=input_type,
                    text_preview=text[:60], fsm_state=manifest.get("fsm_state"))
 
         # Get handler
@@ -519,8 +463,7 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
         # Write response to outbox — route back to same transport as source
         run_id = manifest.get("trace_id")
         source = entry.get("source", "telegram_gateway")
-        # Normalize source to transport name: "telegram_gateway" -> "telegram"
-        target = source.replace("_gateway", "") if source else "telegram"
+        target = _router.target_from_source(source)
         _enqueue_response(response_text, run_id=run_id,
                           event_type=f"bridge_{input_type}", target=target)
 
