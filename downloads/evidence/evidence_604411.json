@@ -665,14 +665,15 @@
     "dr_source_url": "https://www.voelkner.de/products/7579916/PEHA-by-Honeywell-604411-Schalterdose-1St..html",
     "our_price_raw": "238,33",
     "our_price_parsed": 238.33,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_ru",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "PEHA Compacta junction box, €2.68 — 'коробка' in title is product type (junction box), not packaging"
   }
 }

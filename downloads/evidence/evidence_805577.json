@@ -608,14 +608,15 @@
     "dr_source_url": "https://www.orbitadigital.com/en/fire/accessories/36086-esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.html",
     "our_price_raw": "2262,16",
     "our_price_parsed": 2262.16,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": null
+    "pack_qty": 10,
+    "judge_reason": "kf: 'pack of 10' explicitly stated in description"
   }
 }

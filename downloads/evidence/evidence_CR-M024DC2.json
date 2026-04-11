@@ -650,14 +650,15 @@
     "dr_source_url": "https://www.ebay.com/itm/383040790448",
     "our_price_raw": "676,50",
     "our_price_parsed": 676.5,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": 10
+    "pack_qty": 10,
+    "judge_reason": "kf: 'упаковка 10 pcs' — relay pack of 10"
   }
 }

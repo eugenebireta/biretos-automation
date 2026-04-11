@@ -661,14 +661,15 @@
     "dr_source_url": "https://www.credexalarmsystems.eu/en/alarm-systems/honeywell/notifier-analog-fire-alarm/",
     "our_price_raw": "349,20",
     "our_price_parsed": 349.2,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_ru",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "mounting kit, 'Комплект' in title is product type not multi-pack"
   }
 }

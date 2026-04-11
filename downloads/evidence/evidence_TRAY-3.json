@@ -646,14 +646,15 @@
     "dr_source_url": "https://www.ebay.com/itm/401230128572",
     "our_price_raw": "4255,86",
     "our_price_parsed": 4255.86,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_ru",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "splice box, individual unit — 'набор' triggered on unrelated text"
   }
 }

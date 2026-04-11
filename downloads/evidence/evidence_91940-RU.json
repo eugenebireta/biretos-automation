@@ -627,14 +627,15 @@
     "dr_source_url": "https://elnik.shop/truba-pvh-gnuchka-gofrovana-diametr-40mm-standartna-z-protyagkoyu-sirij-kolir-20-m-p-octopus-dks-91940-ru",
     "our_price_raw": "49,41",
     "our_price_parsed": 49.41,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_ru",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "DKC pipe, kf: 'пог.м, бухта 20 м' — price is per meter, roll is delivery format not pricing unit"
   }
 }

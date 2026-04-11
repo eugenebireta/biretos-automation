@@ -585,14 +585,15 @@
     "dr_source_url": "https://export.rsdelivers.com/product/weidmuller/7910180000/weidmuller-7910180000-wtr-series-disconnect-block/3830129",
     "our_price_raw": "165,06",
     "our_price_parsed": 165.06,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_en",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "Weidmüller terminal, kf: '$3.73/ea' confirms per-unit pricing"
   }
 }

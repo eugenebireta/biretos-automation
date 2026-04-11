@@ -637,14 +637,15 @@
     "dr_source_url": "https://www.senetic.de/product/400-ATII",
     "our_price_raw": "18259,00",
     "our_price_parsed": 18259.0,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": 3
+    "pack_qty": null,
+    "judge_reason": "HDD (Dell 400-ATII), kf: 'наличие (3 шт)' — qty=3 is stock count, not pack size"
   }
 }

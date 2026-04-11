@@ -634,14 +634,15 @@
     "dr_source_url": "https://www.isssafety.com/products/704960-honeywell-spare-glass-pane-with-white-stick-on-foil-and-printed-pictogram-in-compliance-with-en-54-11",
     "our_price_raw": "2550,65",
     "our_price_parsed": 2550.65,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "quantity_pattern",
-    "pack_qty": 10
+    "pack_qty": 10,
+    "judge_reason": "kf: 'VE=10 pcs' and 'упаковка 10 шт' — explicitly pack of 10"
   }
 }

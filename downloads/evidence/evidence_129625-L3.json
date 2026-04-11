@@ -440,14 +440,15 @@
     "dr_source_url": null,
     "our_price_raw": "55352,00",
     "our_price_parsed": 55352.0,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "medium",
     "judge_triggered": true,
     "judge_trigger_reason": "pack_marker_ru",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "kit product (title 'Набор'), not multi-pack. No distributor matches."
   }
 }

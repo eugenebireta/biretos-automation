@@ -588,14 +588,15 @@
     "dr_source_url": null,
     "our_price_raw": "206421,50",
     "our_price_parsed": 206421.5,
-    "judge_status": "judged_deterministic",
-    "unit_basis": "unknown",
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
     "source": null,
     "lineage": null,
     "pack_suspect": false,
-    "judge_confidence": "low",
+    "judge_confidence": "high",
     "judge_triggered": true,
     "judge_trigger_reason": "exotic_usd_high",
-    "pack_qty": null
+    "pack_qty": null,
+    "judge_reason": "Experion PKS workstation (Dell Precision R7920XL), $5670 is correct per-unit price for industrial workstation"
   }
 }
