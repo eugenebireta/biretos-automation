@@ -4,30 +4,38 @@ chat_engine.py — contextual Q&A for owner messages.
 Called by owner_bridge._handle_chat when the owner sends a free-text
 question that is not a task, approve/reject, or status command.
 
-Uses Gemini 2.5 Flash with manifest context so answers are relevant
+Uses Claude (Anthropic API) with manifest context so answers are relevant
 to the current orchestrator state (which task is running, what happened
-last, etc.). Falls back to a manifest summary if Gemini is unavailable.
+last, etc.). Falls back to a manifest summary if Anthropic is unavailable.
+
+Key loading uses scripts/secrets.py (centralized hub) with legacy fallback.
 """
 from __future__ import annotations
 
 import os
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
-_ENV_PATHS = [
-    ROOT / "downloads" / ".env",
-    ROOT / "orchestrator" / ".env.max",
-]
 _MAX_RESPONSE = 1500
 
 
+def _load_secret(name: str) -> str:
+    """Load secret via centralized hub (scripts/secrets.py) with env fallback."""
+    try:
+        import sys
+        sys.path.insert(0, str(ROOT))
+        from scripts.secrets import get_secret  # type: ignore[import-untyped]
+        return get_secret(name, default="")
+    except Exception:
+        pass
+    return os.environ.get(name, "")
+
+
 def _load_gemini_key() -> str:
-    for path in _ENV_PATHS:
-        if path.exists():
-            for line in path.read_text(encoding="utf-8").splitlines():
-                line = line.strip()
-                if line.startswith("GEMINI_API_KEY="):
-                    return line.split("=", 1)[1].strip()
-    return os.environ.get("GEMINI_API_KEY", "")
+    return _load_secret("GEMINI_API_KEY")
+
+
+def _load_anthropic_key() -> str:
+    return _load_secret("ANTHROPIC_API_KEY")
 
 
 def _manifest_summary(manifest: dict) -> str:
@@ -43,17 +51,16 @@ def _manifest_summary(manifest: dict) -> str:
 
 
 def answer(message: str, manifest: dict) -> str:
-    """Answer owner question with manifest context via Gemini.
+    """Answer owner question with manifest context via Claude (Anthropic API).
 
-    Falls back to manifest summary if Gemini is unavailable.
+    Falls back to manifest summary if Anthropic is unavailable.
     """
-    key = _load_gemini_key()
+    key = _load_anthropic_key()
     if not key:
-        return f"(Gemini недоступен)\n{_manifest_summary(manifest)}"
+        return f"(Нет ключа Anthropic)\n{_manifest_summary(manifest)}"
 
     try:
-        from google import genai  # type: ignore[import-untyped]
-        client = genai.Client(api_key=key)
+        import anthropic  # type: ignore[import-untyped]
 
         state = manifest.get("fsm_state", "unknown")
         task = manifest.get("current_task_id") or "нет"
@@ -75,16 +82,17 @@ def answer(message: str, manifest: dict) -> str:
             f"  trace_id: {trace}\n"
         )
 
-        prompt = f"{system_ctx}\nВопрос владельца: {message}"
-
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt,
+        client = anthropic.Anthropic(api_key=key)
+        response = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=1024,
+            system=system_ctx,
+            messages=[{"role": "user", "content": message}],
         )
-        return (response.text or "").strip()[:_MAX_RESPONSE]
+        return (response.content[0].text or "").strip()[:_MAX_RESPONSE]
 
     except Exception as exc:
         return (
-            f"(Ошибка Gemini: {str(exc)[:80]})\n"
+            f"(Ошибка Anthropic: {str(exc)[:80]})\n"
             f"{_manifest_summary(manifest)}"
         )

@@ -151,27 +151,26 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 
 def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Direct chat — Gemini API with persistent conversation history.
+    """Direct chat — Anthropic API (Claude) with persistent conversation history.
 
-    No manifest mutation. Uses Gemini (not claude --print) so no new
-    Claude Code chat windows are spawned per message. History is loaded
-    from owner_chat_history.jsonl and replayed into each Gemini session.
+    No manifest mutation. Uses Anthropic API directly so no new Claude Code
+    chat windows are spawned per message. History is loaded from
+    owner_chat_history.jsonl and replayed as messages array.
     """
     message = payload["message"]
     try:
         try:
             from chat_session import load_history, save_turn
-            from chat_engine import _load_gemini_key, _manifest_summary
+            from chat_engine import _load_anthropic_key, _manifest_summary
         except ImportError:
             from orchestrator.chat_session import load_history, save_turn
-            from orchestrator.chat_engine import _load_gemini_key, _manifest_summary
+            from orchestrator.chat_engine import _load_anthropic_key, _manifest_summary
 
-        key = _load_gemini_key()
+        key = _load_anthropic_key()
         if not key:
-            return {}, f"(Нет ключа Gemini)\n{_manifest_summary(manifest)}"
+            return {}, f"(Нет ключа Anthropic)\n{_manifest_summary(manifest)}"
 
-        from google import genai  # type: ignore[import-untyped]
-        from google.genai import types  # type: ignore[import-untyped]
+        import anthropic  # type: ignore[import-untyped]
 
         state = manifest.get("fsm_state", "unknown")
         task = manifest.get("current_task_id") or "нет"
@@ -185,27 +184,22 @@ def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
             f"Состояние оркестратора: fsm={state}, task={task}, goal={goal}, park={park}"
         )
 
-        # Replay saved history into Gemini chat
+        # Build messages array with conversation history
         history_turns = load_history()
-        gemini_history = []
+        messages = []
         for turn in history_turns:
-            gemini_history.append(
-                types.Content(role="user",
-                              parts=[types.Part(text=turn["user"])])
-            )
-            gemini_history.append(
-                types.Content(role="model",
-                              parts=[types.Part(text=turn["assistant"])])
-            )
+            messages.append({"role": "user", "content": turn["user"]})
+            messages.append({"role": "assistant", "content": turn["assistant"]})
+        messages.append({"role": "user", "content": message})
 
-        client = genai.Client(api_key=key)
-        chat = client.chats.create(
-            model="gemini-2.5-flash",
-            config=types.GenerateContentConfig(system_instruction=system),
-            history=gemini_history,
+        client = anthropic.Anthropic(api_key=key)
+        response = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=1024,
+            system=system,
+            messages=messages,
         )
-        response = chat.send_message(message)
-        answer = (response.text or "").strip()[:3900]
+        answer = (response.content[0].text or "").strip()[:3900]
 
         save_turn(message, answer)
 

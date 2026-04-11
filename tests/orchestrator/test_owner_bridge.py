@@ -478,23 +478,25 @@ class TestQueryTaskSplit:
         assert outbox[-1]["event_type"] == "bridge_status"
 
     def test_chat_query_skips_lock(self, tmp_path, monkeypatch):
-        """QUERY stream uses fast path — no lock, Gemini for Q&A."""
+        """QUERY stream uses fast path — no lock, Anthropic (Claude) for Q&A."""
         _patch_paths(tmp_path, monkeypatch)
         _write_manifest(tmp_path, {"fsm_state": "idle"})
-        # Mock chat_engine to avoid real Gemini call
+        # Mock chat_engine to avoid real Anthropic call
         import chat_engine
         import chat_session
-        monkeypatch.setattr(chat_engine, "_load_gemini_key", lambda: "fake-key")
+        monkeypatch.setattr(chat_engine, "_load_anthropic_key", lambda: "fake-key")
         monkeypatch.setattr(chat_session, "load_history", lambda: [])
         monkeypatch.setattr(chat_session, "save_turn", lambda u, a: None)
-        # Mock Gemini client
+        # Mock Anthropic client
         import types as _types
-        fake_response = _types.SimpleNamespace(text="Ответ от Gemini")
-        fake_chat = _types.SimpleNamespace(
-            send_message=lambda msg: fake_response)
+        fake_content = _types.SimpleNamespace(text="Ответ от Claude")
+        fake_response = _types.SimpleNamespace(content=[fake_content])
         fake_client = _types.SimpleNamespace(
-            chats=_types.SimpleNamespace(create=lambda **kw: fake_chat))
-        monkeypatch.setattr("google.genai.Client",
+            messages=_types.SimpleNamespace(
+                create=lambda **kw: fake_response
+            )
+        )
+        monkeypatch.setattr("anthropic.Anthropic",
                             lambda **kw: fake_client,
                             raising=False)
 
@@ -505,7 +507,7 @@ class TestQueryTaskSplit:
 
         assert ok is True
         outbox = _read_outbox(tmp_path)
-        assert any("Gemini" in o["text"] for o in outbox)
+        assert any("Claude" in o["text"] for o in outbox)
         assert outbox[-1]["event_type"] == "bridge_chat"
         # Manifest untouched
         m = _read_manifest(tmp_path)
