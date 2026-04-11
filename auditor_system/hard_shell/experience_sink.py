@@ -6,6 +6,11 @@ hard_shell/experience_sink.py — DPO-ready JSONL после owner verdict.
 
 Approved → experience_log/*.jsonl
 Rejected/failed → anti_patterns/*.jsonl
+
+Schema version history:
+  v1 — hash-only proposals (proposal_hash, no inline text)
+  v2 — inline text: proposal_text, revised_proposal_text, critiques_text,
+        files_changed, error_detail.  Hashes kept for dedup.
 """
 from __future__ import annotations
 
@@ -18,6 +23,10 @@ from pathlib import Path
 from .contracts import ProtocolRun
 
 logger = logging.getLogger(__name__)
+
+EXPERIENCE_SINK_SCHEMA_VERSION = "experience_sink_v2"
+_MAX_PROPOSAL_CHARS = 8000
+_MAX_CRITIQUES_CHARS = 4000
 
 
 class ExperienceSink:
@@ -43,8 +52,28 @@ class ExperienceSink:
     def _proposal_hash(self, text: str) -> str:
         return "sha256:" + hashlib.sha256(text.encode()).hexdigest()[:16]
 
+    @staticmethod
+    def _cap(text: str | None, limit: int) -> str | None:
+        if text is None:
+            return None
+        return text[:limit] if len(text) > limit else text
+
+    @staticmethod
+    def _format_critiques(verdicts: list) -> str:
+        """Compact inline summary of audit verdicts for training data."""
+        parts: list[str] = []
+        for v in verdicts:
+            header = f"[{v.auditor_id}] {v.verdict.value}: {v.summary}"
+            issues = "; ".join(
+                f"{i.severity.value}/{i.area}: {i.description}"
+                for i in v.issues
+            )
+            parts.append(f"{header}\n  {issues}" if issues else header)
+        return "\n".join(parts)
+
     def _build_record(self, run: ProtocolRun) -> dict:
-        """Строит DPO-ready запись (SPEC §6.3 формат)."""
+        """Строит DPO-ready запись (SPEC §6.3 формат) with inline text."""
+        cap = self._cap
         # Определяем rejected/chosen solution для DPO
         rejected_solution = None
         chosen_solution = None
@@ -56,6 +85,7 @@ class ExperienceSink:
                 "model": "sonnet",
                 "effort": "medium",
                 "proposal_hash": self._proposal_hash(run.proposal),
+                "proposal_text": cap(run.proposal, _MAX_PROPOSAL_CHARS),
                 "issues_found": [
                     {"severity": i.severity.value, "area": i.area, "desc": i.description}
                     for v in run.critiques
@@ -66,6 +96,7 @@ class ExperienceSink:
                 "model": "opus",
                 "effort": "high",
                 "proposal_hash": self._proposal_hash(run.revised_proposal),
+                "proposal_text": cap(run.revised_proposal, _MAX_PROPOSAL_CHARS),
                 "issues_found": [
                     {"severity": i.severity.value, "area": i.area, "desc": i.description}
                     for v in run.final_verdicts
@@ -74,10 +105,12 @@ class ExperienceSink:
             }
         else:
             # Один раунд — только chosen
+            text = run.revised_proposal or run.proposal
             chosen_solution = {
                 "model": run.model_used.value,
                 "effort": run.effort.value,
-                "proposal_hash": self._proposal_hash(run.revised_proposal or run.proposal),
+                "proposal_hash": self._proposal_hash(text),
+                "proposal_text": cap(text, _MAX_PROPOSAL_CHARS),
                 "issues_found": [
                     {"severity": i.severity.value, "area": i.area, "desc": i.description}
                     for v in run.final_verdicts
@@ -85,8 +118,23 @@ class ExperienceSink:
                 ],
             }
 
+        # Inline critiques for training (compact text)
+        critiques_text = cap(
+            self._format_critiques(run.critiques),
+            _MAX_CRITIQUES_CHARS,
+        ) if run.critiques else None
+        final_audit_text = cap(
+            self._format_critiques(run.final_verdicts),
+            _MAX_CRITIQUES_CHARS,
+        ) if run.final_verdicts else None
+
+        # Files changed from task declaration (best available at record time)
+        files_changed = run.task.affected_files[:30] if run.task.affected_files else []
+
         return {
+            "schema_version": EXPERIENCE_SINK_SCHEMA_VERSION,
             "trace_id": run.trace_id,
+            "run_id": run.run_id,
             "task": {
                 "stage": run.task.roadmap_stage,
                 "risk": run.task.risk.value,
@@ -96,17 +144,22 @@ class ExperienceSink:
             "context_summary": run.task.description or run.task.title,
             "rejected_solution": rejected_solution,
             "chosen_solution": chosen_solution,
+            "critiques_text": critiques_text,
+            "final_audit_text": final_audit_text,
+            "files_changed": files_changed,
             "escalation": run.escalated,
             "escalation_reason": run.escalation_reason or None,
             "escalation_helped": run.escalated and run.owner_verdict == "approved",
             "owner_override": False,
             "owner_verdict": run.owner_verdict,
+            "owner_notes": run.owner_notes or None,
             "owner_role": "judge" if run.task.risk.value == "core" else "batch_approver",
             "post_audit_clean": run.post_audit_clean,
             "cost_usd": run.cost_usd,
             "duration_minutes": run.duration_minutes,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "surface_mismatch": run.surface.mismatch if run.surface else False,
+            "error_detail": run.error_message or None,
         }
 
     def record(self, run: ProtocolRun) -> None:

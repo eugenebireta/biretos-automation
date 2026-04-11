@@ -19,7 +19,15 @@ v1.5:
 
 from __future__ import annotations
 
-import base64, datetime, hashlib, json, logging, os, re, sys, time
+import base64
+import datetime
+import hashlib
+import json
+import logging
+import os
+import re
+import sys
+import time
 from pathlib import Path
 from typing import Any, Callable, Optional, Protocol
 from urllib.parse import urljoin, urlparse
@@ -40,8 +48,8 @@ _scripts_dir = Path(__file__).resolve().parent
 if str(_scripts_dir) not in _sys.path:
     _sys.path.insert(0, str(_scripts_dir))
 
-from pn_match import confirm_pn_body, match_pn, is_numeric_pn, check_brand_cooccurrence, extract_structured_pn_flags  # noqa: E402
-from trust import get_source_trust, get_source_tier             # noqa: E402
+from pn_match import confirm_pn_body, check_brand_cooccurrence, extract_structured_pn_flags  # noqa: E402
+from trust import get_source_trust             # noqa: E402
 from fx import convert_to_rub, fx_meta                         # noqa: E402
 from pn_variants import generate_variants                       # noqa: E402
 from export_pipeline import (                                   # noqa: E402
@@ -116,19 +124,6 @@ try:
 except ImportError:
     _CATEGORY_RESOLVER_AVAILABLE = False
 
-try:
-    from training_logger import (
-        log_photo_verdict as _tl_photo_verdict,
-        log_page_ranking as _tl_page_ranking,
-        log_price_extraction as _tl_price_extraction,
-        log_unit_judge as _tl_unit_judge,
-        log_category_resolution as _tl_category_resolution,
-        log_spec_extraction as _tl_spec_extraction,
-    )
-    _TRAINING_LOGGER_AVAILABLE = True
-except ImportError:
-    _TRAINING_LOGGER_AVAILABLE = False
-
 
 # ── Logging ────────────────────────────────────────────────────────────────────
 logging.basicConfig(
@@ -161,7 +156,10 @@ LAST_RUN_META: dict = {}
 _provider_errors: list[dict] = []
 
 CHECKPOINT_FILE = DOWNLOADS / "checkpoint.json"
-SHADOW_LOG_SCHEMA_VERSION = "photo_pipeline_shadow_log_record_v1"
+SHADOW_LOG_SCHEMA_VERSION = "photo_pipeline_shadow_log_record_v2"
+# ── Spec extraction version (heuristic, no LLM) ──────────────────────────────
+SPEC_EXTRACTION_VERSION = "spec_heuristic_v1"
+_MAX_PAGE_TEXT_SNIPPET = 4000  # raw text preserved for spec extraction training
 QUEUE_SCHEMA_VERSION = "followup_queue_v2"
 INPUT_COL_PN = "Параметр: Партномер"
 INPUT_COL_NAME = "Название товара или услуги"
@@ -356,6 +354,7 @@ Q_DISTRIBUTORS   = (
 Q_GOOGLE_IMAGES  = '"{pn}" "{brand}" -used -refurbished -repair'
 
 # ── Промпт для LLM-извлечения цены ────────────────────────────────────────────
+PRICE_EXTRACTION_PROMPT_VERSION = "price_extraction_v11"
 PRICE_EXTRACTION_PROMPT_TMPL = """\
 Ты — суровый B2B-аудитор. Извлеки коммерческие данные из текста страницы дистрибьютора.
 Искомый товар: {brand} {pn}. Ожидаемый класс товара: {expected_category}.
@@ -393,6 +392,7 @@ PRICE_EXTRACTION_PROMPT_TMPL = """\
 }}"""
 
 # ── Промпт для GPT Vision ──────────────────────────────────────────────────────
+VISION_PROMPT_VERSION = "vision_verdict_v3"
 VISION_PROMPT = """\
 Товар: {name} | Артикул: {pn} | Бренд: Honeywell
 
@@ -493,6 +493,10 @@ def shadow_log(
     error_class: str | None = None,
     source_url: str = None,
     source_type: str = None,
+    *,
+    prompt_version: str | None = None,
+    trace_id: str | None = None,
+    pipeline_stage: str | None = None,
 ) -> None:
     """Пишет пару prompt/response в JSONL для будущего дообучения локальных моделей.
 
@@ -503,6 +507,11 @@ def shadow_log(
       None  — API call failed, no model response available
       ""    — API returned empty text (unexpected but non-fatal)
       "..." — actual model response (preserved up to _MAX_RESPONSE_RAW_CHARS)
+
+    v2 fields (keyword-only):
+      prompt_version  — identifies which prompt template produced this record
+      trace_id        — links to orchestrator trace or batch run
+      pipeline_stage  — e.g. "price_extraction", "image_validation", "spec_extraction"
     """
     try:
         month = datetime.datetime.utcnow().strftime("%Y-%m")
@@ -526,6 +535,7 @@ def shadow_log(
             "model_alias": model_alias,
             "model_resolved": model_resolved,
             "prompt": prompt,
+            "prompt_version": prompt_version,
             "response_raw": raw_stored,
             "response_raw_present": raw_stored is not None and raw_stored != "",
             "response_raw_truncated": raw_truncated,
@@ -537,6 +547,8 @@ def shadow_log(
             "correction_ts": None,
             "source_url": source_url,
             "source_type": source_type,
+            "trace_id": trace_id,
+            "pipeline_stage": pipeline_stage or task_type,
         }
         with open(path, "a", encoding="utf-8") as f:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
@@ -571,6 +583,8 @@ def call_gpt(
     source_url: str = None,
     source_type: str = None,
     adapter: ChatCompletionAdapter | None = None,
+    *,
+    prompt_version: str | None = None,
     **api_kwargs,
 ) -> str:
     """Единая обёртка над provider chat completions.
@@ -611,6 +625,8 @@ def call_gpt(
             error_class=error_class,
             source_url=source_url,
             source_type=source_type,
+            prompt_version=prompt_version,
+            pipeline_stage=task_type,
         )
         raise
 
@@ -643,6 +659,8 @@ def call_gpt(
         error_class=adapter_meta.get("error_class"),
         source_url=source_url,
         source_type=source_type,
+        prompt_version=prompt_version,
+        pipeline_stage=task_type,
     )
     return content
 
@@ -1082,6 +1100,8 @@ def parse_product_page(url: str, pn: str = "") -> dict:
         "image_url": None,
         "description": None,
         "specs": {},
+        "specs_status": "",
+        "page_text_snippet": "",
         "page_url": url,
         "mpn_confirmed": False,
         "jsonld_price": None,
@@ -1211,6 +1231,13 @@ def parse_product_page(url: str, pn: str = "") -> dict:
                 result["specs_status"] = "found_from_page"
         except Exception as _spec_err:
             log.debug(f"spec_extractor failed: {_spec_err}")
+
+        # Preserve raw text snippet for spec extraction training
+        try:
+            _page_text = soup.get_text(separator="\n", strip=True)
+            result["page_text_snippet"] = _page_text[:_MAX_PAGE_TEXT_SNIPPET]
+        except Exception:
+            pass
 
     except Exception as e:
         result["error"] = str(e)
@@ -1531,7 +1558,9 @@ def step2b_extract_from_pages(
             break
         allowed, reason = allow_external_source_attempt(pn, url)
         if not allowed:
-            if reason == "weak_marketplace_disabled" or reason.startswith("max_external_source_attempts_per_sku_reached"):
+            if reason == "weak_marketplace_disabled" or reason.startswith(
+                "max_external_source_attempts_per_sku_reached"
+            ):
                 continue
             break
 
@@ -1611,6 +1640,7 @@ def step2b_extract_from_pages(
                 model=PRICE_LLM_MODEL,
                 source_url=url,
                 source_type=source_type,
+                prompt_version=PRICE_EXTRACTION_PROMPT_VERSION,
                 temperature=0,
             )
 
@@ -1708,7 +1738,10 @@ def step2b_extract_from_pages(
                 transient_failure_codes.add("llm_rate_limit")
             elif timed_out:
                 transient_failure_codes.add("llm_timeout")
-            elif any(token in error_text for token in ("temporary", "temporarily", "502", "503", "504", "connection reset")):
+            elif any(
+                token in error_text
+                for token in ("temporary", "temporarily", "502", "503", "504", "connection reset")
+            ):
                 transient_failure_codes.add("llm_temporary_failure")
             record_source_failure(url, timed_out=timed_out, channel="external_source")
             log.warning(f"  step2b error {url[:70]}: {e}")
@@ -1731,7 +1764,7 @@ def step2b_extract_from_pages(
         return best
     if best_mismatch:
         log.warning(
-            f"  step2b: только mismatch-кандидаты найдены, возвращаем с price_status=category_mismatch_only"
+            "  step2b: только mismatch-кандидаты найдены, возвращаем с price_status=category_mismatch_only"
         )
         best_mismatch = _apply_surface_stability(best_mismatch)
         best_mismatch = materialize_source_replacement_surface(
@@ -1833,6 +1866,7 @@ def step3_vision(pn: str, name: str, img_path: str, w: int, h: int) -> dict:
             brand=BRAND,
             messages=messages,
             model=VISION_MODEL,
+            prompt_version=VISION_PROMPT_VERSION,
             max_completion_tokens=80,
             temperature=0,
         )
@@ -2098,16 +2132,6 @@ def run(
                     print(f"  Page ranker: {len(non_rejected)}/{len(ranked)} candidates kept")
             except Exception as _pr_err:
                 log.debug(f"page_ranker failed for {pn}: {_pr_err}")
-        if _TRAINING_LOGGER_AVAILABLE and page_ranking_result:
-            try:
-                _tl_page_ranking(
-                    pn=pn, brand=BRAND,
-                    candidate_urls=[c["url"] for c in candidates[:10]],
-                    ranked_result=page_ranking_result[:10],
-                    method="deterministic",
-                )
-            except Exception:
-                pass
 
         # ── Шаг 2b: извлечение цены ────────────────────────────────────────────
         price_info = tighten_public_price_result(
@@ -2154,7 +2178,7 @@ def run(
                     + "; ".join(_sanity_flags)
                 )
                 if price_info.get("price_sanity_status") == "REJECT":
-                    print(f"  [PRICE_SANITY] Цена отклонена → price_status=rejected_sanity_check")
+                    print("  [PRICE_SANITY] Цена отклонена → price_status=rejected_sanity_check")
 
         # ── Price Unit Judge (per-unit vs per-pack detection) ─────────────────
         if _PRICE_JUDGE_AVAILABLE and price_info.get("price_usd") is not None:
@@ -2175,18 +2199,9 @@ def run(
                         "pack_qty": _judge_result.pack_qty,
                         "llm_used": _judge_result.llm_used,
                     }
-                    print(f"  [UNIT_JUDGE] {_judge_result.unit_basis}/{_judge_result.confidence} (trigger: {_judge_result.trigger_reason})")
-                if _TRAINING_LOGGER_AVAILABLE:
-                    _tl_unit_judge(
-                        pn=pn, brand=BRAND,
-                        price=price_info["price_usd"],
-                        currency=price_info.get("currency", ""),
-                        context_text=_context,
-                        unit_basis=_judge_result.unit_basis,
-                        confidence=_judge_result.confidence,
-                        triggered=_judge_result.triggered,
-                        trigger_reason=_judge_result.trigger_reason,
-                        llm_raw=_judge_result.llm_raw,
+                    print(
+                        f"  [UNIT_JUDGE] {_judge_result.unit_basis}/{_judge_result.confidence}"
+                        f" (trigger: {_judge_result.trigger_reason})"
                     )
             except Exception as _uj_err:
                 log.debug(f"price_unit_judge failed for {pn}: {_uj_err}")
@@ -2222,34 +2237,8 @@ def run(
                         print(f"  [CATEGORY] Mismatch resolved: {_cat_result.resolution_method}")
                 elif _cat_result.conflict:
                     print(f"  [CATEGORY] Conflict: {_cat_result.conflict_reason}")
-                if _TRAINING_LOGGER_AVAILABLE:
-                    _tl_category_resolution(
-                        pn=pn, brand=BRAND,
-                        xlsx_hint=expected_category,
-                        page_category=_page_cat,
-                        source_tier=_source_tier,
-                        exact_pn_confirmed=_exact_pn,
-                        resolved_category=_cat_result.resolved_category,
-                        resolution_method=_cat_result.resolution_method,
-                        confidence=_cat_result.confidence,
-                    )
             except Exception as _cr_err:
                 log.debug(f"category_resolver failed for {pn}: {_cr_err}")
-
-        # ── Training: price extraction ────────────────────────────────────────
-        if _TRAINING_LOGGER_AVAILABLE and price_info.get("price_usd") is not None:
-            try:
-                _tl_price_extraction(
-                    pn=pn, brand=BRAND,
-                    html_snippet="",
-                    prompt="",
-                    response_raw=str(price_info.get("price_usd", "")),
-                    source_url=price_info.get("source_url", ""),
-                    extracted_price=price_info.get("price_usd"),
-                    currency=price_info.get("currency", ""),
-                )
-            except Exception:
-                pass
 
         # ── Шаг 3: GPT Vision ─────────────────────────────────────────────────
         sha1 = dl.get("sha1", "")
@@ -2304,19 +2293,6 @@ def run(
         if v.get("numeric_keep_guard_applied"):
             print(f"  deterministic_keep_guard: {', '.join(v.get('numeric_keep_guard_reasons', []))}")
 
-        # ── Training: photo verdict ───────────────────────────────────────────
-        if _TRAINING_LOGGER_AVAILABLE:
-            try:
-                _tl_photo_verdict(
-                    pn=pn, brand=BRAND,
-                    photo_path=dl.get("path", ""),
-                    verdict=v.get("verdict", "NO_PHOTO"),
-                    reason=v.get("reason", ""),
-                    source_url=dl.get("source", ""),
-                )
-            except Exception:
-                pass
-
         # ── Datasheet (optional + conditional) ─────────────────────────────────
         ds_result: dict = {"datasheet_status": "skipped"}
         _needs_datasheet = (
@@ -2329,7 +2305,6 @@ def run(
         if datasheets or _needs_datasheet:
             try:
                 from datasheet_pipeline import find_datasheet
-                from brand_knowledge import get_datasheet_query as _ds_query
                 _serpapi_key = get_serpapi_key()
                 if _serpapi_key:
                     ds_result = find_datasheet(pn, BRAND, _serpapi_key)
@@ -2375,15 +2350,25 @@ def run(
         save_checkpoint(checkpoint)
         bundle_content = bundle.get("content", {})
 
-        # ── Training: spec extraction ─────────────────────────────────────────
-        if _TRAINING_LOGGER_AVAILABLE and dl.get("specs"):
+        # ── Shadow log: spec extraction ──────────────────────────────────────
+        _specs = dl.get("specs", {})
+        if _specs:
             try:
-                _tl_spec_extraction(
-                    pn=pn, brand=BRAND,
-                    html_snippet="",
-                    extracted_specs=dl.get("specs", {}),
-                    method="page_parse",
+                shadow_log(
+                    task_type="spec_extraction",
+                    pn=pn,
+                    brand=BRAND,
+                    model="heuristic",
+                    provider="local",
+                    model_alias="spec_extractor",
+                    model_resolved="spec_extractor_v1",
+                    prompt=dl.get("page_text_snippet", "")[:_MAX_PAGE_TEXT_SNIPPET],
+                    response_raw=json.dumps(_specs, ensure_ascii=False),
+                    response_parsed=_specs,
+                    parse_success=True,
                     source_url=dl.get("source", ""),
+                    prompt_version=SPEC_EXTRACTION_VERSION,
+                    pipeline_stage="spec_extraction",
                 )
             except Exception:
                 pass
@@ -2426,9 +2411,13 @@ def run(
             "price_source_url": price_info.get("price_source_url"),
             "price_source_tier": price_info.get("price_source_tier"),
             "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
-            "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
+            "price_source_exact_product_lineage_confirmed": bool(
+                price_info.get("price_source_exact_product_lineage_confirmed")
+            ),
             "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
-            "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
+            "price_source_admissible_replacement_confirmed": bool(
+                price_info.get("price_source_admissible_replacement_confirmed")
+            ),
             "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
             "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
             "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),
@@ -2464,9 +2453,13 @@ def run(
             "page_product_class": price_info["page_product_class"],
             "price_source_seen": bool(price_info.get("price_source_seen")),
             "price_source_lineage_confirmed": bool(price_info.get("price_source_lineage_confirmed")),
-            "price_source_exact_product_lineage_confirmed": bool(price_info.get("price_source_exact_product_lineage_confirmed")),
+            "price_source_exact_product_lineage_confirmed": bool(
+                price_info.get("price_source_exact_product_lineage_confirmed")
+            ),
             "price_source_lineage_reason_code": price_info.get("price_source_lineage_reason_code", ""),
-            "price_source_admissible_replacement_confirmed": bool(price_info.get("price_source_admissible_replacement_confirmed")),
+            "price_source_admissible_replacement_confirmed": bool(
+                price_info.get("price_source_admissible_replacement_confirmed")
+            ),
             "price_source_terminal_weak_lineage": bool(price_info.get("price_source_terminal_weak_lineage")),
             "price_source_replacement_reason_code": price_info.get("price_source_replacement_reason_code", ""),
             "price_source_replacement_url": price_info.get("price_source_replacement_url", ""),

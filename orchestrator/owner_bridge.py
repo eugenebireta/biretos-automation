@@ -35,6 +35,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+try:
+    from orchestrator.inbox_router import InboxRouter, Stream
+except ModuleNotFoundError:
+    from inbox_router import InboxRouter, Stream  # noqa: F401
+
 ROOT = Path(__file__).resolve().parent.parent
 ORCH_DIR = ROOT / "orchestrator"
 MANIFEST_PATH = ORCH_DIR / "manifest.json"
@@ -52,65 +57,24 @@ logging.basicConfig(
 log = logging.getLogger("owner_bridge")
 
 
-# ── Park states — must match main.py / telegram_bot.py ──────────────────
+# PARK_STATES imported from inbox_router (canonical source, Wave 3)
+try:
+    from orchestrator.inbox_router import PARK_STATES
+except ModuleNotFoundError:
+    from inbox_router import PARK_STATES
 
-PARK_STATES = frozenset({
-    "awaiting_owner_reply", "error", "blocked", "blocked_by_consensus",
-    "parked_budget_daily", "parked_budget_run", "parked_api_outage",
-})
-
-# ── Input classification ────────────────────────────────────────────────
-
-APPROVE_WORDS = frozenset({"ок", "ok", "да", "yes", "го", "давай", "продолжай"})
-REJECT_WORDS = frozenset({"нет", "no", "стоп", "stop"})
-STATUS_COMMANDS = frozenset({"/status", "/ping", "/health"})
-MIN_FREETEXT_LEN = 5
+# ── Shared router instance ─────────────────────────────────────────────
+_router = InboxRouter()
 
 
 def classify_input(text: str, manifest: dict) -> tuple[str, dict[str, Any]]:
     """Classify owner message into an action type.
 
-    Returns:
-        (input_type, payload) where input_type is one of:
-        "approve", "reject", "decision", "freetext", "status",
-        "too_short", "no_pending_state"
+    Delegates to InboxRouter (Wave 3) and returns (input_type, payload)
+    for backward compatibility with existing handlers.
     """
-    lower = text.lower().strip()
-
-    # Status commands — always allowed regardless of FSM state
-    if lower in STATUS_COMMANDS:
-        return "status", {}
-
-    fsm_state = manifest.get("fsm_state", "")
-
-    # A/B/C decision — check pending_decision first
-    pending = manifest.get("pending_decision")
-    if pending and isinstance(pending, dict):
-        options = pending.get("options", {})
-        key = text.strip().upper()
-        if key in options:
-            return "decision", {"key": key, "text": options[key]}
-        # Single letter not in options — falls through
-
-    # Idle/ready/completed — accept new task via freetext
-    if fsm_state not in PARK_STATES:
-        if len(text) >= MIN_FREETEXT_LEN:
-            return "new_task", {"instruction": text, "fsm_state": fsm_state}
-        if lower in APPROVE_WORDS or lower in REJECT_WORDS:
-            return "no_pending_state", {"fsm_state": fsm_state}
-        return "too_short", {"length": len(text)}
-
-    # Approve / reject
-    if lower in APPROVE_WORDS:
-        return "approve", {}
-    if lower in REJECT_WORDS:
-        return "reject", {}
-
-    # Free-text instruction
-    if len(text) >= MIN_FREETEXT_LEN:
-        return "freetext", {"instruction": text}
-
-    return "too_short", {"length": len(text)}
+    result = _router.classify(text, manifest)
+    return result.input_type, result.payload
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -186,8 +150,38 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
     )
 
 
+def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
+    """Direct chat — run claude -p with user message, return answer.
+
+    No manifest mutation. Runs claude CLI as subprocess.
+    """
+    message = payload["message"]
+    try:
+        import subprocess as _sp
+        prompt = (
+            f"Ты — ассистент проекта biretos-automation. "
+            f"Отвечай кратко, по-русски. "
+            f"Рабочая директория: {ROOT}\n\n"
+            f"Вопрос владельца: {message}"
+        )
+        result = _sp.run(
+            [sys.executable, "-m", "claude", "-p", prompt],
+            capture_output=True, text=True, timeout=120,
+            cwd=str(ROOT),
+        )
+        answer = (result.stdout or "").strip()
+        if not answer:
+            answer = "(Claude не дал ответа)"
+        # Truncate for Telegram
+        if len(answer) > 3900:
+            answer = answer[:3900] + "\n\n… (обрезано)"
+    except Exception as exc:
+        answer = f"Ошибка: {str(exc)[:200]}"
+    return {}, answer
+
+
 def _handle_new_task(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Create new task from owner message when system is idle/ready."""
+    """Create new task from /task command — goes through orchestrator pipeline."""
     instruction = payload["instruction"]
     task_id = f"tg-{hashlib.md5(instruction.encode()).hexdigest()[:8]}"
     preview = instruction[:120] + ("…" if len(instruction) > 120 else "")
@@ -214,7 +208,13 @@ def _handle_no_pending(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 def _handle_too_short(manifest: dict, payload: dict) -> tuple[dict, str]:
     """Message too short to be instruction, not a known command."""
-    return {}, "Не понял. Напиши 'ок' / 'нет' или инструкцию (минимум 5 символов)."
+    return {}, "��е понял. Напиши 'ок' / 'нет' или инструкцию (минимум 5 символ��в)."
+
+
+def _handle_callback(manifest: dict, payload: dict) -> tuple[dict, str]:
+    """Generic callback — no FSM mutation, acknowledge with data echo."""
+    data = payload.get("callback_data", "?")
+    return {}, f"Callback: {data}"
 
 
 # Dispatch table: input_type -> handler
@@ -223,10 +223,12 @@ _HANDLERS: dict[str, Any] = {
     "reject": _handle_reject,
     "decision": _handle_decision,
     "freetext": _handle_freetext,
+    "chat": _handle_chat,
     "new_task": _handle_new_task,
     "status": _handle_status,
     "no_pending_state": _handle_no_pending,
     "too_short": _handle_too_short,
+    "callback": _handle_callback,
 }
 
 
@@ -345,8 +347,14 @@ def _save_bridge_state(state: dict) -> None:
 # ── Outbox helper ───────────────────────────────────────────────────────
 
 def _enqueue_response(text: str, *, run_id: str | None = None,
-                      event_type: str = "bridge_reply") -> str:
-    """Write response to outbox for Gateway to deliver."""
+                      event_type: str = "bridge_reply",
+                      target: str = "telegram") -> str:
+    """Write response to outbox for Gateway to deliver.
+
+    Args:
+        target: transport name — Gateway only sends messages matching
+                its own transport_name. Bridge sets this from inbox source.
+    """
     msg_id = f"br_{hashlib.md5(f'{time.time()}'.encode()).hexdigest()[:12]}"
     dedup_key = hashlib.md5(f"{run_id}|{event_type}|{text[:80]}".encode()).hexdigest()
     entry = {
@@ -358,6 +366,7 @@ def _enqueue_response(text: str, *, run_id: str | None = None,
         "status": "pending",
         "run_id": run_id,
         "event_type": event_type,
+        "target": target,
     }
     _locked_append(OUTBOX_PATH, json.dumps(entry, ensure_ascii=False))
     return msg_id
@@ -391,10 +400,19 @@ def _send_to_dlq(inbox_entry: dict, reason: str) -> None:
 # CORE PROCESSING
 # ═══════════════════════════════════════════════════════════════════════
 
+# Streams that never mutate manifest — no lock needed
+_READ_ONLY_STREAMS = frozenset({Stream.QUERY, Stream.COMMAND})
+
+
 def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
     """Process one inbox entry. Returns True if processed (or DLQ'd).
 
     Idempotency: entries with update_id <= last_processed_update_id are skipped.
+
+    Query/Task split (Wave 5):
+        QUERY and COMMAND streams are read-only — they skip the manifest lock
+        entirely, so they never block the FSM pipeline and respond fast.
+        TASK and CALLBACK streams acquire the manifest lock for FSM mutations.
     """
     update_id = entry.get("update_id") or 0
     last_processed = bridge_state.get("last_processed_update_id", 0)
@@ -408,37 +426,107 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
         _send_to_dlq(entry, "empty_text")
         return True
 
-    # Load manifest under lock
-    lock_fh = _acquire_manifest_lock()
-    if lock_fh is None:
-        # Orchestrator is running — skip this cycle, retry later
-        _log_event("INFO", "manifest_locked", update_id=update_id)
-        return False  # don't advance cursor
+    # ── Phase 1: Classify (lock-free) ─────────────────────────────
+    # Read manifest without lock — needed for classification only.
+    # For read-only streams the snapshot is sufficient.
+    # For FSM streams we re-read under lock below.
+    manifest = _load_manifest()
 
+    event_type = entry.get("event_type", "message")
+    callback_data = entry.get("callback_data", "")
+    if event_type == "callback" and callback_data:
+        route = _router.classify_callback(callback_data, manifest)
+    else:
+        route = _router.classify(text, manifest)
+    input_type, payload = route.input_type, route.payload
+    trace_id = manifest.get("trace_id", "")
+    _log_event("INFO", "classify", stream=route.stream.value,
+               input_type=input_type, trace_id=trace_id,
+               text_preview=text[:60], fsm_state=manifest.get("fsm_state"))
+
+    # ── Phase 2: Dispatch by stream ───────────────────────────────
+
+    if route.stream in _READ_ONLY_STREAMS:
+        # FAST PATH: no manifest lock, no FSM mutation
+        return _process_read_only(entry, bridge_state, manifest,
+                                  input_type, payload, update_id)
+    else:
+        # FSM PATH: acquire lock, re-read manifest, mutate
+        return _process_fsm(entry, bridge_state, manifest,
+                            input_type, payload, update_id)
+
+
+def _process_read_only(
+    entry: dict,
+    bridge_state: dict,
+    manifest: dict,
+    input_type: str,
+    payload: dict,
+    update_id: int,
+) -> bool:
+    """Fast path for QUERY/COMMAND — no manifest lock, no FSM mutation."""
     try:
-        manifest = _load_manifest()
-
-        # Classify input
-        input_type, payload = classify_input(text, manifest)
-        _log_event("INFO", "classify", input_type=input_type,
-                   text_preview=text[:60], fsm_state=manifest.get("fsm_state"))
-
-        # Get handler
         handler = _HANDLERS.get(input_type)
         if handler is None:
             _send_to_dlq(entry, f"unknown_input_type:{input_type}")
             return True
 
-        # Execute handler — deterministic, no side-effects beyond dict
+        _log_event("INFO", "fast_path_start", input_type=input_type)
+        _, response_text = handler(manifest, payload)
+
+        source = entry.get("source", "telegram_gateway")
+        target = _router.target_from_source(source)
+        _enqueue_response(response_text, run_id=manifest.get("trace_id"),
+                          event_type=f"bridge_{input_type}", target=target)
+        _log_event("INFO", "fast_path_done", input_type=input_type)
+
+    except Exception as exc:
+        _send_to_dlq(entry, f"processing_error:{exc!s:.200}")
+        _log_event("ERROR", "process_error", error=str(exc)[:200],
+                   update_id=update_id,
+                   error_class="TRANSIENT", retriable=True)
+        return True
+
+    # Advance cursor
+    if update_id:
+        bridge_state["last_processed_update_id"] = max(
+            bridge_state.get("last_processed_update_id", 0), update_id
+        )
+    bridge_state["processed_count"] = bridge_state.get("processed_count", 0) + 1
+    return True
+
+
+def _process_fsm(
+    entry: dict,
+    bridge_state: dict,
+    manifest_snapshot: dict,
+    input_type: str,
+    payload: dict,
+    update_id: int,
+) -> bool:
+    """FSM path for TASK/CALLBACK — acquires manifest lock, may mutate."""
+    lock_fh = _acquire_manifest_lock()
+    if lock_fh is None:
+        _log_event("INFO", "manifest_locked", update_id=update_id)
+        return False  # don't advance cursor — retry later
+
+    try:
+        # Re-read manifest under lock (state may have changed since classify)
+        manifest = _load_manifest()
+
+        handler = _HANDLERS.get(input_type)
+        if handler is None:
+            _send_to_dlq(entry, f"unknown_input_type:{input_type}")
+            return True
+
+        # Execute handler
         updates, response_text = handler(manifest, payload)
 
         # Apply manifest updates if any
         if updates:
-            # Idempotency: check fsm_state hasn't changed since classification
             current_state = manifest.get("fsm_state", "")
             if input_type in ("approve", "freetext", "decision"):
                 if current_state not in PARK_STATES and current_state != "awaiting_owner_reply":
-                    # State already changed (another process resumed) — no-op
                     _log_event("INFO", "idempotent_skip",
                                reason="state_already_changed",
                                expected_park=True, actual=current_state)
@@ -458,13 +546,17 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
 
         # Write response to outbox
         run_id = manifest.get("trace_id")
-        _enqueue_response(response_text, run_id=run_id, event_type=f"bridge_{input_type}")
+        source = entry.get("source", "telegram_gateway")
+        target = _router.target_from_source(source)
+        _enqueue_response(response_text, run_id=run_id,
+                          event_type=f"bridge_{input_type}", target=target)
 
     except Exception as exc:
         _send_to_dlq(entry, f"processing_error:{exc!s:.200}")
         _log_event("ERROR", "process_error", error=str(exc)[:200],
-                   update_id=update_id)
-        return True  # DLQ'd — don't block queue
+                   update_id=update_id,
+                   error_class="TRANSIENT", retriable=True)
+        return True
     finally:
         _release_manifest_lock(lock_fh)
 

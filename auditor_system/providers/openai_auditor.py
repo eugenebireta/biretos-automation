@@ -9,12 +9,11 @@ System prompt built dynamically from ContextAssembler context (SPEC §19.4).
 """
 from __future__ import annotations
 
-import json
 import logging
 from typing import Any
 
-from ..hard_shell.contracts import AuditVerdict, AuditVerdictValue, TaskPack
-from ..hard_shell.schema_validator import SchemaViolationError, validate_and_parse
+from ..hard_shell.contracts import AuditVerdict, TaskPack
+from ..hard_shell.schema_validator import validate_and_parse
 from .base import AuditorProvider
 
 logger = logging.getLogger(__name__)
@@ -132,6 +131,20 @@ Use "info" for suggestions.
     return prompt
 
 
+def _detect_code_content(text: str) -> bool:
+    """Detect if proposal contains actual code (not just description)."""
+    code_indicators = [
+        "```python",
+        "def ",
+        "class ",
+        "import ",
+        "from ",
+        "async def ",
+    ]
+    matches = sum(1 for ind in code_indicators if ind in text)
+    return matches >= 2
+
+
 def _build_user_prompt(
     proposal: str,
     task: TaskPack,
@@ -140,19 +153,28 @@ def _build_user_prompt(
 ) -> str:
     why_now = context.get("why_now", task.why_now)
     stage_label = context.get("roadmap_stage", task.roadmap_stage)
+    has_code = _detect_code_content(proposal)
+
+    files_section = ""
+    if task.affected_files:
+        files_section = "Changed files: " + ", ".join(task.affected_files) + "\n"
+
+    code_flag = f"has_code_diff: {'true' if has_code else 'false'}\n"
 
     return f"""## Task
 Title: {task.title}
 Stage: {stage_label}
 Risk: {task.risk.value.upper()}
 Why now: {why_now}
-Description: {task.description or '(no description provided)'}
+{files_section}{code_flag}Description: {task.description or '(no description provided)'}
 
 ## {stage.upper()} to audit
 {proposal}
 
 ---
-Audit the above {stage}. Return your verdict as JSON.
+Audit the above {stage}. Focus on code correctness, policy compliance, and test coverage.
+{'Code is present — audit the actual implementation.' if has_code else 'No code provided — flag as process issue.'}
+Return your verdict as JSON.
 """
 
 

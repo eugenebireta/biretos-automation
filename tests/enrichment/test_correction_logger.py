@@ -11,7 +11,7 @@ _scripts_dir = os.path.join(os.path.dirname(__file__), "..", "..", "scripts")
 if _scripts_dir not in sys.path:
     sys.path.insert(0, _scripts_dir)
 
-from correction_logger import (
+from correction_logger import (  # noqa: E402
     log_correction,
     log_price_sanity_warning,
     retrospective_peha_corrections,
@@ -98,6 +98,69 @@ class TestLogCorrection:
                 )
             records = _read_experience_records(tmp)
         assert len(records) == 3
+
+
+class TestCorrectionLoggerV2Fields:
+    """v2 fields: trace_id, source, ai_model, ai_output_raw."""
+
+    def test_v2_fields_stored(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            log_correction(
+                pn="171411", brand="Honeywell",
+                field_corrected="expected_category",
+                original_value="Вентиль",
+                corrected_value="Рамки PEHA",
+                reason="PEHA item mislabeled",
+                shadow_log_dir=Path(tmp),
+                trace_id="trace_abc",
+                source="dr_gemini",
+                ai_model="gemini-2.5-pro",
+                ai_output_raw='{"category": "Вентиль"}',
+            )
+            records = _read_experience_records(tmp)
+
+        r = records[0]
+        assert r["schema_version"] == "correction_v2"
+        assert r["trace_id"] == "trace_abc"
+        assert r["source"] == "dr_gemini"
+        assert r["ai_model"] == "gemini-2.5-pro"
+        assert r["ai_output_raw"] == '{"category": "Вентиль"}'
+
+    def test_v2_fields_default_to_none(self):
+        """Existing callers without v2 kwargs produce null fields."""
+        with tempfile.TemporaryDirectory() as tmp:
+            log_correction(
+                pn="PN", brand="B",
+                field_corrected="f",
+                original_value="a",
+                corrected_value="b",
+                reason="r",
+                shadow_log_dir=Path(tmp),
+            )
+            records = _read_experience_records(tmp)
+
+        r = records[0]
+        assert r["trace_id"] is None
+        assert r["source"] is None
+        assert r["ai_model"] is None
+        assert r["ai_output_raw"] is None
+
+    def test_ai_output_raw_capped(self):
+        """ai_output_raw longer than 2000 chars is truncated."""
+        long_output = "x" * 5000
+        with tempfile.TemporaryDirectory() as tmp:
+            log_correction(
+                pn="PN", brand="B",
+                field_corrected="f",
+                original_value="a",
+                corrected_value="b",
+                reason="r",
+                shadow_log_dir=Path(tmp),
+                ai_output_raw=long_output,
+            )
+            records = _read_experience_records(tmp)
+
+        assert len(records[0]["ai_output_raw"]) == 2000
 
 
 class TestLogPriceSanityWarning:

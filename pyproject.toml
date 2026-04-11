@@ -5,5 +5,13 @@ line-length = 120
 # Template/prompt strings contain intentionally long lines
 "orchestrator/strojka.py" = ["E501"]
 "scripts/research_providers.py" = ["E501"]
+"scripts/dr_prompt_generator.py" = ["E501"]
 # Test data strings and fixture dicts with long URLs/values
 "tests/enrichment/test_dr_results_import.py" = ["E501"]
+# sys.path manipulation before imports (project-wide pattern for scripts/)
+"scripts/identity_gate.py" = ["E402"]
+"scripts/photo_upscale_orchestrator.py" = ["E402"]
+"tests/enrichment/test_identity_gate_deterministic.py" = ["E402"]
+"tests/enrichment/test_cloud_uploader.py" = ["E402"]
+"tests/enrichment/test_exporter_insales.py" = ["E402"]
+"tests/enrichment/test_photo_upscale_orchestrator.py" = ["E402"]

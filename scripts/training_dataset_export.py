@@ -1,12 +1,13 @@
 """training_dataset_export.py — Export shadow_log data as training datasets for local AI.
 
-6 dataset types (Phase 4.1 expanded):
+7 dataset types (Phase 4.2 expanded):
 1. price_extraction — (prompt, response_raw, pn, brand) → structured price output
 2. photo_verdict    — (image_url, pn, brand, page_title) → KEEP/REJECT + reason
-3. category_classification — (pn, title, page_class, brand) → correct_category
-4. search_strategy  — (pn, brand, family) → {queries_used, worked, failed}
-5. page_ranking     — (candidate_urls, ranked_result, method) → page rank decision
-6. unit_judge       — (price, currency, context_text) → unit_basis verdict
+3. spec_extraction  — (page_text, pn, brand) → structured specs dict
+4. category_classification — (pn, title, page_class, brand) → correct_category
+5. search_strategy  — (pn, brand, family) → {queries_used, worked, failed}
+6. page_ranking     — (candidate_urls, ranked_result, method) → page rank decision
+7. unit_judge       — (price, currency, context_text) → unit_basis verdict
 
 Output: training_data/{dataset_name}.json (one file per dataset)
 
@@ -20,7 +21,6 @@ import json
 import os
 import sys
 from pathlib import Path
-from typing import Optional
 
 _scripts_dir = os.path.dirname(os.path.abspath(__file__))
 if _scripts_dir not in sys.path:
@@ -84,11 +84,14 @@ def export_price_extraction_dataset(shadow_dir: Path = _DEFAULT_SHADOW_DIR) -> l
             "pn": r.get("pn", ""),
             "brand": r.get("brand", ""),
             "prompt": r.get("prompt", ""),
+            "prompt_version": r.get("prompt_version"),
             "response_raw": raw,
             "response_parsed": parsed,
             "source_url": r.get("source_url", ""),
             "source_type": r.get("source_type", ""),
             "model": r.get("model", ""),
+            "model_resolved": r.get("model_resolved", ""),
+            "pipeline_stage": r.get("pipeline_stage", ""),
             "ts": r.get("ts", ""),
         })
     return dataset
@@ -115,12 +118,44 @@ def export_photo_verdict_dataset(shadow_dir: Path = _DEFAULT_SHADOW_DIR) -> list
             "pn": r.get("pn", ""),
             "brand": r.get("brand", ""),
             "prompt": r.get("prompt", ""),
+            "prompt_version": r.get("prompt_version"),
             "response_raw": raw,
             "verdict": verdict,
             "reason": parsed.get("reason", ""),
             "confidence": parsed.get("confidence", ""),
             "source_url": r.get("source_url", ""),
             "model": r.get("model", ""),
+            "model_resolved": r.get("model_resolved", ""),
+            "pipeline_stage": r.get("pipeline_stage", ""),
+            "ts": r.get("ts", ""),
+        })
+    return dataset
+
+
+def export_spec_extraction_dataset(shadow_dir: Path = _DEFAULT_SHADOW_DIR) -> list[dict]:
+    """Export spec extraction training pairs.
+
+    Each record: {pn, brand, page_text_snippet, extracted_specs, spec_count,
+                  source_url, prompt_version, model_resolved, pipeline_stage, ts}
+    Reads from spec_extraction_*.jsonl files in shadow_log.
+    """
+    all_records = _read_all_jsonl_in_dir(shadow_dir, "spec_extraction_*.jsonl")
+    dataset = []
+    for r in all_records:
+        parsed = r.get("response_parsed") or {}
+        if not parsed:
+            continue
+        dataset.append({
+            "dataset": "spec_extraction",
+            "pn": r.get("pn", ""),
+            "brand": r.get("brand", ""),
+            "page_text_snippet": r.get("prompt", ""),
+            "extracted_specs": parsed,
+            "spec_count": len(parsed) if isinstance(parsed, dict) else 0,
+            "source_url": r.get("source_url", ""),
+            "prompt_version": r.get("prompt_version"),
+            "model_resolved": r.get("model_resolved", ""),
+            "pipeline_stage": r.get("pipeline_stage", ""),
             "ts": r.get("ts", ""),
         })
     return dataset
@@ -252,10 +287,11 @@ def export_all_datasets(
     """Export all 6 datasets to output_dir. Returns {dataset_name: count}."""
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Core 4 datasets (from shadow_log)
+    # Core 5 datasets (from shadow_log)
     datasets = {
         "price_extraction": export_price_extraction_dataset(shadow_dir),
         "photo_verdict": export_photo_verdict_dataset(shadow_dir),
+        "spec_extraction": export_spec_extraction_dataset(shadow_dir),
         "category_classification": export_category_classification_dataset(evidence_dir, shadow_dir),
         "search_strategy": export_search_strategy_dataset(shadow_dir),
     }
@@ -298,10 +334,11 @@ if __name__ == "__main__":
 
     MIN_NEEDED = {
         "price_extraction": 200, "photo_verdict": 50,
+        "spec_extraction": 100,
         "category_classification": 100, "search_strategy": 50,
         "page_ranking": 100, "unit_judge": 50,
     }
-    print("\n=== Training Dataset Export (6-point) ===")
+    print("\n=== Training Dataset Export (7-point) ===")
     for name, count in stats.items():
         needed = MIN_NEEDED.get(name, 50)
         status = "ready" if count >= needed else f"need {needed - count} more"

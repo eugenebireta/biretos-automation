@@ -438,10 +438,14 @@ class TestMigrate:
         assert stats2["ingested"] == 0
         assert stats2["dedup_skipped"] == 1
 
-    def test_migrate_dry_run(self, tmp_path):
+    def test_migrate_dry_run_with_pdf(self, tmp_path):
+        """Dry run with pdf_local_path counts as ingested."""
         evidence_dir = tmp_path / "evidence"
         evidence_dir.mkdir()
         ds_dir = tmp_path / "datasheets"
+
+        pdf_file = tmp_path / "dry_run.pdf"
+        pdf_file.write_bytes(b"dry run pdf")
 
         evidence = {
             "entity_id": "MIG-003",
@@ -450,6 +454,7 @@ class TestMigrate:
                 "datasheet_status": "found",
                 "pdf_url": "https://example.com/mig3.pdf",
                 "pdf_source_tier": "manufacturer",
+                "pdf_local_path": str(pdf_file),
             },
         }
         (evidence_dir / "evidence_003.json").write_text(
@@ -457,11 +462,34 @@ class TestMigrate:
         )
 
         stats = migrate_all(evidence_dir=evidence_dir, base_dir=ds_dir, dry_run=True)
-        assert stats["ingested"] == 1  # counted but not written
+        assert stats["ingested"] == 1
         assert stats["dedup_skipped"] == 0
         assert stats["errors"] == 0
         # Verify nothing was actually written
         assert not ds_dir.exists() or not list(ds_dir.glob("*/v*.json"))
+
+    def test_migrate_dry_run_no_pdf_skips(self, tmp_path):
+        """Dry run without pdf_local_path counts as skipped (mirrors real behavior)."""
+        evidence_dir = tmp_path / "evidence"
+        evidence_dir.mkdir()
+        ds_dir = tmp_path / "datasheets"
+
+        evidence = {
+            "entity_id": "MIG-004",
+            "brand": "MigBrand",
+            "datasheet": {
+                "datasheet_status": "found",
+                "pdf_url": "https://example.com/mig4.pdf",
+                "pdf_source_tier": "manufacturer",
+            },
+        }
+        (evidence_dir / "evidence_004.json").write_text(
+            json.dumps(evidence), encoding="utf-8"
+        )
+
+        stats = migrate_all(evidence_dir=evidence_dir, base_dir=ds_dir, dry_run=True)
+        assert stats["ingested"] == 0
+        assert stats["dedup_skipped"] == 1  # no pdf = would be skipped
 
     def test_migrate_no_evidence_dir(self, tmp_path):
         stats = migrate_all(
@@ -509,3 +537,59 @@ class TestConcurrency:
         assert len(errors) == 0, f"Errors during concurrent writes: {errors}"
         pns = list_all_pns(tmp_path)
         assert len(pns) == 5
+
+
+# =============================================================================
+# TestErrorPaths
+# =============================================================================
+
+class TestErrorPaths:
+    def test_lock_timeout_raises(self, tmp_path):
+        """Lock timeout must raise TimeoutError, not proceed unlocked."""
+        import pytest
+        from scripts.datasheet_layer.store import _file_lock
+
+        # Create a stale lock file to simulate held lock
+        lock_path = tmp_path / ".datasheet_store.lock"
+        lock_path.parent.mkdir(parents=True, exist_ok=True)
+        lock_path.write_text("stale")
+
+        with pytest.raises(TimeoutError, match="lock acquisition timed out"):
+            with _file_lock(tmp_path, timeout=0.1, trace_id="test_timeout"):
+                pass  # should never reach here
+
+    def test_index_load_error_raises(self, tmp_path):
+        """Corrupt index.json must raise, not silently return empty dict."""
+        import pytest
+        from scripts.datasheet_layer.store import _load_index
+
+        idx_path = tmp_path / "index.json"
+        idx_path.write_text("NOT VALID JSON {{{", encoding="utf-8")
+
+        with pytest.raises(json.JSONDecodeError):
+            _load_index(tmp_path, trace_id="test_corrupt")
+
+    def test_write_version_returns_stored_dict(self, tmp_path):
+        """write_version must return the actual stored record_dict."""
+        rec = _make_record_dict(content_hash="ret_test")
+        _, version, stored = write_version(tmp_path, rec, trace_id="test")
+        assert version == 1
+        assert stored["pn"] == "TEST-001"
+        assert stored["version"] == 1
+
+    def test_auto_version_returns_correct_dict(self, tmp_path):
+        """auto_version must return dict with assigned version, not placeholder."""
+        rec = _make_record_dict(version=1, content_hash="auto_v1")
+        _, v1, d1 = write_version(
+            tmp_path, rec, trace_id="test", auto_version=True,
+        )
+        assert v1 == 1
+        assert d1["version"] == 1
+
+        rec2 = _make_record_dict(version=1, content_hash="auto_v2")
+        _, v2, d2 = write_version(
+            tmp_path, rec2, trace_id="test", auto_version=True,
+        )
+        assert v2 == 2
+        assert d2["version"] == 2
+        assert d2["supersedes"] == 1

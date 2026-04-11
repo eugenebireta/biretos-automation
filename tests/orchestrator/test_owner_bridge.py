@@ -117,17 +117,28 @@ class TestClassifyInput:
         assert typ == "freetext"
         assert payload["instruction"] == "попробуй другой подход"
 
-    def test_freetext_in_idle_creates_new_task(self):
+    def test_freetext_in_idle_is_chat(self):
         m = {"fsm_state": "idle"}
-        typ, payload = bridge.classify_input("сделай что-нибудь полезное", m)
-        assert typ == "new_task"
-        assert payload["instruction"] == "сделай что-нибудь полезное"
+        typ, payload = bridge.classify_input("какой статус проекта", m)
+        assert typ == "chat"
+        assert payload["message"] == "какой статус проекта"
 
-    def test_freetext_in_ready_creates_new_task(self):
+    def test_freetext_in_ready_is_chat(self):
         m = {"fsm_state": "ready"}
-        typ, payload = bridge.classify_input("сделай что-нибудь полезное", m)
+        typ, payload = bridge.classify_input("сколько SKU без описаний", m)
+        assert typ == "chat"
+        assert payload["message"] == "сколько SKU без описаний"
+
+    def test_task_command_creates_new_task(self):
+        m = {"fsm_state": "idle"}
+        typ, payload = bridge.classify_input("/task обнови каталог PEHA", m)
         assert typ == "new_task"
-        assert payload["instruction"] == "сделай что-нибудь полезное"
+        assert payload["instruction"] == "обнови каталог PEHA"
+
+    def test_task_command_too_short(self):
+        m = {"fsm_state": "idle"}
+        typ, _ = bridge.classify_input("/task ок", m)
+        assert typ == "too_short"
 
     def test_approve_in_idle_is_no_pending(self):
         m = {"fsm_state": "idle"}
@@ -266,10 +277,10 @@ class TestFreetext:
 
 class TestNewTask:
 
-    def test_new_task_from_idle(self, tmp_path, monkeypatch):
+    def test_new_task_via_command(self, tmp_path, monkeypatch):
         _patch_paths(tmp_path, monkeypatch)
         _write_manifest(tmp_path, {"fsm_state": "idle"})
-        text = "Обнови каталог — добавь описания для PEHA"
+        text = "/task Обнови каталог — добавь описания для PEHA"
         entry = {"update_id": 110, "text": text}
         state = {"last_processed_update_id": 0}
 
@@ -278,9 +289,8 @@ class TestNewTask:
         assert ok is True
         m = _read_manifest(tmp_path)
         assert m["fsm_state"] == "ready"
-        assert m["current_sprint_goal"] == text
+        assert "Обнови каталог" in m["current_sprint_goal"]
         assert m["current_task_id"].startswith("tg-")
-        assert m["owner_instruction"] == text
 
         outbox = _read_outbox(tmp_path)
         assert "Принял задачу" in outbox[-1]["text"]
@@ -437,3 +447,145 @@ class TestProcessAll:
         assert count == 1  # only update 91
         # Reject doesn't change state
         assert _read_manifest(tmp_path)["fsm_state"] == "blocked"
+
+
+# ── Query/Task split (Wave 5) ─────────────────────────────────────────
+
+
+class TestQueryTaskSplit:
+    """Fast path: QUERY/COMMAND skip manifest lock, TASK takes lock."""
+
+    def test_status_command_skips_lock(self, tmp_path, monkeypatch):
+        """COMMAND stream uses fast path — no manifest mutation."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "running",
+            "current_task_id": "task-42",
+        })
+        entry = {"update_id": 500, "text": "/status"}
+        state = {"last_processed_update_id": 0, "processed_count": 0}
+
+        ok = bridge.process_inbox_entry(entry, state)
+
+        assert ok is True
+        # Manifest untouched
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "running"
+        # Response in outbox
+        outbox = _read_outbox(tmp_path)
+        assert any("task-42" in o["text"] for o in outbox)
+        # Event type tagged correctly
+        assert outbox[-1]["event_type"] == "bridge_status"
+
+    def test_chat_query_skips_lock(self, tmp_path, monkeypatch):
+        """QUERY stream uses fast path — no lock, subprocess for Claude."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {"fsm_state": "idle"})
+        # Mock subprocess to avoid real Claude call
+        import subprocess
+        monkeypatch.setattr(
+            subprocess, "run",
+            lambda *a, **kw: type("R", (), {
+                "stdout": "Ответ от Claude",
+                "stderr": "",
+                "returncode": 0,
+            })(),
+        )
+        entry = {"update_id": 501, "text": "как работает gateway?"}
+        state = {"last_processed_update_id": 0, "processed_count": 0}
+
+        ok = bridge.process_inbox_entry(entry, state)
+
+        assert ok is True
+        outbox = _read_outbox(tmp_path)
+        assert any("Claude" in o["text"] for o in outbox)
+        assert outbox[-1]["event_type"] == "bridge_chat"
+        # Manifest untouched
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "idle"
+
+    def test_approve_takes_fsm_path(self, tmp_path, monkeypatch):
+        """TASK stream takes FSM path — acquires lock, mutates manifest."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#test",
+        })
+        entry = {"update_id": 502, "text": "ок"}
+        state = {"last_processed_update_id": 0, "processed_count": 0}
+
+        ok = bridge.process_inbox_entry(entry, state)
+
+        assert ok is True
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "ready"  # FSM mutated
+
+    def test_query_does_not_block_when_manifest_locked(self, tmp_path, monkeypatch):
+        """QUERY should succeed even if manifest is locked by orchestrator."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {"fsm_state": "running"})
+
+        # Simulate locked manifest — make _acquire_manifest_lock return None
+        monkeypatch.setattr(bridge, "_acquire_manifest_lock", lambda: None)
+
+        entry = {"update_id": 503, "text": "/status"}
+        state = {"last_processed_update_id": 0, "processed_count": 0}
+
+        ok = bridge.process_inbox_entry(entry, state)
+
+        # Should succeed — fast path doesn't need lock
+        assert ok is True
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) >= 1
+
+    def test_task_blocked_when_manifest_locked(self, tmp_path, monkeypatch):
+        """TASK should return False when manifest is locked."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+        })
+
+        # Simulate locked manifest
+        monkeypatch.setattr(bridge, "_acquire_manifest_lock", lambda: None)
+
+        entry = {"update_id": 504, "text": "ок"}
+        state = {"last_processed_update_id": 0, "processed_count": 0}
+
+        ok = bridge.process_inbox_entry(entry, state)
+
+        # Should fail — FSM path needs lock
+        assert ok is False
+        # No outbox written
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 0
+
+    def test_mixed_stream_ordering(self, tmp_path, monkeypatch):
+        """Process queue with mixed COMMAND + TASK entries."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#test",
+        })
+        _write_inbox(tmp_path, [
+            {"update_id": 600, "text": "/status"},
+            {"update_id": 601, "text": "ок"},
+            {"update_id": 602, "text": "/status"},
+        ])
+
+        count = bridge.process_all_pending()
+
+        assert count == 3
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 3
+        # First status, then approve, then status again
+        assert outbox[0]["event_type"] == "bridge_status"
+        assert outbox[1]["event_type"] == "bridge_approve"
+        assert outbox[2]["event_type"] == "bridge_status"
+
+    def test_read_only_streams_constant(self):
+        """Verify _READ_ONLY_STREAMS includes only non-mutating streams."""
+        from inbox_router import Stream
+        assert Stream.QUERY in bridge._READ_ONLY_STREAMS
+        assert Stream.COMMAND in bridge._READ_ONLY_STREAMS
+        assert Stream.TASK not in bridge._READ_ONLY_STREAMS
+        assert Stream.CALLBACK not in bridge._READ_ONLY_STREAMS

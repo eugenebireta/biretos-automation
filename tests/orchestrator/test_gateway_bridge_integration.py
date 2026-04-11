@@ -194,3 +194,156 @@ class TestFullCycle:
         count = bridge.run_once()
         assert count == 1
         assert _read_manifest(tmp_path)["fsm_state"] == "blocked"  # reject = no change
+
+
+class TestQueryTaskSplitE2E:
+    """E2E: verify fast path (QUERY/COMMAND) vs FSM path (TASK) in full cycle."""
+
+    def test_query_responds_while_fsm_locked(self, tmp_path, monkeypatch):
+        """Simulate: orchestrator holds lock, query still gets answered."""
+        _patch(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "running",
+            "current_task_id": "heavy-task",
+        })
+
+        # Block FSM path by making lock acquisition fail
+        monkeypatch.setattr(bridge, "_acquire_manifest_lock", lambda: None)
+
+        # Query message (fast path — should work despite lock)
+        _append_inbox(tmp_path, {
+            "ts": "2026-04-11T10:00:00Z", "msg_id": 800,
+            "update_id": 800001, "chat_id": 123, "text": "/status",
+            "source": "telegram_gateway",
+        })
+
+        count = bridge.process_all_pending()
+        assert count == 1
+
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 1
+        assert "heavy-task" in outbox[0]["text"]
+        assert outbox[0]["event_type"] == "bridge_status"
+
+    def test_task_blocked_while_fsm_locked(self, tmp_path, monkeypatch):
+        """Simulate: orchestrator holds lock, TASK approve is deferred."""
+        _patch(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#test",
+        })
+
+        monkeypatch.setattr(bridge, "_acquire_manifest_lock", lambda: None)
+
+        _append_inbox(tmp_path, {
+            "ts": "2026-04-11T10:00:00Z", "msg_id": 801,
+            "update_id": 800002, "chat_id": 123, "text": "ок",
+            "source": "telegram_gateway",
+        })
+
+        count = bridge.process_all_pending()
+        assert count == 0  # blocked by lock
+
+        # Manifest not mutated
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "awaiting_owner_reply"
+
+        # No outbox
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 0
+
+    def test_interleaved_query_and_task(self, tmp_path, monkeypatch):
+        """Full cycle: status (fast) + approve (FSM) + status (fast)."""
+        _patch(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#blocker",
+            "current_task_id": "task-x",
+        })
+
+        _append_inbox(tmp_path, {
+            "ts": "2026-04-11T10:00:00Z", "msg_id": 900,
+            "update_id": 900001, "chat_id": 123, "text": "/status",
+            "source": "telegram_gateway",
+        })
+        _append_inbox(tmp_path, {
+            "ts": "2026-04-11T10:00:01Z", "msg_id": 901,
+            "update_id": 900002, "chat_id": 123, "text": "ок",
+            "source": "telegram_gateway",
+        })
+        _append_inbox(tmp_path, {
+            "ts": "2026-04-11T10:00:02Z", "msg_id": 902,
+            "update_id": 900003, "chat_id": 123, "text": "/health",
+            "source": "telegram_gateway",
+        })
+
+        count = bridge.process_all_pending()
+        assert count == 3
+
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 3
+        assert outbox[0]["event_type"] == "bridge_status"
+        assert outbox[1]["event_type"] == "bridge_approve"
+        assert outbox[2]["event_type"] == "bridge_status"
+
+        # Manifest: approve took effect
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "ready"
+
+    def test_chat_query_e2e(self, tmp_path, monkeypatch):
+        """Chat query (QUERY stream) — subprocess mocked, fast path."""
+        _patch(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {"fsm_state": "idle"})
+
+        import subprocess
+        monkeypatch.setattr(
+            subprocess, "run",
+            lambda *a, **kw: type("R", (), {
+                "stdout": "Gateway is the transport layer.",
+                "stderr": "", "returncode": 0,
+            })(),
+        )
+
+        _append_inbox(tmp_path, {
+            "ts": "2026-04-11T10:00:00Z", "msg_id": 950,
+            "update_id": 950001, "chat_id": 123,
+            "text": "как работает gateway?",
+            "source": "telegram_gateway",
+        })
+
+        count = bridge.process_all_pending()
+        assert count == 1
+
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 1
+        assert "Gateway" in outbox[0]["text"]
+        assert outbox[0]["event_type"] == "bridge_chat"
+
+        # Manifest untouched
+        assert _read_manifest(tmp_path)["fsm_state"] == "idle"
+
+    def test_callback_takes_fsm_path(self, tmp_path, monkeypatch):
+        """Callback event (TASK stream via approve) — FSM path."""
+        _patch(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#test",
+        })
+
+        _append_inbox(tmp_path, {
+            "ts": "2026-04-11T10:00:00Z", "msg_id": 960,
+            "update_id": 960001, "chat_id": 123,
+            "text": "approve",
+            "event_type": "callback",
+            "callback_data": "approve",
+            "source": "telegram_gateway",
+        })
+
+        count = bridge.process_all_pending()
+        assert count == 1
+
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "ready"
+
+        outbox = _read_outbox(tmp_path)
+        assert outbox[-1]["event_type"] == "bridge_approve"
