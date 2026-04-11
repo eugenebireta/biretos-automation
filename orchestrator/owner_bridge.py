@@ -151,30 +151,42 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 
 def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Direct chat — run claude -p with user message, return answer.
+    """Direct chat — run `claude --print` with manifest context, return answer.
 
-    No manifest mutation. Runs claude CLI as subprocess.
+    No manifest mutation. Spawns claude CLI subprocess — same model, full
+    tool access, reads CLAUDE.md. Fresh session (no chat history), but can
+    answer questions and execute tasks with full project context.
     """
     message = payload["message"]
+    state = manifest.get("fsm_state", "unknown")
+    task = manifest.get("current_task_id") or "нет"
+    goal = manifest.get("current_sprint_goal") or "нет"
+    park = manifest.get("park_reason") or "нет"
+
+    # Inject current system state so Claude can answer contextually
+    prompt = (
+        f"Контекст системы — FSM: {state}, задача: {task}, "
+        f"цель: {goal}, причина паузы: {park}.\n\n"
+        f"{message}"
+    )
     try:
         import subprocess as _sp
-        prompt = (
-            f"Ты — ассистент проекта biretos-automation. "
-            f"Отвечай кратко, по-русски. "
-            f"Рабочая директория: {ROOT}\n\n"
-            f"Вопрос владельца: {message}"
-        )
         result = _sp.run(
-            [sys.executable, "-m", "claude", "-p", prompt],
-            capture_output=True, text=True, timeout=120,
+            ["claude", "--print", prompt],
+            capture_output=True, text=True, timeout=180,
             cwd=str(ROOT),
         )
         answer = (result.stdout or "").strip()
+        if not answer and result.stderr:
+            answer = f"(stderr: {result.stderr[:200]})"
         if not answer:
-            answer = "(Claude не дал ответа)"
-        # Truncate for Telegram
+            answer = "(Нет ответа от Claude)"
         if len(answer) > 3900:
             answer = answer[:3900] + "\n\n… (обрезано)"
+    except _sp.TimeoutExpired:
+        answer = "Таймаут (>3 мин). Попробуй попозже или сократи вопрос."
+    except FileNotFoundError:
+        answer = "claude CLI не найден в PATH."
     except Exception as exc:
         answer = f"Ошибка: {str(exc)[:200]}"
     return {}, answer
