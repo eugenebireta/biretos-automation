@@ -183,7 +183,8 @@ class TestApprove:
         assert len(outbox) == 1
         assert "Принято" in outbox[0]["text"]
 
-        assert state["last_processed_update_id"] == 100
+        # Note: last_processed_update_id is advanced by process_all_pending,
+        # not by individual handlers — so it stays 0 in unit tests
         assert state["processed_count"] == 1
 
     def test_approve_all_park_states(self, tmp_path, monkeypatch):
@@ -589,3 +590,122 @@ class TestQueryTaskSplit:
         assert Stream.COMMAND in bridge._READ_ONLY_STREAMS
         assert Stream.TASK not in bridge._READ_ONLY_STREAMS
         assert Stream.CALLBACK not in bridge._READ_ONLY_STREAMS
+
+
+class TestQueryPathHardening:
+    """Head-of-line blocking fix + chat ack."""
+
+    def test_query_processed_after_locked_task(self, tmp_path, monkeypatch):
+        """QUERY entries after a locked TASK entry are still processed."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#test",
+            "current_task_id": "t-1",
+        })
+
+        # Make FSM lock fail
+        monkeypatch.setattr(bridge, "_acquire_manifest_lock", lambda: None)
+
+        _write_inbox(tmp_path, [
+            {"update_id": 700, "text": "ок"},       # TASK — will be deferred
+            {"update_id": 701, "text": "/status"},   # COMMAND — fast path
+        ])
+
+        count = bridge.process_all_pending()
+        assert count == 1  # only status processed
+
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 1
+        assert outbox[0]["event_type"] == "bridge_status"
+        assert "t-1" in outbox[0]["text"]
+
+    def test_deferred_entry_retried_on_next_cycle(self, tmp_path, monkeypatch):
+        """Deferred TASK entries are retried when lock becomes available."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+            "park_reason": "#test",
+        })
+
+        _write_inbox(tmp_path, [
+            {"update_id": 710, "text": "ок"},       # TASK
+            {"update_id": 711, "text": "/status"},   # COMMAND
+        ])
+
+        # First cycle: lock fails
+        monkeypatch.setattr(bridge, "_acquire_manifest_lock", lambda: None)
+        count1 = bridge.process_all_pending()
+        assert count1 == 1  # only status
+
+        # Second cycle: lock available (undo monkeypatch by resetting)
+        monkeypatch.undo()
+        _patch_paths(tmp_path, monkeypatch)
+        count2 = bridge.process_all_pending()
+        # 2 = deferred task retried + idempotent status re-processed
+        # (cursor-based dedup can't represent gaps; re-processing
+        # read-only queries is safe and harmless)
+        assert count2 == 2
+
+        m = _read_manifest(tmp_path)
+        assert m["fsm_state"] == "ready"
+
+    def test_line_cursor_not_advanced_past_deferred(self, tmp_path, monkeypatch):
+        """Line cursor stays at deferred entry so it's retried."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {
+            "fsm_state": "awaiting_owner_reply",
+        })
+
+        _write_inbox(tmp_path, [
+            {"update_id": 720, "text": "ок"},       # line 0 — TASK, will defer
+            {"update_id": 721, "text": "/status"},   # line 1 — COMMAND
+        ])
+
+        monkeypatch.setattr(bridge, "_acquire_manifest_lock", lambda: None)
+        bridge.process_all_pending()
+
+        bstate = bridge._load_bridge_state()
+        # Cursor should NOT advance past line 0 (deferred)
+        assert bstate["last_processed_line"] == 0
+
+    def test_chat_sends_ack_before_response(self, tmp_path, monkeypatch):
+        """Chat query sends 'Думаю...' ack before Claude subprocess runs."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {"fsm_state": "idle"})
+
+        import subprocess
+        monkeypatch.setattr(
+            subprocess, "run",
+            lambda *a, **kw: type("R", (), {
+                "stdout": "Ответ от Claude",
+                "stderr": "", "returncode": 0,
+            })(),
+        )
+
+        entry = {"update_id": 730, "text": "как работает система?"}
+        state = {"last_processed_update_id": 0, "processed_count": 0}
+
+        bridge.process_inbox_entry(entry, state)
+
+        outbox = _read_outbox(tmp_path)
+        # Should have 2 entries: ack + response
+        assert len(outbox) == 2
+        assert outbox[0]["event_type"] == "bridge_chat_ack"
+        assert "Думаю" in outbox[0]["text"]
+        assert outbox[1]["event_type"] == "bridge_chat"
+        assert "Claude" in outbox[1]["text"]
+
+    def test_status_no_ack(self, tmp_path, monkeypatch):
+        """Status command does NOT send ack (it's instant)."""
+        _patch_paths(tmp_path, monkeypatch)
+        _write_manifest(tmp_path, {"fsm_state": "idle"})
+
+        entry = {"update_id": 740, "text": "/status"}
+        state = {"last_processed_update_id": 0, "processed_count": 0}
+
+        bridge.process_inbox_entry(entry, state)
+
+        outbox = _read_outbox(tmp_path)
+        assert len(outbox) == 1  # only response, no ack
+        assert outbox[0]["event_type"] == "bridge_status"
