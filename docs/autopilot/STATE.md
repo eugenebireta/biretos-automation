@@ -1,15 +1,15 @@
 # Autopilot State v2
 
 schema_version: 2
-transition_seq: 82
-transition_ts: "2026-04-10T16:00:00Z"
+transition_seq: 83
+transition_ts: "2026-04-11T22:00:00Z"
 
 ## Current
-active_task: "R1-EXPORT-READY-CONTROL-LAYER-v1"
-task_id: "R1-EXPORT-READY-CONTROL-LAYER-v1"
+active_task: "R1-EVIDENCE-FOUNDATION-HARDENING"
+task_id: "R1-EVIDENCE-FOUNDATION-HARDENING"
 phase: COMPLETED_WAITING_REVIEW
 status: DONE
-note: "Export-Ready Control Layer v1: export_ready.py reads 370 evidence files, computes fresh readiness view (not stale card_status). 224 EXPORT_READY / 68 DRAFT_EXPORT / 67 REVIEW_BLOCKED / 11 BLOCKED_NO_PRICE. 4 artifacts: export_ready_view.json, draft_insales_export.xlsx (4 sheets), photo_manifest.csv (370/370 ready_for_cloud), missing_data_queue.csv (167 rows). CANONICAL_CATEGORIES + _normalize_category() in merge_research_to_evidence.py. product_category backfilled 361/374 evidence files. dr_prompt_generator.py catalog_brand now dynamic."
+note: "3-batch evidence foundation: (1) hardening_v1 — subbrand/training_urls/price_contract on 374 files; (2) price_unit_judge — 275 SKUs judged, 0 unknowns remaining, 10 per_pack; (3) evidence_normalize — normalized{} unifying 3 pipelines, 302/374 prices (80.7%), 370/374 desc (98.9%), 310/374 photo (82.9%). Fixes 27 pipeline1-only prices invisible to exporters."
 phase_owner: "Agent/ClaudeCode"
 risk_level: LOW
 pipeline: [BUILDER]
