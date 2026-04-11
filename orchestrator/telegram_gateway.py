@@ -232,6 +232,15 @@ class TelegramGateway:
             )
             return
 
+        # Callback events: acknowledge immediately, then write to inbox
+        if event.event_type == "callback" and event.callback_data:
+            try:
+                self.transport.answer_callback(event.callback_data)
+            except Exception as e:
+                self._log("WARNING", "callback_ack_failed",
+                          error=str(e)[:200],
+                          error_class="TRANSIENT", retriable=True)
+
         # Write to inbox — canonical event envelope
         entry = {
             "ts": _iso_z(),
@@ -241,15 +250,20 @@ class TelegramGateway:
             "text": text,
             "source": event.source,
             "event_type": event.event_type,
+            "callback_data": event.callback_data,
             "raw_hash": event.raw_hash,
         }
         _locked_append(INBOX_PATH, json.dumps(entry, ensure_ascii=False))
         self._inbox_count += 1
         self._log("INFO", "inbox_write", msg_id=entry["msg_id"],
+                  event_type=event.event_type,
                   text_preview=text[:80])
 
-        # Acknowledge to owner
-        self.transport.send_message(str(self.owner_chat_id), "Принял. Передам.")
+        # Acknowledge to owner (skip for callbacks — already acked above)
+        if event.event_type != "callback":
+            self.transport.send_message(
+                str(self.owner_chat_id), "Принял. Передам."
+            )
 
     # ── Outbox dispatch ─────────────────────────────────────────────
 
@@ -296,7 +310,9 @@ class TelegramGateway:
             if not text:
                 continue
 
-            ref = self.transport.send_message(str(self.owner_chat_id), text)
+            buttons = entry.get("buttons")
+            ref = self.transport.send_message(str(self.owner_chat_id), text,
+                                              buttons=buttons)
             if ref.success:
                 self._outbox_count += 1
                 if dedup_key:
@@ -382,12 +398,15 @@ def enqueue_outbox(
     state: str | None = None,
     reason_code: str | None = None,
     target: str = "telegram",
+    buttons: list[list[dict]] | None = None,
 ) -> str:
     """Write a message to owner_outbox.jsonl for Gateway to deliver.
 
     Args:
         target: transport name filter. Gateway only sends messages
                 matching its own transport_name. Default: "telegram".
+        buttons: optional inline keyboard layout (Wave 4).
+                 Format: [[{"text": "Label", "callback_data": "payload"}], ...]
 
     Returns the msg_id.
     """
@@ -408,6 +427,8 @@ def enqueue_outbox(
         "event_type": event_type,
         "target": target,
     }
+    if buttons:
+        entry["buttons"] = buttons
     _locked_append(OUTBOX_PATH, json.dumps(entry, ensure_ascii=False))
     return msg_id
 

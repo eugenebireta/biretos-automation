@@ -87,13 +87,15 @@ def ingest_from_find_datasheet(
     )
 
     try:
-        _, actual_version = write_version(
+        _, actual_version, stored_dict = write_version(
             base_dir, record.model_dump_json_safe(),
             trace_id=trace_id, auto_version=True,
         )
-        # Sync in-memory record with what write_version assigned under lock
-        record.version = actual_version
-        record.supersedes = actual_version - 1 if actual_version > 1 else None
+        # Rebuild record from what was actually stored — no stale fields
+        record = DatasheetRecord(**{
+            **stored_dict,
+            "ingested_at": record.ingested_at,  # keep original datetime
+        })
     except ValueError as exc:
         # Dedup — same content already ingested
         _structured_log(

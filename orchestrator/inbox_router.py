@@ -1,15 +1,17 @@
 """
-inbox_router.py — Stream-aware inbox routing (Wave 3).
+inbox_router.py — Stream-aware inbox routing (Wave 3 + Wave 4 callbacks).
 
-Classifies inbound messages into three streams:
+Classifies inbound messages into four streams:
     COMMAND  — system commands (/status, /ping, /health) → immediate response, no FSM
     QUERY    — free-text questions when not parked → Claude chat, no FSM
     TASK     — /task commands, approve/reject, freetext instructions → FSM pipeline
+    CALLBACK — inline button presses → dispatched by callback_data payload
 
 Each stream has different latency and side-effect characteristics:
     COMMAND  → <1s, read-only
     QUERY    → ~10s (Claude subprocess), read-only
     TASK     → async, mutates manifest FSM
+    CALLBACK → <1s, may mutate FSM (approve/reject) or be read-only (info)
 
 This module is transport-agnostic: it operates on CanonicalEvent-shaped dicts
 from owner_inbox.jsonl regardless of source (telegram, max, etc).
@@ -19,9 +21,7 @@ Usage:
 
     router = InboxRouter()
     result = router.classify(text, manifest)
-    # result.stream == Stream.TASK
-    # result.input_type == "new_task"
-    # result.payload == {"instruction": "..."}
+    result = router.classify_callback(callback_data, manifest)
 """
 from __future__ import annotations
 
@@ -31,10 +31,14 @@ from typing import Any
 
 
 class Stream(str, Enum):
-    """Inbox message stream classification."""
-    COMMAND = "command"   # system commands, read-only, instant
-    QUERY = "query"       # chat questions, read-only, Claude response
-    TASK = "task"         # FSM-affecting: approve/reject/new_task/freetext
+    """Inbox message stream classification.
+
+    Inherits str for convenient comparison (Stream.COMMAND == "command").
+    """
+    COMMAND = "command"    # system commands, read-only, instant
+    QUERY = "query"        # chat questions, read-only, Claude response
+    TASK = "task"          # FSM-affecting: approve/reject/new_task/freetext
+    CALLBACK = "callback"  # inline button press — routed by callback_data
 
 
 @dataclass(frozen=True)
@@ -131,6 +135,46 @@ class InboxRouter:
 
         return RouteResult(Stream.TASK, "too_short",
                            {"length": len(text)})
+
+    def classify_callback(self, callback_data: str,
+                          manifest: dict) -> RouteResult:
+        """Classify an inline button callback event.
+
+        Callback data is the payload set when the button was created.
+        Standard payloads:
+            "approve" / "reject" → TASK stream (FSM mutation)
+            "details" / "status" → CALLBACK stream (read-only info)
+            anything else        → CALLBACK stream with raw payload
+
+        Args:
+            callback_data: payload from button press
+            manifest: current orchestrator manifest
+
+        Returns:
+            RouteResult with CALLBACK or TASK stream
+        """
+        data = callback_data.strip().lower()
+
+        # Approve/reject callbacks — match both natural words and button payloads
+        if data in APPROVE_WORDS or data == "approve":
+            return RouteResult(Stream.TASK, "approve")
+        if data in REJECT_WORDS or data == "reject":
+            return RouteResult(Stream.TASK, "reject")
+
+        # Decision callbacks (A/B/C)
+        fsm_state = manifest.get("fsm_state", "")
+        if fsm_state in PARK_STATES:
+            pending = manifest.get("pending_decision")
+            if pending and isinstance(pending, dict):
+                options = pending.get("options", {})
+                key = callback_data.strip().upper()
+                if key in options:
+                    return RouteResult(Stream.TASK, "decision",
+                                       {"key": key, "text": options[key]})
+
+        # Generic callback — pass through with raw data
+        return RouteResult(Stream.CALLBACK, "callback",
+                           {"callback_data": callback_data})
 
     def target_from_source(self, source: str) -> str:
         """Map inbox source to outbox target transport name.

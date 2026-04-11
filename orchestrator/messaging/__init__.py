@@ -6,7 +6,9 @@ so that Bridge, Watcher, and main.py remain transport-agnostic.
 """
 try:
     from orchestrator.messaging.base import MessengerTransport, CanonicalEvent
+    from orchestrator.messaging.buttons import InlineKeyboard
 except ModuleNotFoundError:
     from messaging.base import MessengerTransport, CanonicalEvent
+    from messaging.buttons import InlineKeyboard
 
-__all__ = ["MessengerTransport", "CanonicalEvent"]
+__all__ = ["MessengerTransport", "CanonicalEvent", "InlineKeyboard"]

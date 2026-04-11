@@ -85,7 +85,13 @@ def migrate_all(
         stats["found"] += 1
 
         if dry_run:
-            stats["ingested"] += 1
+            # Only count as ingested if pdf_local_path exists —
+            # mirror what ingest_from_evidence would actually do.
+            pdf_path = ds.get("pdf_local_path")
+            if pdf_path and Path(pdf_path).exists():
+                stats["ingested"] += 1
+            else:
+                stats["dedup_skipped"] += 1  # would be skipped: no content hash
             continue
 
         try:
