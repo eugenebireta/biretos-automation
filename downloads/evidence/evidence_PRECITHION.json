@@ -9,7 +9,6 @@
   "assembled_title": "Системный блок Honeywell PRECITHION",
   "our_price_raw": "0,00",
   "expected_category": "Системный блок",
-  "card_status": "DRAFT_ONLY",
   "review_reasons": [
     "IDENTITY_WEAK",
     "NO_IMAGE_EVIDENCE",
@@ -325,7 +324,14 @@
     "structured_pn_match_location": "",
     "product_line": "PRECITHION",
     "identity_notes_p1": "Cannot confirm; possible data entry error (misspelling)",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "real_model": "Dell Precision T1700",
+    "search_hint": "Dell Precision T1700 workstation",
+    "model_confidence": "high",
+    "model_notes": "Found in Excel: precithion t1700; typo of Precision T1700 workstation",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Dell",
+    "model_source": "excel"
   },
   "negative_evidence": {
     "photo": [],
@@ -606,12 +612,21 @@
   ],
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": null,
-    "best_price_currency": null,
-    "best_price_source": null,
+    "best_price": 44.09,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Системный блок Компьютер PRECITHION предлагает высокую производительность и надежность для работы с профессиональными приложениями. Он подходит для использования в офисах и студиях.",
     "best_description_source": "content",
     "best_photo_url": null,
     "best_photo_source": null
+  },
+  "phase3a_price": {
+    "price": 44.09,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/287134379335",
+    "confidence": "medium",
+    "notes": "Used workstation listing; input name appears to be typo of Precision",
+    "search_used": "Dell Precision T1700"
   }
 }

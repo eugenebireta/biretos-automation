@@ -334,7 +334,13 @@
     "exact_structured_pn_match": true,
     "structured_pn_match_location": "title",
     "identity_notes_p1": "Unable to locate product",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "real_model": "CSR (call point shallow red)",
+    "search_hint": "Honeywell CSR fire alarm call point",
+    "model_confidence": "low",
+    "model_notes": "CSR = Call Station Red; red fire alarm manual call point; no specific model confirmed",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -601,5 +607,14 @@
     "best_description_source": "content",
     "best_photo_url": null,
     "best_photo_source": null
+  },
+  "phase3a_price": {
+    "price": 3.9,
+    "currency": "EUR",
+    "unit_basis": "pack:5",
+    "source_url": "https://www.notifier.be/includes/formprocess.asp?aid=17317&formname=generaldocument&id=0",
+    "confidence": "medium",
+    "notes": "Price list shows CSR red low profile base pack of 5 at 19.50 EUR; returned unit price divided by 5.",
+    "search_used": "CSR call point shallow red Honeywell"
   }
 }

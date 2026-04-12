@@ -154,10 +154,11 @@ def compute_readiness(evidence: dict) -> dict:
 
     # ── Price (from normalized, quality-gated by dr_price_blocked) ───────────────
     # Market sources: price_contract (DR pipeline) + pipeline1 (Phase A SerpAPI)
+    #                 phase3a (GPT Think price search)
     # Estimate source: our_estimate (RUB market estimate from internal Excel)
     price_market = (
         best_price is not None
-        and best_price_source in ("price_contract", "pipeline1")
+        and best_price_source in ("price_contract", "pipeline1", "phase3a")
         and not dr_price_blocked
     )
     price_estimate = (
@@ -416,6 +417,7 @@ def write_insales_excel(records: list[dict], dry_run: bool = False) -> Path:
     # ── Sheet 0: Summary ──────────────────────────────────────────────────────────
     ws_sum = wb.active
     ws_sum.title = "Сводка"
+    _market_sources = ("price_contract", "pipeline1", "phase3a")
     summary_rows = [
         ["EXPORT-READY CONTROL LAYER v1", "", ""],
         ["Дата генерации", datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), ""],
@@ -433,8 +435,9 @@ def write_insales_excel(records: list[dict], dry_run: bool = False) -> Path:
         ["ИТОГО SKU", len(records), ""],
         ["", "", ""],
         ["Покрытие полей", "Кол-во", "%"],
-        ["Цена (рыночная)", sum(1 for r in records if r["price_source"] in ("price_contract", "pipeline1")),
-         f"{int(100*sum(1 for r in records if r['price_source'] in ('price_contract','pipeline1'))/len(records))}%"],
+        ["Цена (рыночная)",
+         sum(1 for r in records if r["price_source"] in _market_sources),
+         f"{int(100 * sum(1 for r in records if r['price_source'] in _market_sources) / len(records))}%"],
         ["Цена (оценочная)", sum(1 for r in records if r["price_source"] == "our_estimate"),
          f"{int(100*sum(1 for r in records if r['price_source']=='our_estimate')/len(records))}%"],
         ["Фото (url/local)", sum(1 for r in records if r["photo_status"] != "missing"),
@@ -593,6 +596,7 @@ def run(dry_run: bool = False, pn_filter: str | None = None) -> dict:
     summary["coverage"] = {
         "price_contract": sum(1 for r in records if r["price_source"] == "price_contract"),
         "price_pipeline1": sum(1 for r in records if r["price_source"] == "pipeline1"),
+        "price_phase3a": sum(1 for r in records if r["price_source"] == "phase3a"),
         "price_estimate": sum(1 for r in records if r["price_source"] == "our_estimate"),
         "photo_url": sum(1 for r in records if r["photo_status"] == "url_available"),
         "photo_local": sum(1 for r in records if r["photo_status"] == "local_file"),
@@ -611,10 +615,11 @@ def run(dry_run: bool = False, pn_filter: str | None = None) -> dict:
     print("\nField coverage:")
     cov = summary["coverage"]
     n = summary["total"]
-    price_total = cov['price_contract'] + cov['price_pipeline1'] + cov['price_estimate']
+    price_total = cov['price_contract'] + cov['price_pipeline1'] + cov['price_phase3a'] + cov['price_estimate']
     print(f"  Price (total):    {price_total:3d} / {n} ({int(100*price_total/n)}%)")
     print(f"    price_contract: {cov['price_contract']:3d}  (DR pipeline)")
     print(f"    pipeline1:      {cov['price_pipeline1']:3d}  (SerpAPI Phase A)")
+    print(f"    phase3a:        {cov['price_phase3a']:3d}  (GPT Think price search)")
     print(f"    our_estimate:   {cov['price_estimate']:3d}  (RUB estimate, ~2022)")
     print(f"  Photo (url):      {cov['photo_url']:3d} / {n}")
     print(f"  Photo (local):    {cov['photo_local']:3d} / {n}")

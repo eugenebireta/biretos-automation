@@ -51,7 +51,8 @@ def _pick_price(evidence: dict) -> tuple[float | None, str | None, str | None]:
     Priority:
       1. price_contract.dr_value (DR pipeline, has unit_basis judgment attached)
       2. price.price_per_unit (Phase A SerpAPI pipeline)
-      3. price_contract.our_price_parsed (RUB estimate from internal Excel, ~2022 rate)
+      3. phase3a_price.price (GPT Think market price, unit basis only)
+      4. price_contract.our_price_parsed (RUB estimate from internal Excel, ~2022 rate)
     """
     pc = evidence.get("price_contract") or {}
     dr_val = pc.get("dr_value")
@@ -78,6 +79,21 @@ def _pick_price(evidence: dict) -> tuple[float | None, str | None, str | None]:
             log.warning(
                 "normalize: price.price_per_unit not numeric pn=%s val=%r",
                 evidence.get("pn"), p1_val,
+                extra={"error_class": "PERMANENT", "severity": "WARNING", "retriable": False},
+            )
+
+    # Phase 3A: GPT Think market price (unit basis only — skip pack prices)
+    p3a = evidence.get("phase3a_price") or {}
+    p3a_val = p3a.get("price")
+    p3a_cur = p3a.get("currency")
+    p3a_basis = p3a.get("unit_basis", "")
+    if p3a_val is not None and p3a_basis == "unit":
+        try:
+            return float(p3a_val), p3a_cur or None, "phase3a"
+        except (TypeError, ValueError):
+            log.warning(
+                "normalize: phase3a_price.price not numeric pn=%s val=%r",
+                evidence.get("pn"), p3a_val,
                 extra={"error_class": "PERMANENT", "severity": "WARNING", "retriable": False},
             )
 
@@ -259,6 +275,7 @@ def run(dry_run: bool = False) -> None:
         "skipped_no_file": 0,
         "errors": 0,
         "price_price_contract": 0,
+        "price_phase3a": 0,
         "price_pipeline1": 0,
         "price_our_estimate": 0,
         "price_none": 0,
@@ -304,6 +321,8 @@ def run(dry_run: bool = False) -> None:
             stats["price_price_contract"] += 1
         elif src == "pipeline1":
             stats["price_pipeline1"] += 1
+        elif src == "phase3a":
+            stats["price_phase3a"] += 1
         elif src == "our_estimate":
             stats["price_our_estimate"] += 1
         else:
@@ -352,6 +371,7 @@ def run(dry_run: bool = False) -> None:
     print("PRICE (best_price_source):")
     print(f"  price_contract:  {stats['price_price_contract']}")
     print(f"  pipeline1:       {stats['price_pipeline1']}")
+    print(f"  phase3a:         {stats['price_phase3a']}")
     print(f"  our_estimate:    {stats['price_our_estimate']}  (RUB, ~2022 rate)")
     print(f"  none:            {stats['price_none']}")
     if total:

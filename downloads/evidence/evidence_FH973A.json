@@ -639,12 +639,21 @@
   },
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": 832.5,
-    "best_price_currency": "RUB",
-    "best_price_source": "our_estimate",
+    "best_price": 6.3,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Переходник Honeywell FH973A позволяет подключать устройства с интерфейсом DisplayPort к мониторам с входом DVI. Он обеспечивает высокое качество передачи видео и совместимость с различными устройствами.",
     "best_description_source": "content",
     "best_photo_url": null,
     "best_photo_source": null
+  },
+  "phase3a_price": {
+    "price": 6.3,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.co.uk/itm/363314271262",
+    "confidence": "low",
+    "notes": "Matched as HP/adapter-related FH973A reference, not clearly Honeywell.",
+    "search_used": "FH973A Honeywell"
   }
 }

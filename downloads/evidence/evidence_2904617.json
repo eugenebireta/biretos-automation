@@ -553,14 +553,24 @@
   },
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": 41943.19,
-    "best_price_currency": "RUB",
-    "best_price_source": "our_estimate",
+    "best_price": 392.04,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Первично-коммутируемый источник питания серии QUINT POWER для монтажа на DIN-рейку с технологией SFB (Selective Fuse Breaking), защитным покрытием печатной платы и встроенным развязывающим MOSFET; вход: 1-фазный 85–264 В AC, выход: 24 В DC / 20 А. Производитель — Phoenix Contact, а не Honeywell.",
     "best_description_source": "dr",
     "best_photo_url": "https://www.sager.com/product/2904617-phoenix-contact-power/5950341?srsltid=AfmB",
     "best_photo_source": "photo_verdict"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=Phoenix Contact (sold by Honeywell distributors)"
+  "review_reason": "Phase 1 recon: manufacturer=Phoenix Contact (sold by Honeywell distributors)",
+  "phase3a_price": {
+    "price": 392.04,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.digikey.com/en/products/detail/phoenix-contact/2904617/9992724",
+    "confidence": "high",
+    "notes": "Exact Phoenix Contact 2904617.",
+    "search_used": "2904617"
+  },
+  "product_category": "power supply"
 }

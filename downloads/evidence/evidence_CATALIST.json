@@ -311,7 +311,13 @@
     "exact_structured_pn_match": true,
     "structured_pn_match_location": "title",
     "identity_notes_p1": "Unable to locate product",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "real_model": "Cisco Catalyst 3850",
+    "search_hint": "Cisco Catalyst 3850 network switch",
+    "model_confidence": "medium",
+    "model_notes": "Typo of Catalyst; likely Cisco Catalyst series sold through reseller",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Cisco"
   },
   "negative_evidence": {
     "photo": [],
@@ -562,12 +568,21 @@
   ],
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": null,
-    "best_price_currency": null,
-    "best_price_source": null,
+    "best_price": 16878.0,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Свитч Honeywell CATALIST используется для управления потоками данных в сетях. Он обеспечивает высокую скорость передачи данных и надежность соединения, что делает его идеальным для использования в промышленных и коммерческих сетях.",
     "best_description_source": "content",
     "best_photo_url": "https://www.gainify.io/stocks/catalist/42e",
     "best_photo_source": "photo_verdict"
+  },
+  "phase3a_price": {
+    "price": 16878.0,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.router-switch.com/Price-cisco-switches-cisco-switch-catalyst-3850_c118",
+    "confidence": "low",
+    "notes": "Series page, exact 3850 variant not specified.",
+    "search_used": "Cisco Catalyst 3850"
   }
 }

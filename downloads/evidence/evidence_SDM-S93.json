@@ -633,14 +633,23 @@
   },
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": 713.0,
-    "best_price_currency": "RUB",
-    "best_price_source": "our_estimate",
+    "best_price": 35.0,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Монитор для отображения информации в системах автоматизации и управления. Обеспечивает четкое и яркое изображение, подходит для использования в промышленных условиях.",
     "best_description_source": "content",
     "best_photo_url": "https://partsokey.ru/catalog/monitory/monitor_sony_sdm_s93_1280x1024_75_gts_mva_",
     "best_photo_source": "photo_verdict"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=Sony"
+  "review_reason": "Phase 1 recon: manufacturer=Sony",
+  "phase3a_price": {
+    "price": 35.0,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/335545956286",
+    "confidence": "medium",
+    "notes": "Used Sony SDM-S93 monitor",
+    "search_used": "SDM-S93"
+  }
 }

@@ -9,7 +9,6 @@
   "assembled_title": "Монитор Honeywell GLATRON",
   "our_price_raw": "0,00",
   "expected_category": "Монитор",
-  "card_status": "REVIEW_REQUIRED",
   "review_reasons": [
     "IDENTITY_WEAK",
     "NO_IMAGE_EVIDENCE",
@@ -354,7 +353,14 @@
     "structured_pn_match_location": "title",
     "product_line": "Unknown",
     "identity_notes_p1": "No match found in Honeywell product database; identity cannot be confirmed",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "real_model": "Glatron 24EB23PY",
+    "search_hint": "Glatron 24EB23PY monitor",
+    "model_confidence": "high",
+    "model_notes": "Found in Excel: glatron 24eb23py; Glatron touchscreen monitor",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Glatron",
+    "model_source": "excel"
   },
   "negative_evidence": {
     "photo": [],
@@ -611,12 +617,21 @@
   ],
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": null,
-    "best_price_currency": null,
-    "best_price_source": null,
+    "best_price": 34.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "phase3a",
     "best_description": "**NOT a monitor** — GLATRON is a German industrial electronics manufacturer; possible confusion with \"LG Flatron\" (different brand/spelling); used condition; seller: endustri24 (Germany)",
     "best_description_source": "dr",
     "best_photo_url": "https://360plcworld.com/pt/products/glatron-interface-modul-karte-card-platine-b",
     "best_photo_source": "photo_verdict"
+  },
+  "phase3a_price": {
+    "price": 34.0,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/286837651818",
+    "confidence": "low",
+    "notes": "Matched fallback/model 24EB23PY listing; seller/manufacturer naming unclear; refurbished",
+    "search_used": "Glatron 24EB23PY"
   }
 }

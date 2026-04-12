@@ -614,14 +614,23 @@
   },
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": 1017.92,
-    "best_price_currency": "RUB",
-    "best_price_source": "our_estimate",
+    "best_price": 4.18,
+    "best_price_currency": "EUR",
+    "best_price_source": "phase3a",
     "best_description": "Кабельный канал используется для укладки и защиты кабелей в системах автоматизации. Обеспечивает надежность и долговечность кабельных трасс.",
     "best_description_source": "content",
     "best_photo_url": "â",
     "best_photo_source": "dr_image"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=Phoenix Contact"
+  "review_reason": "Phase 1 recon: manufacturer=Phoenix Contact",
+  "phase3a_price": {
+    "price": 4.18,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://de.farnell.com/en-DE/c/connectors/terminal-blocks-accessories/pluggable-terminal-block-headers-sockets/prl/results?product-range=combicon-mstb",
+    "confidence": "medium",
+    "notes": "Exact Phoenix Contact order code 3240248 shown by Farnell; price shown for each at 50+.",
+    "search_used": "3240248"
+  }
 }

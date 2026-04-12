@@ -311,7 +311,13 @@
     "exact_structured_pn_match": true,
     "structured_pn_match_location": "title",
     "identity_notes_p1": "Cannot confirm identity; no product documentation found",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "real_model": "FCPS-24 or MB4-BAT-SCN01NAD0",
+    "search_hint": "Honeywell 240W battery charger",
+    "model_confidence": "medium",
+    "model_notes": "Generic 240W likely refers to power rating; likely FCPS-24 fire alarm charger or MB4-BAT 4-bay scanner charger",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -559,12 +565,22 @@
   },
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": 1756.0,
-    "best_price_currency": "RUB",
-    "best_price_source": "our_estimate",
+    "best_price": 313.95,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Артикул «240W» компании Honeywell не идентифицирован ни на официальном сайте производителя, ни у авторизованных дистрибьюторов. Возможно, это неполный номер детали, опечатка или внутренний код.",
     "best_description_source": "dr",
     "best_photo_url": null,
     "best_photo_source": null
-  }
+  },
+  "phase3a_price": {
+    "price": 313.95,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.serverblink.com/mb4-bat-scn01nad0-honeywell-4-bay-battery-charger-110v-ac/",
+    "confidence": "high",
+    "notes": "Used fallback exact SKU MB4-BAT-SCN01NAD0 from search strategy.",
+    "search_used": "MB4-BAT-SCN01NAD0"
+  },
+  "product_category": "power supply"
 }

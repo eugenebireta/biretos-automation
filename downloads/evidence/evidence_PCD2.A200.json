@@ -582,14 +582,23 @@
   },
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": 127600.0,
-    "best_price_currency": "RUB",
-    "best_price_source": "our_estimate",
+    "best_price": 499.0,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Модуль цифрового вывода PCD2.A200 используется в системах автоматизации для управления различными устройствами. Он обеспечивает надежное и точное управление в промышленных приложениях.",
     "best_description_source": "content",
     "best_photo_url": "https://www.all4sps.com/media/image/product/558586/md/497501-001_saia-burgess-digital-output-module-pcd2a200-used-us.jpg",
     "best_photo_source": "photo_verdict"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=SAIA/Honeywell"
+  "review_reason": "Phase 1 recon: manufacturer=SAIA/Honeywell",
+  "phase3a_price": {
+    "price": 499.0,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/267438223980",
+    "confidence": "medium",
+    "notes": "eBay listing; new open box",
+    "search_used": "PCD2.A200"
+  }
 }

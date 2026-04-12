@@ -557,14 +557,24 @@
   },
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": 520.3,
-    "best_price_currency": "RUB",
-    "best_price_source": "our_estimate",
+    "best_price": 2.39,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
     "best_description": "Артикул 1631930000 принадлежит компании Weidmüller, а не Honeywell. Это держатель (несущая планка) маркеров для клеммных блоков серии SCHT 5 S, выполненный из полиамида PA66, бежевого цвета, устанавливается непосредственно на монтажную рейку TS 32 или TS 35 (DIN-рейку) и позволяет маркировать клеммные ряды независимо от типа клеммы.",
     "best_description_source": "dr",
     "best_photo_url": "https://forprom.ru/markirovka/markirovka-klemm/weidmuller-1631930000-scht-5-s-is",
     "best_photo_source": "photo_verdict"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=Weidmüller"
+  "review_reason": "Phase 1 recon: manufacturer=Weidmüller",
+  "phase3a_price": {
+    "price": 2.39,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.specialtycontrolsystems.com/proddetail.php?prod=163193",
+    "confidence": "high",
+    "notes": "Exact Weidmüller 1631930000.",
+    "search_used": "1631930000"
+  },
+  "product_category": "terminal block"
 }

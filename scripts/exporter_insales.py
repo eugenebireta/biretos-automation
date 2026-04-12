@@ -175,16 +175,20 @@ def check_exportable(ev: dict) -> tuple[bool, str]:
     if ig.get("gate_result") == "block":
         return False, f"identity_blocked:{','.join(ig.get('reason_codes',[]))}"
 
-    # Price check — need some price (dr_price or our_price_raw)
+    # Price check — need some price (normalized.best_price, dr_price, or our_price_raw)
+    norm = ev.get("normalized") or {}
+    norm_price = norm.get("best_price")
     dr_price = ev.get("dr_price")
     our_price = ev.get("our_price_raw", "")
     price_blocked = ev.get("dr_price_blocked")
     dr_price_flag = ev.get("dr_price_flag", "")
 
     has_usable_price = False
-    if dr_price and not price_blocked and dr_price_flag != "WRONG_SOURCE":
+    if norm_price is not None:
         has_usable_price = True
-    if our_price and our_price not in ("0,00", "0.00", "0", ""):
+    elif dr_price and not price_blocked and dr_price_flag != "WRONG_SOURCE":
+        has_usable_price = True
+    elif our_price and our_price not in ("0,00", "0.00", "0", ""):
         has_usable_price = True
 
     if not has_usable_price:
@@ -205,7 +209,10 @@ def build_export_row(ev: dict, photo_url: str) -> dict:
     brand = ev.get("brand", "")
     title = ev.get("assembled_title", "") or ev.get("name", "")
 
-    # Price: prefer our_price_raw (RUB), fallback to dr_price
+    # Price: prefer normalized.best_price, fallback to our_price_raw, then dr_price
+    norm = ev.get("normalized") or {}
+    norm_price = norm.get("best_price")
+    norm_currency = norm.get("best_price_currency") or ""
     our_price = ev.get("our_price_raw", "")
     dr_price = ev.get("dr_price")
     dr_currency = ev.get("dr_currency", "")
@@ -215,7 +222,10 @@ def build_export_row(ev: dict, photo_url: str) -> dict:
     price_val = ""
     currency = ""
 
-    if our_price and our_price not in ("0,00", "0.00", "0", ""):
+    if norm_price is not None:
+        price_val = str(norm_price)
+        currency = norm_currency or "EUR"
+    elif our_price and our_price not in ("0,00", "0.00", "0", ""):
         price_val = our_price
         currency = "RUB"
     elif dr_price and not price_blocked and dr_price_flag != "WRONG_SOURCE":
@@ -224,6 +234,9 @@ def build_export_row(ev: dict, photo_url: str) -> dict:
 
     # Category: use product_category (validated) or dr_category
     category = ev.get("product_category", "") or ev.get("dr_category", "")
+
+    # Description: prefer normalized.best_description (Phase 3B / DR), fallback to specs
+    best_description = (norm.get("best_description") or "").strip()
 
     # Specs: only from deep_research.specs (structured), exclude raw
     dr = ev.get("deep_research", {})
@@ -265,7 +278,7 @@ def build_export_row(ev: dict, photo_url: str) -> dict:
         "Цена": price_val,
         "Валюта": currency,
         "Категория": category,
-        "Краткое описание": specs_html,
+        "Краткое описание": best_description or specs_html,
         "Статус экспорта": status,
         "Примечание": "; ".join(notes) if notes else "",
     }
