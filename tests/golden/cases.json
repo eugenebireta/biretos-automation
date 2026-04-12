@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "description": "Golden dataset for L3 integration gate (Consensus Pipeline Protocol v1)",
+  "cases": [
+    {
+      "id": "honeywell_010_suffix",
+      "description": "Honeywell .10 suffix variant — color suffix should be preserved in normalized fields",
+      "input_file": "tests/golden/inputs/evidence_honeywell_010.json",
+      "expected_file": "tests/golden/expected/evidence_honeywell_010.json",
+      "check_fields": ["normalized.best_price", "normalized.best_photo_url", "structured_identity.confirmed_manufacturer"]
+    },
+    {
+      "id": "honeywell_ru_suffix",
+      "description": "Honeywell -RU regional variant — region suffix preserved",
+      "input_file": "tests/golden/inputs/evidence_honeywell_ru.json",
+      "expected_file": "tests/golden/expected/evidence_honeywell_ru.json",
+      "check_fields": ["normalized.best_price", "structured_identity.confirmed_manufacturer"]
+    },
+    {
+      "id": "peha_electrical",
+      "description": "PEHA electrical accessory — category must be electrical, not fire safety",
+      "input_file": "tests/golden/inputs/evidence_peha_electrical.json",
+      "expected_file": "tests/golden/expected/evidence_peha_electrical.json",
+      "check_fields": ["normalized.best_description", "structured_identity.confirmed_manufacturer"]
+    },
+    {
+      "id": "dkc_standard",
+      "description": "DKC standard product",
+      "input_file": "tests/golden/inputs/evidence_dkc_standard.json",
+      "expected_file": "tests/golden/expected/evidence_dkc_standard.json",
+      "check_fields": ["normalized.best_price", "structured_identity.confirmed_manufacturer"]
+    },
+    {
+      "id": "dell_not_honeywell",
+      "description": "Dell product from honeywell new.xlsx — brand must be Dell, not Honeywell",
+      "input_file": "tests/golden/inputs/evidence_dell_brand.json",
+      "expected_file": "tests/golden/expected/evidence_dell_brand.json",
+      "check_fields": ["structured_identity.confirmed_manufacturer"]
+    },
+    {
+      "id": "empty_fields",
+      "description": "SKU with no price and no photo — export must not be blocked",
+      "input_file": "tests/golden/inputs/evidence_empty_fields.json",
+      "expected_file": "tests/golden/expected/evidence_empty_fields.json",
+      "check_fields": ["assembled_title"]
+    }
+  ]
+}

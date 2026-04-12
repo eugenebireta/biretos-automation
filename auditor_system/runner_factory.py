@@ -31,6 +31,8 @@ def create_review_runner(
     proposal_text: str = "",
     runs_dir: str | Path = "auditor_system/runs",
     experience_dir: str | Path = "shadow_log",
+    cwd: str | Path | None = None,
+    golden_dataset_path: str | None = None,
 ):
     """
     Build and return a live ReviewRunner (Gemini CRITIC + Anthropic JUDGE).
@@ -39,6 +41,9 @@ def create_review_runner(
         proposal_text: optional proposal context to pass to MockBuilder
         runs_dir: path where run artifacts are stored
         experience_dir: path to shadow_log / experience dir
+        cwd: working directory for ExecutionGate (default: current dir)
+        golden_dataset_path: path to golden dataset JSON for L3 gate
+                             (default: None = L3 skipped)
 
     Returns:
         ReviewRunner ready for `await runner.execute(task_pack)`
@@ -61,6 +66,8 @@ def create_review_runner(
     gemini_model = models_config.get("auditors", {}).get("gemini", "gemini-3.1-pro-preview")
     anthropic_model = models_config.get("auditors", {}).get("anthropic", "claude-sonnet-4-6")
 
+    from .execution_gate import ExecutionGate
+    from .integration_gate import IntegrationGate
     from .providers.mock_builder import MockBuilder
     from .providers.gemini_auditor import GeminiAuditor
     from .providers.anthropic_auditor import AnthropicAuditor
@@ -69,6 +76,9 @@ def create_review_runner(
 
     arbiter_model = models_config.get("arbiter", {}).get("model", "claude-sonnet-4-6")
     arbiter = OpusArbiter(api_key=secrets["ANTHROPIC_API_KEY"], model=arbiter_model)
+
+    execution_gate = ExecutionGate(cwd=cwd or Path.cwd())
+    integration_gate = IntegrationGate(base_dir=cwd or Path.cwd())
 
     runner = ReviewRunner(
         builder=MockBuilder(proposal_text=proposal_text),
@@ -80,6 +90,8 @@ def create_review_runner(
         experience_dir=Path(experience_dir),
         model_config_path=_CONFIG_PATH,
         arbiter=arbiter,
+        execution_gate=execution_gate,
+        integration_gate=integration_gate,
     )
 
     logger.info(

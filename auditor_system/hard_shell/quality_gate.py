@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import logging
 
-from .contracts import AuditVerdictValue, AuditVerdict, QualityGateResult
+from .contracts import AuditVerdictValue, AuditVerdict, DefectRegister, DefectStatus, QualityGateResult
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +43,10 @@ class QualityGate:
                 details={
                     "auditors": auditor_ids,
                     "critical_issues": [
-                        {"auditor": v.auditor_id, "issues": [i.model_dump() for i in v.issues if i.severity.value == "critical"]}
+                        {
+                            "auditor": v.auditor_id,
+                            "issues": [i.model_dump() for i in v.issues if i.severity.value == "critical"],
+                        }
                         for v in reject_with_critical
                     ],
                 },
@@ -55,7 +58,7 @@ class QualityGate:
             if len(heavy_concerns) == len(verdicts):
                 return QualityGateResult(
                     passed=False,
-                    reason=f"dual_heavy_concerns: both auditors have 3+ warnings",
+                    reason="dual_heavy_concerns: both auditors have 3+ warnings",
                     escalation_needed=True,
                     details={"warning_counts": {v.auditor_id: v.warning_count for v in verdicts}},
                 )
@@ -90,6 +93,74 @@ class QualityGate:
             passed=True,
             reason="all_approved_or_concerns_below_threshold",
             details={"verdicts": {v.auditor_id: v.verdict.value for v in verdicts}},
+        )
+
+    def check_defect_register(
+        self,
+        register: DefectRegister,
+        iteration: int = 0,
+    ) -> QualityGateResult:
+        """
+        Consensus Pipeline Protocol v1: check DefectRegister for open blockers.
+
+        PASSES when:
+          - 0 defects with status OPEN and severity blocker/major
+
+        FAILS when:
+          - Any OPEN blocker or major remains
+
+        This replaces raw verdict checking in the repair loop.
+        """
+        if not register.entries:
+            return QualityGateResult(
+                passed=True,
+                reason="defect_register_empty: no defects found",
+                details={"iteration": iteration},
+            )
+
+        open_blockers = register.open_blockers
+        if open_blockers:
+            return QualityGateResult(
+                passed=False,
+                reason=f"open_blockers: {len(open_blockers)} defect(s) remain unresolved",
+                escalation_needed=True,
+                details={
+                    "iteration": iteration,
+                    "open_blockers": [
+                        {
+                            "defect_id": d.defect_id,
+                            "severity": d.severity.value,
+                            "scope": d.scope,
+                            "description": d.description[:100],
+                        }
+                        for d in open_blockers
+                    ],
+                },
+            )
+
+        # Check if any entries are HALTED
+        halted = [e for e in register.entries if e.status == DefectStatus.HALTED]
+        if halted:
+            return QualityGateResult(
+                passed=False,
+                reason=f"halted_defects: {len(halted)} defect(s) halted",
+                escalation_needed=True,
+                details={"halted_ids": [e.defect_id for e in halted]},
+            )
+
+        logger.info(
+            "quality_gate: defect_register PASSED iteration=%d total=%d",
+            iteration, len(register.entries),
+        )
+        return QualityGateResult(
+            passed=True,
+            reason=f"all_defects_resolved: {len(register.entries)} total, 0 open blockers",
+            details={
+                "iteration": iteration,
+                "total": len(register.entries),
+                "closed": sum(1 for e in register.entries if e.status == DefectStatus.CLOSED),
+                "waived": sum(1 for e in register.entries if e.status == DefectStatus.WAIVED),
+            },
         )
 
     def check_post_audit(self, verdicts: list[AuditVerdict]) -> QualityGateResult:

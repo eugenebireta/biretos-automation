@@ -72,13 +72,48 @@ VERDICT_SCHEMA: dict[str, Any] = {
 # Prompt builders
 # ---------------------------------------------------------------------------
 
+def _detect_task_type(context: dict[str, Any]) -> str:
+    """Derive task type for rule filtering.
+
+    Returns: "web" | "revenue" | "script" | "general"
+    Priority: explicit context["task_type"] → surface heuristic → "general"
+    """
+    explicit = (context.get("task_type") or "").lower()
+    if explicit in ("web", "revenue", "script", "general"):
+        return explicit
+
+    surface = context.get("effective_surface", [])
+    paths_text = " ".join(surface).lower()
+
+    # Web: HTTP handlers, API routes, webhooks
+    if any(kw in paths_text for kw in ("webhook", "handler", "api/", "routes/", "endpoint", "views/")):
+        return "web"
+    # Revenue Tier-3: rev_* / stg_* / lot_* prefixes, workers
+    if any(kw in paths_text for kw in ("rev_", "stg_", "lot_", "worker", "tier3", "tier-3")):
+        return "revenue"
+    # Batch/CLI scripts
+    if any(kw in paths_text for kw in ("scripts/", "batch", "/cli", "cli_", "runner")):
+        return "script"
+    return "general"
+
+
 def _build_system_prompt(context: dict[str, Any]) -> str:
-    """Builds system prompt dynamically from ContextAssembler context (SPEC §19.4)."""
+    """Builds system prompt dynamically from ContextAssembler context (SPEC §19.4).
+
+    Rule sets injected based on task_type (SPEC §rule-filtering):
+      CORE_RULES        — always (prohibitions, frozen files, pinned APIs)
+      REVENUE_RULES     — revenue + general (FSM, table prefix, JOIN rules)
+      TIER3_CORE_RULES  — revenue + general (trace_id, idempotency_key, etc.)
+      WEB_RULES         — web + revenue + general (HMAC, dedup)
+      SCRIPT_RULES      — script + general (no webhook requirements)
+    Batch/CLI scripts ("script") skip HMAC and dedup requirements.
+    """
     risk = context.get("risk", "unknown")
     surface = context.get("effective_surface", [])
     prohibitions = context.get("absolute_prohibitions", [])
     revenue_rules = context.get("revenue_table_rules", [])
     mismatch_warn = context.get("surface_mismatch_warning", "")
+    task_type = _detect_task_type(context)
 
     prohibitions_text = "\n".join(f"  - {p}" for p in prohibitions)
     revenue_text = "\n".join(f"  - {r}" for r in revenue_rules)
@@ -91,14 +126,27 @@ You do NOT approve proposals lightly — find real issues or explain why there a
 ## Task context
 Risk level: {risk.upper()}
 Mutation surface: {surface_text}
+Task type: {task_type}
 
 ## Absolute prohibitions (VIOLATION = CRITICAL issue)
 {prohibitions_text}
+"""
 
+    # ── Revenue table rules (Tier-3) — revenue + general only ────────────────
+    if task_type in ("revenue", "general"):
+        prompt += f"""
 ## Revenue table rules (Tier-3)
 {revenue_text}
 
-## Required per Tier-3 module
+## FSM rules
+  - Linear FSM only, max 5 states
+  - No nested FSM, no branching states, no custom retry orchestrators
+  - No direct JOIN with Core tables; read Core only via read-only views
+"""
+
+    # ── Tier-3 module requirements — universal base (revenue + general) ───────
+    if task_type in ("revenue", "general"):
+        base_tier3 = """## Required per Tier-3 module
 Every new module MUST have:
   - trace_id from payload
   - idempotency_key for side-effects
@@ -107,19 +155,29 @@ Every new module MUST have:
   - Structured error logging: error_class (TRANSIENT/PERMANENT/POLICY_VIOLATION), severity, retriable
   - No silent exception swallowing
   - At least one deterministic test (no live API, no unmocked time)
-  - Webhook workers must validate HMAC signature BEFORE processing
+"""
+        # Web/webhook rules only for web/revenue contexts — NOT for batch scripts
+        if task_type in ("web", "revenue", "general"):
+            base_tier3 += """  - Webhook workers must validate HMAC signature BEFORE processing
   - Inbound event dedup via INSERT ON CONFLICT DO NOTHING
+"""
+        prompt += base_tier3
 
-## FSM rules
-  - Linear FSM only, max 5 states
-  - No nested FSM, no branching states, no custom retry orchestrators
-  - No direct JOIN with Core tables; read Core only via read-only views
+    # ── Script-only reminder ─────────────────────────────────────────────────
+    if task_type == "script":
+        prompt += """## Script/CLI requirements
+  - No live API calls — use stubs or mocks in tests
+  - Support --dry-run flag for side-effect-free execution
+  - No hardcoded secrets (use .env / config files)
+  - Idempotent: safe to run multiple times on same data
+"""
 
+    prompt += """
 ## Your output
 Return a JSON object with:
   - verdict: "approve" | "concerns" | "reject"
   - summary: 1-3 sentences
-  - issues: list of {{severity, area, description, line_ref}}
+  - issues: list of {severity, area, description, line_ref}
 
 Use "critical" severity only for policy violations, frozen file touches, or pinned API signature changes.
 Use "warning" for missing tests, incomplete error handling, unclear scope.
@@ -172,6 +230,91 @@ def _detect_code_content(text: str) -> bool:
     ]
     matches = sum(1 for ind in code_indicators if ind in text)
     return matches >= 2
+
+
+def _build_re_review_user_prompt(
+    proposal: str,
+    task: "TaskPack",
+    context: dict[str, Any],
+) -> str:
+    """
+    Builds user prompt for re-review pass (Consensus Pipeline Protocol v1).
+    Includes defect checklist + repair manifest + L2 report.
+    """
+    why_now = context.get("why_now", task.why_now)
+    stage_label = context.get("roadmap_stage", task.roadmap_stage)
+    re_review = context.get("re_review", {})
+    cross_val = context.get("cross_validation", {})
+
+    l2_info = re_review.get("l2_report", {})
+    checklist = re_review.get("defect_checklist", [])
+    original_diff_excerpt = re_review.get("original_diff_excerpt", "")
+    instructions = re_review.get("instructions", "")
+
+    # Format L2 summary
+    l2_status = "PASS" if l2_info.get("all_pass") else f"FAIL (exit_code={l2_info.get('exit_code', '?')})"
+    l2_assertions = "\n".join(
+        f"  - {a['name']}: {a['status']} (expected={a['expected']}, actual={a['actual']})"
+        for a in l2_info.get("assertions", [])
+    ) or "  (no assertions)"
+
+    l2_traceback = l2_info.get("traceback_tail", "")
+    l2_section = f"""## L2 Execution Report
+Status: {l2_status}
+Assertions:
+{l2_assertions}"""
+    if l2_traceback:
+        l2_section += f"\nTraceback (tail):\n{l2_traceback[:500]}"
+
+    # Format defect checklist
+    if checklist:
+        checklist_lines = ["\n## Defect Checklist"]
+        for item in checklist:
+            checklist_lines.append(
+                f"\n### [{item['defect_id']}] {item['severity'].upper()} — {item['scope']}"
+            )
+            checklist_lines.append(f"Description: {item['description']}")
+            checklist_lines.append(f"Status: {item['status']}")
+            checklist_lines.append(f"Builder action: {item['builder_action']}")
+        checklist_section = "\n".join(checklist_lines)
+    else:
+        checklist_section = "\n## Defect Checklist\n(no defects to review)"
+
+    # Format cross-validation section
+    cross_val_section = ""
+    if cross_val:
+        peer_id = cross_val.get("peer_auditor_id", "peer")
+        peer_defects = cross_val.get("peer_defects", [])
+        cross_val_section = f"\n## Cross-Validation — Peer Auditor: {peer_id}\n"
+        if peer_defects:
+            for pd in peer_defects:
+                cross_val_section += (
+                    f"- [{pd['defect_id']}] {pd['severity'].upper()}: "
+                    f"{pd['description'][:100]}\n"
+                )
+        cross_val_section += f"\n{cross_val.get('instructions', '')}\n"
+
+    diff_section = ""
+    if original_diff_excerpt:
+        diff_section = f"\n## Original Diff (anchor for regression detection)\n```\n{original_diff_excerpt}\n```\n"
+
+    return f"""## Re-Review Task
+Title: {task.title}
+Stage: {stage_label}
+Risk: {task.risk.value.upper()}
+Why now: {why_now}
+
+{l2_section}
+{checklist_section}
+{cross_val_section}{diff_section}
+## Updated Proposal
+{proposal}
+
+---
+{instructions}
+
+Return your verdict as JSON.
+"""
 
 
 def _build_user_prompt(

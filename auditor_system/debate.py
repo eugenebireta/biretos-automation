@@ -25,7 +25,11 @@ from typing import Any
 from .hard_shell.contracts import (
     AuditVerdict,
     AuditVerdictValue,
+    DefectEntry,
+    DefectRegister,
+    L2Report,
     QualityGateResult,
+    RepairEntry,
     RiskLevel,
 )
 
@@ -178,6 +182,199 @@ def build_arbiter_pack(
         "total_rounds": 2,
         "dispute_summary": _summarize_dispute(round1_verdicts, round2_verdicts),
     }
+
+
+# =============================================================================
+# Consensus Pipeline Protocol v1 — Defect Register helpers
+# =============================================================================
+
+def consolidate_defects(
+    verdicts: list[AuditVerdict],
+    iteration: int,
+    existing_register: DefectRegister | None = None,
+) -> DefectRegister:
+    """
+    Build or update DefectRegister from audit verdicts.
+    Deterministic dedup by (severity + scope + description prefix hash).
+    """
+    register = existing_register or DefectRegister()
+    register.add_from_verdicts(verdicts, iteration)
+    return register
+
+
+def build_repair_prompt(
+    defect_register: DefectRegister,
+    task_title: str = "",
+) -> str:
+    """
+    Convert open defects in the register into an actionable builder prompt.
+    This is a string template — NOT an LLM call.
+
+    Builder receives concrete instructions per defect, not raw audit text.
+    """
+    open_defects = defect_register.open_blockers
+    if not open_defects:
+        return "(no open blockers — no repair needed)"
+
+    lines = [
+        f"## Repair Task: {task_title}" if task_title else "## Repair Task",
+        f"Fix these {len(open_defects)} defect(s). "
+        "For each defect provide a repair_manifest entry.",
+        "",
+    ]
+
+    for defect in open_defects:
+        lines.append(
+            f"### [{defect.defect_id}] {defect.severity.value.upper()} "
+            f"— {defect.scope}"
+        )
+        lines.append(f"**Description:** {defect.description}")
+        if defect.evidence:
+            lines.append(f"**Evidence:** {defect.evidence}")
+        lines.append(f"**Required fix:** {defect.required_fix}")
+        lines.append("")
+
+    lines += [
+        "## Your repair_manifest.json must include per-defect:",
+        "```json",
+        "[",
+        '  {"defect_id": "D-01-000", "action": "FIXED", '
+        '"changes": ["file.py:42 — replaced X with Y"], "test_evidence": null},',
+        '  {"defect_id": "D-01-001", "action": "CANNOT_FIX", '
+        '"changes": [], "reason": "file is frozen_validation_script"}',
+        "]",
+        "```",
+        "",
+        "## Rules",
+        "- action must be 'FIXED' or 'CANNOT_FIX' (not 'REJECTED' — executor ≠ judge)",
+        "- CANNOT_FIX requires a reason explaining the constraint",
+        "- Do NOT modify frozen_validation_scripts",
+        "- CANNOT_FIX is not a final decision — critics will review each CANNOT_FIX",
+    ]
+
+    return "\n".join(lines)
+
+
+def build_cross_validation_context(
+    base_context: dict[str, Any],
+    peer_defects: list[DefectEntry],
+    peer_auditor_id: str,
+) -> dict[str, Any]:
+    """
+    Build context for cross-validation pass.
+    Each critic receives the OTHER critic's defect list for structured response.
+
+    Returns augmented context with 'cross_validation' key.
+    """
+    ctx = {**base_context}
+    ctx["cross_validation"] = {
+        "peer_auditor_id": peer_auditor_id,
+        "peer_defects": [
+            {
+                "defect_id": d.defect_id,
+                "severity": d.severity.value,
+                "scope": d.scope,
+                "description": d.description,
+                "evidence": d.evidence,
+            }
+            for d in peer_defects
+        ],
+        "instructions": (
+            "For each peer defect above, respond with:\n"
+            "  AGREE — confirmed, real problem\n"
+            "  DISAGREE(reason) — not a real problem, reason must be one of: "
+            "false_positive | wrong_severity | out_of_scope\n"
+            "  ESCALATE — cannot evaluate, needs JUDGE\n"
+            "DISAGREE without reason is invalid and will be treated as AGREE."
+        ),
+    }
+    return ctx
+
+
+def build_re_review_context(
+    base_context: dict[str, Any],
+    defect_register: DefectRegister,
+    repair_manifest: list[RepairEntry],
+    l2_report: L2Report,
+    original_diff: str = "",
+) -> dict[str, Any]:
+    """
+    Build context for re-review pass (after builder repair).
+    Critic receives: full defect register + repair manifest + new L2Report + diff anchor.
+    """
+    ctx = {**base_context}
+
+    # Repair manifest indexed by defect_id
+    manifest_map = {r.defect_id: r for r in repair_manifest}
+
+    # Build checklist: all defects (not just open ones)
+    checklist = []
+    for defect in defect_register.entries:
+        repair = manifest_map.get(defect.defect_id)
+        if repair:
+            action_text = f"FIXED (changes: {'; '.join(repair.changes[:3])})"
+            if repair.test_evidence:
+                action_text += f" | evidence: {repair.test_evidence}"
+        elif defect.status.value == "CANNOT_FIX":
+            action_text = "CANNOT_FIX (see reason in repair manifest)"
+        else:
+            action_text = "not addressed in this repair pass"
+
+        checklist.append({
+            "defect_id": defect.defect_id,
+            "severity": defect.severity.value,
+            "scope": defect.scope,
+            "description": defect.description,
+            "status": defect.status.value,
+            "builder_action": action_text,
+        })
+
+    ctx["re_review"] = {
+        "l2_report": {
+            "exit_code": l2_report.exit_code,
+            "all_pass": l2_report.all_pass,
+            "failure_summary": l2_report.failure_summary,
+            "assertions": [a.model_dump() for a in l2_report.assertions],
+            "traceback_tail": (l2_report.traceback_tail or "")[-500:] if l2_report.traceback_tail else None,
+        },
+        "defect_checklist": checklist,
+        "original_diff_excerpt": original_diff[:2000] if original_diff else "",
+        "instructions": (
+            "Re-review checklist:\n"
+            "1. For each defect: is it FIXED COMPLETELY / FIXED PARTIALLY / NOT FIXED?\n"
+            "2. For CANNOT_FIX items: accept the constraint or escalate to JUDGE?\n"
+            "3. Did the repair introduce NEW defects? (Check the diff and L2 report)\n"
+            "4. Is the code safe to merge? (verdict: approve / concerns / reject)\n"
+            "Focus on closing open defects AND detecting regressions."
+        ),
+    }
+    return ctx
+
+
+def apply_cross_validation_results(
+    register: DefectRegister,
+    verdicts_a: AuditVerdict,
+    verdicts_b: AuditVerdict,
+    iteration: int,
+) -> None:
+    """
+    Conservative consolidation after cross-validation:
+      AGREE from both   → issue in register
+      AGREE + DISAGREE  → issue in register (conservative)
+      DISAGREE from both → issue dropped (status = WAIVED)
+      Any ESCALATE      → issue in register + flag
+
+    In practice this is called AFTER consolidate_defects() has already
+    added issues from both critics. This function can promote CLOSED status
+    for "DISAGREE from both" cases.
+    """
+    # Cross-validation result parsing is done in re_review() response
+    # This function handles the consolidation logic deterministically
+    # For now: conservative — all issues from either critic stay in register
+    # unless both explicitly agreed to drop (DISAGREE from both).
+    # The full structured AGREE/DISAGREE parsing is handled by the auditor
+    # providers in their re_review() method.
+    pass  # Placeholder: full implementation requires structured cross-validation response
 
 
 def _summarize_dispute(

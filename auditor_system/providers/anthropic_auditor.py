@@ -15,11 +15,11 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from ..hard_shell.contracts import AuditVerdict, TaskPack
+from ..hard_shell.contracts import AuditVerdict, DefectRegister, L2Report, RepairEntry, TaskPack
 from ..hard_shell.schema_validator import validate_and_parse
 from .base import AuditorProvider
 # Reuse prompt builders from openai_auditor (same system/user prompt format)
-from .openai_auditor import _build_system_prompt, _build_user_prompt
+from .openai_auditor import _build_re_review_user_prompt, _build_system_prompt, _build_user_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -146,3 +146,54 @@ class AnthropicAuditor(AuditorProvider):
 
         debate_ctx = build_debate_context(context, peer_verdict)
         return await self._call(proposal, task, debate_ctx, stage="debate")
+
+    async def re_review(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        defect_register: "DefectRegister",
+        repair_manifest: list["RepairEntry"],
+        l2_report: "L2Report",
+        original_diff: str = "",
+    ) -> AuditVerdict:
+        """
+        Consensus Pipeline Protocol v1: re-review after builder repair.
+        Uses structured checklist prompt instead of fresh critique.
+        """
+        from ..debate import build_re_review_context
+
+        re_review_ctx = build_re_review_context(
+            context,
+            defect_register,
+            repair_manifest,
+            l2_report,
+            original_diff,
+        )
+        system_prompt = _build_system_prompt(re_review_ctx)
+        user_prompt = (
+            _build_re_review_user_prompt(proposal, task, re_review_ctx)
+            + "\n\nReturn ONLY a JSON object matching the schema above. No prose outside JSON."
+        )
+
+        logger.info(
+            "anthropic_auditor: re_review API call model=%s task_id=%s",
+            self.model, task.task_id,
+        )
+
+        response = await self._client.messages.create(
+            model=self.model,
+            max_tokens=self._max_tokens,
+            system=system_prompt,
+            messages=[{"role": "user", "content": user_prompt}],
+            temperature=self._temperature,
+        )
+
+        raw_text = response.content[0].text if response.content else ""
+        json_text = self._extract_json(raw_text)
+        verdict = validate_and_parse("anthropic", json_text)
+        logger.info(
+            "anthropic_auditor: re_review verdict=%s task_id=%s",
+            verdict.verdict.value, task.task_id,
+        )
+        return verdict
