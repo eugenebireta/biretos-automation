@@ -7,7 +7,7 @@
     "PCD3W340"
   ],
   "brand": "Honeywell",
-  "subbrand": null,
+  "subbrand": "SAIA",
   "name": "Универсальный аналоговый входной модуль PCD3.W340",
   "assembled_title": "Модуль Honeywell PCD3.W340",
   "our_price_raw": "35477,00",
@@ -176,12 +176,19 @@
     "image_confidence": 0.017,
     "price_confidence": 0.1,
     "overall": 0.076,
-    "overall_label": "VERY_LOW",
+    "overall_label": "MEDIUM",
     "publishability": "DRAFT_ONLY",
     "notes": [
       "pn_not_confirmed",
       "no_usable_image"
-    ]
+    ],
+    "overall_label_prior": "VERY_LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {

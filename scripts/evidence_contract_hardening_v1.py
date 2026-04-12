@@ -42,9 +42,13 @@ TRAINING_JSONL_FILES = [
 SUBBRAND_KEYWORDS: list[tuple[str, str]] = [
     ("PEHA", "PEHA"),
     ("ESSER", "Esser"),
+    ("ESSERNET", "Esser"),
+    ("ESSERBUS", "Esser"),
     ("NOTIFIER", "Notifier"),
     ("ELSTER", "Elster"),
     ("SAIA", "SAIA"),
+    ("AUTRONICA", "Autronica"),
+    ("SECURITON", "Securiton"),
 ]
 
 
@@ -55,7 +59,8 @@ def detect_subbrand(evidence: dict) -> str | None:
 
     Priority:
       1. assembled_title — highest confidence (canonical title we built)
-      2. name — medium confidence, used only if title gives nothing
+      2. name / content.seed_name — medium confidence
+      3. deep_research.title_ru / description_ru — lower but still valid
 
     Returns canonical subbrand string or None (will be stored as null).
     """
@@ -67,11 +72,17 @@ def detect_subbrand(evidence: dict) -> str | None:
         if keyword in title:
             return subbrand
 
-    # Pass 2: name field — only if title gave nothing
-    # But be strict: require exact word boundary to avoid partial matches
-    # e.g. "Esserbus" → Esser, "essernet" → Esser
+    # Pass 2: name field
     for keyword, subbrand in SUBBRAND_KEYWORDS:
         if keyword in name:
+            return subbrand
+
+    # Pass 3: deep_research fields (DR often discovers the real brand)
+    dr = evidence.get("deep_research") or {}
+    dr_title = (dr.get("title_ru") or "").upper()
+    dr_desc = (dr.get("description_ru") or "")[:1000].upper()
+    for keyword, subbrand in SUBBRAND_KEYWORDS:
+        if keyword in dr_title or keyword in dr_desc:
             return subbrand
 
     return None
@@ -215,12 +226,12 @@ def run(dry_run: bool = False) -> None:
             stats["subbrand_skipped_already_set"] += 1
         else:
             # Detect subbrand
-            # Check if both title and name give different signals (ambiguous)
+            # Check if fields give conflicting signals (ambiguous)
             title = (evidence.get("assembled_title") or "").upper()
             name_field = (evidence.get("name") or "").upper()
 
-            title_matches = [sb for kw, sb in SUBBRAND_KEYWORDS if kw in title]
-            name_matches = [sb for kw, sb in SUBBRAND_KEYWORDS if kw in name_field]
+            title_matches = list({sb for kw, sb in SUBBRAND_KEYWORDS if kw in title})
+            name_matches = list({sb for kw, sb in SUBBRAND_KEYWORDS if kw in name_field})
 
             # If title gives clear signal → use it (no ambiguity)
             # If title gives nothing but name gives conflicting signals → ambiguous → null

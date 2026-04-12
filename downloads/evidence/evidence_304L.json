@@ -118,9 +118,16 @@
     "image_confidence": 0.534,
     "price_confidence": 0.534,
     "overall": 0.552,
-    "overall_label": "LOW",
+    "overall_label": "HIGH",
     "publishability": "AUTO_PUBLISH",
-    "notes": []
+    "notes": [],
+    "overall_label_prior": "LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": true
+    }
   },
   "evidence_paths": {
     "photo": {

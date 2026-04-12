@@ -4,7 +4,7 @@
   "pn": "804791",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": null,
+  "subbrand": "Esser",
   "name": "Панель дистанционной индикации Loop LED 804791",
   "assembled_title": "Панель Honeywell 804791",
   "our_price_raw": "34511,29",
@@ -132,11 +132,18 @@
     "image_confidence": 0.534,
     "price_confidence": 0.35,
     "overall": 0.515,
-    "overall_label": "LOW",
+    "overall_label": "MEDIUM",
     "publishability": "REVIEW_REQUIRED",
     "notes": [
       "price_low_confidence"
-    ]
+    ],
+    "overall_label_prior": "LOW",
+    "recalculated": true,
+    "signals": {
+      "identity_strong": true,
+      "photo_ok": true,
+      "price_available": false
+    }
   },
   "evidence_paths": {
     "photo": {
