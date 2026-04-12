@@ -325,7 +325,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "P2213 Series",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "Dell Professional 22\" LCD monitor; not Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -348,7 +353,7 @@
     "description": "Системный блок Honeywell P2213F предназначен для использования в офисных и промышленных условиях. Обеспечивает высокую производительность и надежность благодаря современным компонентам и возможностям расширения.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Системный блок",
+    "product_type": "Monitor",
     "seed_name": "Системный блок Honeywell P2213F",
     "description_long_ru": "Без зацепок по алиасам/серии/региональным суффиксам цену не зафиксировал."
   },
@@ -642,5 +647,7 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.marktplaats.nl/v/computers-en-software/monitoren/m2352612988-dell-be",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell"
 }

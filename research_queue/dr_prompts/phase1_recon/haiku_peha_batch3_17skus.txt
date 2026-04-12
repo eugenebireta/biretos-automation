@@ -1,0 +1,49 @@
+# Phase 1 — Identity Recon: PEHA electrical accessories (batch 3/3)
+
+## Your task
+Identify each PEHA product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## PEHA rules
+- PEHA is a Honeywell sub-brand for electrical accessories (switches, frames, sockets)
+- Products have type designations like **D 20.xxx.xxx** — find the correct one
+- Series: NOVA, AURA, DIALOG, COMPACTA, NOVA MEDIA
+- Search as "PEHA {PN}" — NEVER "Honeywell {PN}"
+- Sites: peha.de, pehastore.de, voltking.de, elektroversand.de
+
+## What I need per SKU
+1. **product_type** — e.g. "frame 1-gang", "socket", "switch insert"
+2. **series** — NOVA / AURA / DIALOG / COMPACTA
+3. **type_designation** — the D 20.xxx.xxx code (most important!)
+4. **color_material** — if variants exist
+5. **pn_aliases** — alternative PNs on distributor sites
+6. **identity_notes** — discontinued, replaced by, kit contents
+
+## Products (17 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | 786711 | Вставка PEHA DIALOG, 786711 | Датчик D 95.610.03 UAE/1-N | - | no_photo |
+| 2 | 787511 | Вставка PEHA DIALOG, 787511 | Датчик D 95.610.02 UAE/2-N | - | no_price, no_photo |
+| 3 | 815511 | Вставка PEHA DIALOG, 815511 | D 95.610.02 TAE NA | - | no_desc |
+| 4 | 815611 | Вставка PEHA DIALOG, 815611 | D 95.610.02 TV NA | - | no_photo |
+| 5 | 816713 | Центральная накладка PEHA DIALOG, 816713 | D 95.810.02 HR | - | no_desc |
+| 6 | 820111 | Рамка 1-постовая PEHA DIALOG, 820111 | D 95.571.02 | - | no_photo |
+| 7 | 820511 | Рамка 5-постовая PEHA DIALOG, 820511 | D 95.575.02 | - | no_price, no_photo |
+| 8 | 821811 | Клавиша PEHA DIALOG, 821811 | Детектор пламени Esser D 95.540.02 GLK | - | no_price, no_photo |
+| 9 | 824611 | Вставка PEHA DIALOG, 824611 | Тепловой извещатель Esser D 95.610.03 TAE NA | - | no_desc |
+| 10 | 829211 | Рамка 2-постовая PEHA DIALOG, 829211 | Детектор пламени Esser D 95.572.03 | - | no_photo |
+| 11 | 830811 | Клавиша PEHA DIALOG, 830811 | Детектор пламени Esser D 95.540.03 GLK | - | no_price, no_photo |
+| 12 | 846811 | Рамка 2-постовая PEHA DIALOG, 846811 | Детектор пламени Esser D 95.572.19 | - | no_photo |
+| 13 | 885711 | Вставка PEHA DIALOG, 885711 | Тепловой извещатель Esser D 95.610.02 KTU | - | no_price, no_photo |
+| 14 | 885811 | Вставка PEHA DIALOG, 885811 | Тепловой извещатель Esser D 95.610.03 KTU | - | no_desc |
+| 15 | 887111 | Клавиша PEHA DIALOG, 887111 | Тепловой извещатель Esser D 95.244.02 T | - | no_photo |
+| 16 | 902591 | Акустическая розетка PEHA, 902591 | Оптический извещатель Esser D 1930/4.02 O.A. | - | no_desc |
+| 17 | 940293 | Центральная накладка PEHA NOVA, 940293 | Тепловой извещатель Esser D 20.607.022 FTR | - | no_price |
+
+## Required output — markdown table only
+
+| PN | product_type | series | type_designation | color_material | pn_aliases | identity_notes |
+|----|-------------|--------|-----------------|----------------|-----------|----------------|
+
+- Cannot confirm → write "unconfirmed" in type_designation
+- Return ONLY the table, no preamble

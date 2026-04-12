@@ -307,7 +307,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "product_line": "SCHT 5 S",
+    "confirmed_manufacturer": "Weidmüller",
+    "discontinued": false,
+    "identity_notes_p1": "Beige terminal marker holder for 5mm pitch rail-mounted terminal blocks; NOT Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -330,7 +335,7 @@
     "description": "Клеммный блок используется для соединения проводов в электрических цепях. Обеспечивает надежное и безопасное соединение, устойчив к воздействию окружающей среды.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Клеммный блок",
+    "product_type": "Terminal marker",
     "seed_name": "Клеммный блок Weidmüller 1631930000 SCHT 5S PA66 BG",
     "description_long_ru": "Артикул 1631930000 принадлежит компании Weidmüller, а не Honeywell. Это держатель (несущая планка) маркеров для клеммных блоков серии SCHT 5 S, выполненный из полиамида PA66, бежевого цвета, устанавливается непосредственно на монтажную рейку TS 32 или TS 35 (DIN-рейку) и позволяет маркировать клеммные ряды независимо от типа клеммы."
   },
@@ -559,5 +564,7 @@
     "best_description_source": "dr",
     "best_photo_url": "https://forprom.ru/markirovka/markirovka-klemm/weidmuller-1631930000-scht-5-s-is",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Weidmüller"
 }

@@ -2,7 +2,9 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "158811",
-  "pn_variants": [],
+  "pn_variants": [
+    "00158811"
+  ],
   "brand": "Honeywell",
   "subbrand": "PEHA",
   "name": "Термостатический вентиль Honeywell D 20.244.02 JR",
@@ -340,7 +342,11 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.244.02 JR",
+    "series": "AURA",
+    "identity_notes_p1": "rocker switch for mechanical interlocking blind control",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -388,7 +394,7 @@
     "description": "Этот вентиль предназначен для регулирования температуры в системах отопления, обеспечивая стабильную работу и экономию энергии.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Вентиль",
+    "product_type": "switch insert (blind/venetian)",
     "seed_name": "Термостатический вентиль Honeywell D 20.244.02 JR",
     "description_long_ru": "Компактный регулирующий клапан для фанкойлов и малых вентиляционных установок. Обеспечивает высокую точность поддержания температуры в офисных помещениях. Обладает низким уровнем шума при протекании теплоносителя. Легко монтируется в ограниченном пространстве благодаря малым габаритам."
   },

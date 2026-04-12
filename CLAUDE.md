@@ -12,6 +12,32 @@ If the user message is a short liveness check or tiny conversational prompt
 
 This override applies only to that single liveness/conversational turn.
 
+## ENRICHMENT DATA RULES (mandatory, never forget)
+
+### Rule 1 — Read from normalized{}, not raw fields
+Evidence data is in `normalized{}` block. NEVER check raw `dr_price`/`dr_image_url` to assess coverage.
+- Price → `normalized.best_price`
+- Photo → `normalized.best_photo_url`
+- Description → `normalized.best_description`
+- To assess gaps: run `python scripts/evidence_coverage_report.py` FIRST.
+
+### Rule 2 — Phased pipeline, NEVER one mega-prompt
+DR enrichment uses a phased architecture (see `scripts/MANIFEST.json` → `full_enrichment_pipeline`):
+1. Phase 1: Identity Recon (Haiku) — product_type, series, designation only
+2. Phase 2: Market Recon (Haiku) — unit vs pack, dangerous distributors
+3. Gate A: identity must be resolved before proceeding
+4. Phase 3A: Price (GPT Think) + Phase 3B: Content (Opus ext) — parallel
+5. NEVER combine all into one "find everything" prompt
+
+### Rule 3 — Filename ≠ brand
+Source Excel "honeywell new.xlsx" contains mixed brands: Dell, NVIDIA, Phoenix Contact, SAIA, Weidmüller, Moxa, Xerox, Sony, etc. NEVER assume brand from filename. Brand comes from `structured_identity.confirmed_manufacturer` (set by Phase 1 recon), not from the Excel filename.
+
+### Rule 4 — Model assignments
+- Haiku: cheap recon (phases 1-2)
+- GPT Think: price scouting (phase 3A)
+- Opus ext: content/specs/photos (phase 3B)
+- Gemini: NEVER (fabricates prices and product identities)
+
 ## SCRIPT AWARENESS (mandatory pre-flight)
 
 Before doing ANY of these tasks manually, FIRST check `scripts/MANIFEST.json`

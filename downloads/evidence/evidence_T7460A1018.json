@@ -2,7 +2,9 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "T7460A1018",
-  "pn_variants": [],
+  "pn_variants": [
+    "T7460A"
+  ],
   "brand": "Honeywell",
   "subbrand": null,
   "name": "Комнатный датчик PT1000 Honeywell T7460A1018",
@@ -351,7 +353,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "T7460 series",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "PT1000 room temperature sensor, 0-50°C, IP30, wall mount module",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -381,7 +388,7 @@
     "description": "Комнатный датчик PT1000 Honeywell T7460A1018 предназначен для измерения температуры в помещениях. Он обеспечивает высокую точность измерений и может использоваться в системах отопления, вентиляции и кондиционирования.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Датчик",
+    "product_type": "Temperature sensor",
     "seed_name": "Комнатный датчик PT1000 Honeywell T7460A1018",
     "description_long_ru": "For Excel 10/50–800 controllers. May be obsolete. Gray-market price — treat with caution"
   },

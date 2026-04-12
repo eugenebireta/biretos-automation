@@ -322,7 +322,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "UltraSharp",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "24\" professional monitor by Dell, not Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -369,7 +374,7 @@
     "description": "Монитор Honeywell U2421M используется для профессиональной работы с графикой и данными. Он обеспечивает высокое качество изображения и эргономичный дизайн для комфортной работы.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Монитор",
+    "product_type": "LCD monitor",
     "seed_name": "Монитор Honeywell U2421M"
   },
   "trace": {
@@ -681,5 +686,7 @@
     "best_description_source": "content",
     "best_photo_url": null,
     "best_photo_source": null
-  }
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell"
 }

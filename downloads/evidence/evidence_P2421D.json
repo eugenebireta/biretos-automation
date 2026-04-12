@@ -2,7 +2,9 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "P2421D",
-  "pn_variants": [],
+  "pn_variants": [
+    "P2421Dc"
+  ],
   "brand": "Honeywell",
   "subbrand": null,
   "name": "Монитор P2421D",
@@ -317,7 +319,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "P2421",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "Not Honeywell; this is a Dell 24\" QHD professional monitor",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -340,7 +347,7 @@
     "description": "Монитор P2421D — это современный дисплей с высоким разрешением, предназначенный для использования в офисах и домашних условиях. Он обеспечивает четкое изображение и широкий угол обзора, что делает его идеальным для работы с документами и мультимедиа.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Монитор",
+    "product_type": "LCD monitor",
     "seed_name": "Монитор P2421D"
   },
   "trace": {
@@ -656,5 +663,7 @@
     "best_description_source": "content",
     "best_photo_url": "ebay.com",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell"
 }

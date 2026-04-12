@@ -1,0 +1,62 @@
+# Phase 1 — Identity Recon: Honeywell products (batch 4/6)
+
+## Your task
+Identify each product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## Search rules
+- Search as "Honeywell {PN}" or just "{PN}" in quotes
+- Suffix -RU: try without suffix too (Russian market variant)
+- Suffix -L3: kit — search base PN without suffix
+- Sites: honeywellsensors.com, distech-controls.com, automation24.com, rs-components.com
+
+## What I need per SKU
+1. **product_type** — short English name: "smoke detector", "HVAC sensor", "gas detector"
+2. **product_line** — family/series name
+3. **manufacturer** — confirm Honeywell or identify real OEM
+4. **pn_aliases** — alternative PNs on distributor sites
+5. **discontinued** — yes/no
+6. **identity_notes** — OEM info, replaced by, kit contents, regional variant
+
+## Products (30 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | FUSE-6.3A-5X20 | Предохранитель Honeywell FUSE-6.3A-5X20 | Предохранитель плавкий Honeywell FUSE-6.3A-5X20 | FUSE-6-3A-5X20, FUSE.6.3A.5X20, FUSE63A5X20 | no_desc |
+| 2 | FX808338 | Корпус Honeywell FX808338 | Дополнительный корпус FlexES FX808338 | - | no_photo |
+| 3 | GLATRON | Монитор Honeywell GLATRON | Монитор GLATRON | - | no_price |
+| 4 | H4L6GR2 | Камера Honeywell H4L6GR2 | Камера видеонаблюдения H4L6GR2 | - | no_dr, no_photo, no_desc |
+| 5 | HVAC23C5 | Инвертор Honeywell HVAC23C5 | Инвертор HVAC NXL 11KW/400V/23A/IP54 HVAC23C5 | - | no_photo |
+| 6 | HVAC31C5 | Инвертор Honeywell HVAC31C5 | Инвертор HVAC NXL 15KW/400V/31A/IP54 HVAC31C5 | - | no_price, no_photo |
+| 7 | HVAC46C5 | Инвертор Honeywell HVAC46C5 | Инвертор NXL HVAC 22KW/400V/46A/IP54 | - | no_photo |
+| 8 | IMC-101-S-SC | Медиаконвертер Honeywell IMC-101-S-SC | Промышленный медиаконвертер IMC-101-S-SC | IMC.101.S.SC, IMC101SSC | no_desc |
+| 9 | IP | Телефон Honeywell IP | IP-телефон | - | no_price, no_photo |
+| 10 | KCD2090XI | Монитор Honeywell KCD2090XI | Монитор KCD2090XI | - | no_price, no_photo |
+| 11 | KD-050 | Лампа Honeywell KD-050 | Лампа KD-050 | KD.050, KD050 | no_photo, no_desc |
+| 12 | KTF00-65-2M | Датчик Honeywell KTF00-65-2M | Кабельный погружной датчик KTF00-65-2M | KTF00.65.2M, KTF00652M | no_desc |
+| 13 | KZDS | Гильза Honeywell KZDS | Термоусадочная гильза KZDS | - | no_desc |
+| 14 | L-VOM40A/EN | Громкоговоритель Honeywell L-VOM40A/EN | Громкоговоритель L-VOM40A/EN | L.VOM40A/EN, LVOM40A/EN | no_price |
+| 15 | LA5496411314 | Крепления Honeywell LA5496411314 | Металлические крепления LA5496411314 | - | no_price |
+| 16 | LATITUDE | Ноутбук Honeywell LATITUDE | Ноутбук LATITUDE | - | no_photo, no_desc |
+| 17 | LCD | Монитор Honeywell LCD | Монитор LCD | - | no_photo, no_desc |
+| 18 | LEONARDO-OT | Извещатель Honeywell LEONARDO-OT | Дымо-тепловой извещатель Leonardo-OT | LEONARDO.OT, LEONARDOOT | no_price |
+| 19 | LF20-3P65-5M | Датчик Honeywell LF20-3P65-5M | Канальный датчик LF20-3P65-5M | LF20.3P65.5M, LF203P655M | no_dr, no_price, no_photo, no_desc |
+| 20 | LUX | Конвертер Honeywell LUX | Конвертер LUX | - | no_price, no_photo |
+| 21 | MAU8/MS | Резьба Honeywell MAU8/MS | Внешняя резьба с уплотнительным кольцом MAU8/MS | - | no_price, no_photo |
+| 22 | MB3480 | Шлюз Honeywell MB3480 | Шлюз Moxa MB3480 | - | no_desc |
+| 23 | MCP-PRO-M | Извещатель Honeywell MCP-PRO-M | Ручной извещатель MCP-PRO-M | MCP.PRO.M, MCPPROM | no_photo |
+| 24 | ML6425A3014 | Привод Honeywell ML6425A3014 | Привод с возвратной пружиной Honeywell ML6425A3014 | - | no_photo |
+| 25 | MZ-PCWS84 | Рабочая станция Honeywell MZ-PCWS84 | Рабочая станция HP Z4 G4 RAID1 TOWER | MZ.PCWS84, MZPCWS84 | no_price |
+| 26 | N34230 | Привод Honeywell N34230 | Привод заслонки Honeywell N34230 | - | no_photo |
+| 27 | OPTIPLEX | Системный блок Honeywell OPTIPLEX | Системный блок Dell Optiplex | - | no_photo, no_desc |
+| 28 | P2210F | Монитор Honeywell P2210F | Монитор Honeywell P2210F | - | no_desc |
+| 29 | P2212HB | Монитор Honeywell P2212HB | Монитор Honeywell P2212HB | - | no_desc |
+| 30 | P2213F | Системный блок Honeywell P2213F | Системный блок Honeywell P2213F | - | no_price |
+
+## Required output — markdown table only
+
+| PN | product_type | product_line | manufacturer | pn_aliases | discontinued | identity_notes |
+|----|-------------|-------------|-------------|-----------|-------------|----------------|
+
+- Cannot confirm → write "unknown" in product_type
+- manufacturer: "Honeywell" only if confirmed, else real OEM name
+- Return ONLY the table, no preamble

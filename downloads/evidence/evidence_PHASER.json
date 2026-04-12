@@ -351,7 +351,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "PHASER",
+    "confirmed_manufacturer": "Xerox",
+    "identity_notes_p1": "Not Honeywell; this is a Xerox printer line",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -374,7 +378,7 @@
     "description": "Принтер PHASER обеспечивает высококачественную печать документов и изображений. Он подходит для использования в офисах и домашних условиях благодаря своей надежности и простоте в эксплуатации.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Принтер",
+    "product_type": "Printer",
     "seed_name": "Принтер PHASER",
     "description_long_ru": "No connection to Honeywell found. \"Phaser\" is Xerox product line. Need specific model number"
   },
@@ -608,5 +612,7 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.phasers.co.kr/32",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Xerox"
 }

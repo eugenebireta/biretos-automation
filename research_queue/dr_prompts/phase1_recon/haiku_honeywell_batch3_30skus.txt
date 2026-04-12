@@ -1,0 +1,62 @@
+# Phase 1 — Identity Recon: Honeywell products (batch 3/6)
+
+## Your task
+Identify each product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## Search rules
+- Search as "Honeywell {PN}" or just "{PN}" in quotes
+- Suffix -RU: try without suffix too (Russian market variant)
+- Suffix -L3: kit — search base PN without suffix
+- Sites: honeywellsensors.com, distech-controls.com, automation24.com, rs-components.com
+
+## What I need per SKU
+1. **product_type** — short English name: "smoke detector", "HVAC sensor", "gas detector"
+2. **product_line** — family/series name
+3. **manufacturer** — confirm Honeywell or identify real OEM
+4. **pn_aliases** — alternative PNs on distributor sites
+5. **discontinued** — yes/no
+6. **identity_notes** — OEM info, replaced by, kit contents, regional variant
+
+## Products (30 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | C7355A1050 | Мультисенсор Honeywell C7355A1050 | Мультисенсор настенный Honeywell C7355A1050 | - | no_price |
+| 2 | CAB-010-SC-SM | Адаптер Honeywell CAB-010-SC-SM | Оптический адаптер Honeywell CAB-010-SC-SM | CAB.010.SC.SM, CAB010SCSM | no_desc |
+| 3 | CABLE-0.22-8T | Кабель Honeywell CABLE-0.22-8T | Оптический кабель Honeywell CABLE-0.22-8T | CABLE-0-22-8T, CABLE.0.22.8T, CABLE0228T | no_desc |
+| 4 | CATALIST | Свитч Honeywell CATALIST | Свитч Honeywell CATALIST | - | no_price |
+| 5 | CB015A | Принтер Honeywell CB015A | Принтер Honeywell CB015A | - | no_desc |
+| 6 | CF274A | Принтер Honeywell CF274A | Принтер Honeywell CF274A | - | no_price |
+| 7 | CM010610 | Винт Honeywell CM010610 | Винт с квадратной головкой Honeywell CM010610 | - | no_desc |
+| 8 | CM100600-RU | Гайка Honeywell CM100600-RU | Гайка с защитой от раскручивания Honeywell CM100600-RU | CM100600.RU, CM100600RU | no_desc |
+| 9 | COLOR | Принтер Honeywell COLOR | Принтер Honeywell COLOR | - | no_photo, no_desc |
+| 10 | CPO-RL4 | Контроллер Honeywell CPO-RL4 | Контроллер BACnet MS/TP Honeywell CPO-RL4 | CPO.RL4, CPORL4 | no_desc |
+| 11 | CR-M024DC2 | Реле Honeywell CR-M024DC2 | Реле Honeywell CR-M024DC2 | CR.M024DC2, CRM024DC2 | no_photo |
+| 12 | CR-MH | Зажим Honeywell CR-MH | Зажим для крепления реле Honeywell CR-MH | CR.MH, CRMH | no_desc |
+| 13 | CR-P/M42 | Диод Honeywell CR-P/M42 | Защитный диод Honeywell CR-P/M42 | CR.P/M42, CRP/M42 | no_desc |
+| 14 | CSR | Основание Honeywell CSR | Основание неглубокое красное Honeywell CSR | - | no_price, no_photo |
+| 15 | CWR | Основание Honeywell CWR | Основание глубокое IP65 красное Honeywell CWR | - | no_price |
+| 16 | CWSS-RB-S8 | Маяк Honeywell CWSS-RB-S8 | Световой маяк красный Honeywell CWSS-RB-S8 | CWSS.RB.S8, CWSSRBS8 | no_desc |
+| 17 | D-71570 | Предохранитель Honeywell D-71570 | Электронный предохранитель Honeywell D-71570 | D.71570, D71570 | no_price |
+| 18 | DTI6 | Датчик Honeywell DTI6 | Датчик давления Honeywell DTI6 | - | no_price |
+| 19 | EASY | Шкаф Honeywell EASY | Серверный шкаф Honeywell EASY | - | no_photo, no_desc |
+| 20 | EDA61K-HB-2 | Зарядное устройство Honeywell EDA61K-HB-2 | Зарядное устройство для ТСД Honeywell EDA61K-HB-2 | EDA61K.HB.2, EDA61KHB2 | no_desc |
+| 21 | EP10425882 | Датчик Honeywell EP10425882 | Датчик присутствия Honeywell EP10425882 | - | no_desc |
+| 22 | EP10427213 | Датчик Honeywell EP10427213 | Датчик присутствия Honeywell PD-ATMO360i/8 T KNX | - | no_desc |
+| 23 | EP10427404 | Датчик Honeywell EP10427404 | Датчик присутствия Honeywell PD-C360i/8 KNX UP | - | no_desc |
+| 24 | EVCS-HSB | Пульт Honeywell EVCS-HSB | Пульт вызова Honeywell EVCS-HSB | EVCS.HSB, EVCSHSB | no_desc |
+| 25 | EVCS-MS | Трубка Honeywell EVCS-MS | Настольная трубка Honeywell EVCS-MS | EVCS.MS, EVCSMS | no_desc |
+| 26 | F750E-S0 | Блок питания Honeywell F750E-S0 | Блок питания Honeywell F750E-S0 | F750E.S0, F750ES0 | no_desc |
+| 27 | FH973A | Переходник Honeywell FH973A | Переходник DisplayPort-DVI Honeywell FH973A | - | no_price, no_photo |
+| 28 | FO-WBI-12A-GY | Бокс Honeywell FO-WBI-12A-GY | Оптический бокс Honeywell FO-WBI-12A-GY | FO.WBI.12A.GY, FOWBI12AGY | no_desc |
+| 29 | FT6960-60 | Термостат Honeywell FT6960-60 | Термостат защиты от замерзания Honeywell FT6960-60 | FT6960.60, FT696060 | no_price |
+| 30 | FUSE-2A-5X20-RU | Предохранитель Honeywell FUSE-2A-5X20-RU | Предохранитель плавкий Honeywell FUSE-2A-5X20 | FUSE.2A.5X20.RU, FUSE2A5X20RU | no_desc |
+
+## Required output — markdown table only
+
+| PN | product_type | product_line | manufacturer | pn_aliases | discontinued | identity_notes |
+|----|-------------|-------------|-------------|-----------|-------------|----------------|
+
+- Cannot confirm → write "unknown" in product_type
+- manufacturer: "Honeywell" only if confirmed, else real OEM name
+- Return ONLY the table, no preamble
