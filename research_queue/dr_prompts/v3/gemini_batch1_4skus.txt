@@ -1,0 +1,32 @@
+Research 4 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 871-229-201 | Honeywell Зарядная |
+| 2 | T7560B1024 | module |
+| 3 | LF20-3P65-5M | sensor |
+| 4 | 174411 | PEHA AURA frame |
+
+## Search instructions
+
+- **PEHA by Honeywell** -- German electrical installation (frames, switches, sockets, inserts). Suffix `.10`=white, `.20`=cream. Search: ebay.de, conrad.de, voelkner.de, electropara.ru
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 4 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

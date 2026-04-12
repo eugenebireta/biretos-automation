@@ -1,0 +1,48 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | 171111 | PEHA AURA frame |
+| 2 | 171411 | PEHA AURA frame |
+| 3 | 174111 | PEHA AURA frame |
+| 4 | 125711 | PEHA AURA insert |
+| 5 | 369211 | PEHA DIALOG frame |
+| 6 | 820511 | PEHA DIALOG frame |
+| 7 | 336011 | PEHA DIALOG insert |
+| 8 | 787511 | PEHA DIALOG insert |
+| 9 | 885711 | PEHA DIALOG insert |
+| 10 | 821811 | PEHA DIALOG rocker switch |
+| 11 | 830811 | PEHA DIALOG rocker switch |
+| 12 | 29313 | PEHA NOVA center plate |
+| 13 | 940293 | PEHA NOVA center plate |
+| 14 | 179433 | PEHA NOVA frame |
+| 15 | 183791 | PEHA NOVA frame |
+| 16 | 184791 | PEHA NOVA frame |
+| 17 | 187591 | PEHA NOVA frame |
+| 18 | 190891 | PEHA NOVA frame |
+| 19 | 191091 | PEHA NOVA frame |
+| 20 | 20511 | PEHA NOVA frame |
+
+## Search instructions
+
+- **PEHA by Honeywell** -- German electrical installation (frames, switches, sockets, inserts). Suffix `.10`=white, `.20`=cream. Search: ebay.de, conrad.de, voelkner.de, electropara.ru
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available
