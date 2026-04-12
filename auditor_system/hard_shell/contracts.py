@@ -433,6 +433,8 @@ class ProtocolRun(BaseModel):
     defect_register: DefectRegister | None = None
     l2_reports: list[L2Report] = Field(default_factory=list)
     repair_history: list[str] = Field(default_factory=list)  # proposals per repair iteration
+    last_repair_manifest: list[RepairEntry] = Field(default_factory=list)
+    """Most recent builder repair manifest — passed to critics in re-review."""
     l1_iteration: int = 0          # current L1 (critic) loop iteration
     l2_iteration: int = 0          # current L2 (execution) loop iteration
     halted: bool = False

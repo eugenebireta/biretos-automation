@@ -44,6 +44,7 @@ from .hard_shell.context_assembler import ContextAssembler
 from .hard_shell.contracts import (
     ApprovalRoute,
     DefectRegister,
+    DefectStatus,
     ErrorClass,
     ProtocolRun,
     TaskPack,
@@ -64,6 +65,14 @@ from .providers.base import AuditorProvider, BuilderProvider
 # Consensus Pipeline Protocol v1 — circuit breaker limits
 MAX_L2_ATTEMPTS = 3
 MAX_L1_ITERATIONS = 2
+
+# Budget thresholds (USD) — from protocol spec §4
+_BUDGET_SOFT_USD = 0.50   # log warning, continue
+_BUDGET_HARD_USD = 1.00   # halt task, escalate to owner
+
+# Artifact iteration offsets — for run_store file naming
+_L1_REPAIR_OFFSET = 100   # L1 repair artifacts: 100, 101, ...
+_L3_REPAIR_OFFSET = 200   # L3 repair artifacts: 200
 
 logger = logging.getLogger(__name__)
 
@@ -101,6 +110,42 @@ class ReviewRunner:
         # Consensus Pipeline Protocol v1 gates (optional — soft-pass when None)
         self.execution_gate = execution_gate or ExecutionGate()
         self.integration_gate = integration_gate or IntegrationGate()
+
+    def _check_budget(self, run: ProtocolRun) -> bool:
+        """
+        Budget gate (Consensus Pipeline Protocol v1 §4).
+        Returns False and halts run when hard limit exceeded.
+        Returns True when budget is OK (or cost tracking not yet wired).
+
+        Soft ($0.50): log WARNING, continue.
+        Hard ($1.00): halt, set INDIVIDUAL_REVIEW, return False.
+
+        Note: run.cost_usd is only non-zero when provider-level token
+        tracking is wired. Until then, this gate is always True (pass-through).
+        """
+        cost = run.cost_usd
+        if cost >= _BUDGET_HARD_USD:
+            run.halted = True
+            run.halt_reason = (
+                f"BUDGET_HARD_STOP: task cost ${cost:.2f} exceeded hard limit "
+                f"${_BUDGET_HARD_USD:.2f} — escalating to owner"
+            )
+            run.approval_route = ApprovalRoute.INDIVIDUAL_REVIEW
+            run.escalated = True
+            run.escalation_reason = run.halt_reason
+            run.mark_finished()
+            self.run_store.save_manifest(run)
+            logger.error(
+                "review_runner: BUDGET_HARD_STOP cost=%.2f limit=%.2f run_id=%s",
+                cost, _BUDGET_HARD_USD, run.run_id,
+            )
+            return False
+        if cost >= _BUDGET_SOFT_USD:
+            logger.warning(
+                "review_runner: BUDGET_SOFT_WARNING cost=%.2f limit=%.2f run_id=%s",
+                cost, _BUDGET_SOFT_USD, run.run_id,
+            )
+        return True
 
     async def _gather_safe(
         self,
@@ -366,6 +411,7 @@ class ReviewRunner:
                 )
                 run.proposal = repaired
                 run.repair_history.append(repaired)
+                run.last_repair_manifest = list(manifest)
                 self.run_store.save_repair_manifest(run, manifest, attempt)
                 self.run_store.save_repair_proposal(run, repaired, attempt)
                 # Close defects that builder reported as FIXED (pending re-validation)
@@ -374,7 +420,7 @@ class ReviewRunner:
                 # Circuit breaker: max L2 attempts exhausted
                 run.defect_register.add_from_l2_report(l2_report, iteration=attempt)
                 for entry in run.defect_register.open_blockers:
-                    entry.status = entry.status.__class__("HALTED")
+                    entry.status = DefectStatus.HALTED
                 run.halted = True
                 run.halt_reason = (
                     f"L2_CIRCUIT_BREAKER: {MAX_L2_ATTEMPTS} L2 attempts failed — "
@@ -408,6 +454,11 @@ class ReviewRunner:
 
         for iteration in range(MAX_L1_ITERATIONS):
             run.l1_iteration = iteration
+
+            # Budget gate: check before each LLM round (L1 is where API cost accumulates)
+            if not self._check_budget(run):
+                return self.quality_gate.check_defect_register(register, iteration)
+
             logger.info(
                 "review_runner: L1 iteration=%d starting run_id=%s",
                 iteration, run.run_id,
@@ -451,20 +502,21 @@ class ReviewRunner:
                 run.proposal = repaired
                 run.revised_proposal = repaired
                 run.repair_history.append(repaired)
-                self.run_store.save_repair_manifest(run, manifest, 100 + iteration)
-                self.run_store.save_repair_proposal(run, repaired, 100 + iteration)
+                run.last_repair_manifest = list(manifest)
+                self.run_store.save_repair_manifest(run, manifest, _L1_REPAIR_OFFSET + iteration)
+                self.run_store.save_repair_proposal(run, repaired, _L1_REPAIR_OFFSET + iteration)
                 register.apply_repair_manifest(manifest)
 
                 # L2 re-run after repair
                 diff_stat = self.execution_gate.get_git_diff_stat()
                 l2_report = await self.execution_gate.run(task, git_diff_stat=diff_stat)
                 run.l2_reports.append(l2_report)
-                self.run_store.save_l2_report(run, l2_report, 100 + iteration)
+                self.run_store.save_l2_report(run, l2_report, _L1_REPAIR_OFFSET + iteration)
                 latest_l2 = l2_report
 
                 if not l2_report.all_pass:
                     # L2 regression after repair: add new defects
-                    register.add_from_l2_report(l2_report, iteration=100 + iteration)
+                    register.add_from_l2_report(l2_report, iteration=_L1_REPAIR_OFFSET + iteration)
                     logger.warning(
                         "review_runner: L2 regression after repair iteration=%d run_id=%s",
                         iteration, run.run_id,
@@ -613,8 +665,8 @@ class ReviewRunner:
         from .hard_shell.contracts import L2Report
         l2 = latest_l2 or L2Report(output_sample="[no L2 report available]")
 
-        # Get latest repair manifest from run history
-        repair_manifest = []  # Builder's repair entries (from most recent repair)
+        # Use the most recent repair manifest so critics see what builder claimed to fix
+        repair_manifest = list(run.last_repair_manifest)
 
         re_review_tasks = [
             auditor.re_review(
@@ -721,8 +773,8 @@ class ReviewRunner:
             "review_runner: L3 FAILED cases=%d/%d run_id=%s",
             l3_result.cases_failed, l3_result.cases_total, run.run_id,
         )
-        self.integration_gate.add_failures_to_register(l3_result, register, iteration=200)
-        self.run_store.save_defect_register(run, register, iteration=200)
+        self.integration_gate.add_failures_to_register(l3_result, register, iteration=_L3_REPAIR_OFFSET)
+        self.run_store.save_defect_register(run, register, iteration=_L3_REPAIR_OFFSET)
 
         # One repair + L2 attempt after L3 failure
         if register.open_blockers:
@@ -732,14 +784,15 @@ class ReviewRunner:
             )
             run.proposal = repaired
             run.repair_history.append(repaired)
-            self.run_store.save_repair_manifest(run, manifest, 200)
+            run.last_repair_manifest = list(manifest)
+            self.run_store.save_repair_manifest(run, manifest, _L3_REPAIR_OFFSET)
             register.apply_repair_manifest(manifest)
 
             # L2 re-run
             diff_stat = self.execution_gate.get_git_diff_stat()
             l2_report = await self.execution_gate.run(task, git_diff_stat=diff_stat)
             run.l2_reports.append(l2_report)
-            self.run_store.save_l2_report(run, l2_report, 200)
+            self.run_store.save_l2_report(run, l2_report, _L3_REPAIR_OFFSET)
 
             if not l2_report.all_pass:
                 run.halted = True

@@ -1,6 +1,6 @@
 # Consensus Pipeline Protocol v1
 
-**Status:** DRAFT — pending implementation
+**Status:** IMPLEMENTED — audit remediation in progress
 **Date:** 2026-04-13
 **Origin:** Architecture research session (Opus), 5 proposals synthesized
 

@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import shlex
 import subprocess
 import time
 from pathlib import Path
@@ -88,12 +89,31 @@ class ExecutionGate:
         """
         Run a shell command, return (exit_code, stdout, stderr).
         Enforces timeout.
+
+        Uses shell=False by default (safer). shell=True only when the command
+        contains shell operators (|, &&, ||, >, <, ;) — logged as a warning.
         """
-        logger.info("execution_gate: running command=%r cwd=%s", cmd, self.cwd)
+        _SHELL_OPERATORS = ("||", "&&", "|", ">", "<", ";")
+        use_shell = any(op in cmd for op in _SHELL_OPERATORS)
+        if use_shell:
+            logger.warning(
+                "execution_gate: shell=True for cmd=%r (contains shell operator) — "
+                "ensure task.test_commands comes from trusted internal sources only",
+                cmd,
+            )
+            args: str | list[str] = cmd
+        else:
+            try:
+                args = shlex.split(cmd)
+            except ValueError as exc:
+                logger.error("execution_gate: failed to parse command cmd=%r error=%s", cmd, exc)
+                return -1, "", f"COMMAND_PARSE_ERROR: {exc}"
+
+        logger.info("execution_gate: running command=%r shell=%s cwd=%s", cmd, use_shell, self.cwd)
         try:
             result = subprocess.run(
-                cmd,
-                shell=True,
+                args,
+                shell=use_shell,
                 cwd=str(self.cwd),
                 capture_output=True,
                 text=True,

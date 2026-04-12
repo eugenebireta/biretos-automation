@@ -16,7 +16,7 @@ import logging
 from typing import Any
 
 from ..hard_shell.contracts import AuditVerdict, DefectRegister, L2Report, RepairEntry, TaskPack
-from ..hard_shell.schema_validator import validate_and_parse
+from ..hard_shell.schema_validator import extract_json_from_response, validate_and_parse
 from .base import AuditorProvider
 # Reuse prompt builders from openai_auditor (same system/user prompt format)
 from .openai_auditor import _build_re_review_user_prompt, _build_system_prompt, _build_user_prompt
@@ -52,31 +52,6 @@ class AnthropicAuditor(AuditorProvider):
         import anthropic
         self._client = anthropic.AsyncAnthropic(api_key=api_key)
 
-    def _extract_json(self, text: str) -> str:
-        """
-        Extracts JSON from response text.
-        Handles raw JSON and markdown code fences (```json ... ```).
-        """
-        text = text.strip()
-
-        # Try raw JSON first
-        if text.startswith("{"):
-            return text
-
-        # Try markdown code fence: ```json ... ```
-        import re
-        fence_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
-        if fence_match:
-            return fence_match.group(1)
-
-        # Last resort: find first { to last }
-        start = text.find("{")
-        end = text.rfind("}")
-        if start != -1 and end != -1 and end > start:
-            return text[start : end + 1]
-
-        return text  # Let validate_and_parse handle the parse error
-
     async def _call(
         self,
         proposal: str,
@@ -110,7 +85,7 @@ class AnthropicAuditor(AuditorProvider):
             task.task_id, stage, len(raw_text),
         )
 
-        json_text = self._extract_json(raw_text)
+        json_text = extract_json_from_response(raw_text)
         verdict = validate_and_parse("anthropic", json_text)
         logger.info(
             "anthropic_auditor: verdict=%s critical=%d warnings=%d task_id=%s",
@@ -190,7 +165,7 @@ class AnthropicAuditor(AuditorProvider):
         )
 
         raw_text = response.content[0].text if response.content else ""
-        json_text = self._extract_json(raw_text)
+        json_text = extract_json_from_response(raw_text)
         verdict = validate_and_parse("anthropic", json_text)
         logger.info(
             "anthropic_auditor: re_review verdict=%s task_id=%s",

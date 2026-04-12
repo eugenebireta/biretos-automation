@@ -84,18 +84,49 @@ class IntegrationGate:
     """
 
     def __init__(self, base_dir: str | Path | None = None):
-        self.base_dir = Path(base_dir) if base_dir else Path.cwd()
+        self.base_dir = Path(base_dir).resolve() if base_dir else Path.cwd().resolve()
+
+    def _resolve_path(self, path: str) -> Path:
+        """
+        Resolve a relative path safely within base_dir.
+        Rejects absolute paths and path traversal (.. components).
+
+        Raises ValueError if path escapes base_dir.
+        """
+        p = Path(path)
+        if p.is_absolute():
+            raise ValueError(
+                f"integration_gate: absolute path rejected (security): {path!r}. "
+                "Use relative paths within base_dir."
+            )
+        if ".." in p.parts:
+            raise ValueError(
+                f"integration_gate: path traversal rejected (security): {path!r}"
+            )
+        resolved = (self.base_dir / p).resolve()
+        if not str(resolved).startswith(str(self.base_dir)):
+            raise ValueError(
+                f"integration_gate: path escapes base_dir (security): {path!r}"
+            )
+        return resolved
 
     def _load_dataset(self, path: str) -> dict[str, Any]:
-        """Load golden dataset JSON."""
-        dataset_path = (self.base_dir / path) if not Path(path).is_absolute() else Path(path)
+        """Load golden dataset JSON. Path must be relative within base_dir."""
+        dataset_path = self._resolve_path(path)
         if not dataset_path.exists():
             raise FileNotFoundError(f"Golden dataset not found: {dataset_path}")
         with open(dataset_path, encoding="utf-8") as f:
             return json.load(f)
 
     def _load_json(self, path: str) -> dict[str, Any]:
-        p = (self.base_dir / path) if not Path(path).is_absolute() else Path(path)
+        """Load a JSON file. Returns {} if path is empty or file missing."""
+        if not path:
+            return {}
+        try:
+            p = self._resolve_path(path)
+        except ValueError:
+            logger.warning("integration_gate: rejected invalid path=%r", path)
+            return {}
         if not p.exists():
             return {}
         with open(p, encoding="utf-8") as f:
