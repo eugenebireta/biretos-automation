@@ -182,6 +182,46 @@
       }
     }
   },
+  "telegram_pipeline": {
+    "order": ["telegram_gateway", "telegram_bot", "telegram_notifier"],
+    "scripts": {
+      "telegram_bot": {
+        "file": "orchestrator/telegram_bot.py",
+        "purpose": "Core Telegram bot — receives commands, routes to handlers",
+        "triggers": ["телеграм бот", "telegram bot", "команды бота"],
+        "usage": "python orchestrator/start_telegram.py",
+        "inputs": ["TELEGRAM_BOT_TOKEN (env)", "orchestrator/config.yaml"],
+        "outputs": ["Telegram messages to owner chat"],
+        "docs": ["KNOW_HOW_telegram.md"]
+      },
+      "telegram_gateway": {
+        "file": "orchestrator/telegram_gateway.py",
+        "purpose": "Webhook gateway — receives Telegram updates via HTTP",
+        "triggers": ["вебхук", "webhook", "входящие обновления"],
+        "usage": "python orchestrator/telegram_gateway.py",
+        "docs": ["KNOW_HOW_telegram.md", "docs/howto/COMMANDS.md"]
+      },
+      "telegram_notifier": {
+        "file": "orchestrator/telegram_notifier.py",
+        "purpose": "Send alerts and status updates to owner via Telegram",
+        "triggers": ["уведомление", "алерт", "notify owner"],
+        "usage": "python tools/tg_send.py --message 'text'",
+        "docs": ["KNOW_HOW_telegram.md"]
+      },
+      "export_command": {
+        "file": "routers/telegram/export_command.py",
+        "purpose": "/export command handler — trigger catalog export via Telegram",
+        "triggers": ["/export", "экспорт через бота"],
+        "docs": ["KNOW_HOW_telegram.md", "docs/howto/COMMANDS.md"]
+      },
+      "supervisor_telegram": {
+        "file": "scripts/supervisor/telegram_reader.py",
+        "purpose": "Supervisor reads Telegram for owner commands during autopilot runs",
+        "triggers": ["супервизор", "supervisor", "автопилот команды"],
+        "docs": ["KNOW_HOW_telegram.md"]
+      }
+    }
+  },
   "other_key_scripts": {
     "confidence_recalculator": {
       "file": "confidence_recalculator.py",

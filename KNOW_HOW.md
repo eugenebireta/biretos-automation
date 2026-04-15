@@ -5,10 +5,74 @@
 <!-- Только: внешние платформы, доменные правила данных, environment баги, аномалии данных. -->
 <!-- TECH DEBT: при 50+ записях — добавить AUDITOR code check: числа требуют shell output в коммите. -->
 
+## Pipeline Know-How Index
+
+Записи ниже — **master copy**. Sub-файлы содержат дубли для удобства навигации:
+- Enrichment/DR: [KNOW_HOW_enrichment.md](KNOW_HOW_enrichment.md)
+- Identity rules: [KNOW_HOW_identity.md](KNOW_HOW_identity.md)
+- Price lookup: [KNOW_HOW_price.md](KNOW_HOW_price.md)
+- Export/InSales: [KNOW_HOW_export.md](KNOW_HOW_export.md)
+- Telegram: [KNOW_HOW_telegram.md](KNOW_HOW_telegram.md)
+
+---
+
 Формат: `YYYY-MM-DD | #тег | scope: Суть и почему это важно`
 Tags: #platform, #bug, #rule, #data_quirk
 Scripts registry: see `scripts/MANIFEST.json` (don't duplicate here)
 
+2026-04-13 | #rule | dr-ops: Every AI batch MUST be logged in downloads/DR_BATCH_LOG.json before sending. Fields: id, date, model, task_type, sku_count, status, quality_notes. Status lifecycle: SENT → IMPORTED → (PARTIAL if partial import). Model ranking per task_type also maintained there. Without this log, coverage gaps and model quality are invisible across sessions.
+
+2026-04-13 | #data_quirk | dr-coverage: As of 2026-04-13 — 30 SKUs no DR at all (mostly PEHA), 59 no specs, 106 no description_ru, 21 old RUB price only. 343/368 EXPORT_READY. See downloads/DR_BATCH_LOG.json gap_summary.
+
+2026-04-14 | #platform | honeywell-photos: security.honeywell.de returns 403 on ALL direct image requests (scraping blocked). Photos available via Google-indexed CDN (honeywell.scene7.com works, prodisPictures blocks). Workaround: use distributor sites (ADI Global, roteiv-shop.de) or evidence DR URLs.
+
+2026-04-14 | #platform | vulkan-gpu-index: On this machine Vulkan GPU 0 = AMD iGPU (useless for AI), GPU 1 = RTX 3090 #1, GPU 2 = RTX 3090 #2. CUDA: GPU 0 = 3090 #1, GPU 1 = 3090 #2. Real-ESRGAN ncnn-vulkan must use --gpu 1 or 2, never 0.
+
+2026-04-15 | #rule | photo-audit-identity: Haiku photo audit MUST include product identity in prompt (assembled_title + brand + PN). Without it Haiku audits photo QUALITY only — passes airplane cockpit (EASY PN) and Mann filter (109411) as GOOD because background is white. Fix: audit_photos_v2.py loads evidence per PN, injects "Product info:" into user message, adds wrong_product issue code. Confirmed: 3/4 problem photos correctly flagged wrong_product when identity added, 0/4 flagged without it.
+
+2026-04-15 | #data_quirk | pipeline-completeness-2026-04-15: 374 SKUs total. Strong identity: 262 (70%). Weak identity: 99 (26%) — need Phase 1 re-run. No identity: 9 (2%). Price: 368 (98%). Photo URL: 366 (97%). Description: 370 (99%). Specs: 325 (87%). Fully complete (all 4): 358 (95%). Command: `python -c "import json; ..."` (see conversation 2026-04-15).
+
+2026-04-15 | #rule | model-assignment-pipeline: Confirmed optimal model per phase (30-SKU benchmark 2026-04-11, A/B test 2026-04-09). Phase 1+2 Recon: Haiku (best product ID, type designations, honest "not found", cheapest). Phase 3A Price: GPT Think (21/30 coverage, correct pack division). Phase 3B Content/Specs: Opus ext (10 photos, 136 URLs, best specs). Training URL collection: Sonnet ext (153 URLs, most). Gemini: permanently banned — fabricates prices (€2 for PEHA frame), fake URLs. Short prompt (Structured First) > long narrative prompt for data coverage (A/B v6: +2 prices, +4 photos vs Narrative Deep). Narrative Deep wins only for description text quality.
+
+2026-04-15 | #data_quirk | photo-pipeline-results: Full run 2026-04-15. Evidence URLs: 350/374 PNs had best_photo_url. Collected: 338 PNs with photos. CLIP cross-validation: 81 outliers quarantined (mostly serp_ and ebay_local prefix). v2 pipeline: 276 processed, 199 QC PASS, 59 fallback (original), 68 errors (corrupt downloads). Haiku audit: 139/276 GOOD (50%), top issues: background_not_removed(47), has_logo(40), multiple_products(38). Deployed 313 photos to VPS.
+
+2026-04-15 | #platform | qwen2vl-finetune-rope: Qwen2-VL fine-tuning with Trainer fails with RuntimeError: size of tensor a (N) must match tensor b (2N) in apply_rotary_pos_emb_vision when batch contains images of different pixel counts. Fix: manual training loop (1 sample per forward, no batching). Trainer's gradient_accumulation creates silent image batches that break dynamic RoPE. Must resize ALL images to exact fixed size (224×224) before processor call.
+
+2026-04-15 | #data_quirk | local-ai-results-v2: Fine-tuned Qwen2-VL-2B on 483 labeled photos (3 epochs, manual loop, last 8 LM layers + lm_head unfrozen). Exact accuracy: 76% (was 50% zero-shot). Binary accuracy: 86%. Loss: 42.75 → 0.076. Model saved to D:\AI_MODELS\trained\qwen2vl_2b_photo_quality. Parallel pipeline (--parallel flag) splits 370 PNs across 2 GPUs for ~2x throughput without quality loss.
+
+2026-04-14 | #platform | serp-api-quotes: SERP API google_images engine returns 0 results when query has quoted phrase + unquoted words (e.g. `"1000106" Howard Leight` → 0). Must use without quotes: `1000106 Howard Leight` → 100 results.
+
+2026-04-14 | #data_quirk | photo-audit: 301 photos audited via Haiku Vision: 46% good, 31% bg_not_removed, 13% not_product, 12% has_logo, 10% multi_product, 8% watermark, 7% low_quality.
+
+2026-04-14 | #data_quirk | dr-photo-accuracy: DR best_photo_url wrong for 033588.17 (ABB bearing instead of PEHA box). Cause: numeric PN "033588" exists in ABB catalog as different product. Cross-validation needed for all numeric PNs.
+
+2026-04-14 | #rule | photo-sources: Evidence DR URLs > manufacturer sites > trusted distributors (RS/Mouser/ADI/TME). NEVER random Google Images or eBay for numeric PNs. Local photos/ correct 87% (7/8), evidence DR correct 83% (5/6). SERP gives garbage.
+
+2026-04-14 | #platform | clip-vs-vlm: CLIP ViT-L/14 excellent for same-product verification (sim threshold 0.80). Useless for quality classification (30% zero-shot, 43% fine-tuned head). Need VLM (InternVL2.5/LLaVA) for quality tasks.
+
+2026-04-14 | #bug | secrets-shadow: scripts/secrets.py shadowed Python stdlib `secrets` module, breaking numpy/torch import. Renamed to scripts/app_secrets.py. Never name files same as stdlib modules.
+
+2026-04-12 | #rule | pn-brand: CWSS grammar CONFIRMED from Honeywell Declaration of Performance: CWSS-[body][flash]-[base][fix]. Body/flash: R=red, W=white. Base: S=shallow, W=deep IP65. Fix: 5=standard, 6=first-fix. e.g. CWSS-RR-S5, CWSS-RW-W6.
+2026-04-12 | #rule | pn-brand: Distech ECL-xxx = LonWorks TP/FT-10 controllers (sister family to ECB BACnet). ECL is separate prefix from ECB — both are Distech but different protocols.
+2026-04-12 | #rule | pn-brand: Eaton Redapt full confirmed grammar: [family][cert][material][plating][male_thread][female_thread]. DB=insulated adaptor, PA/PB/PD=stopping plugs. Cert: U/D/E/F. Material: 1=brass,2=mild steel,3=stainless,4=GF nylon,5=aluminium. Plating: 0=unplated,1=EN,2=zinc,6=chromated.
+2026-04-12 | #rule | pn-brand: LUX 24 = Produal room light level sensor (SKU 1133320). NOT Honeywell. Produal is Finnish building automation brand. Product discontinued per Sonepar. Old price refs EUR 126-177 (2017), no current public price.
+2026-04-12 | #platform | model-selection: for PN grammar research — GPT Extended Think or GPT Think+web are significantly better than regular GPT Think. Regular GPT Think gives confident but unsourced decodes (e.g., invented full field decode for XNX-RMAV-RNNNN). Extended Think/web version flags each claim as Confirmed/Inferred and provides actual PDF URLs. Use Extended Think or Think+web for any brand grammar batch. Confirmed by 3-batch comparison 2026-04-12.
+2026-04-12 | #rule | pn-brand: FT6960 = manual-reset frost thermostat; FT6961 = auto-reset. Suffix 18/30/60 = capillary tube length (1.8m / 3m / 6m). Confirmed by GPT Think+web citing Honeywell sensor flyer.
+2026-04-12 | #rule | pn-brand: D-71570 ≠ Murrelektronik product PN. It is the company postal address (D-71570 Oppenweiler, Germany) that appears in official Murrelektronik PDFs. Our catalog has it as "Electronic fuse" — brand is uncertain, PN may be noise. Confirmed by GPT Extended Think citing Murrelektronik General Catalog.
+2026-04-12 | #rule | pn-brand: Weidmüller `7508xxxxxx` prefix alone is NOT a safe brand signal. Weidmüller uses many different 10-digit article number ranges. Use `FTA-C300-...` type string for reliable detection. The 3 SKUs (7508001857/58/2114) happen to be Weidmüller but 7508 is not a dedicated block.
+2026-04-12 | #rule | pn-brand: Kale Kilit real catalog form is KD050/45-106 (slash, no dash). Our import has KD-050 (dash-normalized). Both forms are valid; pattern must match `KD-?\\d{3}` to cover both. KD050=cabinet lock, KD070=glass door.
+2026-04-12 | #rule | pn-brand: EVCS-HSB/EVCS-MS = Notifier (Honeywell Fire Safety), NOT Morley-IAS. Morley-IAS is Hochiki subsidiary, separate company. Gemini DR incorrectly attributed EVCS to Morley-IAS.
+2026-04-12 | #bug | pn_brand_lib: `detect_brand()` returned first-match, not best-match. MEDIUM-confidence 7-digit pattern `^10\d{5}` (Howard Leight) was beating HIGH-confidence `^10118[89]\d-RU` (Sperian) because it appeared first in the JSON array. Fix: iterate all matches, rank by confidence (HIGH>MEDIUM>LOW) then pattern length. Applied 2026-04-12.
+2026-04-12 | #rule | pn-brand: CPO-RL = ComfortPoint Open = Honeywell (NOT Distech). CPO-RL1 to CPO-RL8 series. Vendor ID 17 = Honeywell International Inc. (confirmed in PDF). ECB-prefix = Distech Controls (separate company). The two are often confused because both appear on buildings.honeywell.com.
+2026-04-12 | #rule | pn-brand: Esser 6-digit ranges: 802xxx=IQ8Quad w/isolator, 803xxx=without isolator, 804xxx=MCP electronics, 805xxx=detector bases, 704xxx=MCP housings (color: 704900=red/fire, 701=blue/gas). FX808xxx=FlexES only. Source: dr_claude_grammar 2026-04-12.
+2026-04-12 | #rule | pn-brand: Distech Controls = subsidiary of Acuity Brands (NOT Honeywell). ECB-xxx are Distech/Acuity. buildings.honeywell.com lists them as reseller — brand on product is Distech. NOTE: CPO-RL is NOT Distech — see rule above.
+2026-04-12 | #rule | pn-brand: Novar GmbH ≠ Esser. Both are Honeywell Buildings subsidiaries but separate: Novar=intrusion/access (PN: 6-digit.2-digit like 010130.10), Esser=fire detection (PN: 80xxxx, FX808xxx).
+2026-04-12 | #rule | pn-brand: Beckhoff terminal first-digit rule: EL/EP/KL 1xxx=digital input, 2xxx=digital output, 3xxx=analog input, 4xxx=analog output, 5xxx=encoder, 6xxx=communication, 7xxx=drive, 9xxx=infrastructure. Consistent across all generations.
+2026-04-12 | #rule | pn-brand: Weidmuller 10-digit PNs almost always end in 0000 (last 4 digits) for standard products. Color/packaging variants use non-zero last 4 digits. This trailing-0000 pattern is a strong distinguishing signal.
+2026-04-12 | #rule | pn-brand: SC-SCDUPLEX9/125-x = Sonlex (Russian fiber brand, confirmed nix.ru/bspl.ru). 2SM-3.0-SCU-SCU-x and SM-0.9-SC-UPC-x = Optcom/ОПТКОМ (Russian, confirmed optcom.ru). These are NOT Hyperline.
+2026-04-12 | #rule | pn-brand: 7508001857/58/2114 = Weidmuller FTA-C300 (field terminal assemblies for Honeywell C300 DCS). 7508-prefix is Weidmuller, NOT Honeywell — despite being used in Honeywell DCS installations.
+2026-04-12 | #platform | model-selection: for PN pattern research (brand catalog structure) — Claude DR + Opus extended is best. Opus covers edge cases, finds aliases, returns structured tables. Sonnet = faster but shallower. Haiku = not suitable. Gemini DR = fallback (OK for factual/non-price tasks). GPT Think (no web) = last resort.
+2026-04-12 | #rule | model-selection: ALWAYS specify exact model when asking owner to run DR. Not just "use Claude DR" but "use Claude DR with Opus extended". Different models = different quality.
 2026-04-09 | #platform | gemini-dr: SHORT prompts only. Long prompts trigger analytics mode (narrative, ZERO prices/URLs). Table mode and analytics mode are mutually exclusive.
 2026-04-09 | #platform | gemini-dr: input = minimal 3-col table (# | PN | Hint). Batch: 20 SKU. Files: deep-research-report*.md
 2026-04-09 | #platform | claude-dr: RICH prompts OK. Include Excel descriptions, ref prices, aliases. Batch: 30 SKU.
