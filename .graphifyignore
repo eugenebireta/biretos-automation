@@ -1,0 +1,63 @@
+# Scratchpad — throwaway experiments, not real code
+_scratchpad/
+
+# Orchestrator run copies — duplicates of main codebase
+orchestrator/runs/
+
+# Day1 closure waybill — archived project snapshot
+_scratchpad/day1-closure-waybill/
+
+# Binary tools — not code
+tools/realesrgan-ncnn-vulkan/
+tools/realesrgan-ncnn-vulkan-old/
+tools/*.zip
+
+# Evidence data files — JSON data, not code
+downloads/evidence/
+downloads/photos*/
+downloads/export/
+downloads/staging/
+downloads/archive/
+downloads/knowledge/
+downloads/dr_results/
+downloads/prompts/
+downloads/lots/
+downloads/documents/
+downloads/photo_training/
+downloads/photo_triage/
+downloads/scout_cache/
+downloads/scout_assets/
+downloads/browser_profiles/
+
+# Research results — data, not code
+research_results/
+research_queue/
+training_data/
+
+# Run artifacts
+runs/
+shadow_log/
+auditor_system/runs/
+
+# Graphify own output
+graphify-out/
+
+# Generated/temp
+*.log
+*.tmp
+__pycache__/
+venv*/
+.venv*/
+build/
+dist/
+*.egg-info/
+node_modules/
+
+# Cursor windmill copies
+.cursor/windmill-core-v1/
+
+# Media
+*.jpg
+*.jpeg
+*.png
+*.webp
