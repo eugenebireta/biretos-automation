@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "210213",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "PEHA",
   "subbrand": "PEHA",
   "name": "Датчик Honeywell D 433 HAB O.A",
   "assembled_title": "Диммер PEHA, 210213",
@@ -345,7 +345,9 @@
     "type_designation": "D 433 HAB O.A.",
     "color_material": "base element",
     "identity_notes_p1": "Trailing edge dimmer, 20-315W, rotary/push button operation",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -691,7 +693,18 @@
     "title_ru": "dimmer",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "specs": {
+      "series": "NOVA/DIALOG",
+      "type": "Electronic dimmer insert",
+      "gang": "1",
+      "load_range": "20-315VA",
+      "dimming_type": "Trailing-edge TRONIC",
+      "load_types": "Capacitive (electronic transformers) + Resistive (incandescent halogen)",
+      "control": "Rotary + push ON/OFF",
+      "protection_features": "Electronic short-circuit and overload",
+      "standard": "VDE"
+    }
   },
   "training_urls": [
     "https://www.amazon.de/Honeywell-Einsatz-Aluminium-433-HAB/dp/B000UX3OBO",
@@ -726,5 +739,81 @@
     "best_description_source": "content",
     "best_photo_url": "D 433 HAB O.A.",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Actuating switch for installation, electronic",
+    "description": "Actuating switch for installation, electronic",
+    "specs": {
+      "standards": [
+        "DIN EN 60669-1 (VDE 0632 Teil 1):2009-10",
+        "EN 60669-1:1999 + A1:2002 + A2:2008+",
+        "EN 60669-2-1(VDE 0632-2-1) :2010-03",
+        "EN 60669-2-1: 2004 + A1:2009",
+        "DIN EN 60669-2-1/A12 (VDE 0632-2-1/A12) 2010-09",
+        "EN 60669-2-1:2004/A12:2010",
+        "IEC 60669-1(ed.3); am1; am2",
+        "IEC 60669-2-1/ed.4);am1"
+      ],
+      "directives": [
+        "Low Voltage Directive (2006/95/EC)",
+        "EMC Directive (2004/108/EC)",
+        "RoHS Directive (2011/65/EU)"
+      ],
+      "VDE_certificate_no": "40011436"
+    },
+    "specs_count": 3,
+    "series": "",
+    "category": "Actuating switch",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "CE",
+      "VDE"
+    ],
+    "article_no": "433HAB, 435HAB, 439HAB",
+    "ean": "4010105210217",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\210213.pdf",
+    "datasheet_size_kb": 424,
+    "product_photos": [
+      "downloads\\datasheet_photos\\210213_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 210213 follows PEHA's 6-digit numeric format. The seed_name 'D 433 HAB O.A' appears to be a PEHA model designation (D-series actuating switch). The datasheet title 'Actuating switch for installation, electronic' matches PEHA's product line. The current_brand shows Honeywell but this is incorrect - the source data confusion mixed PEHA product with Honeywell branding. This is a PEHA electronic actuating switch, not a Honeywell sensor.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Actuating switch for installation, electronic' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105210217",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

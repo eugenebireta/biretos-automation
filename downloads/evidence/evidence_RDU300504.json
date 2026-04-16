@@ -3,10 +3,10 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "RDU300504",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Eaton",
   "subbrand": null,
   "name": "Редуктор RDU300504",
-  "assembled_title": "Редуктор Honeywell RDU300504",
+  "assembled_title": "Редуктор Eaton RDU300504",
   "our_price_raw": "3002,25",
   "expected_category": "Редуктор",
   "card_status": "DRAFT_ONLY",
@@ -306,7 +306,9 @@
     "structured_pn_match_location": "",
     "product_line": "RDU",
     "identity_notes_p1": "Cannot confirm; no clear product match found",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Eaton",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -586,7 +588,23 @@
       "raw": "316L SS; IP66/IP68; -20…+80°C; ATEX/EAC/IECEx/CSA; Zone 1/2/21/22; seal nitrile",
       "aliases": [
         "Honeywell Analytics RDU300504 (у дилеров)"
-      ]
+      ],
+      "Type": "Explosionproof reducer",
+      "Series": "RDU (Crouse-Hinds)",
+      "Material": "Stainless Steel",
+      "Thread type": "NPT",
+      "Certifications": "UL1203, CSA C22.2 No.30",
+      "Hazardous area": "Class I Div 1&2, Groups A,B,C,D; Class II; Class III",
+      "Application": "Hazardous area electrical installations",
+      "Brand": "Eaton Crouse-Hinds / Redapt",
+      "Part Number": "RDU300504",
+      "Device Type": "Thread reducer / adapter",
+      "Male Thread": "M25",
+      "Female Thread": "M20",
+      "manufacturer": "Eaton Redapt",
+      "material": "Stainless Steel 316L",
+      "certifications": "Ex d (flameproof), Ex e (increased safety)",
+      "ean": "5056009963483"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -610,7 +628,44 @@
     "merge_source": "result_RDU300504.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (3).md"
+    "source_file": "deep-research-report (3).md",
+    "descriptions_all": {
+      "claude": "Редуктор Eaton RDU300504 относится к серии взрывозащищённых металлических редукторов Eaton Crouse-Hinds RDU, выполненных из нержавеющей стали. Редукторы серии RDU предназначены для перехода между различными размерами резьбовых отверстий во взрывозащищённых оболочках и корпусах электрооборудования. Обозначение RDU300504 указывает на конкретное сочетание мужской и женской резьбы (NPT). Серия RDU сертифицирована для применения во взрывоопасных зонах класса I (Division 1 и 2, группы A, B, C, D), класса II и класса III согласно стандартам NEC/CEC. Редукторы изготовлены из нержавеющей стали для обеспечения коррозионной стойкости в агрессивных средах. Установка производится путём вкручивания в резьбовое отверстие с рекомендуемым моментом затяжки. Изделия применяются в нефтегазовой промышленности, химических производствах, шахтах и других объектах с повышенными требованиями к взрывозащите.",
+      "gpt": "RDU300504 — это не привод и не редуктор, а резьбовой переходник серии Eaton Crouse-Hinds / Redapt RD-U. Изделие используется как reducer для кабельных вводов и соединений во взрывоопасных и тяжёлых промышленных средах. По данным производителя, это адаптер из нержавеющей стали с переходом с внешней резьбы M25 на внутреннюю резьбу M20. Такие компоненты применяются в Ex-системах, шкафах управления, коробках соединения и полевых приборах, когда необходимо состыковать кабельный ввод с иным резьбовым размером. Главная задача изделия — обеспечить механически корректный и нормативно совместимый переход между резьбовыми интерфейсами без кустарных редукций. В промышленных проектах это особенно важно для сохранения требований по степени защиты, устойчивости к коррозии и взрывозащите. Нержавеющее исполнение делает компонент пригодным для агрессивных сред, наружной установки и отраслей с повышенными требованиями к долговечности. При подборе необходимо проверять не только тип резьбы, но и требования проекта по Ex-сертификации, материалу корпуса и температурному диапазону. Монтаж выполняется как обычное резьбовое соединение, но в ответственных системах должен соответствовать инструкциям производителя и требованиям локальных стандартов. Для B2B-каталога позицию следует описывать именно как Eaton/Redapt thread reducer, чтобы избежать полной ошибки классификации.",
+      "synthesis": "RDU300504 — это резьбовой переходник (thread reducer) серии Eaton Crouse-Hinds/Redapt RD-U из нержавеющей стали, используемый как adapter для кабельных вводов и соединений во взрывоопасных и тяжёлых промышленных средах. По данным производителя, это адаптер с переходом с внешней резьбы M25 на внутреннюю резьбу M20, обеспечивающий механически корректный и нормативно совместимый переход между резьбовыми интерфейсами. Такие компоненты применяются в Ex-системах, шкафах управления, коробках соединения и полевых приборах, когда необходимо состыковать кабельный ввод с иным резьбовым размером. Главная задача изделия — обеспечить совместимость без кустарных редукций, сохранив требования по степени защиты, устойчивости к коррозии и взрывозащите. Нержавеющее исполнение делает компонент пригодным для агрессивных сред, наружной установки и отраслей с повышенными требованиями к долговечности (нефтегазовая промышленность, химические производства, шахты). Серия RDU сертифицирована для применения во взрывоопасных зонах класса I (Division 1 и 2, группы A, B, C, D), класса II и класса III согласно стандартам NEC/CEC. При подборе необходимо проверять не только тип резьбы, но и требования проекта по Ex-сертификации, материалу корпуса и температурному диапазону. Монтаж выполняется как обычное резьбовое соединение с рекомендуемым моментом затяжки в соответствии с инструкциями производителя."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Explosionproof reducer",
+        "Series": "RDU (Crouse-Hinds)",
+        "Material": "Stainless Steel",
+        "Thread type": "NPT",
+        "Certifications": "UL1203, CSA C22.2 No.30",
+        "Hazardous area": "Class I Div 1&2, Groups A,B,C,D; Class II; Class III",
+        "Application": "Hazardous area electrical installations"
+      },
+      "gpt": {
+        "Brand": "Eaton Crouse-Hinds / Redapt",
+        "Series": "RD-U",
+        "Part Number": "RDU300504",
+        "Device Type": "Thread reducer / adapter",
+        "Material": "Stainless steel",
+        "Male Thread": "M25",
+        "Female Thread": "M20",
+        "Application": "Hazardous area cable gland adaptation"
+      },
+      "gemini": {
+        "manufacturer": "Eaton Redapt",
+        "material": "Stainless Steel 316L",
+        "certifications": "Ex d (flameproof), Ex e (increased safety)",
+        "ean": "5056009963483"
+      }
+    },
+    "notes_all": {
+      "claude": "RDU300504 follows Eaton Crouse-Hinds RDU naming convention with specific thread sizes.",
+      "gpt": "Exact public data identifies this item as a stainless thread reducer, not a drive/reducer.",
+      "gemini": "Suitable for hazardous areas with flammable gas atmospheres."
+    }
   },
   "training_urls": [
     "https://www.eaton.com/us/en-us/catalog/conduit-cable-and-wire-management/redapt-metallic-adaptor-and-reducer.html",
@@ -618,7 +673,12 @@
     "https://www.frontline-safety.co.uk/honeywell-reducer-atex-ex-d-e-316ss-m25-m-to-m20-f",
     "https://www.newark.com/redapt/rdu100504/reducer-m25-m20/dp/14J6999",
     "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/RDU300504",
-    "https://www.scatts.co.uk/redapt-rdu300504-series-rdu-ex-reducer-stainless-steel-m25-male-to-m20-female-for-zones-1-2-21-22-21479293636023"
+    "https://www.scatts.co.uk/redapt-rdu300504-series-rdu-ex-reducer-stainless-steel-m25-male-to-m20-female-for-zones-1-2-21-22-21479293636023",
+    "https://www.graybar.com/rdu-series-reducer-stainless-steel-3-4-in-male-npt-to-1-2-in-female-npt/p/25942033",
+    "https://www.eaton.com/us/en-us/catalog/fittings/explosionproof-reducers--adapters-and-plugs.html",
+    "https://www.eaton.com/us/en-us/skuPage.RDU300504.html",
+    "https://assets.eaton.com/content/dam/eaton/products/enclosures/crouse-hinds-series/install-instructins/redapt-thread-conversion-solutions-series-rd-u-and-series-rd.pdf",
+    "https://redapt.com/wp-content/uploads/2022/07/1.4-Catalogue-Eaton-Redapt-Thread-Reducers-Reducers-RD-U.pdf"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -646,5 +706,17 @@
     "best_description_source": "content",
     "best_photo_url": "https://images.scatts.co.uk/products/21479293636023-1.jpg",
     "best_photo_source": "photo_verdict"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format RDU300504 appears consistent with Eaton's industrial component naming convention. 'Редуктор' is Russian for 'reducer/gearbox', which aligns with Eaton's power management and industrial automation product portfolio. The PN structure (RDU + 6 digits) suggests an authentic industrial component part number. However, the complete lack of datasheet, specifications, and truncated description indicates missing source documentation rather than incorrect brand assignment. Requires proper datasheet sourcing to complete product data."
+    }
   }
 }

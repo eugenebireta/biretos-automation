@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "CB015A",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "HP",
   "subbrand": null,
   "name": "Принтер Honeywell CB015A",
   "assembled_title": "Принтер Honeywell CB015A",
@@ -316,7 +316,7 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "product_line": "Honeywell Printers",
-    "confirmed_manufacturer": "Honeywell",
+    "confirmed_manufacturer": "HP",
     "identity_notes_p1": "Honeywell barcode/label printer model",
     "phase1_recon_done": true
   },
@@ -600,7 +600,22 @@
     "specs": {
       "aliases": [
         "HP Officejet Pro K8600 (CB015A)"
-      ]
+      ],
+      "Type": "Inkjet printer",
+      "Series": "HP Officejet Pro",
+      "HP PN": "CB015A",
+      "Print speed": "Up to 35 ppm (mono), 20 ppm (color)",
+      "Resolution": "Up to 1200x1200 dpi",
+      "Duplex": "Automatic",
+      "Connectivity": "USB, Ethernet, Wi-Fi",
+      "Paper format": "A4",
+      "Ink cartridges": "HP 940/940XL",
+      "Brand": "HP",
+      "Part Number": "CB015A",
+      "Model": "Officejet Pro K8600",
+      "Device Type": "A3+ color inkjet printer",
+      "Max Paper Size": "A3+",
+      "Status": "Discontinued"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -623,7 +638,37 @@
     "merge_source": "result_CB015A.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "HP CB015A — это обозначение продукта компании HP (Hewlett-Packard), относящееся к линейке печатающих устройств. Артикул CB015A соответствует принтеру HP Officejet Pro 8000 или аналогичному устройству серии Officejet. Принтеры серии HP Officejet Pro предназначены для профессионального использования в офисе и обеспечивают высококачественную цветную и чёрно-белую печать на бумаге формата A4. Устройство поддерживает автоматическую двустороннюю печать (дуплекс), имеет встроенные сетевые интерфейсы (Ethernet, Wi-Fi) для работы в корпоративной сети. Скорость печати составляет до 35 стр/мин в чёрно-белом режиме и до 20 стр/мин в цветном. Разрешение печати — до 1200×1200 dpi. Принтер использует картриджи HP 940/940XL. Модель снята с производства, но расходные материалы по-прежнему доступны.",
+      "gpt": "HP CB015A — это не картридж, а широкоформатный струйный принтер HP Officejet Pro K8600. Артикул относится к самому устройству печати, а не к расходному материалу, что особенно важно для корректной каталогизации. Модель предназначена для цветной печати документов вплоть до формата A3+, поэтому она применялась в офисах, инженерных отделах, проектных группах и небольших рекламно-полиграфических задачах. Принтер ориентирован на пользователей, которым требуется более крупный формат, чем стандартный A4, при относительно доступной стоимости владения по сравнению с профессиональными графическими системами. Устройство относится к линейке Officejet Pro и работает со сменными струйными картриджами HP, но сам CB015A является кодом именно принтера. Для корпоративной среды важны поддержка сетевого применения, печать цветных отчётов, чертежей, таблиц и маркетинговых материалов на листах увеличенного формата. При закупке или сервисе следует отдельно подбирать совместимые чернила и учитывать состояние печатающей системы, особенно если речь идёт о legacy-оборудовании. HP помечает эту модель как discontinued, поэтому новые единицы на рынке ограничены, а поставка чаще связана с остатками, восстановленными или бывшими в эксплуатации устройствами. Если позиция фигурирует в mixed-brand каталоге как «cartridge», это ошибка распознавания и её необходимо исправить на printer. Для B2B-каталога корректное описание должно указывать, что это A3+ color inkjet printer с legacy-статусом.",
+      "synthesis": "HP CB015A — широкоформатный струйный принтер Officejet Pro серии K8600, предназначенный для цветной печати документов вплоть до формата A3+. Это не расходный материал или картридж, а полноценное устройство печати для офисов, инженерных отделов, проектных групп и небольших рекламно-полиграфических задач. Модель ориентирована на пользователей, которым требуется более крупный формат, чем стандартный A4, при относительно доступной стоимости владения по сравнению с профессиональными графическими системами. Принтер поддерживает автоматическую двустороннюю печать (дуплекс), имеет встроенные сетевые интерфейсы (Ethernet, Wi-Fi) для работы в корпоративной сети, что обеспечивает высококачественную цветную и чёрно-белую печать. Скорость печати составляет до 35 стр/мин в чёрно-белом режиме и до 20 стр/мин в цветном, разрешение печати — до 1200×1200 dpi. Для корпоративной среды важны поддержка сетевого применения, печать цветных отчётов, чертежей и таблиц на листах увеличенного формата. Устройство работает со сменными струйными картриджами HP и относится к линейке Officejet Pro. Модель снята с производства, поэтому новые единицы на рынке ограничены, а поставка чаще связана с остатками или восстановленными устройствами."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Inkjet printer",
+        "Series": "HP Officejet Pro",
+        "HP PN": "CB015A",
+        "Print speed": "Up to 35 ppm (mono), 20 ppm (color)",
+        "Resolution": "Up to 1200x1200 dpi",
+        "Duplex": "Automatic",
+        "Connectivity": "USB, Ethernet, Wi-Fi",
+        "Paper format": "A4",
+        "Ink cartridges": "HP 940/940XL"
+      },
+      "gpt": {
+        "Brand": "HP",
+        "Part Number": "CB015A",
+        "Model": "Officejet Pro K8600",
+        "Device Type": "A3+ color inkjet printer",
+        "Max Paper Size": "A3+",
+        "Status": "Discontinued"
+      }
+    },
+    "notes_all": {
+      "claude": "Discontinued HP printer. Listed as Honeywell in Excel — this is an HP product.",
+      "gpt": "Common cataloging pitfall: CB015A is the printer itself, not a cartridge."
+    }
   },
   "training_urls": [
     "https://automation.honeywell.com/us/en/products/productivity-solutions/printers",
@@ -631,7 +676,10 @@
     "https://www.nseautomation.com/",
     "https://www.officedepot.com/a/products/404180/HP-Officejet-Pro-K8600-Wide-Format/",
     "https://www.printerbase.co.uk/spec/pdf/K8600%20270308.pdf",
-    "https://www.toner2print.com/printers/hp/all-in-one_inkjet/CB015A/"
+    "https://www.toner2print.com/printers/hp/all-in-one_inkjet/CB015A/",
+    "https://support.hp.com/us-en/product/details/hp-officejet-pro-k8600-printer/3435672",
+    "https://www.hp.com/emea_africa-en/products/oas/product-detail.html?oid=3435672",
+    "https://www.hp.com/emea_africa-en/products/oas/product-detail.html?oid=3435672#!tab=specs"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -659,5 +707,46 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.centralvacuumonline.com/products/beam/partsfilters/electricalparts/c",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "HP Officejet Pro K8600 Color Printer series",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CB015A.pdf",
+    "datasheet_size_kb": 251,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CB015A_p2_4.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/CB015A_p2_4.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "CB015A is a valid HP part number for the Officejet Pro K8600 series printer, confirmed by datasheet title. The current brand 'Honeywell' is incorrect - this is an HP office printer, not a Honeywell industrial printer. Part number format and product match HP's naming convention. Brand field must be corrected to HP.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'HP Officejet Pro K8600 Color Printer series' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

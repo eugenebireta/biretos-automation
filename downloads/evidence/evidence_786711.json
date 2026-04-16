@@ -339,7 +339,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -668,7 +670,8 @@
     "source_file": "deep-research-report (5).md"
   },
   "training_urls": [
-    "https://www.electronicsurplus.com/"
+    "https://www.electronicsurplus.com/",
+    "https://liveinlight.ru/nakladki-klavishy-zaglushki/na-informacionnye-rozetki/nakladka-na-rozetku-informacionnuyu-peha-by-honeywell-dialog-bejevyy"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -694,7 +697,70 @@
     "best_price_source": "price_contract",
     "best_description": "Датчик D 95.610.03 UAE/1-N используется в системах автоматизации для контроля различных параметров. Обладает высокой точностью и надежностью, подходит для использования в промышленных условиях.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_786711.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "PUBLIC REGISTER NOTICE - EMPLOYMENT EQUITY ACT, 1998",
+    "description": "This document is a Public Register Notice published by the Department of Labour in the South African Government Gazette. It lists designated employers who have submitted employment equity reports in terms of Section 21 of the Employment Equity Act, Act No. 55 of 1998. The list includes the business name and an EE Reference Number for each employer.",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "Government Notice",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\786711.pdf",
+    "datasheet_size_kb": 20204,
+    "product_photos": [
+      "downloads\\datasheet_photos\\786711_p1_0.png",
+      "downloads\\datasheet_photos\\786711_p2_0.png",
+      "downloads\\datasheet_photos\\786711_p3_0.png"
+    ],
+    "photo_count": 3,
+    "ean": "4010105786712",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The datasheet PDF clearly contains wrong content (employment equity legal document instead of product specs). Seed name indicates this is a sensor (Датчик = sensor in Russian) with model 'D 95.610.03 UAE/1-N'. The PN 786711 appears to be an internal catalog number, while 'D 95.610.03 UAE/1-N' is likely the actual manufacturer part number. Cannot confirm Honeywell as brand without valid datasheet. Product needs correct technical documentation to determine true manufacturer and specifications."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 20204KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'PUBLIC REGISTER NOTICE - EMPLOYMENT EQUITY ACT, 1998' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105786712",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

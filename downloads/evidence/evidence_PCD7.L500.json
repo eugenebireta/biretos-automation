@@ -6,7 +6,7 @@
     "PCD7-L500",
     "PCD7L500"
   ],
-  "brand": "Honeywell",
+  "brand": "Saia-Burgess",
   "subbrand": null,
   "name": "Блок питания PCD7.L500",
   "assembled_title": "Блок питания Honeywell PCD7.L500",
@@ -617,9 +617,57 @@
     "best_price_source": "price_contract",
     "best_description": "Блок питания PCD7.L500 преобразует напряжение 230 В переменного тока в 24 В постоянного тока. Он используется для питания различных устройств в системах автоматизации.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/SAIA_HONEYWELL_PCD7.L500.jpg",
+    "best_photo_source": "vps_static"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=SAIA/Honeywell"
+  "review_reason": "Phase 1 recon: manufacturer=SAIA/Honeywell",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Saia PCD3.Mxx60 controllers",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PCD7.L500.pdf",
+    "datasheet_size_kb": 33182,
+    "product_photos": [
+      "downloads\\datasheet_photos\\PCD7.L500_p1_0.jpeg",
+      "downloads\\datasheet_photos\\PCD7.L500_p4_6.jpeg",
+      "downloads\\datasheet_photos\\PCD7.L500_p4_7.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/PCD7.L500_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PCD7.L500 follows Saia-Burgess (now Saia PG) naming convention for their PCD automation products. The 'PCD7' prefix is specifically used for Saia power supply modules. The seed name correctly identifies it as a power supply unit ('Блок питания'). The datasheet mentioning 'PCD3.Mxx60 controllers' appears to be mismatched documentation, but the PN itself is correct and clearly a Saia product, not Honeywell.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 33182KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Saia PCD3.Mxx60 controllers' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

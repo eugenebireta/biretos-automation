@@ -3,7 +3,7 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "HVAC31C5",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "NXL",
   "subbrand": null,
   "name": "Инвертор HVAC NXL 15KW/400V/31A/IP54 HVAC31C5",
   "assembled_title": "Инвертор Honeywell HVAC31C5",
@@ -648,5 +648,34 @@
     "confidence": "medium",
     "notes": "Used condition",
     "search_used": "HVAC31C5 Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\HVAC31C5.pdf",
+    "datasheet_size_kb": 1055,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The seed_name clearly states 'Инвертор HVAC NXL 15KW/400V/31A/IP54'. NXL is the brand that manufactures HVAC inverters/frequency drives. The product is a 15KW 400V 31A IP54-rated inverter. Honeywell does not use this PN format or NXL branding. The PN HVAC31C5 matches the specifications (31A, C-series). The datasheet needs to be properly parsed to populate missing title, EAN, specs, and complete description.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

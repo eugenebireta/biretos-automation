@@ -346,7 +346,9 @@
     "structured_pn_match_location": "title",
     "type_designation": "D 515",
     "identity_notes_p1": "rocker switch 10A 250V, series/intermediate switch for all programs",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -645,7 +647,20 @@
     ],
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (3).md"
+    "source_file": "deep-research-report (3).md",
+    "specs": {
+      "series": "NOVA/DIALOG universal",
+      "type": "Series switch insert",
+      "gang": "1",
+      "voltage": "250V AC",
+      "current": "10A",
+      "fluorescent_rating": "6AX",
+      "contact_type": "2 independent circuits",
+      "terminals": "Push-in screwless",
+      "protection": "IP20",
+      "halogen_free": "yes",
+      "standard": "VDE"
+    }
   },
   "training_urls": [
     "https://www.eibabo.de/peha/wippschalter-10a-250v-seriensch.-d-515-eb10823044",
@@ -684,5 +699,62 @@
     "best_description_source": "content",
     "best_photo_url": "â",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Updateschulung für das Brandmeldesystem NF 1000",
+    "description": "Updateschulung für das Brandmeldesystem NF 1000, welches die Brandmelderzentralen NF 300, NF 3000, NF 500 und NF 5000 umfasst. Die Schulungsinhalte umfassten die Anpassung der Systeme NF 300 bis NF 5000 für die EN 54-02 (CPD), Besonderheiten der Hardware und Software, neue Teilnehmer für Ringbus Zentralen und das Windows-Programmiertool.",
+    "specs": {},
+    "specs_count": 0,
+    "series": "NF 1000, NF 300, NF 3000, NF 500, NF 5000",
+    "category": "Training Certificate",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105190519",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "conrad.de",
+    "ean_source_url": "https://www.conrad.de/de/p/peha-by-honeywell-einsatz-wipptaster-bunt-190511-1-st-2855285.html",
+    "datasheet_pdf": "downloads\\datasheets_v2\\190511.pdf",
+    "datasheet_size_kb": 367,
+    "product_photos": [
+      "downloads\\datasheet_photos\\190511_p1_5.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "PN 190511 (6-digit numeric) matches PEHA format. Datasheet title confirms this is a PEHA training course (Updateschulung) for NF 1000 fire alarm system, not a Honeywell flame detector. The seed name is completely wrong - appears to be data from a different product entirely. This is non-physical training material incorrectly labeled as hardware. Should be marked as wrong entry or removed from hardware product catalog."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Updateschulung für das Brandmeldesystem NF 1000' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105190519",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

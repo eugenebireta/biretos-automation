@@ -5,7 +5,7 @@
   "pn_variants": [
     "00183791"
   ],
-  "brand": "Honeywell",
+  "brand": "PEHA",
   "subbrand": "PEHA",
   "name": "Модуль управления Honeywell D 20.671.201.022",
   "assembled_title": "Рамка 1-постовая PEHA NOVA, 183791",
@@ -349,7 +349,9 @@
     "series": "NOVA",
     "color_material": "wood (oak)",
     "identity_notes_p1": "NOVA Elements wood, 83x83mm",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -651,10 +653,14 @@
     ]
   },
   "deep_research": {
-    "description_ru": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук."
+    "description_ru": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук.",
+    "descriptions_all": {
+      "legacy": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук."
+    }
   },
   "training_urls": [
-    "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf"
+    "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+    "https://www.conrad.nl/nl/p/peha-by-honeywell-183791-frame-frame-wit-10-stuk-s-2856802.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -681,8 +687,8 @@
     "best_price_source": "price_contract",
     "best_description": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук.",
     "best_description_source": "dr",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_183791.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 34.29,
@@ -692,5 +698,39 @@
     "confidence": "high",
     "notes": "PEHA 1-gang frame; unit price",
     "search_used": "D 20.671.201.022"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "4010105183795",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 183791 is 6-digit numeric matching PEHA format. The audit explicitly states product brand is 'PEHA' but title incorrectly mentions 'Honeywell'. The D 20.671.201.022 appears to be a PEHA model/type designation. Brand should be corrected to PEHA and title rebuilt without Honeywell reference.",
+      "brand_correction_confidence": "medium"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105183795",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

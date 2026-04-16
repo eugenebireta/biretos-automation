@@ -3,7 +3,7 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "GLATRON",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "GLATRON",
   "subbrand": null,
   "name": "Монитор GLATRON",
   "assembled_title": "Монитор Honeywell GLATRON",
@@ -359,8 +359,9 @@
     "model_confidence": "high",
     "model_notes": "Found in Excel: glatron 24eb23py; Glatron touchscreen monitor",
     "phase1b_done": true,
-    "confirmed_manufacturer": "Glatron",
-    "model_source": "excel"
+    "confirmed_manufacturer": "GLATRON",
+    "model_source": "excel",
+    "brand_source": "name_assembly"
   },
   "negative_evidence": {
     "photo": [],
@@ -604,7 +605,10 @@
     "merge_source": "result_GLATRON.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "**NOT a monitor** — GLATRON is a German industrial electronics manufacturer; possible confusion with \"LG Flatron\" (different brand/spelling); used condition; seller: endustri24 (Germany)"
+    }
   },
   "dr_category": "Industrial interface module",
   "dr_image_url": "https://i.ebayimg.com/images/g/JUYAAOSwSdZWgSGw/s-l500.jpg",
@@ -633,5 +637,48 @@
     "confidence": "low",
     "notes": "Matched fallback/model 24EB23PY listing; seller/manufacturer naming unclear; refurbished",
     "search_used": "Glatron 24EB23PY"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "De la smart city à la réalité des territoires connectés - L'émergence d'un modèle français ?",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\GLATRON.pdf",
+    "datasheet_size_kb": 6329,
+    "product_photos": [
+      "downloads\\datasheet_photos\\GLATRON_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "GLATRON is LG's monitor brand line (LG Flatron series). The datasheet PDF contains completely wrong content (French smart city document). The PN and seed_name correctly indicate this should be an LG Flatron monitor, but the datasheet needs to be replaced with actual monitor specifications."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6329KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'De la smart city à la réalité des territoires connectés - L'' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

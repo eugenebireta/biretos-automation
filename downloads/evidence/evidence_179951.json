@@ -346,7 +346,9 @@
     "series": "NOVA",
     "color_material": "aluminum",
     "identity_notes_p1": "auxiliary loudspeaker for AudioPoint, NOVA series",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -654,7 +656,10 @@
     "notes": ""
   },
   "deep_research": {
-    "description_ru": "Линейный сканер штрих-кода Honeywell с артикулом 179951. По контексту наименования относится к семейству линейных (1D) сканеров Honeywell, однако точное подтверждение по данному номеру детали в открытых источниках не найдено."
+    "description_ru": "Линейный сканер штрих-кода Honeywell с артикулом 179951. По контексту наименования относится к семейству линейных (1D) сканеров Honeywell, однако точное подтверждение по данному номеру детали в открытых источниках не найдено.",
+    "descriptions_all": {
+      "legacy": "Линейный сканер штрих-кода Honeywell с артикулом 179951. По контексту наименования относится к семейству линейных (1D) сканеров Honeywell, однако точное подтверждение по данному номеру детали в открытых источниках не найдено."
+    }
   },
   "training_urls": [
     "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/ustroystva-upravleniya-klimatom-zhalyuzi-zvukom/dinamik-peha-by-honeywell-nova-alyuminiy-179951",
@@ -686,5 +691,61 @@
     "best_description_source": "dr",
     "best_photo_url": "â",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "COMPOSITION DU PORTEFEUILLE DU FRR Au 30 septembre 2024",
+    "description": "Financial report detailing the composition of the FRR (Fonds de Réserve pour les Retraites) portfolio as of September 30, 2024. It includes sections for Actions (stocks), Obligations (bonds), Organismes de Placement Collectifs (collective investment schemes), Fonds d'Actifs Non-Cotes (unlisted assets funds), Fonds de Dettes - Fonds Collectifs (debt funds - collective funds), Fonds de Dettes - Fonds Dedies (debt funds - dedicated funds), and Fonds de Capital Investissement - Fonds Dedies (private equity funds - dedicated funds), listing security names, quantities, values, and holding ratios.",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\179951.pdf",
+    "datasheet_size_kb": 547,
+    "product_photos": [
+      "downloads\\datasheet_photos\\179951_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "ean": "4010105179958",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Seed name clearly indicates 'Линейный сканер Honeywell' (Honeywell Linear Scanner) with model reference. PN 179951 is a 6-digit numeric format that could be either PEHA or Honeywell part number. However, the product description explicitly mentions Honeywell scanner model D 20.486.702 LS. The datasheet is completely wrong (French financial document). Current brand should be Honeywell, not PEHA. Need correct product datasheet for this Honeywell scanner model."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'COMPOSITION DU PORTEFEUILLE DU FRR Au 30 septembre 2024' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105179958",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

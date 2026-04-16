@@ -317,7 +317,9 @@
     "series": "AURA",
     "color_material": "anthracite lacquered",
     "identity_notes_p1": "combination frame, 83x296mm, plastic",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -545,7 +547,8 @@
     "https://elektradirect.nl/schakelmateriaal/peha/aura-antraciet/afdekramen/peha-aura-afdekraam-20.574.64-t-00174411/",
     "https://geizhals.de/peha-aura-basis-rahmen-1fach-d-20-571-64-t-a2380938.html",
     "https://www.elektroversand-schmidt.de/Schalterprogramme/PEHA/AURA-Schalterprogramm/Kombinationsrahmen/Rahmen-Aura-Basis/Rahmen-anthrazit/Peha-Aura-Rahmen-4fach-anthrazit.html",
-    "https://www.pehastore.de/schalterprogramme/aura/aura-anthrazit/"
+    "https://www.pehastore.de/schalterprogramme/aura/aura-anthrazit/",
+    "https://www.conrad.nl/nl/p/peha-by-honeywell-174411-frame-frame-antraciet-1-stuk-s-2856076.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -567,8 +570,8 @@
     "best_price_source": "phase3a",
     "best_description": "Этот вентиль предназначен для регулирования температуры в системах отопления, обеспечивая стабильную работу и экономию энергии.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_174411.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 25.26,
@@ -579,5 +582,52 @@
     "notes": "Exact PEHA AURA 4-gang frame anthracite.",
     "search_used": "D 20.574.64 T"
   },
-  "product_category": "PEHA AURA frame"
+  "product_category": "PEHA AURA frame",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105174410",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\174411.pdf",
+    "datasheet_size_kb": 8769,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 8769KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105174410",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

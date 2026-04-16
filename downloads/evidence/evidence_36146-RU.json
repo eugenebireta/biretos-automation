@@ -6,10 +6,10 @@
     "36146.RU",
     "36146RU"
   ],
-  "brand": "Honeywell",
+  "brand": "DKC",
   "subbrand": null,
   "name": "Т-образный соединитель 400x80мм 36146-RU",
-  "assembled_title": "Соединитель Honeywell 36146-RU",
+  "assembled_title": "Соединитель DKC 36146-RU",
   "our_price_raw": "3951,25",
   "expected_category": "Соединитель",
   "card_status": "DRAFT_ONLY",
@@ -319,7 +319,9 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "identity_notes_p1": "T-shaped connector 400x80mm; Russian market variant; cable duct fitting",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -600,7 +602,14 @@
       "raw": "модель: F76S‑1 1/4 AAM; цена 42 000 ₽ citeturn9view0",
       "aliases": [
         "36146 (без -RU)"
-      ]
+      ],
+      "Brand": "DKC",
+      "Series": "S5 Combitech",
+      "Model": "DPT",
+      "Product type": "T-coupler / horizontal T tapper",
+      "Tray width": "400 mm",
+      "Tray height": "80 mm",
+      "Material": "Galvanized steel"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -624,12 +633,31 @@
     "merge_source": "result_36146-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "descriptions_all": {
+      "gpt": "DKC 36146-RU DPT — это элемент металлической кабельной трассы для системы листовых лотков, используемой в промышленном и коммерческом электромонтаже. Позиция предназначена для организации Т-образного горизонтального ответвления в трассе с размером 400x80 мм. Такие детали применяют в энергетике, на заводах, в торговых и офисных зданиях, а также на инфраструктурных объектах, где кабельные линии прокладываются по лоткам. Исполнение из оцинкованной стали обеспечивает базовую коррозионную стойкость для внутреннего монтажа и типовых условий эксплуатации. Перфорированные стенки и основание облегчают крепление и могут улучшать вентиляцию кабельной системы. При проектировании важно учитывать не только размер лотка, но и радиус поворота, тип нагрузки и необходимость крышек или повышенного IP в составе всей системы. Такие элементы подбирают строго под серию и геометрию трассы, чтобы исключить перекосы, разрывы покрытия и неудобство при укладке кабеля. Монтаж выполняют в составе трассы с совместимыми прямыми секциями и соединительными аксессуарами DKC. Модель предназначена для широких магистральных лотков и позволяет выполнить ответвление без использования самодельных переходов на объекте. Если объект требует сохранения работоспособности кабельной линии при пожаре, следует отдельно проверять соответствие всей трассы, а не только одного фитинга."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "DKC",
+        "Series": "S5 Combitech",
+        "Model": "DPT",
+        "Product type": "T-coupler / horizontal T tapper",
+        "Tray width": "400 mm",
+        "Tray height": "80 mm",
+        "Material": "Galvanized steel"
+      }
+    },
+    "notes_all": {
+      "gpt": "В открытых источниках чаще видна variant K; размеры и назначение базовой позиции соответствуют 400x80."
+    }
   },
   "training_urls": [
     "https://100kwatt.ru/products/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam",
     "https://buildings.honeywell.com/us/en/products/by-category/electrical-and-wiring/cable-management/trunking-fittings",
-    "https://santehmoskva.ru/tovar/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam-f76s-1-1-4-aam/"
+    "https://santehmoskva.ru/tovar/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam-f76s-1-1-4-aam/",
+    "https://www.dkc.com/ru/ru/products/36146k",
+    "https://www.tme.eu/ru/details/36146/aksessuary-dlya-kabelnyh-trass/dkc/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -657,5 +685,30 @@
     "best_description_source": "content",
     "best_photo_url": "https://tr-inz.ru/collection/opory-trubchatye-ost-36-146-88-tip-tr",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "4690309508831",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "DKC is a legitimate Russian manufacturer of cable management systems. The PN format '36146-RU' with RU suffix is consistent with DKC's product numbering for Russian market. The product name 'Т-образный соединитель 400x80мм' (T-shaped connector 400x80mm) matches DKC's cable tray accessory catalog. Brand and PN are correct, but product lacks technical specifications and proper datasheet."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "cable management",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

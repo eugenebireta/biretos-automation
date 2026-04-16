@@ -7,7 +7,7 @@
     "FX80843018R"
   ],
   "brand": "Honeywell",
-  "subbrand": null,
+  "subbrand": "Esser",
   "name": "Тяжелый ящик FX808430.18R",
   "assembled_title": "Ящик Honeywell FX808430.18R",
   "our_price_raw": "189150,71",
@@ -306,7 +306,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -555,7 +556,10 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report.md",
     "description_ru": "Специализированный выдвижной блок управления для пожарных станций FlexES Control. Рассчитан на подключение и программную поддержку до 18 кольцевых адресных шлейфов пожарной сигнализации. Конструкция на металлических направляющих обеспечивает удобный доступ при монтаже в 19-дюймовую стойку.",
-    "specs": "Loops: 18; Mount: 19\" Rack; HU: 5/7; Type: Heavy-duty"
+    "specs": "Loops: 18; Mount: 19\" Rack; HU: 5/7; Type: Heavy-duty",
+    "descriptions_all": {
+      "legacy": "Специализированный выдвижной блок управления для пожарных станций FlexES Control. Рассчитан на подключение и программную поддержку до 18 кольцевых адресных шлейфов пожарной сигнализации. Конструкция на металлических направляющих обеспечивает удобный доступ при монтаже в 19-дюймовую стойку."
+    }
   },
   "training_urls": [],
   "price_contract": {
@@ -584,5 +588,55 @@
     "best_description_source": "dr",
     "best_photo_url": "https://all-bez.ru/catalog/fx808430_18r/",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Conventional MCP electronic module",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FX808430.18R.pdf",
+    "datasheet_size_kb": 15223,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FX808430.18R_p1_0.jpeg",
+      "downloads\\datasheet_photos\\FX808430.18R_p8_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The PN format 'FX808430.18R' matches Esser (by Honeywell) fire safety products. The audit mentions expected EAN prefix '4007185' which is specifically Esser's prefix. The title 'Conventional MCP electronic module' confirms this is a fire alarm Manual Call Point module. While Honeywell owns Esser, the product brand should be Esser. The datasheet exists but appears incomplete (missing EAN, description, specs, dimensions) - needs proper datasheet extraction or re-sourcing."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 15223KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Conventional MCP electronic module' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

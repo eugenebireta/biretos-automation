@@ -592,7 +592,10 @@
     "merge_source": "result_IP.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Too generic to resolve; closest candidate: Honeywell IP-COM internet communicator"
+    }
   },
   "dr_category": "IP phone",
   "training_urls": [
@@ -607,8 +610,8 @@
     "best_price_source": "phase3a",
     "best_description": "IP-телефон предназначен для передачи голосовых данных через IP-сети. Он обеспечивает высокое качество звука и поддерживает различные функции, такие как конференц-связь и голосовая почта.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/CISCO_IP.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 24.99,
@@ -618,5 +621,38 @@
     "confidence": "medium",
     "notes": "Used Cisco CP-7942G listing",
     "search_used": "Cisco IP Phone 7942"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "30 SERIES IP CAMERAS",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "5017490581389",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "de.farnell.com",
+    "ean_source_url": "https://de.farnell.com/mk/k56401gry/schalter-ip66-grau-10a-1fach/dp/2212139?srsltid=AfmBOooeFFevgqBFicwfEIKVatR2Lhrtv2BFIaK8GoNx4NeFizh8qrUX",
+    "datasheet_pdf": "downloads\\datasheets_v2\\IP.pdf",
+    "datasheet_size_kb": 160,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "Part number 'IP' is not a valid product identifier - it's just a generic acronym. The seed_name indicates an IP telephone but the datasheet is for IP cameras - fundamental product type mismatch. Without a proper part number, this record cannot be corrected. The datasheet may be correct for Honeywell 30 Series IP Cameras, but it's matched to wrong seed data. Record should be marked as wrong and re-sourced with proper PN."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

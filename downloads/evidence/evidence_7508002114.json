@@ -5,10 +5,10 @@
   "pn_variants": [
     "FTA power distribution"
   ],
-  "brand": "Honeywell",
+  "brand": "Weidmuller",
   "subbrand": null,
   "name": "Модуль распределения питания Power Distribution FTA",
-  "assembled_title": "Модуль питания Honeywell 7508002114",
+  "assembled_title": "Модуль питания Weidmuller 7508002114",
   "our_price_raw": "15610,38",
   "expected_category": "Модуль питания",
   "card_status": "DRAFT_ONLY",
@@ -321,7 +321,9 @@
     "structured_pn_match_location": "",
     "product_line": "FTA industrial control",
     "identity_notes_p1": "Cannot confirm identity from available sources",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Weidmüller",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -609,7 +611,32 @@
     "specs": {
       "aliases": [
         "RS VERT 16 24VDC 2A P S"
-      ]
+      ],
+      "Type": "Power distribution terminal panel",
+      "Model": "RS VERT 16 24VDC 2A P S RU",
+      "Series": "RS VERT",
+      "Supply Voltage": "24 VDC",
+      "Channels": "16",
+      "Max. Current per Channel": "2 A",
+      "Connection": "Push-in / Screw",
+      "Mounting": "DIN-rail",
+      "Market": "RU (Russia)",
+      "Brand": "Weidmüller",
+      "Order Number": "7508002114",
+      "Protection": "IP20",
+      "Product family": "RS VERT",
+      "Position count": "16",
+      "Supply / distribution voltage": "24 VDC",
+      "Current": "2 A (from exact model designation)",
+      "Application": "Power distribution / interface panel",
+      "series": "RS VERT 16",
+      "voltage": "Max. 30 V (typical 24 VDC)",
+      "output_channels": "16 fused outputs",
+      "current_per_channel": "5 A per connection",
+      "total_current": "10 A",
+      "connector": "LPK 2N 5.08mm",
+      "dimensions": "93 mm x 45 mm x 64 mm",
+      "mounting": "DIN-rail 35 mm"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -632,14 +659,57 @@
     "merge_source": "result_7508002114.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Weidmüller 7508002114 — модуль питания (power module) системы удалённого ввода/вывода Weidmüller u-remote (серия UR20). Модули питания u-remote предназначены для подачи питания на модули ввода/вывода и полевые устройства в системе распределённого ввода/вывода. Они устанавливаются между головной станцией (coupler) и модулями ввода/вывода для создания дополнительных групп питания или при необходимости увеличения мощности для подключённых устройств. Модуль питания обеспечивает напряжение 24 В постоянного тока для полевых устройств и внутренней шины системы. Монтаж на DIN-рейку, система подключения PUSH-IN.",
+      "gpt": "Weidmüller 7508002114 по найденным карточкам обозначен как RS VERT 16 24VDC 2A P S и относится к распределительным/интерфейсным панелям серии RS VERT. Такая серия используется в шкафах автоматики для организованного распределения питания и/или интерфейсного подключения сигналов в вертикальном форм-факторе. По самому обозначению можно надёжно выделить ключевые признаки: 16 позиций, питание 24 VDC и токовый уровень 2 A для соответствующего распределительного контура/канала в рамках exact assembly naming. Официальные страницы семейства RS VERT подтверждают, что линейка предназначена для interface applications и поддерживает многопозиционные соединения. Для интеграторов это удобный cabinet component, позволяющий стандартизировать подключение полевых цепей и питание внутри шкафа. Такие панели особенно полезны там, где важны компактность, сервисопригодность и повторяемость сборки по стандарту проекта. При подборе необходимо сверять не только exact PN, но и system layout, количество потенциалов, тип клемм и назначение конкретного cabinet standard. В B2B-каталоге позицию безопасно описывать как RS VERT 16-position 24 VDC power distribution / interface panel. Из-за ограниченной полноты открытого official datasheet по exact PN не стоит без проверки публиковать все электрические детали beyond the confirmed naming. Это типичный инженерный шкафной SKU для промышленной автоматизации, а не универсальный компонент массового рынка.",
+      "gemini": "Модуль распределения питания Weidmuller 7508002114 серии RS VERT 16 предназначен для эффективной организации цепей 24 В постоянного тока. Он позволяет распределить одну входную линию питания на шестнадцать независимых выходных каналов для питания датчиков и исполнительных механизмов. Каждый выходной канал оснащен индивидуальным предохранителем, что обеспечивает селективность защиты при возникновении короткого замыкания. Использование данного модуля значительно сокращает время монтажа и уменьшает количество проводов в распределительном шкафу. Компактный корпус модуля предназначен для установки на стандартную DIN-рейку шириной 35 мм. Клеммные разъемы с шагом 5,08 мм обеспечивают надежное соединение проводов сечением до 2,5 мм². Модуль рассчитан на суммарный ток до 10 А, что позволяет использовать его в большинстве систем промышленной автоматизации. Прочная конструкция и качественные материалы гарантируют бесперебойную работу в условиях вибрации и перепадов температур. Наличие четкой маркировки клемм упрощает процесс обслуживания и поиска неисправностей в системе. Это надежное решение от ведущего немецкого производителя электротехнического оборудования.",
+      "synthesis": "Weidmüller 7508002114 — модуль распределения питания серии RS VERT 16, предназначенный для эффективной организации цепей 24 В постоянного тока в системах промышленной автоматизации. Модуль позволяет распределить одну входную линию питания на 16 независимых выходных каналов для питания датчиков, исполнительных механизмов и интерфейсных компонентов шкафа автоматики. Каждый выходной канал оснащен индивидуальным предохранителем, обеспечивающим селективность защиты при возникновении короткого замыкания и упрощающим диагностику нарушений в отдельных цепях. Компактный корпус предназначен для установки на стандартную DIN-рейку шириной 35 мм, при этом клеммные разъемы с шагом 5.08 мм обеспечивают надежное соединение проводов сечением до 2.5 мм². Использование данного модуля значительно сокращает время монтажа, уменьшает количество проводов в распределительном шкафу и повышает надежность системы управления объектом. Модуль рассчитан на суммарный ток до 10 А с прочной конструкцией, устойчивой к вибрации и перепадам температур, с четкой маркировкой клемм для упрощения процесса обслуживания и поиска неисправностей в цепях управления."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Power supply module / Power feed module",
+        "Series": "u-remote (UR20)",
+        "Brand": "Weidmüller",
+        "Order Number": "7508002114",
+        "Supply Voltage": "24 VDC",
+        "Connection": "PUSH-IN",
+        "Protection": "IP20",
+        "Mounting": "DIN-Rail"
+      },
+      "gpt": {
+        "Product family": "RS VERT",
+        "Position count": "16",
+        "Supply / distribution voltage": "24 VDC",
+        "Current": "2 A (from exact model designation)",
+        "Application": "Power distribution / interface panel"
+      },
+      "gemini": {
+        "series": "RS VERT 16",
+        "voltage": "Max. 30 V (typical 24 VDC)",
+        "output_channels": "16 fused outputs",
+        "current_per_channel": "5 A per connection",
+        "total_current": "10 A",
+        "connector": "LPK 2N 5.08mm",
+        "dimensions": "93 mm x 45 mm x 64 mm",
+        "mounting": "DIN-rail 35 mm"
+      }
+    },
+    "notes_all": {
+      "claude": "Likely a customer-specific or project order number for a UR20 power module. Exact Weidmüller catalog number not confirmed.",
+      "gpt": "Основная идентификация exact PN получена из торговых карточек; семейство RS VERT подтверждено официально, но не все детали exact assembly открыто опубликованы."
+    }
   },
   "training_urls": [
     "https://baumuller.kz/product/538835?locale=en",
     "https://electroline.ru/product/weidmuller-7508002114.html",
     "https://ets-e.ru/product/weidmuller-rs-vert-16-24vdc-2a-p-s-7508002114.html",
     "https://www.ebay.com/",
-    "https://www.oemstrade.com/search/750-8002114"
+    "https://www.oemstrade.com/search/750-8002114",
+    "https://baumuller.kz/product/538835",
+    "https://www.weidmuller.com/en/products/index.jsp",
+    "https://www.radwell.com/en-US/Buy/WEIDMULLER/WEIDMULLER/7508002114",
+    "https://catalog.weidmueller.com/catalog/Start.do?localeId=en&ObjectID=group422996337018"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -667,5 +737,50 @@
     "best_description_source": "content",
     "best_photo_url": "ebay.com",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "8-местная стойка с резервным источником питания",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\7508002114.pdf",
+    "datasheet_size_kb": 121,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format 7508002114 is consistent with Weidmuller (10-digit numeric). Title from datasheet '8-местная стойка с резервным источником питания' (8-slot rack with backup power supply) matches seed name 'Power Distribution FTA'. Brand is correct but datasheet is incomplete - missing EAN (should have 4008190 prefix for Weidmuller), truncated description, and no technical specs. Product needs complete datasheet extraction or new datasheet source."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Weidmüller",
+      "candidates": [],
+      "product_hint": "terminal",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Weidmüller, record says Weidmuller",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title '8-местная стойка с резервным источником питания' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

@@ -6,7 +6,7 @@
     "RIC.F.LCU24.01C",
     "RICFLCU2401C"
   ],
-  "brand": "Honeywell",
+  "brand": "Rehau",
   "subbrand": null,
   "name": "Панель Quick-Pack RIC-F-LCU24-01C",
   "assembled_title": "Панель Honeywell RIC-F-LCU24-01C",
@@ -305,7 +305,7 @@
     "exact_structured_pn_match": true,
     "structured_pn_match_location": "jsonld",
     "product_line": "RIC-F",
-    "confirmed_manufacturer": "Honeywell",
+    "confirmed_manufacturer": "Siemon",
     "identity_notes_p1": "Quick-Pack RIC controller panel; limited documentation",
     "phase1_recon_done": true
   },
@@ -553,7 +553,10 @@
     "merge_source": "result_RIC-F-LCU24-01C.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "**NOT a Honeywell fire panel.** Siemon product. $389 new at Radwell; $1,718.79/12-pack at eAccu-Tech (~$143/unit)"
+    }
   },
   "dr_category": "Fiber optic adapter plate",
   "dr_image_url": "—",
@@ -596,5 +599,18 @@
     "confidence": "medium",
     "notes": "Matched exact PN; manufacturer is Siemon, not Honeywell distributor",
     "search_used": "RIC-F-LCU24-01C Honeywell"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "RIC prefix stands for Rehau's underfloor heating control system line (Rehau Industrial Controls). The 'Quick-Pack' terminology in Russian seed name is consistent with Rehau's Quick-Pack underfloor heating system branding. LCU likely means Local Control Unit. This is not a Honeywell product - part number format and product naming clearly indicate Rehau brand.",
+      "brand_correction_confidence": "high"
+    }
   }
 }

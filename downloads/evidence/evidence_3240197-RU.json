@@ -6,10 +6,10 @@
     "3240197.RU",
     "3240197RU"
   ],
-  "brand": "Honeywell",
+  "brand": "Phoenix Contact",
   "subbrand": null,
   "name": "Кабельный канал 3240197-RU",
-  "assembled_title": "Канал Honeywell 3240197-RU",
+  "assembled_title": "Канал Phoenix Contact 3240197-RU",
   "our_price_raw": "1808,89",
   "expected_category": "Канал",
   "card_status": "REVIEW_REQUIRED",
@@ -306,7 +306,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title_suffix_variant"
+    "structured_pn_match_location": "title_suffix_variant",
+    "confirmed_manufacturer": "Phoenix Contact",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -534,7 +536,10 @@
     "description_ru": "Phoenix Contact product, NOT Honeywell. -RU = Russian EAC certification. Regular $16.78; surplus $40 at GPM Surplus. Pack qty 10.",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Phoenix Contact product, NOT Honeywell. -RU = Russian EAC certification. Regular $16.78; surplus $40 at GPM Surplus. Pack qty 10."
+    }
   },
   "dr_image_url": "(available on RSP Supply page)",
   "dr_price": 13.98,
@@ -574,5 +579,83 @@
     "best_photo_url": "https://smart-shop.pro/itemcard/PHOENIX%20CONTACT/3240197",
     "best_photo_source": "photo_verdict"
   },
-  "product_category": "wire duct / raceway"
+  "product_category": "wire duct / raceway",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Cable duct - CD 25X80",
+    "description": "Cable duct for installation and mounting in control cabinets, gray, comprising upper part and mounting base, width: 25 mm, height: 80 mm, length: 2000 mm. Key advantages include predetermined breaking points for tool-free, burr-free bar removal, easy and burr-free cutting with PPS CD or CUTFOX-CD cable duct cutters, wide diagonal heads for secure cover fitting, wire retaining clips for secure conductor holding, and plastic body-bound rivets for easy fixing.",
+    "specs": {
+      "width_mm": 25,
+      "height_mm": 80,
+      "length_mm": 2000,
+      "color": "gray",
+      "material": "PVC",
+      "flammability_rating_ul94": "V0",
+      "components": "Lead-free",
+      "nominal_cross_section_mm2": 1202,
+      "halogen_free": "no",
+      "ambient_temperature_operation_c": "-5 ... 60",
+      "packing_unit_pc": 10,
+      "minimum_order_quantity_pc": 1,
+      "customs_tariff_number": "39259020",
+      "country_of_origin": "DE",
+      "classifications": {
+        "ECLASS-9.0": "27400703",
+        "ECLASS-10.0.1": "27400703",
+        "ECLASS-11.0": "27400703",
+        "ETIM-8.0": "EC000012",
+        "UNSPSC-21.0": "39131700"
+      },
+      "environmental_compliance": {
+        "china_rohs": "Environmentally friendly use period: unlimited = EFUP-e, No hazardous substances above threshold values"
+      }
+    },
+    "specs_count": 16,
+    "series": "CD",
+    "category": "Cable duct",
+    "weight_g": 800,
+    "dimensions_mm": "25 x 80 x 2000",
+    "certifications": [
+      "CSA (Approval ID: 248269)",
+      "UL Recognized (Approval ID: FILE E 328576)",
+      "VDE Zeichengenehmigung (Approval ID: 40027969)",
+      "EAC (Approval ID: RU C-DE.PB68.W.00478)"
+    ],
+    "article_no": "3240197",
+    "ean": "4046356459136",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\3240197-RU.pdf",
+    "datasheet_size_kb": 249,
+    "product_photos": [
+      "downloads\\datasheet_photos\\3240197-RU_p1_0.jpeg",
+      "downloads\\datasheet_photos\\3240197-RU_p3_0.png",
+      "downloads\\datasheet_photos\\3240197-RU_p8_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/3240197-RU_p1_0.jpeg",
+      "downloads/datasheet_photos/3240197-RU_p8_0.jpeg"
+    ],
+    "verified_photo_count": 2
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Phoenix Contact",
+      "candidates": [],
+      "product_hint": "",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Cable duct - CD 25X80' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

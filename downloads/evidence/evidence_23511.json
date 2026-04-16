@@ -348,7 +348,9 @@
     "series": "NOVA",
     "color_material": "plastic, pure white",
     "identity_notes_p1": "NOVA rocker with control lens, 500 series basic element",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -655,10 +657,20 @@
     ]
   },
   "deep_research": {
-    "description_ru": "Цена из листинга бренда; может отличаться при смене страны/налоговой зоны"
+    "description_ru": "Цена из листинга бренда; может отличаться при смене страны/налоговой зоны",
+    "specs": {
+      "series": "NOVA brilliance",
+      "type": "Rocker with lens",
+      "gang": "1",
+      "finish": "Pure White",
+      "material": "ABS high-gloss",
+      "lens": "for indicator/orientation light",
+      "standard": "VDE"
+    }
   },
   "training_urls": [
-    "https://www.surplusrecord.com/"
+    "https://www.surplusrecord.com/",
+    "https://www.conrad.se/sv/p/peha-by-honeywell-vippa-centrumplatta-gungbrada-vit-23511-1-st-2855149.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -684,7 +696,51 @@
     "best_price_source": "price_contract",
     "best_description": "Датчик Honeywell D 20.540.022 GLK предназначен для использования в системах автоматизации. Обеспечивает точные измерения и устойчив к внешним воздействиям.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_23511.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "VisionPRO® IAQ Total Home Comfort System",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105023510",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\23511.pdf",
+    "datasheet_size_kb": 2661,
+    "product_photos": [
+      "downloads\\datasheet_photos\\23511_p1_0.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/23511_p1_0.png"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'VisionPRO® IAQ Total Home Comfort System' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105023510",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

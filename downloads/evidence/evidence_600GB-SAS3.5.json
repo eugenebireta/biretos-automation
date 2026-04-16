@@ -321,7 +321,8 @@
     "structured_pn_match_location": "",
     "product_line": "Enterprise storage",
     "identity_notes_p1": "600GB SATA 3.5\" form factor; unable to confirm manufacturer",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Dell"
   },
   "negative_evidence": {
     "photo": [],
@@ -603,7 +604,26 @@
     "specs": {
       "aliases": [
         "623391-001_REF (ref)"
-      ]
+      ],
+      "Capacity": "600 GB",
+      "Interface": "SAS (6Gb/s or 12Gb/s)",
+      "Form factor": "3.5-inch LFF",
+      "Spindle speed": "15K RPM (typically)",
+      "Hot-pluggable": "Yes",
+      "Type": "Enterprise HDD",
+      "Brand": "Dell",
+      "Product type": "Enterprise hard drive / kit",
+      "Bay compatibility": "3.5 in",
+      "Hot-plug": "Yes",
+      "Implementation": "Native 3.5 HDD or 2.5-in hybrid carrier kit",
+      "capacity": "600 GB",
+      "interface": "SAS 6Gb/s or 12Gb/s",
+      "form_factor": "3.5 inch",
+      "spindle_speed": "15000 RPM",
+      "seek_time": "4.5 ms (average)",
+      "drive_tray": "R-Series Tray included",
+      "buffer_size": "16 MB",
+      "rotational_latency": "2.0 ms"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -626,7 +646,47 @@
     "merge_source": "result_600GB-SAS3.5.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Жёсткий диск Dell 600GB-SAS3.5 представляет собой серверный накопитель ёмкостью 600 ГБ с интерфейсом SAS в форм-факторе 3.5 дюйма (LFF — Large Form Factor). Данный форм-фактор используется в серверах Dell PowerEdge с отсеками для 3.5-дюймовых дисков, а также в дисковых полках хранения данных. Диски LFF формата, как правило, имеют скорость вращения 15 000 об/мин и обеспечивают высокую производительность для транзакционных нагрузок. Интерфейс SAS гарантирует надёжную передачу данных со скоростью до 6 или 12 Гбит/с. Накопитель поддерживает горячую замену и может работать в составе RAID-массивов уровней 0, 1, 5, 6, 10 и других. Применяется в серверных инфраструктурах предприятий, дата-центрах, системах видеонаблюдения и других корпоративных решениях, где требуется надёжное и производительное хранение данных.",
+      "gpt": "Позиция 600GB-SAS3.5 описывает серверный накопитель Dell емкостью 600 GB для 3.5-дюймовых дисковых отсеков. На рынке такие позиции часто встречаются либо как нативные 3.5-inch SAS HDD, либо как 2.5-inch SAS-диск, установленный в 3.5-inch hybrid carrier для совместимости с соответствующими шасси. Найденные карточки подтверждают типовую серверную конфигурацию этого класса: 600 GB, 10K RPM, SAS 12 Gb/s. Такой диск применяется в корпоративных серверах и системах хранения, где критичны отказоустойчивость, горячая замена и поддержка RAID-контроллеров Dell. Исполнение под 3.5-дюймовый отсек удобно там, где сервер изначально построен на LFF-корзинах и заказчику не нужен переход на SFF-платформу. При публикации товара необходимо особенно внимательно указывать, что именно входит в поставку: bare drive, родная корзина 3.5, либо hybrid kit с 2.5-дюймовым носителем. Для интеграторов и сервисных компаний это важный расходный и сервисный SKU, так как несовпадение carrier часто делает диск физически несовместимым с сервером. Также следует отмечать, что SAS-интерфейс требует соответствующего backplane или RAID/HBA-контроллера и не рассчитан на прямое использование в обычном ПК. Если карточка создается без точного spare part number, безопаснее описывать позицию как '600GB 10K SAS 12G Dell for 3.5-inch hot-plug bay' и вынести caveat по carrier в notes. Такой подход снижает риск ошибочной закупки и лучше отражает реальную практику корпоративных поставок.",
+      "gemini": "Жесткий диск Dell 600GB-SAS3.5 ориентирован на использование в серверных системах и массивах хранения данных с отсеками большого форм-фактора (LFF). Несмотря на более крупные габариты по сравнению с SFF-версиями, этот накопитель обеспечивает выдающуюся производительность благодаря скорости вращения 15 000 об/мин. Интерфейс SAS обеспечивает надежное соединение и поддержку дуплексной передачи данных, что критично для отказоустойчивых конфигураций. Накопитель спроектирован для работы в режиме 24/7 под высокой нагрузкой, что подтверждается впечатляющим временем наработки на отказ (MTBF). В комплекте поставляются специализированные салазки (caddy) для серверов серий R и T, обеспечивающие надежную фиксацию и защиту от вибраций. Механическая конструкция диска оптимизирована для быстрого отвода тепла, что позволяет сохранять стабильность характеристик даже при пиковых нагрузках. Использование этого диска в массивах RAID 10 позволяет достичь исключительной скорости чтения при высоком уровне защиты данных. Это идеальное решение для устаревших систем и специфических задач хранения, где требуются именно 3,5-дюймовые высокоскоростные накопители.",
+      "synthesis": "Dell 600GB-SAS3.5 — это серверный накопитель ёмкостью 600 ГБ с интерфейсом SAS 12 Гбит/с в форм-факторе 3.5 дюйма (LFF), предназначенный для использования в серверах PowerEdge с отсеками большого формата и дисковых полках хранения данных. Скорость вращения шпинделя 15 000 об/мин обеспечивает выдающуюся производительность для транзакционных нагрузок, баз данных и высоконагруженных приложений, поддерживая надежную дуплексную передачу данных. Механическая конструкция оптимизирована для быстрого отвода тепла и работы в режиме 24/7 под высокой нагрузкой, что подтверждается впечатляющим временем наработки на отказ (MTBF). Накопитель поддерживает горячую замену и работает в составе RAID-массивов уровней 0, 1, 5, 6, 10 и других, обеспечивая отказоустойчивость в корпоративных инфраструктурах. В комплекте поставляются специализированные салазки (caddy) для серверов серий R и T, обеспечивающие надежную фиксацию и защиту от вибраций. Использование в массивах RAID 10 позволяет достичь исключительной скорости чтения при высоком уровне защиты данных, что делает его идеальным решением для устаревших систем и специфических задач хранения, где требуются именно 3.5-дюймовые высокоскоростные накопители."
+    },
+    "specs_all": {
+      "claude": {
+        "Capacity": "600 GB",
+        "Interface": "SAS (6Gb/s or 12Gb/s)",
+        "Form factor": "3.5-inch LFF",
+        "Spindle speed": "15K RPM (typically)",
+        "Hot-pluggable": "Yes",
+        "Type": "Enterprise HDD"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product type": "Enterprise hard drive / kit",
+        "Capacity": "600 GB",
+        "Spindle speed": "10000 RPM",
+        "Interface": "SAS 12 Gb/s",
+        "Bay compatibility": "3.5 in",
+        "Hot-plug": "Yes",
+        "Implementation": "Native 3.5 HDD or 2.5-in hybrid carrier kit"
+      },
+      "gemini": {
+        "capacity": "600 GB",
+        "interface": "SAS 6Gb/s or 12Gb/s",
+        "form_factor": "3.5 inch",
+        "spindle_speed": "15000 RPM",
+        "seek_time": "4.5 ms (average)",
+        "drive_tray": "R-Series Tray included",
+        "buffer_size": "16 MB",
+        "rotational_latency": "2.0 ms"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic/internal PN; not a standard Dell catalog number. Likely refers to any Dell-compatible 600GB SAS 3.5\" drive.",
+      "gpt": "Exact assembly not confirmed from the short PN supplied by user. Described as Dell 600GB SAS storage option for 3.5-inch bays; carrier format must be checked before publish."
+    }
   },
   "training_urls": [
     "https://techatlantix.com/st3600057ss-seagate-cheetah-15k-7-series-600gb-15000rpm-sas-6gb-s-16mb-cache-ce-3-5-inch-hard-drive.html",
@@ -634,7 +694,12 @@
     "https://www.ebay.com/itm/180869548458",
     "https://www.serverparts4less.com/st3600057ss-seagate-600gb-15k-rpm-lff-3-5-sas-hard-drive/",
     "https://www.serversupply.com/HARD%20DRIVES/SAS-6GBPS/600GB-15000RPM/SEAGATE/ST3600057SS_201735.htm",
-    "https://www.walmart.com/ip/Seagate-ST3600057SS-15000RPM-6-0Gp-s-600GB-SAS-3-5-HDD/272000563"
+    "https://www.walmart.com/ip/Seagate-ST3600057SS-15000RPM-6-0Gp-s-600GB-SAS-3-5-HDD/272000563",
+    "https://www.amazon.com/Dell-600gb-3-5in-12gbps-Drive/dp/B01K4JE9I0",
+    "https://www.ebay.com/itm/372439448051",
+    "https://www.dell.com/en-in/shop/dell-600gb-10k-rpm-sas-12gbps-512n-25in-with-35in-hybrid-carrier-hot-plug/apd/400-bift/storage-drives-media",
+    "https://www.ebay.com/itm/264173041400",
+    "https://www.serverparts4less.com/w347k-dell-600gb-15k-rpm-sas-3-5-hard-drive/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -662,5 +727,69 @@
     "best_description_source": "content",
     "best_photo_url": "https://market.yandex.ru/card/zhestkiy-disk-seagate-cheetah-st3600057ss-35-15k-6",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Fulfillment for Contract Logistics",
+    "description": "Warehouse Star is a cloud-based Warehouse Management System (WMS) and Fulfillment solution designed by Bitergo GmbH (owned by DB Schenker AG) to help businesses ramp up their warehouses quickly and optimize logistics processes. It focuses on Warehousing, B2B, SaaS, and SCM, serving over 100 customers, handling 25,000 picks per day, and processing 1 million EDI transactions per month. Key benefits include a 50% faster ramp-up (simple warehouses in 2 days worldwide), a 40% increase in picking efficiency, fast onboarding of workers, easy connectivity to web shops and ERP systems, and on-demand pricing for seasonal peaks. Core functionalities cover lot management, serial number support, expiration dates, cross-dock movements, multi-tenant support, load support, value-added services, item-specific packaging, master data import via Excel, and open interfaces via REST-API. Add-ons include advanced reporting, AS/RS support, SAP + EDI connection, Forklift and AGV control, vendor-managed inventory, and customs/bonded goods. The system optimizes goods in and storage, picking, inventory, and shipping processes. It is compatible with Android-based mobile apps and selected hardware from leading scanner manufacturers like Zebra, Honeywell, Sato, Gigaset, and Nimmsta. A 30-day freemium trial is available.",
+    "specs": {
+      "cost_savings_vs_on_premise": "35% over 3 years",
+      "ramp_up_time_simple_warehouses": "2 days worldwide",
+      "picking_efficiency_increase": "40%",
+      "pricing_monthly_fees": {
+        "Beginner": {
+          "users": "Up to 9",
+          "site_fee": "199 €",
+          "user_fee": "89 €",
+          "target_audience": "Carriers, e-Commerce & production"
+        },
+        "Star": {
+          "users": "10-29",
+          "site_fee": "549 €",
+          "user_fee": "49 €",
+          "target_audience": "Contract Logistics and 3PL"
+        },
+        "Rockstar": {
+          "users": "30+",
+          "site_fee": "1,499 €",
+          "user_fee": "19 €",
+          "target_audience": "4PL"
+        }
+      },
+      "total_cost_3_years_on_premise": "89,291.34 € (for 11 users)",
+      "total_cost_3_years_saas_cloud": "58,532.00 € (for 11 users)"
+    },
+    "specs_count": 6,
+    "series": "Warehouse Star Apps",
+    "category": "Warehouse Management System (WMS), Fulfillment Software, Logistics Software",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "WMS 2021 VALIDIERT by Fraunhofer IML"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\600GB-SAS3.5.pdf",
+    "datasheet_size_kb": 3592,
+    "product_photos": [
+      "downloads\\datasheet_photos\\600GB-SAS3.5_p1_0.jpeg",
+      "downloads\\datasheet_photos\\600GB-SAS3.5_p1_1.png",
+      "downloads\\datasheet_photos\\600GB-SAS3.5_p2_1.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Fulfillment for Contract Logistics' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

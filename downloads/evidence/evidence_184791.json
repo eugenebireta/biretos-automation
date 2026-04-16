@@ -347,7 +347,9 @@
     "series": "NOVA",
     "color_material": "pure white",
     "identity_notes_p1": "NOVA Elements, 83x83mm",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -685,7 +687,8 @@
     "https://www.eibabo.us/peha/frame-1-fold-metal-cast-iron-psw-frame-1-gang-d-20.671.221.192-eb10866207",
     "https://www.etoh24.de/peha-rahmen-1-fach-d-20-671-221-192.html",
     "https://www.heiz24.de/PEHA-D-20674223192-frame-4-fold-Nova-elements-metal-bronze-brushed-piano-black-00191491-NEW",
-    "https://www.pehastore.de/20-671-220-192-rahmen-1-fach-nova-elements-metall.html"
+    "https://www.pehastore.de/20-671-220-192-rahmen-1-fach-nova-elements-metall.html",
+    "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-weiss-184791-10-st-2856810.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -711,8 +714,8 @@
     "best_price_source": "price_contract",
     "best_description": "Детектор пламени Honeywell D 20.671.222.022 предназначен для обнаружения пламени в промышленных и коммерческих установках. Обеспечивает надежное обнаружение пламени с высокой скоростью реакции. Подходит для использования в системах пожарной сигнализации.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_184791.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 44.08,
@@ -722,5 +725,34 @@
     "confidence": "medium",
     "notes": "PEHA 1-gang frame; gross price shown on product page",
     "search_used": "D 20.671.222.022"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "4010105184792",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105184792",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

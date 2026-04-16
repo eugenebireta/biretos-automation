@@ -6,10 +6,10 @@
     "1011893.RU",
     "1011893RU"
   ],
-  "brand": "Honeywell",
+  "brand": "Sperian",
   "subbrand": null,
   "name": "Страховочная привязь SPERIAN TITAN 1-точечная с поясом",
-  "assembled_title": "Привязь Honeywell 1011893-RU",
+  "assembled_title": "Привязь Sperian 1011893-RU",
   "our_price_raw": "2447,96",
   "expected_category": "Привязь",
   "card_status": "REVIEW_REQUIRED",
@@ -291,7 +291,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Sperian",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -523,7 +525,10 @@
     "description_ru": "Эргономичная привязь с уникальной H-образной конструкцией для максимальной свободы движений плечевого пояса. Оснащена передними петлями и задним D-образным кольцом, а также водоотталкивающей лентой для долговечности.9",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report-prompt-v2.md"
+    "source_file": "deep-research-report-prompt-v2.md",
+    "descriptions_all": {
+      "legacy": "Эргономичная привязь с уникальной H-образной конструкцией для максимальной свободы движений плечевого пояса. Оснащена передними петлями и задним D-образным кольцом, а также водоотталкивающей лентой для долговечности.9"
+    }
   },
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/sps-hppe-brp900-1011893",
   "dr_price": 75.0,
@@ -562,5 +567,17 @@
     "best_photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/sps-hppe-brp900-1011893",
     "best_photo_source": "dr_image"
   },
-  "product_category": "other"
+  "product_category": "other",
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Sperian was acquired by Honeywell in 2010 and integrated into Honeywell Safety Products. TITAN is a Honeywell fall protection product line. The PN format (7-digit with country suffix) matches Honeywell safety equipment. Product is a 1-point safety harness with belt. Brand should be updated to Honeywell, and complete datasheet with full specifications is needed."
+    }
+  }
 }

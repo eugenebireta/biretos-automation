@@ -346,7 +346,9 @@
     "series": "NOVA",
     "color_material": "glass, black-psw",
     "identity_notes_p1": "NOVA Elements, glass effect black",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -638,10 +640,23 @@
     "notes": ""
   },
   "deep_research": {
-    "description_ru": "Четырёхпостовая рамка для установки розеток и выключателей серии PEHA by Honeywell Nova. Предназначена для монтажа в стандартные подрозетники."
+    "description_ru": "Четырёхпостовая рамка для установки розеток и выключателей серии PEHA by Honeywell Nova. Предназначена для монтажа в стандартные подрозетники.",
+    "specs": {
+      "series": "NOVA elements",
+      "type": "Frame",
+      "gang": "4",
+      "material": "Elements mix",
+      "dimensions": "86x299mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    },
+    "descriptions_all": {
+      "legacy": "Четырёхпостовая рамка для установки розеток и выключателей серии PEHA by Honeywell Nova. Предназначена для монтажа в стандартные подрозетники."
+    }
   },
   "training_urls": [
-    "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html"
+    "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-191591-5-st-2856772.html",
+    "https://www.conrad.pl/pl/p/peha-by-honeywell-ramka-ramka-czarny-191591-5-szt-2856772.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -669,5 +684,52 @@
     "best_description_source": "content",
     "best_photo_url": null,
     "best_photo_source": null
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105191592",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\191591.pdf",
+    "datasheet_size_kb": 8603,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 8603KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105191592",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

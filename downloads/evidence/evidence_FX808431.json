@@ -4,7 +4,7 @@
   "pn": "FX808431",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": null,
+  "subbrand": "Esser",
   "name": "Тяжелый ящик для блока питания FX808431",
   "assembled_title": "Ящик Honeywell FX808431",
   "our_price_raw": "98009,10",
@@ -315,7 +315,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -596,5 +597,55 @@
     "best_description_source": "content",
     "best_photo_url": "https://all-bez.ru/catalog/fx808431/",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Heavy-duty drawer with power supply unit, 5 HU",
+    "description": "Heavy-duty drawer on ball-bearing metal rails with a power supply module and space for up to four 12 V/24 Ah batteries. The drawer is designed for 5 rack units (HU). It includes: 1 x Mains adapter connection cable, 2 x Battery connection cables, 2 x Fasteners, 1 x Power supply module (PSM) FX808326 (24 V DC / 150 W) with plug-in connection cable, and 1 x PS connection module and connecting cable 0.6 m (PSC) FX808327. A dummy cover for the heavy-duty drawer PSU, 5 HU must be ordered separately.",
+    "specs": {
+      "rack_units": "5 HU",
+      "battery_support": "Up to four 12 V/24 Ah batteries",
+      "power_supply_module_output": "24 V DC, 150 W (for included PSM FX808326)",
+      "material": "Metal (ball-bearing metal rails)",
+      "included_ps_connection_cable_length": "0.6 m"
+    },
+    "specs_count": 5,
+    "series": "",
+    "category": "Heavy-duty drawer, Power supply unit",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "FX808431",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FX808431.pdf",
+    "datasheet_size_kb": 81,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FX808431_p1_3.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "FX prefix indicates Esser (fire safety division of Honeywell). The audit correctly identified EAN prefix should be '4007185' for Esser brand. Title from datasheet confirms this is a 5HU rack drawer with PSU. Current datasheet appears corrupted/incomplete (truncated description, missing technical specs). Brand should specify 'Esser by Honeywell' rather than just 'Honeywell'. PN format is correct for Esser products."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Heavy-duty drawer with power supply unit, 5 HU' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

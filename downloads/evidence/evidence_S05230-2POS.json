@@ -605,5 +605,53 @@
     "best_description_source": "content",
     "best_photo_url": "https://ankas.ru/servoprivody-i-zaslonki/honeywell-s05230-2pos-26030",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Низовая автоматика и трубопроводная арматура",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\S05230-2POS.pdf",
+    "datasheet_size_kb": 6283,
+    "product_photos": [
+      "downloads\\datasheet_photos\\S05230-2POS_p1_0.jpeg",
+      "downloads\\datasheet_photos\\S05230-2POS_p1_3.jpeg",
+      "downloads\\datasheet_photos\\S05230-2POS_p1_4.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/S05230-2POS_p1_0.jpeg",
+      "downloads/datasheet_photos/S05230-2POS_p1_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format S05230-2POS matches Honeywell's building automation actuator series. The seed_name clearly indicates 'Привод заслонки' (damper actuator) with '2POS' suffix indicating 2-position control. Brand is correct, but datasheet appears generic/incorrect as title 'Низовая автоматика и трубопроводная арматура' (Field automation and pipeline fittings) is a category header, not product-specific documentation. Need proper datasheet to extract specifications and complete description."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6283KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Низовая автоматика и трубопроводная арматура' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

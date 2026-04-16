@@ -346,7 +346,9 @@
     "series": "NOVA",
     "color_material": "glass, various colors",
     "identity_notes_p1": "NOVA Elements, glass effect",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -683,7 +685,19 @@
     }
   ],
   "deep_research": {
-    "description_ru": "Декоративная рамка для электроустановочных изделий серии PEHA by Honeywell. Предназначена для монтажа в стандартные подрозетники и распределительные коробки."
+    "description_ru": "Декоративная рамка для электроустановочных изделий серии PEHA by Honeywell. Предназначена для монтажа в стандартные подрозетники и распределительные коробки.",
+    "specs": {
+      "series": "NOVA elements",
+      "type": "Frame",
+      "gang": "4",
+      "material": "Elements mix",
+      "dimensions": "86x299mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    },
+    "descriptions_all": {
+      "legacy": "Декоративная рамка для электроустановочных изделий серии PEHA by Honeywell. Предназначена для монтажа в стандартные подрозетники и распределительные коробки."
+    }
   },
   "training_urls": [
     "https://www.radwell.com/"
@@ -715,5 +729,58 @@
     "best_description_source": "dr",
     "best_photo_url": "radwell.com",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105190991",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\190991.pdf",
+    "datasheet_size_kb": 31831,
+    "product_photos": [
+      "downloads\\datasheet_photos\\190991_p1_0.jpeg",
+      "downloads\\datasheet_photos\\190991_p2_0.jpeg",
+      "downloads\\datasheet_photos\\190991_p2_1.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 31831KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105190991",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

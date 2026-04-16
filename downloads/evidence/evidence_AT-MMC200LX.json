@@ -312,7 +312,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Allied Telesis"
   },
   "negative_evidence": {
     "photo": [],
@@ -557,7 +558,10 @@
     "merge_source": "result_AT-MMC200LX.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Allied Telesis MMC series. Backordered at Redcorp. SHI marks as EOL. eBay gray market units from China available."
+    }
   },
   "dr_category": "Fiber media converter",
   "dr_image_url": "(available on CDW and Allied Telesis pages)",
@@ -596,5 +600,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://bsai.com.mx/products/convertidor-de-medios-monomodo-version-taa-10-100tx",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

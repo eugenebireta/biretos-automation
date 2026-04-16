@@ -311,7 +311,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [
@@ -607,5 +608,18 @@
     "best_description_source": "content",
     "best_photo_url": "https://honeywell-rus.ru/product/2-h-hodovoj-linejnyj-klapan-honeywell-v5328a113",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

@@ -3,10 +3,10 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "CF274A",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "HP",
   "subbrand": null,
-  "name": "Принтер Honeywell CF274A",
-  "assembled_title": "Принтер Honeywell CF274A",
+  "name": "Лазерный принтер HP LaserJet Pro 400 M401d CF274A",
+  "assembled_title": "Лазерный принтер HP LaserJet Pro 400 M401d CF274A",
   "our_price_raw": "6164,00",
   "expected_category": "Принтер",
   "card_status": "REVIEW_REQUIRED",
@@ -309,7 +309,7 @@
     "exact_structured_pn_match": true,
     "structured_pn_match_location": "title",
     "product_line": "Honeywell Printers",
-    "confirmed_manufacturer": "Honeywell",
+    "confirmed_manufacturer": "HP",
     "identity_notes_p1": "Honeywell barcode/label printer model",
     "phase1_recon_done": true
   },
@@ -578,7 +578,10 @@
     "merge_source": "result_CF274A.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "**HP printer, NOT Honeywell.** $877.10 OEM new, $745.54 recertified, $570.12 refurbished. Discontinued"
+    }
   },
   "dr_category": "Mono laser printer",
   "dr_image_url": "https://www.partshere.com/HPPictures/?partno=CF274A",
@@ -618,5 +621,49 @@
     "confidence": "medium",
     "notes": "HP LaserJet Pro M401d refurbished; PN appears HP, not Honeywell.",
     "search_used": "CF274A Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "HP LaserJet Pro 400 Printer M401 series",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CF274A.pdf",
+    "datasheet_size_kb": 539,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CF274A_p1_0.jpeg",
+      "downloads\\datasheet_photos\\CF274A_p1_1.jpeg",
+      "downloads\\datasheet_photos\\CF274A_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/CF274A_p1_2.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "HP",
+      "candidates": [],
+      "product_hint": "toner",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'HP LaserJet Pro 400 Printer M401 series' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

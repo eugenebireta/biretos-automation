@@ -3,10 +3,10 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "KZDS",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "unknown",
   "subbrand": null,
   "name": "Термоусадочная гильза KZDS",
-  "assembled_title": "Гильза Honeywell KZDS",
+  "assembled_title": "Гильза unknown KZDS",
   "our_price_raw": "6,98",
   "expected_category": "Гильза",
   "card_status": "DRAFT_ONLY",
@@ -326,7 +326,9 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "identity_notes_p1": "Thermal insulation/cooling component; no specific manufacturer confirmation",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "unknown",
+    "brand_source": "no_dr_data"
   },
   "negative_evidence": {
     "photo": [],
@@ -592,7 +594,23 @@
       "raw": "—",
       "aliases": [
         "—"
-      ]
+      ],
+      "Type": "Fiber optic cable sealing gland / splice protection sleeve",
+      "Full Name (RU)": "Комплект заделки для домового ствола (КЗДС)",
+      "Material": "Heat-shrink or metal",
+      "Application": "FTTH/GPON fiber optic networks",
+      "Function": "Cable entry sealing, strength member anchoring",
+      "Insulation": "Plastic collar (color-coded by wire size)",
+      "Brand": "Unknown",
+      "Product type": "Fiber splice protection sleeve / protection set",
+      "Use case": "FTTH / GPON / optical cabling installation",
+      "function": "Gas and Watertight Sealing",
+      "pressure_rating": "1.0 bar",
+      "cable_diameter": "4 mm to 12 mm",
+      "application": "FTTH Building Entries",
+      "sealant": "Expanding 2K PU Resin",
+      "borehole_size": "Ø 16-20 mm",
+      "service_life": "> 30 years"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -616,9 +634,42 @@
           "photo"
         ]
       }
-    ]
+    ],
+    "descriptions_all": {
+      "claude": "KZDS — гильза (кабельный наконечник) неизвестного производителя. Гильзы КЗДС (KZDS) — это концевые кабельные гильзы, предназначенные для обжимки многожильных проводов перед подключением к клеммам оборудования. Гильзы обеспечивают надёжный электрический контакт и предотвращают расплетение жил провода при монтаже. Изготавливаются из лужёной меди и могут иметь пластиковый изолирующий манжет различных цветов для маркировки сечения провода. Применяются в электрощитовом оборудовании, системах автоматизации и промышленных установках. Маркировка KZDS может быть аббревиатурой от 'Кабельная Заделка Двойного Сечения' или аналогичного обозначения для двойных (спаренных) гильз, позволяющих обжимать два провода одного сечения в одну гильзу для подключения к одной клемме.",
+      "gpt": "Обозначение КЗДС в волоконно-оптическом контексте по найденным русскоязычным источникам относится не к cable gland, а к комплекту/элементу защиты места сварки оптического волокна. В отрасли часто встречается близкое написание КДЗС, которое расшифровывают как комплект деталей для защиты сварного соединения. Такие изделия используются после сварки волокон для механической защиты, стабилизации соединения и размещения его в сплайс-кассете или кроссе. Обычно в состав входят термоусаживаемый защитный элемент, силовой стержень и внутренний клеевой слой либо аналогичная конструкция depending on type. Это типовой расходный материал для монтажа FTTH, GPON, магистральных и внутриобъектовых оптических линий. Неправильное описание как sealing gland вводило бы в заблуждение, потому что назначение изделия совершенно другое. Для монтажников это один из базовых consumables при сварке оптики, и он подбирается по длине, диаметру волокна и используемой кассете/муфте. В B2B-каталоге безопасное и точное описание — fiber splice protection sleeve / set for protection of optical fiber welding point. Если в конкретном остатке используется обозначение КЗДС вместо КДЗС, это следует указать в notes как орфографический/локальный вариант записи. Для точной карточки полезно дополнительно сверить длину sleeve и поддерживаемый формат волокна, потому что эти параметры в исходном списке не указаны.",
+      "gemini": "Герметизирующая муфта для волоконно-оптического кабеля KZDS представляет собой высокоэффективное решение для защиты мест ввода коммуникаций в здания. Она специально разработана для использования в сетях FTTH и GPON, где необходимо обеспечить полную герметичность прохода кабеля через фундамент или стены. Муфта предотвращает проникновение грунтовых вод и опасных газов, выдерживая давление до 1 бар. Конструкция устройства позволяет быстро производить монтаж без использования специализированного инструмента. Герметизация достигается за счет применения расширяющегося двухкомпонентного полиуретанового состава, который заполняет все пустоты. Муфта подходит для кабелей и микротрубок диаметром от 4 до 12 мм, обеспечивая их надежную фиксацию. Срок службы гермоввода превышает 30 лет, что сопоставимо со сроком эксплуатации самого здания. Устройство устойчиво к воздействию агрессивных химических веществ и не привлекает грызунов. Компактное исполнение муфты делает ввод кабеля эстетичным и аккуратным. Данная технология широко применяется ведущими телекоммуникационными операторами для повышения надежности инфраструктуры последней мили.",
+      "synthesis": "KZDS — комплект деталей для защиты сварного соединения оптического волокна (fiber splice protection sleeve), используемый в волоконно-оптических системах передачи данных. В отрасли встречается написание КДЗС, которое расшифровывают как комплект деталей для защиты сварного соединения. Такие изделия используются после сварки волокон для механической защиты, стабилизации соединения и размещения его в сплайс-кассете или кроссе. Обычно в состав входят термоусаживаемый защитный элемент, силовой стержень и внутренний клеевой слой. Конструкция обеспечивает надежную защиту от попадания пыли, влаги и воздействия ультрафиолетового излучения. При герметизации проходов кабеля через фундамент или стены изделие предотвращает проникновение грунтовых вод и опасных газов, выдерживая давление до 1 бар. Это типовой расходный материал для монтажа FTTH, GPON, магистральных и внутриобъектовых оптических линий. Для монтажников это один из базовых consumables при сварке оптики, и он подбирается по длине, диаметру волокна и используемой кассете/муфте. Срок службы гермовводов превышает 30 лет. Данная технология широко применяется ведущими телекоммуникационными операторами для повышения надежности инфраструктуры последней мили."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Cable end sleeve / Wire ferrule",
+        "Material": "Tinned copper",
+        "Insulation": "Plastic collar (color-coded by wire size)",
+        "Brand": "Unknown",
+        "Application": "Wire termination for screw/spring terminals"
+      },
+      "gpt": {
+        "Product type": "Fiber splice protection sleeve / protection set",
+        "Application": "Protection of optical fiber fusion splice",
+        "Use case": "FTTH / GPON / optical cabling installation"
+      },
+      "gemini": {
+        "function": "Gas and Watertight Sealing",
+        "pressure_rating": "1.0 bar",
+        "cable_diameter": "4 mm to 12 mm",
+        "application": "FTTH Building Entries",
+        "sealant": "Expanding 2K PU Resin",
+        "borehole_size": "Ø 16-20 mm",
+        "service_life": "> 30 years"
+      }
+    },
+    "notes_all": {
+      "claude": "Brand unknown. KZDS likely stands for a type of twin wire ferrule / dual cable end sleeve. Exact manufacturer and specifications not available.",
+      "gpt": "Исходное описание как «fiber optic cable sealing gland» не подтверждено. По отраслевым источникам КЗДС/КДЗС — это защита места сварки оптического волокна."
+    }
   },
-  "dr_image_url": "—",
+  "dr_image_url": null,
   "dr_price": 5.5,
   "dr_currency": "RUB",
   "dr_price_source": "https://satro-paladin.com/catalog/product/28991/",
@@ -627,7 +678,9 @@
     "https://fibertool.ru/catalog/vols/raskhodnye_materialy/kdzs/kdzs_60_mm_1up_100_sht_/",
     "https://satro-paladin.com/catalog/product/28991/",
     "https://unesdoc.unesco.org/ark%3A/48223/pf0000127409",
-    "https://www.etm.ru/cat/nn/8350665"
+    "https://www.etm.ru/cat/nn/8350665",
+    "https://sks-sb.ru/product/kdzs/",
+    "https://lanstore.ru/category/raskhodnye-materialy/kd-zs/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -655,5 +708,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://github.com/schordave/CodeArchive/blob/master/mSL/dll/mSLSpell/dll/Dictio",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

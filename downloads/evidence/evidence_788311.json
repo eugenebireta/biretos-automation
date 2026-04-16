@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "788311",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "e-medic",
   "subbrand": "PEHA",
   "name": "Датчик D 95.573.03.61",
   "assembled_title": "Рамка 3-постовая PEHA DIALOG, 788311",
@@ -295,7 +295,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -565,7 +567,10 @@
     "merge_source": "result_788311.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "legacy": "Dialog Exclusiv 3-gang frame; gold variants are made-to-order; \"auf Anfrage\" in 2013 Bildpreisliste"
+    }
   },
   "dr_category": "PEHA frame",
   "dr_image_url": "https://kirishi.aelektro.ru/content/photo/full/P788311_img1.jpg",
@@ -602,5 +607,68 @@
     "best_description_source": "content",
     "best_photo_url": "https://kirishi.aelektro.ru/content/photo/full/P788311_img1.jpg",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "e-medic Silence ST-M i3 lüfterloser Medical Mini Computer",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\788311.pdf",
+    "datasheet_size_kb": 4128,
+    "product_photos": [
+      "downloads\\datasheet_photos\\788311_p1_2.jpeg",
+      "downloads\\datasheet_photos\\788311_p2_2.jpeg",
+      "downloads\\datasheet_photos\\788311_p3_2.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105788310",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/788311_p1_2.jpeg",
+      "downloads/datasheet_photos/788311_p2_2.jpeg",
+      "downloads/datasheet_photos/788311_p3_2.jpeg"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The datasheet title clearly identifies 'e-medic Silence ST-M i3' as the product brand and model. The seed_name in Russian ('Датчик' = sensor) appears to be completely incorrect data from a different product. The datasheet PDF corresponds to PN 788311 showing an e-medic medical computer, not a Honeywell sensor. Honeywell does not manufacture products under the 'e-medic' brand name. The correct brand should be 'e-medic' and product type is a fanless medical mini computer.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'e-medic Silence ST-M i3 lüfterloser Medical Mini Computer' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105788310",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

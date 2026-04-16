@@ -313,7 +313,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -545,7 +547,53 @@
     "description_ru": "Intermec/Honeywell for PC23d/PC43d/t printers. EOL → replaced by 50177263-001. MSRP $218–223. Range $133–195 across distributors. £92.99 UK.",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 203-183-420 — это пользовательски устанавливаемый беспроводной модуль связи для принтеров Intermec/Honeywell семейства PC. По открытым источникам он идентифицируется как Wi‑Fi 802.11 b/g/n + Bluetooth dual radio accessory для PC43d и совместимых моделей PC23/PC43t. Модуль нужен там, где термопринтер должен работать без проводного Ethernet-подключения или дополнительно поддерживать беспроводную интеграцию с мобильными терминалами и инфраструктурой. Поддержка Wi‑Fi и Bluetooth делает позицию удобной для складов, производственных линий, точек маркировки и логистических участков, где прокладка кабеля нежелательна. В описаниях указываются корпоративные схемы безопасности WEP, WPA/WPA2 и EAP, что важно для внедрения в защищённые сети предприятия. Наличие Bluetooth 2.1 + EDR позволяет использовать периферийные сценарии и локальные соединения рядом с принтером. Поскольку это опция, а не самостоятельный принтер, перед заказом нужно проверять совместимость именно с конкретной моделью оборудования и её ревизией. Установка обычно выполняется в предусмотренный слот или разъём устройства согласно сервисной документации производителя. Для B2B-каталога позиция разумно классифицируется как коммуникационный аксессуар для принтеров маркировки Honeywell/Intermec.",
+      "gemini": "Двухрежимный радиомодуль Honeywell 203-183-420 добавляет функции Wi-Fi и Bluetooth в промышленные принтеры этикеток серии PC23d, PC43d и PC43t. Поддержка стандартов IEEE 802.11 b/g/n гарантирует совместимость с большинством корпоративных беспроводных сетей. Устройство обеспечивает надежную защиту данных благодаря поддержке протоколов WPA2 и EAP-TLS, отвечая требованиям корпоративной безопасности. Интерфейс Bluetooth позволяет настраивать принтер с мобильных устройств без использования кабелей. Модуль выполнен в виде компактной печатной платы, устанавливаемой во внутренний слот расширения. Использование беспроводной связи значительно повышает мобильность складского оборудования. Продукт отличается низким энергопотреблением и не нагружает систему питания принтера. Модуль сертифицирован по стандарту RoHS и поставляется с официальной гарантией производителя. Вес модуля составляет 0.22 фунта (около 100 г). Это эффективное расширение для оптимизации логистических процессов маркировки на складах."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell / Intermec",
+        "Product type": "WLAN/Bluetooth module",
+        "Compatibility": "PC43d / PC23 / PC43t family",
+        "Wi-Fi": "802.11 b/g/n",
+        "Bluetooth": "2.1 + EDR, Class 2",
+        "Security": "WEP 64/128, WPA/WPA2, EAP-PEAP, EAP-TTLS, LEAP, EAP-FAST, EAP-TLS",
+        "Compliance": "RoHS",
+        "Accessory type": "User-installable communication module"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Intermec",
+        "Model": "INWL01c (203-183-420)",
+        "Type": "WLAN / Bluetooth Radio Module",
+        "Standards": "802.11 b/g/n, BT 2.1 EDR",
+        "Form Factor": "Plug-in card",
+        "Security": "WEP, WPA, WPA2, EAP-FAST, CCX v3",
+        "Weight": "0.22 lbs",
+        "Compatibility": "PC23d, PC43d, PC43t",
+        "EAN": "5711045843792"
+      }
+    },
+    "specs": {
+      "Brand": "Honeywell / Intermec",
+      "Product type": "WLAN/Bluetooth module",
+      "Compatibility": "PC43d / PC23 / PC43t family",
+      "Wi-Fi": "802.11 b/g/n",
+      "Bluetooth": "2.1 + EDR, Class 2",
+      "Security": "WEP 64/128, WPA/WPA2, EAP-PEAP, EAP-TTLS, LEAP, EAP-FAST, EAP-TLS",
+      "Compliance": "RoHS",
+      "Accessory type": "User-installable communication module",
+      "Model": "INWL01c (203-183-420)",
+      "Type": "WLAN / Bluetooth Radio Module",
+      "Standards": "802.11 b/g/n, BT 2.1 EDR",
+      "Form Factor": "Plug-in card",
+      "Weight": "0.22 lbs",
+      "EAN": "5711045843792"
+    },
+    "notes_all": {
+      "gpt": "Опция связи для настольных принтеров Honeywell/Intermec; не самостоятельное конечное устройство."
+    }
   },
   "dr_image_url": "https://www.barcodefactory.com/images/category/icon/18500.png",
   "dr_price": 133.63,
@@ -557,7 +605,12 @@
     "https://www.barcodefactory.com/honeywell/parts/203-183-420",
     "https://www.logiscenter.us/203-183-420-wlan-bt-802-11-b-g-n-module-honeywell-pc23",
     "https://www.thebarcodewarehouse.co.uk/shop/intermec/accessories/spare-parts/203-183-420/",
-    "https://www.thermalprintersupplies.com/accessories-parts/203-183-420/"
+    "https://www.thermalprintersupplies.com/accessories-parts/203-183-420/",
+    "https://manuals.plus/m/091d89f08d97a263eb41716e38f090be33751d13d5a6f77313f5ecd064f37231",
+    "https://shop.lyonsinfo.com/en/203-183-420-hsm-4568001.html",
+    "https://www.barcodesinc.com/honeywell/part-203-183-420.htm",
+    "https://www.ers-online.co.uk/a7295/203-183-420-wifi-and-bluetooth-module",
+    "https://www.thetelecomshop.com/au/honeywell-wlan-11bgn-bluetooth-dual-radio-module-203-183-420"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -586,5 +639,40 @@
     "best_photo_url": "https://scanberry.ru/catalog/kupit/modul-wi-fi-802-11-b-g-n-bluetooth-dual-radio",
     "best_photo_source": "photo_verdict"
   },
-  "product_category": "other"
+  "product_category": "other",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "0837914826897",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\203-183-420.pdf",
+    "datasheet_size_kb": 436,
+    "product_photos": [
+      "downloads\\datasheet_photos\\203-183-420_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format (203-183-420) is consistent with Honeywell's diverse numbering. Seed name indicates WLAN module INWL01c which is a legitimate Honeywell wireless communication module model. The datasheet extraction failed (empty title_from_datasheet), suggesting corrupted or unreadable PDF. Russian seed name indicates data sourced from international distributor. Product type and brand appear correct, but requires new/readable datasheet to verify and extract proper technical details for adequate description."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

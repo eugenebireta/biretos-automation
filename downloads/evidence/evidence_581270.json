@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "581270",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": null,
+  "brand": "Esser by Honeywell",
+  "subbrand": "Esser",
   "name": "Настенный громкоговоритель Honeywell 581270, 6 Вт",
   "assembled_title": "Громкоговоритель Honeywell 581270",
   "our_price_raw": "2242,25",
@@ -307,7 +307,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -522,7 +523,24 @@
       "raw": "6W (6/3W taps); ABS; 260×162×77mm; 200Hz–20kHz; 90dB; white RAL9010",
       "aliases": [
         "L-PWP06A"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Model": "L-PWP06A",
+      "Product type": "Cabinet loudspeaker",
+      "Rated power": "6 W",
+      "Max power": "9 W",
+      "Power taps": "6 / 3 W",
+      "Line voltage": "100 V",
+      "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+      "Frequency response": "200 Hz - 20 kHz",
+      "Material": "ABS",
+      "Compliance": "CE / RoHS",
+      "Rated Power": "6 W",
+      "Transformer Taps": "6 / 3 W",
+      "Frequency Response": "200 Hz - 20 kHz",
+      "Sensitivity": "90 dB (1W/1m)",
+      "Dimensions": "260 x 162 x 77 mm",
+      "Color": "White (RAL 9003)"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -546,7 +564,40 @@
     "merge_source": "result_581270.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 581270 — это настенный или корпусный громкоговоритель L‑PWP06A для 100‑вольтовых трансляционных систем. Модель ориентирована на внутренние пространства, где необходима простая и надёжная установка без врезки в потолок. Номинальная мощность составляет 6 Вт, максимальная — 9 Вт, а наличие отводов 6/3 Вт позволяет подстроить уровень звука под конкретную зону. ABS-корпус облегчает монтаж и делает изделие удобным для коридоров, офисов, торговых помещений, административных зданий и других коммерческих объектов. Частотный диапазон модели достаточен для понятной передачи речевых сообщений и несложной фоновой трансляции. Громкоговоритель рассчитан на работу в составе 100 V линий, поэтому при проектировании нужно учитывать суммарную нагрузку и число точек в зоне. Настенное исполнение удобно там, где отсутствует подвесной потолок или требуется локально направить звук в определённую область. При инсталляции важно подобрать место, исключающее экранирование мебелью и отражения, ухудшающие разборчивость речи. Для систем эвакуации и оповещения сам по себе громкоговоритель должен рассматриваться как часть комплексно сертифицированной системы, а не как автономное решение.",
+      "gemini": "Настенный кабинетный громкоговоритель Honeywell L-PWP06A имеет мощность 6 Вт и выполнен в корпусе из огнестойкого ABS-пластика. Модель отличается малой глубиной установки, что позволяет размещать ее в ограниченных пространствах. Дизайн устройства разработан специально для интерьеров отелей, ресторанов и учебных заведений. Высококачественный диффузор обеспечивает превосходную разборчивость объявлений. Устройство поддерживает работу в линиях 70 В и 100 В с возможностью выбора мощности трансформатора: 6 или 3 Вт. Широкий угол рассеивания звука позволяет озвучивать большие площади меньшим количеством приборов. Продукт полностью соответствует стандартам экологичности RoHS и безопасности CE. Частотный диапазон 200 Гц — 20 кГц обеспечивает четкость речи и фоновой музыки. Чувствительность 90 дБ (1 Вт/1 м) гарантирует эффективное озвучивание при минимальной мощности. Это универсальное решение для систем аварийного оповещения и повседневной трансляции."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Model": "L-PWP06A",
+        "Product type": "Cabinet loudspeaker",
+        "Rated power": "6 W",
+        "Max power": "9 W",
+        "Power taps": "6 / 3 W",
+        "Line voltage": "100 V",
+        "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+        "Frequency response": "200 Hz - 20 kHz",
+        "Material": "ABS",
+        "Compliance": "CE / RoHS"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "L-PWP06A",
+        "Rated Power": "6 W",
+        "Transformer Taps": "6 / 3 W",
+        "Material": "Fire-resistant ABS",
+        "Frequency Response": "200 Hz - 20 kHz",
+        "Sensitivity": "90 dB (1W/1m)",
+        "Dimensions": "260 x 162 x 77 mm",
+        "Color": "White (RAL 9003)"
+      }
+    },
+    "notes_all": {
+      "gpt": "Корпусный или настенный 100V-громкоговоритель."
+    }
   },
   "dr_category": "PA cabinet speaker",
   "dr_image_url": "https://www.esser-systems.com/productimages/loud-speaker/wall-surface-mounted-speakers//581270-6-w-cabinet-loudspeaker-abs_Inherited_product_pic_300_300_581270_xxxxx_GEPE_SF3C_00.jpg",
@@ -556,7 +607,9 @@
   "training_urls": [
     "https://www.esser-systems.com/en/products/details/loud-speaker/wall-surface-mounted-speakers/581270-6-w-cabinet-loudspeaker-abs/",
     "https://www.formagroup.ru/brends/honeywell/sistemy_opoveweniya/gromkogovoriteli/esser_581270/",
-    "https://www.teknosan.ru/katalog/esser/581270/"
+    "https://www.teknosan.ru/katalog/esser/581270/",
+    "https://buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/VARIODYN-D1-PA-VA/L-PWP06A.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/525000-549999/529970-da-01-en-Honeywell_581270_Wandlautsprecher_6_W_1_St.pdf"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -584,5 +637,27 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.orbitadigital.com/en/discontinued/15206-megafonia-honeywell-581270-a",
     "best_photo_source": "photo_verdict"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 581270 is an Esser product (fire alarm/PA system component). Esser is a Honeywell subsidiary brand for fire safety. The audit correctly identified brand confusion - product should be branded as 'Esser by Honeywell' or just 'Esser', not standalone 'Honeywell'. The 6W wall speaker specification aligns with Esser's fire alarm notification devices. Product also needs complete datasheet and expanded description.",
+      "brand_correction_confidence": "high"
+    }
   }
 }

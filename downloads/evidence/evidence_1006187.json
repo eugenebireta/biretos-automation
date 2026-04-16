@@ -3,10 +3,10 @@
   "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1006187",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Howard Leight",
   "subbrand": null,
   "name": "Беруши 303S-YEL/WHT",
-  "assembled_title": "Беруши Honeywell 1006187",
+  "assembled_title": "Беруши Howard Leight 1006187",
   "our_price_raw": "2095,17",
   "expected_category": "Беруши",
   "card_status": "AUTO_PUBLISH",
@@ -195,7 +195,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Howard Leight",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "content": {
     "specs": {},
@@ -432,7 +434,61 @@
     "merge_source": "result_1006187.json",
     "provider": "claude",
     "model": "claude-haiku-4-5-20251001",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "gpt": "Howard Leight 1006187 — это сменный блок для диспенсера 303S Foamplug Dispenser, предназначенный для массовой выдачи одноразовых противошумных берушей. Основа изделия — мягкий полиуретановый пеноматериал, который медленно восстанавливает форму и обеспечивает плотное прилегание в слуховом канале. Конструкция без шнурка подходит для производственных линий, складов и сервисных зон, где важны скорость выдачи и простота обращения. По паспорту модели показатель шумоподавления составляет SNR 33 дБ, поэтому беруши рассчитаны на типовые промышленные шумовые нагрузки. Производитель указывает цветовую схему yellow/white и пулевидную форму вкладыша, облегчающую ввод и извлечение. В одном refill-блоке предусмотрено 200 пар, что делает позицию удобной для объектов с большим числом сотрудников и централизованной системой СИЗ. Модель соответствует EN 352-2 и подходит для предприятий, где требуется документируемое применение сертифицированной защиты слуха. Использовать эти беруши следует именно с диспенсерной системой серии 303S, так как артикул относится к заправочному модулю. Для корректной защиты важно соблюдать правила введения вспененного вкладыша и заменять его после загрязнения или окончания смены.",
+      "gemini": "Противошумные вставки Howard Leight Bilsom 303S представляют собой компактную версию защитных средств серии 303. Малый размер S (Small) разработан специально для людей с узким ушным каналом, обеспечивая комфорт без лишнего давления. Материал из вспененного полиуретана обладает замедленным временем восстановления, что упрощает процесс установки. Гигиеничная гладкая поверхность препятствует попаданию инородных тел и грязи в ушной канал. Беруши обеспечивают превосходное затухание звука с показателем SNR 33 дБ в широком диапазоне частот. Модель предназначена для одноразового использования и не подлежит очистке водой или растворителями. Каждая партия проходит тестирование на соответствие стандарту EN 352-2:2002. Поставка в упаковках по 200 пар делает это решение экономически выгодным для крупных предприятий. Продукт является незаменимым элементом СИЗ в металлургии и машиностроении."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Howard Leight",
+        "Product type": "Foam earplug refill",
+        "Series": "303S Foamplug Dispenser",
+        "Material": "Polyurethane foam",
+        "Color": "Yellow / White",
+        "Shape": "Bullet",
+        "Corded": "No",
+        "Pairs per refill": "200",
+        "Unit weight": "0.48 g",
+        "SNR": "33 dB",
+        "HML": "H=32 dB / M=29 dB / L=29 dB",
+        "Standard": "EN 352-2:2002"
+      },
+      "gemini": {
+        "Brand": "Howard Leight by Honeywell",
+        "Model": "Bilsom 303S",
+        "Type": "Disposable Earplugs",
+        "Material": "Polyurethane Foam",
+        "SNR": "33 dB",
+        "Size": "Small",
+        "Standard": "EN 352-2:2002",
+        "Quantity": "200 Pairs",
+        "EAN": "7312550061879"
+      }
+    },
+    "specs": {
+      "Brand": "Howard Leight",
+      "Product type": "Foam earplug refill",
+      "Series": "303S Foamplug Dispenser",
+      "Material": "Polyurethane foam",
+      "Color": "Yellow / White",
+      "Shape": "Bullet",
+      "Corded": "No",
+      "Pairs per refill": "200",
+      "Unit weight": "0.48 g",
+      "SNR": "33 dB",
+      "HML": "H=32 dB / M=29 dB / L=29 dB",
+      "Standard": "EN 352-2:2002",
+      "Model": "Bilsom 303S",
+      "Type": "Disposable Earplugs",
+      "Size": "Small",
+      "Quantity": "200 Pairs",
+      "EAN": "7312550061879"
+    },
+    "notes_all": {
+      "gpt": "Refill для диспенсера 303S; применим для централизованной выдачи СИЗ.",
+      "gemini": "EAN: 7312550061879"
+    }
   },
   "dr_category": "Средства защиты органов слуха / Беруши",
   "dr_image_url": "https://www.alive-sr.com/images/303SBOXFOAMBLUE.jpg",
@@ -442,7 +498,10 @@
   "training_urls": [
     "https://www.alive-sr.com/products/honeywell-howard-leight-1006187-bilsom-303s-earplugs-refill-bag-200-pairs",
     "https://www.fabory.com/en/honeywell-earplug-refill-pack-bilsom-303s-single-use-1006187-yellow-white-1006187/p/1006187HON",
-    "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33"
+    "https://www.workwearexpress.com/honeywell-1006187-303s-foam-earplug-refill-pack-200-pairs-sml-snr33",
+    "https://www.ramm.ro/images/pdf/foley%20&%20wipes/honeywell%20laser-lite%20dispenser%20refill.pdf",
+    "https://safetywear.ca/products/howard-leight-1006187-laser-lite-uncorded-refill-for-303-dispenser-200-pairs",
+    "https://www.yumpu.com/en/document/view/32053616/foam-earplug-dispenser-refill/2"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -471,5 +530,58 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.alive-sr.com/images/303SBOXFOAMBLUE.jpg",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "HL400™-AM ANTIMICROBIAL-PROTECTED DISPENSER",
+    "description": "The Honeywell HL400-AM earplug dispenser offers enhanced cleanliness for workspaces with built-in antimicrobial properties. It protects the dispenser itself against stains, discoloration, and odors caused by mold, mildew, and bacteria, though it does not protect users against disease-causing organisms. Designed for easy installation, use, and refilling, it is compatible with a wide range of Howard Leight disposable earplugs.",
+    "specs": {
+      "antimicrobial_protection": "Silver ion additive in turn knob and catch tray",
+      "mounting_options": "Wall-mounted or tabletop",
+      "refill_options": "Prefilled recyclable canisters or bulk earplug bags",
+      "earplug_compatibility": "Howard Leight MAX®, MAXLite®, Laser Lite®, FirmFit®, and Bilsom 303S/L disposable earplugs",
+      "dispenser_mechanism": "Manual turn knob"
+    },
+    "specs_count": 5,
+    "series": "HL400-AM",
+    "category": "Hearing Protection Dispenser",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "7312550061879",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\1006187.pdf",
+    "datasheet_size_kb": 186,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Howard Leight",
+      "candidates": [],
+      "product_hint": "PPE",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'HL400™-AM ANTIMICROBIAL-PROTECTED DISPENSER' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean_candidates": [
+        "7312550061879",
+        "7312553061876"
+      ],
+      "source": "hl_rule_candidates",
+      "confidence": "medium",
+      "note": "verify against actual datasheet"
+    }
   }
 }

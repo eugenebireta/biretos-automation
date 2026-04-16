@@ -341,7 +341,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -666,7 +668,8 @@
     "source_file": "deep-research-report (5).md"
   },
   "training_urls": [
-    "https://www.industry-bay.com/"
+    "https://www.industry-bay.com/",
+    "https://www.conrad.sk/sk/p/peha-by-honeywell-ramcek-ram-cisto-biela-820111-2855993.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -692,7 +695,59 @@
     "best_price_source": "price_contract",
     "best_description": "Устройство D 95.571.02 применяется в системах автоматизации и управления. Обеспечивает выполнение специфических функций в зависимости от конфигурации и назначения. Изготовлено с учетом высоких стандартов качества.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_820111.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "TECHNICAL PUBLICATIONS INDEX",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\820111.pdf",
+    "datasheet_size_kb": 423,
+    "ean": "4010105820119",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 820111 is 6-digit numeric matching PEHA format. The datasheet appears to be a catalog index page rather than actual product documentation. The current brand 'Honeywell' acquired PEHA but this PN follows PEHA's numbering scheme. Seed name 'D 95.571.02' suggests a PEHA product reference. Need proper product datasheet to get actual specifications."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'TECHNICAL PUBLICATIONS INDEX' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105820119",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

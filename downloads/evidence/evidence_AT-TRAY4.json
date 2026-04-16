@@ -653,5 +653,41 @@
     "best_photo_source": "photo_verdict"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=Allied Telesis"
+  "review_reason": "Phase 1 recon: manufacturer=Allied Telesis",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Sky Connect™ Tracking System",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\AT-TRAY4.pdf",
+    "datasheet_size_kb": 2853,
+    "product_photos": [
+      "downloads\\datasheet_photos\\AT-TRAY4_p1_0.jpeg",
+      "downloads\\datasheet_photos\\AT-TRAY4_p1_1.jpeg",
+      "downloads\\datasheet_photos\\AT-TRAY4_p1_3.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Sky Connect™ Tracking System' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

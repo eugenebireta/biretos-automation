@@ -313,7 +313,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -535,7 +536,20 @@
         "50004263-001",
         "Grainger 278Y98",
         "Zoro G4841127"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Product type": "Transformer",
+      "Primary voltage": "24 / 120 / 230 VAC",
+      "Secondary voltage": "24 VAC",
+      "Frequency": "50/60 Hz",
+      "Connection": "Lead wires",
+      "Application": "HVAC / Modutrol related control systems",
+      "UPC": "085267273060",
+      "Input Voltages": "24 / 120 / 230 V AC",
+      "Output Voltage": "24 V AC",
+      "Terminals": "Screw (up to 4 mm²)",
+      "Weight": "0.576 kg",
+      "EAN": "085267273060"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -569,7 +583,36 @@
     "merge_source": "result_50017460-001_U.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (9).md"
+    "source_file": "deep-research-report (9).md",
+    "descriptions_all": {
+      "gpt": "Honeywell 50017460-001/U — это трансформаторный модуль, используемый в системах управления Honeywell, в том числе рядом с приводами и модулями семейства Modutrol. По открытым каталогам это multi-primary transformer с возможностью подключения к сетям 24/120/230 В AC и выдачей вторичного напряжения 24 В AC. Такая универсальность упрощает использование запасной части в разных странах и проектах, где доступно различное сетевое питание. Компонент предназначен для интеграции в контуры автоматики HVAC, заслонок, клапанов и смежного оборудования управления. Для монтажника важно правильно выбрать первичную обмотку и соблюдать схему подключения, указанную производителем, так как ошибка по вводу напряжения приведёт к выходу из строя. В описаниях также фигурирует частота 50/60 Гц и проводное подключение lead wires. Деталь относится скорее к сервисным или внутренним электротехническим компонентам, чем к конечному пользовательскому устройству. При подборе замены нужно сверять не только номер детали, но и совместимость по конкретной сборке или приводу, куда трансформатор устанавливается. Для B2B-каталога логично относить позицию к spare parts и transformer assemblies для систем автоматизации Honeywell.",
+      "gemini": "Внутренний трансформатор Honeywell 50017460-001/U предназначен для установки в электроприводы серии Modutrol. Устройство позволяет адаптировать питание исполнительных механизмов к различным сетям переменного тока: 24, 120 или 230 В. На выходе трансформатор обеспечивает стабильное напряжение 24 В, необходимое для работы электроники мотора. Компактное исполнение позволяет разместить компонент внутри стандартного корпуса привода. Трансформатор отличается высоким КПД и низким уровнем тепловыделения. Винтовые клеммы обеспечивают надежное крепление проводов сечением до 4 мм². Это изделие является критически важным для систем управления вентиляцией и отоплением (HVAC). Трансформатор обладает защитой от скачков напряжения и длительным ресурсом работы. Вес прибора составляет 0.576 кг. Продукт сертифицирован для использования в коммерческих и промышленных системах автоматизации."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Product type": "Transformer",
+        "Primary voltage": "24 / 120 / 230 VAC",
+        "Secondary voltage": "24 VAC",
+        "Frequency": "50/60 Hz",
+        "Connection": "Lead wires",
+        "Application": "HVAC / Modutrol related control systems",
+        "UPC": "085267273060"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Fema",
+        "Application": "Modutrol motor internal transformer",
+        "Input Voltages": "24 / 120 / 230 V AC",
+        "Output Voltage": "24 V AC",
+        "Frequency": "50/60 Hz",
+        "Terminals": "Screw (up to 4 mm²)",
+        "Weight": "0.576 kg",
+        "EAN": "085267273060"
+      }
+    },
+    "notes_all": {
+      "gpt": "Сервисная или запасная электротехническая деталь; совместимость нужно сверять по конкретной сборке."
+    }
   },
   "dr_category": "Internal transformer kit",
   "dr_image_url": "(available on Zoro and eBay product pages)",
@@ -588,7 +631,10 @@
     "https://www.lesman.com/50017460-001",
     "https://www.nexinstrument.com/50017460-001U",
     "https://www.walmart.com/ip/Honeywell-Internal-Transformer-Kit-24V-AC-50-60Hz-50017460-001/1922151245",
-    "https://www.zoro.com/honeywell-transformer-kit-input-v-24120240-50017460-001/i/G4841127/"
+    "https://www.zoro.com/honeywell-transformer-kit-input-v-24120240-50017460-001/i/G4841127/",
+    "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/50017460-001U/",
+    "https://www.surplustraders.net/ItemDetail.aspx?ItemNo=1044979",
+    "https://gb.wiautomation.com/honeywell/general-automation/general-automation/50017460001"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -617,5 +663,35 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.gazrk.ru/shop/zapchasti-dlia-gorelok/prochee/17220_transformator_pon",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\50017460-001_U.pdf",
+    "datasheet_size_kb": 1767,
+    "product_photos": [
+      "downloads\\datasheet_photos\\50017460-001_U_p1_0.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/50017460-001_U_p1_0.png"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

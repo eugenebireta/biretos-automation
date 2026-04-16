@@ -318,7 +318,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -557,7 +558,10 @@
     "merge_source": "result_VF00-3B65NW.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "~$21 USD equiv. Also ₽5,593 at nt-rt.ru. Related VF20-3B65NW is £42.20 at Kempston Controls"
+    }
   },
   "dr_category": "Immersion temperature sensor",
   "dr_image_url": "—",
@@ -597,5 +601,29 @@
     "best_description_source": "content",
     "best_photo_url": "https://honeyvell.energy/vf00-3b65nw-datchik-temperatury-pt1000-300mm-ip65-bez-g",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\VF00-3B65NW.pdf",
+    "datasheet_size_kb": 304,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

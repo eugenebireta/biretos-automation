@@ -346,7 +346,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -699,7 +700,10 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "Поворотный привод серии SmartAct с крутящим моментом 10Нм и защитной функцией пружинного возврата. Используется для управления воздушными заслонками и обеспечивает их автоматическое закрытие при отключении питания. Оснащен самоцентрирующимся адаптером для быстрой установки на вал."
+    "description_ru": "Поворотный привод серии SmartAct с крутящим моментом 10Нм и защитной функцией пружинного возврата. Используется для управления воздушными заслонками и обеспечивает их автоматическое закрытие при отключении питания. Оснащен самоцентрирующимся адаптером для быстрой установки на вал.",
+    "descriptions_all": {
+      "legacy": "Поворотный привод серии SmartAct с крутящим моментом 10Нм и защитной функцией пружинного возврата. Используется для управления воздушными заслонками и обеспечивает их автоматическое закрытие при отключении питания. Оснащен самоцентрирующимся адаптером для быстрой установки на вал."
+    }
   },
   "training_urls": [
     "https://www.bolasystems.com/honeywell-smartact-s10010",
@@ -732,5 +736,40 @@
     "best_description_source": "dr",
     "best_photo_url": "https://i.ebayimg.com/images/g/8C0AAOSwNAFjUUx~/s-l1600.jpg",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "S10010 / S20010 Damper Actuators 10/20 N-m (88/177 lb-in) for Proportional and Floating Control",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\S10010.pdf",
+    "datasheet_size_kb": 326,
+    "product_photos": [
+      "downloads\\datasheet_photos\\S10010_p1_0.jpeg",
+      "downloads\\datasheet_photos\\S10010_p2_0.png"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/S10010_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - S10010 is a genuine Honeywell damper actuator (10 N-m, 24V) as confirmed by datasheet title. The product type matches (proportional/floating control damper actuator). However, the datasheet appears incomplete or wasn't properly parsed, resulting in missing EAN, specifications, dimensions, weight, series info, and description. A new datasheet extraction is needed to populate these fields."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

@@ -347,7 +347,9 @@
     "type_designation": "D 95.610.03 USB SPV",
     "series": "DIALOG",
     "identity_notes_p1": "USB adapter for DIALOG, SPV version",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -664,10 +666,20 @@
     ]
   },
   "deep_research": {
-    "description_ru": "USB адаптер для серии SPV от Honeywell с артикулом D 95.610.03. Точное назначение и технические характеристики не подтверждены из открытых источников."
+    "description_ru": "USB адаптер для серии SPV от Honeywell с артикулом D 95.610.03. Точное назначение и технические характеристики не подтверждены из открытых источников.",
+    "specs": {
+      "series": "DIALOG",
+      "type": "Insert",
+      "gang": "1",
+      "standard": "VDE"
+    },
+    "descriptions_all": {
+      "legacy": "USB адаптер для серии SPV от Honeywell с артикулом D 95.610.03. Точное назначение и технические характеристики не подтверждены из открытых источников."
+    }
   },
   "training_urls": [
-    "https://www.mouser.com/c/?q=239053"
+    "https://www.mouser.com/c/?q=239053",
+    "https://teslatorg.ru/elektroustanovochnye-izdeliya/rozetki-i-vyklyuchateli/rozetki/nakladka-na-rozetku-usb-peha-by-honeywell-dialog-skrytyy-montazh-bezhevyy-239053"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -693,7 +705,68 @@
     "best_price_source": "price_contract",
     "best_description": "USB адаптер Honeywell D 95.610.03 USB SPV используется для подключения различных устройств к системам автоматизации. Обеспечивает надежное соединение и высокую скорость передачи данных.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_239053.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Produktkatalog Løft 2020/2021",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\239053.pdf",
+    "datasheet_size_kb": 13802,
+    "product_photos": [
+      "downloads\\datasheet_photos\\239053_p1_0.jpeg",
+      "downloads\\datasheet_photos\\239053_p2_15.png",
+      "downloads\\datasheet_photos\\239053_p4_5.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105239058",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/239053_p4_5.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 13802KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Produktkatalog Løft 2020/2021' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105239058",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

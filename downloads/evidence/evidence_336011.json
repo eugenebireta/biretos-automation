@@ -296,7 +296,9 @@
     "type_designation": "D 95.610/2.70 KEY",
     "series": "DIALOG",
     "identity_notes_p1": "DIALOG key switch adapter, modular jack mount",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -538,7 +540,10 @@
     "merge_source": "result_336011.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "legacy": "Not found in any online catalog; may be discontinued or incorrect PN; Dialog aluminium range suspected"
+    }
   },
   "dr_category": "PEHA insert",
   "dr_image_url": "—",
@@ -578,5 +583,66 @@
     "confidence": "high",
     "notes": "Exact PEHA D 95.610/2.70 KEY, 1 stuk.",
     "search_used": "D 95.610/2.70 KEY"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Small Volume Prover Installation, Operation & Service Manual",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\336011.pdf",
+    "datasheet_size_kb": 6086,
+    "product_photos": [
+      "downloads\\datasheet_photos\\336011_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "ean": "4010105336016",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 336011 is 6-digit numeric format typical of PEHA products. Seed name 'Ключевой датчик D 95.610/2.70 KEY' (Key sensor) with model number D 95.610/2.70 matches PEHA's electrical switch/sensor naming convention. Current datasheet is completely wrong (volume prover manual). Brand should be PEHA, not Honeywell."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6086KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Small Volume Prover Installation, Operation & Service Manual' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105336016",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

@@ -609,5 +609,44 @@
     "best_description_source": "content",
     "best_photo_url": "https://ankas.ru/gazovye-klapany/honeywell-vr420va1004-0000-26409",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "NOTICES TECHNIQUES D’INSTALLATION ET D’UTILISATION",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\VR420VA1004-0000.pdf",
+    "datasheet_size_kb": 3333,
+    "product_photos": [
+      "downloads\\datasheet_photos\\VR420VA1004-0000_p4_1.jpeg",
+      "downloads\\datasheet_photos\\VR420VA1004-0000_p5_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format VR420VA matches Honeywell gas valve series. The seed_name correctly identifies this as 'Комбинированный газовый клапан' (Combined Gas Valve) Honeywell VR420VA1004. The datasheet is in French but appears to be generic installation instructions rather than product-specific documentation. The PN likely should be VR420VA1004 without the trailing '-0000' suffix (common Honeywell variant notation). Brand is correct, product type is identifiable from Russian seed name, but proper English datasheet with specs is needed."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'NOTICES TECHNIQUES D’INSTALLATION ET D’UTILISATION' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

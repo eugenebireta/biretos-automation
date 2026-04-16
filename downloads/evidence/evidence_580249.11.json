@@ -539,7 +539,24 @@
       "raw": "230VAC; 4×500W; Class D; 100V direct outputs; galvanic isolation; VARIODYN D1",
       "aliases": [
         "4XD500"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Series": "VARIODYN D1",
+      "Model": "4XD500",
+      "Product type": "4-channel power amplifier",
+      "Amplifier class": "Class D",
+      "Channels": "4",
+      "Output power": "4 x 500 W",
+      "Line output": "100 V",
+      "Cooling": "4 temperature-controlled fans",
+      "Features": "Soft start / inrush current limitation / galvanically isolated outputs",
+      "Output Power": "4 x 500 W (100 V)",
+      "Technology": "Class D",
+      "Compliance": "EN 54-16",
+      "Input Voltage": "230 V AC / 24 V DC Backup",
+      "Dimensions": "484 x 88 x 400 mm",
+      "Efficiency": "> 80%",
+      "Weight": "14 kg"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -563,14 +580,48 @@
     "merge_source": "result_580249.11.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 580249.11 — это четырёхканальный усилитель мощности 4XD500 для системы голосового оповещения VARIODYN D1. Устройство выполнено по классу D и рассчитано на четыре независимых канала, что удобно для распределённой зональной системы оповещения. Производитель указывает прямые гальванически развязанные 100‑вольтовые выходы, что типично для профессиональных систем трансляции и пожарного оповещения в зданиях. Такая архитектура подходит для подключения линий громкоговорителей на объектах с большой протяжённостью кабельных трасс. Усилитель применяется в составе систем общественного оповещения, эвакуации и фоновой трансляции на промышленных, коммерческих и инфраструктурных объектах. Наличие soft start, ограничения пускового тока и управляемого охлаждения важно для надёжной круглосуточной эксплуатации в стойке. Позиция относится к профессиональному equipment layer и требует грамотного проектирования по нагрузке линий, резервированию и соответствию нормам системы в целом. При подборе необходимо учитывать совместимость именно с архитектурой VARIODYN D1 и параметрами подключаемых линий 100 V. Для B2B-каталога это специализированный аудиоусилитель для интеграторов систем безопасности, а не бытовой усилитель.",
+      "gemini": "Четырехканальный усилитель мощности Honeywell 4XD500 разработан специально для систем голосового оповещения Variodyn D1. Устройство использует высокоэффективную технологию усиления класса D, обеспечивая мощность 4 x 500 Вт. Усилитель оснащен гальванически изолированными выходами 100 В для подключения длинных линий громкоговорителей. Модель полностью соответствует стандарту EN 54-16, что обязательно для систем пожарной безопасности. Встроенные вентиляторы с температурным контролем гарантируют стабильную работу под высокой нагрузкой. Устройство поддерживает питание от резервного источника 24 В постоянного тока в случае сбоя сети. Усилитель интегрируется с модулями DOM для постоянного мониторинга целостности аудиоканала. Электронная защита предохраняет схему от перегрева, короткого замыкания и перегрузки. Компактный корпус высотой 2U позволяет эффективно использовать пространство в серверной стойке. Это профессиональное решение для крупных объектов с повышенными требованиями к надежности оповещения."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Series": "VARIODYN D1",
+        "Model": "4XD500",
+        "Product type": "4-channel power amplifier",
+        "Amplifier class": "Class D",
+        "Channels": "4",
+        "Output power": "4 x 500 W",
+        "Line output": "100 V",
+        "Cooling": "4 temperature-controlled fans",
+        "Features": "Soft start / inrush current limitation / galvanically isolated outputs"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "4XD500",
+        "Output Power": "4 x 500 W (100 V)",
+        "Technology": "Class D",
+        "Compliance": "EN 54-16",
+        "Input Voltage": "230 V AC / 24 V DC Backup",
+        "Dimensions": "484 x 88 x 400 mm",
+        "Efficiency": "> 80%",
+        "Weight": "14 kg"
+      }
+    },
+    "notes_all": {
+      "gpt": "Профессиональный усилитель для VARIODYN D1; интеграционная позиция."
+    }
   },
   "dr_category": "PA power amplifier",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-580249-11-d1-power-amplifier-4-channel-4xd500-230v-ac-50-60h-primaryimage",
   "training_urls": [
     "https://www.acornfiresecurity.com/notifier-honeywell-power-amplifier-4-x-500w-100v-class-d-580249.11",
     "https://www.ebay.com/itm/125733345896",
-    "https://www.esser-systems.com/en/products/details/variodyn-d1/amplifiers/58024911-four-channel-amplifier-4xd500/"
+    "https://www.esser-systems.com/en/products/details/variodyn-d1/amplifiers/58024911-four-channel-amplifier-4xd500/",
+    "https://honeywelllifesafety.com/wp-content/uploads/2016/11/VARIODYN-D1-Product-Catalog.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/550000-574999/554293-da-01-en-Essr_Variodyn_580249_11.pdf"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -603,5 +654,29 @@
     "confidence": "medium",
     "notes": "Used power amplifier listing.",
     "search_used": "4XD500 VARIODYN D1 580249.11"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire safety",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Esser, record says Honeywell",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "Honeywell does not manufacture audio amplifiers. The PN format '580249.11' and model '4XD500' do not match Honeywell's industrial product naming conventions. The Russian description clearly indicates an audio power amplifier (усилитель мощности) for professional audio systems. This is a misattributed product - likely belongs to a professional audio equipment manufacturer. Without additional data sources, cannot determine correct brand, but confident this is NOT Honeywell."
+    }
   }
 }

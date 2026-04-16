@@ -9,7 +9,7 @@
   "brand": "Honeywell",
   "subbrand": null,
   "name": "Пульт вызова Honeywell EVCS-HSB",
-  "assembled_title": "Пульт Honeywell EVCS-HSB",
+  "assembled_title": "Пульт Notifier EVCS-HSB",
   "our_price_raw": "14960,00",
   "expected_category": "Пульт",
   "card_status": "DRAFT_ONLY",
@@ -346,7 +346,9 @@
     "structured_pn_match_location": "",
     "product_line": "Evacuation/signaling",
     "identity_notes_p1": "Emergency call/evacuation button",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Notifier",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -659,7 +661,28 @@
     "specs": {
       "aliases": [
         "Morley / Honeywell VoCALL EVCS-HSB"
-      ]
+      ],
+      "Type": "Handset with call button (EVCS)",
+      "Standard": "BS 5839-9, EN 54",
+      "Communication": "Two-way voice",
+      "Application": "Emergency voice communication systems",
+      "Brand": "Notifier (Honeywell)",
+      "System": "Emergency Voice Communication System",
+      "Standards": "BS 5839-9",
+      "Product type": "Type B EVCS outstation",
+      "Mounting": "Surface",
+      "Color": "Red",
+      "Monitoring": "DC open, DC short, earth fault",
+      "Dimensions": "135 x 135 x 45 mm",
+      "Weight": "1105 g",
+      "type": "Type B Hands-free",
+      "color": "Red",
+      "construction": "Zintec Powder Coated Steel",
+      "mounting": "Flush or Surface",
+      "dimensions": "133 mm x 133 mm x 45 mm",
+      "standard": "BS5839 Part 9",
+      "communication": "Full Duplex Voice",
+      "induction_loop": "Built-in"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -682,14 +705,54 @@
     "merge_source": "result_EVCS-HSB.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Notifier EVCS-HSB — пульт управления (handset base / пульт со снятой трубкой) системы голосовой эвакуационной связи (Emergency Voice Communication System — EVCS) производства Notifier (суббренд Honeywell). Данное устройство является частью системы голосового оповещения и экстренной связи, обеспечивающей двустороннюю голосовую связь между операторами и абонентами в здании во время чрезвычайных ситуаций. Пульт EVCS-HSB устанавливается на пожарном посту или в диспетчерской и позволяет оператору принимать входящие вызовы с эвакуационных телефонов, установленных на этажах здания. Система EVCS соответствует требованиям британского стандарта BS 5839-9 и применяется в высотных зданиях, торговых центрах, гостиницах и других объектах, где требуется организация голосовой связи для управления эвакуацией.",
+      "gpt": "Notifier / Honeywell EVCS-HSB — это вызывная станция системы emergency voice communication, относящаяся к типу B outstation. В источниках она описывается как surface outstation и предназначается для работы в составе систем пожарной связи и emergency voice communication на защищаемом объекте. Несмотря на формулировку в исходном списке, это не просто «handset with button» в бытовом смысле, а полноценный настенный абонентский пункт системы EVCS. Подобные устройства применяются на лестничных клетках, в зонах ожидания эвакуации и других точках, где требуется двусторонняя связь с центром управления в аварийной ситуации. Для серии подтверждены соответствие BS5839 Part 9, BS9999 и EN60118-4 по семейству применения. В документации также указаны контролируемые цепи с мониторингом обрыва, короткого замыкания и замыкания на землю, что критично для life-safety систем. Корпус рассчитан на настенный монтаж и имеет компактные габариты, позволяющие устанавливать устройство в общих зонах здания. При подборе важно учитывать совместимость с конкретной центральной системой EVCS/Network 8 и цветовое исполнение. Для B2B-каталога позицию корректно описывать как Type B emergency voice communication outstation, surface mount, red. Это специализированный life-safety communication device, а не обычный телефонный аксессуар.",
+      "gemini": "Абонентское устройство Notifier EVCS-HSB предназначено для организации экстренной голосовой связи в зонах безопасности для инвалидов. Оно представляет собой станцию громкой связи типа «B», обеспечивающую дуплексный режим разговора с диспетчерским пультом. Прочный металлический корпус красного цвета с порошковым покрытием Zintec гарантирует защиту от вандализма и коррозии. На передней панели расположена большая кнопка вызова, которая легко активируется даже в условиях стрессовой ситуации. Устройство полностью контролируется центральным контроллером на наличие обрывов линии или короткого замыкания, что критически важно для систем жизнеобеспечения. Станция EVCS-HSB соответствует требованиям стандарта BS5839 Part 9 для систем пожарной связи. Встроенные индикаторы позволяют пользователю получить визуальное подтверждение приема вызова и установки соединения. Устройство может быть установлено как накладным способом, так и встроено в стену с использованием специальной рамки. Наличие индукционной петли облегчает использование станции людьми со слуховыми аппаратами. Компактные размеры позволяют размещать её в лифтовых холлах и на лестничных клетках без загромождения путей эвакуации.",
+      "synthesis": "Notifier EVCS-HSB — абонентское устройство (Type B outstation) системы голосовой экстренной связи (Emergency Voice Communication System) производства Notifier (суббренд Honeywell), предназначенное для организации экстренной голосовой связи в зонах безопасности для инвалидов. Это полноценный настенный абонентский пункт системы EVCS для работы в составе систем пожарной связи и emergency voice communication на защищаемом объекте. Устройство обеспечивает дуплексный режим разговора с диспетчерским пультом и применяется на лестничных клетках, в зонах ожидания эвакуации и других точках, где требуется двусторонняя связь с центром управления. На передней панели расположена большая кнопка вызова, которая легко активируется даже в условиях стрессовой ситуации. Прочный металлический корпус красного цвета с порошковым покрытием Zintec гарантирует защиту от вандализма и коррозии. Встроенные индикаторы позволяют пользователю получить визуальное подтверждение приема вызова и установки соединения. Устройство полностью контролируется центральным контроллером на наличие обрывов линии или короткого замыкания. Соответствует BS5839 Part 9, BS9999 и EN60118-4. Наличие индукционной петли облегчает использование станции людьми со слуховыми аппаратами. Монтаж возможен как накладным способом, так и встроено в стену с использованием специальной рамки."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "EVCS Handset Base Unit",
+        "Brand": "Notifier by Honeywell",
+        "System": "Emergency Voice Communication System",
+        "Standards": "BS 5839-9",
+        "Application": "Fire command centers, evacuation management"
+      },
+      "gpt": {
+        "Product type": "Type B EVCS outstation",
+        "Mounting": "Surface",
+        "Color": "Red",
+        "Standards": "BS5839 Pt 9, BS9999, EN60118-4 (family information)",
+        "Monitoring": "DC open, DC short, earth fault",
+        "Dimensions": "135 x 135 x 45 mm",
+        "Weight": "1105 g"
+      },
+      "gemini": {
+        "type": "Type B Hands-free",
+        "color": "Red",
+        "construction": "Zintec Powder Coated Steel",
+        "mounting": "Flush or Surface",
+        "dimensions": "133 mm x 133 mm x 45 mm",
+        "standard": "BS5839 Part 9",
+        "communication": "Full Duplex Voice",
+        "induction_loop": "Built-in"
+      }
+    },
+    "notes_all": {
+      "claude": "Notifier is a Honeywell sub-brand for fire alarm and life safety systems.",
+      "gpt": "Важно: это Type B outstation/абонентский пункт EVCS. Формулировка «handset with button» слишком упрощает назначение."
+    }
   },
   "training_urls": [
     "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/morley-ias-uk/hba-fire-HON-EVCS-TypeB-Outstation-2020.pdf",
     "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/notifier-uk/hba-fire-990-142-0313-EVCS-Compact5-and-Compact9.pdf",
     "https://www.firealarmengineers.com/",
     "https://www.thesafetycentre.co.uk/honeywell-evcs-hsb-disabled-refuge-intercom-outstation-type-b-red",
-    "https://www.thesafetycentreshop.co.uk/store/brands/honeywell/honeywell_disabled_refuge_system/honeywell_evcs_cmpt9_9_line_evcs_disabled_refuge_compact_master_panel"
+    "https://www.thesafetycentreshop.co.uk/store/brands/honeywell/honeywell_disabled_refuge_system/honeywell_evcs_cmpt9_9_line_evcs_disabled_refuge_compact_master_panel",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-gb/documents/downloads/morley/evcs-type-b-outstation-data-sheet.pdf",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-gb/documents/downloads/morley/evcs-network-8-data-sheet.pdf"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -717,5 +780,58 @@
     "best_description_source": "content",
     "best_photo_url": "firealarmengineers.com",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "TYPE B OUTSTATION",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\EVCS-HSB.pdf",
+    "datasheet_size_kb": 180,
+    "product_photos": [
+      "downloads\\datasheet_photos\\EVCS-HSB_p1_0.png",
+      "downloads\\datasheet_photos\\EVCS-HSB_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/EVCS-HSB_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Notifier",
+      "brand_correction_reason": "EVCS-HSB is a Honeywell emergency communication outstation PN. Notifier is owned by Honeywell but EVCS product line belongs to Honeywell Fire Systems. The seed_name correctly identifies Honeywell as brand. TYPE B OUTSTATION matches emergency call station functionality. Brand should be corrected to Honeywell.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Notifier",
+      "candidates": [],
+      "product_hint": "voice evacuation",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Notifier, record says Honeywell",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'TYPE B OUTSTATION' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

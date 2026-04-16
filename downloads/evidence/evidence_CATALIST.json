@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "CATALIST",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Honeywell UOP",
   "subbrand": null,
   "name": "Свитч Honeywell CATALIST",
   "assembled_title": "Свитч Honeywell CATALIST",
@@ -557,7 +557,10 @@
     "merge_source": "result_CATALIST.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "No product with PN \"CATALIST\" found anywhere. May be Honeywell partner program name or internal alias for Cisco Catalyst 3850 switch"
+    }
   },
   "dr_category": "Unknown (not verified)",
   "dr_image_url": "—",
@@ -584,5 +587,56 @@
     "confidence": "low",
     "notes": "Series page, exact 3850 variant not specified.",
     "search_used": "Cisco Catalyst 3850"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "UOP R-264 CCR Platforming™ Catalyst",
+    "description": "UOP's R-264 catalyst is a low platinum and high density spherical catalyst designed for use in continuous regeneration reforming units (such as the CCR Platforming™ process) for upgrading low-quality naphtha. It converts naphtha, in the presence of hydrogen, into high-octane reformate, hydrogen, motor fuel blending stocks for gasoline, BTX aromatics, and high-purity hydrogen for other refinery processes. R-264 provides maximum operational flexibility, allowing for increased throughput or higher yields through two modes of operation: high-activity or high-yield. Key benefits include excellent C5+ yields for motor fuel applications, excellent aromatics yields for BTX applications, excellent hydrogen yields, excellent activity to maintain required feed rate and octane target, low coke make from optimized metals content and unique base formulation, high yield stability over life of catalyst, and long catalyst life from high strength base and high chloride retention. It can be supplied in oxidized or reduced form, with reduced catalyst providing faster start-up and on-spec production. A higher platinum version is also available. Since its commercialization in 2004, more than 70 loads have been sold.",
+    "specs": {
+      "Circulating_ABD_lb_ft3": 40.0,
+      "Circulating_ABD_kg_m3": 641,
+      "Static_ABD_lb_ft3": 41.8,
+      "Static_ABD_kg_m3": 670,
+      "Nominal_diameter_inch": "1/16",
+      "Shape": "Sphere",
+      "Metals": "Contains Platinum",
+      "Packaging_container_type": "Steel drums",
+      "Packaging_container_volume_US_gallon": 55,
+      "Packaging_container_volume_liter": 210,
+      "Net_weight_per_drum_kg": 125
+    },
+    "specs_count": 11,
+    "series": "None",
+    "category": "Continuous Regeneration Reforming Catalyst",
+    "weight_g": "125000",
+    "dimensions_mm": "1.6",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CATALIST.pdf",
+    "datasheet_size_kb": 444,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CATALIST_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The datasheet clearly identifies this as 'UOP R-264 CCR Platforming™ Catalyst'. UOP is Honeywell's process technologies division. The actual part number is R-264, not 'CATALIST'. The seed name 'Свитч' (Switch) is completely wrong - this is an industrial catalyst for petroleum refining, not networking equipment. The brand should be specified as 'Honeywell UOP' for clarity, and the PN corrected to R-264. The dimensional data (1.6mm) is likely the catalyst particle/pellet diameter as noted.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'UOP R-264 CCR Platforming™ Catalyst' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

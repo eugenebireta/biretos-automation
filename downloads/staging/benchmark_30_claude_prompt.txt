@@ -1,0 +1,51 @@
+You are a B2B industrial product researcher. Find current market data for 30 SKUs below.
+
+## CRITICAL RULES
+1. Search "{subbrand} {PN}" — NEVER "Honeywell {PN}" for PEHA/Esser items
+2. PEHA frames (185xxx-189xxx): often sold in PACKS (5 or 10 pcs) on Conrad/computersalg. ALWAYS report UNIT price. If source says "5 St." or "10 St.", divide by quantity and note it.
+3. Include EVERY URL you visited in Table 2 — this trains our local AI
+4. If price not found — write "not found", never guess
+5. For each price: note if New/Used/Refurb, and if per-unit or per-pack
+
+## Output format
+
+### Table 1 — Product data
+| # | PN | Price | Currency | Unit/Pack | Source URL | Category | Image URL | Alias | Specs | Notes |
+
+### Table 2 — Every URL visited  
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+
+## 30 SKUs
+
+| # | PN | Hint | Search as | Ref Price |
+|---|---|---|---|---|
+| 1 | 185091 | Рамка 1-постовая PEHA NOVA, 185091 | Honeywell 185091 | 3348,85 RUB |
+| 2 | 185191 | Рамка 1-постовая PEHA NOVA, 185191 | Honeywell 185191 | 1917,12 RUB |
+| 3 | 185491 | Рамка 1-постовая PEHA NOVA, 185491 | Honeywell 185491 | 1917,14 RUB |
+| 4 | 185891 | Рамка 2-постовая PEHA NOVA, 185891 | Honeywell 185891 | 5525,23 RUB |
+| 5 | 187091 | Рамка 2-постовая PEHA NOVA, 187091 | Honeywell 187091 | 5581,97 RUB |
+| 6 | 188091 | Рамка 3-постовая PEHA NOVA, 188091 | Honeywell 188091 | 9348,10 RUB |
+| 7 | 189091 | Рамка 3-постовая PEHA NOVA, 189091 | Honeywell 189091 | 9291,30 RUB |
+| 8 | 00020211 | Рамка 2-постовая PEHA NOVA, 00020211 | Honeywell 00020211 | unknown |
+| 9 | 105411 | Клавиша PEHA AURA, 105411 | Honeywell 105411 | 669,60 RUB |
+| 10 | 106511 | Розетка PEHA AURA, 106511 | Honeywell 106511 | 452,50 RUB |
+| 11 | 773211 | Рамка 2-постовая PEHA DIALOG, 773211 | Honeywell 773211 | 1484,09 RUB |
+| 12 | 101411 | Рамка 2-постовая PEHA AURA, 101411 | Honeywell 101411 | 6201,83 RUB |
+| 13 | 104011 | Клавиша PEHA AURA, 104011 | Honeywell 104011 | 625,95 RUB |
+| 14 | 109411 | Клавиша PEHA AURA, 109411 | Honeywell 109411 | 669,60 RUB |
+| 15 | 125711 | Вставка PEHA AURA, 125711 | Honeywell 125711 | 714,10 RUB |
+| 16 | 033588.17 | Соединение Honeywell 033588.17 | Honeywell 033588.17 | 3025,82 RUB |
+| 17 | 1006186 | Беруши Honeywell 1006186 | Honeywell 1006186 | 1920,61 RUB |
+| 18 | 13960 | Источник питания Honeywell 13960 | Honeywell 13960 | 46288,36 RUB |
+| 19 | 129625-L3 | Набор Honeywell 129625-L3 | Honeywell 129625-L3 | 55352,00 RUB |
+| 20 | PTSRB0101V3 | Датчик Honeywell PTSRB0101V3 | Honeywell PTSRB0101V3 | 70871,30 RUB |
+| 21 | T7560B1008 | Датчик Honeywell T7560B1008 | Honeywell T7560B1008 | 21939,27 RUB |
+| 22 | MZ-PCWS77 | Рабочая станция Honeywell MZ-PCWS77 | Honeywell MZ-PCWS77 | 206421,50 RUB |
+| 23 | FP1B-LCUL-01H | Пигтейл Honeywell FP1B-LCUL-01H | Honeywell FP1B-LCUL-01H | 588,00 RUB |
+| 24 | 3240357 | Канал Honeywell 3240357 | Honeywell 3240357 | 4618,21 RUB |
+| 25 | H4L6GR2 | Камера Honeywell H4L6GR2 | Honeywell H4L6GR2 | 72974,83 RUB |
+| 26 | U2412M | Монитор Honeywell U2412M | Honeywell U2412M | 9913,69 RUB |
+| 27 | CPO-RL4 | Контроллер Honeywell CPO-RL4 | Honeywell CPO-RL4 | 49970,55 RUB |
+| 28 | 580249.11 | Усилитель Honeywell 580249.11 | Honeywell 580249.11 | 376592,44 RUB |
+| 29 | BF-HWC4-PN16-0125 | Задвижка Honeywell BF-HWC4-PN16-0125 | Honeywell BF-HWC4-PN16-0125 | 4131,64 RUB |
+| 30 | 280870645 | Кабель Honeywell 280870645 | Honeywell 280870645 | 11,33 RUB |

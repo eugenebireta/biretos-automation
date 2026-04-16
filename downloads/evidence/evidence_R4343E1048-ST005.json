@@ -632,7 +632,45 @@
     "specs": {
       "aliases": [
         "HON07108"
-      ]
+      ],
+      "Supply Voltage": "115/230 VAC, 50/60 Hz",
+      "Flame Failure Response Time": "<2 s",
+      "Output Contacts": "1x DPDT",
+      "Max. Contact Rating": "2 A, 230 VAC, cos φ 0.65",
+      "Flame Detector Type": "UV (C7027, C7035, C7044)",
+      "Operation Mode": "Intermittent",
+      "Protection": "IP40",
+      "Ambient Temperature": "-10 to 60°C",
+      "Max. Humidity": "90% RH",
+      "Approvals": "CE according EN298",
+      "Mounting": "Plug-in on subbase (included)",
+      "Type": "Flame Switch / Flame Detector Relay",
+      "Operation": "Intermittent",
+      "Output": "1 × DPDT relay",
+      "Compatible Sensors": "Honeywell C7027, C7035, C7044 (UV sensors)",
+      "Max Humidity": "90% RH",
+      "Flame Current Test Jack": "Yes (0-10 µA)",
+      "Certifications": "CE (EN298, intermittent operation)",
+      "Status": "Discontinued — replacement only",
+      "Replacement": "FDU510W3T2/101-0K1 (230VAC) or FDU510Q3T2/101-0K1 (120VAC)",
+      "Product type": "Flame relay",
+      "Supply voltage": "115/230 VAC, 50/60 Hz",
+      "Sensor package": "ST005 Mini-Peeper UV sensor",
+      "Flame failure response time": "2 s",
+      "Contacts": "2 isolated DPDT",
+      "Contact rating": "2 A at 0.65 PF",
+      "Ambient temperature": "-10 ... 60 °C",
+      "Humidity": "90% RH at 40 °C",
+      "Ingress protection": "IP40",
+      "operation": "Intermittent",
+      "voltage": "115 / 230 VAC",
+      "sensor_type": "UV (C7027, C7035, C7044)",
+      "response_time": "< 2 seconds",
+      "output": "1 x DPDT",
+      "ambient_temp": "-10 °C to +60 °C",
+      "dimensions": "13 cm x 5.2 cm x 11.2 cm",
+      "ip_rating": "IP40",
+      "ean": "4046911012875"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -655,7 +693,57 @@
     "merge_source": "result_R4343E1048-ST005.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Honeywell R4343E1048-ST005 — реле контроля пламени (детектор пламени) серии R4343E для использования в промышленных и коммерческих горелочных установках прерывистого действия. Устройство предназначено для индикации наличия или отсутствия пламени путём замыкания или размыкания контактов реле. Реле R4343E работает с ультрафиолетовыми (UV) датчиками пламени моделей Honeywell C7027, C7035 и C7044. На лицевой панели расположена измерительная гнездовая розетка для контроля силы тока пламени с помощью микроамперметра (0-10 мкА). Устройство монтируется на подбазу (входит в комплект) и имеет степень защиты IP40. Рабочая температура окружающей среды от -10 до +60°C, максимальная влажность 90% RH. Выход — 1×DPDT (двухполюсный переключающий контакт). Сертифицировано CE по EN298 для прерывистого режима работы. ВАЖНО: данная модель снята с производства и доступна только как запасная часть. Замена — блок определения пламени Honeywell Kromschröder FDU510W3T2/101-0K1 (230VAC) или FDU510Q3T2/101-0K1 (120VAC). Устройство не соответствует требованиям GAR, LVD и EMCD и не может использоваться для новых установок в Европе.",
+      "gpt": "Honeywell R4343E1048-ST005 — это реле контроля пламени из серии flame relay для горелочных и теплотехнических систем. Данная конфигурация подтверждена как вариант с не-self-checking UV sensing и мини-датчиком ST005 Mini-Peeper. Такое решение используется в системах контроля горения, где нужно надёжно подтверждать наличие пламени и безопасно отключать подачу топлива при его потере. Honeywell указывает питание 115/230 VAC 50/60 Hz, что делает изделие удобным для промышленного и теплотехнического оборудования разных регионов. В составе есть два изолированных переключающих контакта DPDT, благодаря чему реле можно интегрировать в схемы автоматики, сигнализации и межблочных блокировок. Для устройств этого класса критичен малый flame failure response time, и производитель указывает 2 секунды. Реле рассчитано на шкафной монтаж и обычно применяется вместе с соответствующими датчиками, burner sequence controls и устройствами управления горелкой. При подборе важно не путать UV- и IR-версии, а также self-checking и non-self-checking исполнения, потому что это влияет на допустимую область применения и требования безопасности. Для эксплуатации значимы также температурный диапазон, класс защиты корпуса и допустимая влажность. В B2B-каталоге позицию корректно описывать как flame relay with UV sensor package for burner supervision, rather than just “relay” in a generic sense.",
+      "gemini": "Реле контроля пламени Honeywell R4343E1048-ST005 предназначено для обеспечения безопасности в промышленных горелочных установках. Оно работает в прерывистом режиме и служит для индикации наличия или отсутствия факела в камере сгорания. Данная модель специально разработана для использования с ультрафиолетовыми датчиками пламени серии C7027 и C7035. Устройство оснащено двумя изолированными контактами типа DPDT, что позволяет гибко интегрировать его в схемы аварийной сигнализации. Время срабатывания при пропадании пламени составляет менее двух секунд, что критически важно для предотвращения аварийных ситуаций. Реле поддерживает работу с напряжением питания 115 или 230 В переменного тока, что делает его универсальным. На передней панели предусмотрен специальный разъем для измерения тока пламени с помощью микроамперметра. Прочный корпус со степенью защиты IP40 предназначен для установки внутри шкафов управления котельным оборудованием. Несмотря на то, что модель снята с производства и заменена серией Kromschroder FDU, она остается востребованной для ремонта существующих систем.",
+      "synthesis": "Honeywell R4343E1048-ST005 — это реле контроля пламени (flame relay) из серии R4343E для горелочных и теплотехнических систем, предназначенное для индикации наличия или отсутствия пламени путём замыкания или размыкания контактов. Данная конфигурация подтверждена как вариант с ультрафиолетовым (UV) sensing и мини-датчиком ST005 Mini-Peeper; устройство работает с ультрафиолетовыми датчиками пламени моделей Honeywell C7027, C7035 и C7044. На лицевой панели расположена измерительная гнездовая розетка для контроля силы тока пламени с помощью микроамперметра (0-10 мкА); время срабатывания при пропадании пламени составляет менее двух секунд, что критически важно для предотвращения аварийных ситуаций. Реле питается от напряжения 115/230 VAC 50/60 Hz, что делает изделие удобным для промышленного и теплотехнического оборудования разных регионов. Устройство оснащено двумя изолированными переключающими контактами DPDT, благодаря чему реле можно интегрировать в схемы аварийной сигнализации, межблочных блокировок и систем управления горелкой. Устройство монтируется на подбазу (входит в комплект); степень защиты IP40; рабочая температура окружающей среды от -10 до +60°C, максимальная влажность 90% RH. Сертифицировано CE по EN298 для прерывистого режима работы. Данная модель снята с производства, однако остаётся востребованной для ремонта существующих систем горелочного управления в промышленности и теплотехнике."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Flame Switch / Flame Detector Relay",
+        "Operation": "Intermittent",
+        "Supply Voltage": "230 VAC (inferred from -ST005)",
+        "Output": "1 × DPDT relay",
+        "Compatible Sensors": "Honeywell C7027, C7035, C7044 (UV sensors)",
+        "Protection": "IP40",
+        "Ambient Temperature": "-10...+60°C",
+        "Max Humidity": "90% RH",
+        "Flame Current Test Jack": "Yes (0-10 µA)",
+        "Certifications": "CE (EN298, intermittent operation)",
+        "Mounting": "Plug-in on subbase (included)",
+        "Status": "Discontinued — replacement only",
+        "Replacement": "FDU510W3T2/101-0K1 (230VAC) or FDU510Q3T2/101-0K1 (120VAC)"
+      },
+      "gpt": {
+        "Product type": "Flame relay",
+        "Supply voltage": "115/230 VAC, 50/60 Hz",
+        "Sensor package": "ST005 Mini-Peeper UV sensor",
+        "Flame failure response time": "2 s",
+        "Contacts": "2 isolated DPDT",
+        "Contact rating": "2 A at 0.65 PF",
+        "Ambient temperature": "-10 ... 60 °C",
+        "Humidity": "90% RH at 40 °C",
+        "Ingress protection": "IP40"
+      },
+      "gemini": {
+        "operation": "Intermittent",
+        "voltage": "115 / 230 VAC",
+        "sensor_type": "UV (C7027, C7035, C7044)",
+        "response_time": "< 2 seconds",
+        "output": "1 x DPDT",
+        "ambient_temp": "-10 °C to +60 °C",
+        "dimensions": "13 cm x 5.2 cm x 11.2 cm",
+        "ip_rating": "IP40",
+        "ean": "4046911012875"
+      }
+    },
+    "notes_all": {
+      "claude": "Discontinued. No longer meets EU approval requirements (GAR, LVD, EMCD). For replacement only, not new installations.",
+      "gpt": "Подтверждена именно UV/non-self-checking конфигурация с датчиком ST005.",
+      "gemini": "Discontinued. Replaced by Kromschroder FDU series."
+    }
   },
   "training_urls": [
     "https://merunas.lt/products/534.673.005",
@@ -674,7 +762,9 @@
     "https://www.nexinstrument.com/r4343e1048",
     "https://www.radwell.com/Buy/HONEYWELL/HONEYWELL/R4343-E1048-ST005",
     "https://www.sunup-automation.com/39440.html",
-    "https://www.todo-control.com/flame-relay-r4343e-honeywell"
+    "https://www.todo-control.com/flame-relay-r4343e-honeywell",
+    "https://buildings.honeywell.com/us/en/products/by-category/burners-and-components/flame-safeguard-controls/flame-relays/r4343e",
+    "https://www.cleaverbrooksboilers.com/Cleaver-Brooks-Direct-Replacement-for-Honeywell-R4343E1048-ST005-p/r4343e1048-st005.htm"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -702,5 +792,50 @@
     "best_description_source": "content",
     "best_photo_url": "burnerparts.nl",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "SLATE system",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\R4343E1048-ST005.pdf",
+    "datasheet_size_kb": 6884,
+    "product_photos": [
+      "downloads\\datasheet_photos\\R4343E1048-ST005_p1_0.jpeg",
+      "downloads\\datasheet_photos\\R4343E1048-ST005_p1_1.jpeg",
+      "downloads\\datasheet_photos\\R4343E1048-ST005_p5_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "R4343E series is genuine Honeywell UV flame detection product line. The PN format matches Honeywell's naming convention. However, the '-ST005' suffix and generic 'SLATE system' title suggest wrong/incomplete datasheet was matched. The base PN R4343E1048 is correct but datasheet needs replacement with proper UV flame detector documentation including full specs (voltage, detection range, response time, certifications). SLATE may be a programming/configuration system rather than the detector itself."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6884KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'SLATE system' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

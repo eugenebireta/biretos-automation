@@ -646,7 +646,14 @@
       "raw": "—",
       "aliases": [
         "См. источники по PRECISION"
-      ]
+      ],
+      "Type": "Professional workstation series (Dell Precision)",
+      "Note": "PRECITION is a typo — correct name is PRECISION",
+      "Brand": "Dell",
+      "Normalized family": "Precision",
+      "Category": "Workstation",
+      "Data quality": "Typo / alias",
+      "Exact model": "Unknown"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -658,11 +665,35 @@
     "merge_source": "result_PRECITION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "Dell Precision (записано как PRECITION — вероятная опечатка) — линейка профессиональных рабочих станций Dell Technologies. Правильное написание — PRECISION. Данный продукт полностью идентичен позициям PRECISION и PRECITHION в данном каталоге. Серия Dell Precision охватывает широкий спектр рабочих станций в настольном и мобильном исполнении, предназначенных для профессиональных задач с высокими требованиями к вычислительной мощности и графической производительности. Рабочие станции сертифицированы для работы с промышленным ПО (ISV) и широко используются в инженерии, нефтегазовом секторе, медицине, архитектуре и науке.",
+      "gpt": "PRECITION в пользовательском списке выглядит как опечатка, и наиболее вероятная нормализация — Dell Precision. Такие ошибки часто встречаются в старых Excel-выгрузках, актах, RFQ и переписках, где семейство рабочих станций указывается вручную. Линейка Dell Precision относится к профессиональным workstation-решениям для CAD, 3D, инженерии, аналитики и других задач с повышенными требованиями к вычислительным ресурсам. Публиковать такую запись как самостоятельный SKU не стоит, потому что она не соответствует нормализованному названию производителя. Для каталога правильнее либо автоматически сопоставлять ее с сущностью Dell Precision, либо отправлять в manual review перед публикацией. Если позиция встречается в документах клиента, полезно сохранить исходную ошибочную строку в alias-полях для дальнейшего поиска и дедупликации. С точки зрения e-commerce и ERP это типичный пример грязных данных, которые нужно лечить нормализацией справочника брендов и серий. После нормализации описание, совместимость и атрибуты следует наследовать от семейства Precision, а не создавать новую карточку. До уточнения точной модели характеристики рабочей станции остаются переменными, потому что семейство включает множество поколений и форм-факторов. Поэтому safest approach — трактовать эту позицию как typo alias for Dell Precision.",
+      "synthesis": "PRECITION в пользовательском списке выглядит как опечатка, аналогично PRECITHION, с наиболее вероятной нормализацией — Dell Precision. Такие ошибки часто встречаются в старых Excel-выгрузках, актах, RFQ и переписках, где семейство рабочих станций указывается вручную. Публиковать такую запись как самостоятельный SKU не стоит, так как она не соответствует нормализованному названию производителя. Линейка Dell Precision относится к профессиональным workstation-решениям для CAD, 3D, инженерии, аналитики и других задач с повышенными требованиями к вычислительным ресурсам, широко используется в нефтегазовом секторе, медицине, архитектуре и науке. Для каталога правильнее либо автоматически сопоставлять ошибочное обозначение с сущностью Dell Precision, либо отправлять в manual review перед публикацией. Если позиция встречается в документах клиента, полезно сохранить исходную ошибочную строку в alias-полях для дальнейшего поиска и дедупликации. С точки зрения e-commerce и ERP это типичный пример грязных данных, требующих нормализации справочника брендов и серий. После нормализации все атрибуты следует наследовать от семейства Precision, а не создавать новую карточку. До уточнения точной модели характеристики остаются переменными, потому что семейство включает множество поколений и форм-факторов. Safest approach — трактовать эту позицию как typo alias for Dell Precision."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Professional workstation series (Dell Precision)",
+        "Note": "PRECITION is a typo — correct name is PRECISION"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Normalized family": "Precision",
+        "Category": "Workstation",
+        "Data quality": "Typo / alias",
+        "Exact model": "Unknown"
+      }
+    },
+    "notes_all": {
+      "claude": "PRECITION is a typo/misspelling of Dell PRECISION. See PRECISION entry for full details.",
+      "gpt": "Treated as typo alias of Dell Precision; do not publish as standalone SKU without normalization."
+    }
   },
   "training_urls": [
     "https://prod-edata.honeywell.com/",
-    "https://www.ebay.com/b/dell-precision/bn_7006317183"
+    "https://www.ebay.com/b/dell-precision/bn_7006317183",
+    "https://www.dell.com/en-us/shop/desktops-all-in-one-pcs/sf/precision-desktops",
+    "https://www.dell.com/en-us/shop/dell-laptops-and-notebooks/sf/precision-laptops"
   ],
   "normalized": {
     "schema_version": "normalized_v1",
@@ -671,8 +702,8 @@
     "best_price_source": "phase3a",
     "best_description": "Системный блок Компьютер PRECITION обеспечивает высокую производительность и надежность для работы с различными приложениями. Он подходит для профессионального использования.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/DELL_PRECITION.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 125.0,
@@ -682,5 +713,40 @@
     "confidence": "medium",
     "notes": "Used workstation listing; input name appears to be typo of Precision",
     "search_used": "Dell Precision T3500"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Fault Tolerant Power Systems",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PRECITION.pdf",
+    "datasheet_size_kb": 11020,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 11020KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Fault Tolerant Power Systems' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

@@ -571,7 +571,43 @@
     "best_price_source": "price_contract",
     "best_description": "Камера видеонаблюдения предназначена для использования в системах безопасности. Она обеспечивает высокое качество изображения и надежность работы в различных условиях.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_H4L6GR2.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "H4L6GR2 Network TDN Low-Light 6 MP IR Rugged Dome Camera",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\H4L6GR2.pdf",
+    "datasheet_size_kb": 993,
+    "product_photos": [
+      "downloads\\datasheet_photos\\H4L6GR2_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/H4L6GR2_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - H4L6GR2 is a valid Honeywell video surveillance camera model (6MP IR rugged dome). The datasheet exists and title matches Honeywell's naming convention for their equIP series cameras. Missing data (EAN, description, specs, dimensions) indicates the datasheet PDF was not properly parsed/extracted, not that the product is wrong. Action needed: re-process or obtain better quality datasheet to extract missing specifications.",
+      "redownloaded_from": "https://www.imotionsecurite.com/pdf/honeywell/Honeywell-H4L6GR2-Datasheet.pdf",
+      "redownloaded_at": "2026-04-16 23:11:22"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

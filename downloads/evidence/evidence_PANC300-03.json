@@ -611,7 +611,15 @@
     "specs": {
       "aliases": [
         "C300 Panel (описание лота)"
-      ]
+      ],
+      "Type": "Enclosure panel",
+      "Series": "PANC300",
+      "Material": "Metal",
+      "Mounting": "Wall mount",
+      "Application": "Fire alarm and safety systems",
+      "Brand": "Honeywell",
+      "System family": "Honeywell C300 / Experion PKS (secondary-source identification)",
+      "Component type": "Remote module panel / cabinet panel"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -633,13 +641,36 @@
     "merge_source": "result_PANC300-03.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Honeywell PANC300-03 — панель или корпус серии PANC300, предназначенный для систем автоматизации зданий Honeywell. Панели серии PANC300 используются для монтажа и размещения контроллеров, модулей ввода/вывода и другого оборудования систем управления зданиями. Данная модификация (-03) указывает на конкретную конфигурацию или комплектацию панели. Панели обеспечивают защиту установленного оборудования, организацию кабельных трасс и удобный доступ для обслуживания. Применяются в коммерческих и промышленных объектах для создания локальных пунктов управления системами климатизации и вентиляции.",
+      "gpt": "Honeywell PANC300-03 по доступным данным относится к панели удалённых модулей для системы Honeywell Experion PKS / C300. Прямой официальный datasheet именно на PN PANC300-03 в открытом поиске не нашёлся, но вторичный источник явно называет эту позицию «Панель удаленных модулей C300 Panel». Это указывает, что изделие относится не к полевому датчику и не к контроллеру, а к шкафному компоненту системы DCS/PCS. В типовой архитектуре C300 подобные панели используются как часть cabinet-level assembly для размещения, коммутации и обслуживания удалённых модулей или связанных элементов I/O. Такие изделия важны прежде всего для интеграторов и EPC-подрядчиков, которые собирают шкафы управления и marshalling cabinets. Для B2B-каталога безопаснее описывать позицию как remote module panel / enclosure panel for C300-based cabinet assembly, а не как самостоятельный контроллер. По характеру применения это механико-электромонтажный компонент, который подбирается по cabinet design и составу станции. При подборе нужно сверять совместимость со схемой шкафа, номером cabinet assembly и набором модулей, поскольку близкие обозначения в Honeywell process automation часто завязаны на конкретный cabinet variant. Такая позиция редко продаётся в розницу как универсальный spare part и обычно встречается в проектных или складских остатках. До получения заводского документа публикацию лучше помечать как partially identified cabinet/panel assembly.",
+      "synthesis": "Honeywell PANC300-03 — это панель или шкафный компонент серии PANC300, относящийся к удалённым модулям для платформы Honeywell C300 системы Experion PKS. Данное изделие относится не к полевому датчику и не к контроллеру, а к компоненту шкафной инфраструктуры DCS/PCS (Distributed Control System/Process Control System). В типовой архитектуре C300 подобные панели используются как часть cabinet-level assembly для размещения, коммутации и обслуживания удалённых модулей ввода-вывода. Такие компоненты важны прежде всего для интеграторов и EPC-подрядчиков, которые собирают шкафы управления и marshalling cabinets для промышленных объектов. Для B2B-каталога безопаснее описывать позицию как remote module panel/enclosure panel for C300-based cabinet assembly, а не как самостоятельный контроллер. По характеру применения это механико-электромонтажный компонент, который подбирается по cabinet design и составу станции. При подборе необходимо сверять совместимость со схемой шкафа, номером cabinet assembly и набором модулей, поскольку близкие обозначения в Honeywell process automation часто завязаны на конкретный cabinet variant. Такая позиция редко продаётся в розницу как универсальный spare part и обычно встречается в проектных или складских остатках. До получения заводского документа публикацию лучше помечать как partially identified cabinet/panel assembly."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Panel / Enclosure",
+        "Series": "PANC300",
+        "Brand": "Honeywell",
+        "Application": "Building automation"
+      },
+      "gpt": {
+        "System family": "Honeywell C300 / Experion PKS (secondary-source identification)",
+        "Component type": "Remote module panel / cabinet panel"
+      }
+    },
+    "notes_all": {
+      "claude": "Limited specific product data found. Likely a Honeywell BMS panel/enclosure configuration.",
+      "gpt": "Точная официальная карточка PN не найдена; идентификация опирается на вторичный источник с указанием «C300 Panel». Не публиковать как полностью подтверждённую карточку без cabinet BOM или фото шильдика."
+    }
   },
   "training_urls": [
     "https://process.honeywell.com/us/en/products/control-and-supervisory-systems/human-machine-interfaces-hmi/experion-panel-pc",
     "https://www.indiamart.com/proddetail/honeywell-experion-pc-c300-dcs-system-24977893848.html",
     "https://www.nseautomation.com/Honeywell-8C-PCNT03-PANC300-03-C300-Controller-Module-p1548232.html",
-    "https://www.radwell.com/Search?q=PANC300-03"
+    "https://www.radwell.com/Search?q=PANC300-03",
+    "https://tbankrot.ru/item?id=7463584",
+    "https://process.honeywell.com/us/en/products-backup/process-automation/distributed-control-systems-dcs/experion-pks/controllers/experion-pks-c300-controller"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -667,5 +698,70 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.autocontrolglobal.com/products/honeywell-8c-pcnt03-c300-controller-m",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "PROCESS CONTROLLER OF THE FUTURE",
+    "description": "This document details Honeywell's C300PM process controller, an advanced solution designed to help companies benefit from a modern, unified process control platform. It integrates the capabilities of the EHPM and C300 controllers within an EHPM form factor, offering a seamless upgrade path for legacy xPM systems. The C300PM provides enhanced operational performance, robust peer-to-peer communication, a unified engineering environment, and direct HART data integration for smarter asset management, all while preserving existing control strategies and intellectual property.",
+    "specs": {
+      "Controller Type": "Process Controller",
+      "Platform": "Experion PKS platform",
+      "Form Factor": "EHPM",
+      "Software Environment": "Control Execution Environment (CEE)",
+      "Key Features": [
+        "Custom Algorithm Block (CAB) functionality",
+        "Experion PKS I/O HIVE (Highly Integrated Virtual Environment)",
+        "HART Integration",
+        "Field Device Manager (FDM) support",
+        "Unified engineering environment (Control Builder)",
+        "On-process hardware migration/infrastructure refresh",
+        "Multi-generational coexistence with other process controllers (C300, ControlEdge UOC)",
+        "Robust peer-to-peer communications and control",
+        "Preserves existing control strategies and intellectual property"
+      ],
+      "Supported Protocols": [
+        "Peer Control Data Interface (PCDI)",
+        "Profinet",
+        "EtherNet/IP",
+        "OneWireless™",
+        "FOUNDATION Fieldbus",
+        "Profibus"
+      ],
+      "Compatibility": "Designed for migration from legacy xPM controllers (Process Manager (PM), Advanced Process Manager (APM), High Performance Process Manager (HPM), Enhanced High Performance Process Manager (EHPM))"
+    },
+    "specs_count": 7,
+    "series": "Experion PKS",
+    "category": "Industrial Automation Controller",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "WP-21-09-ENG",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PANC300-03.pdf",
+    "datasheet_size_kb": 1698,
+    "product_photos": [
+      "downloads\\datasheet_photos\\PANC300-03_p3_0.jpeg",
+      "downloads\\datasheet_photos\\PANC300-03_p4_0.jpeg",
+      "downloads\\datasheet_photos\\PANC300-03_p5_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format PANC300-03 matches Honeywell's Experion C300 controller nomenclature. Seed_name correctly identifies this as 'C300 Panel' (Remote Module Panel). The datasheet title 'PROCESS CONTROLLER OF THE FUTURE' is generic marketing copy that doesn't help identify the specific product. This appears to be a C300 Remote I/O Panel, part of Honeywell's Experion PKS system. The datasheet is likely correct manufacturer but too generic/marketing-focused. Needs proper technical datasheet with specific product details."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'PROCESS CONTROLLER OF THE FUTURE' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

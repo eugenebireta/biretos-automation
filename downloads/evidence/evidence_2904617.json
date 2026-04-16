@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "2904617",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Phoenix Contact",
   "subbrand": null,
   "name": "Источник питания Honeywell QUINT4-PS/1AC/24DC/20/+",
   "assembled_title": "Источник питания Honeywell 2904617",
@@ -528,7 +528,10 @@
   },
   "identity_level": "strong",
   "deep_research": {
-    "description_ru": "Первично-коммутируемый источник питания серии QUINT POWER для монтажа на DIN-рейку с технологией SFB (Selective Fuse Breaking), защитным покрытием печатной платы и встроенным развязывающим MOSFET; вход: 1-фазный 85–264 В AC, выход: 24 В DC / 20 А. Производитель — Phoenix Contact, а не Honeywell."
+    "description_ru": "Первично-коммутируемый источник питания серии QUINT POWER для монтажа на DIN-рейку с технологией SFB (Selective Fuse Breaking), защитным покрытием печатной платы и встроенным развязывающим MOSFET; вход: 1-фазный 85–264 В AC, выход: 24 В DC / 20 А. Производитель — Phoenix Contact, а не Honeywell.",
+    "descriptions_all": {
+      "legacy": "Первично-коммутируемый источник питания серии QUINT POWER для монтажа на DIN-рейку с технологией SFB (Selective Fuse Breaking), защитным покрытием печатной платы и встроенным развязывающим MOSFET; вход: 1-фазный 85–264 В AC, выход: 24 В DC / 20 А. Производитель — Phoenix Contact, а не Honeywell."
+    }
   },
   "training_urls": [
     "https://rspsupply.com/p-68237-phoenix-contact-2904617-power-supply-quint4-ps1ac24dc20.aspx",
@@ -572,5 +575,46 @@
     "notes": "Exact Phoenix Contact 2904617.",
     "search_used": "2904617"
   },
-  "product_category": "power supply"
+  "product_category": "power supply",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\2904617.pdf",
+    "datasheet_size_kb": 17788,
+    "product_photos": [
+      "downloads\\datasheet_photos\\2904617_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/2904617_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "Audit explicitly states product is Phoenix Contact 2904617 mistakenly associated with Honeywell. The QUINT4-PS/1AC/24DC/20 series is a well-known Phoenix Contact power supply line. PN format (7-digit numeric) matches Phoenix Contact patterns. Brand must be corrected from Honeywell to Phoenix Contact.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 17788KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -7,10 +7,10 @@
     "SM.0.9.SC.UPC.1.5",
     "SM09SCUPC15"
   ],
-  "brand": "Honeywell",
+  "brand": "Optcom",
   "subbrand": null,
   "name": "Оптический шнур Honeywell SM-0.9-SC-UPC-1.5",
-  "assembled_title": "Оптический шнур Honeywell SM-0.9-SC-UPC-1.5",
+  "assembled_title": "Оптический шнур Optcom SM-0.9-SC-UPC-1.5",
   "our_price_raw": "32,29",
   "expected_category": "Оптический шнур",
   "card_status": "DRAFT_ONLY",
@@ -365,7 +365,9 @@
     "structured_pn_match_location": "",
     "product_line": "SM fiber optic",
     "identity_notes_p1": "Singlemode fiber coupler or attenuator, specific details not found",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Optcom",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -653,7 +655,30 @@
         "SC/UPC",
         "900um",
         "1.5m"
-      ]
+      ],
+      "Type": "Fiber optic patch cord",
+      "Fiber Mode": "Single-mode (SM) 9/125 µm",
+      "Connector Type": "SC/UPC - SC/UPC",
+      "Buffer Diameter": "0.9 mm",
+      "Length": "1.5 m",
+      "Insertion Loss": "<0.3 dB (typical)",
+      "Return Loss": ">50 dB",
+      "Cable Color": "Yellow",
+      "Brand": "Optcom",
+      "Fiber": "Single-mode (SM) 9/125 µm",
+      "Connector": "SC/UPC on both ends",
+      "Fiber type": "Single-mode G.652D",
+      "Buffer diameter": "0.9 mm",
+      "Jacket": "LSZH",
+      "Insertion loss": "≤ 0.3 dB typical / ≤ 0.5 dB max",
+      "Return loss": "≥ 50 dB",
+      "Tensile load": "Up to 60 N",
+      "fiber_type": "Single-mode (SM) G.652",
+      "connectors": "SC to SC",
+      "length": "1.5 meters",
+      "diameter": "0.9 mm",
+      "polish": "UPC",
+      "core_cladding": "9/125 µm"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -677,7 +702,46 @@
     "merge_source": "result_SM-0.9-SC-UPC-1.5.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "Optcom SM-0.9-SC-UPC-1.5 — одномодовый оптический патч-корд (шнур) с разъёмами SC/UPC, длиной 1.5 метра и диаметром оболочки волокна 0.9 мм. Предназначен для соединения оптических портов активного оборудования с оптической распределительной инфраструктурой в телекоммуникационных и компьютерных сетях. Одномодовое волокно (SM) стандарта 9/125 мкм обеспечивает передачу данных на большие расстояния с минимальным затуханием. Тип полировки UPC (Ultra Physical Contact) обеспечивает обратные потери не менее -50 дБ, что снижает отражения и повышает качество передачи. Кабель с оболочкой 0.9 мм (tight buffer) имеет компактные размеры и высокую гибкость, что удобно при прокладке внутри кроссов и оптических шкафов. Разъёмы SC фиксируются по принципу push-pull, обеспечивая быстрое и надёжное подключение.",
+      "gpt": "Optcom SM-0.9-SC-UPC-1.5 — это одномодовый монтажный оптический шнур с коннектором SC/UPC длиной 1,5 м. Производитель указывает применение такого изделия для монтажа и оконцевания волоконно-оптических линий в кроссах, распределительных устройствах и других элементах пассивной оптической инфраструктуры. Для изделия подтверждено использование одномодового волокна G.652D, что делает его типовым решением для телеком и FTTH/GPON-среды. Коннектор SC/UPC обеспечивает низкие потери на вставке и подходит для широкого спектра абонентских и распределительных подключений. Тонкая буферная оболочка 0,9 мм делает шнур удобным для внутреннего монтажа внутри боксов и кроссов, где важно компактное размещение. В официальной карточке также заявлены предельные потери на вставке и возвратные потери для UPC-полировки. Это важно для проектировщиков и монтажников, которые должны контролировать бюджет линии и качество соединений. При установке необходимо соблюдать радиус изгиба, избегать чрезмерного натяжения и обеспечивать чистоту торца коннектора. Для B2B-каталога правильное описание — single-mode SC/UPC 0.9 mm pigtail/patch cord 1.5 m for optical termination. Это базовый пассивный компонент для строительства и обслуживания оптических сетей.",
+      "gemini": "Тонкий оптический патч-корд Optcom SM-0.9-SC-UPC-1.5 разработан специально для использования в условиях крайне ограниченного пространства. Его отличительной чертой является малый диаметр кабеля — всего 0,9 мм, что позволяет значительно повысить плотность монтажа в патч-панелях. Длина шнура составляет 1,5 метра, что идеально подходит для межкабинетной коммутации внутри одной стойки. Патч-корд оснащен стандартными разъемами SC с высококачественной полировкой UPC для обеспечения отличных оптических характеристик. Одномодовое волокно стандарта G.652 обеспечивает передачу данных без потерь на высоких частотах. Благодаря малому весу и гибкости, кабель не создает избыточной нагрузки на порты активного оборудования. Устройство обладает высокой стойкостью к изгибам, что критически важно при плотной укладке. Патч-корд Optcom находит применение в современных центрах обработки данных и телекоммуникационных узлах связи. Использование таких специализированных шнуров позволяет оптимизировать охлаждение оборудования за счет улучшения циркуляции воздуха. Качество сборки гарантирует стабильную работу сети при многократных переключениях.",
+      "synthesis": "Optcom SM-0.9-SC-UPC-1.5 — это одномодовый оптический патч-корд (монтажный шнур) с коннектором SC/UPC, длиной 1.5 метра и диаметром оболочки волокна 0.9 мм (tight buffer), предназначенный для соединения оптических портов активного оборудования с распределительной инфраструктурой. Одномодовое волокно стандарта G.652D (9/125 мкм) обеспечивает передачу данных на большие расстояния с минимальным затуханием и подходит для широкого спектра абонентских и распределительных подключений в телеком и FTTH/GPON-среде. Тип полировки UPC (Ultra Physical Contact) обеспечивает обратные потери не менее -50 дБ, что снижает отражения и повышает качество передачи, низкие потери на вставке. Тонкая буферная оболочка 0.9 мм делает шнур удобным для внутреннего монтажа внутри боксов и кроссов, где важны компактное размещение и повышенная плотность монтажа в патч-панелях. Разъёмы SC фиксируются по принципу push-pull, обеспечивая быстрое и надёжное подключение без чрезмерной нагрузки на порты. При установке необходимо соблюдать радиус изгиба, избегать чрезмерного натяжения и обеспечивать чистоту торца коннектора. Для B2B-каталога правильное описание — single-mode SC/UPC 0.9 mm pigtail/patch cord 1.5 m for optical termination — это базовый пассивный компонент для строительства и обслуживания оптических сетей в современных центрах обработки данных и телекоммуникационных узлах."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Fiber optic patch cord",
+        "Fiber": "Single-mode (SM) 9/125 µm",
+        "Connector": "SC/UPC on both ends",
+        "Buffer Diameter": "0.9 mm",
+        "Length": "1.5 m",
+        "Return Loss": "≥ -50 dB (UPC)",
+        "Brand": "Optcom"
+      },
+      "gpt": {
+        "Fiber type": "Single-mode G.652D",
+        "Connector": "SC/UPC",
+        "Length": "1.5 m",
+        "Buffer diameter": "0.9 mm",
+        "Jacket": "LSZH",
+        "Insertion loss": "≤ 0.3 dB typical / ≤ 0.5 dB max",
+        "Return loss": "≥ 50 dB",
+        "Tensile load": "Up to 60 N"
+      },
+      "gemini": {
+        "fiber_type": "Single-mode (SM) G.652",
+        "connectors": "SC to SC",
+        "length": "1.5 meters",
+        "diameter": "0.9 mm",
+        "polish": "UPC",
+        "core_cladding": "9/125 µm"
+      }
+    },
+    "notes_all": {
+      "claude": "Standard single-mode fiber patch cord from Optcom.",
+      "gpt": "В русскоязычных каталогах позиция часто описывается как монтажный шнур/пигтейл."
+    }
   },
   "training_urls": [
     "https://fiber-life.com/products/61236/",
@@ -695,7 +759,8 @@
     "https://www.fs.com/products/42485.html",
     "https://www.hubersuhner.com/en/shop/product/cable-assemblies-systems/optical-fiber-cable-assemblies/indoor-assemblies/85004546/pigtail-sc-upc-0-9mm-yellow-sm-ultra",
     "https://www.newegg.com/p/1W7-00W1-004G0",
-    "https://www.optcore.net/product/simplex-sc-9125µm-os2-singlemode-fiber-optic-pigtail/"
+    "https://www.optcore.net/product/simplex-sc-9125µm-os2-singlemode-fiber-optic-pigtail/",
+    "https://optcable.ru/product/sm-0-9-sc-upc-1-5/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -723,5 +788,40 @@
     "best_description_source": "content",
     "best_photo_url": "https://componentltd.ru/catalog/pigteyly-opticheskie/pigteyl-opticheskiy-sc-upc-",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Сборник трудов IX Международной научной конференции «ИТ – СТАНДАРТ 2019»",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\SM-0.9-SC-UPC-1.5.pdf",
+    "datasheet_size_kb": 7667,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 7667KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Сборник трудов IX Международной научной конференции «ИТ – СТ' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

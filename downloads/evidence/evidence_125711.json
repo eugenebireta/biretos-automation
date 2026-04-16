@@ -311,7 +311,9 @@
     "series": "AURA",
     "color_material": "anthracite",
     "identity_notes_p1": "coaxial antenna socket, DIN 45330",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -543,7 +545,10 @@
     "description_ru": "Сальник из фторсиликона для герметизации места установки переключателя в панель. Устойчив к воздействию авиационного керосина, гидравлических жидкостей и озона. Обеспечивает долговечную работу узла в условиях высокого атмосферного давления. Используется в системах управления шасси и закрылками.",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report-prompt-v3.md"
+    "source_file": "deep-research-report-prompt-v3.md",
+    "descriptions_all": {
+      "legacy": "Сальник из фторсиликона для герметизации места установки переключателя в панель. Устойчив к воздействию авиационного керосина, гидравлических жидкостей и озона. Обеспечивает долговечную работу узла в условиях высокого атмосферного давления. Используется в системах управления шасси и закрылками."
+    }
   },
   "dr_image_url": "—",
   "training_urls": [
@@ -581,5 +586,36 @@
     "notes": "Snippet shows exact MPN 00125711 / D 20.610.21 TV, package 1.",
     "search_used": "D 20.610.21 TV"
   },
-  "product_category": "cover plate"
+  "product_category": "cover plate",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "4010105125719",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\125711.pdf",
+    "datasheet_size_kb": 9,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105125719",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

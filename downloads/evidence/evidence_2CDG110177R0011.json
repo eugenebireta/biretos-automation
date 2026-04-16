@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "2CDG110177R0011",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "ABB",
   "subbrand": null,
   "name": "IP-интерфейс Honeywell IPS/S3.1.1",
   "assembled_title": "Интерфейс Honeywell 2CDG110177R0011",
@@ -321,7 +321,8 @@
     "structured_pn_match_location": "",
     "product_line": "IPS/S3.1.1",
     "identity_notes_p1": "IP interface module; cannot confirm Honeywell manufacturer",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "ABB"
   },
   "negative_evidence": {
     "photo": [],
@@ -574,7 +575,11 @@
   "dr_currency": "ARS",
   "dr_price_source": "https://ar.wiautomation.com/abb/comunicacion-industrial/2cdg110177r0011-abb-ips-s311",
   "dr_category": "IP Interface module",
-  "training_urls": [],
+  "training_urls": [
+    "https://new.abb.com/products/2CDG110177R0011/ips-s3-1-1-ip-interface-mdrc",
+    "https://search.abb.com/library/Download.aspx?DocumentID=2CDC514076D0201&LanguageCode=en&DocumentPartId=DataSheet&Action=Launch",
+    "https://mall.industry.siemens.com/goos/catalog/Pages/mmpdata.ashx?MLFB1=2CDG110177R0011&lang=en"
+  ],
   "price_contract": {
     "schema_version": "price_contract_v1",
     "dr_value": 567721.12,
@@ -602,5 +607,129 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.dcscpu.com/ABB-SA-S-4-16-1-2CDG-110-063-R0011-SWITCH-ACTUATOR-p30072",
     "best_photo_source": "photo_verdict"
+  },
+  "deep_research": {
+    "descriptions_all": {
+      "gpt": "ABB 2CDG110177R0011 — это интерфейс KNX/IP ABB i-bus IPS/S3.1.1 для связи шины KNX с Ethernet-сетью. Устройство используется там, где нужно программировать, диагностировать или интегрировать KNX-сегмент через локальную сеть без прямого физического подключения ПК к линии. Модель поддерживает KNXnet/IP tunneling и рассчитана на работу с ETS по LAN. Производитель указывает до пяти tunneling-серверов, поэтому интерфейс подходит для одновременного доступа нескольких инструментов или сервисных сессий в разумных пределах. Питание возможно от внешнего источника 12–30 В DC либо по PoE, что упрощает монтаж в щите и сетевой инфраструктуре. Корпус MDRC предназначен для установки на DIN-рейку рядом с остальным оборудованием автоматизации. Устройство помогает строить BMS/KNX-инфраструктуру в офисах, гостиницах, жилых комплексах и коммерческих зданиях, где требуется централизованный доступ к системе. Для корректного ввода в эксплуатацию нужно задать сетевые параметры, выбрать режим статического IP или DHCP и зарегистрировать устройство в ETS. Интерфейс не заменяет все функции IP-роутера, поэтому при проектировании нужно учитывать роль устройства именно как IP-interface/tunneling node.",
+      "gemini": "IP-интерфейс ABB IPS/S3.1.1 обеспечивает высокоскоростное соединение между шиной KNX и локальной сетью Ethernet. Устройство поддерживает протокол туннелирования KNXnet/IP, что позволяет программировать систему через LAN. Модель оснащена пятью серверами туннелирования для одновременного доступа нескольких пользователей. Питание интерфейса может осуществляться через внешний источник постоянного тока или через PoE. На лицевой панели расположены светодиоды для индикации состояния сети, трафика телеграмм и режима работы. Устройство поддерживает динамическое назначение IP-адресов через протокол DHCP. Малый размер в 2 модуля на DIN-рейке экономит место в распределительном щите. Интерфейс выполнен из экологичного безгалогенного пластика. Это критически важный компонент для интеграции системы умного дома в общую IT-инфраструктуру здания."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "ABB",
+        "Series": "ABB i-bus KNX",
+        "Model": "IPS/S3.1.1",
+        "Product type": "KNX IP interface",
+        "Mounting": "DIN rail (MDRC)",
+        "Protocol": "KNXnet/IP tunneling",
+        "Tunneling servers": "5",
+        "Power supply": "12...30 V DC or PoE",
+        "IP assignment": "Static IP / DHCP",
+        "Degree of protection": "IP20",
+        "Compliance": "CE / RoHS",
+        "EAN": "4016779906517"
+      },
+      "gemini": {
+        "Brand": "ABB",
+        "Model": "IPS/S3.1.1",
+        "Protocol": "KNXnet/IP (Tunneling)",
+        "Tunneling Servers": "5",
+        "Supply Voltage": "12-30 V DC / PoE",
+        "Ethernet Port": "RJ45 (10/100BaseT)",
+        "Power Loss": "1.5 W",
+        "Mounting": "DIN Rail",
+        "EAN": "4016779906517"
+      }
+    },
+    "specs": {
+      "Brand": "ABB",
+      "Series": "ABB i-bus KNX",
+      "Model": "IPS/S3.1.1",
+      "Product type": "KNX IP interface",
+      "Mounting": "DIN rail (MDRC)",
+      "Protocol": "KNXnet/IP tunneling",
+      "Tunneling servers": "5",
+      "Power supply": "12...30 V DC or PoE",
+      "IP assignment": "Static IP / DHCP",
+      "Degree of protection": "IP20",
+      "Compliance": "CE / RoHS",
+      "EAN": "4016779906517",
+      "Tunneling Servers": "5",
+      "Supply Voltage": "12-30 V DC / PoE",
+      "Ethernet Port": "RJ45 (10/100BaseT)",
+      "Power Loss": "1.5 W"
+    },
+    "notes_all": {
+      "gpt": "OEM — ABB; в некоторых BMS-каталогах позиция встречается как ресейл-артикул."
+    }
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "IPS/S3.1.1 IP Interface, MDRC",
+    "description": "The ABB IPS/S3.1.1 is a DIN-rail mountable IP interface that connects the KNX bus with an Ethernet network using the KNXnet/IP protocol for tunneling. It enables programming of KNX devices via LAN using ETS, offers 5 tunneling servers, supports fixed or DHCP IP addresses, and can be powered by 12-30 V DC or Power over Ethernet (PoE).",
+    "specs": {
+      "Auxiliary Voltage AC/DC": "12 ... 30 V DC",
+      "Power Supply": "PoE",
+      "Color": "Grey",
+      "Communication Interface": "Ethernet",
+      "Communication Speed": "1 Mbps",
+      "Degree of Protection": "IP20",
+      "Housing Material": "Plastic",
+      "Mounting Type": "DIN-rail",
+      "Number of LEDs": 3,
+      "Number of Outputs": 0,
+      "Power Loss": "1.5 W",
+      "Surface Finishing": "Matt",
+      "Minimum Order Quantity": "1 piece",
+      "Customs Tariff Number": "85176200",
+      "Number of Batteries": 0
+    },
+    "specs_count": 15,
+    "series": "IPS/S3.1.1",
+    "category": "KNX, System Infrastructure and Interfacing, IP Routers and Interfaces",
+    "weight_g": 100,
+    "dimensions_mm": "36 x 90 x 64.5",
+    "certifications": [
+      "CE",
+      "RoHS (EU Directive 2011/65/EU)"
+    ],
+    "article_no": "2CDG110177R0011",
+    "ean": "4016779906517",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\2CDG110177R0011.pdf",
+    "datasheet_size_kb": 208,
+    "product_photos": [
+      "downloads\\datasheet_photos\\2CDG110177R0011_p1_0.jpeg",
+      "downloads\\datasheet_photos\\2CDG110177R0011_p3_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/2CDG110177R0011_p1_0.jpeg",
+      "downloads/datasheet_photos/2CDG110177R0011_p3_0.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "PN format '2CDG110177R0011' is definitively ABB (2CDG prefix is ABB's KNX product line). Datasheet confirms 'IPS/S3.1.1 IP Interface, MDRC' which is an ABB product. The seed_name incorrectly attributed this ABB product to Honeywell. This is a seed data error - the original listing was miscategorized. The datasheet and PN are correct for ABB, but the seed should be removed or corrected."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "ABB",
+      "candidates": [],
+      "product_hint": "KNX i-bus",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'IPS/S3.1.1 IP Interface, MDRC' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

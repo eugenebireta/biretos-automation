@@ -614,5 +614,46 @@
     "confidence": "high",
     "notes": "Honeywell C7355 Multi Sensor.",
     "search_used": "C7355A1050 Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "C7355A Room IAQ Monitor",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\C7355A1050.pdf",
+    "datasheet_size_kb": 806,
+    "product_photos": [
+      "downloads\\datasheet_photos\\C7355A1050_p1_0.jpeg",
+      "downloads\\datasheet_photos\\C7355A1050_p2_0.png"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/C7355A1050_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - C7355A is a genuine Honeywell product line for room IAQ monitoring. The datasheet exists and title matches. The issues (missing EAN, short description, no specs, no dimensions) indicate incomplete data extraction from the datasheet, not wrong product identification. The datasheet needs to be re-processed to extract complete specifications, dimensions, weight, and generate proper description."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'C7355A Room IAQ Monitor' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

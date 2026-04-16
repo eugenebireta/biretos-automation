@@ -3,10 +3,10 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "PP11L",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Dell",
   "subbrand": null,
   "name": "Ноутбук PP11L",
-  "assembled_title": "Ноутбук Honeywell PP11L",
+  "assembled_title": "Ноутбук Dell PP11L",
   "our_price_raw": "11816,00",
   "expected_category": "Ноутбук",
   "card_status": "DRAFT_ONLY",
@@ -327,7 +327,9 @@
     "structured_pn_match_location": "",
     "product_line": "PP11",
     "identity_notes_p1": "Cannot confirm; no Honeywell match found",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Dell",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -614,7 +616,23 @@
     "specs": {
       "aliases": [
         "EYOU PP11L (CANopen)"
-      ]
+      ],
+      "Regulatory Model": "PP11L",
+      "Type": "Laptop (Inspiron 6000 / 9200 era)",
+      "Display": "15.4\" WXGA/WUXGA",
+      "Processor": "Intel Pentium M / Celeron M",
+      "RAM": "Up to 2 GB DDR2",
+      "Storage": "HDD (IDE/SATA)",
+      "Optical drive": "DVD±RW",
+      "Ports": "VGA, USB 2.0, Ethernet, Modem",
+      "OS": "Windows XP",
+      "Era": "2004-2006",
+      "Brand": "Dell",
+      "Commercial name": "Latitude D610",
+      "Platform code": "PP11L",
+      "Category": "Business laptop",
+      "Use case": "Legacy device identification / service",
+      "Configuration": "Varies by exact service tag"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -637,13 +655,46 @@
     "merge_source": "result_PP11L.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Dell PP11L — это обозначение регуляторной модели (Regulatory Model) ноутбуков Dell серии Inspiron / Latitude старших поколений. Данный код PP11L использовался Dell для внутренней маркировки конкретной аппаратной платформы ноутбука, в частности для моделей Dell Inspiron 6000, Inspiron 9200 и некоторых других моделей примерно 2004–2006 годов выпуска. Ноутбук оснащался процессорами Intel Pentium M или Intel Celeron M, оперативной памятью DDR2 до 2 ГБ, жёстким диском IDE/SATA, дисплеем 15.4 дюйма с разрешением WXGA (1280×800) или WUXGA (1920×1200). Интерфейсы включали VGA, USB 2.0, Ethernet 10/100, модем, оптический привод DVD±RW. Ноутбук работал под управлением Windows XP. Данная модель является устаревшей и снятой с производства, однако может ещё использоваться в специализированных системах управления и контроля.",
+      "gpt": "Dell PP11L — это не коммерческое название серии, а platform/regulatory model, используемая Dell для ноутбука Latitude D610. Найденные сервисные документы Dell прямо связывают обозначение PP11L с Latitude D610. Поэтому такую позицию корректнее публиковать не как отдельный брендовый артикул, а как 'Dell Latitude D610 (model PP11L)'. Это бизнес-ноутбук более раннего поколения, который сегодня имеет значение в основном для сервисной идентификации, ремонта, запасных частей и архивных каталогов. В legacy-среде обозначение PP11L важно потому, что в старых переписках, тендерах или на шильдиках часто фигурирует именно platform code, а не маркетинговое имя. При загрузке в каталог нужно обязательно вывести нормализованное коммерческое имя, иначе покупатель может не понять, о каком устройстве идет речь. Также важно помнить, что спецификация у таких старых ноутбуков сильно зависит от конкретной комплектации: процессор, объем RAM, тип диска и даже дисплей могли различаться. Если позиция продается как целое устройство, полезно отдельно указывать фактическое состояние аккумулятора, наличие блока питания и установленную ОС. Если же карточка создается для сервисных целей, акцент лучше смещать на совместимые запчасти и platform code PP11L. Таким образом, PP11L — это прежде всего идентификатор платформы Dell, а не самостоятельная пользовательская линейка.",
+      "synthesis": "Dell PP11L — это не коммерческое название серии, а platform/regulatory model, используемая Dell для идентификации ноутбука Latitude D610, что подтверждено сервисными документами Dell. Это бизнес-ноутбук примерно 2004–2006 годов выпуска, оснащавшийся процессорами Intel Pentium M или Intel Celeron M, оперативной памятью DDR2 до 2 ГБ, жёстким диском IDE/SATA и дисплеем 15.4 дюйма с разрешением WXGA (1280×800). Интерфейсы включали VGA, USB 2.0, Ethernet 10/100, модем, оптический привод DVD±RW; ноутбук работал под управлением Windows XP. В legacy-среде обозначение PP11L важно потому, что в старых переписках, тендерах и на шильдиках часто фигурирует именно platform code, а не маркетинговое имя Latitude D610. При загрузке в каталог необходимо обязательно вывести нормализованное коммерческое имя, иначе покупатель может не понять, о каком устройстве идет речь. Спецификация таких старых ноутбуков сильно зависит от конкретной комплектации: процессор, объем RAM, тип диска и даже дисплей могли различаться. Если позиция продается как целое устройство, полезно отдельно указывать фактическое состояние аккумулятора, наличие блока питания и установленную ОС. Данная модель является устаревшей и снята с производства, однако может ещё использоваться в специализированных системах управления и может быть актуальна для сервисной идентификации и совместимости запчастей."
+    },
+    "specs_all": {
+      "claude": {
+        "Regulatory Model": "PP11L",
+        "Type": "Laptop (Inspiron 6000 / 9200 era)",
+        "Display": "15.4\" WXGA/WUXGA",
+        "Processor": "Intel Pentium M / Celeron M",
+        "RAM": "Up to 2 GB DDR2",
+        "Storage": "HDD (IDE/SATA)",
+        "Optical drive": "DVD±RW",
+        "Ports": "VGA, USB 2.0, Ethernet, Modem",
+        "OS": "Windows XP",
+        "Era": "2004-2006"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Commercial name": "Latitude D610",
+        "Platform code": "PP11L",
+        "Category": "Business laptop",
+        "Use case": "Legacy device identification / service",
+        "Configuration": "Varies by exact service tag"
+      }
+    },
+    "notes_all": {
+      "claude": "PP11L is a Dell Regulatory Model number, not a standard product name. Very old/discontinued.",
+      "gpt": "Normalized to Dell Latitude D610 based on official Dell documents linking model code PP11L to Latitude D610."
+    }
   },
   "training_urls": [
     "https://www.ebay.com/p/9018591132",
     "https://www.laptoppartsexpert.com/c-52093-dell-pp11l-latitude-notebook-repair-parts-accessories.html",
     "https://www.radwell.com/",
-    "https://www.recycledgoods.com/dell-pp11l-cpu-pentium-m-2-0ghz-1gb-ram-laptop-computer-as-is-for-parts/"
+    "https://www.recycledgoods.com/dell-pp11l-cpu-pentium-m-2-0ghz-1gb-ram-laptop-computer-as-is-for-parts/",
+    "https://dl.dell.com/manuals/all-products/esuprt_laptop/esuprt_latitude_laptop/latitude-d610_service%20manual_en-us.pdf",
+    "https://www.dell.com/en-us/lp/legal/product-info-datasheets-archived"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -671,5 +722,12 @@
     "best_description_source": "content",
     "best_photo_url": "radwell.com",
     "best_photo_source": "dr_image"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

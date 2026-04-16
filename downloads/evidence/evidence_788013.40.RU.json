@@ -593,7 +593,29 @@
     "specs": {
       "aliases": [
         "788013.40 (без .RU)"
-      ]
+      ],
+      "Type": "Fire alarm control panel",
+      "Brand": "ESSER by Honeywell",
+      "Market": "RU (Russia)",
+      "System Type": "Addressable fire alarm",
+      "Display": "LCD",
+      "Communication": "Ethernet",
+      "Certifications": "Russian fire safety standards",
+      "Application": "Fire alarm system management",
+      "Interface Language": "Russian",
+      "Product type": "Fire extinguishing control panel",
+      "Series": "8010 Series 4",
+      "Language version": "Russian",
+      "Operating unit": "Included / with 788400 operating unit",
+      "Approval": "VdS (family information)",
+      "zones": "8 zones (up to 30 detectors per zone)",
+      "relays": "8 Monitorable (30VDC/2A), 3 Floating",
+      "voltage": "230 VAC",
+      "frequency": "50 to 60 Hz",
+      "ip_rating": "IP30",
+      "housing": "Sheet Steel",
+      "battery": "2 x 12 V / 12 Ah",
+      "market": "Russian Federation (GOST compliant, Cyrillic UI)"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -616,13 +638,52 @@
     "merge_source": "result_788013.40.RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "ESSER 788013.40.RU — панель управления (пульт управления) пожарной сигнализации ESSER (суббренд Honeywell) для российского рынка. Панели управления ESSER предназначены для отображения и управления системами пожарной сигнализации в зданиях. Данная модель с суффиксом .RU адаптирована для российского рынка с русскоязычным интерфейсом и соответствием российским нормативным требованиям. Панели ESSER поддерживают интеграцию с адресными и аналоговыми извещателями серии ESSER, обеспечивая централизованный мониторинг и управление. Панель отображает информацию о состоянии зон, тревогах, неисправностях и позволяет управлять системами оповещения и пожаротушения. Устанавливается в помещении пожарного поста или диспетчерской.",
+      "gpt": "Esser 788013.40.RU — это панель управления установкой пожаротушения серии 8010, исполнение Series 4, русская версия. Официальные и полуофициальные источники указывают, что базовая позиция 788013.40 представляет собой extinguishing panel 8010 with operating unit. Для варианта .RU отдельно указана русская локализация, что важно для объектов, где требуется русскоязычная индикация и маркировка. Такая панель применяется в составе систем автоматического пожаротушения и выполняет функции управления, индикации состояния, контроля цепей и взаимодействия с периферийными устройствами. В источниках также упоминается, что версия 788013.40 отличается от 788012.40 наличием operating unit 788400. Это значит, что изделие предназначено не просто для клеммного управления, а для полноценной локальной работы оператора с панелью. Для объектов с газовым или специализированным тушением такие панели особенно важны как центральный элемент безопасного пуска и контроля. При подборе нужно проверять локальный язык, состав платы, совместимость с периферией Esser и проектную конфигурацию защищаемой зоны. Для каталога корректное описание — fire extinguishing control panel, Series 4, with operating unit, Russian version. Поскольку серия относится к профессиональным пожарным системам, она обычно продаётся только для проектного и сервисного применения, а не как массовая розничная электроника.",
+      "gemini": "Прибор приемно-контрольный пожарный Esser 788013.40.RU является высоконадежным центром управления системой пожарной сигнализации. Данная модификация специально адаптирована для эксплуатации на территории Российской Федерации и имеет полностью русифицированный интерфейс. Панель поддерживает до восьми шлейфов пожарной сигнализации, к каждому из которых можно подключить до 30 извещателей. Устройство способно управлять не только сигнализацией, но и автоматическими установками пожаротушения. Прочный стальной корпус со степенью защиты IP30 обеспечивает надежную защиту электронных компонентов от внешних факторов. Прибор оснащен встроенным блоком питания с возможностью подключения резервных аккумуляторов для автономной работы. На передней панели расположены светодиодные индикаторы состояния зон и системный дисплей для отображения текстовых сообщений. Встроенный журнал событий позволяет хранить историю срабатываний и неисправностей для последующего анализа. Прибор поддерживает интеграцию с системами оповещения и управления эвакуацией через мониторируемые выходы. Это профессиональное решение для защиты коммерческих и промышленных объектов любой сложности.",
+      "synthesis": "Esser 788013.40.RU — прибор приемно-контрольный пожарный и система управления автоматической установкой пожаротушения серии 8010, исполнение Series 4 с русской локализацией интерфейса для российского рынка. Панель управления поддерживает до восьми шлейфов пожарной сигнализации, к каждому из которых можно подключить до 30 извещателей, обеспечивая централизованный мониторинг и управление сложными системами безопасности зданий. Прочный стальной корпус со степенью защиты IP30 обеспечивает надежную защиту электронных компонентов от внешних факторов, а встроенный блок питания поддерживает подключение резервных аккумуляторов для автономной работы при отсутствии основного питания. Панель оснащена встроенным журналом событий, позволяющим хранить историю срабатываний и неисправностей для последующего анализа, и светодиодными индикаторами состояния зон с системным дисплеем для отображения текстовых сообщений на русском языке. Устройство способно управлять не только сигнализацией, но и автоматическими установками пожаротушения, поддерживает интеграцию с системами оповещения и управления эвакуацией через мониторируемые выходы. Наличие operating unit 788400 позволяет полноценную локальную работу оператора с панелью при наличии периферийных устройств Esser, что критично для обеспечения безопасного пуска и контроля специализированных систем пожаротушения."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Fire alarm control panel / annunciator",
+        "Brand": "ESSER by Honeywell",
+        "Market": "Russia (.RU)",
+        "Application": "Fire alarm system management",
+        "Interface Language": "Russian"
+      },
+      "gpt": {
+        "Product type": "Fire extinguishing control panel",
+        "Series": "8010 Series 4",
+        "Language version": "Russian",
+        "Operating unit": "Included / with 788400 operating unit",
+        "Approval": "VdS (family information)",
+        "Brand": "Esser by Honeywell"
+      },
+      "gemini": {
+        "zones": "8 zones (up to 30 detectors per zone)",
+        "relays": "8 Monitorable (30VDC/2A), 3 Floating",
+        "voltage": "230 VAC",
+        "frequency": "50 to 60 Hz",
+        "ip_rating": "IP30",
+        "housing": "Sheet Steel",
+        "battery": "2 x 12 V / 12 Ah",
+        "market": "Russian Federation (GOST compliant, Cyrillic UI)"
+      }
+    },
+    "notes_all": {
+      "claude": "ESSER is a Honeywell sub-brand for fire detection systems. The .RU suffix indicates Russian market adaptation.",
+      "gpt": "Точная электрическая спецификация в открытом доступе найдена неполно; RU-суффикс подтверждён как русская версия."
+    }
   },
   "training_urls": [
     "https://buildings.honeywell.com",
     "https://www.ebay.com/itm/314578478790",
     "https://www.ebay.de/",
-    "https://www.esser-systems.com/en/products/details/extinguishing-control-panels/wall-mountingsystem-8010/78801340-extinguishing-panel-8010-series-4-with-operating-unit-german/"
+    "https://www.esser-systems.com/en/products/details/extinguishing-control-panels/wall-mountingsystem-8010/78801340-extinguishing-panel-8010-series-4-with-operating-unit-german/",
+    "https://www.hls-turkey.com/en/product-repository/78801340",
+    "https://armtec.ru/catalog/pozharnaya_signalizaciya_i_opoveshchenie/honeywell-esser-russia/panels/rupor/78801340ru-honeywell-panel-upravleniya-russkaya-versiya.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -650,5 +711,44 @@
     "best_description_source": "content",
     "best_photo_url": "https://all-bez.ru/catalog/788013_40_ru/",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Fire alarm control panel IQ8Control C",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\788013.40.RU.pdf",
+    "datasheet_size_kb": 13553,
+    "product_photos": [
+      "downloads\\datasheet_photos\\788013.40.RU_p10_0.jpeg",
+      "downloads\\datasheet_photos\\788013.40.RU_p1_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format (788013.40.RU) is consistent with Honeywell fire safety products. The seed name mentions 'Exting. control panel 8010' while datasheet shows 'IQ8Control C' - these appear to be different product lines. The datasheet likely doesn't match this specific PN variant (the .RU suffix suggests Russian market/language version). Need correct datasheet for 788013.40.RU to resolve naming conflict and obtain missing EAN, description, and specifications."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 13553KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

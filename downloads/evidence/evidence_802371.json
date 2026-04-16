@@ -4,7 +4,7 @@
   "pn": "802371",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": null,
+  "subbrand": "Esser",
   "name": "Оптический дымовой извещатель 802371",
   "assembled_title": "Извещатель Honeywell 802371",
   "our_price_raw": "6535,76",
@@ -307,7 +307,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -587,5 +588,91 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.bireta.ru/product/izveschatel-pozharnyy-dymovoy-honeywell-esser-8023",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Optical smoke detector IQ8Quad with isolator",
+    "description": "Optical smoke detector which works using the light scatter principle to guarantee safe and early detection of fire. Responds well to slow-burning, smouldering fires. Intelligent fire detector with decentralized intelligence, automatic function self-test, CPU failure mode, alarm and operating data memory, alarm indicator, soft-addressing and operating indication. The detector is provided with an integrated isolator. A remote indicator can be connected.",
+    "specs": {
+      "operating_voltage": "8-42 V DC",
+      "quiescent_current_19V_DC": "50 µA",
+      "quiescent_current_FACP_battery": "approx. 280 µA",
+      "alarm_current_without_communication_curtain": "18 mA",
+      "area_to_be_monitored": "110 m²",
+      "height_to_be_monitored": "12 m",
+      "air_velocity": "0-25.4 m/s",
+      "application_temperature": "-20 °C to 72 °C",
+      "storage_temperature": "-25 °C to 75 °C",
+      "air_humidity": "< 95%",
+      "ip_rating": "IP40 (with base), up to IP43 (with base and option)",
+      "material": "ABS plastic",
+      "color": "white, similar to RAL 9010",
+      "detector_standard": "EN 54-7/-17:2005",
+      "declaration_of_performance": "DoP-20104130701",
+      "accessories": [
+        {
+          "part_no": "767800",
+          "description": "Mounting bracket"
+        },
+        {
+          "part_no": "805590",
+          "description": "Standard detector base for IQ8Quad"
+        },
+        {
+          "part_no": "805591",
+          "description": "Detector base with relay contact for IQ8Quad"
+        }
+      ]
+    },
+    "specs_count": 16,
+    "series": "IQ8Quad",
+    "category": "Optical smoke detector",
+    "weight_g": "110",
+    "dimensions_mm": "Ø 117 mm, H 49 mm (62 mm incl. base)",
+    "certifications": [
+      "VdS",
+      "BOSEC",
+      "EN 54-7/-17:2005",
+      "DoP-20104130701",
+      "DIBt system authorization (for operation with Automatic Door System)"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\802371.pdf",
+    "datasheet_size_kb": 2091,
+    "product_photos": [
+      "downloads\\datasheet_photos\\802371_p1_0.jpeg",
+      "downloads\\datasheet_photos\\802371_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/802371_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 802371 corresponds to Esser IQ8Quad optical smoke detector with isolator. Esser is a fire safety brand owned by Honeywell. The EAN prefix 4007185 is Esser's registered prefix. The datasheet exists but description is truncated and has language inconsistency (Russian vs English). Product identification is correct but needs proper datasheet extraction with complete English description >200 words and correct EAN populated."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Optical smoke detector IQ8Quad with isolator' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "820511",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "PEHA",
   "subbrand": "PEHA",
   "name": "D 95.575.02",
   "assembled_title": "Рамка 5-постовая PEHA DIALOG, 820511",
@@ -308,7 +308,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -630,5 +632,64 @@
     "best_description_source": "content",
     "best_photo_url": "https://liveinlight.ru/ramki/ramki-5-postov/ramka-5-postov-peha-by-honeywell-dia",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Series 8 Miniature Manual Switches",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\820511.pdf",
+    "datasheet_size_kb": 1577,
+    "product_photos": [
+      "downloads\\datasheet_photos\\820511_p1_0.png",
+      "downloads\\datasheet_photos\\820511_p2_0.png",
+      "downloads\\datasheet_photos\\820511_p3_0.png"
+    ],
+    "photo_count": 3,
+    "ean": "4010105820515",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 820511 is a 6-digit numeric code matching PEHA's format. The seed name 'D 95.575.02' follows PEHA's naming convention (D prefix with dot-separated numbers). Series 8 miniature switches are PEHA products, not Honeywell. This is a brand misattribution.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Series 8 Miniature Manual Switches' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105820515",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

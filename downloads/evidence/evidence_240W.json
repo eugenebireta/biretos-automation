@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "240W",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Unknown - NOT Honeywell",
   "subbrand": null,
   "name": "Зарядное устройство Honeywell 240W",
   "assembled_title": "Зарядное устройство Honeywell 240W",
@@ -547,9 +547,30 @@
   },
   "identity_level": "strong",
   "deep_research": {
-    "description_ru": "Артикул «240W» компании Honeywell не идентифицирован ни на официальном сайте производителя, ни у авторизованных дистрибьюторов. Возможно, это неполный номер детали, опечатка или внутренний код."
+    "description_ru": "Артикул «240W» компании Honeywell не идентифицирован ни на официальном сайте производителя, ни у авторизованных дистрибьюторов. Возможно, это неполный номер детали, опечатка или внутренний код.",
+    "descriptions_all": {
+      "gpt": "Артикул «240W» в открытых источниках не удаётся надёжно подтвердить как точный Honeywell charger или charging station. Обозначение выглядит слишком общим и совпадает с мощностью множества разных изделий, поэтому exact-match поиск даёт неоднозначные результаты. В публичных материалах Honeywell и партнёров гораздо чаще встречаются конкретные зарядные базы с полными part number наподобие CK65-CB-UVN-0 или CM-901, а не просто «240W». Одновременно в аудионаправлении Honeywell/Esser встречаются усилители и решения, где 240 W фигурирует как характеристика мощности, а не как артикул. Поэтому безопасно публиковать эту запись как зарядную станцию без внутреннего подтверждения источником правды нельзя. Если в вашей системе «240W» — это внутренний сокращённый код, разумно подтянуть фотографию, OEM-стикер или первичный прайс-лист поставщика для точной идентификации. До такой проверки запись лучше пометить как unverified item. В текущем JSON я не заполняю спорные технические параметры, чтобы не подменить реальное изделие догадкой. Для каталога это важнее, чем красиво, но ошибочно, описать позицию."
+    },
+    "specs_all": {
+      "gpt": {
+        "Status": "Unconfirmed public identification",
+        "Given description": "charger / charging station",
+        "Exact public PN match": "Not found"
+      }
+    },
+    "specs": {
+      "Status": "Unconfirmed public identification",
+      "Given description": "charger / charging station",
+      "Exact public PN match": "Not found"
+    },
+    "notes_all": {
+      "gpt": "Ambiguous item: public web evidence does not confirm exact PN '240W' as a Honeywell charger. Needs internal verification."
+    }
   },
-  "training_urls": [],
+  "training_urls": [
+    "https://help.honeywellaidc.com/Hardware/en-us/Content/Common/chargers_part_number.html",
+    "https://www.barcodefactory.com/honeywell/parts/ck65-cb-uvn-0"
+  ],
   "price_contract": {
     "schema_version": "price_contract_v1",
     "dr_value": null,
@@ -570,8 +591,8 @@
     "best_price_source": "phase3a",
     "best_description": "Артикул «240W» компании Honeywell не идентифицирован ни на официальном сайте производителя, ни у авторизованных дистрибьюторов. Возможно, это неполный номер детали, опечатка или внутренний код.",
     "best_description_source": "dr",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_240W.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 313.95,
@@ -582,5 +603,65 @@
     "notes": "Used fallback exact SKU MB4-BAT-SCN01NAD0 from search strategy.",
     "search_used": "MB4-BAT-SCN01NAD0"
   },
-  "product_category": "power supply"
+  "product_category": "power supply",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "AMD240-AN 240 W digital amplifier",
+    "description": "The Honeywell AMD240-AN is a 240 W digital power amplifier featuring a power transformer and high-performance toroidal output. It includes fuse protection for both power input and output. The front panel is equipped with LED indicators for FAIL, SIGNAL, and ON status, along with a power switch. The rear panel provides a balanced audio input connector (0 dB, 600 ohm) with a pin connector, a volume control, and output connectors for COM, 100V, 70V, and 50V lines. It operates on a 230 VAC power supply.",
+    "specs": {
+      "Material": "Steel enclosure",
+      "Mounting Type": "To be inserted into CAMD5 (1 unit)",
+      "User Interface": "3 x Status LED (FAIL, SIGNAL, ON), 1 x ON/OFF power switch, Gain trimmer",
+      "Operating Temperature": "-5°C to +60°C",
+      "Operating Humidity": "25% to 75%",
+      "Power Input Voltage": "230 VAC",
+      "Power Input Frequency": "50-60 Hz",
+      "Power Input Protection": "Fuse protected",
+      "Audio Output Power": "240W RMS",
+      "Audio Output Voltage": "50V, 70V, 100V",
+      "Audio Input Type": "Balanced",
+      "Audio Input Level": "0 dB",
+      "Audio Input Impedance": "600 Ohm"
+    },
+    "specs_count": 13,
+    "series": "AMD",
+    "category": "Power Amplifier",
+    "weight_g": "5800",
+    "dimensions_mm": "132 (H) x 91 (W) x 365 (D)",
+    "certifications": [
+      "EN54-16: 0068-CPR-018/2016 del 27/4/2016"
+    ],
+    "article_no": "AMD240-AN",
+    "ean": "4025515152996",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "tme.eu",
+    "ean_source_url": "https://www.tme.eu/ba/hr/details/6ep1334-1lb00/napajaci-za-prikljucnu-din-sinu/siemens/",
+    "datasheet_pdf": "downloads\\datasheets_v2\\240W.pdf",
+    "datasheet_size_kb": 104,
+    "product_photos": [
+      "downloads\\datasheet_photos\\240W_p1_1.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "Datasheet clearly identifies this as AMD240-AN 240W digital amplifier, not a charging device. '240W' is just a wattage spec, not a PN. EAN prefix 4025515 does not match Honeywell. The actual manufacturer needs to be determined from the datasheet/EAN lookup. The seed_name in Russian is completely wrong - describes a charger when this is an amplifier.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'AMD240-AN 240 W digital amplifier' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

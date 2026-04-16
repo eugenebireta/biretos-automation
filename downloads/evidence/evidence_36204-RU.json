@@ -6,10 +6,10 @@
     "36204.RU",
     "36204RU"
   ],
-  "brand": "Honeywell",
+  "brand": "DKC",
   "subbrand": null,
   "name": "Перекрестный соединитель 200x80мм 36204-RU",
-  "assembled_title": "Соединитель Honeywell 36204-RU",
+  "assembled_title": "Соединитель DKC 36204-RU",
   "our_price_raw": "3716,00",
   "expected_category": "Соединитель",
   "card_status": "DRAFT_ONLY",
@@ -319,7 +319,9 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "identity_notes_p1": "Cross/intersecting connector 200x80mm; Russian market variant; cable duct fitting",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -582,7 +584,16 @@
       "raw": "Поиск «36204‑RU»/«36204» дал нерелевантные совпадения (не Honeywell каталожные карточки с ценой не извлечены). citeturn49search10turn49search13",
       "aliases": [
         "—"
-      ]
+      ],
+      "Brand": "DKC",
+      "Series": "S5 Combitech",
+      "Model": "DPX",
+      "Product type": "Cross coupler / horizontal cross tapper",
+      "Tray width": "200 mm",
+      "Tray height": "80 mm",
+      "Inner radius": "100 mm",
+      "Material": "Sendzimir galvanized steel",
+      "Steel thickness": "0.8 mm"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -604,10 +615,32 @@
     "merge_source": "result_36204-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "descriptions_all": {
+      "gpt": "DKC 36204-RU DPX — это элемент металлической кабельной трассы для системы листовых лотков, используемой в промышленном и коммерческом электромонтаже. Позиция предназначена для организации крестообразного горизонтального ответвления в трассе с размером 200x80 мм. Такие детали применяют в энергетике, на заводах, в торговых и офисных зданиях, а также на инфраструктурных объектах, где кабельные линии прокладываются по лоткам. Исполнение из оцинкованной стали обеспечивает базовую коррозионную стойкость для внутреннего монтажа и типовых условий эксплуатации. Перфорированные стенки и основание облегчают крепление и могут улучшать вентиляцию кабельной системы. При проектировании важно учитывать не только размер лотка, но и радиус поворота, тип нагрузки и необходимость крышек или повышенного IP в составе всей системы. Такие элементы подбирают строго под серию и геометрию трассы, чтобы исключить перекосы, разрывы покрытия и неудобство при укладке кабеля. Монтаж выполняют в составе трассы с совместимыми прямыми секциями и соединительными аксессуарами DKC. Такая деталь используется, когда кабельная трасса должна разойтись по четырём направлениям на одном уровне. Если объект требует сохранения работоспособности кабельной линии при пожаре, следует отдельно проверять соответствие всей трассы, а не только одного фитинга."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "DKC",
+        "Series": "S5 Combitech",
+        "Model": "DPX",
+        "Product type": "Cross coupler / horizontal cross tapper",
+        "Tray width": "200 mm",
+        "Tray height": "80 mm",
+        "Inner radius": "100 mm",
+        "Material": "Sendzimir galvanized steel",
+        "Steel thickness": "0.8 mm"
+      }
+    },
+    "notes_all": {
+      "gpt": "Крестообразный элемент для лотка 200x80 мм."
+    }
   },
   "training_urls": [
-    "https://www.parttarget.com/3040-00-324-1305_3040003241305_36204.html"
+    "https://www.parttarget.com/3040-00-324-1305_3040003241305_36204.html",
+    "https://elnik.shop/vidgaluguvach-dp-hrestopodibnij-200h80-garyachogo-tsinkuvannya-s5-combitech-dks-36204-ru",
+    "https://www.dkc.com/cee/products/36204",
+    "https://www.tme.eu/ru/details/36204/aksessuary-dlya-kabelnyh-trass/dkc/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -629,7 +662,25 @@
     "best_price_source": "our_estimate",
     "best_description": "Перекрестный соединитель 200x80мм используется для пересечения кабельных трасс в системах автоматизации. Обеспечивает надежное соединение и защиту кабелей.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/DKC_36204-RU.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "cable management",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "DKC is a known Russian manufacturer of cable management systems and electrical installation equipment. The PN format '36204-RU' with '-RU' suffix is typical for DKC products (RU indicating Russian market). The product name 'Перекрестный соединитель 200x80мм' (Cross connector 200x80mm) aligns with DKC's cable tray accessories catalog. Brand is correct but complete datasheet with specs, dimensions, weight, and EAN is missing."
+    }
   }
 }

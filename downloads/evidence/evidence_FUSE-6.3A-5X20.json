@@ -614,7 +614,20 @@
       "raw": "6.3A; 250V; 5×20 mm (стеклянный) citeturn4search0",
       "aliases": [
         "Fuse 6.3A 5×20"
-      ]
+      ],
+      "Current rating": "6.3 A",
+      "Size": "5 x 20 mm",
+      "Body material": "Glass tube",
+      "Voltage rating": "250V AC (typical)",
+      "Type": "Fast-blow (F) or Slow-blow (T) — model dependent",
+      "End caps": "Metal (nickel-plated or tin-plated)",
+      "Standards": "IEC 60127, UL 248-14",
+      "Device Type": "Cartridge fuse",
+      "Rated Current": "6.3 A",
+      "Form Factor": "5 x 20 mm",
+      "Standard": "IEC 60127-2",
+      "Voltage Rating": "Depends on exact fuse",
+      "Time Characteristic": "Verify exact type"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -637,7 +650,35 @@
     "merge_source": "result_FUSE-6.3A-5X20.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "Предохранитель FUSE-6.3A-5X20 представляет собой стеклянный цилиндрический плавкий предохранитель (fuse) стандартного типоразмера 5×20 мм с номинальным током 6.3 А. Данный тип предохранителей является одним из наиболее распространённых в мире и применяется для защиты электрических цепей от перегрузок и коротких замыканий. Предохранитель устанавливается в стандартные держатели (fuse holders) для стеклянных вставок 5×20 мм. Корпус выполнен из стеклянной трубки с металлическими торцевыми контактами. Предохранители данного типоразмера выпускаются в быстродействующем (fast-blow, F) и медленном (slow-blow, T — time-delay) исполнениях. Номинальное напряжение, как правило, составляет 250 В переменного тока. Применяются в промышленном оборудовании, блоках питания, панелях управления, системах пожарной сигнализации, контроллерах автоматизации зданий и другой аппаратуре.",
+      "gpt": "FUSE-6.3A-5X20 — это не уникальный OEM-артикул Honeywell, а обобщённое обозначение плавкого предохранителя размером 5×20 мм на 6,3 А. Такие предохранители широко применяются в панелях управления, блоках питания, модулях автоматики, пожарных системах и различной промышленной электронике. Основная функция изделия — быстро разорвать цепь при перегрузке или коротком замыкании и тем самым защитить оборудование от повреждения. Для сервисной замены принципиально важно учитывать не только ток 6,3 А и типоразмер 5×20 мм, но и рабочее напряжение, характеристику срабатывания и тип корпуса. В оборудовании Honeywell и других производителей могут применяться как быстродействующие, так и замедленные версии, поэтому подстановка без проверки документации недопустима. Многие такие предохранители изготавливаются по IEC 60127-2 и доступны в стеклянном или керамическом исполнении. Для панелей автоматики и пожарной сигнализации предпочтительно использовать предохранитель того же класса, что указан в сервисной документации производителя, чтобы не нарушить защитную селективность. При техническом обслуживании также нужно проверять причину перегорания, а не ограничиваться одной лишь заменой элемента. В B2B-каталоге данную позицию лучше оформлять как generic service fuse и не привязывать к exact Honeywell OEM PN без отдельного подтверждения. Это позволит честно отразить, что изделие является типовым расходником, а окончательный выбор должен опираться на спецификацию конкретной панели.",
+      "synthesis": "FUSE-6.3A-5X20 — стеклянный цилиндрический плавкий предохранитель стандартного типоразмера 5×20 мм с номинальным током 6.3 А, который является типовым расходником для защиты электрических цепей от перегрузок и коротких замыканий. Корпус выполнен из стеклянной трубки с металлическими торцевыми контактами. Предохранитель устанавливается в стандартные держатели (fuse holders) для стеклянных вставок 5×20 мм. Номинальное напряжение, как правило, составляет 250 В переменного тока. Выпускаются в быстродействующем (fast-blow, F) и медленном (slow-blow, T — time-delay) исполнениях в соответствии с IEC 60127-2. Основная функция изделия — быстро разорвать цепь при перегрузке или коротком замыкании и тем самым защитить оборудование от повреждения. Для сервисной замены принципиально важно учитывать не только ток 6.3 А и типоразмер 5×20 мм, но и рабочее напряжение, характеристику срабатывания и тип корпуса (стеклянный или керамический). В оборудовании Honeywell могут применяться как быстродействующие, так и замедленные версии, поэтому подстановка без проверки документации недопустима. При техническом обслуживании также нужно проверять причину перегорания, а не ограничиваться одной лишь заменой элемента."
+    },
+    "specs_all": {
+      "claude": {
+        "Current rating": "6.3 A",
+        "Size": "5 x 20 mm",
+        "Body material": "Glass tube",
+        "Voltage rating": "250V AC (typical)",
+        "Type": "Fast-blow (F) or Slow-blow (T) — model dependent",
+        "End caps": "Metal (nickel-plated or tin-plated)",
+        "Standards": "IEC 60127, UL 248-14"
+      },
+      "gpt": {
+        "Device Type": "Cartridge fuse",
+        "Rated Current": "6.3 A",
+        "Form Factor": "5 x 20 mm",
+        "Standard": "IEC 60127-2",
+        "Voltage Rating": "Depends on exact fuse",
+        "Time Characteristic": "Verify exact type"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic fuse specification, not a branded Honeywell product. Internal PN for stock management.",
+      "gpt": "Generic service designation; exact Honeywell OEM part not confirmed. Verify time-delay/fast-acting class against equipment documentation."
+    }
   },
   "training_urls": [
     "https://lemanapro.ru/product/predohranitel-6-3a-5x20/",
@@ -646,7 +687,9 @@
     "https://www.mouser.com/ProductDetail/Littelfuse/023406.3MXP",
     "https://www.radwell.com/en-US/Buy/GENERIC/GENERIC/FF-6.3A",
     "https://www.walmart.com/ip/Uxcell-250V-6-3A-Slow-Blow-Glass-Cartridge-Fuse-5mm-x-20mm-10Pcs/880304541",
-    "https://www.zillerelectric.com/products/10000005117-fuse-6-3a-250vac-5mmx20mm"
+    "https://www.zillerelectric.com/products/10000005117-fuse-6-3a-250vac-5mmx20mm",
+    "https://www.swe-check.com.au/pages/learn_fuse_markings.php",
+    "https://www.eaton.com/us/en-us/skuPage.GDC-6-3A.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -675,5 +718,41 @@
     "best_description_source": "content",
     "best_photo_url": "https://cdn11.bigcommerce.com/s-h06b12a/images/stencil/1280x1280/products/1230/2324/10000005117-fuse-6.3a-250vac-5mmx20mm-2__09700.1601053423.jpg",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "ELECTRONIC CONTROL SYSTEM ARC 300",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FUSE-6.3A-5X20.pdf",
+    "datasheet_size_kb": 1597,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FUSE-6.3A-5X20_p1_1.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/FUSE-6.3A-5X20_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'ELECTRONIC CONTROL SYSTEM ARC 300' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

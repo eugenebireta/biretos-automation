@@ -7,10 +7,10 @@
     "2SM.3.0.SCU.SCU.1",
     "2SM30SCUSCU1"
   ],
-  "brand": "Honeywell",
+  "brand": "Optcom",
   "subbrand": null,
   "name": "Оптический соединительный шнур Honeywell 2SM-3.0-SCU-SCU-1",
-  "assembled_title": "Шнур Honeywell 2SM-3.0-SCU-SCU-1",
+  "assembled_title": "Шнур Optcom 2SM-3.0-SCU-SCU-1",
   "our_price_raw": "209,52",
   "expected_category": "Шнур",
   "card_status": "DRAFT_ONLY",
@@ -320,7 +320,9 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "identity_notes_p1": "Optical fiber splice coupler unit; limited product info",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Optcom",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -608,10 +610,61 @@
     "description_ru": "Дублирует строку #31, так как PN из списка совпадает по смыслу с этим товаром",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (5).md"
+    "source_file": "deep-research-report (5).md",
+    "descriptions_all": {
+      "gpt": "Optcom 2SM-3.0-SCU-SCU-1 — это дуплексный одномодовый оптический патч-корд с коннекторами SC/UPC–SC/UPC и наружным диаметром кабеля 3,0 мм. Такой шнур предназначен для коммутации оптических портов в кроссах, телекоммуникационных шкафах, узлах связи и системах передачи данных. Дуплексная конструкция удобна для двусторонних соединений, где требуется передача и приём по отдельным волокнам. Семейство Optcom с обозначением 2SM обычно относится к single-mode решениям, применяемым в сетях доступа, магистральных соединениях и внутриобъектовой оптической разводке. Исполнение SC/UPC подходит для типовых соединений с плоской полировкой UPC и широким парком оборудования, совместимого с этим типом разъёмов. Наружный диаметр 3,0 мм делает шнур более механически устойчивым по сравнению с тонкими патч-кордами для плотной укладки, что полезно в шкафах и на участках с повышенной нагрузкой на кабель. Длина 1 м рассчитана на короткие соединения внутри стойки, шкафа или кроссового поля. При установке важно соблюдать минимальный радиус изгиба, не допускать загрязнения торцов феррул и проверять чистоту разъёмов перед подключением. Для систем, где критичны потери и подтверждение стандарта волокна, перед закупкой стоит сверить точную карточку партии у поставщика, так как в открытом каталоге краткая маркировка дана без развёрнутого паспорта.",
+      "gemini": "Оптический патч-корд Optcom 2SM-3.0-SCU-SCU-1 предназначен для высокоскоростной передачи данных в телекоммуникационных сетях. Изделие представляет собой дуплексный одномодовый кабель длиной 1 метр с разъемами SC/UPC на обоих концах. Кабель изготовлен на базе волокна стандарта G.652.D с низким затуханием сигнала. Оболочка кабеля диаметром 3.0 мм выполнена из малодымного безгалогенного материала LSZH. Желтый цвет оболочки соответствует стандартам маркировки одномодовых соединителей. Прецизионная полировка наконечников коннекторов обеспечивает низкие вносимые потери менее 0.3 дБ. Кабель отличается высокой механической прочностью и устойчивостью к растяжению. Он идеально подходит для коммутации оборудования внутри серверных стоек и кросс-панелей. Продукт проходит обязательное заводское тестирование на соответствие заявленным оптическим характеристикам."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Optcom",
+        "Product type": "Fiber optic patch cord",
+        "Fiber type": "Single-mode",
+        "Construction": "Duplex",
+        "Connector A": "SC/UPC",
+        "Connector B": "SC/UPC",
+        "Cable diameter": "3.0 mm",
+        "Length": "1 m",
+        "Cable family": "2SM"
+      },
+      "gemini": {
+        "Brand": "Optcom",
+        "Fiber Type": "Single-mode OS2 (9/125)",
+        "Connectors": "SC/UPC - SC/UPC",
+        "Length": "1 m",
+        "Jacket Material": "LSZH",
+        "Jacket Diameter": "3.0 mm",
+        "Insertion Loss": "< 0.3 dB",
+        "Return Loss": "> 50 dB",
+        "Configuration": "Duplex"
+      }
+    },
+    "specs": {
+      "Brand": "Optcom",
+      "Product type": "Fiber optic patch cord",
+      "Fiber type": "Single-mode",
+      "Construction": "Duplex",
+      "Connector A": "SC/UPC",
+      "Connector B": "SC/UPC",
+      "Cable diameter": "3.0 mm",
+      "Length": "1 m",
+      "Cable family": "2SM",
+      "Fiber Type": "Single-mode OS2 (9/125)",
+      "Connectors": "SC/UPC - SC/UPC",
+      "Jacket Material": "LSZH",
+      "Jacket Diameter": "3.0 mm",
+      "Insertion Loss": "< 0.3 dB",
+      "Return Loss": "> 50 dB",
+      "Configuration": "Duplex"
+    },
+    "notes_all": {
+      "gpt": "В открытых источниках найдено точное наименование и длина; часть типовых параметров волокна/jacket может зависеть от конкретной поставки."
+    }
   },
   "training_urls": [
-    "https://www.tripplite.com/single-mode-duplex-fiber-optic-patch-cable"
+    "https://www.tripplite.com/single-mode-duplex-fiber-optic-patch-cable",
+    "https://optcom-ural.ru/katalog/patch-cords-sc/sc-upc-sc-upc-dupleks-singlmod/",
+    "https://tsdata.ru/goods/pach-kord-optesiskiy-sc-upc-sc-upc-sm-9-125-dupleksnyy-joltaya-lszh-1m"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -639,5 +692,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.qss-me.com/honeywell-pava-system",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

@@ -2,11 +2,14 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "LUX",
-  "pn_variants": [],
-  "brand": "Honeywell",
+  "pn_variants": [
+    "LUX 24",
+    "LUX24"
+  ],
+  "brand": "Produal",
   "subbrand": null,
-  "name": "Конвертер LUX",
-  "assembled_title": "Конвертер Honeywell LUX",
+  "name": "Sensor Produal LUX 24",
+  "assembled_title": "Sensor Produal LUX 24",
   "our_price_raw": "0,00",
   "expected_category": "Конвертер",
   "review_reasons": [
@@ -327,8 +330,9 @@
     "model_confidence": "medium",
     "model_notes": "Found in Excel: LUX 24; DC/DC or signal converter",
     "phase1b_done": true,
-    "confirmed_manufacturer": "unknown",
-    "model_source": "excel"
+    "confirmed_manufacturer": "Produal",
+    "model_source": "excel",
+    "brand_source": "gpt_think_web_price_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -359,9 +363,10 @@
     "description": "Конвертер LUX используется для преобразования сигналов в различных системах автоматизации. Он обеспечивает надежную и стабильную работу в промышленных условиях.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Converter",
+    "product_type": "room light level sensor",
     "seed_name": "Конвертер LUX",
-    "description_long_ru": "\"LUX\" too generic. Could be Honeywell LLO light sensor, Lux Products thermostat brand, or Lux Power solar inverter. Needs manufacturer context."
+    "description_long_ru": "\"LUX\" too generic. Could be Honeywell LLO light sensor, Lux Products thermostat brand, or Lux Power solar inverter. Needs manufacturer context.",
+    "price_notes": "Produal LUX 24 / SKU 1133320 — room light level sensor. Old price list refs: EUR 126.77-177.29 (2017, not current)"
   },
   "trace": {
     "pn_match_location": "",
@@ -578,11 +583,15 @@
     "merge_source": "result_LUX.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "\"LUX\" too generic. Could be Honeywell LLO light sensor, Lux Products thermostat brand, or Lux Power solar inverter. Needs manufacturer context."
+    }
   },
   "dr_category": "Converter (generic)",
   "training_urls": [
-    "https://buildings.honeywell.com/gb/en/.../llo-outside-light-level-sensor"
+    "https://buildings.honeywell.com/gb/en/.../llo-outside-light-level-sensor",
+    "https://www.produal.com/en/sku-1133320.html"
   ],
   "normalized": {
     "schema_version": "normalized_v1",
@@ -593,5 +602,48 @@
     "best_description_source": "content",
     "best_photo_url": null,
     "best_photo_source": null
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "SW-DCT-USB Configuration Cable",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\LUX.pdf",
+    "datasheet_size_kb": 25852,
+    "product_photos": [
+      "downloads\\datasheet_photos\\LUX_p2_0.jpeg",
+      "downloads\\datasheet_photos\\LUX_p5_0.jpeg",
+      "downloads\\datasheet_photos\\LUX_p5_1.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/LUX_p5_1.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 25852KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'SW-DCT-USB Configuration Cable' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

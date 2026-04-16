@@ -343,7 +343,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -670,7 +672,10 @@
     "provider": "unknown",
     "model": "unknown",
     "source_file": "deep-research-report-prompt-v3.md",
-    "description_ru": "Усиленный регулирующий вентиль для систем с рабочим давлением до 25 бар. Применяется на промышленных объектах и в высотных зданиях для компенсации гидравлических ударов. Имеет специальное тефлоновое уплотнение для работы с перегретой водой. Совместим с мощными приводами серии ML7421."
+    "description_ru": "Усиленный регулирующий вентиль для систем с рабочим давлением до 25 бар. Применяется на промышленных объектах и в высотных зданиях для компенсации гидравлических ударов. Имеет специальное тефлоновое уплотнение для работы с перегретой водой. Совместим с мощными приводами серии ML7421.",
+    "descriptions_all": {
+      "legacy": "Усиленный регулирующий вентиль для систем с рабочим давлением до 25 бар. Применяется на промышленных объектах и в высотных зданиях для компенсации гидравлических ударов. Имеет специальное тефлоновое уплотнение для работы с перегретой водой. Совместим с мощными приводами серии ML7421."
+    }
   },
   "training_urls": [
     "https://elecena.pl/product/27976570/peha-by-honeywell-zaslepka-oslona-aluminiowy-157413-1-szt"
@@ -701,5 +706,52 @@
     "best_description_source": "dr",
     "best_photo_url": "â",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "OWNER'S MANUAL",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105157413",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\157413.pdf",
+    "datasheet_size_kb": 3604,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'OWNER'S MANUAL' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105157413",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

@@ -1,0 +1,93 @@
+{
+  "brand": "Esser",
+  "pn_naming_conventions": [
+    "6-digit numeric format (e.g., 788600, 802371, 802374) - modern product line",
+    "Dot-notation format XX####.## (e.g., 010130.10, 027913.10, 033588.17) - older/modular systems",
+    "Short 5-digit numeric (e.g., 13960, 42511) - may indicate accessories, documentation, or cross-listed Honeywell products",
+    "No alphabetic prefixes observed in genuine Esser PNs"
+  ],
+  "ean_locations": {
+    "primary": "NOT AVAILABLE in current dataset - EAN field empty across all samples",
+    "format": "Unknown - requires scraping from esser-systems.com product pages or distributor sites",
+    "warning": "Esser is B2B fire safety brand - EANs may only appear on distributor sites, not manufacturer pages"
+  },
+  "trusted_sources": {
+    "price": [
+      "price_contract (internal source - highest reliability)",
+      "esser-systems.com (manufacturer)",
+      "brandmelde-shop.de (specialized Esser distributor)",
+      "fire-distribution.de (fire safety specialist)"
+    ],
+    "ean": [
+      "brandmelde-shop.de",
+      "fire-distribution.de",
+      "orbitadigital.com"
+    ],
+    "photo": [
+      "esser-systems.com (official product images)",
+      "brandmelde-shop.de",
+      "orbitadigital.com"
+    ],
+    "specs": [
+      "esser-systems.com (authoritative technical specs)",
+      "security.honeywell.de (parent company - integration docs)",
+      "us.wiautomation.com (technical datasheets)"
+    ]
+  },
+  "common_pitfalls": [
+    "Honeywell cross-contamination: Esser is owned by Honeywell - domains like buildings.honeywell.com and security.honeywell.de appear but may show HVAC/security products unrelated to Esser fire detection (see PN 13960 'Axial Flow Valves' - likely wrong match)",
+    "eBay/generic marketplaces: Appear frequently but unreliable for specs/EAN (used items, unclear sourcing)",
+    "PEHA brand confusion: PN 42511 shows peha.de domain - likely incorrect cross-match with different manufacturer",
+    "High price variance: Prices range €24-€1134 - validate against product type (detectors ~€50-150, control modules €200-500, software €30-50)",
+    "Documentation vs. products: Some PNs may be manuals/software (e.g., 033588.17 'installation medium' at €33) not physical devices",
+    "Dot-notation version suffixes: .10, .17 likely indicate revisions - must match exactly"
+  ],
+  "validation_rules": [
+    {
+      "field": "price",
+      "rule": "If price >€400, verify it's control panel/base board, not detector",
+      "reason": "Detectors typically €50-150, only control modules exceed €400 (e.g., 027913.10 MB-Secure PRO at €512)"
+    },
+    {
+      "field": "price",
+      "rule": "If price <€30, check if it's software/documentation not hardware",
+      "reason": "PN 033588.17 'installation medium' €33, PN 802374 €24.64 - may be licenses/docs"
+    },
+    {
+      "field": "pn",
+      "rule": "Reject if PN contains letters (except in series name like IQ8Quad)",
+      "reason": "All valid Esser PNs are numeric or numeric with dots"
+    },
+    {
+      "field": "domain",
+      "rule": "Flag peha.de, buildings.honeywell.com, new.abb.com as likely incorrect matches",
+      "reason": "These brands found in dataset but don't align with Esser fire detection focus"
+    },
+    {
+      "field": "title",
+      "rule": "Validate title contains fire safety terms: detector, alarm, smoke, heat, transponder, control panel, isolator",
+      "reason": "Titles like 'Axial Flow Valves' or 'Transistor' indicate wrong product match"
+    },
+    {
+      "field": "series",
+      "rule": "If series='IQ8Quad', price should be €80-150 range",
+      "reason": "IQ8Quad is detector line with consistent pricing (PN 802371 at €108)"
+    }
+  ],
+  "search_query_templates": [
+    "{pn} site:esser-systems.com",
+    "Esser {pn} site:brandmelde-shop.de",
+    "{pn} site:security.honeywell.de esser",
+    "Esser {pn} datasheet filetype:pdf",
+    "{pn} site:fire-distribution.de",
+    "Esser {series} {pn} specifications"
+  ],
+  "notes_for_cheap_ai": "Esser is a German fire detection/alarm system manufacturer (owned by Honeywell). CRITICAL: Validate all Honeywell domains actually show Esser products - many false matches found with HVAC/building control products. The brand uses numeric-only part numbers in two formats: 6-digit (newer) and dot-notation (older modules). EANs are missing from manufacturer site - must scrape from distributors like brandmelde-shop.de. Price sanity check is essential: detectors €50-150, control boards €200-600, anything else is suspect. Ignore eBay for specs. Use esser-systems.com as ground truth for product existence and technical specs. Watch for software/documentation items priced under €50. If title doesn't mention fire/smoke/alarm/detector, it's probably a wrong match. Series names like IQ8Quad are reliable identifiers when present.",
+  "_meta": {
+    "examples_analyzed": 8,
+    "model": "claude-sonnet-4-5",
+    "tokens_in": 1853,
+    "tokens_out": 1506,
+    "cost_usd": 0.0281
+  }
+}

@@ -534,7 +534,26 @@
       "raw": "6W; metal; Ø180mm; cutout Ø155mm; 120Hz–20kHz; 0.71kg; white RAL9003",
       "aliases": [
         "—"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Model": "L-PCM06A",
+      "Product type": "Ceiling loudspeaker",
+      "Rated power": "6 W",
+      "Max power": "9 W",
+      "Power taps": "6 / 3 / 1.5 W",
+      "Line voltage": "100 V",
+      "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+      "Frequency response": "120 Hz - 20 kHz",
+      "Dispersion": "160°",
+      "Material": "Metal",
+      "Compliance": "CE / RoHS",
+      "Rated Power": "6 W",
+      "Input Voltage": "100 V",
+      "Transformer Taps": "6 / 3 / 1.5 W",
+      "Frequency Response": "120 Hz - 20 kHz",
+      "Cut-out diameter": "155 mm",
+      "Color": "White (RAL 9003)",
+      "Weight": "0.71 kg"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -557,13 +576,50 @@
     "merge_source": "result_581263.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 581263 — это потолочный громкоговоритель L‑PCM06A мощностью 6 Вт для 100‑вольтовых трансляционных линий. Конструкция рассчитана на встраиваемый монтаж в потолок и подходит для речевого оповещения и фоновой трансляции внутри помещений. По карточке производителя модель имеет номинальную мощность 6 Вт и максимальную 9 Вт, а также несколько отводов мощности 6/3/1,5 Вт. Это позволяет гибко настраивать громкость по зонам и подбирать нагрузку линии в зависимости от акустики помещения. Металлическое исполнение повышает жёсткость конструкции и делает изделие подходящим для коммерческих объектов, учебных заведений, офисов и общественных пространств. Частотный диапазон и паспортная чувствительность ориентированы прежде всего на разборчивую передачу речи, что важно для систем оповещения. Громкоговоритель интегрируется в 100 V PA/VA-системы и требует корректного расчёта суммарной нагрузки линии. При установке нужно учитывать диаметр выреза, глубину потолочного пространства и требования к кабельной разводке системы оповещения. Для B2B-каталога это типовая инсталляционная акустика для Honeywell/Esser public address решений.",
+      "gemini": "Потолочный громкоговоритель Honeywell L-PCM06A мощностью 6 Вт выполнен в прочном металлическом корпусе белого цвета. Он предназначен для скрытого монтажа в подвесные потолки торговых центров и офисных зданий. Модель оснащена широкополосным динамиком с двойным диффузором для чистого воспроизведения речи. Встроенный трансформатор 100 В позволяет выбирать мощность подключения: 6, 3 или 1.5 Вт. Широкий частотный диапазон от 120 Гц до 20 кГц обеспечивает высокое качество звука. Громкоговоритель сертифицирован согласно директивам CE и RoHS, гарантируя безопасность эксплуатации. Для установки требуется монтажное отверстие диаметром 155 мм, крепление осуществляется пружинными зажимами. Металлическая защитная решетка окрашена порошковым методом для предотвращения коррозии. Низкопрофильный дизайн позволяет устройству оставаться практически незаметным в современном интерьере. Это надежный и долговечный компонент для масштабных систем фонового озвучивания."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Model": "L-PCM06A",
+        "Product type": "Ceiling loudspeaker",
+        "Rated power": "6 W",
+        "Max power": "9 W",
+        "Power taps": "6 / 3 / 1.5 W",
+        "Line voltage": "100 V",
+        "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+        "Frequency response": "120 Hz - 20 kHz",
+        "Dispersion": "160°",
+        "Material": "Metal",
+        "Compliance": "CE / RoHS"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "L-PCM06A",
+        "Rated Power": "6 W",
+        "Input Voltage": "100 V",
+        "Transformer Taps": "6 / 3 / 1.5 W",
+        "Frequency Response": "120 Hz - 20 kHz",
+        "Material": "Steel / Metal",
+        "Cut-out diameter": "155 mm",
+        "Color": "White (RAL 9003)",
+        "Weight": "0.71 kg"
+      }
+    },
+    "notes_all": {
+      "gpt": "Потолочный 100V-громкоговоритель для речевых и PA/VA систем."
+    }
   },
   "dr_category": "PA ceiling speaker",
   "dr_image_url": "https://www.esser-systems.com/productimages/loud-speaker/ceilining-speakers//581263-6-w-5-ceiling-loudspeaker-metal_Inherited_product_pic_300_300_581263_xxxxx_GEPE_SF3C.jpg",
   "training_urls": [
     "https://www.108bit.ru/catalog/104/esser_by_honeywell_581263/",
-    "https://www.esser-systems.com/en/products/details/loud-speaker/ceilining-speakers/581263-6-w-5-ceiling-loudspeaker-metal/"
+    "https://www.esser-systems.com/en/products/details/loud-speaker/ceilining-speakers/581263-6-w-5-ceiling-loudspeaker-metal/",
+    "https://buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/VARIODYN-D1-PA-VA/L-PCM06A.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/525000-549999/529969-da-01-en-Honeywell_581263_Deckenlautsprecher_6_W_1_St.pdf"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -596,5 +652,26 @@
     "confidence": "low",
     "notes": "Search snippet indicates ESSER 581263 ceiling speaker at 104.16; page slug mismatch in search result.",
     "search_used": "581263 ESSER"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 581263 matches Honeywell's format and seed_name clearly identifies this as a Honeywell ceiling speaker (Потолочный громкоговоритель) with 6W power rating. Brand and PN appear correct, but product lacks complete data - missing EAN, specifications, proper description, and datasheet PDF. Requires complete data collection from official sources."
+    }
   }
 }

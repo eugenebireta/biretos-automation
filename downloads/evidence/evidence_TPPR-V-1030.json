@@ -599,5 +599,39 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.isssafety.com/products/tppr-v-1030-honeywell-digital-input-module?sr",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Touchpoint Pro Input/Output Modules",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\TPPR-V-1030.pdf",
+    "datasheet_size_kb": 685,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format TPPR-V-1030 is consistent with Honeywell Touchpoint Pro series. The seed_name correctly identifies it as a digital input module (Модуль цифрового ввода). However, the datasheet is too generic (covers entire I/O module family) and lacks specific details for this model variant. Brand and PN appear correct, but product-specific datasheet is needed to extract proper title, description, specifications, and physical dimensions."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Touchpoint Pro Input/Output Modules' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

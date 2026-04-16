@@ -1,0 +1,42 @@
+You are a B2B product price researcher with web search access. Find current market prices for 30 industrial SKUs.
+
+## CRITICAL RULES
+1. PEHA items: search "PEHA {PN}" not "Honeywell {PN}"
+2. PACK TRAP: Conrad/computersalg sell PEHA frames in packs (5 St., 10 St.). Always report UNIT PRICE. If pack — divide and note "pack of N".
+3. Report only distributor/retailer prices, not marketplace aggregators
+4. "not found" is better than wrong product
+
+## Output: one row per SKU
+
+| # | PN | Unit Price | Currency | Source URL | Unit/Pack | Notes |
+|---|---|---|---|---|---|---|
+| 1 | 185091 | ? | ? | ? | ? | Hint: Рамка 1-постовая PEHA NOVA, 185091 |
+| 2 | 185191 | ? | ? | ? | ? | Hint: Рамка 1-постовая PEHA NOVA, 185191 |
+| 3 | 185491 | ? | ? | ? | ? | Hint: Рамка 1-постовая PEHA NOVA, 185491 |
+| 4 | 185891 | ? | ? | ? | ? | Hint: Рамка 2-постовая PEHA NOVA, 185891 |
+| 5 | 187091 | ? | ? | ? | ? | Hint: Рамка 2-постовая PEHA NOVA, 187091 |
+| 6 | 188091 | ? | ? | ? | ? | Hint: Рамка 3-постовая PEHA NOVA, 188091 |
+| 7 | 189091 | ? | ? | ? | ? | Hint: Рамка 3-постовая PEHA NOVA, 189091 |
+| 8 | 00020211 | ? | ? | ? | ? | Hint: Рамка 2-постовая PEHA NOVA, 00020211 |
+| 9 | 105411 | ? | ? | ? | ? | Hint: Клавиша PEHA AURA, 105411 |
+| 10 | 106511 | ? | ? | ? | ? | Hint: Розетка PEHA AURA, 106511 |
+| 11 | 773211 | ? | ? | ? | ? | Hint: Рамка 2-постовая PEHA DIALOG, 773211 |
+| 12 | 101411 | ? | ? | ? | ? | Hint: Рамка 2-постовая PEHA AURA, 101411 |
+| 13 | 104011 | ? | ? | ? | ? | Hint: Клавиша PEHA AURA, 104011 |
+| 14 | 109411 | ? | ? | ? | ? | Hint: Клавиша PEHA AURA, 109411 |
+| 15 | 125711 | ? | ? | ? | ? | Hint: Вставка PEHA AURA, 125711 |
+| 16 | 033588.17 | ? | ? | ? | ? | Hint: Соединение Honeywell 033588.17 |
+| 17 | 1006186 | ? | ? | ? | ? | Hint: Беруши Honeywell 1006186 |
+| 18 | 13960 | ? | ? | ? | ? | Hint: Источник питания Honeywell 13960 |
+| 19 | 129625-L3 | ? | ? | ? | ? | Hint: Набор Honeywell 129625-L3 |
+| 20 | PTSRB0101V3 | ? | ? | ? | ? | Hint: Датчик Honeywell PTSRB0101V3 |
+| 21 | T7560B1008 | ? | ? | ? | ? | Hint: Датчик Honeywell T7560B1008 |
+| 22 | MZ-PCWS77 | ? | ? | ? | ? | Hint: Рабочая станция Honeywell MZ-PCWS77 |
+| 23 | FP1B-LCUL-01H | ? | ? | ? | ? | Hint: Пигтейл Honeywell FP1B-LCUL-01H |
+| 24 | 3240357 | ? | ? | ? | ? | Hint: Канал Honeywell 3240357 |
+| 25 | H4L6GR2 | ? | ? | ? | ? | Hint: Камера Honeywell H4L6GR2 |
+| 26 | U2412M | ? | ? | ? | ? | Hint: Монитор Honeywell U2412M |
+| 27 | CPO-RL4 | ? | ? | ? | ? | Hint: Контроллер Honeywell CPO-RL4 |
+| 28 | 580249.11 | ? | ? | ? | ? | Hint: Усилитель Honeywell 580249.11 |
+| 29 | BF-HWC4-PN16-0125 | ? | ? | ? | ? | Hint: Задвижка Honeywell BF-HWC4-PN16-0125 |
+| 30 | 280870645 | ? | ? | ? | ? | Hint: Кабель Honeywell 280870645 |

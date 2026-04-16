@@ -592,7 +592,14 @@
       "raw": "—",
       "aliases": [
         "См. источники по PRECISION"
-      ]
+      ],
+      "Type": "Professional workstation series (Dell Precision)",
+      "Note": "PRECITHION is a typo — correct name is PRECISION",
+      "Brand": "Dell",
+      "Normalized family": "Precision",
+      "Category": "Workstation",
+      "Data quality": "Typo / alias",
+      "Exact model": "Unknown"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -604,11 +611,35 @@
     "merge_source": "result_PRECITHION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "Dell Precision (записано как PRECITHION — вероятная опечатка) — линейка профессиональных рабочих станций Dell Technologies. Правильное написание — PRECISION. Серия предназначена для ресурсоёмких профессиональных задач, включая проектирование, 3D-моделирование, рендеринг, видеопроизводство, инженерные расчёты и научные вычисления. Рабочие станции Precision оснащаются процессорами Intel Xeon, профессиональными видеокартами NVIDIA Quadro/RTX или AMD Radeon Pro и памятью ECC. Все модели проходят сертификацию совместимости с ведущими профессиональными приложениями (ISV). Серия включает настольные модели различных форм-факторов (Tower, SFF, Rack) и мобильные рабочие станции. Dell Precision широко применяются в инженерных, архитектурных, дизайнерских и научных организациях, а также в нефтегазовой отрасли и промышленной автоматизации.",
+      "gpt": "PRECITHION в пользовательском списке выглядит как опечатка, и наиболее вероятная нормализация — Dell Precision. Такие ошибки часто встречаются в старых Excel-выгрузках, актах, RFQ и переписках, где семейство рабочих станций указывается вручную. Линейка Dell Precision относится к профессиональным workstation-решениям для CAD, 3D, инженерии, аналитики и других задач с повышенными требованиями к вычислительным ресурсам. Публиковать такую запись как самостоятельный SKU не стоит, потому что она не соответствует нормализованному названию производителя. Для каталога правильнее либо автоматически сопоставлять ее с сущностью Dell Precision, либо отправлять в manual review перед публикацией. Если позиция встречается в документах клиента, полезно сохранить исходную ошибочную строку в alias-полях для дальнейшего поиска и дедупликации. С точки зрения e-commerce и ERP это типичный пример грязных данных, которые нужно лечить нормализацией справочника брендов и серий. После нормализации описание, совместимость и атрибуты следует наследовать от семейства Precision, а не создавать новую карточку. До уточнения точной модели характеристики рабочей станции остаются переменными, потому что семейство включает множество поколений и форм-факторов. Поэтому safest approach — трактовать эту позицию как typo alias for Dell Precision.",
+      "synthesis": "PRECITHION в пользовательском списке выглядит как опечатка, и наиболее вероятная нормализация — Dell Precision, такая же ошибка часто встречается в старых Excel-выгрузках, актах и RFQ. Публиковать такую запись как самостоятельный SKU не стоит, потому что она не соответствует нормализованному названию производителя. Линейка Dell Precision относится к профессиональным workstation-решениям для CAD, 3D, инженерии, аналитики и других задач с повышенными требованиями к вычислительным ресурсам, предназначена для инженерных, архитектурных, дизайнерских и научных организаций. Для каталога правильнее либо автоматически сопоставлять ошибочное обозначение с сущностью Dell Precision, либо отправлять в manual review перед публикацией. Если позиция встречается в документах клиента, полезно сохранить исходную ошибочную строку в alias-полях для дальнейшего поиска и дедупликации. С точки зрения e-commerce и ERP это типичный пример грязных данных, которые нужно лечить нормализацией справочника брендов и серий. После нормализации описание, совместимость и атрибуты следует наследовать от семейства Precision, а не создавать новую карточку. До уточнения точной модели характеристики рабочей станции остаются переменными, потому что семейство включает множество поколений, форм-факторов (tower/rack/mobile) и конфигураций. Поэтому safest approach — трактовать эту позицию как typo alias for Dell Precision."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Professional workstation series (Dell Precision)",
+        "Note": "PRECITHION is a typo — correct name is PRECISION"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Normalized family": "Precision",
+        "Category": "Workstation",
+        "Data quality": "Typo / alias",
+        "Exact model": "Unknown"
+      }
+    },
+    "notes_all": {
+      "claude": "PRECITHION is a typo/misspelling of Dell PRECISION. See PRECISION entry for full details.",
+      "gpt": "Treated as typo alias of Dell Precision; do not publish as standalone SKU without normalization."
+    }
   },
   "training_urls": [
     "https://sps-support.honeywell.com/s/article/AST-Is-there-a-cross-reference-replacement-for-the-Precision-Thermostat-part-number-3001-01590002",
-    "https://www.ebay.com/b/dell-precision/bn_7006317183"
+    "https://www.ebay.com/b/dell-precision/bn_7006317183",
+    "https://www.dell.com/en-us/shop/desktops-all-in-one-pcs/sf/precision-desktops",
+    "https://www.dell.com/en-us/shop/dell-laptops-and-notebooks/sf/precision-laptops"
   ],
   "normalized": {
     "schema_version": "normalized_v1",
@@ -617,8 +648,8 @@
     "best_price_source": "phase3a",
     "best_description": "Системный блок Компьютер PRECITHION предлагает высокую производительность и надежность для работы с профессиональными приложениями. Он подходит для использования в офисах и студиях.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/DELL_PRECITHION.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 44.09,
@@ -628,5 +659,17 @@
     "confidence": "medium",
     "notes": "Used workstation listing; input name appears to be typo of Precision",
     "search_used": "Dell Precision T1700"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "PRECITHION is not a part number - it's a brand/store name for generic PC systems sold in Russia/CIS markets. Honeywell does not manufacture desktop computers. This appears to be a misclassified generic computer system incorrectly assigned to Honeywell. Without actual manufacturer details (likely a white-box/assembled PC), this record cannot be properly corrected and should be marked as invalid."
+    }
   }
 }

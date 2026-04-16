@@ -609,7 +609,21 @@
       "raw": "Part number для заказа: PAV-2DSCAN; MSRP $392; «Pavilion» как платформа citeturn65search0turn66view1",
       "aliases": [
         "PAV-2DSCAN citeturn66view1"
-      ]
+      ],
+      "Type": "Consumer laptop/desktop series",
+      "Screen sizes": "13\", 14\", 15\", 17\" (laptops)",
+      "Processors": "Intel Core / AMD Ryzen (varies by model)",
+      "RAM": "DDR4/DDR5, 8-32 GB",
+      "Storage": "SSD (NVMe)",
+      "GPU": "Integrated / NVIDIA GeForce (varies)",
+      "Display": "FHD/OLED (varies)",
+      "Connectivity": "Wi-Fi 6, Bluetooth 5.x",
+      "Audio": "Bang & Olufsen",
+      "OS": "Windows 11 Home",
+      "Brand": "HP",
+      "Series": "Pavilion",
+      "Product Type": "Consumer laptop / PC family",
+      "Positioning": "Home and everyday productivity"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -632,12 +646,43 @@
     "merge_source": "result_PAVILION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "HP Pavilion — это серия потребительских ноутбуков и настольных компьютеров от HP (Hewlett-Packard), предназначенная для домашнего использования, учёбы и повседневных офисных задач. Линейка HP Pavilion включает ноутбуки с диагональю экрана от 13 до 17 дюймов и настольные ПК в различных форм-факторах. Ноутбуки Pavilion оснащаются процессорами Intel Core или AMD Ryzen, оперативной памятью DDR4/DDR5, SSD-накопителями и дискретными или интегрированными видеокартами. Дисплеи имеют разрешение Full HD (1920×1080) или выше, IPS или OLED-матрицы. Серия отличается привлекательным дизайном, компактным корпусом и хорошей производительностью по доступной цене. Поддерживаются стандарты Wi-Fi 6, Bluetooth 5.x, веб-камера HP True Vision, аудиосистема Bang & Olufsen. Применяются в домашних офисах, учебных заведениях и в качестве дополнительных рабочих станций.",
+      "gpt": "HP Pavilion — это не один конкретный SKU, а большая потребительская линейка ноутбуков HP для домашнего и универсального офисного использования. В семейство Pavilion historically входили классические ноутбуки, трансформеры, настольные ПК и иные consumer-устройства, ориентированные на массовый рынок. Для этой линейки характерен баланс между ценой, производительностью и мультимедийными возможностями без акцента на тяжёлую корпоративную эксплуатацию как у ProBook или EliteBook. Pavilion обычно используется для повседневной работы, учебы, веб-задач, видеосвязи, мультимедиа и базовой офисной нагрузки. Конкретные характеристики сильно зависят от поколения и подмодели, поэтому по одной записи Pavilion невозможно честно указать процессор, диагональ экрана, объём памяти или тип накопителя. В mixed-brand каталоге такую позицию разумно трактовать как family-level entry, а не как точную товарную карточку. Для корректной продажи или закупки обязательно нужно уточнить полное коммерческое имя модели, например Pavilion 15, Pavilion x360 или иной вариант. Без этого нельзя гарантировать совместимость аксессуаров, батарей, зарядных устройств и сервисных деталей. В B2B-каталоге позицию лучше использовать как нормализованную метку серии, пока не получен exact model code. Это позволяет сохранить бренд и класс устройства, не вводя покупателя в заблуждение ложной детализацией.",
+      "synthesis": "HP Pavilion — это большая потребительская линейка ноутбуков и настольных компьютеров для домашнего использования, учёбы и повседневных офисных задач, а не один конкретный SKU. В семейство Pavilion historically входили классические ноутбуки, трансформеры, настольные ПК и иные consumer-устройства, ориентированные на массовый рынок с балансом между ценой, производительностью и мультимедийными возможностями. Серия обычно используется для повседневной работы, учебы, веб-задач, видеосвязи и мультимедиа, а не для тяжёлой корпоративной эксплуатации как ProBook или EliteBook. Линейка включает ноутбуки с диагональю экрана от 13 до 17 дюймов в различных исполнениях, оснащаемые процессорами Intel Core или AMD Ryzen, оперативной памятью DDR4/DDR5, SSD-накопителями и дискретными или интегрированными видеокартами. Дисплеи имеют разрешение Full HD (1920×1080) или выше с IPS или OLED-матрицами; поддерживаются стандарты Wi-Fi 6, Bluetooth 5.x, веб-камера HP True Vision и аудиосистема Bang & Olufsen. Конкретные характеристики сильно зависят от поколения и подмодели, поэтому по одной записи Pavilion невозможно честно указать процессор, диагональ, объём памяти или тип накопителя. Для корректной продажи или закупки обязательно нужно уточнить полное коммерческое имя модели (например Pavilion 15, Pavilion x360), без чего нельзя гарантировать совместимость аксессуаров, батарей и сервисных деталей."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Consumer laptop/desktop series",
+        "Screen sizes": "13\", 14\", 15\", 17\" (laptops)",
+        "Processors": "Intel Core / AMD Ryzen (varies by model)",
+        "RAM": "DDR4/DDR5, 8-32 GB",
+        "Storage": "SSD (NVMe)",
+        "GPU": "Integrated / NVIDIA GeForce (varies)",
+        "Display": "FHD/OLED (varies)",
+        "Connectivity": "Wi-Fi 6, Bluetooth 5.x",
+        "Audio": "Bang & Olufsen",
+        "OS": "Windows 11 Home"
+      },
+      "gpt": {
+        "Brand": "HP",
+        "Series": "Pavilion",
+        "Product Type": "Consumer laptop / PC family",
+        "Positioning": "Home and everyday productivity"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic series name, not a specific model. Listed as Honeywell in Excel — this is an HP product.",
+      "gpt": "Family-level entry, not an exact SKU. Some current HP consumer sub-lines may be renamed over time."
+    }
   },
   "training_urls": [
     "https://www.ebay.com/shop/hp-pavilion-laptop",
     "https://www.pcbuildadvisor.com/how-much-can-i-sell-a-used-hp-laptop-for/",
-    "https://www.touchwindow.com/p/PAV-2DSCAN.html"
+    "https://www.touchwindow.com/p/PAV-2DSCAN.html",
+    "https://www.hp.com/us-en/shop/mdp/laptops/pavilion",
+    "https://www.hp.com/us-en/shop/dlp/hp-pavilion-laptops"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -667,5 +712,45 @@
     "best_photo_source": "photo_verdict"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=HP"
+  "review_reason": "Phase 1 recon: manufacturer=HP",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "4K AI IR Bullet Camera",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PAVILION.pdf",
+    "datasheet_size_kb": 9896,
+    "product_photos": [
+      "downloads\\datasheet_photos\\PAVILION_p2_0.jpeg",
+      "downloads\\datasheet_photos\\PAVILION_p3_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 9896KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title '4K AI IR Bullet Camera' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

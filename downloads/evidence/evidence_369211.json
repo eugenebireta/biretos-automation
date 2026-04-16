@@ -296,7 +296,9 @@
     "type_designation": "D 95.572.78",
     "series": "DIALOG",
     "identity_notes_p1": "DIALOG device mounting frame, 2-gang equivalent",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -556,7 +558,10 @@
     "merge_source": "result_369211.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Not found on any of 10+ German electrical distributors. Standard DIALOG frames use 820xxx or 315xxx numbering. May be discontinued or incorrect PN"
+    }
   },
   "dr_category": "PEHA DIALOG frame (unverified)",
   "dr_image_url": "—",
@@ -598,5 +603,37 @@
     "confidence": "high",
     "notes": "PEHA dialog 2-gang frame.",
     "search_used": "D 95.572.78 Honeywell"
+  },
+  "from_datasheet": {
+    "ean": "4010105369212",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "PN 369211 is 6-digit numeric matching PEHA format. Seed name mentions 'D 95.572.78' which is PEHA nomenclature (D-series frames/switches). Description contradicts itself mentioning 'PEHA DIALOG frame' while brand is set to Honeywell. The audit explicitly states 'brand is PEHA - indicates wrong product mapping'. This is clearly a PEHA product incorrectly attributed to Honeywell with no valid datasheet."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105369212",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

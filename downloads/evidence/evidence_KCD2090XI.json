@@ -625,7 +625,10 @@
     "merge_source": "result_KCD2090XI.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "descriptions_all": {
+      "legacy": "Для добора обычно помогает связка «KCD2090XI + category» или поиск по локальным каталогам/фото шильдика."
+    }
   },
   "training_urls": [
     "https://www.nseautomation.com/"
@@ -652,5 +655,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.manua.ls/honeywell",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

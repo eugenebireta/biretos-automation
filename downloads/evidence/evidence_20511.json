@@ -317,7 +317,9 @@
     "series": "NOVA",
     "color_material": "metal, brushed stainless",
     "identity_notes_p1": "NOVA Elements 5-gang",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -557,7 +559,17 @@
     "description_ru": "Nova Brillance 5-fold frame; confirmed on Amazon.de; price behind JS rendering",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+    "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md",
+    "specs": {
+      "series": "NOVA brilliance",
+      "type": "Frame",
+      "gang": "5",
+      "material": "Thermoplastic halogen-free",
+      "finish": "Pure White High-Gloss",
+      "dimensions": "83x367mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    }
   },
   "dr_image_url": "—",
   "training_urls": [
@@ -598,5 +610,58 @@
     "notes": "Exact PEHA 5-gang frame.",
     "search_used": "D 20.675.022 T"
   },
-  "product_category": "PEHA NOVA frame"
+  "product_category": "PEHA NOVA frame",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "DDP-416 VERIFICATION AND TEST PROGRAMS",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105020519",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\20511.pdf",
+    "datasheet_size_kb": 9659,
+    "product_photos": [
+      "downloads\\datasheet_photos\\20511_p1_0.png",
+      "downloads\\datasheet_photos\\20511_p2_0.png",
+      "downloads\\datasheet_photos\\20511_p3_0.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "DDP-416 is a Digital Equipment Corporation (DEC) computer system from the 1960s. The datasheet title 'DDP-416 VERIFICATION AND TEST PROGRAMS' clearly indicates this is software/documentation for vintage computing equipment, not a Honeywell sensor. The seed name referencing a Honeywell sensor (Датчик) is completely unrelated to the actual datasheet content. This appears to be a catastrophic data mismatch where a vintage DEC software manual was incorrectly associated with a modern Honeywell/PEHA sensor product record. The product record should be removed or completely reconstructed with correct datasheet."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 9659KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'DDP-416 VERIFICATION AND TEST PROGRAMS' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105020519",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

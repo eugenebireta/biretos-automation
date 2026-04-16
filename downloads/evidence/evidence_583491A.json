@@ -516,7 +516,17 @@
       "raw": "CAT5 patch cable; 0.5m; green; RJ45; DOM to 2-ch power amplifier",
       "aliases": [
         "Cable DOMRJ45-XVRJ45"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Series": "VARIODYN",
+      "Product type": "CAT5 patch cable",
+      "Length": "0.5 m",
+      "Color": "Green",
+      "Application": "DOM/CUPOLA to power amplifier interconnect",
+      "Type": "CAT5 Patch Cable (Input)",
+      "Connectors": "RJ45",
+      "Compatibility": "Variodyn D1 / Variodyn ONE",
+      "Requirement": "2 pcs for 4-channel amplifiers"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -539,7 +549,34 @@
     "merge_source": "result_583491A.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 583491A — это готовый сетевой или сигнальный патч-кабель CAT5 длиной 0,5 м для систем VARIODYN D1 и VARIODYN ONE. По официальным описаниям он используется как соединительный кабель от DOM или CUPOLA к усилителю мощности. Заводское исполнение с готовыми разъёмами упрощает монтаж в стойке и снижает риск ошибок по распиновке при сборке системы оповещения. Небольшая длина 0,5 м рассчитана на межблочные соединения внутри шкафа или стойки, а не на прокладку по помещению. Такие кабели особенно уместны в сертифицируемых PA/VA-системах, где повторяемость и предсказуемость соединений важнее кустарной коммутации. В документации также отмечается связь этой позиции с approvals по EN 54-16 в составе системы. Для четырёхканального усилителя может потребоваться два таких кабеля, что важно учитывать при спецификации комплекта. При замене следует использовать exact PN или полностью совместимый заводской аналог, поскольку в системах оповещения даже вспомогательный межблочный кабель лучше не менять произвольно. Для B2B-каталога позиция относится к аксессуарам и кабельной оснастке для профессиональных аудиосистем безопасности.",
+      "gemini": "Соединительный кабель Honeywell 583491A представляет собой патч-корд CAT5 зеленого цвета для систем Variodyn. Данный кабель предназначен для связи цифрового модуля DOM с входами усилителей мощности. Зеленая оболочка позволяет техническому персоналу быстро идентифицировать аудиовходы в сложных кабельных системах и избежать путаницы с Ethernet или DAL-кабелями. Длина 0.5 метра оптимальна для соединения соседних устройств в 19-дюймовой стойке. Кабель терминирован разъемами RJ45 с защитными колпачками для предотвращения повреждения фиксаторов. Для подключения четырехканального усилителя требуется использование двух таких кабелей. Продукт прошел сертификацию на соответствие требованиям систем аварийного оповещения. Использование заводских кабелей гарантирует отсутствие ошибок при монтаже и стабильность работы всего комплекса безопасности. Это системный аксессуар Variodyn D1 и Variodyn ONE, не предназначенный для замены стандартными патч-кордами. Это важный компонент для поддержания работоспособности PAVA-системы."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Series": "VARIODYN",
+        "Product type": "CAT5 patch cable",
+        "Length": "0.5 m",
+        "Color": "Green",
+        "Application": "DOM/CUPOLA to power amplifier interconnect"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Type": "CAT5 Patch Cable (Input)",
+        "Application": "DOM to Amplifier connection",
+        "Length": "0.5 m",
+        "Color": "Green",
+        "Connectors": "RJ45",
+        "Compatibility": "Variodyn D1 / Variodyn ONE",
+        "Requirement": "2 pcs for 4-channel amplifiers"
+      }
+    },
+    "notes_all": {
+      "gpt": "Интеграционный аксессуар для VARIODYN; короткий межблочный кабель."
+    }
   },
   "dr_category": "cable",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-583491a-variodyn-d1-cat5-patch-cable-0-5-m-green-dom-to-ampl-primaryimage",
@@ -548,7 +585,9 @@
     "https://www.esser-systems.com/en/products/.../583491a-cat5-patch-cable-05-m/",
     "https://www.esser-systems.com/en/products/details/voice-alarm-system-variodynR-d1/variodyn-d1-comprio/583491a-cat5-patch-cable-05-m-green-dom-to-amplifier-1/",
     "https://www.hls-austria.com/en/business/public-address-and-voice-alarm-systems/products/variodyn-d1/cable-overview/583491a",
-    "https://www.hunters-wholesalers.co.uk/honeywell-583491a-input-cable-amplifier-green-p-104780.html"
+    "https://www.hunters-wholesalers.co.uk/honeywell-583491a-input-cable-amplifier-green-p-104780.html",
+    "https://buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/VARIODYN-D1-PA-VA/VARIODYN-D1-Approved-accessories.pdf",
+    "https://www.tradecounterdirect.com/product/honeywell-583491a-cat5-patch-cable-green-0-5m/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -572,5 +611,17 @@
     "best_description_source": "content",
     "best_photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-583491a-variodyn-d1-cat5-patch-cable-0-5-m-green-dom-to-ampl-primaryimage",
     "best_photo_source": "dr_image"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 583491A format matches Honeywell style. Seed name clearly describes 'Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый' (Input cable Honeywell 583491A, DOM-amplifier, 0.5m green). Brand and PN are correct. Issues are missing datasheet/EAN and incomplete description - these require sourcing proper documentation from Honeywell, not brand/PN correction."
+    }
   }
 }

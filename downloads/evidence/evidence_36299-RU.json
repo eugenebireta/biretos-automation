@@ -6,10 +6,10 @@
     "36299.RU",
     "36299RU"
   ],
-  "brand": "Honeywell",
+  "brand": "DKC",
   "subbrand": null,
   "name": "Адаптер RRC Honeywell 36299-RU, 400x200мм",
-  "assembled_title": "Адаптер Honeywell 36299-RU",
+  "assembled_title": "Адаптер DKC 36299-RU",
   "our_price_raw": "4161,50",
   "expected_category": "Адаптер",
   "card_status": "REVIEW_REQUIRED",
@@ -306,7 +306,9 @@
     "structured_pn_match_location": "title_suffix_variant",
     "product_line": "RRC",
     "identity_notes_p1": "RRC adapter 400x200mm; Russian market variant; cable duct reducer/adapter",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -536,13 +538,45 @@
     "merge_source": "result_36299-RU.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "DKC 36299-RU RRC — это элемент металлической кабельной трассы для системы листовых лотков, используемой в промышленном и коммерческом электромонтаже. Позиция предназначена для организации симметричного перехода по ширине в трассе с размером 400/200x80 мм. Такие детали применяют в энергетике, на заводах, в торговых и офисных зданиях, а также на инфраструктурных объектах, где кабельные линии прокладываются по лоткам. Исполнение из оцинкованной стали обеспечивает базовую коррозионную стойкость для внутреннего монтажа и типовых условий эксплуатации. Перфорированные стенки и основание облегчают крепление и могут улучшать вентиляцию кабельной системы. При проектировании важно учитывать не только размер лотка, но и радиус поворота, тип нагрузки и необходимость крышек или повышенного IP в составе всей системы. Такие элементы подбирают строго под серию и геометрию трассы, чтобы исключить перекосы, разрывы покрытия и неудобство при укладке кабеля. Монтаж выполняют в составе трассы с совместимыми прямыми секциями и соединительными аксессуарами DKC. Элемент позволяет расширить или сузить трассу между лотками различной ширины при сохранении одной высоты борта. Если объект требует сохранения работоспособности кабельной линии при пожаре, следует отдельно проверять соответствие всей трассы, а не только одного фитинга."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "DKC",
+        "Series": "S5 Combitech",
+        "Model": "RRC",
+        "Product type": "Symmetrical reducer",
+        "Input width": "400 mm",
+        "Output width": "200 mm",
+        "Height": "80 mm",
+        "Material": "Sendzimir galvanized steel",
+        "Application": "Width reduction/expansion"
+      }
+    },
+    "specs": {
+      "Brand": "DKC",
+      "Series": "S5 Combitech",
+      "Model": "RRC",
+      "Product type": "Symmetrical reducer",
+      "Input width": "400 mm",
+      "Output width": "200 mm",
+      "Height": "80 mm",
+      "Material": "Sendzimir galvanized steel",
+      "Application": "Width reduction/expansion"
+    },
+    "notes_all": {
+      "gpt": "Используется как симметричный переход между ширинами 400 и 200 мм."
+    }
   },
   "dr_category": "adapter",
   "training_urls": [
     "https://buildings.honeywell.com (security products search)",
     "https://honeywellhome.com (security accessories)",
-    "https://resideo.com (adapter search)"
+    "https://resideo.com (adapter search)",
+    "https://www.dkc.com/ru/ru/products/36299",
+    "https://www.dkc.com/cee/products/36299"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -566,5 +600,52 @@
     "best_description_source": "content",
     "best_photo_url": "https://osa.revitech.ru/catalog/dlya_kanalizatsionnykh_trub/zaglushka-50-rtp-tru",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "DIXI 1101 Centre Drill",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\36299-RU.pdf",
+    "datasheet_size_kb": 14371,
+    "product_photos": [
+      "downloads\\datasheet_photos\\36299-RU_p3_0.jpeg",
+      "downloads\\datasheet_photos\\36299-RU_p3_4.jpeg",
+      "downloads\\datasheet_photos\\36299-RU_p7_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "cable management",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 14371KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'DIXI 1101 Centre Drill' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

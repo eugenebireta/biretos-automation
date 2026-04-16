@@ -574,7 +574,10 @@
     "merge_source": "result_V5832A1046.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "V5832A compact valve for fan coils; Bola Systems has 5 in stock; price behind login"
+    }
   },
   "dr_category": "valve",
   "training_urls": [
@@ -602,8 +605,8 @@
     "best_price_source": "phase3a",
     "best_description": "Двухходовой клапан Honeywell V5832A1046 используется для регулирования потока в системах отопления. С диаметром DN15 и коэффициентом KVS1,0, он подходит для небольших систем.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_V5832A1046.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 43.87,
@@ -613,5 +616,35 @@
     "confidence": "high",
     "notes": "Price excl. VAT",
     "search_used": "V5832A1046"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\V5832A1046.pdf",
+    "datasheet_size_kb": 240,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

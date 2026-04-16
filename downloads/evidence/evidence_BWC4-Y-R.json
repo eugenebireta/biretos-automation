@@ -581,5 +581,118 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.isssafety.com/products/bwc4-y-r-honeywell-bw-clip4-o2-lel-h2s-co-cus",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "BW™ Clip4",
+    "description": "The Honeywell BW™ Clip4 is a wearable, always-on four-gas detector designed for hassle-free operation with a 2-year continuous runtime, requiring no charging or battery or sensor replacements. It detects Hydrogen Sulfide (H2S), Carbon Monoxide (CO), Oxygen (O2), and Combustible Gases (LEL), offering dependable functionality, streamlined management with IntelliDoX, and compliance alerts.",
+    "specs": {
+      "operating_temperature": "-20°C to 55°C (CH4), -40°C to +55°C (CO, O2, H2S)",
+      "humidity": "5-95% RH (non-condensing) continuous",
+      "ip_rating": "IP68",
+      "alarms": "Visual, vibrating, audible (95 dB); Low, High, TWA, STEL, OL (over limit)",
+      "self_test": "Activated detectors automatically perform one internal diagnostic test every 24 hours (sensors, battery, and circuitry).",
+      "battery_life": "2 years continuous operation",
+      "event_logging": "70 most recent events",
+      "user_options": [
+        "Adjust STEL period (5-15 minutes in 1 minute intervals)",
+        "Calibration span levels",
+        "Calibration interval",
+        "Bump test interval",
+        "Select combustible gases measurement: 0-100% LEL (Lower Explosive Limit) or Methane gas 0-5.0% v/v",
+        "Calibration due date (1 to 365 days, or set to zero for off)",
+        "Individual sensor enable/disable",
+        "Latching alarms",
+        "Stealth mode"
+      ],
+      "warranty": "Full two-year warranty including sensors and battery",
+      "gas_detection": [
+        {
+          "gas": "Hydrogen Sulfide (H2S)",
+          "range": "0-100 ppm",
+          "resolution": "1/0.1 ppm"
+        },
+        {
+          "gas": "Carbon Monoxide (CO)",
+          "range": "0-1,000 ppm",
+          "resolution": "1 ppm"
+        },
+        {
+          "gas": "Oxygen (O2)",
+          "range": "0-25% vol.",
+          "resolution": "0.1% vol."
+        },
+        {
+          "gas": "Combustible Gases (LEL)",
+          "range": "0-100% LEL",
+          "resolution": "1% LEL"
+        }
+      ],
+      "notes": "The LED IR combustible gas sensor used in Honeywell BW™ Clip4 cannot detect certain combustible gases including hydrogen and acetylene. The application should be reviewed to ensure adequate detection.",
+      "color_options": "Black, High visibility yellow housing",
+      "features": {
+        "comfortable_fit": [
+          "Durable, ergonomic and wearable - doesn't weigh you down",
+          "Compact profile - even working in tight spaces, you won't know you are wearing it"
+        ],
+        "simpler_operation": [
+          "Simple one-button operation",
+          "User-friendly",
+          "Tamper-proof operation with just one button",
+          "Intuitive LCD icons",
+          "Real-time gas concentrations shown on LCD"
+        ],
+        "compliance_alerts": [
+          "Flashing red non-compliance indicators warn workers that the detector has not been bump tested according to schedule",
+          "Daily full function self-test of sensors, battery status, circuit integrity, and audible/visual alarms"
+        ],
+        "streamlined_management": [
+          "Compatible with IntelliDoX docking system and instrument management system"
+        ],
+        "dependable_functionality": [
+          "Built-in concussion proof boot",
+          "Tested to last in extreme environments"
+        ]
+      }
+    },
+    "specs_count": 13,
+    "series": "BW™ Clip4",
+    "category": "Multi-Gas Detector",
+    "weight_g": "233",
+    "dimensions_mm": "120 x 68 x 32 mm",
+    "certifications": [
+      "Class I, Div 1, Group A, B, C, D Class I, Zone O, Group IIC",
+      "ATEX: II 1G Ex ia IIC T4 Ga",
+      "IECEx: Ex ia IIC T4 Ga",
+      "Conforms to all applicable European directives."
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\BWC4-Y-R.pdf",
+    "datasheet_size_kb": 101,
+    "product_photos": [
+      "downloads\\datasheet_photos\\BWC4-Y-R_p1_1.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/BWC4-Y-R_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct. BWC4 is Honeywell's BW Clip4 gas detector series. The '-Y-R' suffix indicates Yellow housing and RU (Russia) region. Seed name correctly identifies the 4 gases (O2, LEL, H2S, CO) which is the standard 4-gas configuration. The datasheet appears too generic (only 'BW™ Clip4') and lacks variant-specific details. Need datasheet that specifies the exact gas configuration and regional variant to properly populate title, description, and EAN."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'BW™ Clip4' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

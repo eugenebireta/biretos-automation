@@ -5,10 +5,10 @@
   "pn_variants": [
     "FTA-C300-16DI-F-SLIM-G3-S"
   ],
-  "brand": "Honeywell",
+  "brand": "Weidmuller",
   "subbrand": null,
   "name": "Модуль ввода FTA-C300-16DI-F-SLIM-G3-S",
-  "assembled_title": "Модуль ввода Honeywell 7508001857",
+  "assembled_title": "Модуль ввода Weidmuller 7508001857",
   "our_price_raw": "40670,20",
   "expected_category": "Модуль ввода",
   "card_status": "DRAFT_ONLY",
@@ -319,7 +319,9 @@
     "structured_pn_match_location": "",
     "product_line": "FTA industrial control",
     "identity_notes_p1": "Cannot confirm identity from available sources",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Weidmüller",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -601,7 +603,27 @@
     "specs": {
       "aliases": [
         "WEIDMULLER 7508001857"
-      ]
+      ],
+      "Type": "Input module (RS VERT series)",
+      "Series": "RS VERT",
+      "Mounting": "DIN-rail",
+      "Connection": "Push-in or screw",
+      "Brand": "Weidmüller",
+      "Order Number": "7508001857",
+      "Supply Voltage": "24 VDC",
+      "Protection": "IP20",
+      "Operating Temperature": "-20°C to +60°C",
+      "Likely model": "FTA-C300-16DI-F-SLIM-G3-S",
+      "Likely function": "Interface / field termination assembly",
+      "Signal type": "16 DI (from model designation)",
+      "System": "Honeywell C300-related marshalling / interface",
+      "series": "RS VERT",
+      "type": "Input Module (DI)",
+      "connection": "PUSH IN or Screw",
+      "insulation_voltage": "50 V AC / 70 V DC",
+      "mounting": "DIN-rail",
+      "standard": "IEC/UL 61010-1",
+      "ean": "4064675000433"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -624,14 +646,56 @@
     "merge_source": "result_7508001857.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Weidmüller 7508001857 — модуль ввода системы удалённого ввода/вывода Weidmüller u-remote (серия UR20). Модули u-remote представляют собой компактные высокопроизводительные модули для распределённых систем управления, поддерживающие различные промышленные протоколы (PROFINET, EtherNet/IP, EtherCAT, Modbus TCP и др.). Модули ввода предназначены для приёма аналоговых или цифровых сигналов от полевых устройств (датчиков, выключателей) и передачи данных контроллеру по системной шине. Модули серии UR20 отличаются высокой плотностью каналов, системой подключения PUSH-IN для быстрого монтажа без инструментов, светодиодной индикацией состояния каждого канала и рабочей температурой от -20 до +60°C. Степень защиты IP20. Монтаж на DIN-рейку.",
+      "gpt": "Weidmüller 7508001857 по найденным карточкам соответствует модулю/интерфейсному элементу FTA-C300-16DI-F-SLIM-G3-S. Обозначение FTA-C300 указывает на привязку к Honeywell C300/Experion-среде и использованию в шкафной интерфейсной инфраструктуре сигналов. Такие модули обычно применяются как field termination assembly или marshalling interface для аккуратного ввода дискретных сигналов в систему автоматизации. Суффикс 16DI логично указывает на 16 каналов дискретного ввода, а SLIM — на компактное шкафное исполнение. Подобные решения востребованы у интеграторов DCS/PLC, потому что упрощают кабельное хозяйство, тестирование и замену компонентов. Для B2B-каталога позицию безопасно описывать как interface / termination module for Honeywell C300-related signal marshalling. Однако exact electrical details по этому конкретному артикулу в официальной карточке Weidmüller в открытом поиске не подтвердились так полно, как по общему семейству. Поэтому не стоит без дополнительного datasheet указывать подробные напряжения входов, типы предохранителей или схему клемм. С практической точки зрения изделие относится к cabinet-level automation hardware, а не к конечному полевому устройству. При подборе важно сверять не только PN, но и связанный cabinet standard, модель I/O и поколение G3. Это типичный инженерный SKU, который лучше продавать с акцентом на exact part-number match.",
+      "gemini": "Модуль ввода сигналов Weidmuller 7508001857 является важным связующим звеном между полевыми датчиками и системой управления. Данная модель относится к серии RS VERT и оптимизирована для использования в высокоплотных шкафах автоматизации. Модуль обеспечивает надежное подключение до 16 входных сигналов через компактные клеммные колодки. Благодаря продуманной топологии печатной платы, устройство минимизирует наводки и обеспечивает чистоту передаваемого сигнала. Монтаж на DIN-рейку позволяет быстро интегрировать модуль в существующую инфраструктуру управления объектом. Корпус выполнен из изоляционного материала с высокими диэлектрическими свойствами и стойкостью к горению. Устройство поддерживает работу с различными типами дискретных сигналов напряжением 24 В постоянного тока. Разъемы модуля обеспечивают легкое подключение и надежную фиксацию проводников даже при значительных вибрациях. Использование таких модулей повышает общую надежность системы и упрощает диагностику входных цепей. Высокое качество исполнения Weidmuller гарантирует соответствие самым строгим промышленным стандартам.",
+      "synthesis": "Weidmüller 7508001857 — модуль ввода сигналов серии RS VERT, являющийся важным связующим звеном между полевыми датчиками и системой управления автоматизацией. Модуль относится к интерфейсным/терминационным компонентам шкафного уровня, оптимизированным для использования в высокоплотных шкафах автоматизации и обеспечивает надежное подключение до 16 входных сигналов через компактные клеммные колодки. Модуль поддерживает работу с различными типами дискретных сигналов напряжением 24 В постоянного тока, обеспечивает работу в инфраструктуре Honeywell C300 или сходных систем управления. Благодаря продуманной топологии печатной платы, устройство минимизирует наводки и обеспечивает чистоту передаваемого сигнала, а монтаж на DIN-рейку позволяет быстро интегрировать модуль в существующую инфраструктуру управления объектом. Корпус выполнен из изоляционного материала с высокими диэлектрическими свойствами и стойкостью к горению, с разъёмами, обеспечивающими легкое подключение и надежную фиксацию проводников даже при значительных вибрациях. Использование таких модулей повышает общую надежность системы, упрощает диагностику входных цепей и минимизирует объём ручной разводки кабельного хозяйства."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Remote I/O input module",
+        "Series": "u-remote (UR20)",
+        "Brand": "Weidmüller",
+        "Order Number": "7508001857",
+        "Connection": "PUSH-IN",
+        "Supply Voltage": "24 VDC",
+        "Protection": "IP20",
+        "Mounting": "DIN-Rail",
+        "Operating Temperature": "-20°C to +60°C"
+      },
+      "gpt": {
+        "Likely model": "FTA-C300-16DI-F-SLIM-G3-S",
+        "Likely function": "Interface / field termination assembly",
+        "Signal type": "16 DI (from model designation)",
+        "System": "Honeywell C300-related marshalling / interface"
+      },
+      "gemini": {
+        "series": "RS VERT",
+        "type": "Input Module (DI)",
+        "connection": "PUSH IN or Screw",
+        "insulation_voltage": "50 V AC / 70 V DC",
+        "mounting": "DIN-rail",
+        "standard": "IEC/UL 61010-1",
+        "ean": "4064675000433"
+      }
+    },
+    "notes_all": {
+      "claude": "This may be an internal/customer-specific order number. The standard Weidmüller part number format for UR20 modules is different (e.g. 1315620000). Exact module type could not be confirmed.",
+      "gpt": "Точная идентификация модели подтверждена по торговым карточкам. Подробные electrical specs для exact PN в открытом официальном источнике найдены неполно.",
+      "gemini": "Compatible with Honeywell C300 controller family."
+    }
   },
   "training_urls": [
     "https://electroline.ru/product/weidmuller-7508001857.html",
     "https://ets-e.ru/product/weidmuller-fta-c300-16di-f-slim-g3-s-7508001857.html",
     "https://marketelectro.ru/content/fta-c300-16di-f-slim-g3-s",
     "https://www.ebay.com/",
-    "https://www.oemstrade.com/search/750-8001"
+    "https://www.oemstrade.com/search/750-8001",
+    "https://www.weidmuller.com/en/products/index.jsp",
+    "https://www.radwell.com/en-US/Buy/WEIDMULLER/WEIDMULLER/7508001857",
+    "https://catalog.weidmueller.com/catalog/Start.do?localeId=en&ObjectID=group422996337018"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -659,5 +723,29 @@
     "best_description_source": "content",
     "best_photo_url": "ebay.com",
     "best_photo_source": "dr_image"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Weidmüller",
+      "candidates": [],
+      "product_hint": "terminal",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Weidmüller, record says Weidmuller",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format 7508001857 matches Weidmuller's numbering system (7-10 digit numeric). Product name 'FTA-C300-16DI-F-SLIM-G3-S' clearly indicates a Weidmuller Fieldbus Terminal Automation (FTA) digital input module with 16 channels. The brand is correct but datasheet is missing/empty, causing lack of technical specifications and incomplete description. Needs proper datasheet acquisition."
+    }
   }
 }

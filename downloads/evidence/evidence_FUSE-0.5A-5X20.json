@@ -326,7 +326,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -631,7 +633,10 @@
     "merge_source": "result_FUSE-0.5A-5X20.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "legacy": "В рамках доступных источников этой сессии «цена на странице» для точного кода не зафиксирована без риска ошибки."
+    }
   },
   "training_urls": [
     "https://ielectrony.com/en/product/fuse-5x20-mm-0-5a-250v/",
@@ -664,5 +669,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://images.thdstatic.com/productImages/3f9e9e9a-7a1a-4f5c-8e6e-3f9e9e9a-7a1a-4f5c-8e6e/svn/cooper-bussmann-fuses-bp-gma-500ma-64_1000.jpg",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

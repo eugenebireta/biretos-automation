@@ -607,7 +607,43 @@
       "aliases": [
         "Honeywell internal: 50135395-002",
         "MOXA IMC-101-S-SC"
-      ]
+      ],
+      "Ethernet Port": "1x 10/100BaseT(X), RJ45",
+      "Fiber Port": "1x 100BaseFX, SC connector, single-mode",
+      "Max. Distance": "40 km",
+      "Power Input": "12-48 VDC, redundant dual inputs",
+      "Power Consumption": "0.3 A @ 24 VDC",
+      "Operating Temperature": "0 to 60°C",
+      "Protection": "IP30",
+      "Mounting": "DIN-rail, wall mount (optional WK-46), rack mount (optional RK-4U)",
+      "Certifications": "UL508, UL60950-1, CSA C22.2, CE, FCC, Class 1 Div 2, IECEx, DNV",
+      "MTBF": "401,000 hrs (MIL-HDBK-217F, 25°C)",
+      "Warranty": "5 years",
+      "Features": "Auto-MDI/MDI-X, LFPT, relay alarm output",
+      "Ethernet Interface": "1 × 10/100BaseT(X), RJ45, auto-negotiation, auto-MDI/MDI-X",
+      "Fiber Interface": "1 × 100BaseFX, SC connector, single-mode",
+      "Max Fiber Distance": "40 km",
+      "Relay Output": "1 (alarm for power failure/port break)",
+      "Dimensions": "25.2 × 84 × 85 mm",
+      "EMC": "IEC 61000-4-2 (ESD 6kV/8kV), IEC 61000-4-5 (Surge 2kV)",
+      "Converter type": "Ethernet-to-fiber media converter",
+      "Copper interface": "10/100BaseT(X)",
+      "Fiber interface": "100BaseFX",
+      "Fiber type": "Single-mode",
+      "Fiber connector": "SC",
+      "Distance": "40 km",
+      "Operating temperature": "0 ... 60 °C",
+      "ports": "1x RJ45, 1x Single-mode SC",
+      "distance": "40 km",
+      "wavelength": "1310 nm",
+      "lfp": "Supported (Link Fault Pass-Through)",
+      "voltage": "12 to 45 VDC",
+      "current": "200 mA @ 12-45 VDC",
+      "ip_rating": "IP30",
+      "housing": "Metal",
+      "mtbf": "401,000 hours",
+      "operating_temp": "0 °C to 60 °C",
+      "mounting": "DIN-rail"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -630,7 +666,58 @@
     "merge_source": "result_IMC-101-S-SC.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (1).md"
+    "source_file": "deep-research-report (1).md",
+    "descriptions_all": {
+      "claude": "Moxa IMC-101-S-SC — промышленный медиаконвертер для преобразования сигнала из 10/100BaseT(X) Ethernet в 100BaseFX оптический интерфейс. Модель оснащена разъёмом SC для одномодового (single-mode) оптического волокна с дальностью передачи до 40 км. Рабочая температура составляет от 0 до 60°C (расширенный диапазон -40...+75°C для моделей с суффиксом -T). Медиаконвертер поддерживает автосогласование 10/100BaseT(X) и auto-MDI/MDI-X, а также технологию Link Fault Pass-Through (LFPT) для обнаружения обрывов линии. Устройство оснащено релейным выходом аварийной сигнализации для уведомления о потере питания или обрыве порта, а также поддерживает резервирование питания через два входа. Корпус предназначен для монтажа на DIN-рейку или в распределительные шкафы. Сертифицирован для работы во взрывоопасных зонах (Class 1 Div. 2/Zone 2, IECEx), имеет сертификаты DNV для морского применения, а также соответствует стандартам UL508, UL60950-1, FCC и CE. Все конвертеры серии IMC-101 проходят 100% тестирование при обкатке. Наработка на отказ (MTBF) составляет 401 000 часов.",
+      "gpt": "Moxa IMC-101-S-SC — это промышленный медиаконвертер Ethernet-to-Fiber для преобразования медного канала 10/100BaseT(X) в оптический 100BaseFX. Для exact PN официально подтверждены single-mode исполнение, разъём SC, дальность до 40 км и рабочая температура 0…60 °C. Такие устройства применяются в промышленных сетях автоматики, на подстанциях, в транспортной инфраструктуре, на производстве и в системах видеонаблюдения, где требуется длинная оптическая линия и высокая устойчивость к помехам. Серия IMC-101 рассчитана на DIN-рейку и шкафной монтаж, что удобно для стандартных промышленных шкафов связи. В документации семейства упоминаются alarm relay output и промышленная сертификация, что важно для надёжной эксплуатации в field conditions. Подобный медиаконвертер помогает увести сетевой сегмент на оптику без замены конечного медного порта устройства. Это особенно полезно для развязки по расстоянию, электромагнитной устойчивости и грозозащите. При проектировании важно учитывать тип волокна, бюджет линии и необходимость резервирования питания. Для B2B-каталога корректное описание — industrial 10/100BaseT(X) to 100BaseFX media converter, single-mode, SC, 40 km. Это пассивно совместимый сетевой элемент, который не требует сложной настройки, если используется в прозрачном L2-сегменте.",
+      "gemini": "Промышленный медиаконвертер Moxa IMC-101-S-SC предназначен для преобразования сигналов между медными сетями Ethernet и одномодовым оптоволокном. Устройство поддерживает передачу данных на расстояние до 40 километров, что делает его идеальным для распределенных промышленных объектов. Прочный металлический корпус с классом защиты IP30 обеспечивает надежную защиту электроники от механических повреждений и пыли. Конвертер оснащен функцией Link Fault Pass-Through (LFP), которая позволяет системе мониторинга мгновенно узнавать об обрыве связи на любом участке линии. Для повышения надежности предусмотрено резервирование входов питания в диапазоне от 12 до 45 В постоянного тока. Наличие релейного выхода для сигнализации о сбое питания или разрыве порта позволяет оперативно реагировать на инцидентах. Устройство способно работать при температурах от 0 до 60 градусов Цельсия, что подходит для большинства производственных цехов. Монтаж производится на стандартную DIN-рейку, обеспечивая удобство и компактность размещения в телекоммуникационных шкафах. Каждый медиаконвертер проходит 100% заводское тестирование под нагрузкой для гарантии долговечности. Данная модель широко используется в системах нефтегазового сектора и на объектах энергетической инфраструктуры.",
+      "synthesis": "Moxa IMC-101-S-SC — промышленный медиаконвертер для преобразования сигнала из 10/100BaseT(X) Ethernet в 100BaseFX оптический интерфейс с single-mode исполнением, разъёмом SC и дальностью передачи до 40 км. Устройство поддерживает автосогласование 10/100BaseT(X) и auto-MDI/MDI-X, а также технологию Link Fault Pass-Through (LFPT) для обнаружения обрывов линии. Рабочая температура составляет от 0 до 60°C. Модуль оснащён релейным выходом аварийной сигнализации для уведомления о потере питания или обрыве порта, а также поддерживает резервирование питания через два входа в диапазоне от 12 до 45 В постоянного тока. Корпус предназначен для монтажа на DIN-рейку или в распределительные шкафы с классом защиты IP30. Сертифицирован для работы во взрывоопасных зонах (Class 1 Div. 2/Zone 2, IECEx), имеет сертификаты DNV для морского применения, а также соответствует стандартам UL508, UL60950-1, FCC и CE. Наработка на отказ (MTBF) составляет 401 000 часов. Применяется в промышленных сетях автоматики, на подстанциях, в транспортной инфраструктуре, на производстве и в системах видеонаблюдения, где требуется длинная оптическая линия и высокая устойчивость к помехам."
+    },
+    "specs_all": {
+      "claude": {
+        "Ethernet Interface": "1 × 10/100BaseT(X), RJ45, auto-negotiation, auto-MDI/MDI-X",
+        "Fiber Interface": "1 × 100BaseFX, SC connector, single-mode",
+        "Max Fiber Distance": "40 km",
+        "Operating Temperature": "0 to 60°C (standard); -40 to 75°C (-T models)",
+        "Power Input": "12-48 VDC, redundant dual inputs",
+        "Power Consumption": "5.5W max",
+        "Relay Output": "1 (alarm for power failure/port break)",
+        "Protection": "IP30",
+        "Mounting": "DIN-Rail or wall mount (WK-46 kit)",
+        "Dimensions": "25.2 × 84 × 85 mm",
+        "MTBF": "401,000 hrs (MIL-HDBK-217F, 25°C)",
+        "Certifications": "UL508, UL60950-1, CSA, CE, FCC, Class 1 Div.2/Zone 2, IECEx, DNV",
+        "EMC": "IEC 61000-4-2 (ESD 6kV/8kV), IEC 61000-4-5 (Surge 2kV)",
+        "Warranty": "5 years"
+      },
+      "gpt": {
+        "Converter type": "Ethernet-to-fiber media converter",
+        "Copper interface": "10/100BaseT(X)",
+        "Fiber interface": "100BaseFX",
+        "Fiber type": "Single-mode",
+        "Fiber connector": "SC",
+        "Distance": "40 km",
+        "Operating temperature": "0 ... 60 °C",
+        "Mounting": "DIN-rail / panel (family)"
+      },
+      "gemini": {
+        "ports": "1x RJ45, 1x Single-mode SC",
+        "distance": "40 km",
+        "wavelength": "1310 nm",
+        "lfp": "Supported (Link Fault Pass-Through)",
+        "voltage": "12 to 45 VDC",
+        "current": "200 mA @ 12-45 VDC",
+        "ip_rating": "IP30",
+        "housing": "Metal",
+        "mtbf": "401,000 hours",
+        "operating_temp": "0 °C to 60 °C",
+        "mounting": "DIN-rail"
+      }
+    },
+    "notes_all": {
+      "claude": "Industrial-grade media converter. Also available in multi-mode (IMC-101-M-SC) and 80km versions.",
+      "gpt": "Exact 40 km single-mode SC параметры подтверждены официальной страницей Moxa."
+    }
   },
   "training_urls": [
     "https://marugged.com/imc-101-s-sc/",
@@ -638,7 +725,9 @@
     "https://www.moxa.com/en/products/industrial-network-infrastructure/ethernet-media-converters/ethernet-to-fiber-media-converters/imc-101-series/imc-101-s-sc",
     "https://www.neteon.net/imc-101-s-sc/",
     "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/IMC-101-S-SC",
-    "https://www.rg-group.com/store/product/imc-101-s-sc/moxa-imc-101-s-sc-industrial-ethernet-to-fiber-media-converters"
+    "https://www.rg-group.com/store/product/imc-101-s-sc/moxa-imc-101-s-sc-industrial-ethernet-to-fiber-media-converters",
+    "https://www.moxa.com/en/products/industrial-network-infrastructure/ethernet-media-converters/ethernet-to-fiber-media-converters/imc-101-series",
+    "https://shopmoxa.neteon.net/imc-101-s-sc/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -668,5 +757,35 @@
     "best_photo_source": "photo_verdict"
   },
   "review_flag": "NON_HONEYWELL",
-  "review_reason": "Phase 1 recon: manufacturer=Moxa"
+  "review_reason": "Phase 1 recon: manufacturer=Moxa",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "ControlEdge PLC Specification",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\IMC-101-S-SC.pdf",
+    "datasheet_size_kb": 1860,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'ControlEdge PLC Specification' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

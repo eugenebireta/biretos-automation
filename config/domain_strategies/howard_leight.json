@@ -1,0 +1,98 @@
+{
+  "brand": "Howard Leight",
+  "pn_naming_conventions": [
+    "7-digit numeric format (1000000-1999999 range)",
+    "Pure numbers, no letters or special characters",
+    "Leading '10' prefix is common pattern",
+    "No model suffixes or variants in PN itself"
+  ],
+  "ean_locations": {
+    "primary": "gemini_grounding and distributor sites (RS Online, Fabory) are most reliable",
+    "format": "13-digit EAN starting with '731255' or '731250' (Honeywell prefix)",
+    "pattern": "EAN often follows PN logic: 7312550[PN without first digit][check digit]"
+  },
+  "trusted_sources": {
+    "price": [
+      "uk.rs-online.com",
+      "docs.rs-online.com",
+      "fabory.com",
+      "ferguson.com",
+      "workwearexpress.com"
+    ],
+    "ean": [
+      "uk.rs-online.com",
+      "docs.rs-online.com",
+      "sps-support.honeywell.com",
+      "automation.honeywell.com",
+      "fabory.com"
+    ],
+    "photo": [
+      "automation.honeywell.com",
+      "prod-edam.honeywell.com",
+      "honeywellstore.com",
+      "uk.rs-online.com"
+    ],
+    "specs": [
+      "sps-support.honeywell.com",
+      "automation.honeywell.com",
+      "docs.rs-online.com",
+      "honeywellstore.com"
+    ]
+  },
+  "common_pitfalls": [
+    "HIGH PRICES indicate dispensers/bulk packs (e.g., PN 1006186 at 1794.0 is dispenser, not single unit)",
+    "Missing titles or non-English titles (PN 1012541 has Russian title, 1012539 empty) - always verify on Honeywell official",
+    "Catalog PDFs (PN 1015021) being matched as products - exclude if title contains 'Catalog', 'Guide', 'Brochure'",
+    "eBay and marketplace sites show pack quantities in price - cross-reference with official distributors",
+    "Series names vary: 'Bilsom 300 Series', 'HL400-AM' - series is product line, not always present",
+    "EAN source 'datasheet_parse' can be unreliable if OCR errors - validate format 731255XXXXXXX"
+  ],
+  "validation_rules": [
+    {
+      "field": "price",
+      "rule": "if norm_price > 500, verify it's a dispenser or bulk pack (check title for 'DISPENSER', 'Box', '100pc')",
+      "reason": "Individual ear protection items typically cost 10-100 EUR"
+    },
+    {
+      "field": "ean",
+      "rule": "must start with 731255 or 731250, must be exactly 13 digits",
+      "reason": "Honeywell Safety Products uses these prefixes consistently"
+    },
+    {
+      "field": "pn",
+      "rule": "must be 7 digits, no spaces, no letters",
+      "reason": "Howard Leight uses pure numeric codes in 10XXXXX range"
+    },
+    {
+      "field": "title",
+      "rule": "if empty or contains 'Catalog', 'Brochure', non-English gibberish - flag for manual review",
+      "reason": "Indicates document match or bad scraping, not actual product"
+    },
+    {
+      "field": "datasheet_size_kb",
+      "rule": "if > 10000kb (10MB), likely full catalog not product sheet",
+      "reason": "PN 1011994 has 27MB datasheet - probably entire product line catalog"
+    },
+    {
+      "field": "specs_count",
+      "rule": "if 0 and datasheet exists, re-parse datasheet; if still 0, mark confidence low",
+      "reason": "Multiple PNs have 0 specs despite large datasheets"
+    }
+  ],
+  "search_query_templates": [
+    "{pn} site:sps-support.honeywell.com",
+    "{pn} site:automation.honeywell.com",
+    "Howard Leight {pn} site:uk.rs-online.com",
+    "{pn} EAN site:fabory.com",
+    "Honeywell {pn} datasheet filetype:pdf",
+    "\"{pn}\" \"Howard Leight\" specifications"
+  ],
+  "notes_for_cheap_ai": "Howard Leight is Honeywell's hearing protection brand. ALWAYS search official Honeywell domains first (sps-support.honeywell.com, automation.honeywell.com). Part numbers are exactly 7 digits. EANs always start 73125. CRITICAL: Check if high prices (>500) are for dispensers/bulk - look for keywords 'dispenser', 'refill station', 'box of'. If title is missing or looks wrong (non-English, says 'Catalog'), don't trust that source. RS Online (uk.rs-online.com) is gold standard for both EAN and pricing validation. When you find a datasheet, extract: NRR rating, cord/uncorded, reusable/disposable, material type. Series names like 'Bilsom' or 'HL400' indicate product family. Amazon/eBay prices often include multi-packs - divide by quantity. If you see 'AM' in model, it means antimicrobial. Validate every EAN by checking if middle digits loosely match the PN.",
+  "_meta": {
+    "examples_analyzed": 7,
+    "model": "claude-sonnet-4-5",
+    "tokens_in": 1970,
+    "tokens_out": 1437,
+    "cost_usd": 0.0275
+  }
+}

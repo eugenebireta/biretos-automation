@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "57511",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": null,
+  "brand": "Esser by Honeywell",
+  "subbrand": "Esser",
   "name": "Устройство Honeywell D 20.677.702-Z",
   "assembled_title": "Устройство Honeywell 57511",
   "our_price_raw": "1367,10",
@@ -311,7 +311,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -536,7 +537,17 @@
       "raw": "—",
       "aliases": [
         "—"
-      ]
+      ],
+      "Brand": "PEHA",
+      "Material no.": "00575111",
+      "Product type": "Lamp element / illumination insert",
+      "Application": "Switches and push-buttons",
+      "Series compatibility": "500-series and WAB",
+      "Terminal type": "Clamp terminals",
+      "Lamp type": "Filament lamp",
+      "Rated voltage": "6...12 V AC",
+      "Rated current": "40 mA",
+      "EAN": "4010105575118"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -558,10 +569,33 @@
     "merge_source": "result_57511.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "PEHA / Honeywell 57511 соответствует материалу 00575111 и представляет собой ламповый элемент подсветки для выключателей и кнопок серии PEHA. Производитель указывает применение с механизмами 500-й серии и WAB, оснащёнными зажимными клеммами. Это не самостоятельный выключатель, а сервисный или комплектующий элемент, который добавляет индикацию или подсветку в установленный механизм. В найденной карточке описан вариант filament lamp element на 6–12 В AC при токе 40 мА. Такие элементы применяют для локальной индикации, ориентирующей подсветки или обозначения точки управления в затемнённых зонах. Позиция полезна в жилых, коммерческих и общественных объектах, где важно видеть место установки выключателя или статус цепи. При подборе нужно обязательно сверять электрические параметры, потому что ламповые вставки чувствительны к напряжению и типу механизма. Также важно учитывать совместимость по серии и типу посадочного места внутри выключателя или кнопки. Для B2B-каталога это типичный аксессуар/запчасть, а не законченный электроустановочный прибор."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "PEHA",
+        "Material no.": "00575111",
+        "Product type": "Lamp element / illumination insert",
+        "Application": "Switches and push-buttons",
+        "Series compatibility": "500-series and WAB",
+        "Terminal type": "Clamp terminals",
+        "Lamp type": "Filament lamp",
+        "Rated voltage": "6...12 V AC",
+        "Rated current": "40 mA",
+        "EAN": "4010105575118"
+      }
+    },
+    "notes_all": {
+      "gpt": "В пользовательском списке дан сокращённый номер 57511; публичный полный материал-номер PEHA — 00575111."
+    }
   },
   "dr_category": "Device (unidentified)",
-  "training_urls": [],
+  "training_urls": [
+    "https://www.peha.de/en/catalog/product/00575111/",
+    "https://www.elektrikshop.nl/peha-00575111-gloei-element-6-12v-40ma"
+  ],
   "price_contract": {
     "schema_version": "price_contract_v1",
     "dr_value": null,
@@ -582,7 +616,44 @@
     "best_price_source": "our_estimate",
     "best_description": "Honeywell D 20.677.702-Z — это устройство, предназначенное для использования в системах автоматизации. Обеспечивает надежное выполнение задач управления и контроля.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/ESSER_57511.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\57511.pdf",
+    "datasheet_size_kb": 718,
+    "product_photos": [
+      "downloads\\datasheet_photos\\57511_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/57511_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The PN format D 20.677.702-Z is characteristic of Esser (fire detection systems), which is a Honeywell subsidiary. The audit confirms the datasheet shows Esser branding with EAN prefix 4007185 (Esser's prefix). The seed name incorrectly lists only 'Honeywell' but should be 'Esser by Honeywell' or just 'Esser'. The PN 57511 appears to be an internal reference number, while D 20.677.702-Z is the manufacturer's part number.",
+      "brand_correction_confidence": "high",
+      "needs_new_datasheet": true,
+      "reason": "PN 57511 matches Esser's numeric format. Esser is a Honeywell subsidiary specializing in fire detection. The seed name shows Honeywell part number D 20.677.702-Z which appears to be an alternative/system reference. 'Esser by Honeywell' branding is correct for this product line. Current datasheet is invalid/empty and needs replacement to get proper title, description and EAN starting with 4007185."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

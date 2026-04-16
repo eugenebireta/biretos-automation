@@ -7,10 +7,10 @@
     "2SM.3.0.SCU.SCU.15",
     "2SM30SCUSCU15"
   ],
-  "brand": "Honeywell",
+  "brand": "Optcom",
   "subbrand": null,
   "name": "Оптический соединительный шнур Honeywell 2SM-3.0-SCU-SCU-15",
-  "assembled_title": "Шнур Honeywell 2SM-3.0-SCU-SCU-15",
+  "assembled_title": "Шнур Optcom 2SM-3.0-SCU-SCU-15",
   "our_price_raw": "371,00",
   "expected_category": "Шнур",
   "card_status": "DRAFT_ONLY",
@@ -323,7 +323,9 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "identity_notes_p1": "Optical fiber splice coupler unit; limited product info",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Optcom",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -606,7 +608,23 @@
       "raw": "см. строку #7 (тот же товар); гарантия 36 мес (на странице)",
       "aliases": [
         "эквивалентное написание: 2SM-3.0-SC/UPC-SC/UPC, 1,5м"
-      ]
+      ],
+      "Brand": "Optcom",
+      "Product type": "Fiber optic patch cord",
+      "Fiber type": "Single-mode",
+      "Construction": "Duplex",
+      "Connector A": "SC/UPC",
+      "Connector B": "SC/UPC",
+      "Cable diameter": "3.0 mm",
+      "Length": "15 m",
+      "Cable family": "2SM",
+      "Fiber Type": "Single-mode OS2 (9/125)",
+      "Connectors": "SC/UPC - SC/UPC",
+      "Jacket Material": "LSZH",
+      "Jacket Diameter": "3.0 mm",
+      "Insertion Loss": "< 0.3 dB",
+      "Return Loss": "> 50 dB",
+      "Configuration": "Duplex"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -629,10 +647,44 @@
     "merge_source": "result_2SM-3.0-SCU-SCU-15.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (5).md"
+    "source_file": "deep-research-report (5).md",
+    "descriptions_all": {
+      "gpt": "Optcom 2SM-3.0-SCU-SCU-15 — это дуплексный одномодовый оптический патч-корд SC/UPC–SC/UPC длиной 15 м для коммутации оптических линий на большей дистанции внутри объекта. Он применяется в телекоммуникационных шкафах, серверных, кроссовых и в системах, где оборудование расположено не вплотную друг к другу. Дуплексное исполнение удобно для полноценных двусторонних оптических каналов передачи и приёма. Семейство 2SM у Optcom относится к single-mode решениям, поэтому шнур уместен для сетей с малым затуханием и типовыми одномодовыми интерфейсами. Разъёмы SC/UPC широко распространены в операторских и корпоративных сетях, а кабель 3,0 мм обеспечивает более высокую механическую стойкость по сравнению с миниатюрными сборками. Длина 15 м позволяет соединять удалённые панели, кроссы или активное оборудование в пределах помещения или стойкового ряда. При монтаже важно не превышать допустимый радиус изгиба и обязательно очищать торцы коннекторов перед включением в тракт. Для постоянной эксплуатации желательно использовать организаторы кабеля и маркировку портов, чтобы не допустить перекрёстных подключений. Как и для других оптических шнуров, точные оптические потери и материал оболочки желательно подтвердить по карточке поставщика на конкретную партию.",
+      "gemini": "Волоконно-оптический соединительный кабель Optcom длиной 15 метров предназначен для связи удаленных сетевых узлов. Данный дуплексный одномодовый патч-корд оснащен стандартными коннекторами SC с ультра-физической полировкой (UPC). Качественное волокно OS2 гарантирует передачу данных на большие расстояния с минимальной деградацией импульсов. Толщина внешней оболочки 3 мм обеспечивает дополнительную защиту от перегибов и физических повреждений. Использование негорючего материала LSZH позволяет прокладывать кабель в общественных зданиях и дата-центрах. Кабель сохраняет работоспособность в широком диапазоне температур от -40 до +75 градусов Цельсия. Каждый патч-корд поставляется с индивидуальным отчетом о заводских испытаниях. Длина 15 метров обеспечивает гибкость при проектировании кабельных трасс между аппаратными помещениями. Это надежный выбор для построения магистральных линий связи и сетей FTTH."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Optcom",
+        "Product type": "Fiber optic patch cord",
+        "Fiber type": "Single-mode",
+        "Construction": "Duplex",
+        "Connector A": "SC/UPC",
+        "Connector B": "SC/UPC",
+        "Cable diameter": "3.0 mm",
+        "Length": "15 m",
+        "Cable family": "2SM"
+      },
+      "gemini": {
+        "Brand": "Optcom",
+        "Fiber Type": "Single-mode OS2 (9/125)",
+        "Connectors": "SC/UPC - SC/UPC",
+        "Length": "15 m",
+        "Jacket Material": "LSZH",
+        "Jacket Diameter": "3.0 mm",
+        "Insertion Loss": "< 0.3 dB",
+        "Return Loss": "> 50 dB",
+        "Configuration": "Duplex"
+      }
+    },
+    "notes_all": {
+      "gpt": "Точная длина подтверждается каталогом; часть вторичных параметров может зависеть от конкретной модификации/партии."
+    }
   },
   "training_urls": [
-    "https://www.fs.com/products/40191.html"
+    "https://www.fs.com/products/40191.html",
+    "https://optcom-ural.ru/katalog/patch-cords-sc/sc-upc-sc-upc-dupleks-singlmod/",
+    "https://telecomsales.ru/katalog/vols/patch-kord-opticheskij-sc-upc-sc-upc-sm-9-125-duplex-15m",
+    "https://honeywellconnection.com/products/sm-sc-sc-duplex-patch-cord-15-mtrs"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -660,5 +712,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/2s",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

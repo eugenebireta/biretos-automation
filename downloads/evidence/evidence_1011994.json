@@ -3,10 +3,10 @@
   "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1011994",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Howard Leight",
   "subbrand": null,
   "name": "Наушники противошумные EARMUFF LEIGHTNING L1N",
-  "assembled_title": "Наушники Honeywell 1011994",
+  "assembled_title": "Наушники Howard Leight 1011994",
   "our_price_raw": "1741,63",
   "expected_category": "Наушники",
   "card_status": "DRAFT_ONLY",
@@ -192,7 +192,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Howard Leight",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "content": {
     "specs": {},
@@ -405,7 +407,22 @@
         "Howard Leight L1N",
         "1011994-H5 (case)",
         "ASIN B000NU60N8"
-      ]
+      ],
+      "Brand": "Howard Leight",
+      "Series": "Leightning L1N",
+      "Product type": "Passive earmuff",
+      "Wearing style": "Neckband",
+      "Technology": "Air Flow Control",
+      "SNR": "29 dB",
+      "HML": "H=31 dB / M=27 dB / L=21 dB",
+      "Standards": "ANSI S3.19 / CSA Z94.2",
+      "Model": "Leightning L1N",
+      "Style": "Neckband",
+      "NRR": "25 dB",
+      "Material": "Steel Wire / PVC",
+      "Weight": "170 g",
+      "Standard": "ANSI S3.19-1974",
+      "Color": "Gray"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -439,7 +456,37 @@
     "merge_source": "result_1011994.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "gpt": "Howard Leight 1011994 Leightning L1N — это пассивные противошумные наушники с шейным оголовьем, рассчитанные на применение там, где верхняя часть головы должна оставаться свободной для каски, щитка или другого снаряжения. Конструкция серии Leightning использует технологию Air Flow Control, позволяющую снижать шум без чрезмерного увеличения массы чашек. Шейное крепление удобно для совместной работы с касками, сварочными щитками и иными средствами защиты головы, если стандартное верхнее оголовье мешает. По данным производителя, модель обеспечивает SNR 29 дБ, а показатели H/M/L составляют 31/27/21 дБ. Мягкие амбушюры и пенное контактное покрытие снижают точечное давление при длительном ношении в течение рабочей смены. Изделие предназначено для производств, складов, сервисных служб и строительных площадок с устойчивым широкополосным шумом. Для эффективной защиты необходимо следить, чтобы чашки плотно прилегали к голове и не конфликтовали с дужками очков или ремнями другого СИЗ. Модель относится к линейке Honeywell Howard Leight и фигурирует как снятая с производства у ряда поставщиков, поэтому при закупке нужно заранее проверять фактическую доступность. Наушники соответствуют требованиям ANSI/CSA для средств защиты слуха и применяются как многоразовое СИЗ.",
+      "gemini": "Защитные наушники Howard Leight Leightning L1N имеют уникальную конструкцию с затылочным ободом (neckband). Такое исполнение позволяет носить их одновременно с касками, козырьками и другими средствами защиты головы. Прочная стальная проволочная рама выдерживает жесткие условия эксплуатации на стройплощадках. Технология Air Flow Control обеспечивает стабильное подавление шума на всех частотах без увеличения объема чашек. Мягкие амбушюры легко заменяются благодаря системе Snap-in, что продлевает срок службы наушников. Устройство обеспечивает рейтинг шумоподавления NRR 25 дБ, эффективно защищая органы слуха. В комплект входит дополнительная эластичная лента для надежной фиксации наушников на голове. Модель выполнена в темно-сером цвете и отличается высокой эргономичностью. Это профессиональное решение для рабочих, ценящих универсальность и надежность оборудования."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Howard Leight",
+        "Series": "Leightning L1N",
+        "Product type": "Passive earmuff",
+        "Wearing style": "Neckband",
+        "Technology": "Air Flow Control",
+        "SNR": "29 dB",
+        "HML": "H=31 dB / M=27 dB / L=21 dB",
+        "Standards": "ANSI S3.19 / CSA Z94.2"
+      },
+      "gemini": {
+        "Brand": "Howard Leight by Honeywell",
+        "Model": "Leightning L1N",
+        "Style": "Neckband",
+        "NRR": "25 dB",
+        "Material": "Steel Wire / PVC",
+        "Technology": "Air Flow Control",
+        "Weight": "170 g",
+        "Standard": "ANSI S3.19-1974",
+        "Color": "Gray"
+      }
+    },
+    "notes_all": {
+      "gpt": "У ряда продавцов отмечен статус discontinued/obsolete; фактическую доступность лучше проверять отдельно."
+    }
   },
   "dr_category": "hearing protection",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/sps-hppe-brp900-1010922",
@@ -450,7 +497,11 @@
     "https://automation.honeywell.com/us/en/products/personal-protective-equipment/hearing-protection/earmuffs/leightning",
     "https://www.earplugstore.com/bilsom-leightning-l1n-1.html",
     "https://www.ferguson.com/product/howard-leight-l1n-leightning-safety-earmuff-with-neckband-nrr25-h1011994/_/R-4299460",
-    "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm"
+    "https://www.honeywellstore.com/store/products/honeywell-shooting-sports-passive-earmuffs-1011994.htm",
+    "https://docs.rs-online.com/6018/0900766b81168f54.pdf",
+    "https://www.honeywellstore.com/store/products/howard-leight-by-honeywell-leightning-l1n-neckband-style-earmuff-1011994.htm",
+    "https://www.ebay.com/itm/154641419516",
+    "https://www.preferredsafetyproducts.com/Honeywell-Lightning-L1N-Neckband-1011994-p/hli1011994.htm"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -479,5 +530,57 @@
     "best_description_source": "content",
     "best_photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/sps-hppe-brp900-1010922",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "H910 Plus Particulate Respirator",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "7312550119945",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\1011994.pdf",
+    "datasheet_size_kb": 27742,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Howard Leight",
+      "candidates": [],
+      "product_hint": "PPE",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 27742KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'H910 Plus Particulate Respirator' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean_candidates": [
+        "7312550119945",
+        "7312553119942"
+      ],
+      "source": "hl_rule_candidates",
+      "confidence": "medium",
+      "note": "verify against actual datasheet"
+    }
   }
 }

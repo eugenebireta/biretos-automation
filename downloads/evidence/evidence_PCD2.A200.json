@@ -6,7 +6,7 @@
     "PCD2-A200",
     "PCD2A200"
   ],
-  "brand": "Honeywell",
+  "brand": "Saia-Burgess",
   "subbrand": null,
   "name": "Модуль цифрового вывода PCD2.A200",
   "assembled_title": "Модуль Honeywell PCD2.A200",
@@ -600,5 +600,46 @@
     "confidence": "medium",
     "notes": "eBay listing; new open box",
     "search_used": "PCD2.A200"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Digitales Ausgangsmodul, 4 Relais, 250 VAC/2 A, Schliesserkontakt, Kontaktschutz",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PCD2.A200.pdf",
+    "datasheet_size_kb": 230,
+    "product_photos": [
+      "downloads\\datasheet_photos\\PCD2.A200_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/PCD2.A200_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN format 'PCD2.A200' is distinctive Saia-Burgess/Saia PG5 pattern. Datasheet title in German confirms it's a digital output module with 4 relays, 250 VAC/2 A. The PCD2 series is a well-known Saia-Burgess automation controller family. Brand should be corrected from Honeywell to Saia-Burgess.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Digitales Ausgangsmodul, 4 Relais, 250 VAC/2 A, Schliesserko' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

@@ -1,0 +1,88 @@
+{
+  "brand": "ABB",
+  "pn_naming_conventions": [
+    "Long alphanumeric format: 2CDGxxxxRxxxx (13 chars, seems to be industrial/automation products)",
+    "Short alphanumeric format: CR-MH style (dash-separated, marketing materials/accessories)",
+    "Pattern 2CDG indicates likely building automation/KNX products",
+    "R in position 9-10 appears to be revision/variant indicator"
+  ],
+  "ean_locations": {
+    "primary": "datasheet_parse - ABB datasheets reliably contain EAN codes",
+    "secondary": "distributor sources when datasheet unavailable",
+    "format": "13-digit EAN starting with 401677xxxx (ABB's prefix range)"
+  },
+  "trusted_sources": {
+    "price": [
+      "new.abb.com",
+      "search.abb.com",
+      "sa.rsdelivers.com",
+      "mall.industry.siemens.com"
+    ],
+    "ean": [
+      "new.abb.com",
+      "search.abb.com",
+      "docs.rs-online.com",
+      "datasheet_parse"
+    ],
+    "photo": [
+      "new.abb.com",
+      "search.abb.com",
+      "library.e.abb.com"
+    ],
+    "specs": [
+      "new.abb.com",
+      "search.abb.com",
+      "docs.rs-online.com",
+      "library.e.abb.com"
+    ]
+  },
+  "common_pitfalls": [
+    "EXTREME price outlier: IPS/S3.1.1 shows 567,721.12 - likely data entry error or pack/project price, normal ABB DIN rail devices range 3-1000 EUR",
+    "Short PNs like 'CR-MH' may be catalogs/handbooks not actual products - verify if orderable item",
+    "EAN prefix 401677 is correct for ABB, other prefixes should be validated",
+    "Datasheet size >10MB (like 33MB for CR-MH) indicates documentation/catalog not product datasheet",
+    "Missing weight/dimensions often indicates non-physical product (software, documentation)"
+  ],
+  "validation_rules": [
+    {
+      "field": "price",
+      "rule": "if norm_price > 10000 then FLAG for review",
+      "reason": "Standard ABB building automation components rarely exceed 5000 EUR; 567K price is obvious error"
+    },
+    {
+      "field": "pn",
+      "rule": "if PN format is short (< 6 chars) AND specs_count = 0, classify as 'documentation'",
+      "reason": "CR-MH pattern: short PN, 0 specs, huge PDF = handbook not product"
+    },
+    {
+      "field": "ean",
+      "rule": "EAN must start with 40167 for ABB, otherwise require secondary verification",
+      "reason": "ABB's registered GS1 prefix range"
+    },
+    {
+      "field": "datasheet_size_kb",
+      "rule": "if > 5000 KB (5MB), verify this is product not catalog",
+      "reason": "33MB 'datasheet' for CR-MH is actually full handbook"
+    },
+    {
+      "field": "dimensions_mm",
+      "rule": "if empty AND price > 50, require manual check",
+      "reason": "Physical products should have dimensions; missing = incomplete data"
+    }
+  ],
+  "search_query_templates": [
+    "{pn} site:new.abb.com",
+    "{pn} site:search.abb.com",
+    "{pn} datasheet filetype:pdf site:library.e.abb.com",
+    "\"{pn}\" EAN site:docs.rs-online.com",
+    "ABB {pn} specifications"
+  ],
+  "notes_for_cheap_ai": "ABB uses structured long PNs (2CDGxxxxRxxxx format) for real products. Always check official ABB sites first (new.abb.com, search.abb.com). EANs are reliably in datasheets - parse PDFs from library.e.abb.com. RED FLAG: prices above 10k are almost always errors (see example: 567k for a small DIN rail interface is impossible). Short PNs with zero specs are usually documentation not products. ABB building automation products typically weigh 50-500g and fit on DIN rails (MDRC = Modular DIN Rail Case). Trust RS Online and Siemens Mall for verification. When you see massive price anomalies, check if it's a pack quantity or currency error before accepting.",
+  "_meta": {
+    "examples_analyzed": 3,
+    "model": "claude-sonnet-4-5",
+    "tokens_in": 1152,
+    "tokens_out": 1187,
+    "cost_usd": 0.0213
+  }
+}

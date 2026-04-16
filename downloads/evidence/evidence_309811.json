@@ -347,7 +347,9 @@
     "type_designation": "D 95.540.70",
     "series": "DIALOG",
     "identity_notes_p1": "DIALOG temperature switch/sensor, 70 series",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -654,10 +656,23 @@
     ]
   },
   "deep_research": {
-    "description_ru": "Датчик температуры с артикулом 309811 и внутренней ссылкой D 95.540.70. Точная идентификация продукта по открытым источникам не подтверждена."
+    "description_ru": "Датчик температуры с артикулом 309811 и внутренней ссылкой D 95.540.70. Точная идентификация продукта по открытым источникам не подтверждена.",
+    "specs": {
+      "series": "DIALOG",
+      "type": "Rocker",
+      "gang": "1",
+      "finish": "Aluminum enamel lacquer",
+      "material": "Thermoplastic",
+      "article": "D 95.540.70",
+      "standard": "VDE"
+    },
+    "descriptions_all": {
+      "legacy": "Датчик температуры с артикулом 309811 и внутренней ссылкой D 95.540.70. Точная идентификация продукта по открытым источникам не подтверждена."
+    }
   },
   "training_urls": [
-    "https://www.radwell.com/en-US/Search?AllWords=309811"
+    "https://www.radwell.com/en-US/Search?AllWords=309811",
+    "https://www.conrad.sk/sk/p/peha-by-honeywell-kryt-koliska-hlinik-309811-2854986.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -683,7 +698,68 @@
     "best_price_source": "price_contract",
     "best_description": "Датчик температуры D 95.540.70 предназначен для измерения температуры в промышленных системах автоматизации. Он обеспечивает высокую точность и надежность в различных условиях эксплуатации.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_309811.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Rocker switch for 500-series aluminium enamelled",
+    "description": "Rocker switch for 500-series basic elements for independent 2 way switch, intermediate switch, pushbutton switch plain (article no. 516, 517, 550, 550/4, 556)",
+    "specs": {
+      "Halogen free": "Yes",
+      "Model": "Single rocker",
+      "Type of fastening": "Clamp mounting",
+      "Material": "Plastic",
+      "Surface finishing": "Glossy",
+      "Colour": "Aluminium",
+      "IP rating": "IP20"
+    },
+    "specs_count": 7,
+    "series": "500-series",
+    "category": "Rocker switch",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "D 95.540.70",
+    "ean": "4010105309812",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\309811.pdf",
+    "datasheet_size_kb": 432,
+    "product_photos": [
+      "downloads\\datasheet_photos\\309811_p1_1.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/309811_p1_1.png"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Rocker switch for 500-series aluminium enamelled' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105309812",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

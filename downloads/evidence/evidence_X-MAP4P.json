@@ -6,7 +6,7 @@
     "X.MAP4P",
     "XMAP4P"
   ],
-  "brand": "Honeywell",
+  "brand": "Inter-M",
   "subbrand": null,
   "name": "Цифровой мультимедийный плеер Honeywell X-MAP4P",
   "assembled_title": "Плеер Honeywell X-MAP4P",
@@ -340,7 +340,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -585,7 +586,10 @@
     "merge_source": "result_X-MAP4P.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Honeywell/Intevio/Morley VARIODYN PA/VA system. Original €955.56 discounted. Supports MP3/WAV/FLAC. Made in China."
+    }
   },
   "dr_category": "Digital multi-audio player",
   "dr_image_url": "https://dieffematic.com/cdn/shop/files/riproduttore-audio-digitale-multiplo-intevio-x-map4p-sorveglianza-sicurezza-379.webp?v=1695236936&width=1000",
@@ -623,5 +627,45 @@
     "best_description_source": "content",
     "best_photo_url": "https://in.pinterest.com/pin/honeywell-xmap4p-multi-audio-player-with-bluetooth-",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Centrale Convenzionale a 2 Zone",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\X-MAP4P.pdf",
+    "datasheet_size_kb": 47549,
+    "product_photos": [
+      "downloads\\datasheet_photos\\X-MAP4P_p2_0.jpeg",
+      "downloads\\datasheet_photos\\X-MAP4P_p6_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 47549KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Centrale Convenzionale a 2 Zone' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

@@ -616,7 +616,10 @@
     "merge_source": "result_XFLR824A.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "DISCONTINUED. Same family as XFLR822A. XFR824A (Panel Bus variant) at $339.74 on WiAutomation. From $291 for XFLR824AU at Radwell."
+    }
   },
   "dr_category": "BAS relay output module",
   "dr_image_url": "(available on Cochrane Supply page)",
@@ -657,5 +660,39 @@
     "confidence": "medium",
     "notes": "New open box",
     "search_used": "XFLR824A"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Excel 800 CONTROL SYSTEM",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\XFLR824A.pdf",
+    "datasheet_size_kb": 3767,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format XFLR824A is consistent with Honeywell Excel series. Seed name clearly indicates '6 relay module' which is specific product information. The datasheet title 'Excel 800 CONTROL SYSTEM' is too generic - it's a system-level document rather than module-specific datasheet. Need module-specific datasheet that describes the XFLR824A relay module, includes detailed specs, and proper product description."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Excel 800 CONTROL SYSTEM' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

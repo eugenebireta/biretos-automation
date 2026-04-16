@@ -347,7 +347,9 @@
     "series": "NOVA",
     "color_material": "piano black",
     "identity_notes_p1": "NOVA Elements, 225x83mm",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -656,7 +658,19 @@
     "notes": ""
   },
   "deep_research": {
-    "description_ru": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки."
+    "description_ru": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки.",
+    "specs": {
+      "series": "NOVA elements",
+      "type": "Frame",
+      "gang": "3",
+      "material": "Elements mix",
+      "dimensions": "86x228mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    },
+    "descriptions_all": {
+      "legacy": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки."
+    }
   },
   "training_urls": [
     "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189291-5-st-2856763.html"
@@ -688,5 +702,65 @@
     "best_description_source": "dr",
     "best_photo_url": "https://asset.conrad.com/media10/isa/160267/c1/-/de/002856763PI01/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Prestige 3D Dado Main Carrier",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\189291.pdf",
+    "datasheet_size_kb": 5158,
+    "product_photos": [
+      "downloads\\datasheet_photos\\189291_p1_0.jpeg",
+      "downloads\\datasheet_photos\\189291_p1_2.jpeg"
+    ],
+    "photo_count": 2,
+    "ean": "4010105189292",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/189291_p1_2.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 5158KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Prestige 3D Dado Main Carrier' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105189292",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

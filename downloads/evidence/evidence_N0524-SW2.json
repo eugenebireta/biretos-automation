@@ -308,7 +308,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -620,7 +621,10 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "Электрический актуатор без возвратной пружины с крутящим моментом 5Нм для управления небольшими воздушными заслонками. Оснащен двумя вспомогательными переключателями для контроля положений. Работает от напряжения 24В и поддерживает двухпозиционное или трехпозиционное управление."
+    "description_ru": "Электрический актуатор без возвратной пружины с крутящим моментом 5Нм для управления небольшими воздушными заслонками. Оснащен двумя вспомогательными переключателями для контроля положений. Работает от напряжения 24В и поддерживает двухпозиционное или трехпозиционное управление.",
+    "descriptions_all": {
+      "legacy": "Электрический актуатор без возвратной пружины с крутящим моментом 5Нм для управления небольшими воздушными заслонками. Оснащен двумя вспомогательными переключателями для контроля положений. Работает от напряжения 24В и поддерживает двухпозиционное или трехпозиционное управление."
+    }
   },
   "training_urls": [
     "https://www.ebay.com/"
@@ -651,5 +655,35 @@
     "best_description_source": "dr",
     "best_photo_url": "ebay.com",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\N0524-SW2.pdf",
+    "datasheet_size_kb": 697,
+    "product_photos": [
+      "downloads\\datasheet_photos\\N0524-SW2_p1_1.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/N0524-SW2_p1_1.png"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

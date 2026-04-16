@@ -6,10 +6,10 @@
     "NMF.RP16SCUS2.RU",
     "NMFRP16SCUS2RU"
   ],
-  "brand": "Honeywell",
+  "brand": "NIKOMAX",
   "subbrand": null,
   "name": "Оптический кросс Honeywell NMF-RP16SCUS2-RU",
-  "assembled_title": "Оптический кросс Honeywell NMF-RP16SCUS2-RU",
+  "assembled_title": "Оптический кросс NIKOMAX NMF-RP16SCUS2-RU",
   "our_price_raw": "3048,50",
   "expected_category": "Оптический кросс",
   "card_status": "REVIEW_REQUIRED",
@@ -311,7 +311,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title_suffix_variant"
+    "structured_pn_match_location": "title_suffix_variant",
+    "confirmed_manufacturer": "NIKOMAX",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -550,7 +552,10 @@
     "merge_source": "result_NMF-RP16SCUS2-RU.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "NIKOMAX brand. 3,568–3,771 RUB (~$38–41 USD). Premium version -TS-P1 costs ₽8,362–11,068. -RU = Russian CU-TR certified."
+    }
   },
   "dr_category": "Fiber optic patch panel",
   "dr_image_url": "(available on dssl.ru and e-kc.ru)",
@@ -589,5 +594,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://nikomax.ru/catalog/product/NMF-RP16SCUS2-TS-P1-1U-BK/?section=categories",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

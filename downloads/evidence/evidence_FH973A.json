@@ -3,7 +3,7 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "FH973A",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "HP",
   "subbrand": null,
   "name": "Переходник DisplayPort-DVI Honeywell FH973A",
   "assembled_title": "Переходник Honeywell FH973A",
@@ -325,7 +325,9 @@
     "structured_pn_match_location": "",
     "product_line": "Display adapters",
     "identity_notes_p1": "DisplayPort-DVI converter",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "HP",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -619,7 +621,10 @@
     "merge_source": "result_FH973A.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (5).md"
+    "source_file": "deep-research-report (5).md",
+    "descriptions_all": {
+      "legacy": "После многоходового поиска (общий/бренд/маркетплейсы) релевантной товарной страницы с ценой не найдено"
+    }
   },
   "training_urls": [
     "https://sps.honeywell.com/us/en/products/safety/gas-and-flame-detection"
@@ -644,8 +649,8 @@
     "best_price_source": "phase3a",
     "best_description": "Переходник Honeywell FH973A позволяет подключать устройства с интерфейсом DisplayPort к мониторам с входом DVI. Он обеспечивает высокое качество передачи видео и совместимость с различными устройствами.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HP_FH973A.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 6.3,
@@ -655,5 +660,12 @@
     "confidence": "low",
     "notes": "Matched as HP/adapter-related FH973A reference, not clearly Honeywell.",
     "search_used": "FH973A Honeywell"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

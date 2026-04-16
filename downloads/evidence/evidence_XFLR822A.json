@@ -617,7 +617,10 @@
     "merge_source": "result_XFLR822A.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket."
+    }
   },
   "dr_category": "BAS analog output module",
   "dr_image_url": "(available on Radwell page)",
@@ -658,5 +661,39 @@
     "confidence": "medium",
     "notes": "New old stock / open box",
     "search_used": "XFLR822A"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Excel Web – LON I/O Modules",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\XFLR822A.pdf",
+    "datasheet_size_kb": 523,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - XFLR822A is a valid Honeywell Excel Web series part number. The datasheet title 'Excel Web – LON I/O Modules' is too generic (covers entire module family). The seed_name 'Аналоговый выходной модуль' (Analog Output Module) is more specific and likely correct - the '822A' suffix in Honeywell's Excel Web series typically indicates analog output modules. Current datasheet covers the series but lacks product-specific details (no EAN, specs, or description). Needs product-specific datasheet or detailed spec sheet for XFLR822A model specifically."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Excel Web – LON I/O Modules' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

@@ -311,7 +311,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -544,7 +546,10 @@
     "description_ru": "**NOT a simple insert** — complete flush-mount radio. €126.50–147.48 range. Also €89.00 at gluehbirne.de",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "**NOT a simple insert** — complete flush-mount radio. €126.50–147.48 range. Also €89.00 at gluehbirne.de"
+    }
   },
   "dr_image_url": "—",
   "dr_price": 126.5,
@@ -582,5 +587,67 @@
     "best_photo_url": "—",
     "best_photo_source": "dr_image"
   },
-  "product_category": "PEHA electrical accessory"
+  "product_category": "PEHA electrical accessory",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "SCALE INHIBITOR",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\174813.pdf",
+    "datasheet_size_kb": 26236,
+    "product_photos": [
+      "downloads\\datasheet_photos\\174813_p1_0.jpeg",
+      "downloads\\datasheet_photos\\174813_p1_1.jpeg",
+      "downloads\\datasheet_photos\\174813_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105174816",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/174813_p1_1.jpeg",
+      "downloads/datasheet_photos/174813_p1_2.jpeg"
+    ],
+    "verified_photo_count": 2
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 26236KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'SCALE INHIBITOR' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105174816",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

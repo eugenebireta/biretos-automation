@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "816713",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "PEHA",
   "subbrand": "PEHA",
   "name": "D 95.810.02 HR",
   "assembled_title": "Центральная накладка PEHA DIALOG, 816713",
@@ -310,7 +310,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -575,7 +577,17 @@
       "raw": "—",
       "aliases": [
         "816713"
-      ]
+      ],
+      "Type": "Central cover plate",
+      "Series": "PEHA DIALOG",
+      "Color": "White",
+      "Mounting": "Snap-on to mechanism",
+      "Brand": "PEHA (Honeywell)",
+      "Product type": "Central plate with pushbutton",
+      "Application": "Rotary dimmer / potentiometer",
+      "Material": "Plastic",
+      "Surface finish": "Glossy",
+      "Ingress protection": "IP20"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -599,14 +611,41 @@
     "merge_source": "result_816713.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (3).md"
+    "source_file": "deep-research-report (3).md",
+    "descriptions_all": {
+      "claude": "PEHA 816713 — центральная накладка (крышка) серии DIALOG для электроустановочных изделий. Центральная накладка устанавливается поверх механизма и определяет внешний вид и функциональность устройства. Артикул 8167xx может относиться к накладкам для розеток данных (RJ45), телефонных розеток, антенных розеток или других специализированных механизмов. Накладка изготовлена из ударопрочного термопласта и комбинируется с рамками серии DIALOG. Цветовое обозначение '13' может указывать на определённый цвет или вариант исполнения.",
+      "gpt": "PEHA 816713 — это центральная накладка с кнопкой для поворотных диммеров и потенциометров серии DIALOG. Изделие относится к декоративно-функциональным элементам электроустановочной системы и используется совместно с соответствующим базовым диммерным механизмом. В подтверждённых источниках указаны pure white цвет, пластик, glossy finish и степень защиты IP20. Такая накладка нужна не только для внешнего оформления, но и для правильного пользовательского интерфейса устройства, поскольку именно через неё осуществляется нажатие/управление. Для диммерных решений PEHA важно подбирать совместимую центральную часть именно под нужный тип механизма: rotary dimmer, potentiometer или related insert. Это типовая деталь для жилых и коммерческих установок, где поддерживается единый дизайн серии DIALOG. Изделие не содержит силовой электроники и не работает как самостоятельный регулятор без базового механизма. Для монтажника критично не перепутать её с обычной глухой крышкой или универсальной заглушкой. В B2B-каталоге корректно описывать позицию как central plate with pushbutton for rotary dimmer/potentiometer, pure white. Это достаточно узкоспециализированный аксессуар, поэтому правильная связка с базовым механизмом важнее, чем общая серия.",
+      "synthesis": "PEHA 816713 — центральная накладка с кнопкой для поворотных диммеров и потенциометров серии DIALOG чистого белого цвета (pure white) с глянцевой поверхностью. Накладка относится к декоративно-функциональным элементам электроустановочной системы и используется совместно с соответствующим базовым диммерным механизмом для организации управления световыми нагрузками. Пластиковый корпус накладки изготовлен из ударопрочного материала, обеспечивающего надежность при частом использовании и устойчивости к старению, с типовой для внутренних помещений степенью защиты IP20. Функциональная кнопка позволяет осуществлять управление яркостью и режимами работы подключённой нагрузки, обеспечивая удобный интерфейс взаимодействия пользователя с диммерной системой. Накладка совместима с рамками и механизмами серии DIALOG, создавая единый эстетичный вид электроустановки в жилых и коммерческих интерьерах. Для монтажника критично не перепутать её с обычной глухой крышкой или универсальной заглушкой, так как именно через неё осуществляется управление нагрузкой. При подборе необходимо выбирать совместимую центральную часть именно под нужный тип механизма: rotary dimmer, potentiometer или других типов управления для обеспечения правильной функциональности устройства в составе электроустановки."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Central cover plate",
+        "Series": "PEHA DIALOG",
+        "Brand": "PEHA (Honeywell)"
+      },
+      "gpt": {
+        "Product type": "Central plate with pushbutton",
+        "Application": "Rotary dimmer / potentiometer",
+        "Series": "PEHA DIALOG",
+        "Color": "Pure white",
+        "Material": "Plastic",
+        "Surface finish": "Glossy",
+        "Ingress protection": "IP20"
+      }
+    },
+    "notes_all": {
+      "claude": "Specific type of cover plate not confirmed. PEHA DIALOG series central plate.",
+      "gpt": "Подтверждён как центральная часть для диммерного механизма, а не как самостоятельный insert."
+    }
   },
   "training_urls": [
     "https://hlavni-vypinace.heureka.cz/honeywell-by-peha-816713/",
     "https://my-knx-shop.net/PEHA-Zentralplatte-D-95.810.02-HR",
     "https://www.etoh24.de/peha-zentralplatte-d-95-810-02-hr.html",
     "https://www.peha.de/bildpreisliste_2013/page161.html",
-    "https://www.scribd.com/document/928877874/Catalogue-peha"
+    "https://www.scribd.com/document/928877874/Catalogue-peha",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-en/hbt-ep-00816713-en-datasheet.pdf",
+    "https://tameson.com/products/honeywell-peha-dialog-control-element-central-plate-switchgear-00816713-e2whb"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -634,5 +673,71 @@
     "best_description_source": "content",
     "best_photo_url": "https://liveinlight.ru/nakladki-klavishy-zaglushki/na-svetoregulyatory-i-reostat",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Central plate with pushbutton pure white",
+    "description": "Central plate with pushbutton for rotary dimmers and potentiometers",
+    "specs": {
+      "Halogen free": "Yes",
+      "Model": "Turn button",
+      "Type of fastening": "Screw mounting",
+      "Material": "Plastic",
+      "Surface finishing": "Glossy",
+      "Colour": "White",
+      "IP rating": "IP20"
+    },
+    "specs_count": 7,
+    "series": "",
+    "category": "Central plate",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "D 95.810.02 HR",
+    "ean": "4010105816716",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\816713.pdf",
+    "datasheet_size_kb": 452,
+    "product_photos": [
+      "downloads\\datasheet_photos\\816713_p1_1.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/816713_p1_1.png"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 816713 is 6-digit numeric matching PEHA format. The seed name 'D 95.810.02 HR' follows PEHA's naming convention (D-series standard program). PEHA produces electrical installation components like central plates and switches. Honeywell acquired PEHA but these products retain PEHA branding in technical documentation.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Central plate with pushbutton pure white' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105816716",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

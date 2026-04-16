@@ -587,5 +587,26 @@
     "best_description_source": "content",
     "best_photo_url": "https://olnisa.ru/blog/innovaczii-v-bezopasnosti-s-esser-by-honeywell-808621/",
     "best_photo_source": "photo_verdict"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 808621 matches Honeywell's IQ8 series fire alarm system components. 'IQ8FCT' refers to Fire Control Transponder, and 'LP' indicates loop protocol. The seed name is in Russian ('Транспондер шины' = bus transponder) which is consistent. Brand and PN appear correct, but datasheet is missing/empty causing incomplete product data. Needs proper datasheet to populate title, description, and technical specifications."
+    }
   }
 }

@@ -658,5 +658,26 @@
     "confidence": "medium",
     "notes": "Used condition",
     "search_used": "P2213F Dell"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Dell",
+      "candidates": [
+        "Dell"
+      ],
+      "product_hint": "monitor",
+      "needs_disambiguation": false,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Dell, record says Honeywell",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

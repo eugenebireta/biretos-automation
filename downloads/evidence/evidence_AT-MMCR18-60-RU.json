@@ -303,7 +303,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld_suffix_variant"
+    "structured_pn_match_location": "jsonld_suffix_variant",
+    "confirmed_manufacturer": "Allied Telesis"
   },
   "negative_evidence": {
     "photo": [],
@@ -543,7 +544,10 @@
     "merge_source": "result_AT-MMCR18-60-RU.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Allied Telesis product. -RU = Russian variant. MSRP $1,250. Also $903.99 (Zoro), $745.93 (ShopBLT), $799.99 (NetworkHardwares)"
+    }
   },
   "dr_category": "Media converter rack chassis",
   "dr_image_url": "—",
@@ -577,5 +581,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://telecom-sales.ru/product/allied-telesis-at-mmcr18-60/?srsltid=AfmBOoq0mD",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

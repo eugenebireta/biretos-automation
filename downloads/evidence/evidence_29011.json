@@ -3,7 +3,7 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "29011",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "PEHA",
   "subbrand": "PEHA",
   "name": "Датчик Honeywell D 20.610.022 UAE/2 NA",
   "assembled_title": "Вставка PEHA NOVA, 29011",
@@ -312,7 +312,9 @@
     "type_designation": "D 20.610.022 UAE/2 NA",
     "series": "NOVA",
     "identity_notes_p1": "NOVA socket insert UAE/2 NA variant",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -557,7 +559,13 @@
     "description_ru": "Nova series; clearance/Restposten price €1.53 incl VAT; €1.29 ex VAT; in stock",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+    "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md",
+    "specs": {
+      "series": "NOVA",
+      "type": "Insert",
+      "gang": "1",
+      "standard": "VDE"
+    }
   },
   "dr_image_url": "https://ensprd.cstatic.com/media/5a/01/2b/1757773067/1658321.jpg",
   "training_urls": [
@@ -595,5 +603,70 @@
     "notes": "Exact PEHA central plate for UAE junction boxes, 2 terminals.",
     "search_used": "D 20.610.022 UAE/2 NA"
   },
-  "product_category": "cover plate"
+  "product_category": "cover plate",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Style Variant 29011 LED CG-S Rettungszeichenleuchte",
+    "description": "Einseitig abstrahlende LED Rettungszeichenleuchte aus hochwertigem, UV-beständigem und halogenfreiem Kunststoff in LED-Technologie. Sie bietet eine große Auswahl an Siebdruck-Piktogrammscheiben mit einfacher Schnappmontage. Der Wartungsaufwand ist minimiert durch eine hohe Lebensdauererwartung der LEDs von bis zu 50.000 Stunden und verkürzten Inspektionsaufwand durch CEWA GUARD Technologie. Sie ermöglicht automatische Funktionsüberwachung von bis zu 20 Leuchten pro Stromkreis und reduzierte Installationskosten durch STAR-Technologie. Ein frei programmierbarer Mischbetrieb der Schaltungsarten pro Leuchte in einem Stromkreis ist möglich.",
+    "specs": {
+      "viewing_distance_m": 32,
+      "luminous_flux_at_end_of_rated_lifetime_percent": 100,
+      "housing_material": "Polycarbonat (850 °C glühdrahtbeständig)",
+      "housing_color": "Grau",
+      "mounting_type": "Wandmontage",
+      "connection_terminals": "Steckklemme 2,5 mm²",
+      "connection_voltage": "220-240 V, 50/60 Hz, 176-275 V DC",
+      "current_consumption_battery_operation_mA": 19,
+      "connection_power_mains_operation_VA_W": "7.6 VA / 4.4 W",
+      "inrush_current_A": 1.5,
+      "permissible_temperature_range_C": "-10 to +40",
+      "light_source": "HighPower LEDs 3 x 1.1 W",
+      "ip_rating": "IP41",
+      "led_technology": true,
+      "uv_resistant": true,
+      "halogen_free": true,
+      "led_lifetime_h": 50000,
+      "monitoring_technology": "CEWA GUARD",
+      "installation_technology": "STAR",
+      "function_monitoring": "Automatic, up to 20 luminaires per circuit",
+      "piktogramm_mounting": "Simple snap-on mounting"
+    },
+    "specs_count": 21,
+    "series": "Style Variant",
+    "category": "Rettungszeichenleuchte",
+    "weight_g": 1100,
+    "dimensions_mm": "342 x 200 x 68",
+    "certifications": [
+      "DIN 4844"
+    ],
+    "article_no": "40071350551",
+    "ean": "4010105029017",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\29011.pdf",
+    "datasheet_size_kb": 711,
+    "product_photos": [
+      "downloads\\datasheet_photos\\29011_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 29011 matches PEHA format (6-8 digit numeric). Datasheet clearly shows PEHA Style Variant 29011 LED emergency sign lighting fixture. The seed_name is completely wrong - it references a Honeywell sensor (Датчик) with different PN (D 20.610.022), which appears to be data from a different product entirely. The datasheet is correct for PEHA 29011, so brand should be updated from Honeywell to PEHA.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105029017",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

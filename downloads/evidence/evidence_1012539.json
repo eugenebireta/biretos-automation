@@ -3,10 +3,10 @@
   "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1012539",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Howard Leight",
   "subbrand": null,
   "name": "Наушники противошумные EARMUFF-LEIGHTNING L1H",
-  "assembled_title": "Наушники Honeywell 1012539",
+  "assembled_title": "Наушники Howard Leight 1012539",
   "our_price_raw": "1652,59",
   "expected_category": "Наушники",
   "card_status": "DRAFT_ONLY",
@@ -196,7 +196,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Howard Leight",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "content": {
     "specs": {},
@@ -411,7 +413,25 @@
         "Leightning L1H",
         "Howard Leight L1H",
         "Arco 211005"
-      ]
+      ],
+      "Brand": "Howard Leight",
+      "Series": "Leightning L1H",
+      "Product type": "Passive earmuff",
+      "Mounting": "Helmet mounted",
+      "Adapters": "3711 / 3712 / 3721",
+      "Technology": "Air Flow Control",
+      "SNR": "28 dB",
+      "HML": "H=31 dB / M=25 dB / L=19 dB",
+      "Weight": "192 g",
+      "Color": "Black / Light Grey",
+      "Dielectric": "No",
+      "Hygiene kit": "1011998",
+      "Quality system": "ISO 9001 / 2000",
+      "Model": "Leightning L1H",
+      "Type": "Helmet-Mounted",
+      "Material": "Plastic / Steel",
+      "Certification": "CE Approved",
+      "EAN": "7312550125397"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -444,7 +464,42 @@
     "merge_source": "result_1012539.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "gpt": "Howard Leight 1012539 Leightning L1H — это касочный противошумный наушник для установки на совместимые защитные каски через адаптеры 3711, 3712 или 3721. Такая конфигурация освобождает голову от верхнего оголовья и особенно удобна на стройке, в энергетике, на производстве и в логистике, где каска обязательна постоянно. Серия Leightning известна прочной стальной дугой внутри конструкции чашек и амбушюрами, рассчитанными на длительное ежедневное применение. По паспорту модели показатель SNR составляет 28 дБ, а H/M/L — 31/25/19 дБ. Конструкция использует технологию Air Flow Control для баланса между шумоподавлением и массой изделия. Наушники не являются диэлектрическими, поэтому это нужно учитывать при работе рядом с электрическими рисками и подборе полного комплекта СИЗ. Сменный гигиенический комплект 1011998 позволяет поддерживать чашки в рабочем состоянии при интенсивной эксплуатации. Модель подходит для производственных площадок, деревообработки, металлообработки, складских комплексов и монтажных работ. Для корректной установки важно использовать совместимую каску и штатный адаптер, чтобы чашки прижимались к голове равномерно и без перекоса.",
+      "gemini": "Наушники Howard Leight Leightning L1H специально разработаны для интеграции с защитными строительными касками. Они оснащены универсальным адаптером, который вставляется в стандартные пазы большинства современных шлемов. Стальная конструкция чашек гарантирует устойчивость к механическим повреждениям и агрессивным средам. В модели реализована запатентованная технология Air Flow Control для оптимального затухания звука. Амбушюры из вспененного материала обеспечивают плотное прилегание и высокий уровень комфорта. Замена изношенных подушечек производится простым защелкиванием без использования инструментов. Наушники идеально подходят для работы в аэропортах, карьерах и на тяжелом производстве. Вес изделия составляет всего 300 грамм, что снижает нагрузку на шею при длительном использовании. Соответствие стандартам безопасности CE подтверждает высокое качество и надежность данного средства защиты слуха."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Howard Leight",
+        "Series": "Leightning L1H",
+        "Product type": "Passive earmuff",
+        "Mounting": "Helmet mounted",
+        "Adapters": "3711 / 3712 / 3721",
+        "Technology": "Air Flow Control",
+        "SNR": "28 dB",
+        "HML": "H=31 dB / M=25 dB / L=19 dB",
+        "Weight": "192 g",
+        "Color": "Black / Light Grey",
+        "Dielectric": "No",
+        "Hygiene kit": "1011998",
+        "Quality system": "ISO 9001 / 2000"
+      },
+      "gemini": {
+        "Brand": "Howard Leight by Honeywell",
+        "Model": "Leightning L1H",
+        "Type": "Helmet-Mounted",
+        "Technology": "Air Flow Control",
+        "Weight": "300 g",
+        "Material": "Plastic / Steel",
+        "Certification": "CE Approved",
+        "Color": "Multi-color",
+        "EAN": "7312550125397"
+      }
+    },
+    "notes_all": {
+      "gpt": "Касочный вариант; требует совместимой каски и соответствующего адаптера."
+    }
   },
   "dr_category": "hearing protection",
   "dr_image_url": "https://i.ebayimg.com/images/g/WBgAAOSw4F5aDH0q/s-l300.jpg",
@@ -454,7 +509,12 @@
   "training_urls": [
     "https://www.ebay.com/itm/226148524326",
     "https://www.nasa-comercial.com/product/1012539-rw/",
-    "https://www.safety5000.com/hearing-protection-c16/ear-defenders-c39/honeywell-howard-leight-leightning-l1h-snr-26-db-grey-helmet-mounted-ear-muff-defender-p254"
+    "https://www.safety5000.com/hearing-protection-c16/ear-defenders-c39/honeywell-howard-leight-leightning-l1h-snr-26-db-grey-helmet-mounted-ear-muff-defender-p254",
+    "https://sps-support.honeywell.com/s/article/1012539-1015021-1012541-L1H-L1HHV-L2H-L3H-Leightning-Ear-Muff-Technical-Data-sheet",
+    "https://www.gdp-webshop.com/media/pdf/c6/e3/9f/Honeywell-technical-datasheet-L1H.pdf",
+    "https://www.honeywellsafety.com/Products/Hearing_Protection/Leightning_series.aspx",
+    "https://www.maxodeals.com/mdenglish/1012539-how",
+    "https://guam.desertcart.com/products/52222598-honeywell-1012539-howard-leight-leightning-l-1-h-3712-11-21"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -482,5 +542,38 @@
     "best_description_source": "content",
     "best_photo_url": "https://i.ebayimg.com/images/g/WBgAAOSw4F5aDH0q/s-l300.jpg",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "7312550125397",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Howard Leight is a hearing protection brand owned by Honeywell. The product name 'EARMUFF-LEIGHTNING L1H' clearly indicates Lightning series earmuffs from Howard Leight/Honeywell. The PN format (7-digit numeric) is consistent with Honeywell industrial safety products. Current brand should be updated to parent company Honeywell, and complete product datasheet with specifications is needed."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Howard Leight",
+      "candidates": [],
+      "product_hint": "PPE",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean_candidates": [
+        "7312550125397",
+        "7312553125394"
+      ],
+      "source": "hl_rule_candidates",
+      "confidence": "medium",
+      "note": "verify against actual datasheet"
+    }
   }
 }

@@ -1,0 +1,280 @@
+{
+  "_description": "Universal brand registry for catalog enrichment. Contains brand-specific rules that apply to ALL PNs of that brand (not specific SKUs). Used by pipeline to skip AI calls for known brands.",
+  "_last_updated": "2026-04-16",
+  "_schema_version": 1,
+
+  "PEHA": {
+    "brand_name": "PEHA",
+    "parent_company": "Honeywell",
+    "country": "Germany",
+    "product_families": ["switches", "sockets", "frames", "dimmers", "buttons"],
+    "pn_patterns": [
+      {"regex": "^[0-9]{6}$", "description": "6-digit numeric", "example": "109411"},
+      {"regex": "^[0-9]{8}$", "description": "8-digit with leading zeros", "example": "00020211"}
+    ],
+    "ean_rule": {
+      "company_prefix": "4010105",
+      "formula": "4010105 + first_5_of_normalized_pn + check_digit",
+      "confidence": "high",
+      "verified_rate": 0.875,
+      "python_snippet": "def predict_peha_ean(pn): pn5 = pn.lstrip('0').zfill(6)[:5]; return '4010105' + pn5 + calc_ean13_check('4010105' + pn5)"
+    },
+    "datasheet_location_pattern": [
+      "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-en/hbt-ep-{pn}-en-datasheet.pdf",
+      "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-de/hbt-ep-{pn}-de-datasheet.pdf"
+    ],
+    "datasheet_access_notes": "prod-edam.honeywell.com blocks Russian IPs. Use USA VPS (216.9.227.124) to download.",
+    "datasheet_ean_location": "Usually on page 2 in 'Material No.' / 'Article No.' / 'EAN-code' table",
+    "trusted_sources": {
+      "specs_and_datasheet": ["peha.de", "prod-edam.honeywell.com", "pehastore.de"],
+      "price": ["pehastore.de", "elektroversand-schmidt.de", "voltking.de", "conrad.de", "conrad.ch", "watt24.com"],
+      "photo_manufacturer": ["pehastore.de", "peha.de", "asset.conrad.com"],
+      "eu_distributors": ["elektronetshop.de", "elecena.pl"]
+    },
+    "common_pitfalls": [
+      "Honeywell Excel contains many non-PEHA items mislabeled as PEHA — verify title matches electrical installation products",
+      "Pack prices on Conrad — if price >200 EUR, check for '10 St' or '5er Pack' in title",
+      "Some PEHA sub-series (AURA, NOVA, Dialog) have different datasheets"
+    ],
+    "series_prefixes": {
+      "0002xxxx": "NOVA",
+      "1xxxxx (excluding 10xxxx)": "AURA",
+      "2xxxxx": "Dialog"
+    }
+  },
+
+  "Honeywell": {
+    "brand_name": "Honeywell",
+    "product_families": ["HVAC", "fire_safety", "security", "sensors", "controls", "PPE"],
+    "pn_patterns": [
+      {"regex": "^V[0-9]{4}[A-Z]?[0-9]{3,4}$", "description": "HVAC valves", "example": "V5329A1053"},
+      {"regex": "^ML[0-9]{4}[A-Z]?[0-9]{4}$", "description": "Valve actuators", "example": "ML6421A3005"},
+      {"regex": "^N[0-9]{5}", "description": "NETWORK/control modules"},
+      {"regex": "^T[0-9]{4}[A-Z][0-9]{4}$", "description": "Sensors/thermostats", "example": "T7560A1000"}
+    ],
+    "ean_rule": {
+      "company_prefix": null,
+      "description": "NO unified EAN rule — Honeywell is conglomerate (PEHA, Esser, Notifier, Morley, Scanner, HVAC divisions each have own GS1 prefixes). Check sub-brand first.",
+      "confidence": "none"
+    },
+    "datasheet_location_pattern": [
+      "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/{category}/hbt-*-{pn}-*-datasheet.pdf"
+    ],
+    "datasheet_access_notes": "prod-edam.honeywell.com blocks Russian IPs. Use USA VPS.",
+    "trusted_sources": {
+      "specs_and_datasheet": ["buildings.honeywell.com", "prod-edam.honeywell.com", "automation.honeywell.com", "sps.honeywell.com", "process.honeywell.com", "security.honeywell.de", "honeywell-ec.ru"],
+      "photo_cdn": ["honeywell.scene7.com"],
+      "price": ["mouser.com", "rs-online.com", "digikey.com", "kempstoncontrols.com", "radwell.com", "honeywell-ec.ru"],
+      "regional_ru": ["honeywell-ec.ru", "ufa.honeywell-ec.ru", "honeywell.nt-rt.ru"]
+    },
+    "photo_cdn_url_pattern": "https://honeywell.scene7.com/is/image/Honeywell65/{path}?wid=800&hei=800",
+    "common_pitfalls": [
+      "'honeywell new.xlsx' contains products from Dell, NVIDIA, ABB, PEHA, Weidmüller — mixed brands. Always verify.",
+      "HVAC valves with prices >100 EUR often correct (not pack)",
+      "Some sub-brand products kept under Honeywell umbrella (Esser, Notifier, Morley) — check sub_brand field"
+    ]
+  },
+
+  "Esser": {
+    "brand_name": "Esser",
+    "parent_company": "Honeywell (Fire Safety)",
+    "country": "Germany",
+    "product_families": ["fire_detectors", "fire_panels", "alarm_devices", "call_stations"],
+    "pn_patterns": [
+      {"regex": "^[0-9]{6}\\.[0-9]{2}$", "description": "Module with color variant", "example": "010130.10"},
+      {"regex": "^FX[0-9]{6}$", "description": "Fire alarm series", "example": "FX808332"}
+    ],
+    "ean_rule": {
+      "company_prefix": null,
+      "description": "Different prefixes for different product families — need more samples",
+      "confidence": "low"
+    },
+    "datasheet_access_notes": "esser-systems.com works directly. prod-edam.honeywell.com via USA VPS.",
+    "trusted_sources": {
+      "specs_and_datasheet": ["esser-systems.com", "security.honeywell.de", "prod-edam.honeywell.com"],
+      "price": ["brandmelde-shop.de", "stockonfire.com", "fire-distribution.de"],
+      "photo": ["esser-systems.com", "honeywell.scene7.com"]
+    }
+  },
+
+  "ABB": {
+    "brand_name": "ABB",
+    "country": "Switzerland/Sweden",
+    "product_families": ["relays", "KNX", "power_supplies", "switchgear", "terminals"],
+    "pn_patterns": [
+      {"regex": "^2CDG[0-9]{6}R[0-9]{4}$", "description": "KNX i-bus devices", "example": "2CDG110146R0011"},
+      {"regex": "^CR-[A-Z]", "description": "Relay series", "example": "CR-M024DC2"},
+      {"regex": "^1SFA[0-9]{6}R[0-9]{4}$", "description": "Miniature selectors"}
+    ],
+    "ean_rule": {
+      "company_prefix": "4016779",
+      "description": "ABB 2CDG KNX series uses prefix 4016779. Other series may differ (CR-* different).",
+      "confidence": "medium",
+      "applicable_to": "2CDG* PNs only"
+    },
+    "datasheet_location_pattern": [
+      "https://new.abb.com/products/{pn}",
+      "https://library.e.abb.com/public/*{pn}*.pdf"
+    ],
+    "datasheet_access_notes": "new.abb.com may return 'Site Error' randomly. library.e.abb.com more reliable but contains huge catalogs. docs.rs-online.com has clean per-product PDFs.",
+    "trusted_sources": {
+      "specs_and_datasheet": ["new.abb.com", "library.e.abb.com", "search.abb.com"],
+      "price": ["mouser.com", "rs-online.com", "kempstoncontrols.co.uk", "eibabo.us"],
+      "cdn_photo": ["cdn.productimages.abb.com"]
+    }
+  },
+
+  "Howard Leight": {
+    "brand_name": "Howard Leight",
+    "parent_company": "Honeywell (PPE)",
+    "country": "USA (sold globally)",
+    "product_families": ["earplugs", "dispensers", "hearing_protection"],
+    "pn_patterns": [
+      {"regex": "^10[0-9]{5}$", "description": "7-digit numeric", "example": "1006186"}
+    ],
+    "ean_rule": {
+      "company_prefix": "7312550|7312553",
+      "description": "Howard Leight EAN uses prefix 7312550 (standard) or 7312553 (corded). Last 5 digits of PN embedded.",
+      "confidence": "medium",
+      "verified_samples": 2,
+      "python_snippet": "def predict_hl_ean(pn): pn5 = pn[-5:]; # try both prefixes and validate checksum"
+    },
+    "trusted_sources": {
+      "specs_and_datasheet": ["honeywellsafety.com", "sps.honeywell.com", "sps-support.honeywell.com", "docs.rs-online.com"],
+      "price": ["safetywear.ca", "alive-sr.com", "modern-eastern.com", "rs-online.com"],
+      "distributor_pdf": ["docs.rs-online.com"]
+    }
+  },
+
+  "DKC": {
+    "brand_name": "DKC",
+    "country": "Russia/Italy",
+    "product_families": ["cable_trays", "cable_ducts", "fasteners", "cable_management"],
+    "pn_patterns": [
+      {"regex": "^[0-9]{5,6}-RU$", "description": "RU region suffix", "example": "36022-RU"},
+      {"regex": "^CM[0-9]{6}$", "description": "Fasteners series", "example": "CM010610"}
+    ],
+    "datasheet_access_notes": "dkc.ru and dkc.com work directly (no blocking from Russia). dkc.com.ru has Russian catalog.",
+    "trusted_sources": {
+      "specs_and_price": ["dkc.ru", "dkc.com", "dkc.com.ru"],
+      "photo": ["dkc.ru", "shop220.ru", "chipdip.ru"],
+      "price_distributor": ["220volt.ru", "electricdom.ru", "satro-paladin.com"]
+    }
+  },
+
+  "Weidmuller": {
+    "brand_name": "Weidmüller",
+    "country": "Germany",
+    "product_families": ["terminals", "connectors", "interface_modules", "tools"],
+    "pn_patterns": [
+      {"regex": "^[0-9]{10}$", "description": "10-digit numeric", "example": "7910180000"}
+    ],
+    "ean_rule": {
+      "company_prefix": "4008190",
+      "description": "Weidmuller uses prefix 4008190 (verified)",
+      "confidence": "low",
+      "verified_samples": 1
+    },
+    "datasheet_location_pattern": [
+      "https://eshop.weidmueller.com/en/*/p/{pn}",
+      "https://catalog.weidmueller.com/catalog/Start.do?localeId=en&Product={pn}"
+    ],
+    "datasheet_access_notes": "eshop.weidmueller.com uses Akamai anti-bot — blocks even headless Chrome. Use Playwright headed mode or find cached PDF elsewhere.",
+    "trusted_sources": {
+      "specs_and_datasheet": ["weidmueller.com", "catalog.weidmueller.com", "eshop.weidmueller.com"],
+      "price": ["mouser.com", "rs-online.com", "farnell.com", "digikey.com", "tme.eu"],
+      "photo": ["mouser.com", "us.wiautomation.com"]
+    }
+  },
+
+  "Phoenix Contact": {
+    "brand_name": "Phoenix Contact",
+    "country": "Germany",
+    "product_families": ["terminals", "wiring_ducts", "plc", "connectors"],
+    "pn_patterns": [
+      {"regex": "^32[0-9]{5}$", "description": "7-digit wiring ducts", "example": "3240197"},
+      {"regex": "^32[0-9]{5}-RU$", "description": "Russian region variant"}
+    ],
+    "ean_rule": {
+      "company_prefix": "4046356",
+      "description": "Phoenix Contact uses prefix 4046356 for most products",
+      "confidence": "low",
+      "verified_samples": 1
+    },
+    "trusted_sources": {
+      "specs_and_datasheet": ["phoenixcontact.com", "phoenix-contact.com"],
+      "price": ["mouser.com", "rs-online.com", "digikey.com", "rspsupply.com"]
+    }
+  },
+
+  "Notifier": {
+    "brand_name": "Notifier",
+    "parent_company": "Honeywell (Fire Safety)",
+    "country": "USA/UK",
+    "product_families": ["fire_alarm", "voice_evacuation", "detectors", "panels"],
+    "pn_patterns": [
+      {"regex": "^EVCS-[A-Z]+$", "description": "Emergency voice system", "example": "EVCS-HSB"}
+    ],
+    "trusted_sources": {
+      "specs_and_datasheet": ["notifier.com", "prod-edam.honeywell.com"],
+      "price": ["acornfiresecurity.com", "stockonfire.com", "fire-distribution.de"]
+    }
+  },
+
+  "Dell": {
+    "brand_name": "Dell",
+    "country": "USA",
+    "product_families": ["monitors", "desktops", "laptops", "workstations"],
+    "pn_patterns": [
+      {"regex": "^[A-Z][0-9]{4}[A-Z]+$", "description": "Monitor series", "example": "P2421D"},
+      {"regex": "^[0-9]{4}WFPT$", "description": "UltraSharp monitors"}
+    ],
+    "trusted_sources": {
+      "specs_and_datasheet": ["dell.com", "i.dell.com", "dl.dell.com"],
+      "price": ["dell.com", "newegg.com", "bhphotovideo.com", "pcliquidations.com"]
+    }
+  },
+
+  "HP": {
+    "brand_name": "HP",
+    "country": "USA",
+    "product_families": ["printers", "toner_cartridges", "computers"],
+    "pn_patterns": [
+      {"regex": "^CF[0-9]{3}[A-Z]$", "description": "Toner cartridges", "example": "CF274A"}
+    ],
+    "trusted_sources": {
+      "specs_and_datasheet": ["hp.com", "h20195.www2.hp.com"],
+      "price": ["hp.com", "partshere.com", "printerbase.co.uk"]
+    }
+  },
+
+  "_universal_rules": {
+    "ean_validation": {
+      "format": "13 digits",
+      "checksum": "GS1 EAN-13 mod-10 algorithm",
+      "python_check": "def validate_ean13(ean): digits=[int(d) for d in ean]; s=sum(digits[i]*(3 if i%2 else 1) for i in range(12)); return (10-(s%10))%10 == digits[12]"
+    },
+    "datasheet_search_queries": [
+      "{brand} {pn} datasheet filetype:pdf",
+      "{pn} datenblatt filetype:pdf",
+      "{brand} {pn} data sheet site:{manufacturer_domain}",
+      "{pn} specifications PDF"
+    ],
+    "quality_red_flags": [
+      "Title mentions different product type than seed_name",
+      "EAN prefix doesn't match brand's known company prefix",
+      "Description is generic 'high-quality product' boilerplate",
+      "Weight/dimensions missing but product clearly physical",
+      "Datasheet size >10MB with zero extracted specs (wrong document)",
+      "PN format doesn't match any known brand pattern"
+    ],
+    "honeywell_sub_brand_detection": {
+      "PEHA": "8-digit numeric with 4-digit middle",
+      "Esser": "6-digit with .NN color suffix",
+      "Howard Leight": "10xxxxx 7-digit",
+      "Sperian": "10xxxxx-RU with RU suffix",
+      "Notifier": "EVCS-* prefix",
+      "Morley": "legacy products, Notifier UK branch"
+    }
+  }
+}

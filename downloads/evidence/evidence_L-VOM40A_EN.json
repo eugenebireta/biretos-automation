@@ -6,10 +6,10 @@
     "L.VOM40A/EN",
     "LVOM40A/EN"
   ],
-  "brand": "Honeywell",
+  "brand": "Notifier",
   "subbrand": null,
   "name": "Громкоговоритель L-VOM40A/EN",
-  "assembled_title": "Громкоговоритель Honeywell L-VOM40A/EN",
+  "assembled_title": "Громкоговоритель Notifier L-VOM40A/EN",
   "our_price_raw": "0,00",
   "expected_category": "Громкоговоритель",
   "card_status": "REVIEW_REQUIRED",
@@ -319,7 +319,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "gpt_think_web_price_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -344,7 +346,8 @@
     "site_placement": "Каталог/Системы безопасности",
     "product_type": "Громкоговоритель",
     "seed_name": "Громкоговоритель L-VOM40A/EN",
-    "description_long_ru": "Discontinued at Steinigke; possibly end-of-life"
+    "description_long_ru": "Discontinued at Steinigke; possibly end-of-life",
+    "price_notes": "AED 814.05 incl. VAT, in stock. Converted at 1 USD = 3.6725 AED"
   },
   "trace": {
     "pn_match_location": "",
@@ -573,16 +576,75 @@
   "training_urls": [
     "https://compasssecurity.co.za/product/honeywell-l-vom40-a-en/",
     "https://www.lyintl.com/products/l-vom40a-en-honeywell-40w-aluminum-outdoor-column-loudspeaker",
-    "https://www.steinigke.de/en/mpn80710004-honeywell-column-speaker-l-vom40a-en-ip66-en54.html"
+    "https://www.steinigke.de/en/mpn80710004-honeywell-column-speaker-l-vom40a-en-ip66-en54.html",
+    "https://www.firesupplies.ae/product/honeywell-aluminum-outdoor-column-loudspeaker-l-vom40a-en/"
   ],
   "normalized": {
     "schema_version": "normalized_v1",
-    "best_price": null,
-    "best_price_currency": null,
-    "best_price_source": null,
+    "best_price": 221.66,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
     "best_description": "Громкоговоритель L-VOM40A/EN предназначен для использования в системах оповещения и звукового сопровождения. Он обеспечивает высокое качество звука и надежность в эксплуатации.",
     "best_description_source": "content",
     "best_photo_url": "https://media.steinigke.de/images/7640p/10/80710004a.webp",
     "best_photo_source": "photo_verdict"
+  },
+  "dr_price": 221.66,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.firesupplies.ae/product/honeywell-aluminum-outdoor-column-loudspeaker-l-vom40a-en/",
+  "dr_price_type": "distributor",
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 221.66,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.firesupplies.ae/product/honeywell-aluminum-outdoor-column-loudspeaker-l-vom40a-en/",
+    "our_price_raw": "0,00",
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "pack_suspect": false,
+    "judge_confidence": "medium"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "6W Ceiling Loudspeaker",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\L-VOM40A_EN.pdf",
+    "datasheet_size_kb": 11607,
+    "product_photos": [
+      "downloads\\datasheet_photos\\L-VOM40A_EN_p1_0.jpeg",
+      "downloads\\datasheet_photos\\L-VOM40A_EN_p1_2.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/L-VOM40A_EN_p1_0.jpeg",
+      "downloads/datasheet_photos/L-VOM40A_EN_p1_2.jpeg"
+    ],
+    "verified_photo_count": 2
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 11607KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title '6W Ceiling Loudspeaker' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

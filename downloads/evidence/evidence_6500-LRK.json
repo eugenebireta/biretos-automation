@@ -532,7 +532,19 @@
       "raw": "3 reflectors (0.4×0.4m each); extends beam range 70→100m; for 6500RE/NFXI-BEAM",
       "aliases": [
         "BEAM-LRK"
-      ]
+      ],
+      "Brand": "Honeywell / Morley-IAS / NOTIFIER",
+      "Product type": "Long range reflector kit",
+      "Application": "Reflected beam smoke detectors",
+      "Range extension": "75...100 m",
+      "Contents": "3 reflectors",
+      "Status": "Discontinued",
+      "Model": "6500-LRK",
+      "Range Extension": "70 m to 100 m",
+      "Compatibility": "6500, 6500R, 6500RS, NFXI-BEAM",
+      "Standard": "EN 54-12",
+      "Operating Temperature": "-30°C to +55°C",
+      "Dimensions": "400 x 400 mm (assembled set)"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -555,7 +567,34 @@
     "merge_source": "result_6500-LRK.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell, Morley-IAS и NOTIFIER 6500-LRK — это не сам датчик, а комплект дальних отражателей для линейных дымовых извещателей отражённого луча. Комплект применяется с conventional и addressable beam detectors, когда нужно увеличить рабочую дистанцию системы примерно до диапазона 75–100 м. В состав набора входят три отражателя, которые устанавливаются напротив излучателя и приёмника на требуемом удалении. Такие аксессуары используются в складах, атриумах, спортивных залах, промышленных помещениях и других пространствах с большой высотой или большой длиной пролёта. Сам по себе комплект не обнаруживает дым, а только обеспечивает правильную работу совместимого лучевого извещателя на увеличенной дистанции. При проектировании важно проверять совместимость по конкретной модели beam detector и соблюдать требования к юстировке, чистоте оптики и стабильности конструкции здания. В документации System Sensor Europe и партнёров позиция встречается как discontinued, поэтому вопрос доступности и замены нужно решать заранее. Также отмечаются ограничения совместимости с некоторыми монтажными комплектами. Для каталога правильнее классифицировать артикул как reflector kit или accessory for beam smoke detector, а не как самостоятельный detector.",
+      "gemini": "Комплект расширения дальности Honeywell 6500-LRK предназначен для использования с линейными оптическими дымовыми детекторами серии 6500. В состав набора входят три дополнительных отражателя, позволяющих увеличить рабочую дистанцию извещателя с 70 до 100 метров. Это решение незаменимо для защиты протяженных объектов, таких как складские комплексы и ангары. Отражатели обладают высокой эффективностью и обеспечивают стабильный возврат ИК-луча даже при задымлении. Комплект позволяет сократить количество устанавливаемых детекторов на длинных участках, экономя бюджет проекта. Устройство сертифицировано по стандарту EN 54-12 для систем пожарной сигнализации. Монтаж компонентов производится просто и быстро благодаря продуманной конструкции креплений. Материалы отражателей устойчивы к накоплению пыли и воздействию окружающей среды. Рабочий диапазон температур составляет от -30 до +55 °C. Продукт совместим с извещателями серий 6500, 6500R и NFXI-BEAM."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell / Morley-IAS / NOTIFIER",
+        "Product type": "Long range reflector kit",
+        "Application": "Reflected beam smoke detectors",
+        "Range extension": "75...100 m",
+        "Contents": "3 reflectors",
+        "Status": "Discontinued"
+      },
+      "gemini": {
+        "Brand": "Honeywell / System Sensor",
+        "Model": "6500-LRK",
+        "Range Extension": "70 m to 100 m",
+        "Contents": "3 additional reflectors",
+        "Compatibility": "6500, 6500R, 6500RS, NFXI-BEAM",
+        "Standard": "EN 54-12",
+        "Operating Temperature": "-30°C to +55°C",
+        "Dimensions": "400 x 400 mm (assembled set)"
+      }
+    },
+    "notes_all": {
+      "gpt": "Это reflector kit, а не самостоятельный дымовой извещатель."
+    }
   },
   "dr_category": "Beam detector reflector kit",
   "dr_price": 165.0,
@@ -565,7 +604,12 @@
     "https://buildings.honeywell.com/in/en/products/by-category/sensors/reflector-kits/6500-lrk-long-range-reflection-kit-75-100m",
     "https://evidence.lv/en/conventional-fire-alarm-systems/conventional-detectors/reflektoru-komplekts-3-gab.html",
     "https://www.acornfiresecurity.com/morley-6500-lrk-long-range-reflector-kit-70m-100m",
-    "https://www.elettronew.com/en/fire-protection-systems/reflector-fire-notifier-long-range-70-100m-6500-lrk-23775.html"
+    "https://www.elettronew.com/en/fire-protection-systems/reflector-fire-notifier-long-range-70-100m-6500-lrk-23775.html",
+    "https://buildings.honeywell.com/my/en/products/by-category/sensors/reflector-kits/6500-lrk-long-range-reflection-kit-75-100m",
+    "https://morley-ias.co.uk/media/2004/reflected-beam_smoke_detector_mi-en.pdf",
+    "https://www.manuallib.com/download/2023-10-28/Long%20Range%20Reflector%20Kit%206500-LRK.pdf",
+    "https://buildings.honeywell.com/gb/en/products/by-category/sensors/reflector-kits/6500-lrk-long-range-reflection-kit-75-100m",
+    "https://www.orbitadigital.com/en/fire/analogue/accessories/14395-notifier-6500-lrk-long-range-kit-of-three-reflectors-for-70-to.html"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -593,5 +637,17 @@
     "best_description_source": "content",
     "best_photo_url": null,
     "best_photo_source": null
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The PN 6500-LRK matches Honeywell's format for fire detection equipment. 'ACCESS BEAM' is a known Honeywell reflective beam detector product line. The seed name indicates it's a linear detector with reflector kit for 75-100m range. Brand is correct, but complete datasheet with technical specs and proper description is missing."
+    }
   }
 }

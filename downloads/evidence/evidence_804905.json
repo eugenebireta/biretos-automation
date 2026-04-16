@@ -309,7 +309,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -559,7 +561,10 @@
     "merge_source": "result_804905.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "ESSER by Honeywell. Electronic module w/ isolator for manual call points. Requires separate housing (704900 red / 704901 blue). Made in Germany."
+    }
   },
   "dr_category": "Fire alarm MCP module",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-704900-primaryimage",
@@ -598,5 +603,77 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/ruchnye_pozh",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "IQ8MCP electronic module with isolator",
+    "description": "Addressable electronic module suitable for use in the esserbus and powered loop with alarm latch and alarm indicator. Optional connection for conventional MCP. Without BUS connection, the detector operates as conventional MCP. Built-in loop isolator in the manual call point. An external detector zone (D-line) could be connected with up to ten conventional manual call points (internal Alarm resistor for each detector 1 KOhm) - e.g. Part No. 804900 or 804901 to this IQ8 manual call point model and configure required operation with tools 8000. When an alarm is triggered the address and the programmed additional text of the MCP IQ8 to which the conventional zone is connected are displayed automatically. Cable length of the D-line max. 500 meters! Features include: Slimline design, Low power consumption, Plug-in connection clamps, Optional terminal clamps, 2 x cable entries on top, at the bottom and on the rear panel, Fixing on standard flush mounted installation box, Test function via manual call point service key, Detectors that are not ready for operation can be marked with the \"Out of order\" label by reversing the enclosed operating front foil. Note: For a LARGE MCP, you have to order the electronic module and the MCP housing separately to have a complete MCP.",
+    "specs": {
+      "operating_voltage": "8 - 42 V DC",
+      "quiescent_current": "45 µA @ 19 V DC",
+      "alarm_current": "18 mA (w/o communication curtain)",
+      "max_detectors_per_zone": 10,
+      "max_detectors_per_loop": 127,
+      "operation_indicator": "LED, green",
+      "alarm_display": "LED, red",
+      "connection_terminal_cross_section": "max. 2.5 mm² (AWG 26-14)",
+      "application_temperature_range": "-20 °C to 70 °C",
+      "storage_temperature_range": "-30 °C to 75 °C",
+      "air_humidity": "< 95%",
+      "ip_rating_in_housing": "IP 44",
+      "ip_rating_with_accessory": "IP 55",
+      "housing_material": "PC ASA plastic",
+      "mounting_type": "Standard flush mounted installation box",
+      "cable_entries": "2 (top, bottom, rear panel)",
+      "d_line_cable_length": "max. 500 meters"
+    },
+    "specs_count": 17,
+    "series": "IQ8",
+    "category": "Electronic module for Manual Call Point",
+    "weight_g": 236,
+    "dimensions_mm": "133 (W) x 133 (H) x 36 (D)",
+    "certifications": [
+      "VdS",
+      "EN 54-11 type B",
+      "DoP-20489130701"
+    ],
+    "article_no": "804905",
+    "datasheet_pdf": "downloads\\datasheets_v2\\804905.pdf",
+    "datasheet_size_kb": 2099,
+    "product_photos": [
+      "downloads\\datasheet_photos\\804905_p1_0.jpeg",
+      "downloads\\datasheet_photos\\804905_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/804905_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 804905 is valid Honeywell format. IQ8MCP is a genuine Honeywell fire alarm control module. The datasheet title confirms this is a Honeywell product. However, the missing EAN with expected prefix '4007185' (which is a PEHA/Honeywell prefix) and truncated description suggest the datasheet is incomplete or corrupted. The product data is correct but needs a complete datasheet to extract missing EAN and full description."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'IQ8MCP electronic module with isolator' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

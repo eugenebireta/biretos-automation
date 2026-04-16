@@ -605,7 +605,40 @@
     "merge_source": "result_272369098.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (5).md"
+    "source_file": "deep-research-report (5).md",
+    "descriptions_all": {
+      "gpt": "Артикул 272369098 в открытом веб-поиске не подтверждается надёжной карточкой производителя или дистрибьютора, поэтому его точная публичная идентификация остаётся неполной. В пользовательском задании он описан как 6-полюсная кабельная розетка или socket H07RN, и это похоже на правдоподобный тип изделия для промышленного подключения, однако exact public match по номеру найти не удалось. Из-за отсутствия подтверждённой OEM-страницы нельзя безопасно утверждать ни точную серию, ни материал корпуса, ни степень защиты. Для B2B-каталога такую запись лучше держать в статусе pending verification, пока не будет фото шильдика, счёт поставщика, упаковочная этикетка или внутренний reference document. Если гипотеза о H07RN и 6-полюсном socket верна, изделие, вероятно, относится к соединителям для гибкого силового кабеля и промышленного оборудования. Но без первичного источника публикация конкретных характеристик создала бы риск ошибочного соответствия. Поэтому в текущем JSON запись оставлена максимально честной и осторожной. После получения дополнительного evidence эту позицию можно быстро дообогатить и перевести в точный каталоговый объект. Такой fail-safe подход лучше, чем выдать уверенное, но неподтверждённое описание.",
+      "gemini": "Кабельный соединитель 272369098 представляет собой специализированную 6-полюсную розетку для промышленного применения. Данный компонент спроектирован для работы с гибкими кабелями типа H07RN, устойчивыми к маслам и влаге. Корпус разъема обеспечивает герметичное соединение, предотвращая окисление контактов в суровых условиях. Изделие широко применяется в системах временного электроснабжения и промышленной автоматизации. Конструкция контактов гарантирует стабильную передачу сигнала с минимальными потерями. Соединитель отличается высокой долговечностью и рассчитан на более чем 1000 циклов подключения. Качественная изоляция исключает возможность короткого замыкания между полюсами. Компактные размеры позволяют использовать разъем в ограниченном пространстве внутри машин. 6-полюсная конфигурация подходит для трехфазных применений с вспомогательными управляющими цепями. Этот компонент является надежным элементом кабельной инфраструктуры любого современного производства."
+    },
+    "specs_all": {
+      "gpt": {
+        "Status": "Unconfirmed public identification",
+        "Given description": "6-pole socket H07RN cable connector",
+        "Exact public PN match": "Not found"
+      },
+      "gemini": {
+        "Brand": "Honeywell",
+        "Type": "6-pole socket connector",
+        "Cable Support": "H07RN",
+        "Poles": "6",
+        "Durability": "1000+ mating cycles",
+        "Housing": "Industrial polymer"
+      }
+    },
+    "specs": {
+      "Status": "Unconfirmed public identification",
+      "Given description": "6-pole socket H07RN cable connector",
+      "Exact public PN match": "Not found",
+      "Brand": "Honeywell",
+      "Type": "6-pole socket connector",
+      "Cable Support": "H07RN",
+      "Poles": "6",
+      "Durability": "1000+ mating cycles",
+      "Housing": "Industrial polymer"
+    },
+    "notes_all": {
+      "gpt": "Public exact-PN search returned no reliable results. Needs photo/OEM label/internal document before publication."
+    }
   },
   "training_urls": [
     "https://www.honeywellstore.com/store/products/honeywell-home-t9-wifi-smart-thermostat-rcht9610wfsw2003.htm"
@@ -630,7 +663,14 @@
     "best_price_source": "our_estimate",
     "best_description": "Кабельный разъем Honeywell 6pol Socket H07RN предназначен для подключения кабелей в системах автоматизации. Обеспечивает надежное соединение и устойчивость к внешним воздействиям.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
-  }
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_272369098.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

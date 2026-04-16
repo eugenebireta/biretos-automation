@@ -310,7 +310,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -570,7 +571,10 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report.md",
     "description_ru": "Промышленный смесительный клапан фланцевого типа для систем с номинальным давлением 16 бар. Обеспечивает стабильное регулирование температуры благодаря высокому коэффициенту динамического диапазона (50:1). Пружинное уплотнение штока ПТФЭ не требует обслуживания.",
-    "specs": "Size: DN40; PN: 16; Kvs: 25; Stroke: 20mm; Leakage: <0.5%"
+    "specs": "Size: DN40; PN: 16; Kvs: 25; Stroke: 20mm; Leakage: <0.5%",
+    "descriptions_all": {
+      "legacy": "Промышленный смесительный клапан фланцевого типа для систем с номинальным давлением 16 бар. Обеспечивает стабильное регулирование температуры благодаря высокому коэффициенту динамического диапазона (50:1). Пружинное уплотнение штока ПТФЭ не требует обслуживания."
+    }
   },
   "training_urls": [],
   "price_contract": {
@@ -599,5 +603,18 @@
     "best_description_source": "dr",
     "best_photo_url": "https://honeywell-rus.ru/product/3-h-hodovoj-linejnyj-klapan-honeywell-v5329a105",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

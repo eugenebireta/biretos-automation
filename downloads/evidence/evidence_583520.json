@@ -571,14 +571,82 @@
     "merge_source": "result_583520.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report.md"
+    "source_file": "deep-research-report.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 583520 — это цифровая вызывная станция DCS plus для системы голосового оповещения VARIODYN ONE. Она предназначена для оперативного выбора зон, запуска объявлений и ручного управления трансляцией в составе профессиональной PA/VA-системы. Базовая станция оснащена 12 конфигурируемыми клавишами с индикацией и может расширяться модулями DKM plus до суммарно 120 клавиш и LED, что удобно для крупных объектов с большим числом зон. Производитель также указывает встроенные средства контроля микрофона и кабеля, что важно для систем безопасности и постоянной готовности к объявлению. Передача аудио и данных организована по CAT5, а в комплект поставки входит 3‑метровый кабель. В составе устройства предусмотрены внешний аудиовход и аудиовыход, а также локальный громкоговоритель для контроля и сервисных задач. Такая станция применяется в бизнес-центрах, транспортной инфраструктуре, торговых объектах, гостиницах, производственных комплексах и других зданиях с централизованным оповещением. Для корректного использования требуется настройка кнопок, маршрутизации и прав доступа в общей архитектуре VARIODYN ONE. Для B2B-каталога это высокоуровневый операторский элемент системы оповещения, а не обычный настольный микрофон.",
+      "gemini": "Цифровая вызывная станция Honeywell DCS plus является центральным интерфейсом оператора в системах Variodyn D1 и ONE. Станция позволяет осуществлять выбор зон для трансляции объявлений и управлять аварийными сигналами. Подключение осуществляется через стандартный кабель CAT5, поддерживающий передачу аудио и сигналов управления. Устройство оснащено двенадцатью свободно программируемыми клавишами со встроенной светодиодной индикацией. Микрофон на гибком держателе типа «гусиная шея» длиной 400 мм обеспечивает четкость передачи голоса. Встроенный динамик мощностью 2 Вт позволяет прослушивать каналы и организовывать внутреннюю связь. Станция поддерживает резервное подключение кабеля для исключения системных сбоев при обрыве линии. Модель выполнена в прочном металлическом корпусе черного цвета (RAL 9005) и сертифицирована согласно BS EN 54-16. Вес устройства составляет 1.42 кг, что обеспечивает устойчивость на рабочем столе. Продукт пригоден для использования в диспетчерских аэропортов, вокзалов и промышленных объектов."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Series": "VARIODYN ONE",
+        "Model": "DCS plus",
+        "Product type": "Digital call station",
+        "Configurable keys": "12",
+        "Expandable": "Up to 120 keys/LEDs with DKM plus modules",
+        "Microphone": "Electret, unidirectional, 400 mm gooseneck",
+        "Local speaker": "2 W",
+        "Sample rate": "48 kHz",
+        "AD/DA resolution": "24-bit",
+        "External audio input": "1",
+        "External audio output": "1",
+        "Power consumption": "< 70 mA",
+        "Ambient temperature": "-5...+45 °C",
+        "Housing": "Metal",
+        "Color": "Black RAL 9005",
+        "Dimensions": "200 x 49.4 x 200 mm",
+        "Weight": "Approx. 1.42 kg",
+        "Standard": "BS EN 54-16"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "DCS plus",
+        "Microphone": "Electret, Gooseneck 400 mm",
+        "Keys": "12 configurable with LEDs",
+        "Audio Range": "20 Hz - 22 kHz",
+        "Compliance": "EN 54-16",
+        "Interface": "CAT5 (up to 300m) / Fiber",
+        "Dimensions": "200 x 49.4 x 200 mm",
+        "Weight": "1.42 kg"
+      }
+    },
+    "specs": {
+      "Brand": "Honeywell",
+      "Series": "VARIODYN ONE",
+      "Model": "DCS plus",
+      "Product type": "Digital call station",
+      "Configurable keys": "12",
+      "Expandable": "Up to 120 keys/LEDs with DKM plus modules",
+      "Microphone": "Electret, unidirectional, 400 mm gooseneck",
+      "Local speaker": "2 W",
+      "Sample rate": "48 kHz",
+      "AD/DA resolution": "24-bit",
+      "External audio input": "1",
+      "External audio output": "1",
+      "Power consumption": "< 70 mA",
+      "Ambient temperature": "-5...+45 °C",
+      "Housing": "Metal",
+      "Color": "Black RAL 9005",
+      "Dimensions": "200 x 49.4 x 200 mm",
+      "Weight": "Approx. 1.42 kg",
+      "Standard": "BS EN 54-16",
+      "Keys": "12 configurable with LEDs",
+      "Audio Range": "20 Hz - 22 kHz",
+      "Compliance": "EN 54-16",
+      "Interface": "CAT5 (up to 300m) / Fiber"
+    },
+    "notes_all": {
+      "gpt": "Профессиональная операторская станция для VARIODYN ONE или PA-VA."
+    }
   },
   "training_urls": [
     "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/public-address-and-voice-alarm/call-stations/digital-call-station-dcs-plus",
     "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/notifier-it/HBT-Fire-202203110958-DCS-DKMplus-dep-eng.pdf",
     "https://www.acornfiresecurity.com/notifier-honeywell-dcs-plus-digital-call-station-583520",
     "https://www.esser-systems.com/en/products/details/voice-alarm-system-variodynR-d1/sprechstellen/583520-digital-call-station-dcs-plus/",
-    "https://www.esser-systems.com/en/products/details/voice-alarm-system-variodynR-one/call-stations/583520-digital-call-station-dcs-plus-1/"
+    "https://www.esser-systems.com/en/products/details/voice-alarm-system-variodynR-one/call-stations/583520-digital-call-station-dcs-plus-1/",
+    "https://buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/VARIODYN-D1-PA-VA/583520_DCS_plus.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/550000-574999/554294-da-01-en-Honeywell_583520_Sprechstelle.pdf"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -606,5 +674,90 @@
     "best_description_source": "content",
     "best_photo_url": "https://sbmall.ru/737/951/164139/",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "VARIODYN ONE Digital Call Station DCS plus / DKM plus",
+    "description": "The VARIODYN ONE Digital Call Station DCS plus allows selection of loudspeaker circuits, transmission of voice announcements, gongs, and alarms. It connects via standard CAT5 cable to the VARIODYN ONE INC-D control device, supporting up to four simultaneous audio signals. Connection can be redundant, up to 300m via CAT5 or 20km via fibre-optic cabling. The DCS plus can be expanded with up to six DKM plus digital keyboard modules (PN 583526), providing up to 120 keys and LEDs per station. The microphone and cable connection are permanently monitored. It includes an external audio input/output for connecting devices like CD players. Features include 12 freely configurable keys with independent programmable LEDs, a built-in loudspeaker, and an electret gooseneck microphone. It is designed for high failure safety and cost-effective CAT5 cabling, and can be fitted into a desk surface.",
+    "specs": {
+      "product_models": [
+        {
+          "name": "Digital Call Station DCS plus",
+          "features": "12 freely configurable keys (with LEDs), 2 LEDs, 1 microphone, 1 loudspeaker, 1 external audio input, 1 external audio output",
+          "pn": "583520"
+        },
+        {
+          "name": "Digital Keyboard Module DKM plus",
+          "features": "18 freely configurable keys (with LEDs)",
+          "pn": "583526"
+        }
+      ],
+      "audio_output_nominal_level_dBu": "0",
+      "audio_output_max_level_dBu": "< 6",
+      "audio_output_transmission_range_hz": "20 - 22000",
+      "audio_input_nominal_level_dBu": "0",
+      "audio_input_transmission_range_hz": "20 - 22000",
+      "microphone_type": "Electret, uni-directional",
+      "gooseneck_length_mm": "400",
+      "microphone_transmission_range_hz": "60 - 20000",
+      "loudspeaker_power_w": "2",
+      "sample_rate_khz": "48",
+      "ad_da_converter_bit": "24",
+      "current_consumption_mA": "< 70",
+      "ambient_temperature_range_c": "-5 to +45",
+      "storage_temperature_range_c": "-10 to +45",
+      "air_humidity_rh": "15% - 95% (non-condensing)",
+      "housing_material": "Metal",
+      "color": "Black, similar to RAL 9005",
+      "connection_type": "CAT5 cable, fibre-optic",
+      "max_cable_length_cat5_m": "300",
+      "max_cable_length_fiber_km": "20",
+      "expandability": "Up to six DKM plus digital keyboard modules",
+      "max_keys_per_station": "120",
+      "mounting_type": "Desk mount / Flush mount"
+    },
+    "specs_count": 24,
+    "series": "VARIODYN ONE",
+    "category": "Digital Call Station",
+    "weight_g": "1420",
+    "dimensions_mm": "200 x 49.4 x 200",
+    "certifications": [
+      "BS EN54-16"
+    ],
+    "article_no": "583520",
+    "datasheet_pdf": "downloads\\datasheets_v2\\583520.pdf",
+    "datasheet_size_kb": 259,
+    "product_photos": [
+      "downloads\\datasheet_photos\\583520_p1_0.jpeg",
+      "downloads\\datasheet_photos\\583520_p1_1.jpeg",
+      "downloads\\datasheet_photos\\583520_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/583520_p1_0.jpeg",
+      "downloads/datasheet_photos/583520_p1_1.jpeg",
+      "downloads/datasheet_photos/583520_p1_2.jpeg"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "VARIODYN is a Bosch product line for public address and voice alarm systems, not Honeywell. The datasheet clearly shows 'VARIODYN ONE Digital Call Station DCS plus / DKM plus' which are Bosch products. The PN 583520 appears correct for the DCS plus model. The current datasheet covers both DCS plus (583520) and DKM plus (583526), causing confusion - needs specific datasheet for PN 583520 only."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

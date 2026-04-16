@@ -569,8 +569,48 @@
     "best_price_source": "pipeline1",
     "best_description": "Цифровой настенный модуль Honeywell T7560B1024 используется для управления климатическими системами. Он оснащен функцией измерения влажности и имеет стильный белый корпус, что делает его подходящим для любого интерьера.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_T7560B1024.jpg",
+    "best_photo_source": "vps_static"
   },
-  "product_category": "thermostat"
+  "product_category": "thermostat",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "T7560A,B Modules d'ambiance à affichage numérique",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\T7560B1024.pdf",
+    "datasheet_size_kb": 218,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN T7560B1024 follows Honeywell's HVAC controller format (T75xx series are known Honeywell room modules). Brand is correct. However, the datasheet is in French while product seed is in Russian - needs language-appropriate datasheet. Description is incomplete/truncated and lacks technical specifications. The product itself is valid but documentation needs replacement with complete English or Russian version."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "sensor",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'T7560A,B Modules d'ambiance à affichage numérique' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

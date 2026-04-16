@@ -6,10 +6,10 @@
     "36142.RU",
     "36142RU"
   ],
-  "brand": "Honeywell",
+  "brand": "DKC",
   "subbrand": null,
   "name": "Т-образный соединитель 100x80мм 36142-RU",
-  "assembled_title": "Соединитель Honeywell 36142-RU",
+  "assembled_title": "Соединитель DKC 36142-RU",
   "our_price_raw": "2507,33",
   "expected_category": "Соединитель",
   "card_status": "DRAFT_ONLY",
@@ -319,7 +319,9 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "identity_notes_p1": "T-shaped connector 100x80mm; Russian market variant; cable duct fitting",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -610,7 +612,24 @@
       "raw": "Tmax 40°C; корпус латунь; колба пластик; Kvs 10.3 м³/ч; фильтрация 100 мкм; 3/4″",
       "aliases": [
         "Артикул 36142 (без -RU на сайте)"
-      ]
+      ],
+      "Brand": "DKC",
+      "Series": "S5 Combitech",
+      "Model": "DPT",
+      "Product type": "T-coupler / horizontal T tapper",
+      "Tray width": "100 mm",
+      "Tray height": "80 mm",
+      "Inner radius": "100 mm",
+      "Material": "Sendzimir galvanized steel",
+      "Integrated connector": "Yes",
+      "Status": "Removed from range",
+      "Replacement": "36142K",
+      "type": "Conduit Connector / Box Entry",
+      "brand": "DKC",
+      "material": "ABS/PVC Blend",
+      "ip_rating": "IP43/IP65 (system dependent)",
+      "compliance": "RU Safety standards",
+      "color": "Grey"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -634,12 +653,46 @@
     "merge_source": "result_36142-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (3).md"
+    "source_file": "deep-research-report (3).md",
+    "descriptions_all": {
+      "gpt": "DKC 36142-RU DPT — это элемент металлической кабельной трассы для системы листовых лотков, используемой в промышленном и коммерческом электромонтаже. Позиция предназначена для организации Т-образного горизонтального ответвления в трассе с размером 100x80 мм. Такие детали применяют в энергетике, на заводах, в торговых и офисных зданиях, а также на инфраструктурных объектах, где кабельные линии прокладываются по лоткам. Исполнение из оцинкованной стали обеспечивает базовую коррозионную стойкость для внутреннего монтажа и типовых условий эксплуатации. Перфорированные стенки и основание облегчают крепление и могут улучшать вентиляцию кабельной системы. При проектировании важно учитывать не только размер лотка, но и радиус поворота, тип нагрузки и необходимость крышек или повышенного IP в составе всей системы. Такие элементы подбирают строго под серию и геометрию трассы, чтобы исключить перекосы, разрывы покрытия и неудобство при укладке кабеля. Монтаж выполняют в составе трассы с совместимыми прямыми секциями и соединительными аксессуарами DKC. По каталогу DKC базовая позиция снята с ассортимента, а в качестве замены предлагается 36142K; для оригинальной версии указывается встроенный соединитель и оцинкованная сталь. Если объект требует сохранения работоспособности кабельной линии при пожаре, следует отдельно проверять соответствие всей трассы, а не только одного фитинга.",
+      "gemini": "Соединитель типа «труба-коробка» DKC 36142-RU предназначен для герметичного ввода кабельных каналов в распределительные коробки или щитовое оборудование. Этот аксессуар играет ключевую роль в поддержании заданного уровня защиты всей системы (IP), предотвращая проникновение загрязняющих веществ внутрь корпусов с электроникой. Изделие выполнено из прочного полимера, обладающего отличными диэлектрическими свойствами и стойкостью к механическим нагрузкам. Резьбовое или защелкивающееся соединение обеспечивает жесткую фиксацию трубы, исключая ее случайное вырывание при натяжении кабеля. Маркировка RU указывает на полную адаптацию изделия под требования российского рынка электромонтажных изделий. Соединитель устойчив к воздействию ультрафиолетового излучения, что позволяет применять его при монтаже на внешних фасадах зданий. Гладкий внутренний профиль минимизирует трение при протяжке проводников, предохраняя их оболочку от повреждений. Компактная конструкция не загромождает внутреннее пространство монтажных коробок, облегчая расключение проводов. Это незаменимый элемент для построения профессиональных структурированных кабельных систем, где важна каждая деталь.",
+      "synthesis": "DKC 36142-RU DPT представляет собой специализированный элемент кабельной трассы для создания Т-образного горизонтального ответвления в системах листовых лотков размером 100x80 мм. Позиция применяется в энергетике, на промышленных объектах, в торговых и офисных зданиях, а также на инфраструктурных площадках для организованной прокладки кабельных линий. Соединитель типа «труба-коробка» предназначен для герметичного ввода кабельных каналов в распределительные коробки, обеспечивая защиту внутреннего пространства электроустановок от загрязнений. Корпус выполнен из прочного полимера с отличными диэлектрическими свойствами и стойкостью к механическим нагрузкам, включая устойчивость к ультрафиолетовому излучению. Резьбовое или защелкивающееся соединение обеспечивает жесткую фиксацию трубы, исключая её случайное вырывание при натяжении кабеля. Гладкий внутренний профиль минимизирует трение при протяжке проводников и предохраняет их оболочку от повреждений. Элемент применяется в составе трассы с совместимыми компонентами DKC, обеспечивая стандартизированную механику и надежность кабельных систем при строгом соответствии геометрии основной серии лотка."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "DKC",
+        "Series": "S5 Combitech",
+        "Model": "DPT",
+        "Product type": "T-coupler / horizontal T tapper",
+        "Tray width": "100 mm",
+        "Tray height": "80 mm",
+        "Inner radius": "100 mm",
+        "Material": "Sendzimir galvanized steel",
+        "Integrated connector": "Yes",
+        "Status": "Removed from range",
+        "Replacement": "36142K"
+      },
+      "gemini": {
+        "type": "Conduit Connector / Box Entry",
+        "brand": "DKC",
+        "material": "ABS/PVC Blend",
+        "ip_rating": "IP43/IP65 (system dependent)",
+        "compliance": "RU Safety standards",
+        "color": "Grey"
+      }
+    },
+    "notes_all": {
+      "gpt": "Снято с ассортимента; рекомендованная замена — 36142K."
+    }
   },
   "training_urls": [
     "https://buildings.honeywell.com/us/en/products/by-category/electrical-and-wiring/cable-management/trunking-fittings",
     "https://www.esser-systems.com/products/fire/detectors/iq8quad/",
-    "https://www.tinko.ru/catalog/product/230105/"
+    "https://www.tinko.ru/catalog/product/230105/",
+    "https://www.dkc.com/cee/products/36142",
+    "https://www.dkc.com/ru/ru/products/36142k",
+    "https://www.dkc.ru/ru/catalog/product/36142-ru/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -667,5 +720,23 @@
     "best_description_source": "content",
     "best_photo_url": "https://santehmoskva.ru/image/cache/catalog/sharan-filter/21112.970-1200x1200.jpg.webp",
     "best_photo_source": "dr_image"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "cable management",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "DKC is a legitimate Russian manufacturer of cable management systems and electrical installation products. The PN format '36142-RU' with '-RU' suffix is consistent with DKC's product numbering for Russian market. The product is a T-shaped connector for cable trays (100x80mm dimensions). Brand and PN appear correct, but datasheet is missing/empty and description is incomplete. Requires complete technical documentation with full specs and proper description."
+    }
   }
 }

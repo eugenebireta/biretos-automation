@@ -606,7 +606,10 @@
     "merge_source": "result_PERTHECTION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "legacy": "В доступных источниках PN как слово/бренд не дал однозначной карточки товара/цены."
+    }
   },
   "training_urls": [],
   "normalized": {
@@ -616,8 +619,8 @@
     "best_price_source": "phase3a",
     "best_description": "Сканер PERTHECTION предназначен для быстрого и точного сканирования документов и изображений. Он обеспечивает высокое качество сканирования и простоту в использовании.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/UNKNOWN_PERTHECTION.jpg",
+    "best_photo_source": "vps_static"
   },
   "phase3a_price": {
     "price": 249.99,
@@ -627,5 +630,12 @@
     "confidence": "low",
     "notes": "Interpreted as Epson Perfection V100 Photo; likely OCR typo in input",
     "search_used": "Perthection V100 Photo scanner"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

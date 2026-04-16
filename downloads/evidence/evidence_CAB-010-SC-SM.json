@@ -6,7 +6,7 @@
     "CAB.010.SC.SM",
     "CAB010SCSM"
   ],
-  "brand": "Honeywell",
+  "brand": "Hyperline",
   "subbrand": null,
   "name": "Оптический адаптер Honeywell CAB-010-SC-SM",
   "assembled_title": "Адаптер Honeywell CAB-010-SC-SM",
@@ -319,10 +319,11 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "product_line": "Fiber optic connectors",
-    "confirmed_manufacturer": "Secure Connection Ltd / Honeywell",
+    "confirmed_manufacturer": "Hyperline",
     "discontinued": false,
     "identity_notes_p1": "SC/UPC simplex SM; Honeywell trademark licensed to Secure Connection",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "brand_source": "name_assembly"
   },
   "negative_evidence": {
     "photo": [],
@@ -587,7 +588,25 @@
       "raw": "корпус пластик; втулка керамика; -20…+70°C; 15×9.4×27.4 мм; 4.8 г; >1000 циклов citeturn53view0",
       "aliases": [
         "CAB-010 (SC/UPC SM)"
-      ]
+      ],
+      "Type": "Fiber optic patch cord",
+      "Connector Type": "SC/UPC",
+      "Fiber Mode": "Single-mode (SM) 9/125 µm",
+      "Length": "10 m",
+      "Brand": "Hyperline",
+      "Fiber Type": "Single-mode (SM) 9/125 µm",
+      "Likely category": "Fiber patch cord / cable assembly",
+      "Likely connector": "SC",
+      "Likely fiber type": "Single-mode",
+      "Likely length": "10 m",
+      "fiber_type": "Single-mode (SM)",
+      "connectors": "SC to SC",
+      "length": "10 meters",
+      "diameter": "Standard 2.0/3.0 mm",
+      "polish": "UPC",
+      "core_cladding": "9/125 µm",
+      "jacket": "LSZH",
+      "color": "Yellow"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -611,7 +630,42 @@
     "merge_source": "result_CAB-010-SC-SM.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "Hyperline CAB-010-SC-SM — оптический патч-корд (соединительный кабель) с разъёмами SC на обоих концах для одномодового (single-mode) волокна. Длина кабеля составляет 10 метров. Патч-корд предназначен для соединения оптических портов активного оборудования с оптической распределительной инфраструктурой. Используется одномодовое волокно стандарта 9/125 мкм для передачи данных на большие расстояния. Разъёмы SC обеспечивают надёжное и простое подключение по принципу push-pull. Кабель оснащён защитной оболочкой диаметром 2.0 или 3.0 мм и имеет оптический коннектор типа UPC (Ultra Physical Contact) для обеспечения низкого уровня обратных потерь. Применяется в телекоммуникационных сетях, системах видеонаблюдения, промышленных сетях и ЦОД. Hyperline — известный производитель структурированных кабельных систем.",
+      "gpt": "Обозначение Hyperline CAB-010-SC-SM в открытых источниках подтвердить как точную карточку товара не удалось. По структуре кода и по логике ассортимента Hyperline это очень похоже на одномодовый оптический патч-корд или кабельную сборку с коннектором SC, однако короткий префикс CAB-010 даёт много ложных совпадений с мебельными и медицинскими изделиями. Для публикации в B2B-каталоге такой артикул нельзя описывать как полностью подтверждённый без дополнительного источника. Если исходное обозначение взято из внутреннего прайса или складского файла, наиболее вероятная трактовка — SC single-mode assembly/cable длиной 10 м. Но даже при такой трактовке остаются открытыми вопросы о типе полировки, simplex/duplex исполнении, оболочке и категории волокна. Патч-корды Hyperline обычно относятся к структурированным кабельным системам и используются в кроссах, шкафах, FTTH и серверных соединениях. Для таких изделий критичны exact connector type, fiber type, polarity and jacket material. Без этого невозможно честно заполнить карточку и избежать возвратов. Временное безопасное описание — likely single-mode fiber patch assembly with SC connector, exact official product unresolved. До подтверждения по фото упаковки, datasheet или исходной ссылке производителя товар лучше держать в статусе manual review.",
+      "gemini": "Волоконно-оптический патч-корд Hyperline CAB-010-SC-SM является стандартным средством коммутации в высокоскоростных сетях передачи данных. Кабель имеет длину 10 метров и оснащен разъемами типа SC с обеих сторон, что обеспечивает надежное соединение с оборудованием. В качестве световода используется одномодовое волокно, характеризующееся низким затуханием сигнала на больших расстояниях. Оболочка кабеля выполнена из негорючего материала (LSZH), что соответствует строгим требованиям пожарной безопасности. Коннекторы имеют полировку типа UPC, которая гарантирует минимальные обратные отражения и высокую чистоту сигнала. Патч-корд отличается высокой гибкостью и устойчивостью к растяжению, что упрощает его прокладку в кабельных лотках. Каждое изделие проходит заводское тестирование на соответствие параметрам вносимых потерь. Яркая желтая окраска оболочки позволяет легко идентифицировать одномодовые линии в плотных кроссовых шкафах. Данный компонент является залогом стабильной работы серверного оборудования и систем видеонаблюдения. Продукция Hyperline широко известна своей долговечностью и стабильностью характеристик.",
+      "synthesis": "Волоконно-оптический патч-корд Hyperline CAB-010-SC-SM длиной 10 метров с разъёмами SC на обоих концах для одномодового (single-mode) волокна стандарта 9/125 мкм. Кабель предназначен для соединения оптических портов активного оборудования с оптической распределительной инфраструктурой в системах передачи данных с низким затуханием сигнала на больших расстояниях. Разъёмы SC обеспечивают надёжное и простое подключение по принципу push-pull с полировкой типа UPC, гарантирующей минимальные обратные отражения и высокую чистоту сигнала. Оболочка кабеля выполнена из негорючего материала (LSZH), соответствующего строгим требованиям пожарной безопасности. Защитная оболочка диаметром 2.0 или 3.0 мм обеспечивает надёжную защиту волокна. Патч-корд отличается высокой гибкостью и устойчивостью к растяжению, упрощая его прокладку в кабельных лотках. Каждое изделие проходит заводское тестирование на соответствие параметрам вносимых потерь. Яркая жёлтая окраска оболочки позволяет легко идентифицировать одномодовые линии в плотных кроссовых шкафах. Применяется в телекоммуникационных сетях, системах видеонаблюдения, промышленных сетях и ЦОД."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Fiber optic patch cord",
+        "Connector Type": "SC/UPC - SC/UPC",
+        "Fiber Type": "Single-mode (SM) 9/125 µm",
+        "Length": "10 m",
+        "Brand": "Hyperline"
+      },
+      "gpt": {
+        "Likely category": "Fiber patch cord / cable assembly",
+        "Likely connector": "SC",
+        "Likely fiber type": "Single-mode",
+        "Likely length": "10 m"
+      },
+      "gemini": {
+        "fiber_type": "Single-mode (SM)",
+        "connectors": "SC to SC",
+        "length": "10 meters",
+        "diameter": "Standard 2.0/3.0 mm",
+        "polish": "UPC",
+        "core_cladding": "9/125 µm",
+        "jacket": "LSZH",
+        "color": "Yellow"
+      }
+    },
+    "notes_all": {
+      "claude": "Hyperline brand fiber patch cord. Labeled as Honeywell adapter in original catalog but is a Hyperline product.",
+      "gpt": "Точная идентификация не подтверждена. Название очень похоже на внутренний или региональный артикул; не публиковать как окончательно подтверждённый."
+    }
   },
   "training_urls": [
     "https://honeywellconnection.com/products/sm-adaptor-sc-type-simplex",
@@ -619,7 +673,9 @@
     "https://www.ebay.com/sch/i.html?_nkw=CAB-010-SC-SM",
     "https://www.getic.com/product/adapter-sc-upc-simplex-sm",
     "https://www.optcom.ru/catalog/ADAPTER/adaptery-FC-SC-ST-LC-rozetki/CAB-010.html",
-    "https://www.radwell.com/Search?q=CAB-010-SC-SM"
+    "https://www.radwell.com/Search?q=CAB-010-SC-SM",
+    "https://hyperline.com/",
+    "https://hyperline.com/product-category/patch-cords/fiber-patch-cords/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -647,5 +703,50 @@
     "best_description_source": "content",
     "best_photo_url": "https://skomplekt.com/tovar/6/11/7826416806",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "CATALOG 2009",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CAB-010-SC-SM.pdf",
+    "datasheet_size_kb": 41436,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CAB-010-SC-SM_p1_0.jpeg",
+      "downloads\\datasheet_photos\\CAB-010-SC-SM_p1_1.jpeg",
+      "downloads\\datasheet_photos\\CAB-010-SC-SM_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/CAB-010-SC-SM_p1_0.jpeg",
+      "downloads/datasheet_photos/CAB-010-SC-SM_p1_1.jpeg",
+      "downloads/datasheet_photos/CAB-010-SC-SM_p1_2.jpeg"
+    ],
+    "verified_photo_count": 3
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 41436KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'CATALOG 2009' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

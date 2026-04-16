@@ -303,7 +303,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -592,5 +593,53 @@
     "best_description_source": "content",
     "best_photo_url": "https://i.ebayimg.com/images/g/CBYAAOSwtxpj9rrY/s-l1600.jpg",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Низовая автоматика и трубопроводная арматура",
+    "description": "Всё для систем отопления, централизованного теплоснабжения и вентиляции",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "Product Catalog",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\N3424.pdf",
+    "datasheet_size_kb": 6283,
+    "product_photos": [
+      "downloads\\datasheet_photos\\N3424_p1_0.jpeg",
+      "downloads\\datasheet_photos\\N3424_p1_3.jpeg",
+      "downloads\\datasheet_photos\\N3424_p1_4.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/N3424_p1_0.jpeg",
+      "downloads/datasheet_photos/N3424_p1_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN N3424 is a valid Honeywell damper actuator part number. The seed_name 'Привод заслонки Honeywell N3424' (Damper Actuator Honeywell N3424) correctly identifies the product. However, the datasheet appears to be wrong or corrupted - it shows a generic category title instead of product specs, has no technical specifications, and incomplete description. The brand and PN are correct, but proper datasheet with full specifications and description is needed."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6283KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Низовая автоматика и трубопроводная арматура' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

@@ -323,7 +323,8 @@
     "structured_pn_match_location": "title",
     "product_line": "Temperature control",
     "identity_notes_p1": "Freeze protection thermostat",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -630,5 +631,51 @@
     "confidence": "medium",
     "notes": "eBay listing; new item",
     "search_used": "FT6960-60 Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Adapter ring",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FT6960-60.pdf",
+    "datasheet_size_kb": 12294,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FT6960-60_p1_0.jpeg",
+      "downloads\\datasheet_photos\\FT6960-60_p2_0.png"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/FT6960-60_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The PN FT6960-60 follows Honeywell's format. The datasheet title 'Adapter ring' is correct - this is an accessory/mounting adapter for Honeywell thermostats, NOT the thermostat itself. The seed name is wrong - it describes a thermostat, but this PN is actually an adapter ring accessory. The datasheet appears correct but lacks sufficient detail. Need comprehensive datasheet with specifications and EAN."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 12294KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Adapter ring' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

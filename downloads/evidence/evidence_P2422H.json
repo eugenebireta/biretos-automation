@@ -3,7 +3,7 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "P2422H",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Dell",
   "subbrand": null,
   "name": "Монитор P2422H",
   "assembled_title": "Монитор Honeywell P2422H",
@@ -315,7 +315,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Dell"
   },
   "negative_evidence": {
     "photo": [],
@@ -572,7 +573,10 @@
     "merge_source": "result_P2422H.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (9).md"
+    "source_file": "deep-research-report (9).md",
+    "descriptions_all": {
+      "legacy": "Dell P-Series Professional; EOL — replaced by P2425H; also $66.98 refurbished (PCLiquidations); €166.57 on Dell.com Ireland; 3-year warranty"
+    }
   },
   "dr_category": "Monitor",
   "dr_image_url": "(Dell product page: https://www.dell.com/en-us/shop/dell-24-monitor-p2422h/apd/210-bbcc/monitors-monitor-accessories)",
@@ -616,5 +620,52 @@
     "best_description_source": "content",
     "best_photo_url": "https://smartelectronics.az/ru/mehsullar/dell-p2422h--210-azyx",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Dell 24 Monitor - P2422H",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\P2422H.pdf",
+    "datasheet_size_kb": 1029,
+    "product_photos": [
+      "downloads\\datasheet_photos\\P2422H_p1_0.jpeg",
+      "downloads\\datasheet_photos\\P2422H_p1_2.jpeg",
+      "downloads\\datasheet_photos\\P2422H_p1_3.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/P2422H_p1_2.jpeg",
+      "downloads/datasheet_photos/P2422H_p1_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand Dell is correct - P2422H is a known Dell 24-inch monitor model. PN format and title confirm this. The datasheet exists but appears to be incomplete/corrupted as it's missing all basic data (EAN, description, specs, dimensions). A new datasheet extraction is needed to populate the missing fields.",
+      "redownloaded_from": "https://www.mysoft.hu/docs/DELL/dell-p2422h-monitor-p2422h-3ev.pdf?srsltid=AfmBOoqF-_b0ITWhVcIzpFqJTwpSbetOLk4ltdM9WEuxWHZQ81WTONH-",
+      "redownloaded_at": "2026-04-16 23:11:58"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Dell",
+      "candidates": [
+        "Dell"
+      ],
+      "product_hint": "monitor",
+      "needs_disambiguation": false,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
   }
 }

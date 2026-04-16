@@ -6,10 +6,10 @@
     "SCDUPLEX9/125.10",
     "SCDUPLEX9/12510"
   ],
-  "brand": "Honeywell",
+  "brand": "Sonlex",
   "subbrand": null,
   "name": "Оптический кабель SCDUPLEX9/125-10",
-  "assembled_title": "Кабель Honeywell SCDUPLEX9/125-10",
+  "assembled_title": "Кабель Sonlex SCDUPLEX9/125-10",
   "our_price_raw": "617,50",
   "expected_category": "Кабель",
   "card_status": "DRAFT_ONLY",
@@ -325,7 +325,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Sonlex",
+    "brand_source": "dr_claude_39_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -657,5 +659,12 @@
     "best_description_source": "content",
     "best_photo_url": "https://www.qubix.it/en/prodotto/module-for-multimedia-box-with-1-scduplex-adapt",
     "best_photo_source": "photo_verdict"
-  }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

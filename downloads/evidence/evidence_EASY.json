@@ -352,7 +352,9 @@
     "structured_pn_match_location": "",
     "product_line": "IT equipment",
     "identity_notes_p1": "Server model; unable to confirm",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -616,7 +618,12 @@
       "raw": "—",
       "aliases": [
         "Возможное совпадение: Systevo Call Easy (PN 74161B1) citeturn64search1"
-      ]
+      ],
+      "Type": "Equipment enclosure / cabinet",
+      "Material": "Steel",
+      "Mounting": "Wall mount",
+      "Application": "Fire alarm and security systems",
+      "Brand": "Honeywell"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -628,7 +635,25 @@
     "merge_source": "result_EASY.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "Honeywell EASY — компактный электрический шкаф (корпус) серии EASY, предназначенный для размещения оборудования систем автоматизации зданий Honeywell. Шкафы серии EASY представляют собой готовые монтажные решения для установки контроллеров, модулей ввода/вывода и другого оборудования систем управления зданиями. Они обеспечивают защиту установленного оборудования от внешних воздействий и упрощают процесс монтажа и обслуживания. Корпуса серии EASY оснащены стандартными DIN-рейками для крепления оборудования, имеют предусмотренные кабельные вводы и вентиляционные отверстия. Шкафы изготавливаются из высококачественного металла или пластика с порошковым покрытием, обеспечивающим долговечность и эстетичный внешний вид. Применяются для организации небольших и средних систем автоматизации в коммерческих и жилых зданиях.",
+      "gpt": "Обозначение Honeywell EASY в доступных источниках выглядит неоднозначным и не позволяет надёжно привязать позицию к одной точной карточке товара без дополнительного контекста. По смыслу и по сопутствующим находкам это похоже на обозначение шкафа, корпуса или enclosure для оборудования Honeywell, но не на уникальный PN с однозначной спецификацией. Для промышленного каталога такие позиции особенно опасны, потому что под коротким кодом могут скрываться разные варианты корпуса, двери, монтажной панели или комплекта поставки. В инженерной практике Honeywell действительно использует cabinets и enclosures как отдельные товарные позиции для систем безопасности, BMS и access control. Однако опубликованные страницы содержат несколько разных семейств корпусов, и без точной фотографии шильдика либо связанной спецификации нельзя честно утверждать размер, материал, степень защиты или совместимую платформу. Если эта позиция пришла из старого складского остатка или лота, вероятно, она относится к cabinet/equipment enclosure, а не к активной электронике. Для публикации в магазине лучше не выпускать карточку как окончательно идентифицированную, пока не будет дополнительного доказательства: фото таблички, связанный assembly PN или проектная ведомость. Временное безопасное описание — корпус/шкаф Honeywell для размещения оборудования автоматизации или безопасности. Такой корпус обычно используется для настенного монтажа и размещения внутренних модулей, блоков питания, клемм и аксессуаров. Но конкретные механические параметры, совместимость и состав поставки по одному слову EASY подтверждены не были.",
+      "synthesis": "Honeywell EASY — компактный электрический шкаф (корпус) или enclosure для размещения оборудования систем автоматизации зданий Honeywell. Шкафы серии EASY представляют собой готовые монтажные решения для установки контроллеров, модулей ввода/вывода, блоков питания и другого оборудования систем управления зданиями (BMS/BAS) и систем безопасности. Они обеспечивают защиту установленного оборудования от внешних воздействий и упрощают процесс монтажа и обслуживания. Корпуса серии EASY оснащены стандартными DIN-рейками для крепления оборудования, имеют предусмотренные кабельные вводы и вентиляционные отверстия для циркуляции воздуха. Обычно используются для настенного монтажа и размещения внутренних модулей, клемм и аксессуаров. Шкафы изготавливаются из высококачественного металла или пластика с порошковым покрытием, обеспечивающим долговечность и эстетичный внешний вид. Применяются для организации небольших и средних систем автоматизации в коммерческих и жилых зданиях."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Enclosure/Cabinet",
+        "Brand": "Honeywell",
+        "Application": "Building automation equipment housing",
+        "Mounting": "Wall mount",
+        "Material": "Metal/Plastic"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic Honeywell product name 'EASY' — limited specific product data available. May refer to Honeywell EASY series enclosure for BMS equipment.",
+      "gpt": "Точная идентификация не подтверждена. Не публиковать как окончательную карточку без фото шильдика или связанного assembly/kit PN."
+    }
   },
   "training_urls": [
     "https://automation.honeywell.com/us/en/products-backup/sensing-solutions/intelligent-life-care/call-systems/patient-room-components/systevo-call-easy-din-plug-3m-ip67",
@@ -638,7 +663,9 @@
     "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/HBT-SEC-ACS-PRO-19INCH-ENCL-DS-UK-EN.pdf",
     "https://www.bechtle.com/de-en/shop/apc-easy-rack-24u-600x800--4784624--p",
     "https://www.se.com/ng/en/product/ER8812/",
-    "https://www.se.com/nl/en/product/ER8222/"
+    "https://www.se.com/nl/en/product/ER8222/",
+    "https://buildings.honeywell.com/us/en/products/by-category/access-control/control-panels/pro-series-enclosure",
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/enclosure-mounts-and-hardware/cpo-uukl-general-purpose-cabinet"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -664,7 +691,55 @@
     "best_price_source": "price_contract",
     "best_description": "Серверный шкаф Honeywell EASY предназначен для размещения и защиты серверного оборудования в дата-центрах и серверных комнатах. Он обеспечивает надежную защиту от внешних воздействий и удобный доступ к оборудованию.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_EASY.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "HSDP-A Series Air Differential Pressure Transmitter",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "5017490246011",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "de.farnell.com",
+    "ean_source_url": "https://de.farnell.com/mk/k848alm/anbausteckdose-13a-uk-einfach/dp/7217274?srsltid=AfmBOoodbjXX5VJZDjZ1B1bGq_cDUWhLV4v_up7lKuxG_ZgjQq4Bp1Ub",
+    "datasheet_pdf": "downloads\\datasheets_v2\\EASY.pdf",
+    "datasheet_size_kb": 750,
+    "product_photos": [
+      "downloads\\datasheet_photos\\EASY_p1_1.jpeg",
+      "downloads\\datasheet_photos\\EASY_p1_2.jpeg",
+      "downloads\\datasheet_photos\\EASY_p3_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/EASY_p1_1.jpeg",
+      "downloads/datasheet_photos/EASY_p1_2.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The datasheet is correct (HSDP-A Series Air Differential Pressure Transmitter by Honeywell), but the seed_name is completely wrong - it describes a server cabinet instead of a pressure transmitter. The PN 'EASY' doesn't match the actual series 'HSDP-A' from the datasheet. This appears to be a case where wrong seed data was paired with a correct datasheet. Need to re-source with correct product name and PN matching the HSDP-A series."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'HSDP-A Series Air Differential Pressure Transmitter' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

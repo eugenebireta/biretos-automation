@@ -340,7 +340,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -646,7 +648,18 @@
       "raw": "50A; 125V; 6250W; 6AWG/3C; длина 18 inch citeturn41view0",
       "aliases": [
         "Parkworld 885811"
-      ]
+      ],
+      "Type": "Insert/mechanism (smart function)",
+      "Series": "PEHA DIALOG",
+      "Color": "White",
+      "Mounting": "Flush mount",
+      "Standards": "VDE, CE",
+      "Brand": "PEHA (Honeywell)",
+      "Product type": "Cover for communication systems outlet",
+      "Outlet orientation": "Vertical and 30° inclined",
+      "Labeling field": "7 x 64 mm",
+      "Material": "Plastic",
+      "Ingress protection": "IP20"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -670,12 +683,40 @@
     "merge_source": "result_885811.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (4).md"
+    "source_file": "deep-research-report (4).md",
+    "descriptions_all": {
+      "claude": "PEHA 885811 — вставка (механизм) серии DIALOG белого цвета. Артикулы 8858xx в каталоге PEHA могут относиться к специализированным механизмам, таким как устройства управления жалюзи (рольставнями), таймеры или электронные переключатели. Данная вставка совместима с рамками и накладками серии DIALOG и устанавливается в стандартные монтажные коробки. Механизм обеспечивает надёжное управление подключённой нагрузкой с индикацией состояния.",
+      "gpt": "PEHA 885811 — это не smart insert/mechanism, а накладка для подключения коммуникационных систем в серии DIALOG. По официальному datasheet и каталожным выдержкам изделие предназначено для communication systems outlets с вертикальным и 30-градусным наклонным выводом. Для модели подтверждено наличие поля для маркировки 7 x 64 мм, что особенно полезно в офисной СКС и других структурированных коммуникационных инсталляциях. Такие накладки применяются вместе с монтажной базой/вставкой, на которой формируется конкретный вырез под нужный тип коммуникационного соединения. Это означает, что сама деталь не является активным «умным» модулем и не работает отдельно от соответствующего mounting insert. Цвет для exact PN в каталогах указан как white, а материал — plastic, с типовой для внутренних помещений защитой IP20. Для системных интеграторов такая позиция удобна тем, что позволяет единообразно оформить разные типы коммуникационных точек и снабдить их маркировкой. При подборе важно учитывать не только серию DIALOG, но и требуемый cutout базовой вставки. В B2B-каталоге позицию корректно описывать как cover for communication systems outlet with labeling field. Исходное описание «smart insert/mechanism» для этого PN не подтверждается и должно быть удалено.",
+      "synthesis": "PEHA 885811 — накладка для подключения коммуникационных систем серии DIALOG белого цвета (pure white), предназначенная для оформления communication systems outlets с возможностью вертикального и 30-градусного наклонного вывода. Накладка оснащена маркировочным полем размером 7 x 64 мм, что особенно полезно в офисной СКС, гостиницах и других структурированных коммуникационных инсталляциях для четкой идентификации каждой линии или порта. Изделие не является самостоятельным механизмом и должно использоваться в сочетании с монтажной базой/вставкой, на которой формируется конкретный вырез под нужный тип коммуникационного соединения (RJ45, телефон, видео и др.). Пластиковый корпус выполнен с типовой для внутренних помещений степенью защиты IP20, совместим с механизмами и рамками серии DIALOG, обеспечивая единый архитектурный стиль электроустановки при разных типах коммуникационных подключений. Центральная накладка закрывает и оформляет соответствующую монтажную базу, что позволяет сохранить целостность дизайна и облегчить будущее техническое обслуживание информационной инфраструктуры. При подборе важно учитывать не только серию DIALOG, но и требуемый тип cutout базовой вставки, поскольку разные коммуникационные стандарты требуют соответствующих отверстий в монтажной базе. Для системных интеграторов такая позиция удобна тем, что позволяет единообразно оформить разные типы коммуникационных точек."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Insert / Mechanism",
+        "Series": "PEHA DIALOG",
+        "Color": "White",
+        "Brand": "PEHA (Honeywell)"
+      },
+      "gpt": {
+        "Product type": "Cover for communication systems outlet",
+        "Series": "PEHA DIALOG",
+        "Outlet orientation": "Vertical and 30° inclined",
+        "Labeling field": "7 x 64 mm",
+        "Color": "White",
+        "Material": "Plastic",
+        "Ingress protection": "IP20"
+      }
+    },
+    "notes_all": {
+      "claude": "Exact function not confirmed from available data. PEHA DIALOG series.",
+      "gpt": "Исходное описание «smart insert/mechanism» неверно. Официально это cover plate для коммуникационной точки."
+    }
   },
   "training_urls": [
     "https://surpluscityliquidators.com/products/honeywell-hydronic-pro-switching-relay-panel",
     "https://www.hollandlamp.nl/peha-dialog-afdekkap-ktu-voor-telecomm-met-tekstveld-wit-4010105885811.html",
-    "https://www.pehastore.nl/95-610-03-ktu.html"
+    "https://www.pehastore.nl/95-610-03-ktu.html",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-en/hbt-ep-00885811-en-datasheet.pdf",
+    "https://pulsal.ru/download/PEHA/peha_catalog_2019-2020_en.pdf"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -703,5 +744,65 @@
     "best_description_source": "content",
     "best_photo_url": "https://surpluscityliquidators.com/cdn/shop/products/211444_500x.jpg",
     "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Rocker switch with plug-in terminals for all flush-mounted programmes 10 AX/250 V~",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\885811.pdf",
+    "datasheet_size_kb": 8018,
+    "product_photos": [
+      "downloads\\datasheet_photos\\885811_p1_0.jpeg",
+      "downloads\\datasheet_photos\\885811_p5_0.jpeg"
+    ],
+    "photo_count": 2,
+    "ean": "4010105885811",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/885811_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 8018KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Rocker switch with plug-in terminals for all flush-mounted p' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105885811",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

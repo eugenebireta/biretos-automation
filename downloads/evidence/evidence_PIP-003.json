@@ -6,7 +6,7 @@
     "PIP.003",
     "PIP003"
   ],
-  "brand": "Honeywell",
+  "brand": "ASD",
   "subbrand": null,
   "name": "Союзное соединение ASD SOCKET UNION 25MM PK10 PIP-003",
   "assembled_title": "Соединение Honeywell PIP-003",
@@ -311,7 +311,9 @@
     "structured_pn_match_location": "",
     "product_line": "ASD",
     "identity_notes_p1": "Socket union 25MM; unclear connection to Honeywell",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -599,7 +601,16 @@
       "raw": "«25mm Socket Union (Pack of 10)»; цена £34.02 (в карточке) citeturn1view3",
       "aliases": [
         "—"
-      ]
+      ],
+      "Type": "Connection/interface element",
+      "Brand": "Honeywell",
+      "Application": "Building automation, BMS",
+      "Accessory type": "Socket union",
+      "Pipe size": "25 mm",
+      "Material": "ABS",
+      "Color": "Red",
+      "Operating temperature": "-40 ... 70 °C",
+      "System": "VESDA / Xtralis aspirating smoke detection"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -623,13 +634,38 @@
     "merge_source": "result_PIP-003.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "descriptions_all": {
+      "claude": "Honeywell PIP-003 — соединительный элемент (pipe connector / pipe interconnection piece) для систем Honeywell. Данный компонент предназначен для соединения трубопроводных элементов или создания сопряжений между различными частями системы. Применяется в системах отопления, вентиляции и кондиционирования для обеспечения надёжного соединения между трубными участками. Компонент изготовлен из материалов, устойчивых к коррозии и воздействию высоких температур. Точные характеристики зависят от конкретного применения и совместимой системы Honeywell.",
+      "gpt": "Honeywell PIP-003 — это соединительный элемент трубной сети для аспирационных систем дымообнаружения Xtralis / VESDA. По подтверждённым источникам это 25-миллиметровый socket union, то есть муфта/разъём для соединения участков трубопровода. Такой компонент используется в сетях отбора проб воздуха, где труба должна быть легко разъединяема для обслуживания, перенастройки или ремонта. Производитель и дистрибьюторы указывают, что изделие помогает быстро демонтировать участок трубы без разрушения всей линии. Для VESDA это особенно важно, потому что аспирационные сети часто проходят в сложных инженерных зонах и требуют сервисного доступа. В ряде источников отмечены материал ABS, красное исполнение и температурный диапазон эксплуатации. Также упоминается соответствие применению в системах, прошедших испытания по EN54, что логично для пожарной аспирационной системы. Монтаж выполняется как часть трубной трассы 25 мм и должен соответствовать правилам проектирования трубной сети конкретного детектора VESDA. Для B2B-каталога позицию лучше описывать как 25 mm socket union for aspirating smoke detection pipe network. Это не электронный интерфейсный модуль, а механический connection fitting, поэтому исходное общее описание «interface/connection element» стоит уточнить в пользу трубной арматуры для ASD.",
+      "synthesis": "Honeywell PIP-003 — это 25-миллиметровый socket union (соединительный элемент/муфта) для аспирационных систем дымообнаружения Xtralis/VESDA, используемый в сетях отбора проб воздуха. Компонент предназначен для надёжного соединения участков трубопровода и позволяет быстро демонтировать трубу без разрушения всей линии для обслуживания, перенастройки или ремонта. Производитель и дистрибьюторы указывают материал ABS, красное исполнение и температурный диапазон эксплуатации, применимый для пожарных аспирационных систем. Компонент соответствует применению в системах, прошедших испытания по EN54, что логично для пожарной аспирационной системы. В сетях отбора проб воздуха такой компонент особенно важен, потому что аспирационные линии часто проходят в сложных инженерных зонах и требуют сервисного доступа без разрушения. Монтаж выполняется как часть трубной трассы 25 мм и должен соответствовать правилам проектирования трубной сети конкретного детектора VESDA. Для B2B-каталога позицию лучше описывать как 25 mm socket union for aspirating smoke detection pipe network, что точнее отражает её функцию как механического connection fitting для трубной арматуры аспирационной системы. Это не электронный интерфейсный модуль, а пассивная трубная арматура, предназначенная для обеспечения быстрого разъёма трубопровода при техническом обслуживании."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Pipe Interconnection Piece / Connector",
+        "Brand": "Honeywell"
+      },
+      "gpt": {
+        "Accessory type": "Socket union",
+        "Pipe size": "25 mm",
+        "Material": "ABS",
+        "Color": "Red",
+        "Operating temperature": "-40 ... 70 °C",
+        "System": "VESDA / Xtralis aspirating smoke detection"
+      }
+    },
+    "notes_all": {
+      "claude": "Limited specific product data available for this generic Honeywell connector part.",
+      "gpt": "Фактически это трубный фитинг для аспирационной системы, а не электронный интерфейсный модуль."
+    }
   },
   "training_urls": [
     "https://buildings.honeywell.com/gb/en/products/by-category/fire-life-safety/sensors-and-detectors/aspirating-smoke-detection/parts-and-accessories/asd-socket-union-25mm",
     "https://process.honeywell.com/",
     "https://www.atpsolutions.co/pip-003-asd-barrel-union/",
-    "https://www.firesafetycentre.online/product/vesda-xtralis-pip-003-25mm-red-socket-union/"
+    "https://www.firesafetycentre.online/product/vesda-xtralis-pip-003-25mm-red-socket-union/",
+    "https://www.security.honeywell.com/uk/product-repository/pip-003",
+    "https://www.acornfiresecurity.com/pip-003-xtralis-socket-union-25mm-red"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -658,5 +694,46 @@
     "best_description_source": "content",
     "best_photo_url": "https://buildings.honeywell.com/us/en/commerce/-/media/hbt-fire/products/product-images/vesda-fire-pip-003-union-primaryimage.jpg",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Safety Solutions Product Catalogue",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PIP-003.pdf",
+    "datasheet_size_kb": 3585,
+    "product_photos": [
+      "downloads\\datasheet_photos\\PIP-003_p1_0.jpeg",
+      "downloads\\datasheet_photos\\PIP-003_p1_1.jpeg",
+      "downloads\\datasheet_photos\\PIP-003_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "Seed name explicitly contains 'ASD SOCKET UNION' indicating ASD brand product. Socket unions are pipe fittings, not safety/security products typical of Honeywell. The datasheet appears to be wrongly associated (generic safety catalog instead of plumbing product specs). PN format PIP-003 is consistent with plumbing/pipe fittings. Brand should be corrected from Honeywell to ASD.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Safety Solutions Product Catalogue' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

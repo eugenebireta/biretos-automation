@@ -322,7 +322,8 @@
     "exact_structured_pn_match": false,
     "structured_pn_match_location": "",
     "identity_notes_p1": "Possible thermal/proximity sensor; no confirmed Honeywell product found",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -616,7 +617,42 @@
       "raw": "температурный датчик; длина кабеля 2 м (из кода -2M); цена на странице CHF 47.70 citeturn13view0",
       "aliases": [
         "—"
-      ]
+      ],
+      "Type": "Strap-on / clamp-on temperature sensor",
+      "Sensor Element": "NTC or Pt1000 (depending on variant)",
+      "Cable Length": "2 m",
+      "Measuring Range": "-30 to +130°C (typical)",
+      "Mounting": "Strap-on (pipe surface)",
+      "Application": "HVAC, heating systems",
+      "Brand": "Honeywell",
+      "Sensor Type": "Pt1000",
+      "Nominal Value": "1000 Ω at 0°C (32°F)",
+      "Accuracy": "±0.3°C at 0°C (IEC751 Class B)",
+      "Sensitivity": "3.85 Ω/K",
+      "Temperature Range": "-30...+105°C (-22...+221°F)",
+      "Time Constant (immersion)": "<30 sec",
+      "Time Constant (air duct)": "<1 min at 3 m/s",
+      "Probe Material": "Stainless steel 1.4571 (1.4306)",
+      "Cable Sheath": "PVC",
+      "Wire": "2 × 0.22 mm²",
+      "Max Wiring Distance": "200 m (660 ft)",
+      "Protection": "IP65 (EN 60529)",
+      "Storage Temperature": "-30...+70°C",
+      "Humidity": "5...95% rh, non-condensing",
+      "Probe Dimensions": "Ø6 × 55 mm",
+      "Sensor type": "Strap-on pipe temperature sensor",
+      "Sensing element": "Pt1000 (family information for KTF00)",
+      "Cable length": "2 m",
+      "Installation": "Surface mounting on pipe",
+      "Max cable run to controller": "200 m (family information)",
+      "sensing_element": "Pt1000 (IEC751 Class B)",
+      "temperature_range": "-30 °C to +105 °C",
+      "cable_length": "2 meters",
+      "sheath_material": "PVC",
+      "probe_material": "Stainless Steel 1.4571 / 1.4306",
+      "ip_rating": "IP65",
+      "accuracy": "±0.3 °C at 0 °C",
+      "time_constant": "≤30 seconds (immersion)"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -639,13 +675,64 @@
     "merge_source": "result_KTF00-65-2M.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "descriptions_all": {
+      "claude": "Honeywell KTF00-65-2M — кабельный погружной датчик температуры типа Pt1000 для систем отопления, вентиляции и кондиционирования. Датчик может использоваться как накладной или погружной (при установке в погружную гильзу серии VF, заказывается отдельно). Предназначен для установок горячего и холодного водоснабжения в системах управления EAGLE, LION, TIGER, PANTHER, Excel 5000/500/800, Excel Web, модулях ввода/вывода Honeywell и других системах, использующих чувствительные элементы Pt1000. Датчик имеет чувствительный элемент Pt1000 (1000 Ом при 0°C) с точностью ±0.3°C (IEC751 Class B) и диапазон измерения от -30 до +105°C. Корпус зонда изготовлен из нержавеющей стали марки 1.4571 (1.4306 в новых версиях), оболочка кабеля — ПВХ. Длина кабеля составляет 2 метра с сечением проводов 2×0.22 мм². Степень защиты IP65 по EN 60529 обеспечивает водонепроницаемость. Максимальная длина линии от датчика до контроллера составляет 200 м. Постоянная времени при установке в погружную гильзу менее 30 секунд.",
+      "gpt": "Honeywell KTF00-65-2M — это накладной трубный датчик температуры для систем отопления, вентиляции и кондиционирования. Он устанавливается на поверхность трубы и используется для измерения температуры теплоносителя или холодоносителя без врезки в трубопровод. Такой формат удобен в системах BMS, где требуется мониторинг подачи и обратки, контроль зон, защита оборудования и управление смесительными/регулирующими контурами. Для серии KTF Honeywell указывает применение в горячей и холодной воде, а также наличие разных чувствительных элементов в зависимости от исполнения. Для варианта KTF00 семейная документация указывает платиновый элемент Pt1000 и кабель подключения, при этом в обозначении 2M отражена длина кабеля 2 метра. Накладной монтаж упрощает сервис и позволяет устанавливать датчик на уже собранной системе без остановки на сварочные или врезные работы. При этом точность во многом зависит от качества теплового контакта с трубой и правильной теплоизоляции точки измерения после установки. Honeywell также обращает внимание на допустимую длину линии до контроллера и сопротивление проводников, что важно для сохранения точности Pt1000-измерения. Для каталога позицию корректно описывать как strap-on pipe temperature sensor for water-based HVAC circuits. Это типовой field sensor для инженерных систем зданий, особенно там, где нужна простая установка и интеграция с автоматикой Honeywell или сторонними BMS-контроллерами.",
+      "gemini": "Датчик температуры Honeywell KTF00-65-2M является незаменимым компонентом для мониторинга состояния теплоносителя в системах отопления и вентиляции. В качестве чувствительного элемента в нем используется платиновый резистор Pt1000, обеспечивающий высокую стабильность и точность измерений. Датчик оснащен защитной гильзой из высококачественной нержавеющей стали, что гарантирует защиту от коррозии и механических повреждений. Кабель длиной два метра имеет ПВХ-изоляцию, позволяющую эксплуатировать устройство при температурах до 105 градусов Цельсия. Степень защиты корпуса IP65 обеспечивает надежную работу датчика в условиях повышенной влажности и образования конденсата. Устройство может использоваться как накладной датчик на трубу, так и погружной элемент при использовании соответствующей гильзы. Благодаря отсутствию полярности при подключении, монтаж датчика к контроллеру производится быстро и без ошибок. Компактные размеры зонда позволяют устанавливать его в труднодоступных местах инженерных систем. Данное изделие широко применяется в составе систем автоматизации Honeywell Excel 5000 и ComfortPoint Open для обеспечения энергоэффективности зданий.",
+      "synthesis": "Honeywell KTF00-65-2M — накладной трубный датчик температуры типа Pt1000 для систем отопления, вентиляции и кондиционирования, устанавливаемый на поверхность трубы без врезки в трубопровод. Датчик имеет чувствительный элемент Pt1000 (1000 Ом при 0°C) с точностью ±0.3°C (IEC751 Class B) и диапазон измерения от -30 до +105°C. Может использоваться как накладной или погружной (при установке в погружную гильзу серии VF). Корпус зонда изготовлен из высококачественной нержавеющей стали марки 1.4571, обеспечивающей защиту от коррозии. Оболочка кабеля выполнена из ПВХ, длина кабеля 2 метра с сечением проводов 2×0.22 мм². Степень защиты IP65 по EN 60529. Датчик используется для измерения температуры теплоносителя или холодоносителя в системах BMS, где требуется мониторинг подачи и обратки, контроль зон, защита оборудования и управление смесительными/регулирующими контурами. Благодаря отсутствию полярности при подключении, монтаж датчика к контроллеру производится быстро и без ошибок. Максимальная длина линии от датчика до контроллера составляет 200 м. Накладной монтаж упрощает сервис и позволяет устанавливать датчик на уже собранной системе без остановки на сварочные работы."
+    },
+    "specs_all": {
+      "claude": {
+        "Sensor Type": "Pt1000",
+        "Nominal Value": "1000 Ω at 0°C (32°F)",
+        "Accuracy": "±0.3°C at 0°C (IEC751 Class B)",
+        "Sensitivity": "3.85 Ω/K",
+        "Temperature Range": "-30...+105°C (-22...+221°F)",
+        "Time Constant (immersion)": "<30 sec",
+        "Time Constant (air duct)": "<1 min at 3 m/s",
+        "Probe Material": "Stainless steel 1.4571 (1.4306)",
+        "Cable Sheath": "PVC",
+        "Cable Length": "2 m",
+        "Wire": "2 × 0.22 mm²",
+        "Max Wiring Distance": "200 m (660 ft)",
+        "Protection": "IP65 (EN 60529)",
+        "Storage Temperature": "-30...+70°C",
+        "Humidity": "5...95% rh, non-condensing",
+        "Probe Dimensions": "Ø6 × 55 mm"
+      },
+      "gpt": {
+        "Sensor type": "Strap-on pipe temperature sensor",
+        "Application": "Hot/cold water HVAC systems",
+        "Sensing element": "Pt1000 (family information for KTF00)",
+        "Cable length": "2 m",
+        "Installation": "Surface mounting on pipe",
+        "Max cable run to controller": "200 m (family information)"
+      },
+      "gemini": {
+        "sensing_element": "Pt1000 (IEC751 Class B)",
+        "temperature_range": "-30 °C to +105 °C",
+        "cable_length": "2 meters",
+        "sheath_material": "PVC",
+        "probe_material": "Stainless Steel 1.4571 / 1.4306",
+        "ip_rating": "IP65",
+        "accuracy": "±0.3 °C at 0 °C",
+        "time_constant": "≤30 seconds (immersion)"
+      }
+    },
+    "notes_all": {
+      "claude": "Immersion well not included; order VF series separately. For old-style VFxx wells, order VF-SPRING accessory.",
+      "gpt": "Серия KTF имеет несколько исполнений с разными sensing elements; для публикации лучше оставить явную ссылку на точный PN KTF00-65-2M."
+    }
   },
   "training_urls": [
     "https://energycontrolsonline.co.uk/products/cable-immersion-temperature-sensor-pt1000-20-260c-2m-length-ip65",
     "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/centraline/hbt-bms-en0b0720-ge51r0819h.pdf",
     "https://www.honeywell.com/",
-    "https://www.resideo.com/emea/en/products/comfort/configurable-controllers/sensors/ktf00-65-2m-water-temperature-sensor-pt1000-2-wiring-terminals-ktf00-65-2m/"
+    "https://www.resideo.com/emea/en/products/comfort/configurable-controllers/sensors/ktf00-65-2m-water-temperature-sensor-pt1000-2-wiring-terminals-ktf00-65-2m/",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/ba-bms-KTFxx-CABLE-TYPE-BULB-TEMPERATURE-SENSORS-Data-Sheet-English.pdf",
+    "https://buildings.honeywell.com/gb/en/products/by-category/sensors/temperature-sensors/bulb-temperature-sensor",
+    "https://buildings.honeywell.com/us/en/products/by-category/sensors/temperature-sensors/pipe-sensors/ktf-ktf20-pipe-sensors"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -673,5 +760,39 @@
     "best_description_source": "content",
     "best_photo_url": "â",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "KTFxx CABLE-TYPE BULB TEMPERATURE SENSORS",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\KTF00-65-2M.pdf",
+    "datasheet_size_kb": 185,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format KTF00-65-2M matches Honeywell's KTFxx series temperature sensors. The title_from_datasheet 'KTFxx CABLE-TYPE BULB TEMPERATURE SENSORS' confirms this is genuine Honeywell product. Brand and PN are correct. However, the datasheet extraction failed - missing EAN, truncated description (59 words, incomplete sentence), and zero specifications for a temperature sensor that should have temp range, accuracy, cable length (2M indicated in PN), probe specs, etc. The datasheet needs to be re-processed or replaced with complete data."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'KTFxx CABLE-TYPE BULB TEMPERATURE SENSORS' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

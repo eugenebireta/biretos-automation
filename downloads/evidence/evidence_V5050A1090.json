@@ -303,7 +303,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -568,7 +569,10 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report.md",
     "description_ru": "Фланцевый регулирующий клапан DN100 для тяжелых условий эксплуатации в тепловых сетях. Обладает высокой пропускной способностью и рассчитан на номинальное давление 16 бар. Металлическое уплотнение седла гарантирует износостойкость при работе с паром и горячей водой.",
-    "specs": "Size: DN100; PN: 16; Kvs: 160; Stroke: 38mm; Max Temp: 220C"
+    "specs": "Size: DN100; PN: 16; Kvs: 160; Stroke: 38mm; Max Temp: 220C",
+    "descriptions_all": {
+      "legacy": "Фланцевый регулирующий клапан DN100 для тяжелых условий эксплуатации в тепловых сетях. Обладает высокой пропускной способностью и рассчитан на номинальное давление 16 бар. Металлическое уплотнение седла гарантирует износостойкость при работе с паром и горячей водой."
+    }
   },
   "training_urls": [],
   "price_contract": {
@@ -597,5 +601,118 @@
     "best_description_source": "dr",
     "best_photo_url": "https://www.sanitaershop24.ch/images/thumbs/0139965_honeywell-dreiwegeventil-pn-16-flansch-din-gepruft-niro-garnitur-dn-100-kvs-wert-160-artnr-v5050a109_300.jpeg",
     "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "V5050A 3-WAY FLANGED LINEAR VALVE PN16",
+    "description": "These single seated valves are used for modulating control of hot / chilled water or steam in heating, ventilating and air conditioning systems. The valves can be operated by linear actuators ML6421B and M7L421B. Features include a cast iron body with flanged end connections, low seat leakage rate, metal to metal seating for long life span, self-adjusting packing, accurate positioning for state-of-the-art temperature control, easy mounting of direct coupled electric and pneumatic actuators, and constant total flow throughout full plug travel.",
+    "specs": {
+      "Action": "Stem up to close port A-AB",
+      "Nominal pressure rating": "PN16",
+      "Flow characteristic": "Equal percentage port A-AB, linear port B-AB",
+      "Valve type": "3-way mixing",
+      "Rangeability": "50:1",
+      "Leakage rate": {
+        "port A-AB": "≤0.1% of kVS",
+        "port B-AB": "≤1% of kVS"
+      },
+      "Stroke": "38 mm",
+      "Valve body End connections": "Flanged per ISO 7005-2",
+      "Material": {
+        "Body": "Cast iron (GG25)",
+        "Seat": "Body integrated",
+        "Stem": "Stainless steel",
+        "Plug": "Stainless steel, skirt guided",
+        "Packing": "Spring loaded PTFE cone rings"
+      },
+      "Medium temperature and pressure PN16": {
+        "range1": "2... 120 °C; 1600 kPa",
+        "range2": "120 ... 150 °C; 1440 kPa"
+      },
+      "Maximum temperature differential in alternating hot/cold water use": "60 K",
+      "kVS values": [
+        {
+          "Valve Size": "DN100",
+          "kVS": 140,
+          "Order Number": "V5050A2088"
+        },
+        {
+          "Valve Size": "DN125",
+          "kVS": 220,
+          "Order Number": "V5050A2106"
+        },
+        {
+          "Valve Size": "DN150",
+          "kVS": 310,
+          "Order Number": "V5050A2114"
+        }
+      ],
+      "Actuator compatibility (Electric actuators)": {
+        "Actuator (1800N)": "M6421B, M7421B",
+        "Valve Size": "DN100-DN150"
+      },
+      "Close off pressure ratings (kPa)": [
+        {
+          "Actuator Model": "ML6421B, ML7421B",
+          "Force": "1800 N",
+          "DN100": 150,
+          "DN125": 120,
+          "DN150": 80
+        }
+      ],
+      "Repair packing kit": {
+        "Part No.": "88609020",
+        "Materials": [
+          "CORBON+TEFLON",
+          "O-RIING(NBR)"
+        ]
+      },
+      "Installation requirements": [
+        "Water should meet VDI 2035 requirements.",
+        "Do not install valve with stem below the horizontal.",
+        "Fluid flow must correspond with the arrow direction on the valve body.",
+        "The installation of a strainer is strongly recommended."
+      ]
+    },
+    "specs_count": 16,
+    "series": "V5050A",
+    "category": "3-WAY FLANGED LINEAR VALVE",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "['V5050A2088', 'V5050A2106', 'V5050A2114']",
+    "datasheet_pdf": "downloads\\datasheets_v2\\V5050A1090.pdf",
+    "datasheet_size_kb": 2785,
+    "product_photos": [
+      "downloads\\datasheet_photos\\V5050A1090_p2_0.png",
+      "downloads\\datasheet_photos\\V5050A1090_p2_1.png",
+      "downloads\\datasheet_photos\\V5050A1090_p2_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - V5050A is a valid Honeywell valve series. The datasheet title confirms this is a Honeywell 3-way flanged linear valve PN16. The issues are data completeness (missing EAN, description, specs, photos) not brand/PN errors. Need to extract missing technical data from the existing datasheet or source additional product information."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'V5050A 3-WAY FLANGED LINEAR VALVE PN16' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

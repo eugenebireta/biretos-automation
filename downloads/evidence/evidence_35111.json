@@ -344,7 +344,9 @@
     "series": "NOVA",
     "color_material": "plastic, deep black",
     "identity_notes_p1": "NOVA 1-gang frame, pressure switch mounting",
-    "phase1_recon_done": true
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -656,10 +658,24 @@
     "merge_source": "result_35111.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (5).md"
+    "source_file": "deep-research-report (5).md",
+    "specs": {
+      "series": "NOVA",
+      "type": "Frame",
+      "gang": "1",
+      "finish": "Aluminum enamel lacquer",
+      "material": "Thermoplastic halogen-free",
+      "dimensions": "81x81mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    },
+    "descriptions_all": {
+      "legacy": "Вероятно элемент рамки/программы выключателей PEHA; цена не зафиксирована в этом прогоне"
+    }
   },
   "training_urls": [
-    "https://www.motion.com/products/sku/03734855"
+    "https://www.motion.com/products/sku/03734855",
+    "https://www.watt24.com/p/peha-rahmen-1-fach-piano-sw-waage-senkrecht-d-20.671.192-t-00035111/"
   ],
   "price_contract": {
     "schema_version": "price_contract_v1",
@@ -685,7 +701,61 @@
     "best_price_source": "price_contract",
     "best_description": "Датчик давления D 20.671.192 T предназначен для измерения давления в системах автоматизации. Обеспечивает высокую точность и надежность.",
     "best_description_source": "content",
-    "best_photo_url": null,
-    "best_photo_source": null
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_35111.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "1 CHANNEL MODULAR TRANSMITTER",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\35111.pdf",
+    "datasheet_size_kb": 34834,
+    "product_photos": [
+      "downloads\\datasheet_photos\\35111_p1_0.jpeg",
+      "downloads\\datasheet_photos\\35111_p2_0.jpeg",
+      "downloads\\datasheet_photos\\35111_p7_0.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105035117",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Critical mismatch between Russian seed_name 'Датчик давления' (pressure sensor) with model D 20.671.192 T and English datasheet title '1 CHANNEL MODULAR TRANSMITTER'. PN 35111 is too generic to identify brand. The datasheet PDF may be incorrectly matched to this product. Need to verify: 1) Is D 20.671.192 T the actual model number? 2) Is this truly a Honeywell product? 3) Does the datasheet actually correspond to PN 35111? Without reviewing the PDF content, cannot determine correct brand or reconcile the conflicting product descriptions."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 34834KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title '1 CHANNEL MODULAR TRANSMITTER' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105035117",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
   }
 }

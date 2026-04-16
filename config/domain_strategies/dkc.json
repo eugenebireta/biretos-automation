@@ -1,0 +1,88 @@
+{
+  "brand": "DKC",
+  "pn_naming_conventions": [
+    "Формат XXXXX-RU или XXXXXX-RU (5-6 цифр + дефис + RU) — основной паттерн для российского рынка",
+    "Формат CMXXXXXX-RU (буквы CM + 6 цифр + дефис + RU) — серия металлорукавов и кабельных систем",
+    "Суффикс -RU означает русскую локализацию/спецификацию продукта"
+  ],
+  "ean_locations": {
+    "primary": "gemini_grounding показывает EAN, но покрытие низкое (1 из 5). EAN формата 13 цифр с префиксом 4690309 (российский производитель)",
+    "format": "EAN-13, начинается с 4690309XXXXX"
+  },
+  "trusted_sources": {
+    "price": [
+      "price_contract (контрактные цены — наиболее надёжны)",
+      "dkc.ru",
+      "dkcmarket.ru",
+      "elektro.ru",
+      "b2b.el.ru",
+      "vse-e.com"
+    ],
+    "ean": [
+      "dkc.ru",
+      "dkcmarket.ru",
+      "elektro.ru"
+    ],
+    "photo": [
+      "dkc.ru",
+      "dkcmarket.ru",
+      "vseinstrumenti.ru"
+    ],
+    "specs": [
+      "dkc.ru (официальный сайт — приоритет)",
+      "dkcmarket.ru",
+      "elektro.ru",
+      "e-kc.ru"
+    ]
+  },
+  "common_pitfalls": [
+    "КРИТИЧНО: Title и series часто содержат МУСОРНЫЕ данные (например '36144-RU' имеет title 'African Journal of Agricultural Research' — это явно ошибка парсинга)",
+    "Домены buildings.honeywell.com, resideo.com, honeywellhome.com НЕ относятся к DKC — это перекрёстное загрязнение данных из другого бренда",
+    "tme.eu, santehmoskva.ru могут показывать аналоги или неточные совпадения — проверять соответствие PN",
+    "Огромный разброс цен: от 74₽ (CM100600-RU метраж) до 42000₽ (36146-RU комплект) — обязательно проверять единицу измерения",
+    "us.rs-online.com, satro-paladin.com — низкая релевантность для российских PN с суффиксом -RU"
+  ],
+  "validation_rules": [
+    {
+      "field": "title",
+      "rule": "Если title не содержит слова на русском и не связан с электротехникой — отбросить, искать заново",
+      "reason": "Видны примеры загрязнения: 'African Journal', 'QST Amateur Radio', 'DIXI Centre Drill' — это не DKC продукты"
+    },
+    {
+      "field": "price",
+      "rule": "Если price < 100₽ — проверить единицу измерения (может быть цена за метр). Если price > 20000₽ — проверить pack size или комплектацию",
+      "reason": "CM100600-RU = 74₽/метр vs 36146-RU = 42000₽ за комплект"
+    },
+    {
+      "field": "ean",
+      "rule": "EAN должен начинаться с 4690309. Если другой префикс — требуется дополнительная проверка",
+      "reason": "DKC использует российский регистрационный код 4690309"
+    },
+    {
+      "field": "pn",
+      "rule": "PN должен соответствовать паттерну *-RU. Если нет суффикса -RU — возможно это не для российского рынка",
+      "reason": "Все примеры содержат -RU суффикс"
+    },
+    {
+      "field": "source_domain",
+      "rule": "ИГНОРИРОВАТЬ данные с buildings.honeywell.com, resideo.com, honeywellhome.com для бренда DKC",
+      "reason": "Это домены Honeywell — конкурентного бренда, данные загрязнены"
+    }
+  ],
+  "search_query_templates": [
+    "{pn} site:dkc.ru",
+    "{pn} site:dkcmarket.ru",
+    "DKC {pn} технические характеристики",
+    "{pn} site:elektro.ru",
+    "{pn} EAN site:dkc.ru",
+    "DKC {pn} datasheet PDF"
+  ],
+  "notes_for_cheap_ai": "DKC — российский производитель кабельных систем и электротехники. КРИТИЧНО: в обучающих данных есть СИЛЬНОЕ загрязнение — title содержат названия журналов и инструментов, URL ведут на Honeywell (другой бренд). При обогащении: 1) Используй ТОЛЬКО домены dkc.ru/dkcmarket.ru/elektro.ru для specs и EAN. 2) ИГНОРИРУЙ полностью домены honeywell/resideo. 3) Если title выглядит странно (журналы, сверла, не электротехника) — НЕ доверяй, ищи заново. 4) Цены проверяй на единицу измерения: есть и метровые товары (~70₽) и комплекты (~40000₽). 5) EAN начинается с 4690309, формат PN: цифры-RU или буквы+цифры-RU. 6) Datasheets есть (6-14 МБ), ищи на официальном сайте DKC.",
+  "_meta": {
+    "examples_analyzed": 5,
+    "model": "claude-sonnet-4-5",
+    "tokens_in": 1449,
+    "tokens_out": 1634,
+    "cost_usd": 0.0289
+  }
+}
