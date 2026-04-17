@@ -68,6 +68,10 @@ def load_insales_headers():
 def main():
     canonical = json.loads(CANONICAL_FILE.read_text(encoding="utf-8"))
 
+    # Load SEO long descriptions (generated separately via AI router pipeline)
+    seo_file = ROOT / "downloads" / "staging" / "pipeline_v2_output" / "descriptions_seo.json"
+    seo_descriptions = json.loads(seo_file.read_text(encoding="utf-8")) if seo_file.exists() else {}
+
     headers = load_insales_headers()
     if not headers:
         print("WARNING: shop_data.csv not found, using minimal headers")
@@ -117,9 +121,13 @@ def main():
         else:
             price_rub = ""
 
-        # Description
-        desc = p.get("best_description_ru", "") or ""
-        if not desc.startswith("<"):
+        # Description — prefer SEO long form (300+ words) over canonical short form
+        seo_entry = seo_descriptions.get(pn) or seo_descriptions.get(pn.replace("/", "_"), {})
+        if isinstance(seo_entry, dict) and seo_entry.get("word_count", 0) >= 150:
+            desc = seo_entry.get("description_seo_ru", "") or ""
+        else:
+            desc = p.get("best_description_ru", "") or ""
+        if desc and not desc.startswith("<"):
             desc = f"<p>{desc}</p>"
 
         # Category
