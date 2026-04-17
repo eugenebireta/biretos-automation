@@ -90,7 +90,7 @@ def main():
         prompt = PROMPT.format(brand=brand, pairs=pairs_str)
         try:
             response = client.messages.create(
-                model="claude-sonnet-4-5",
+                model="claude-sonnet-4-5-20250929",
                 max_tokens=2000,
                 messages=[{"role": "user", "content": prompt}],
             )

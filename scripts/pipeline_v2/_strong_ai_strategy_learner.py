@@ -145,7 +145,7 @@ def analyze_brand_with_claude(brand: str):
     client = anthropic.Anthropic(api_key=get_secret("ANTHROPIC_API_KEY"))
 
     response = client.messages.create(
-        model="claude-sonnet-4-5",  # strong model
+        model="claude-sonnet-4-5-20250929",  # strong model
         max_tokens=3000,
         messages=[{"role": "user", "content": prompt}],
     )
@@ -164,7 +164,7 @@ def analyze_brand_with_claude(brand: str):
     # Add metadata
     strategy["_meta"] = {
         "examples_analyzed": len(examples),
-        "model": "claude-sonnet-4-5",
+        "model": "claude-sonnet-4-5-20250929",
         "tokens_in": response.usage.input_tokens,
         "tokens_out": response.usage.output_tokens,
         "cost_usd": round((response.usage.input_tokens * 3.00 + response.usage.output_tokens * 15.00) / 1_000_000, 4),

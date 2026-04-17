@@ -136,7 +136,7 @@ def validate_via_sonnet(client, change: dict, evidence: dict, siblings: list[str
     )
 
     response = client.messages.create(
-        model="claude-sonnet-4-5",
+        model="claude-sonnet-4-5-20250929",
         max_tokens=800,
         messages=[{"role": "user", "content": prompt}],
     )
