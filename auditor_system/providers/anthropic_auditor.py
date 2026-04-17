@@ -78,6 +78,8 @@ class AnthropicAuditor(AuditorProvider):
             messages=[{"role": "user", "content": user_prompt}],
             temperature=self._temperature,
         )
+        from orchestrator._api_cost_tracker import log_api_call
+        log_api_call(__file__, self.model, response.usage)
 
         raw_text = response.content[0].text if response.content else ""
         logger.info(
@@ -163,6 +165,8 @@ class AnthropicAuditor(AuditorProvider):
             messages=[{"role": "user", "content": user_prompt}],
             temperature=self._temperature,
         )
+        from orchestrator._api_cost_tracker import log_api_call
+        log_api_call(__file__, self.model, response.usage)
 
         raw_text = response.content[0].text if response.content else ""
         json_text = extract_json_from_response(raw_text)

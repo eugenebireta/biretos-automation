@@ -90,6 +90,8 @@ def main():
                     ),
                 }],
             )
+            from orchestrator._api_cost_tracker import log_api_call
+            log_api_call(__file__, "claude-haiku-4-5-20251001", resp.usage)
             classification = resp.content[0].text.strip()
             print(classification[:90])
             results[domain] = classification

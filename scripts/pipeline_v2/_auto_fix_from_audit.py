@@ -96,6 +96,8 @@ def main():
                 max_tokens=600,
                 messages=[{"role": "user", "content": FIX_PROMPT.format(data=json.dumps(data, indent=2, ensure_ascii=False), issues=issues_str)}],
             )
+            from orchestrator._api_cost_tracker import log_api_call
+            log_api_call(__file__, "claude-sonnet-4-5", response.usage)
             text = response.content[0].text.strip()
             if "```" in text:
                 parts = text.split("```")

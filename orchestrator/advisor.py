@@ -264,6 +264,8 @@ def _call_api(client, model: str, user_prompt: str,
                 messages=[{"role": "user", "content": user_prompt}],
                 timeout=timeout,
             )
+            from orchestrator._api_cost_tracker import log_api_call
+            log_api_call(__file__, model, response.usage)
             return response.content[0].text
         except Exception as e:
             last_exc = e

@@ -206,6 +206,8 @@ def extract_with_haiku(page_text: str, pn: str, brand: str, seed_name: str) -> d
                 "content": f"{prompt}\n\nPage content:\n{page_text}",
             }],
         )
+        from orchestrator._api_cost_tracker import log_api_call
+        log_api_call(__file__, "claude-haiku-4-5-20251001", resp.usage)
         text = resp.content[0].text.strip()
         if "```" in text:
             parts = text.split("```")

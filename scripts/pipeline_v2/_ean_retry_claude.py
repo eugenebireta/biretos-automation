@@ -112,6 +112,8 @@ def main():
                     ],
                 }],
             )
+            from orchestrator._api_cost_tracker import log_api_call
+            log_api_call(__file__, "claude-haiku-4-5-20251001", response.usage)
             text = response.content[0].text.strip()
             if "```" in text:
                 parts = text.split("```")
