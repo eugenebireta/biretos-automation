@@ -16,6 +16,8 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
+from scripts.pipeline_v2.t1_brand_guard import should_skip_brand_autofix
+
 ROOT = Path(__file__).resolve().parent.parent.parent
 EV_DIR = ROOT / "downloads" / "evidence"
 QC_FILE = ROOT / "downloads" / "staging" / "pipeline_v2_output" / "quality_check.json"
@@ -111,6 +113,30 @@ def main():
 
             # Apply fix
             applied = False
+            # T1 Sync Guard (hotfix 2026-04-17): LLM brand proposals are rejected
+            # for SKUs with structured_identity.confirmed_manufacturer populated.
+            # Empirically, 19/19 prior wrong corrections were on such SKUs.
+            if action == "update_brand":
+                skip, skip_reason = should_skip_brand_autofix(d)
+                if skip:
+                    stats["no_fix"] += 1
+                    print(f"T1_GUARD_SKIP: {skip_reason}")
+                    # Log that we blocked the proposal for audit trail
+                    fix_record = {
+                        "pn": pn, "timestamp": datetime.now(timezone.utc).isoformat(),
+                        "action": "update_brand", "applied": False,
+                        "blocked_by": "t1_brand_guard",
+                        "old_brand": current_brand,
+                        "proposed_new_brand": correct_brand,
+                        "reasoning": fix.get("reasoning", ""),
+                        "confidence": fix.get("confidence", ""),
+                        "guard_reason": skip_reason,
+                        "cost_usd": round(cost, 5),
+                    }
+                    with open(FIX_LOG, "a", encoding="utf-8") as lf:
+                        lf.write(json.dumps(fix_record, ensure_ascii=False) + "\n")
+                    continue
+
             if action == "update_brand" and correct_brand and correct_brand != current_brand:
                 # Save old brand + update
                 fd_old = fd.get("_corrections", {})
