@@ -4,14 +4,21 @@ Run:
     python scripts/audit_api_costs.py                  # all time
     python scripts/audit_api_costs.py --days 7         # last 7 days
     python scripts/audit_api_costs.py --script phase1_recon  # filter by script
+    python scripts/audit_api_costs.py --csv dashboard.csv    # ingest Anthropic dashboard CSV
 
 Shows: $/day totals, per-script breakdown, cache hit-rate per script (for
 deciding whether caching would pay off - breakeven >=6 reads/TTL per
 feedback_api_caching_math.md).
+
+CSV ingestion (--csv) reads an Anthropic Console usage export and reports the
+same breakdowns by model/day. Dashboard has no per-script granularity, so
+script column is set to "<dashboard>". Useful for historical baseline before
+the tracker was in place.
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import io
 import json
 import sys
@@ -24,10 +31,69 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 ROOT = Path(__file__).resolve().parent.parent
 LOG_PATH = ROOT / "logs" / "api_costs.jsonl"
 
+sys.path.insert(0, str(ROOT))
+from orchestrator._api_cost_tracker import PRICING  # noqa: E402
 
-def load_records(days: int | None, script_filter: str | None) -> list[dict]:
+
+def _csv_row_cost(row: dict) -> float:
+    """Compute $ for one Anthropic dashboard CSV row using PRICING table."""
+    model = row.get("model_version", "")
+    p = PRICING.get(model)
+    if p is None:
+        return 0.0
+
+    def _int(key: str) -> int:
+        try:
+            return int(row.get(key, "0") or 0)
+        except ValueError:
+            return 0
+
+    in_tok = _int("usage_input_tokens_no_cache")
+    out_tok = _int("usage_output_tokens")
+    cache_r = _int("usage_input_tokens_cache_read")
+    cache_w_5m = _int("usage_input_tokens_cache_write_5m")
+    cache_w_1h = _int("usage_input_tokens_cache_write_1h")
+    # 1h write price is ~2x 5m write; approximate conservatively
+    return (
+        in_tok * p["in"]
+        + out_tok * p["out"]
+        + cache_r * p["cache_r"]
+        + cache_w_5m * p["cache_w_5m"]
+        + cache_w_1h * p["cache_w_5m"] * 2
+    ) / 1_000_000.0
+
+
+def load_csv(csv_path: Path) -> list[dict]:
+    """Return synthetic records from Anthropic dashboard CSV, normalized to
+    the same shape the JSONL loader produces.
+    """
+    records = []
+    with csv_path.open(encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            day = row.get("usage_date_utc", "")
+            if not day:
+                continue
+            records.append({
+                "ts": f"{day}T00:00:00+00:00",
+                "script": "<dashboard>",
+                "model": row.get("model_version", ""),
+                "in_tokens": int(row.get("usage_input_tokens_no_cache", 0) or 0),
+                "out_tokens": int(row.get("usage_output_tokens", 0) or 0),
+                "cache_read_tokens": int(row.get("usage_input_tokens_cache_read", 0) or 0),
+                "cache_write_tokens": (
+                    int(row.get("usage_input_tokens_cache_write_5m", 0) or 0)
+                    + int(row.get("usage_input_tokens_cache_write_1h", 0) or 0)
+                ),
+                "cost_usd": round(_csv_row_cost(row), 6),
+            })
+    return records
+
+
+def load_records(days: int | None, script_filter: str | None, quiet: bool = False) -> list[dict]:
     if not LOG_PATH.exists():
-        print(f"No log file at {LOG_PATH}. Nothing to report.", file=sys.stderr)
+        if not quiet:
+            print(f"No log file at {LOG_PATH}. Nothing to report.", file=sys.stderr)
         return []
     cutoff = None
     if days is not None:
@@ -120,8 +186,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=None, help="Last N days only")
     ap.add_argument("--script", type=str, default=None, help="Filter by script name substring")
+    ap.add_argument("--csv", type=str, default=None,
+                    help="Ingest Anthropic dashboard CSV instead of / in addition to JSONL")
     args = ap.parse_args()
-    records = load_records(args.days, args.script)
+    records: list[dict] = []
+    if args.csv:
+        records.extend(load_csv(Path(args.csv)))
+    records.extend(load_records(args.days, args.script, quiet=bool(args.csv)))
     report(records)
     return 0
 
