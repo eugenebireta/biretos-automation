@@ -615,9 +615,1482 @@
     "schema_version": 2,
     "title": "Axial Flow Valves Technical Bulletin",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "general": {
+        "product_type": "Axial Flow Valves",
+        "design_type": "flexible element valve",
+        "controlled_media": "natural gas, air, nitrogen, carbon dioxide, propane vapor, other non-corrosive gases, or water"
+      },
+      "performance": {
+        "inlet_pressure_maximum_psig": 1480,
+        "outlet_pressure_range_wc_psig": "6 inches W.C. to 900 PSIG",
+        "maximum_flow_rate_scfh": 39000000,
+        "differential_pressure_drop_maximum_psid": 1000,
+        "sizes_available_inches": [
+          "2",
+          "3",
+          "4",
+          "6",
+          "8",
+          "12"
+        ]
+      },
+      "materials": {
+        "valve_cage_closure": "17-4 Stainless Steel",
+        "body_assembly": "Carbon Steel, Electrodeposited zinc plating with chromate treatment",
+        "sleeve_materials_list": [
+          {
+            "type": "Hydrin",
+            "code": "H"
+          },
+          {
+            "type": "Buna N",
+            "code": "B"
+          },
+          {
+            "type": "Viton",
+            "code": "V"
+          },
+          {
+            "type": "Natural Rubber",
+            "code": "N"
+          },
+          {
+            "type": "Fluorosilicone Rubber",
+            "code": "F"
+          },
+          {
+            "type": "HNBR",
+            "code": "HB"
+          }
+        ]
+      },
+      "sleeve_material_properties": {
+        "hydrin": {
+          "standard_for_series": "300 Series Axial Flow Valves",
+          "operating_temperature_range_f": "-20°F to 150°F",
+          "durometer_options": [
+            "50 (Low Delta Pressure, H-5L)",
+            "50 (H-5)",
+            "70 (H-7)"
+          ]
+        },
+        "buna_n": {
+          "chemical_resistance": "Good",
+          "operating_temperature_range_f": "0°F to 150°F",
+          "durometer_options": [
+            "50 (Low Delta Pressure, B-5L)",
+            "50 (B-5)",
+            "70 (B-7)"
+          ],
+          "standard_for_series": "600 Series high pressure Axial Flow Valves"
+        },
+        "viton": {
+          "chemical_resistance": "Excellent",
+          "operating_temperature_range_f": "30°F to 180°F",
+          "durometer_options": [
+            "70 (V-7)"
+          ]
+        },
+        "natural_rubber": {
+          "application": "water applications only",
+          "durometer_options": [
+            "70 (N-7)"
+          ]
+        },
+        "fluorosilicone_rubber": {
+          "chemical_resistance": "Good",
+          "operating_temperature_range_f": "-20°F to 180°F",
+          "durometer_options": [
+            "50 (F-5)"
+          ],
+          "limited_inlet_pressure_psig": 125
+        },
+        "hnbr": {
+          "toughness": "Maximum for Buna applications",
+          "operating_temperature_range_f": "0°F to 150°F",
+          "durometer_options": [
+            "65 (HB-65)"
+          ]
+        }
+      },
+      "operating_parameters_by_series_sleeve": [
+        {
+          "series": "300",
+          "sleeve_number": "5L",
+          "sleeve_material": [
+            "Hydrin",
+            "Buna N"
+          ],
+          "composite_block_manifold_cracking_psid": 1.5,
+          "composite_block_manifold_full_open_psid": 5.0,
+          "inspirator_block_manifold_cracking_psid": 0.5,
+          "inspirator_block_manifold_full_open_psid": 1.7,
+          "maximum_operating_conditions_continuous_psid": 30,
+          "maximum_operating_conditions_intermittent_psid": 50
+        },
+        {
+          "series": "300",
+          "sleeve_number": "5",
+          "sleeve_material": [
+            "Hydrin",
+            "Buna N"
+          ],
+          "composite_block_manifold_cracking_psid": 3.5,
+          "composite_block_manifold_full_open_psid": 15,
+          "inspirator_block_manifold_cracking_psid": 1.5,
+          "inspirator_block_manifold_full_open_psid": 7.5,
+          "maximum_operating_conditions_continuous_psid": 125,
+          "maximum_operating_conditions_intermittent_psid": 180
+        },
+        {
+          "series": "300",
+          "sleeve_number": "5",
+          "sleeve_material": [
+            "Fluorosilicone"
+          ],
+          "composite_block_manifold_cracking_psid": 2.0,
+          "composite_block_manifold_full_open_psid": 10,
+          "maximum_operating_conditions_continuous_psid": 60,
+          "maximum_operating_conditions_intermittent_psid": 60
+        },
+        {
+          "series": "300",
+          "sleeve_number": "7",
+          "sleeve_material": [
+            "Hydrin",
+            "Buna N",
+            "HNBR",
+            "Viton",
+            "Nat. Rubber"
+          ],
+          "composite_block_manifold_cracking_psid": 14,
+          "composite_block_manifold_full_open_psid": 30,
+          "inspirator_block_manifold_cracking_psid": 6,
+          "inspirator_block_manifold_full_open_psid": 19,
+          "maximum_operating_conditions_continuous_psid": 500,
+          "maximum_operating_conditions_intermittent_psid": 720
+        },
+        {
+          "series": "600",
+          "sleeve_number": "7",
+          "sleeve_material": [
+            "Buna N (Std)",
+            "Hydrin",
+            "HNBR",
+            "Viton"
+          ],
+          "composite_block_manifold_cracking_psid": 30,
+          "composite_block_manifold_full_open_psid": 60,
+          "inspirator_block_manifold_cracking_psid": 12,
+          "inspirator_block_manifold_full_open_psid": 25,
+          "maximum_operating_conditions_continuous_psid": 1000,
+          "maximum_operating_conditions_intermittent_psid": 1440,
+          "available_valve_sizes_inches": [
+            "2",
+            "4",
+            "6",
+            "8"
+          ]
+        }
+      ],
+      "rated_working_pressures": {
+        "ansi_class_300_low_differential_pressure_psig": "60 (5L Sleeve only)",
+        "ansi_class_300_psig": 740,
+        "ansi_class_300_available_sizes": [
+          "2\"R10",
+          "2\"R25",
+          "2\"R50",
+          "2\"",
+          "3\"",
+          "4\"",
+          "6\"",
+          "8\"",
+          "12\""
+        ],
+        "ansi_class_600_psig": 1480,
+        "ansi_class_600_available_sizes": [
+          "2\"R10",
+          "2\"R25",
+          "2\"R50",
+          "2\"",
+          "4\"",
+          "6\"",
+          "8\""
+        ]
+      },
+      "options_and_accessories": {
+        "reduced_capacity_cages": {
+          "2_inch_r10_capacity_reduction_percent": 10,
+          "2_inch_r25_capacity_reduction_percent": 25,
+          "2_inch_r50_capacity_reduction_percent": 50,
+          "note": "for 2 inch Axial Flow Valves Only"
+        },
+        "lifting_plate": {
+          "aperture_dimensions_inches": "1 x 1-1/2",
+          "bolt_dimensions_inches": "5/16 x 2"
+        },
+        "control_block_assemblies": {
+          "composite": "with integral restrictor and filter assembly (low restrictor setting causes Axial Flow Valve to open quickly and close slower; higher setting causes Axial Flow Valve to open slowly and close quickly)",
+          "inspirator": "with integral restrictor and filter assembly (special nozzle reduces the differential pressure necessary to fully open the Axial Flow Valve)"
+        },
+        "pilot_regulators_main_specifications": {
+          "60_series": {
+            "inlet_pressure_maximum_psig": 1480,
+            "outlet_pressure_maximum_psig": 900
+          },
+          "series_z": {
+            "inlet_pressure_maximum_psig": 1480,
+            "outlet_pressure_maximum_psig": 600
+          },
+          "1203": {
+            "inlet_pressure_maximum_psig": 125,
+            "outlet_pressure_range_wc_psig": "6 inches W.C. to 5 PSIG"
+          }
+        },
+        "pilot_regulators_detailed_outlet_pressures": [
+          {
+            "pilot_type": "Type Z, Type ZSC-100, Type ZCS-150",
+            "outlet_pressure_psig": "1 to 5",
+            "spring_color": "Green",
+            "part_number": "71411P010"
+          },
+          {
+            "pilot_type": "Type Z, Type ZSC-100, Type ZCS-150",
+            "outlet_pressure_psig": "2 to 10",
+            "spring_color": "Brown/Blue",
+            "part_number": "71411P043"
+          },
+          {
+            "pilot_type": "Type Z, Type ZSC-100, Type ZCS-150",
+            "outlet_pressure_psig": "3 to 30",
+            "spring_color": "Yellow",
+            "part_number": "71411P011"
+          },
+          {
+            "pilot_type": "Type Z, Type ZSC-100, Type ZCS-150",
+            "outlet_pressure_psig": "10 to 75",
+            "spring_color": "Red",
+            "part_number": "71411P012"
+          },
+          {
+            "pilot_type": "Type Z, Type ZSC-100, Type ZCS-150",
+            "outlet_pressure_psig": "25 to 150",
+            "spring_color": "Blue",
+            "part_number": "71411P014"
+          },
+          {
+            "pilot_type": "Type Z, Type ZSC-100, Type ZCS-150",
+            "outlet_pressure_psig": "100 to 225",
+            "spring_color": "White",
+            "part_number": "71411P009"
+          },
+          {
+            "pilot_type": "Type Z, Type ZSC-100, Type ZCS-150",
+            "outlet_pressure_psig": "200 to 325",
+            "spring_color": "White/Red",
+            "part_number": "71411P046"
+          },
+          {
+            "pilot_type": "Type Z-138, Type ZSC-320-100, Type ZSC-320-150",
+            "outlet_pressure_psig": "150 to 600",
+            "spring_color": "Gold",
+            "part_number": "71421P008"
+          },
+          {
+            "pilot_type": "Model 60L-PR, Model 60L-RV, Model 60H-PR, Model 60H-RV",
+            "outlet_pressure_psig": "3 to 30",
+            "spring_color": "Red",
+            "part_number": "71411P055"
+          },
+          {
+            "pilot_type": "Model 60L-PR, Model 60L-RV, Model 60H-PR, Model 60H-RV",
+            "outlet_pressure_psig": "10 to 75",
+            "spring_color": "Blue",
+            "part_number": "71411P060"
+          },
+          {
+            "pilot_type": "Model 60L-PR, Model 60L-RV, Model 60H-PR, Model 60H-RV",
+            "outlet_pressure_psig": "25 to 150",
+            "spring_color": "Black",
+            "part_number": "71411P061"
+          },
+          {
+            "pilot_type": "Model 60L-PR, Model 60L-RV, Model 60H-PR, Model 60H-RV",
+            "outlet_pressure_psig": "100 to 325",
+            "spring_color": "Green",
+            "part_number": "71411P062"
+          },
+          {
+            "pilot_type": "Model 60L-PR, Model 60L-RV, Model 60H-PR, Model 60H-RV",
+            "outlet_pressure_psig": "250 to 450",
+            "spring_color": "Brown",
+            "part_number": "71411P063"
+          },
+          {
+            "pilot_type": "Model 60L-PR, Model 60L-RV, Model 60H-PR, Model 60H-RV",
+            "outlet_pressure_psig": "400 to 900",
+            "spring_color": "White",
+            "part_number": "71411P064"
+          },
+          {
+            "pilot_type": "1203",
+            "inlet_pressure_maximum_psig": 125,
+            "outlet_pressure_wc": "6 inches W.C. to 12 inches W.C.",
+            "spring_color": "Green",
+            "part_number": "70017P001"
+          },
+          {
+            "pilot_type": "1203",
+            "inlet_pressure_maximum_psig": 125,
+            "outlet_pressure_wc": "11 inches W.C. to 17 inches W.C.",
+            "spring_color": "Black/Orange",
+            "part_number": "70017P002"
+          },
+          {
+            "pilot_type": "1203",
+            "inlet_pressure_maximum_psig": 125,
+            "outlet_pressure_wc": "8 inches W.C. to 14 inches W.C.",
+            "spring_color": "Orange",
+            "part_number": "70017P003"
+          },
+          {
+            "pilot_type": "1203",
+            "inlet_pressure_maximum_psig": 125,
+            "outlet_pressure_wc_psig": "14 inches W.C. to 2 PSIG",
+            "spring_color": "Black/Black",
+            "part_number": "70017P073"
+          },
+          {
+            "pilot_type": "1203",
+            "inlet_pressure_maximum_psig": 125,
+            "outlet_pressure_psig": "2 to 6",
+            "spring_color": "Orange/Yellow",
+            "part_number": "70017P078"
+          }
+        ],
+        "pilot_regulator_descriptions": [
+          {
+            "type": "Z",
+            "description": "Low pressure (1 - 325 PSIG) pressure reducing"
+          },
+          {
+            "type": "Z-138",
+            "description": "High pressure (150 - 600 PSIG) pressure reducing"
+          },
+          {
+            "type": "ZSC-100",
+            "description": "Low pressure (1 - 325 PSIG) pressure reducing, secondary sense port"
+          },
+          {
+            "type": "ZSC-320-100",
+            "description": "High pressure (150 - 600 PSIG) pressure reducing, secondary sense port"
+          },
+          {
+            "type": "ZSC-150",
+            "description": "Low pressure (1 - 325 PSIG) relief service, secondary sense port"
+          },
+          {
+            "type": "ZSC-320-150",
+            "description": "High pressure (150 - 600 PSIG) relief service, secondary sense port"
+          },
+          {
+            "type": "60L-PR",
+            "description": "Low pressure (3 – 325 PSIG) pressure reducing"
+          },
+          {
+            "type": "60L-RV",
+            "description": "Low pressure (3 – 325 PSIG) relief service"
+          },
+          {
+            "type": "60H-PR",
+            "description": "High pressure (250-900 PSIG) pressure reducing"
+          },
+          {
+            "type": "60H-RV",
+            "description": "High pressure (250 – 900 PSIG) relief service"
+          },
+          {
+            "type": "1203",
+            "description": "Low pressure (6 inches W.C. – 5 PSIG) pressure reducing"
+          }
+        ],
+        "centering_tubes_available": [
+          {
+            "valve_size_inches": 2,
+            "quantity": 2,
+            "part_number": "73552P001"
+          },
+          {
+            "valve_size_inches": 3,
+            "quantity": 2,
+            "part_number": "73552P002"
+          },
+          {
+            "valve_size_inches": 4,
+            "quantity": 2,
+            "part_number": "73552P003"
+          },
+          {
+            "valve_size_inches": 6,
+            "quantity": 2,
+            "part_number": "73552P004"
+          },
+          {
+            "valve_size_inches": 8,
+            "quantity": 2,
+            "part_number": "73552P005"
+          },
+          {
+            "valve_size_inches": 12,
+            "quantity": 2,
+            "part_number": "73552P007"
+          }
+        ],
+        "flange_separator_available_300_series_only": [
+          {
+            "valve_sizes_inches": [
+              "2",
+              "3",
+              "4"
+            ],
+            "quantity": 2,
+            "part_number": "73593G001"
+          },
+          {
+            "valve_sizes_inches": [
+              "6",
+              "8"
+            ],
+            "quantity": 2,
+            "part_number": "73593G002"
+          },
+          {
+            "valve_sizes_inches": [
+              "12"
+            ],
+            "quantity": 2,
+            "part_number": "73593G003"
+          }
+        ],
+        "afv_capacity_limiters": [
+          {
+            "valve_size_inches": 2,
+            "percent_full_open_capacity": 50,
+            "class_300_part_number": "74075G036",
+            "class_600_part_number": "74075G036"
+          },
+          {
+            "valve_size_inches": 2,
+            "percent_full_open_capacity": 75,
+            "class_300_part_number": "74075G041",
+            "class_600_part_number": "74075G041"
+          },
+          {
+            "valve_size_inches": 3,
+            "percent_full_open_capacity": 50,
+            "class_300_part_number": "74075G055"
+          },
+          {
+            "valve_size_inches": 3,
+            "percent_full_open_capacity": 75,
+            "class_300_part_number": "74075G060"
+          },
+          {
+            "valve_size_inches": 4,
+            "percent_full_open_capacity": 50,
+            "class_300_part_number": "74075G074",
+            "class_600_part_number": "74075G093"
+          },
+          {
+            "valve_size_inches": 4,
+            "percent_full_open_capacity": 75,
+            "class_300_part_number": "74075G079",
+            "class_600_part_number": "74075G098"
+          },
+          {
+            "valve_size_inches": 6,
+            "percent_full_open_capacity": 50,
+            "class_300_part_number": "74075G112"
+          },
+          {
+            "valve_size_inches": 6,
+            "percent_full_open_capacity": 75,
+            "class_300_part_number": "74075G117",
+            "class_600_part_number": "74075G124"
+          }
+        ]
+      },
+      "flow_capacity_performance": [
+        {
+          "series": "300 Series",
+          "set_point_psig": 10,
+          "set_point_bar": 0.69,
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "data": [
+            {
+              "inlet_psig": 50,
+              "inlet_bar": 3,
+              "2_inch_r10_mscfh": 17.4,
+              "2_inch_r10_m3h": 493,
+              "2_inch_r25_mscfh": 40.1,
+              "2_inch_r25_m3h": 1136,
+              "2_inch_r50_mscfh": 78.9,
+              "2_inch_r50_m3h": 2234,
+              "2_inch_mscfh": 164,
+              "2_inch_m3h": 4644,
+              "3_inch_mscfh": 303,
+              "3_inch_m3h": 8580,
+              "4_inch_mscfh": 513,
+              "4_inch_m3h": 14527,
+              "6_inch_mscfh": 732,
+              "6_inch_m3h": 20728,
+              "8_inch_mscfh": 1203,
+              "8_inch_m3h": 34065,
+              "12_inch_mscfh": 2805,
+              "12_inch_m3h": 79429
+            },
+            {
+              "inlet_psig": 100,
+              "inlet_bar": 7,
+              "2_inch_r10_mscfh": 30.9,
+              "2_inch_r10_m3h": 875,
+              "2_inch_r25_mscfh": 71.3,
+              "2_inch_r25_m3h": 2019,
+              "2_inch_r50_mscfh": 140,
+              "2_inch_r50_m3h": 3964,
+              "2_inch_mscfh": 290,
+              "2_inch_m3h": 8212,
+              "3_inch_mscfh": 537,
+              "3_inch_m3h": 15206,
+              "4_inch_mscfh": 909,
+              "4_inch_m3h": 25740,
+              "6_inch_mscfh": 1298,
+              "6_inch_m3h": 36755,
+              "8_inch_mscfh": 2133,
+              "8_inch_m3h": 60400,
+              "12_inch_mscfh": 4972,
+              "12_inch_m3h": 140791
+            },
+            {
+              "inlet_psig": 200,
+              "inlet_bar": 14,
+              "2_inch_r10_mscfh": 57.8,
+              "2_inch_r10_m3h": 1637,
+              "2_inch_r25_mscfh": 133,
+              "2_inch_r25_m3h": 3766,
+              "2_inch_r50_mscfh": 262,
+              "2_inch_r50_m3h": 7419,
+              "2_inch_mscfh": 543,
+              "2_inch_m3h": 15376,
+              "3_inch_mscfh": 1004,
+              "3_inch_m3h": 28430,
+              "4_inch_mscfh": 1701,
+              "4_inch_m3h": 48167,
+              "6_inch_mscfh": 2430,
+              "6_inch_m3h": 68810,
+              "8_inch_mscfh": 3992,
+              "8_inch_m3h": 113041,
+              "12_inch_mscfh": 9305,
+              "12_inch_m3h": 263488
+            },
+            {
+              "inlet_psig": 300,
+              "inlet_bar": 21,
+              "2_inch_r10_mscfh": 84.7,
+              "2_inch_r10_m3h": 2398,
+              "2_inch_r25_mscfh": 195,
+              "2_inch_r25_m3h": 5522,
+              "2_inch_r50_mscfh": 383,
+              "2_inch_r50_m3h": 10845,
+              "2_inch_mscfh": 796,
+              "2_inch_m3h": 22540,
+              "3_inch_mscfh": 1472,
+              "3_inch_m3h": 41682,
+              "4_inch_mscfh": 2493,
+              "4_inch_m3h": 70594,
+              "6_inch_mscfh": 3561,
+              "6_inch_m3h": 100836,
+              "8_inch_mscfh": 5851,
+              "8_inch_m3h": 165682,
+              "12_inch_mscfh": 13639,
+              "12_inch_m3h": 386214
+            },
+            {
+              "inlet_psig": 400,
+              "inlet_bar": 28,
+              "2_inch_r10_mscfh": 112,
+              "2_inch_r10_m3h": 3171,
+              "2_inch_r25_mscfh": 258,
+              "2_inch_r25_m3h": 7306,
+              "2_inch_r50_mscfh": 505,
+              "2_inch_r50_m3h": 14300,
+              "2_inch_mscfh": 1048,
+              "2_inch_m3h": 29676,
+              "3_inch_mscfh": 1940,
+              "3_inch_m3h": 54935,
+              "4_inch_mscfh": 3285,
+              "4_inch_m3h": 93021,
+              "6_inch_mscfh": 4693,
+              "6_inch_m3h": 132891,
+              "8_inch_mscfh": 7710,
+              "8_inch_m3h": 218323,
+              "12_inch_mscfh": 17973,
+              "12_inch_m3h": 508939
+            },
+            {
+              "inlet_psig": 500,
+              "inlet_bar": 34,
+              "2_inch_r10_mscfh": 139,
+              "2_inch_r10_m3h": 3936,
+              "2_inch_r25_mscfh": 320,
+              "2_inch_r25_m3h": 9061,
+              "2_inch_r50_mscfh": 627,
+              "2_inch_r50_m3h": 17755,
+              "2_inch_mscfh": 1301,
+              "2_inch_m3h": 36840,
+              "3_inch_mscfh": 2407,
+              "3_inch_m3h": 68159,
+              "4_inch_mscfh": 4077,
+              "4_inch_m3h": 115448,
+              "6_inch_mscfh": 5825,
+              "6_inch_m3h": 164946,
+              "8_inch_mscfh": 9569,
+              "8_inch_m3h": 270964,
+              "12_inch_mscfh": 22306,
+              "12_inch_m3h": 631636
+            },
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 165,
+              "2_inch_r10_m3h": 4672,
+              "2_inch_r25_mscfh": 382,
+              "2_inch_r25_m3h": 10817,
+              "2_inch_r50_mscfh": 749,
+              "2_inch_r50_m3h": 21209,
+              "2_inch_mscfh": 1554,
+              "2_inch_m3h": 44004,
+              "3_inch_mscfh": 2875,
+              "3_inch_m3h": 81411,
+              "4_inch_mscfh": 4869,
+              "4_inch_m3h": 137875,
+              "6_inch_mscfh": 6956,
+              "6_inch_m3h": 196972,
+              "8_inch_mscfh": 11428,
+              "8_inch_m3h": 323605,
+              "12_inch_mscfh": 26640,
+              "12_inch_m3h": 754361
+            },
+            {
+              "inlet_psig": 740,
+              "inlet_bar": 51,
+              "2_inch_r10_mscfh": 203,
+              "2_inch_r10_m3h": 5748,
+              "2_inch_r25_mscfh": 469,
+              "2_inch_r25_m3h": 13281,
+              "2_inch_r50_mscfh": 919,
+              "2_inch_r50_m3h": 26023,
+              "2_inch_mscfh": 1908,
+              "2_inch_m3h": 54029,
+              "3_inch_mscfh": 3530,
+              "3_inch_m3h": 99958,
+              "4_inch_mscfh": 5978,
+              "4_inch_m3h": 169278,
+              "6_inch_mscfh": 8540,
+              "6_inch_m3h": 241826,
+              "8_inch_mscfh": 14031,
+              "8_inch_m3h": 397314,
+              "12_inch_mscfh": 32707,
+              "12_inch_m3h": 926159
+            }
+          ]
+        },
+        {
+          "series": "300 Series",
+          "set_point_psig": 50,
+          "set_point_bar": 3.45,
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "data": [
+            {
+              "inlet_psig": 100,
+              "inlet_bar": 7,
+              "2_inch_r10_mscfh": 29.4,
+              "2_inch_r10_m3h": 833,
+              "2_inch_r25_mscfh": 67.9,
+              "2_inch_r25_m3h": 1923,
+              "2_inch_r50_mscfh": 135,
+              "2_inch_r50_m3h": 3823,
+              "2_inch_mscfh": 285,
+              "2_inch_m3h": 8070,
+              "3_inch_mscfh": 536,
+              "3_inch_m3h": 15178,
+              "4_inch_mscfh": 908,
+              "4_inch_m3h": 25712,
+              "6_inch_mscfh": 1296,
+              "6_inch_m3h": 36699,
+              "8_inch_mscfh": 2133,
+              "8_inch_m3h": 60400,
+              "12_inch_mscfh": 4913,
+              "12_inch_m3h": 139121
+            },
+            {
+              "inlet_psig": 200,
+              "inlet_bar": 14,
+              "2_inch_r10_mscfh": 57.8,
+              "2_inch_r10_m3h": 1637,
+              "2_inch_r25_mscfh": 133,
+              "2_inch_r25_m3h": 3766,
+              "2_inch_r50_mscfh": 262,
+              "2_inch_r50_m3h": 7419,
+              "2_inch_mscfh": 543,
+              "2_inch_m3h": 15376,
+              "3_inch_mscfh": 1004,
+              "3_inch_m3h": 28430,
+              "4_inch_mscfh": 1701,
+              "4_inch_m3h": 48167,
+              "6_inch_mscfh": 2430,
+              "6_inch_m3h": 68810,
+              "8_inch_mscfh": 3992,
+              "8_inch_m3h": 113041,
+              "12_inch_mscfh": 9305,
+              "12_inch_m3h": 263488
+            },
+            {
+              "inlet_psig": 300,
+              "inlet_bar": 21,
+              "2_inch_r10_mscfh": 84.7,
+              "2_inch_r10_m3h": 2398,
+              "2_inch_r25_mscfh": 195,
+              "2_inch_r25_m3h": 5522,
+              "2_inch_r50_mscfh": 383,
+              "2_inch_r50_m3h": 10845,
+              "2_inch_mscfh": 796,
+              "2_inch_m3h": 22540,
+              "3_inch_mscfh": 1472,
+              "3_inch_m3h": 41682,
+              "4_inch_mscfh": 2493,
+              "4_inch_m3h": 70594,
+              "6_inch_mscfh": 3561,
+              "6_inch_m3h": 100836,
+              "8_inch_mscfh": 5851,
+              "8_inch_m3h": 165682,
+              "12_inch_mscfh": 13639,
+              "12_inch_m3h": 386214
+            },
+            {
+              "inlet_psig": 400,
+              "inlet_bar": 28,
+              "2_inch_r10_mscfh": 112,
+              "2_inch_r10_m3h": 3171,
+              "2_inch_r25_mscfh": 258,
+              "2_inch_r25_m3h": 7306,
+              "2_inch_r50_mscfh": 505,
+              "2_inch_r50_m3h": 14300,
+              "2_inch_mscfh": 1048,
+              "2_inch_m3h": 29676,
+              "3_inch_mscfh": 1940,
+              "3_inch_m3h": 54935,
+              "4_inch_mscfh": 3285,
+              "4_inch_m3h": 93021,
+              "6_inch_mscfh": 4693,
+              "6_inch_m3h": 132891,
+              "8_inch_mscfh": 7710,
+              "8_inch_m3h": 218323,
+              "12_inch_mscfh": 17973,
+              "12_inch_m3h": 508939
+            },
+            {
+              "inlet_psig": 500,
+              "inlet_bar": 34,
+              "2_inch_r10_mscfh": 139,
+              "2_inch_r10_m3h": 3936,
+              "2_inch_r25_mscfh": 320,
+              "2_inch_r25_m3h": 9061,
+              "2_inch_r50_mscfh": 627,
+              "2_inch_r50_m3h": 17755,
+              "2_inch_mscfh": 1301,
+              "2_inch_m3h": 36840,
+              "3_inch_mscfh": 2407,
+              "3_inch_m3h": 68159,
+              "4_inch_mscfh": 4077,
+              "4_inch_m3h": 115448,
+              "6_inch_mscfh": 5825,
+              "6_inch_m3h": 164946,
+              "8_inch_mscfh": 9569,
+              "8_inch_m3h": 270964,
+              "12_inch_mscfh": 22306,
+              "12_inch_m3h": 631636
+            },
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 165,
+              "2_inch_r10_m3h": 4672,
+              "2_inch_r25_mscfh": 382,
+              "2_inch_r25_m3h": 10817,
+              "2_inch_r50_mscfh": 749,
+              "2_inch_r50_m3h": 21209,
+              "2_inch_mscfh": 1554,
+              "2_inch_m3h": 44004,
+              "3_inch_mscfh": 2875,
+              "3_inch_m3h": 81411,
+              "4_inch_mscfh": 4869,
+              "4_inch_m3h": 137875,
+              "6_inch_mscfh": 6956,
+              "6_inch_m3h": 196972,
+              "8_inch_mscfh": 11428,
+              "8_inch_m3h": 323605,
+              "12_inch_mscfh": 26640,
+              "12_inch_m3h": 754361
+            },
+            {
+              "inlet_psig": 740,
+              "inlet_bar": 51,
+              "2_inch_r10_mscfh": 203,
+              "2_inch_r10_m3h": 5748,
+              "2_inch_r25_mscfh": 469,
+              "2_inch_r25_m3h": 13281,
+              "2_inch_r50_mscfh": 919,
+              "2_inch_r50_m3h": 26023,
+              "2_inch_mscfh": 1908,
+              "2_inch_m3h": 54029,
+              "3_inch_mscfh": 3530,
+              "3_inch_m3h": 99958,
+              "4_inch_mscfh": 5978,
+              "4_inch_m3h": 169278,
+              "6_inch_mscfh": 8540,
+              "6_inch_m3h": 241826,
+              "8_inch_mscfh": 14031,
+              "8_inch_m3h": 397314,
+              "12_inch_mscfh": 32707,
+              "12_inch_m3h": 926159
+            }
+          ]
+        },
+        {
+          "series": "300 Series",
+          "set_point_psig": 100,
+          "set_point_bar": 6.89,
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "data": [
+            {
+              "inlet_psig": 200,
+              "inlet_bar": 14,
+              "2_inch_r10_mscfh": 55.8,
+              "2_inch_r10_m3h": 1580,
+              "2_inch_r25_mscfh": 129,
+              "2_inch_r25_m3h": 3653,
+              "2_inch_r50_mscfh": 256,
+              "2_inch_r50_m3h": 7249,
+              "2_inch_mscfh": 538,
+              "2_inch_m3h": 15234,
+              "3_inch_mscfh": 1004,
+              "3_inch_m3h": 28430,
+              "4_inch_mscfh": 1701,
+              "4_inch_m3h": 48167,
+              "6_inch_mscfh": 2430,
+              "6_inch_m3h": 68810,
+              "8_inch_mscfh": 3992,
+              "8_inch_m3h": 113041,
+              "12_inch_mscfh": 9255,
+              "12_inch_m3h": 262072
+            },
+            {
+              "inlet_psig": 300,
+              "inlet_bar": 21,
+              "2_inch_r10_mscfh": 84.6,
+              "2_inch_r10_m3h": 2396,
+              "2_inch_r25_mscfh": 195,
+              "2_inch_r25_m3h": 5522,
+              "2_inch_r50_mscfh": 383,
+              "2_inch_r50_m3h": 10845,
+              "2_inch_mscfh": 796,
+              "2_inch_m3h": 22540,
+              "3_inch_mscfh": 1472,
+              "3_inch_m3h": 41682,
+              "4_inch_mscfh": 2493,
+              "4_inch_m3h": 70594,
+              "6_inch_mscfh": 3561,
+              "6_inch_m3h": 100836,
+              "8_inch_mscfh": 5851,
+              "8_inch_m3h": 165682,
+              "12_inch_mscfh": 13639,
+              "12_inch_m3h": 386214
+            },
+            {
+              "inlet_psig": 400,
+              "inlet_bar": 28,
+              "2_inch_r10_mscfh": 112,
+              "2_inch_r10_m3h": 3171,
+              "2_inch_r25_mscfh": 258,
+              "2_inch_r25_m3h": 7306,
+              "2_inch_r50_mscfh": 505,
+              "2_inch_r50_m3h": 14300,
+              "2_inch_mscfh": 1048,
+              "2_inch_m3h": 29676,
+              "3_inch_mscfh": 1940,
+              "3_inch_m3h": 54935,
+              "4_inch_mscfh": 3285,
+              "4_inch_m3h": 93021,
+              "6_inch_mscfh": 4693,
+              "6_inch_m3h": 132891,
+              "8_inch_mscfh": 7710,
+              "8_inch_m3h": 218323,
+              "12_inch_mscfh": 17973,
+              "12_inch_m3h": 508939
+            },
+            {
+              "inlet_psig": 500,
+              "inlet_bar": 34,
+              "2_inch_r10_mscfh": 139,
+              "2_inch_r10_m3h": 3936,
+              "2_inch_r25_mscfh": 320,
+              "2_inch_r25_m3h": 9061,
+              "2_inch_r50_mscfh": 627,
+              "2_inch_r50_m3h": 17755,
+              "2_inch_mscfh": 1301,
+              "2_inch_m3h": 36840,
+              "3_inch_mscfh": 2407,
+              "3_inch_m3h": 68159,
+              "4_inch_mscfh": 4077,
+              "4_inch_m3h": 115448,
+              "6_inch_mscfh": 5825,
+              "6_inch_m3h": 164946,
+              "8_inch_mscfh": 9569,
+              "8_inch_m3h": 270964,
+              "12_inch_mscfh": 22306,
+              "12_inch_m3h": 631636
+            },
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 165,
+              "2_inch_r10_m3h": 4672,
+              "2_inch_r25_mscfh": 382,
+              "2_inch_r25_m3h": 10817,
+              "2_inch_r50_mscfh": 749,
+              "2_inch_r50_m3h": 21209,
+              "2_inch_mscfh": 1554,
+              "2_inch_m3h": 44004,
+              "3_inch_mscfh": 2875,
+              "3_inch_m3h": 81411,
+              "4_inch_mscfh": 4869,
+              "4_inch_m3h": 137875,
+              "6_inch_mscfh": 6956,
+              "6_inch_m3h": 196972,
+              "8_inch_mscfh": 11428,
+              "8_inch_m3h": 323605,
+              "12_inch_mscfh": 26640,
+              "12_inch_m3h": 754361
+            },
+            {
+              "inlet_psig": 740,
+              "inlet_bar": 51,
+              "2_inch_r10_mscfh": 203,
+              "2_inch_r10_m3h": 5748,
+              "2_inch_r25_mscfh": 469,
+              "2_inch_r25_m3h": 13281,
+              "2_inch_r50_mscfh": 919,
+              "2_inch_r50_m3h": 26023,
+              "2_inch_mscfh": 1908,
+              "2_inch_m3h": 54029,
+              "3_inch_mscfh": 3530,
+              "3_inch_m3h": 99958,
+              "4_inch_mscfh": 5978,
+              "4_inch_m3h": 169278,
+              "6_inch_mscfh": 8540,
+              "6_inch_m3h": 241826,
+              "8_inch_mscfh": 14031,
+              "8_inch_m3h": 397314,
+              "12_inch_mscfh": 32707,
+              "12_inch_m3h": 926159
+            }
+          ]
+        },
+        {
+          "series": "300 Series",
+          "set_point_psig": 200,
+          "set_point_bar": 13.79,
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "data": [
+            {
+              "inlet_psig": 300,
+              "inlet_bar": 21,
+              "2_inch_r10_mscfh": 74.3,
+              "2_inch_r10_m3h": 2104,
+              "2_inch_r25_mscfh": 172,
+              "2_inch_r25_m3h": 4870,
+              "2_inch_r50_mscfh": 345,
+              "2_inch_r50_m3h": 9769,
+              "2_inch_mscfh": 733,
+              "2_inch_m3h": 20756,
+              "3_inch_mscfh": 1415,
+              "3_inch_m3h": 40068,
+              "4_inch_mscfh": 2406,
+              "4_inch_m3h": 68130,
+              "6_inch_mscfh": 3416,
+              "6_inch_m3h": 96730,
+              "8_inch_mscfh": 5710,
+              "8_inch_m3h": 161689,
+              "12_inch_mscfh": 12701,
+              "12_inch_m3h": 359652
+            },
+            {
+              "inlet_psig": 400,
+              "inlet_bar": 28,
+              "2_inch_r10_mscfh": 108,
+              "2_inch_r10_m3h": 3058,
+              "2_inch_r25_mscfh": 250,
+              "2_inch_r25_m3h": 7079,
+              "2_inch_r50_mscfh": 497,
+              "2_inch_r50_m3h": 14073,
+              "2_inch_mscfh": 1042,
+              "2_inch_m3h": 29506,
+              "3_inch_mscfh": 1940,
+              "3_inch_m3h": 54935,
+              "4_inch_mscfh": 3285,
+              "4_inch_m3h": 93021,
+              "6_inch_mscfh": 4693,
+              "6_inch_m3h": 132891,
+              "8_inch_mscfh": 7710,
+              "8_inch_m3h": 218323,
+              "12_inch_mscfh": 17918,
+              "12_inch_m3h": 507381
+            },
+            {
+              "inlet_psig": 500,
+              "inlet_bar": 34,
+              "2_inch_r10_mscfh": 138,
+              "2_inch_r10_m3h": 3908,
+              "2_inch_r25_mscfh": 318,
+              "2_inch_r25_m3h": 9005,
+              "2_inch_r50_mscfh": 627,
+              "2_inch_r50_m3h": 17755,
+              "2_inch_mscfh": 1301,
+              "2_inch_m3h": 36840,
+              "3_inch_mscfh": 2407,
+              "3_inch_m3h": 68159,
+              "4_inch_mscfh": 4077,
+              "4_inch_m3h": 115448,
+              "6_inch_mscfh": 5825,
+              "6_inch_m3h": 164946,
+              "8_inch_mscfh": 9569,
+              "8_inch_m3h": 270964,
+              "12_inch_mscfh": 22306,
+              "12_inch_m3h": 631636
+            },
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 165,
+              "2_inch_r10_m3h": 4672,
+              "2_inch_r25_mscfh": 382,
+              "2_inch_r25_m3h": 10817,
+              "2_inch_r50_mscfh": 749,
+              "2_inch_r50_m3h": 21209,
+              "2_inch_mscfh": 1554,
+              "2_inch_m3h": 44004,
+              "3_inch_mscfh": 2875,
+              "3_inch_m3h": 81411,
+              "4_inch_mscfh": 4869,
+              "4_inch_m3h": 137875,
+              "6_inch_mscfh": 6956,
+              "6_inch_m3h": 196972,
+              "8_inch_mscfh": 11428,
+              "8_inch_m3h": 323605,
+              "12_inch_mscfh": 26640,
+              "12_inch_m3h": 754361
+            },
+            {
+              "inlet_psig": 740,
+              "inlet_bar": 51,
+              "2_inch_r10_mscfh": 203,
+              "2_inch_r10_m3h": 5748,
+              "2_inch_r25_mscfh": 469,
+              "2_inch_r25_m3h": 13281,
+              "2_inch_r50_mscfh": 919,
+              "2_inch_r50_m3h": 26023,
+              "2_inch_mscfh": 1908,
+              "2_inch_m3h": 54029,
+              "3_inch_mscfh": 3530,
+              "3_inch_m3h": 99958,
+              "4_inch_mscfh": 5978,
+              "4_inch_m3h": 169278,
+              "6_inch_mscfh": 8540,
+              "6_inch_m3h": 241826,
+              "8_inch_mscfh": 14031,
+              "8_inch_m3h": 397314,
+              "12_inch_mscfh": 32707,
+              "12_inch_m3h": 926159
+            }
+          ]
+        },
+        {
+          "series": "300 Series",
+          "set_point_psig": 300,
+          "set_point_bar": 20.68,
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "data": [
+            {
+              "inlet_psig": 400,
+              "inlet_bar": 28,
+              "2_inch_r10_mscfh": 89.3,
+              "2_inch_r10_m3h": 2529,
+              "2_inch_r25_mscfh": 206,
+              "2_inch_r25_m3h": 5833,
+              "2_inch_r50_mscfh": 417,
+              "2_inch_r50_m3h": 11808,
+              "2_inch_mscfh": 890,
+              "2_inch_m3h": 25202,
+              "3_inch_mscfh": 1743,
+              "3_inch_m3h": 49356,
+              "4_inch_mscfh": 2969,
+              "4_inch_m3h": 84073,
+              "6_inch_mscfh": 4205,
+              "6_inch_m3h": 119072,
+              "8_inch_mscfh": 7092,
+              "8_inch_m3h": 200823,
+              "12_inch_mscfh": 15469,
+              "12_inch_m3h": 438033
+            },
+            {
+              "inlet_psig": 500,
+              "inlet_bar": 34,
+              "2_inch_r10_mscfh": 129,
+              "2_inch_r10_m3h": 3653,
+              "2_inch_r25_mscfh": 297,
+              "2_inch_r25_m3h": 8410,
+              "2_inch_r50_mscfh": 594,
+              "2_inch_r50_m3h": 16820,
+              "2_inch_mscfh": 1254,
+              "2_inch_m3h": 35509,
+              "3_inch_mscfh": 2386,
+              "3_inch_m3h": 67564,
+              "4_inch_mscfh": 4048,
+              "4_inch_m3h": 114627,
+              "6_inch_mscfh": 5766,
+              "6_inch_m3h": 163275,
+              "8_inch_mscfh": 9546,
+              "8_inch_m3h": 270313,
+              "12_inch_mscfh": 21675,
+              "12_inch_m3h": 613768
+            },
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 161,
+              "2_inch_r10_m3h": 4559,
+              "2_inch_r25_mscfh": 372,
+              "2_inch_r25_m3h": 10534,
+              "2_inch_r50_mscfh": 739,
+              "2_inch_r50_m3h": 20926,
+              "2_inch_mscfh": 1546,
+              "2_inch_m3h": 43778,
+              "3_inch_mscfh": 2875,
+              "3_inch_m3h": 81411,
+              "4_inch_mscfh": 4869,
+              "4_inch_m3h": 137875,
+              "6_inch_mscfh": 6956,
+              "6_inch_m3h": 196972,
+              "8_inch_mscfh": 11428,
+              "8_inch_m3h": 323605,
+              "12_inch_mscfh": 26577,
+              "12_inch_m3h": 752577
+            },
+            {
+              "inlet_psig": 740,
+              "inlet_bar": 51,
+              "2_inch_r10_mscfh": 202,
+              "2_inch_r10_m3h": 5720,
+              "2_inch_r25_mscfh": 467,
+              "2_inch_r25_m3h": 13224,
+              "2_inch_r50_mscfh": 919,
+              "2_inch_r50_m3h": 26023,
+              "2_inch_mscfh": 1908,
+              "2_inch_m3h": 54029,
+              "3_inch_mscfh": 3530,
+              "3_inch_m3h": 99958,
+              "4_inch_mscfh": 5978,
+              "4_inch_m3h": 169278,
+              "6_inch_mscfh": 8540,
+              "6_inch_m3h": 241826,
+              "8_inch_mscfh": 14031,
+              "8_inch_m3h": 397314,
+              "12_inch_mscfh": 32707,
+              "12_inch_m3h": 926159
+            }
+          ]
+        },
+        {
+          "series": "300 Series",
+          "set_point_psig": 400,
+          "set_point_bar": 27.58,
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "data": [
+            {
+              "inlet_psig": 500,
+              "inlet_bar": 34,
+              "2_inch_r10_mscfh": 102,
+              "2_inch_r10_m3h": 2888,
+              "2_inch_r25_mscfh": 236,
+              "2_inch_r25_m3h": 6683,
+              "2_inch_r50_mscfh": 478,
+              "2_inch_r50_m3h": 13535,
+              "2_inch_mscfh": 1024,
+              "2_inch_m3h": 28996,
+              "3_inch_mscfh": 2023,
+              "3_inch_m3h": 57285,
+              "4_inch_mscfh": 3449,
+              "4_inch_m3h": 97665,
+              "6_inch_mscfh": 4877,
+              "6_inch_m3h": 138101,
+              "8_inch_mscfh": 8266,
+              "8_inch_m3h": 234067,
+              "12_inch_mscfh": 17839,
+              "12_inch_m3h": 505144
+            },
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 146,
+              "2_inch_r10_m3h": 4134,
+              "2_inch_r25_mscfh": 337,
+              "2_inch_r25_m3h": 9543,
+              "2_inch_r50_mscfh": 678,
+              "2_inch_r50_m3h": 19199,
+              "2_inch_mscfh": 1440,
+              "2_inch_m3h": 40776,
+              "3_inch_mscfh": 2776,
+              "3_inch_m3h": 78608,
+              "4_inch_mscfh": 4719,
+              "4_inch_m3h": 133627,
+              "6_inch_mscfh": 6704,
+              "6_inch_m3h": 189836,
+              "8_inch_mscfh": 11195,
+              "8_inch_m3h": 317007,
+              "12_inch_mscfh": 24950,
+              "12_inch_m3h": 706505
+            },
+            {
+              "inlet_psig": 740,
+              "inlet_bar": 51,
+              "2_inch_r10_mscfh": 195,
+              "2_inch_r10_m3h": 5522,
+              "2_inch_r25_mscfh": 450,
+              "2_inch_r25_m3h": 12743,
+              "2_inch_r50_mscfh": 896,
+              "2_inch_r50_m3h": 25372,
+              "2_inch_mscfh": 1883,
+              "2_inch_m3h": 53321,
+              "3_inch_mscfh": 3528,
+              "3_inch_m3h": 99902,
+              "4_inch_mscfh": 5978,
+              "4_inch_m3h": 169278,
+              "6_inch_mscfh": 8535,
+              "6_inch_m3h": 241684,
+              "8_inch_mscfh": 14031,
+              "8_inch_m3h": 397314,
+              "12_inch_mscfh": 32433,
+              "12_inch_m3h": 918400
+            }
+          ]
+        },
+        {
+          "series": "300 Series",
+          "set_point_psig": 500,
+          "set_point_bar": 34.47,
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "data": [
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 114,
+              "2_inch_r10_m3h": 3228,
+              "2_inch_r25_mscfh": 262,
+              "2_inch_r25_m3h": 7419,
+              "2_inch_r50_mscfh": 533,
+              "2_inch_r50_m3h": 15093,
+              "2_inch_mscfh": 1144,
+              "2_inch_m3h": 32394,
+              "3_inch_mscfh": 2270,
+              "3_inch_m3h": 64279,
+              "4_inch_mscfh": 3873,
+              "4_inch_m3h": 109671,
+              "6_inch_mscfh": 5472,
+              "6_inch_m3h": 154950,
+              "8_inch_mscfh": 9303,
+              "8_inch_m3h": 263432,
+              "12_inch_mscfh": 19941,
+              "12_inch_m3h": 564666
+            },
+            {
+              "inlet_psig": 740,
+              "inlet_bar": 51,
+              "2_inch_r10_mscfh": 178,
+              "2_inch_r10_m3h": 5040,
+              "2_inch_r25_mscfh": 411,
+              "2_inch_r25_m3h": 11638,
+              "2_inch_r50_mscfh": 827,
+              "2_inch_r50_m3h": 23418,
+              "2_inch_mscfh": 1758,
+              "2_inch_m3h": 49781,
+              "3_inch_mscfh": 3393,
+              "3_inch_m3h": 96079,
+              "4_inch_mscfh": 5769,
+              "4_inch_m3h": 163360,
+              "6_inch_mscfh": 8194,
+              "6_inch_m3h": 232028,
+              "8_inch_mscfh": 13696,
+              "8_inch_m3h": 387828,
+              "12_inch_mscfh": 30463,
+              "12_inch_m3h": 862616
+            }
+          ]
+        },
+        {
+          "series": "600 Series",
+          "set_point_psig": "Not Specified",
+          "set_point_bar": "Not Specified",
+          "gas_type": "0.60 specific gravity gas",
+          "gas_conditions": "60°F and 14.7 PSIA (20°C and 1.02 bar)",
+          "note": "600 Series available in 2\", 4\", 6\" and 8\" only",
+          "data": [
+            {
+              "inlet_psig": 100,
+              "inlet_bar": 7,
+              "2_inch_r10_mscfh": 27,
+              "2_inch_r10_m3h": 765,
+              "2_inch_r25_mscfh": 67,
+              "2_inch_r25_m3h": 1894,
+              "2_inch_r50_mscfh": 152,
+              "2_inch_r50_m3h": 4304,
+              "2_inch_mscfh": 290,
+              "2_inch_m3h": 8212,
+              "4_inch_mscfh": 1063,
+              "4_inch_m3h": 30101,
+              "6_inch_mscfh": 2023,
+              "6_inch_m3h": 57285,
+              "8_inch_mscfh": 2963,
+              "8_inch_m3h": 83903
+            },
+            {
+              "inlet_psig": 200,
+              "inlet_bar": 14,
+              "2_inch_r10_mscfh": 53,
+              "2_inch_r10_m3h": 1501,
+              "2_inch_r25_mscfh": 133,
+              "2_inch_r25_m3h": 3766,
+              "2_inch_r50_mscfh": 291,
+              "2_inch_r50_m3h": 8240,
+              "2_inch_mscfh": 552,
+              "2_inch_m3h": 15631,
+              "4_inch_mscfh": 2024,
+              "4_inch_m3h": 57313,
+              "6_inch_mscfh": 3798,
+              "6_inch_m3h": 107547,
+              "8_inch_mscfh": 5595,
+              "8_inch_m3h": 158433
+            },
+            {
+              "inlet_psig": 300,
+              "inlet_bar": 21,
+              "2_inch_r10_mscfh": 78,
+              "2_inch_r10_m3h": 2209,
+              "2_inch_r25_mscfh": 196,
+              "2_inch_r25_m3h": 5550,
+              "2_inch_r50_mscfh": 427,
+              "2_inch_r50_m3h": 12091,
+              "2_inch_mscfh": 809,
+              "2_inch_m3h": 22908,
+              "4_inch_mscfh": 2967,
+              "4_inch_m3h": 84016,
+              "6_inch_mscfh": 5567,
+              "6_inch_m3h": 157640,
+              "8_inch_mscfh": 8201,
+              "8_inch_m3h": 232227
+            },
+            {
+              "inlet_psig": 400,
+              "inlet_bar": 28,
+              "2_inch_r10_mscfh": 103,
+              "2_inch_r10_m3h": 2917,
+              "2_inch_r25_mscfh": 258,
+              "2_inch_r25_m3h": 7306,
+              "2_inch_r50_mscfh": 562,
+              "2_inch_r50_m3h": 15914,
+              "2_inch_mscfh": 1066,
+              "2_inch_m3h": 30186,
+              "4_inch_mscfh": 3910,
+              "4_inch_m3h": 110719,
+              "6_inch_mscfh": 7336,
+              "6_inch_m3h": 207732,
+              "8_inch_mscfh": 10807,
+              "8_inch_m3h": 306020
+            },
+            {
+              "inlet_psig": 500,
+              "inlet_bar": 34,
+              "2_inch_r10_mscfh": 128,
+              "2_inch_r10_m3h": 3625,
+              "2_inch_r25_mscfh": 320,
+              "2_inch_r25_m3h": 9061,
+              "2_inch_r50_mscfh": 698,
+              "2_inch_r50_m3h": 19765,
+              "2_inch_mscfh": 1323,
+              "2_inch_m3h": 37463,
+              "4_inch_mscfh": 4852,
+              "4_inch_m3h": 137393,
+              "6_inch_mscfh": 9104,
+              "6_inch_m3h": 257797,
+              "8_inch_mscfh": 13413,
+              "8_inch_m3h": 379814
+            },
+            {
+              "inlet_psig": 600,
+              "inlet_bar": 41,
+              "2_inch_r10_mscfh": 153,
+              "2_inch_r10_m3h": 4332,
+              "2_inch_r25_mscfh": 382,
+              "2_inch_r25_m3h": 10817,
+              "2_inch_r50_mscfh": 834,
+              "2_inch_r50_m3h": 23616,
+              "2_inch_mscfh": 1580,
+              "2_inch_m3h": 44741,
+              "4_inch_mscfh": 5795,
+              "4_inch_m3h": 164096,
+              "6_inch_mscfh": 10873,
+              "6_inch_m3h": 307889,
+              "8_inch_mscfh": 16018,
+              "8_inch_m3h": 453579
+            },
+            {
+              "inlet_psig": 700,
+              "inlet_bar": 48,
+              "2_inch_r10_mscfh": 178,
+              "2_inch_r10_m3h": 5040,
+              "2_inch_r25_mscfh": 444,
+              "2_inch_r25_m3h": 12573,
+              "2_inch_r50_mscfh": 969,
+              "2_inch_r50_m3h": 27439,
+              "2_inch_mscfh": 1837,
+              "2_inch_m3h": 52018,
+              "4_inch_mscfh": 6738,
+              "4_inch_m3h": 190799
+            }
+          ]
+        }
+      ]
+    },
+    "specs_count": 8,
+    "series": "Axial Flow Valves",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",

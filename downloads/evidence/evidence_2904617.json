@@ -585,13 +585,90 @@
     "schema_version": 2,
     "title": "",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "product_name": "Safety Manager Release 162",
+      "document_type": "Hardware Reference Manual",
+      "document_number": "EP-SM.MAN.6284",
+      "issue": "2.1",
+      "publication_date": "December 2023",
+      "manufacturer": "Honeywell Measurex (Ireland) Limited",
+      "cabinet_enclosure_type": "Rittal TS",
+      "IP_rating": "Dependent on cabinet configuration",
+      "operating_temperature_range": "See section 3.2.3",
+      "humidity_range": "See section 3.2.5",
+      "power_supply_options": [
+        "PSUNI2424: 24V DC",
+        "PSU-UNI2450U: 25-28V DC, 1200W, UL508 approved",
+        "PSU-UNI4825U: 48V DC, 1200W, UL508 approved",
+        "PSU-UNI6020U: 60V DC, 1200W, UL508 approved",
+        "PSU-UNI11011U: 110V DC, 1200W, UL508 approved",
+        "PSU-UNI12010U: 120V DC, 1200W, UL508 approved",
+        "PSU-UNI2412U: 24V DC, 12A",
+        "QUINT4-PS/1AC/24DC/20: AC input to 24V DC output, 20A"
+      ],
+      "control_processor_module": "QPP-0002 (Quad Processor Pack)",
+      "universal_safety_interface": "USI-0002",
+      "input_modules": [
+        "SDI-1624: Safe digital input, 24V DC, 16 channels",
+        "SDI-1648: Safe digital input, 48V DC, 16 channels",
+        "SAI-1620m: Safe analog input, 16 channels",
+        "SAI-0410: Safe analog input, 4 channels",
+        "SDIL-1608: Safe loop-monitored digital input, 16 channels with earth fault monitor"
+      ],
+      "output_modules": [
+        "SDO-0824: Safe digital output, 24V DC, 0.55A, 8 channels",
+        "SAO-0220m: Safe analog output, 0(4)-20mA, 2 channels",
+        "DO-1224: Non-safe digital output, 24V DC, 0.55A, 12 channels",
+        "RO-1024: Relay output module, 10 channels",
+        "DO-1624: Non-safe digital output, 24V DC, 0.1A, 16 channels",
+        "SDO-04110: Safe digital output, 110V DC, 0.32A, 4 channels",
+        "SDO-0448: Safe digital output, 48V DC, 0.75A, 4 channels"
+      ],
+      "mounting_carriers": [
+        "MCAR-01: 18 inch",
+        "MCAR-02: 36 inch",
+        "MCAR-03: 36 inch"
+      ],
+      "chassis_types": [
+        "CPCHAS-0001: Controller chassis",
+        "IOCHAS-0001S: Non-redundant IO chassis",
+        "IOCHAS-0001R: Redundant IO chassis",
+        "CPCHAS-0002: Redundant controller chassis (Safety Manager A.R.T.)",
+        "IOCHAS-0002S: Non-redundant IO chassis variant",
+        "IOCHAS-0002R: Redundant IO chassis variant",
+        "CPCHAS-0003: Controller chassis variant",
+        "IOCHAS-0003S: Non-redundant IO chassis variant",
+        "IOCHAS-0003R: Redundant IO chassis variant"
+      ],
+      "feeder_units": [
+        "FEEDER-24R: 24V DC redundant feeder",
+        "FEEDER-48R: 48V DC redundant feeder"
+      ],
+      "fan_unit": "FANWR-24R: 24V DC fan with readback",
+      "power_supply_configurations": [
+        "Non-redundant (N configuration)",
+        "Redundant N+1 configuration",
+        "Fully redundant Nx2 configuration"
+      ],
+      "communication_interface": "Universal Safety Interface (USI-0002)",
+      "battery_module": "BKM-0001: Battery and Key switch Module",
+      "internal_power_supply_module": "PSU-240516: 24/5V DC, 16A",
+      "redundancy_support": true,
+      "SIL_capable": true,
+      "standards_compliance": "See section 3.3 for detailed standards",
+      "connector_types": "See section 3.4 for key coding and connector details",
+      "fuse_derating": "See section 3.6"
+    },
+    "specs_count": 28,
+    "series": "Safety Manager Release 162",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",
-    "certifications": [],
+    "certifications": [
+      "UL508",
+      "CE",
+      "EN standards (detailed list in section 3.3)"
+    ],
     "article_no": "",
     "datasheet_pdf": "downloads\\datasheets_v2\\2904617.pdf",
     "datasheet_size_kb": 17788,

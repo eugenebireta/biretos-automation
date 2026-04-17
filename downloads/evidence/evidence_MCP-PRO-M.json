@@ -697,9 +697,13 @@
     "schema_version": 2,
     "title": "Извещатель пожарный дымовой оптико-электронный ECO1003М",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "fire_detector_type": "optical-electronic smoke",
+      "fire_detector_classification_standard": "ИП 212-58М",
+      "base_included": "no"
+    },
+    "specs_count": 3,
+    "series": "ECO1000",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",

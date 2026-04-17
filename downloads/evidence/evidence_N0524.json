@@ -601,13 +601,281 @@
     "schema_version": 2,
     "title": "ДИСКОВОВЫЕ ПОВОРОТНЫЕ ЗАТВОРЫ, С РУЧНЫМ УПРАВЛЕНИЕМ ЧЕРЕЗ РУКОЯТКУ ИЛИ РЕДУКТОР",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "Product Type": "Butterfly Valves",
+      "Control Type": "Manual (handle or gearbox)",
+      "Application": "HVAC systems (hot and cold water) in buildings and structures",
+      "Nominal Diameter Range": "DN50 to DN900",
+      "Nominal Pressure": "PN16",
+      "Medium Temperature Range": "-10°C to +110°C maximum",
+      "Leakage": "No visible leakage",
+      "Medium Type": "Hot water, cold water",
+      "Flange Compatibility": "Weld-neck flanges (ГОСТ 12821-80) recommended",
+      "Mounting Type": "Wafer (inter-flange)",
+      "Operation Angle": "90°",
+      "Control Positions": "9 positions",
+      "Body Material": "Cast iron GG25 (for DN50-DN150), Spheroidal graphite cast iron GGG40 (for DN200-DN900), with epoxy coating",
+      "Stem Material": "SS416",
+      "Disc Material": "Nickel-plated cast iron GGG40",
+      "Seat Seal Material": "EPDM",
+      "Gearbox Material": "Cast iron",
+      "Handle Material": "Cast iron (for handle-operated models)",
+      "Stopper Material": "Nylon (for handle-operated models)",
+      "Liner Material": "PTFE",
+      "O-Ring Material": "EPDM",
+      "Split Washer Material": "ASTM 1020 (for DN50-DN350 with handle/gearbox)",
+      "Washer Material": "SS304 (for DN50-DN350 with handle/gearbox)",
+      "Spring Ring Material": "SS304 (for DN50-DN350 with handle/gearbox)",
+      "Pin Material": "SS304 (for DN400-DN600 with gearbox), SS416 (for DN700-DN900 with gearbox)",
+      "Kvs_max_range": "109 to 81923",
+      "Manual_Operator_Weight_kg_range": "0.7 to 124",
+      "Total_Weight_kg_range": "3.2 to 830.8",
+      "Dimensions_DN50-300_with_Handle_A_mm": {
+        "DN50": 130.5,
+        "DN65": 140,
+        "DN80": 150,
+        "DN100": 183,
+        "DN125": 178,
+        "DN150": 191,
+        "DN200": 239,
+        "DN250": 285,
+        "DN300": 315
+      },
+      "Dimensions_DN50-300_with_Handle_B_mm": {
+        "DN50": 66.5,
+        "DN65": 71,
+        "DN80": 83,
+        "DN100": 95,
+        "DN125": 110,
+        "DN150": 124,
+        "DN200": 163,
+        "DN250": 227,
+        "DN300": 252
+      },
+      "Dimensions_DN50-300_with_Handle_C_mm": {
+        "DN50": 43,
+        "DN65": 46,
+        "DN80": 46,
+        "DN100": 52,
+        "DN125": 56,
+        "DN150": 56,
+        "DN200": 60,
+        "DN250": 68,
+        "DN300": 78
+      },
+      "Dimensions_DN50-300_with_Handle_D_diameter_mm": {
+        "DN50": 52.7,
+        "DN65": 64.3,
+        "DN80": 78.6,
+        "DN100": 103.8,
+        "DN125": 123.1,
+        "DN150": 155.4,
+        "DN200": 202.3,
+        "DN250": 250.3,
+        "DN300": 301.3
+      },
+      "Dimensions_DN50-300_with_Handle_H_mm": {
+        "DN50": 42,
+        "DN65": 42,
+        "DN80": 42,
+        "DN100": 61,
+        "DN125": 61,
+        "DN150": 61,
+        "DN200": 72,
+        "DN250": 80,
+        "DN300": 80
+      },
+      "Dimensions_DN50-300_with_Handle_L_mm": {
+        "DN50": 190,
+        "DN65": 190,
+        "DN80": 190,
+        "DN100": 250,
+        "DN125": 250,
+        "DN150": 250,
+        "DN200": 350,
+        "DN250": 505,
+        "DN300": 505
+      },
+      "Dimensions_DN50-300_with_Handle_K_mm": {
+        "DN50": 118,
+        "DN65": 137,
+        "DN80": 143,
+        "DN100": 156,
+        "DN125": 190,
+        "DN150": 212,
+        "DN200": 268,
+        "DN250": 325,
+        "DN300": 403
+      },
+      "Dimensions_DN50-200_with_Gearbox_H_mm": {
+        "DN50": 54,
+        "DN65": 54,
+        "DN80": 54,
+        "DN100": 54,
+        "DN125": 54,
+        "DN150": 54,
+        "DN200": 76.5
+      },
+      "Dimensions_DN50-200_with_Gearbox_F_mm": {
+        "DN50": 147,
+        "DN65": 147,
+        "DN80": 147,
+        "DN100": 147,
+        "DN125": 147,
+        "DN150": 147,
+        "DN200": 213
+      },
+      "Dimensions_DN50-200_with_Gearbox_J_mm": {
+        "DN50": 45,
+        "DN65": 45,
+        "DN80": 45,
+        "DN100": 45,
+        "DN125": 45,
+        "DN150": 45,
+        "DN200": 66
+      },
+      "Dimensions_DN50-200_with_Gearbox_G_mm": {
+        "DN50": 68,
+        "DN65": 68,
+        "DN80": 68,
+        "DN100": 68,
+        "DN125": 68,
+        "DN150": 68,
+        "DN200": 76
+      },
+      "Dimensions_DN50-200_with_Gearbox_N_diameter_mm": {
+        "DN50": 150,
+        "DN65": 150,
+        "DN80": 150,
+        "DN100": 150,
+        "DN125": 150,
+        "DN150": 150,
+        "DN200": 300
+      },
+      "Dimensions_DN250-350_with_Gearbox_E_mm": {
+        "DN250": 102,
+        "DN300": 102,
+        "DN350": 81
+      },
+      "Dimensions_DN250-350_with_Gearbox_F_mm": {
+        "DN250": 250,
+        "DN300": 227,
+        "DN350": 227
+      },
+      "Dimensions_DN250-350_with_Gearbox_G_mm": {
+        "DN250": 86,
+        "DN300": 83,
+        "DN350": 83
+      },
+      "Dimensions_DN250-350_with_Gearbox_H_mm": {
+        "DN250": 75,
+        "DN300": 81,
+        "DN350": 81
+      },
+      "Dimensions_DN250-350_with_Gearbox_J_mm": {
+        "DN250": 63,
+        "DN300": 80,
+        "DN350": 80
+      },
+      "Dimensions_DN400-500_with_Gearbox_A_mm": {
+        "DN400": 400,
+        "DN450": 422,
+        "DN500": 480
+      },
+      "Dimensions_DN400-500_with_Gearbox_B_mm": {
+        "DN400": 309,
+        "DN450": 321,
+        "DN500": 368
+      },
+      "Dimensions_DN400-500_with_Gearbox_C_mm": {
+        "DN400": 102,
+        "DN450": 114,
+        "DN500": 127
+      },
+      "Dimensions_DN400-500_with_Gearbox_D_diameter_mm": {
+        "DN400": 389.6,
+        "DN450": 440.5,
+        "DN500": 491.6
+      },
+      "Dimensions_DN400-500_with_Gearbox_K_mm": {
+        "DN400": 488,
+        "DN450": 539,
+        "DN500": 591
+      },
+      "Dimensions_DN700-900_with_Gearbox_A_mm": {
+        "DN700": 624,
+        "DN800": 672,
+        "DN900": 720
+      },
+      "Dimensions_DN700-900_with_Gearbox_B_mm": {
+        "DN700": 520,
+        "DN800": 591,
+        "DN900": 656
+      },
+      "Dimensions_DN700-900_with_Gearbox_C_mm": {
+        "DN700": 165,
+        "DN800": 190,
+        "DN900": 203
+      },
+      "Dimensions_DN700-900_with_Gearbox_D_diameter_mm": {
+        "DN700": 695,
+        "DN800": 745,
+        "DN900": 865
+      },
+      "Dimensions_DN700-900_with_Gearbox_D1_diameter_mm": {
+        "DN700": 840,
+        "DN800": 950,
+        "DN900": 1050
+      },
+      "Dimensions_DN700-900_with_Gearbox_N-M_lug": {
+        "DN700": "24-M33",
+        "DN800": "24-M36",
+        "DN900": "28-M36"
+      },
+      "Dimensions_DN700-900_with_Gearbox_A1_mm": {
+        "DN700": 165,
+        "DN800": 165,
+        "DN900": 215
+      },
+      "Dimensions_DN700-900_with_Gearbox_A2_mm": {
+        "DN700": 162,
+        "DN800": 162,
+        "DN900": 196
+      },
+      "Dimensions_DN700-900_with_Gearbox_A3_mm": {
+        "DN700": 189,
+        "DN800": 189,
+        "DN900": 220
+      },
+      "Dimensions_DN700-900_with_Gearbox_A4_mm": {
+        "DN700": 244,
+        "DN800": 244,
+        "DN900": 270
+      },
+      "Dimensions_DN700-900_with_Gearbox_A5_mm": {
+        "DN700": 183,
+        "DN800": 183,
+        "DN900": 215
+      },
+      "Dimensions_DN700-900_with_Gearbox_A6_mm": {
+        "DN700": 157,
+        "DN800": 157,
+        "DN900": 235
+      },
+      "Dimensions_DN700-900_with_Gearbox_F_diameter_mm": {
+        "DN700": 400,
+        "DN800": 400,
+        "DN900": 450
+      }
+    },
+    "specs_count": 63,
+    "series": "BF-HWC4, BF-MWC5 SERIES",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",
-    "certifications": [],
+    "certifications": [
+      "ГОСТ 12821-80"
+    ],
     "article_no": "",
     "datasheet_pdf": "downloads\\datasheets_v2\\N0524.pdf",
     "datasheet_size_kb": 6283,

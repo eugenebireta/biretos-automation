@@ -646,9 +646,153 @@
     "schema_version": 2,
     "title": "",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "product_type": "Butterfly valve (Поворотные заслонки)",
+      "series": "V5421B",
+      "working_medium": "Water with max 50% glycol",
+      "nominal_pressure_pu": "16 bar",
+      "water_temperature_range": "-10...+130 °C",
+      "connection_type": "Flange connection (Межфланцевое)",
+      "valve_body_material": "Ductile iron GGG40",
+      "seal_material": "EPDM-HT",
+      "disk_material": "Ductile iron GGG40",
+      "shaft_material": "Stainless steel 1.4028",
+      "models": {
+        "V5421B1009": {
+          "dn_mm": 25,
+          "kvs_m3_h": 52,
+          "pmax_kpa": 1600,
+          "nominal_torque_nm": 5,
+          "weight_kg": 2.5,
+          "h_mm": 125,
+          "h1_mm": 52,
+          "c_mm": 30,
+          "g_mm": 150
+        },
+        "V5421B1017": {
+          "dn_mm": 32,
+          "kvs_m3_h": 52,
+          "pmax_kpa": 1600,
+          "nominal_torque_nm": 5,
+          "weight_kg": 2.5,
+          "h_mm": 125,
+          "h1_mm": 52,
+          "c_mm": 30,
+          "g_mm": 150
+        },
+        "V5421B1025": {
+          "dn_mm": 40,
+          "kvs_m3_h": 120,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 7,
+          "weight_kg": 2.5,
+          "h_mm": 130,
+          "h1_mm": 60,
+          "c_mm": 33,
+          "g_mm": 155
+        },
+        "V5421B1033": {
+          "dn_mm": 50,
+          "kvs_m3_h": 189,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 12,
+          "weight_kg": 3.5,
+          "h_mm": 135,
+          "h1_mm": 72,
+          "c_mm": 43,
+          "g_mm": 160
+        },
+        "V5421B1041": {
+          "dn_mm": 65,
+          "kvs_m3_h": 311,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 15,
+          "weight_kg": 4.1,
+          "h_mm": 150,
+          "h1_mm": 82,
+          "c_mm": 46,
+          "g_mm": 175
+        },
+        "V5421B1058": {
+          "dn_mm": 80,
+          "kvs_m3_h": 433,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 25,
+          "weight_kg": 4.5,
+          "h_mm": 160,
+          "h1_mm": 92,
+          "c_mm": 46,
+          "g_mm": 185
+        },
+        "V5421B1066": {
+          "dn_mm": 100,
+          "kvs_m3_h": 745,
+          "pmax_kpa": 800,
+          "nominal_torque_nm": 40,
+          "weight_kg": 6.0,
+          "h_mm": 180,
+          "h1_mm": 102,
+          "c_mm": 52,
+          "g_mm": 205
+        },
+        "V5421B1074": {
+          "dn_mm": 125,
+          "kvs_m3_h": 1219,
+          "pmax_kpa": 600,
+          "nominal_torque_nm": 40,
+          "weight_kg": 8.0,
+          "h_mm": 195,
+          "h1_mm": 120,
+          "c_mm": 56,
+          "g_mm": 220
+        },
+        "V5421B1082": {
+          "dn_mm": 150,
+          "kvs_m3_h": 1805,
+          "pmax_kpa": 400,
+          "nominal_torque_nm": 40,
+          "weight_kg": 9.1,
+          "h_mm": 210,
+          "h1_mm": 133,
+          "c_mm": 56,
+          "g_mm": 235
+        },
+        "V5421B1090": {
+          "dn_mm": 200,
+          "kvs_m3_h": 3093,
+          "pmax_kpa": 300,
+          "nominal_torque_nm": 40,
+          "weight_kg": 12.7,
+          "h_mm": 240,
+          "h1_mm": 163,
+          "c_mm": 60,
+          "g_mm": 265
+        }
+      },
+      "compatible_actuators": [
+        "M6061 for DN 25-150 mm",
+        "M7061 for DN 25-65 mm",
+        "M6422L1003 for DN 200 mm"
+      ],
+      "actuator_options": {
+        "20_nm": [
+          "M6061A1021: 3-pos, 24V/3.5A, duty 1.6 min",
+          "M6061A1039: 3-pos, 230V/3.5A, duty 2.3 min",
+          "M6061A1047: 0/2-10V, 24V/2.4A, duty 3.5 min"
+        ],
+        "30_nm": [
+          "M6061L1027: 3-pos, 24V/3.5A, duty 1.6 min",
+          "M6061L1035: 3-pos, 230V/3.5A, duty 2.3 min"
+        ],
+        "40_nm": [
+          "M6061L1043: 3-pos, 24V/3.5A, duty 3.5 min",
+          "M7061E1020: 3-pos, 230V/7A, duty 2.5 min",
+          "M6422L1003: 3-pos, 230V/7A, duty 2.5 min (for DN200)"
+        ]
+      }
+    },
+    "specs_count": 13,
+    "series": "V5421B",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",

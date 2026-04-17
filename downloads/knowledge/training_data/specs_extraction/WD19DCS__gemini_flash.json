@@ -1,0 +1,170 @@
+{
+  "pn": "WD19DCS",
+  "model": "gemini-2.5-flash",
+  "prompt": "You are parsing a product datasheet PDF. Extract technical specifications THOROUGHLY.\n\nReturn ONLY valid JSON:\n{\n  \"specs\": {\"<param>\": \"<value>\"},\n  \"weight_g\": \"<number only, e.g. 250>\",\n  \"dimensions_mm\": \"<LxWxH e.g. 120x80x45>\",\n  \"ean\": \"<13 digits or empty>\",\n  \"series\": \"<product family>\",\n  \"certifications\": [\"CE\", \"EN54-18\", ...]\n}\n\nSPECS FIELD — include EVERY concrete technical parameter you can find:\n- Electrical: voltage (V), current (A, mA), power (W), frequency (Hz)\n- Physical: dimensions LxWxH, weight, housing/enclosure material, color\n- Environmental: operating temperature, IP rating, humidity range\n- Performance: detection range, sensitivity, response time, output type\n- Interface: connector type, cable, mounting type, communication protocol\n- Compliance: EN/IEC/UL standards, certifications\n- Any numeric values in tables (do not skip tables!)\n\nIf datasheet has a \"Technical Data\" / \"Specifications\" / \"Specifications tabulaire\" / \"Technische Daten\" section — extract EVERY row.\n\nDo NOT skip specs because they seem obvious. Extract literally.\n\nIf a value is truly absent, omit the key. Do NOT write \"N/A\" or \"not specified\".\n\nReturn empty specs {} ONLY if the PDF genuinely has no technical specifications (rare for datasheets).\n",
+  "pdf_text": " \nقائمة األجهزة المعتمدة\nType Approved Equipment List\nالتاري  خ :\n1\n  يناير2025\nDate:1st January, 2025\n مسلسل\n(\nNo\n)\n وصف الجهاز(\nProduct Description\n)\n الماركة(\nBrand\n)\n الموديل(\nModel\n)\n الموديالت المرتبطة( \nlinked models\n)\n1\nMOBILE PHONE\n.S...MOBILE\nS9295\n2\nMOBILE PHONE\n.S...MOBILE\nS9220\n3\nMOBILE PHONE\n.S...MOBILE\nS6102\n4\nMOBILE PHONE\n.S...MOBILE\nS5S5\n5\nMOBILE PHONE\n.S...MOBILE\nS5570\n6\nMOBILE PHONE\n.S...MOBILE\nS5363\n7\nMOBILE PHONE\n.S...MOBILE\nS5\n8\nMOBILE PHONE\n.S...MOBILE\nS4S4\n9\nMOBILE PHONE\n.S...MOBILE\nS210\n10\nMOBILE PHONE\n.S...MOBILE\nS111\n11\nMOBILE PHONE\n.S...MOBILE\nS1085\n12\nServer\n1HOME\n1HOME SERVER KNX Pro\n13\nNETWORK MANAGEMENT DEVICE\n24 ONLINE\nSMS1500i\n14\nFIREWALL\n24 ONLINE\nSMS 2500IX\nCAR-5010-4K20-243\n15\nSERVER\n24 ONLINE\nHIA100IX\n16\nNETWORK APPLIANCE\n24 ONLINE\nHIA 500IX\n17\nHospitality Internet Access and Billing  \nControl\n24 ONLINE\nElitecore 24online HIA 100i\n18\nWIFI PRESENTER WITH LASER\n2B\nMO887\n19\nWIRELESS MOUSE\n2B\nMO878\n20\nWIRELESS MOUSE\n2B\nMO877\n21\nWIRELESS MOUSE\n2B\nMO876\n22\nWIRELESS MOUSE\n2B\nMO866\n23\nWIRELESS MOUSE\n2B\nMO58B\n24\nWIRELESS MOUSE\n2B\nMO58A\n25\nWIRELESS MOUSE\n2B\nMO-33-W\n26\nWIRELESS MOUSE\n2B\nMO33R\n27\nWIRELESS MOUSE\n2B\nMO-33-P\n28\nWIRELESS MOUSE\n2B\nMO-33-O\n29\nWIRELESS MOUSE\n2B\nMO-33-N\n30\nWIRELESS MOUSE\n2B\nMO33B\n31\nWIRELESS MOUSE\n2B\nMO307\n32\nWIRELESS MOUSE\n2B\nMO-30-6\n33\nWIRELESS MOUSE\n2B\nMO-30-5\n34\nWIRELESS MOUSE\n2B\nMO186\n35\nWIRELESS MOUSE / KEYBOARD\n2B\nKB443\n36\nGAME PAD\n2B\nGP-19-3\n37\nBT TOUCHPAD\n2B\nGP-07-6\n38\nWIRELESS DONGLE\n2B\nCV304\n39\nWIRELESS MOUSE\n2B\n(KB306) KB-30-6\n40\nNETWORK DVR\n2M\nTVI 7200\n2MT-7232 / 2MT-7216\n41\nNETWORK DVR\n2M\nTVI 7100\n2MT-7116\n42\nIP CAMERA\n2M\n2MVIP-4MIR30-P\n43\nIR CAMERA\n2M\n2MVIP-4MIR30-E\n44\nIP CAMERA\n2M\n2MVIP-3IR30E\n45\n NETWORK VIDEO RECORDER\n2M\n2MT-4088\n46\nRFID DEVICE\n2M\n2MS-300\n47\nWIRELESS READER\n2M\n2MR-19\n48\nIP CAMERA\n2M\n2MPIP-2MIR15030X\n49\nNETWORK VIDEO RECORDER\n2M\n2MN-9116-P8\n50\n NETWORK VIDEO RECORDER\n2M\n2MN-8116-P16\n51\nNETWORK DVR\n2M\n2MD-8800\n \nفيما  يلي قائمة لألجهزة المعتمدة النوع حتى التاري  خ أعاله .يُرجى مراعاة المالحظات التالية:\n1\n) \n ي تقديم خدمات االتصاالت لآلخرين و إنما الستخدام الجهة فقط وال يتضمن أي نشاط يحتاج إىل ترخيص أو ترصي  ح طبقا لقانون\nي استخدام الجهاز ف \nاعتماد النوع  ال يعطي الحق ف \n االتصاالت رقم10\n  لسنة2003\n.\n2\n) شهادة اعتماد النوع هي شهادة بمطابقة الجهاز لمواصفات السالمة الدولية المعتمدة و ال تعتبى ترصيحا باستبر اده و ال موافقة عل الشحنات الواردة منه.\n3\n) اعتماد النوع ال يتضمن الموافقة عل أي محتوى رقمي مُ حمَّ ل عل الجهاز المعتمد.\n4\n) اعتماد النوع يختص فقط بوظائف االتصاالت بالجهاز المعتمد و ال يتضمن موافقة عل أي من وظائفه األخرى.\nFollowing is a list for type-approved products till the above date. Please consider the following notes:\n1)  Type Approval does not authorize the usage of the product to offer telecom services to others and is restricted to private use. It does not \ninclude approval on any activity that needs licensing or obtaining permits according to Telecom Law no. 10/2003.\n2) NTRA Type approval certificate indicates compliance of the product with international approved standards & should not be considered as an \nimportation or customs clearance permit.\n3) Type Approval does not include approval on any digital content on the type-approved device.\n4) Type Approval pertains only to the communications functions of the approved device and does not include approval to any of its other functions.\nPage 1 of 665\n\n\n \nقائمة األجهزة المعتمدة\nType Approved Equipment List\nالتاري  خ :\n1\n  يناير2025\nDate:1st January, 2025\n52\nIP CAMERA\n2M\n2MBIP-4MIR30Z-P\n53\nCONTROLLER\n2M\n2MAC-1002/IP\n54\nBluetooth Headset\n2N\nUG-Mini (KV-803)\n55\nGSM Gateway\n2N\nStarGate\n56\nIP INTERCOM SYSTEM\n2N\nIP VARIO\n57\nRFID DEVICE\n2N\nHELIOS IP VERSO\n9159010 / 9155101C / 9155101 / \nHELIOS IP VERSO BASE\n58\nIP INTERCOM SYSTEM\n2N\nHELIOS IP VARIO\n59\nRFID DEVICE\n2N\nHELIOS IP BASE ( 9156111CB )\n60\n3G Wireless Router with 802.11a/b/g WiFi \nand Ethernet interfaces\n2N\nEasy Route (without analog gateway \napplication)\n61\nGSM / fixed cellular terminal\n2N\nATEUS - Easygate  501303E\n62\nACCESS CONTROLLER\n2N\nACCESS UNIT 2.0 RFID (9160341US)\n63\nRFID DEVICE\n2N\nACCESS UNIT\n64\nRFID DEVICE\n2N\n916114 (2N ACCESS UNIT M RFID \nMULTIFREQUENCY)\n65\nWIRELESS CONTROL UNIT\n2N\n916112\n66\nMODULE\n2N\n9160501\n67\nWireless Card Reader\n2N\n9160342\n68\nWIRELESS INTERCOM SYSTEM\n2N\n9155101C\n69\nWIRELESS INTERCOM SYSTEM\n2N\n91550942\n70\nWIRELESS INTERCOM SYSTEM\n2N\n9155081\n71\nWIRELESS INTERCOM SYSTEM\n2N\n9155036 (2N IP Verso Touch Display)\n72\nintercom\n2N\n9151101CHRPW\n73\nIP Intercom\n2N\n9138511\n74\nTOUCH SCREEN\n2N\n91378601WH\n75\nIP INTERCOM SYSTEM\n2N\n91378501WH\nINDOOR COMPACT \n76\nWIRELESS GATEWAY\n2N\n5051044W (VoiceBlue)\n77\nACCESS CONTROLLER\n2N\n2N Access Unit M Touch Keypad & RFID \n(916116)\n78\nAccess Control Equipment\n2N\n2N Access Unit M\n9161121\n79\nACCESS CONTROLLER\n2N\n2N ACCESS UNIT 2.0 TOUCH \nKEYPAD&RFID (9160336)\n80\nWIRELESS IP PHONE\n2N\n1120102 (IP PHONE D7A)\n81\nintercom\n2N\n10057560\n82\nintercom\n2N\n10040039\n83\nIP INTERCOM SYSTEM\n2N TELECOMUNICATION\nHELIOS IP SOLO\n84\nRFID MODULE\n2N TELECOMUNICATION\nACCESS UNIT\n85\nZIGBEE DEVICE\n2N TELECOMUNICATION\n2N TERMINAL EGZ\n86\nGSM MODEM\n2N TELECOMUNICATION\n2N SMART GATEWAY\n87\nRADIO MODULE 2.4GHz\n2N TELEKOMUNIKACE\nSmartCom AC ZigBee Controller\n88\nIP INTERCOM SYSTEM\n2N TELEKOMUNIKACE\n9153101\n89\nIP INTERCOM SYSTEM\n2N TELEKOMUNIKACE\n9152101W\n90\nWIRELESS INTERCOM SYSTEM\n2N TELEKOMUNIKACE\n2N IP SOLO (9155301CBF)\n91\nIP PHONE\n2N TELEKOMUNIKACE\n2N IP Handset (1120101B)\n92\nIP CAMERA\n3 EYES 3\nE-2100M\n93\nWLAN CONTROLLER\n3COM\nWX2200\n94\nAccess Point 2.4 GHz\n3COM\nWireless 8760\n95\nIP Phone System\n3COM\nV5000\n96\nUnified Gigabit Switch \n3COM\nUnified Gigabit Wireless PoE Switch 24\n97\nSwitch\n3COM\nSwitch 8\n98\nSwitch\n3COM\nSwitch 7700 Family\n99\nSwitch\n3COM\nSwitch 4500 26-Port\n100\nSwitch\n3COM\nSuperStack3 Switch 3250\n101\nSWITCH \n3COM\nSuperStack II 3000\n3C16942A\n102\nSwitch\n3COM\nSuperStack 3 Switch 4900 mily\n103\nSwitch\n3COM\nSuperStack 3 Switch 4400 Family\n3C17221 / 3C17206\n104\nSwitch\n3COM\nSuperStack 3 switch 4228G\n105\nSwitch\n3COM\nSuperStack 3 Switch 3812\n106\nSwitch\n3COM\nSuperStack 3 Switch 3226\n107\nFirewall\n3COM\nSuperStack 3 Firewall\n108\nSwitch\n3COM\nSuperStack 3 4250T\n109\nSwitch\n3COM\nSuperStack 3 4226T\n3C17300\n110\nWireLess 11a/b/g PCI Adapter\n3COM\nSL-3055\n111\nWireless 54 Mbps / 2.4 GHz USB Adapter\n3COM\nOfficeConnect USB Adapter\n112\nSwitch\n3COM\nOfficeConnect Managed Switch 9 FX\n113\nSwitch\n3COM\nOfficeConnect  Switch 5\nPage 2 of 665\n\n\n \nقائمة األجهزة المعتمدة\nType Approved Equipment List\nالتاري  خ :\n1\n  يناير2025\nDate:1st January, 2025\n114\nSwitch\n3COM\nOffice Connect Gigabit Switch \n115\nSwitch\n3COM\nOffice Connect Dual Speed Switch 16 Plus\n116\nADSL Wireless Firewall Router 2.4 GHz\n3COM\nOffice Connect ADSL Wireless 11g \nFirewall Router\n117\nSwitch\n3COM\nOffice Connect 8\n118\nPC Card 2.4 GHz\n3COM\nOffice Connect 108Mbps 11g XJACK\n119\nRouter 2.4 GHz\n3COM\nOffice  Connect 108 Mbps Firewall \nRouter\n120\nIP Phone - Basic Telephone\n3COM\nNBX2101\n121\nIP Phone - Attendant Console\n3COM\nNBX1105\n122\nIP Telephone Set\n3COM\nNBX 3102\n3C10402B / HP 3102\n123\nIP Phone \n3COM\nNBX 2102\n124\nIP  PABX\n3COM\nNBX  V3000\n125\nIP Phone\n3COM\nNBX  3103 Mangers Phone\n126\nIP Phone\n3COM\nNBX  3101 Basic Phone\n3C10401SPKRB\n127\nSwitch\n3COM\nIntelliJack Switch\n128\n802.11b/g/n Wireless Access Point\n3COM\nH3C WA2610E-AGN\n129\nGigabit Switch\n3COM\nGigabit Switch 8\n130\nGigabit Switch\n3COM\nGigabit Switch 5\n131\nCopper / Fiber Network Interface Card\n3COM\nGigabit Server Single NIC / 3C996B-T\n132\nRouter\n3COM\nCR 898-91\n133\nATM/Gigabit Ethernet Switch\n3COM\nCoreBuilder 7000HD\n134\nSwitch\n3COM\nBaseline Switch 3824\n135\nSwitch\n3COM\nBaseLine Switch 2824\n136\nSwitch\n3COM\nBaseline Switch 2250 Plus\n137\nSwitch\n3COM\nBaseLine 2816\n3CBLUG16A\n138\nSwitch\n3COM\nBaseline 2016\n139\nSwitch\n3COM\nBaseline  2808\n140\nSwitch\n3COM\nBaseLine  2024\n141\nSwitch\n3COM\nBase Line Switch 2226 Plus\n142\n Switch\n3COM\n8800\n143\nWireless Access Piont\n3COM\n8760\n144\nWireless Access Point\n3COM\n7760AG\n145\nRouter\n3COM\n5231\n146\nRouter\n3COM\n5012\n147\nEthernet Switch\n3COM\n4210\n148\nSwitch\n3COM\n4200 Family\n149\nSwitch\n3COM\n4070\n150\nWLAN DSL Router\n3COM\n3CRWE554G72\n151\nAccess Point 2.4 GHz\n3COM\n3CRWE454G75-ME\n152\nBluetooth PC Card\n3COM\n3CRWB6096B\n153\nWireless USB Adapter\n3COM\n3CRUSB20075\n154\nWireless USB Adapter\n3COM\n3CRUSB10075\n155\nAccess Point 2.4 GHz\n3COM\n3CRGPOE10075\n156\nWireless Lan PCI Adapter\n3COM\n3CRDW696\n157\nSwitch\n3COM\n3CBLUG16A\n158\nSWITCH \n3COM\n3C16942A\n159\nAccess Point 2.4 GHz\n3COM\n3750\n160\nSWITCH \n3COM\n3300\n161\nWireless IP Phone\n3COM\n3108\n162\nIP Phone\n3COM\n3100\n163\nRouter\n3COM\n3034\n164\nG.SHDSL Router\n3COM\n3033\n165\nRouter\n3COM\n3018\n166\nSwitch\n3COM\n2924-SFP\n167\nWLAN Access  Point\n3COM\n2750\n168\nSwitch\n3COM\n2126-G\n169\nSWITCH \n3COM\n2026\n170\nMODULE\n3D AUTOMAZIONE\nDCS ADAPTER BOARD (DTR0000309361)\n171\nWIRLESS APPLIANCE\n3M\nXT1 Headset V3\n172\nWIRLESS APPLIANCE\n3M\nXT1 BaseStation\n173\nIP CAMERA\n3S POCKETNET\nN9082\n174\nIP CAMERA\n3S POCKETNET\nN9033\n175\nIP CAMERA\n3S POCKETNET\nN6078\n176\nIP CAMERA\n3S POCKETNET\nN6037\n177\nIP CAMERA\n3S POCKETNET\nN3041-EC\n178\nWIRELESS MEDICAL DEVICE\n3SHAPE TRIOS\ntrios 4 wireless\n179\nWIRELESS MEDICAL DEVICE\n3SHAPE TRIOS\ntrios 3 wireless\n180\nWLAN MEDICAL DEVICE\n3SHAPE TRIOS\nL1P-1 (TRIOS 5 )\n181\nMICROWAVE SENSOR\n4FT\nMS-100N\nPage 3 of 665\n\n\n \nقائمة األجهزة المعتمدة\nType Approved Equipment List\nالتاري  خ :\n1\n  يناير2025\nDate:1st January, 2025\n182\nGSM Terminal Adapter\n4G Systems\nXSJack T2\n183\n(GSM/GPRS/WCDMA/HSDPA) USB Modem\n4G Systems\nXS Webstick W12\n184\nACCESS POINT 2.4 / 5 GHz\n4IPNET\nEAP767\n185\nWIRELESS MODULE\n4MOMS\n4004036 used for 4Moms – 1037\n186\nChild Care product\n4MOMS\n1046 mamaRoo 5\n187\nMOBILE PHONE\n4STARS\nN003\n188\nMOBILE PHONE\n4STARS\nN002\n189\nMOBILE PHONE\n4STARS\nN001\n190\nCELLULAR TABLET \n4STARS\nB888\n191\nCELLULAR TABLET \n4STARS\nB666\n192\nCELLULAR TABLET \n4STARS\nB555\n193\ncooling system\n84J\nSOLAR CHILLER V2\n100703V2\n194\nWLAN USB ADAPTER\n8LEVEL\nWUSB-150A\n195\nWIRELESS ROUTER\n8LEVEL\nWRT-300 SMART\n196\nWIRELESS ROUTER\n8LEVEL\nWRT-150A\n197\nMobile Phone\nA_ONE\nX100\n198\nMobile Phone\nA_ONE\noGGo G602\n199\nMobile Phone\nA_ONE\nM616\n200\nMobile Phone\nA_ONE\nM610\n201\nMobile Phone\nA_ONE\nF16\n202\nMobile Phone\nA_ONE\nA800\n203\nMobile Phone\nA_ONE\nA505\n204\nMobile Phone\nA_ONE\nA504\n205\nMOBILE PHONE\nA_ONE\nA333\n206\nNETW. TRAFFIC CONTROLLER\nA10\nTHUNDER 840 ADC(TH840-010)\n207\nNETW. TRAFFIC CONTROLLER\nA10\nTHUNDER 3030S ADC\nTH3030-010-SSL / H3030-010-SSL\n208\nFIREWALL\nA10\nAX1030\n209\nCONTROLLER\nA10\n1040S\n210\nLIGHT SYSTEM\nAAA-LUX\nAL90.7.4.RF.HT\n211\nDECT CONFERENCE PHONE\nAASTRA\nS850I\n212\nWLAN & DECT BASESTATION\nAASTRA\nRFP(L)43 WLAN\nHADES I20\n213\nIP PBX\nAASTRA\nMX-ONE Telephony System Telephony \nSwitch\nMITEL MX-ONE / Aastra MX-ONE  \n214\nIP PBX\nAASTRA\nMITEL MX-ONE\n215\nDigital Telephone Set\nAASTRA\nMITEL DIALOG 4224\n216\nANALOG TELEPHONE\nAASTRA\nMITEL 7106a\n217\nAnalog Phone\nAASTRA\nM310\n218\nIP PBX Solution\nAASTRA\nLink Pro 160\n219\nDECT IP PHONE\nAASTRA\nIPBS 432\n220\nDECT phone\nAASTRA\nDT190\n221\nDECT PHONE\nAASTRA\nDT 432 ATEX\n222\nIP Office Phone\nAASTRA\nDialog  4422\n223\nPABX\nAASTRA\nBusiness Phone 250\nAastra Business Phone 250\n224\nDECT Coveragae Area Extender (Repeater)\nAASTRA\nBS370\n225\nDECT Coveragae Area Extension Base Station AASTRA\nBS340\n226\nIP DECT BASE STATION\nAASTRA\nBS332\n227\nVIDEO CONFERENCE ENDPOINT\nAASTRA\nBLUSTAR 8000i\n228\nIP PBX\nAASTRA\nAASTRA 700 (WITHOUT DECT MODULE)\n229\nAnalog Phone\nAASTRA\n9116\n230\nAnalog Phone\nAASTRA\n8004\n231\nIP PHONE\nAASTRA\n7433IP\n232\nANALOG TELEPHONE\nAASTRA\n7147a\n233\nANALOG TELEPHONE\nAASTRA\n6755i\n234\nANALOG TELEPHONE\nAASTRA\n6753i\n235\nIP PHONE\nAASTRA\n6739i\n236\nIP PHONE\nAASTRA\n6735I\n237\nIP PHONE\nAASTRA\n6731i\n238\nPBX\nAASTRA\n470 COMMUNICATION SERVER\nMITEL A470\n239\nMODULE\nAASTRA\n32FXS\n20351423\n240\nDECT Handset\nAASTRA\n142d\n241\nTABLET PC\nAAVA\nINARI8B-WIG-1\n242\nDATA LOGGER\nABB\nVSN700-03-E0\nVSN700-05 / VSN700-03 / VSN700-\n01\n243\nWIRELESS DATA LOGGER\nABB\nVSN300 WIFI LOGGER CARD\n244\nRouter\nABB\nVista Net 2300\n245\nGATEWAY\nABB\nVCO/S150.2 (2CKA006136A0220)\n246\nETHERNET UNIT\nABB\nTU507-ETH\nPage 4 of 665\n\n\n \nقائمة األجهزة المعتمدة\nType Approved Equipment List\nالتاري  خ :\n1\n  يناير2025\nDate:1st January, 2025\n247\nETHERNET MODULE\nABB\nTC810\n248\nNETWORK PORT\nABB\nTB842 (3BSE022464R1)\n249\nDATA TERMINAL EQUIPMENT\nABB\nTB521\n250\nCharger\nABB\nTAC-W22-S-R-C-0\n6AGC082154\n251\nSENSOR\nABB\nSSA-F-2.2.PB.1-WL\n252\nETHERNET MODULE\nABB\nSPIET800\n253\nWIRELESS TOUCH SCREEN \nABB\nSmartTouch® 10 (2TMA310051B0002)\n254\nWIRELESS MOTION SENSOR\nABB\nSMART SENSOR G1 (3AFP9169149)\n255\nModule\nABB\nSDCS-COM-81\n256\nSENSOR\nABB\nSBA-F-1.1.PB.1-WL (2CKA006200A0113)\n257\nSENSOR\nABB\nSBA-F-1.1.PB.1\n258\nACCESS POINT\nABB\nSAP/S.3\n259\nGPS TIMING SYSTEM\nABB\nRTU 560\n560RTC01\n260\nCONTROL DEVICE\nABB\nREU615\n261\nCONTROLLER\nABB\nREU611\n262\nMODULE\nABB\nRETA-02\n263\nCONTROLLER\nABB\nRET620\n264\nCONTROLLER\nABB\nREM620\n265\nCONTROLLER\nABB\nREM615\n266\nCONTROLLER\nABB\nREM611\n267\nCONTROLLER\nABB\nREF615\n268\nCONTROLLER\nABB\nREF 620E\n269\nTELEPROTECTION EQUIPMENT\nABB\nRED 670 (NO GPS)\n270\nINVERTER\nABB\nPVS-100-TL\n271\nMODULE\nABB\nPU410K01 / 3BSE051826R1\n272\nPROCESSOR\nABB\nPM891K01\n273\nNETWORK MODULE\nABB\nPM573-ETH\n274\nProcess Automation Controller Central \nProcessing Unit with 100Mb/s Ethernet \nConnection\nABB\nPM 783F\n275\nNETWORK MODULE\nABB\nNUSA1\n1KHX447900579\n276\nROUTER\nABB\nNE871\n277\nSWITCH \nABB\nNE840\n278\nSWITCH \nABB\nNE820\n279\nSWITCH \nABB\nNE810\n280\nETHERNET SWITCH\nABB\nNE802\n281\nSWITCH \nABB\nNE801\n282\nCONTROLLER\nABB\nMTQ22-FBP.0\n283\nMODULE\nABB\nMOD600GLECMIR\n284\nMODULE\nABB\nMOD600ADIM8H\n285\nROUTER\nABB\nMDRC (IPR/S3.1.1)\n286\nNetwork Management Equipment\nABB\nM4M30RS485\n287\nController\nABB\nM4M30PRF\n2CSG236791R4051\n288\nANALYZER\nABB\nM4M30LAN\n289\nANALYZER\nABB\nM4M20RS485\n290\nANALYZER\nABB\nM4M20LAN\n291\nRouter\nABB\nIPR/S3.5.1\n2CDG110176R0011\n292\nROUTER\nABB\nIPR/S 3.1.1\n2CDG110175R0011\n293\nROUTER\nABB\nIPR/S 2.1\n294\nDOOR UNIT\nABB\nH8237-4B\n295\nDOOR UNIT\nABB\nH8236-4B\n2TMA130050B0065\n296\nOUTDOOR UNIT\nABB\nH81381P1-S\n297\nWIRELESS GATEWAY\nABB\nGATEWAY FOR IOT CONNECTIVITY \n(1SDA11508R1)\n298\nMultiservice Platform\nABB\nFOX 660\n299\nMULTIPLEXER\nABB\nFOX 615\n300\nMULTIPLEXER\nABB\nFOX 515\n301\nController\nABB\nFBXI-8R8-X96\n302\nController\nABB\nFBTI-7T7-1U1R\n303\nMODULE\nABB\nFBIP-21 (3AXD50000023864)\n304\nSENSOR\nABB\nFA-TH-D\n305\nWIRELESS CHARGER\nABB\nEVLunic PRO\n306\nPOWER LINE CARRIER SYSTEM\nABB\nETL600 R4\n307\nDigital Power Line Carrier System\nABB\nETL600\n308\nDigital Power line Carrier System\nABB\nETL60\n309\nNETWORK MODULE\nABB\nETE24 (1KHX47900480)\n310\nMotor Controller & Unit Protection\nABB\nEM01\n311\nMODBUS DEVICE\nABB\nEKIP (1SDA082485R1) MODULE\n312\nMODBUS DEVICE\nABB\nEKIP (1SDA074151R1)\n313\nGateway\nABB\nEGW-02\n314\nDIGITAL TIMER\nABB\nDW1 (2CSM222531R1000 )\nPage 5 of 665\n\n\n \nقائمة األجهزة المعتمدة\nType Approved Equipment List\nالتاري  خ :\n1\n  يناير2025\nDate:1st January, 2025\n315\nController\nABB\nCylon® FBVi-2U4-4T-imp\n1M710101\n316\nCONTROL DEVICE\nABB\nCT/S2.1 (2CKA006136A0218)\n317\nINTERFACE CARD\nABB\nCS513AK01 (3BSE091971R1)\n318\nNETWORK MODULE\nABB\nCOGE5\n1KHX447900595\n319\nMODULE\nABB\nCM597\n320\nINTERFACE MODULE\nABB\nCI930F\n321\nINTERFACE MODULE\nABB\nCI867K01 (3BSE043660R1)\n322\nETHERNET MODULE\nABB\nCI845\n323\nINTERFACE MODULE\nABB\nCI840A\n324\nNETWORK ADAPTER\nABB\nCDPI-01 (3AXD50000004419)\n325\nMODBUS DEVICE\nABB\nCBXi-8R8 (1M102100)\n326\nWIRELESS CONTROL PANEL\nABB\nBluetooth control panel ACH-AP-W\n327\nSWITCH \nABB\nBELDEN AFS",
+  "pdf_bytes": 21148076,
+  "output": {
+    "specs": {
+      "connectivity_technology": [
+        "WiFi",
+        "Wireless",
+        "Bluetooth",
+        "WLAN",
+        "3G",
+        "GSM",
+        "GPRS",
+        "WCDMA",
+        "HSDPA",
+        "Cellular",
+        "DECT",
+        "RFID",
+        "Infrared (IR)",
+        "Microwave",
+        "Radio Frequency (RF)",
+        "Fixed Cellular"
+      ],
+      "networking_protocols": [
+        "Ethernet",
+        "IP",
+        "KNX",
+        "ATM",
+        "Modbus",
+        "DSL",
+        "ADSL",
+        "G.SHDSL"
+      ],
+      "wifi_standards": [
+        "802.11a/b/g",
+        "802.11b/g/n",
+        "802.11g"
+      ],
+      "frequency_ghz": [
+        "2.4",
+        "5"
+      ],
+      "frequency_type": [
+        "Multifrequency"
+      ],
+      "port_count": [
+        "5",
+        "8",
+        "9",
+        "12",
+        "16",
+        "24",
+        "26",
+        "28",
+        "50"
+      ],
+      "speed_mbps": [
+        "54",
+        "100",
+        "108"
+      ],
+      "speed_gbps": [
+        "Gigabit"
+      ],
+      "interface_types": [
+        "PCI Adapter",
+        "USB Adapter",
+        "PC Card",
+        "SFP",
+        "Network Interface Card",
+        "Adapter Board",
+        "Network Port",
+        "Copper",
+        "Fiber"
+      ],
+      "features": [
+        "Laser",
+        "Touch Keypad",
+        "Touch Display",
+        "Managed (Switch)",
+        "Dual Speed",
+        "Power over Ethernet (PoE)"
+      ],
+      "device_roles_or_functions": [
+        "Server",
+        "Firewall",
+        "Network Appliance",
+        "Router",
+        "Switch",
+        "Camera",
+        "DVR",
+        "Video Recorder",
+        "Reader",
+        "Controller",
+        "Headset",
+        "Gateway",
+        "Modem",
+        "Access Point",
+        "Phone System",
+        "PABX",
+        "Terminal",
+        "Data Logger",
+        "Sensor",
+        "Charger",
+        "Analyzer",
+        "Multiplexer",
+        "Platform",
+        "Timer",
+        "Motor Controller",
+        "Unit Protection",
+        "Interface Card",
+        "Interface Module",
+        "Network Adapter",
+        "Control Panel",
+        "Presenter",
+        "Mouse",
+        "Keyboard",
+        "Game Pad",
+        "Dongle",
+        "Intercom",
+        "Handset",
+        "Medical Device",
+        "Cooling System",
+        "Light System",
+        "Traffic Controller",
+        "Repeater",
+        "Base Station",
+        "Video Conference Endpoint",
+        "Door Unit",
+        "Outdoor Unit"
+      ],
+      "device_attributes": [
+        "Digital",
+        "Analog",
+        "Basic (Phone)",
+        "Attendant Console (Phone)",
+        "Manager (Phone)",
+        "Tablet PC",
+        "Multiservice",
+        "Process Automation (Controller)",
+        "Central Processing Unit",
+        "DCS"
+      ],
+      "versions": [
+        "2.0",
+        "V2",
+        "V3",
+        "Trios 3",
+        "Trios 4",
+        "Trios 5"
+      ]
+    },
+    "weight_g": "",
+    "dimensions_mm": "",
+    "ean": "",
+    "series": "",
+    "certifications": [
+      "NTRA Type Approval",
+      "ATEX"
+    ]
+  },
+  "usage": {
+    "input_tokens": 7866,
+    "output_tokens": 963,
+    "cost_usd": 0.00477
+  }
+}

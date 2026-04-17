@@ -636,9 +636,15 @@
     "schema_version": 2,
     "title": "COMPLETE SET OF PACKINGS",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "qn_nominal_flow_rate": "25m³/h",
+      "pn_nominal_pressure": 16,
+      "dn_nominal_diameter": 65,
+      "operating_temperature_celsius": 30,
+      "communication_protocol": "M-BUS"
+    },
+    "specs_count": 5,
+    "series": "WP FLYPPER",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",

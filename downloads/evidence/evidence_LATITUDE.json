@@ -734,9 +734,15 @@
     "schema_version": 2,
     "title": "",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "Customer-specified Serial Number Programming Range (General Protocols)": "1-4096",
+      "Customer-specified Serial Number Programming Range (Standard Location Protocols, 24-bit Aircraft Address)": "1-511",
+      "Aircraft Address Protocol Bit Length": "24",
+      "Aircraft Address Protocol Hex Digits": "6",
+      "ICAO Operator Code Character Length": "3"
+    },
+    "specs_count": 5,
+    "series": "RESCU 406",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",

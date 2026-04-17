@@ -667,9 +667,25 @@
     "schema_version": 2,
     "title": "Are your speakers prepared for Digital Audio? Jamo are.",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "cpu_type": "Z80",
+      "ram_capacity": "64K",
+      "rs232_ports": "2",
+      "floppy_disk_controller": "included",
+      "max_disk_drives_supported": "4",
+      "supported_disk_drive_sizes": [
+        "5.25 inch",
+        "8 inch"
+      ],
+      "disk_drive_density": "double-sided double-density",
+      "operating_system": "CP/M 2.2",
+      "cpu_frequency": "4 MHz",
+      "real_time_clock": "battery-backed",
+      "rs232_ports_configurability": "software configurable",
+      "bus_type": "56-pin STD buss"
+    },
+    "specs_count": 12,
+    "series": "JAMO CBR-1303",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",

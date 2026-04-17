@@ -28,6 +28,7 @@ from scripts.pipeline_v2.identity import (
 )
 from scripts.pipeline_v2.resolver import resolve_identity
 from scripts.pipeline_v2.builder import build_canonical
+from scripts.pipeline_v2._normalize_title_ru import normalize_titles_in_place
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 EV_DIR = ROOT / "downloads" / "evidence"
@@ -295,6 +296,47 @@ def main():
         else:
             stats["desc_missing"] += 1
 
+        # Specs (from_datasheet — populated by Gemini/Haiku PDF extraction)
+        fd = d.get("from_datasheet") or {}
+        fd_specs = fd.get("specs") or {}
+        if fd_specs and isinstance(fd_specs, dict):
+            # Parse weight/dims from datasheet strings into numeric fields
+            import re as _re
+            def _to_int(s):
+                if not s: return None
+                m = _re.search(r"(\d+)", str(s).replace(",", ""))
+                return int(m.group(1)) if m else None
+            def _parse_dims(s):
+                if not s: return (None, None, None)
+                m = _re.search(r"(\d+)\s*[xXхХ×]\s*(\d+)\s*[xXхХ×]\s*(\d+)", str(s))
+                if m:
+                    return (int(m.group(1)), int(m.group(2)), int(m.group(3)))
+                return (None, None, None)
+            w = _to_int(fd.get("weight_g"))
+            L, W, H = _parse_dims(fd.get("dimensions_mm"))
+            value_norm = {}
+            if w: value_norm["weight_g"] = w
+            if L: value_norm["length_mm"] = L
+            if W: value_norm["width_mm"] = W
+            if H: value_norm["height_mm"] = H
+            if fd_specs.get("material") or fd_specs.get("Material"):
+                value_norm["material"] = fd_specs.get("material") or fd_specs.get("Material")
+            if fd_specs.get("ip_rating") or fd_specs.get("IP rating") or fd_specs.get("Degree of protection (IP)"):
+                value_norm["ip_rating"] = fd_specs.get("ip_rating") or fd_specs.get("IP rating") or fd_specs.get("Degree of protection (IP)")
+            bound_ev.append(BoundEvidence(
+                evidence_id=f"ev_{pn}_specs", identity_hash=capsule.identity_hash,
+                capsule_version=1, field=EvidenceField.SPECS,
+                value={"parsed": fd_specs, "source": "datasheet_llm_extract"},
+                value_normalized=value_norm,
+                source_url="", source_domain="datasheet",
+                source_tier=SourceTier.MANUFACTURER_PROOF,
+                page_type=PageType.PRODUCT_PAGE, origin_group=OriginGroup.AI_EXTRACTION,
+                binding_status=BindingStatus.BOUND, binding_reason="specs_from_datasheet",
+                binding_checks=BindingChecks(pn_match="datasheet", brand_match="datasheet"),
+                field_admissibility=FieldAdmissibilityRecord(specs=FieldAdmissibility.ADMITTED),
+                collected_at=now, collected_by="pipeline_v2",
+            ))
+
         # --- Layer 5: Build canonical ---
         content = d.get("content") or {}
         canonical = build_canonical(
@@ -314,6 +356,38 @@ def main():
         bs["insales_ready"] += (canonical.readiness.insales == ReadinessStatus.READY)
 
         canonical_products.append(canonical.model_dump(mode="json"))
+
+    # --- Layer 5.5: Normalize title_ru (contract: all title_ru must be Russian) ---
+    print()
+    print("=" * 100)
+    print("LAYER 5.5: TITLE_RU NORMALIZATION")
+    print("=" * 100)
+
+    # Load datasheet map for context if available
+    ds_map_path = ROOT / "downloads" / "staging" / "from_datasheet_for_categorizer.json"
+    ds_map = {}
+    if ds_map_path.exists():
+        try:
+            ds_map = json.loads(ds_map_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    normalize_titles_in_place(canonical_products, ds_map, verbose=True)
+
+    # Contract check: warn (don't crash) if any titles still not normalized
+    non_russian = []
+    for p in canonical_products:
+        t = p.get("title_ru", "")
+        cyr = sum(1 for c in t if "\u0400" <= c <= "\u04ff")
+        if cyr < 3 or len(t.split()) < 2:
+            non_russian.append((p.get("identity", {}).get("pn", "?"), t[:50]))
+
+    if non_russian:
+        print(f"[WARN] {len(non_russian)} products still have non-normalized title_ru after Layer 5.5:")
+        for pn, t in non_russian[:10]:
+            print(f"  {pn}: '{t}'")
+    else:
+        print("[OK] All title_ru are properly normalized Russian ✓")
 
     # Save outputs
     (OUTPUT_DIR / "canonical_products.json").write_text(

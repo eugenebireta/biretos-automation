@@ -703,9 +703,14 @@
     "schema_version": 2,
     "title": "Electrification UK Contractor handbook",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "Number of modules": "2",
+      "Main poles configurations": "2 N.O., 4 N.O., 4 N.C., 2 N.O. 2 N.C., 3 N.O. 1 N.C., 4 N.O. 3 N.C.",
+      "Control coil voltage AC (40-50 Hz) configurations": "12 V, 24 V, 110-120 V, 230-240 V",
+      "Control coil voltage DC configurations": "12 V, 24 V, 110-120 V, 230-240 V"
+    },
+    "specs_count": 4,
+    "series": "ESB 24",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",

@@ -9,8 +9,10 @@ Claude Code = координатор/executor. Governance rules: CLAUDE.md
 > Синхронизировать с `docs/autopilot/STATE.md` — там актуальные seq и phase.
 
 - Ветка: `feat/rev-r1-catalog`
-- 374 SKU в evidence. Price: 368 (98%). Photo: 366 (97%). Description: 370 (99%). Specs: 325 (87%).
+- 374 SKU в evidence. Price: 368 (98%). Photo: 368 (98%). SEO description: 196 (52%). Specs: 249 (67% — после Gemini Flash batch 2026-04-18). Weight: 66 (18%). Dims: 90 (24%). EAN: 121 (32%).
+- Canonical 229 SKU: InSales READY 207 (90%). InSales CSV: `downloads/staging/pipeline_v2_export/insales_import_229sku.csv`.
 - Strong identity: 262 (70%), weak: 99 (26%), none: 9 (2%).
+- Routing decision (specs/datasheet extraction): **Gemini 2.5 Flash default** (3-9× more specs than Haiku, no hallucinations vs Sonnet), Sonnet escalation only for non-empty clean PDFs where Flash returns 0.
 
 ## Пайплайны
 
@@ -21,6 +23,7 @@ Claude Code = координатор/executor. Governance rules: CLAUDE.md
 | identity | identity_checker, confidence_recalculator | [KNOW_HOW_identity.md](KNOW_HOW_identity.md) | STABLE |
 | price | gemini_price_scout, phase3a_price_import | [KNOW_HOW_price.md](KNOW_HOW_price.md) | ACTIVE |
 | telegram | orchestrator/telegram_* | [KNOW_HOW_telegram.md](KNOW_HOW_telegram.md) | IN_PROGRESS |
+| email archive | email_bulk_fetcher, email_pn_indexer, auto_annotate_goldset, learn_from_sonnet, rebuild_pn_demand_v4 (all on VPS /root/) | [KNOW_HOW_email.md](KNOW_HOW_email.md) | ACTIVE — 12K emails, shared pn_brand_patterns.json with enrichment |
 
 ## Ключевые KNOW_HOW (топ-5 критичных)
 

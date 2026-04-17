@@ -685,8 +685,26 @@
     "schema_version": 2,
     "title": "Honeywell Industrial Safety Branding Guidelines",
     "description": "This document outlines the branding guidelines for Honeywell Industrial Safety (HIS), a global provider of personal protective equipment (PPE) and gas detection devices. It details how distributors should consistently position and present Honeywell brands, logos, color palettes, and type-fonts. The guidelines cover the brand strategy, a five-tier hierarchy (Master, House, Endorsed, Standalone, Licensed Brands), logo usage rules (size, clear zone, backgrounds), trademark usage, wordmark elimination, legacy brand referencing, and best practices for promotional items and marketing material approval. Key color palette details include: Honeywell Red (#EE3124, R238 G49 B36, C9 M100 Y93 K0, PMS 1795), Honeywell Black (#000000, R0 G0 B0, C60 M40 Y40 K100, Munsell N2), Honeywell White (#FFFFFF, R255 G255 B255, C0 M0 Y0 K0, Munsell N9.5), Honeywell Grey 50 (#808080, R128 G128 B128, C0 M0 Y0 K50, PMS Cool Grey 8C, NCS S 5000-N), and Honeywell Grey 60 (#707070, R112 G112 B112, C0 M0 Y0 K56, PMS Cool Grey 9C, NCS S 6000-N).",
-    "specs": {},
-    "specs_count": 0,
+    "specs": {
+      "logo_min_size_digital_pixels": "120",
+      "logo_min_size_print_inches": "1.27",
+      "logo_reproduction_colors": [
+        "Honeywell red",
+        "white"
+      ],
+      "logo_reproduction_color_black_condition": "one-color documents only",
+      "logo_background_colors_allowed": [
+        "solid white",
+        "black",
+        "red",
+        "gray"
+      ],
+      "endorsed_brand_logomark_min_size_inches": "5/8",
+      "endorsed_brand_logomark_min_size_cm": "1.6",
+      "marketing_collateral_font": "Arial",
+      "subordinate_logo_color": "Honeywell Grey 50"
+    },
+    "specs_count": 9,
     "series": "None",
     "category": "Branding Guidelines",
     "weight_g": "",

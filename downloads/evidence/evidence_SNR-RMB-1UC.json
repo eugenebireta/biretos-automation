@@ -661,9 +661,12 @@
     "schema_version": 2,
     "title": "Proceedings of the 15th International Workshop on Laser Ranging",
     "description": "",
-    "specs": {},
-    "specs_count": 0,
-    "series": "",
+    "specs": {
+      "precision": "10 ps",
+      "frequency": "10 KHz"
+    },
+    "specs_count": 2,
+    "series": "Event Timers",
     "category": "",
     "weight_g": "",
     "dimensions_mm": "",
