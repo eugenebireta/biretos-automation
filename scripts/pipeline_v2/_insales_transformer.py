@@ -136,12 +136,22 @@ def main():
         # Photo
         photo_url = p.get("best_photo_url", "")
 
-        # Specs
+        # Specs — prefer canonical.specs (normalized) over raw datasheet strings
         specs = ds_block.get("specs", {}) or {}
-        weight = ds_block.get("weight_g", "")
-        dims = ds_block.get("dimensions_mm", "")
-        material = (specs.get("Material") or specs.get("material") or "")
-        color = (specs.get("Colour") or specs.get("Color") or specs.get("colour") or "")
+        canon_specs = p.get("specs") or {}
+        # Weight: canonical weight_g (int, grams) wins over raw ds weight_g (free-form string)
+        weight_g = canon_specs.get("weight_g")
+        weight = str(weight_g) if weight_g else (ds_block.get("weight_g", "") or "")
+        # Dims: canonical L/W/H (int, mm) → "LxWxH"; fallback to raw dimensions_mm string
+        L, W, H = canon_specs.get("length_mm"), canon_specs.get("width_mm"), canon_specs.get("height_mm")
+        if L and W and H:
+            dims = f"{L}x{W}x{H}"
+        elif L or W or H:
+            dims = "x".join(str(x) if x else "?" for x in (L, W, H))
+        else:
+            dims = ds_block.get("dimensions_mm", "") or ""
+        material = canon_specs.get("material") or specs.get("Material") or specs.get("material") or ""
+        color = canon_specs.get("color_canonical") or specs.get("Colour") or specs.get("Color") or specs.get("colour") or ""
         ean = ds_block.get("ean", "")
 
         # Map to InSales columns
@@ -168,8 +178,8 @@ def main():
         set_col("Применять скидки", "true")
 
         # IP rating
-        ip = (specs.get("Degree of protection (IP)") or specs.get("IP rating") or
-              specs.get("ip_rating") or "")
+        ip = (canon_specs.get("ip_rating") or specs.get("Degree of protection (IP)") or
+              specs.get("IP rating") or specs.get("ip_rating") or "")
         set_col("Параметр: Степень защиты IP", ip)
 
         rows.append(row)

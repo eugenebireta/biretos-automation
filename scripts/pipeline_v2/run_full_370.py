@@ -314,11 +314,63 @@ def main():
                 return (None, None, None)
             w = _to_int(fd.get("weight_g"))
             L, W, H = _parse_dims(fd.get("dimensions_mm"))
-            value_norm = {}
-            if w: value_norm["weight_g"] = w
-            if L: value_norm["length_mm"] = L
-            if W: value_norm["width_mm"] = W
-            if H: value_norm["height_mm"] = H
+            value_norm: dict = {}
+
+            # Fallback: scan specs dict for weight/dims under various key names
+            def _weight_to_g(key: str, val) -> int | None:
+                if val is None: return None
+                s = str(val).replace(",", ".")
+                m = _re.search(r"([\d.]+)", s)
+                if not m: return None
+                try: num = float(m.group(1))
+                except ValueError: return None
+                kl = key.lower()
+                sl = s.lower()
+                if "kg" in kl or "kg" in sl:
+                    return int(num * 1000)
+                if "lb" in kl or "lb" in sl or "pound" in kl:
+                    return int(num * 453.592)
+                return int(num)  # assume grams
+
+            if not w:
+                for k, v in fd_specs.items():
+                    kl = k.lower()
+                    if any(x in kl for x in ["weight", "mass", "вес", "gewicht", "peso"]):
+                        cand = _weight_to_g(k, v)
+                        if cand and 5 < cand < 500000:  # plausible range 5g..500kg
+                            w = cand
+                            value_norm["weight_g"] = w
+                            break
+
+            if not L:
+                # common key patterns: dimensions_length_mm, length_mm, Length, height_mm etc.
+                for dim_name, keys in [
+                    ("length_mm", ["length_mm", "dimensions_length_mm", "length", "depth_mm", "depth", "длина"]),
+                    ("width_mm", ["width_mm", "dimensions_width_mm", "width", "ширина"]),
+                    ("height_mm", ["height_mm", "dimensions_height_mm", "height", "высота"]),
+                ]:
+                    for k, v in fd_specs.items():
+                        kl = k.lower()
+                        if any(kk == kl or kl.endswith("_" + kk) or kl.startswith(kk + "_") for kk in keys):
+                            m = _re.search(r"([\d.]+)", str(v).replace(",", "."))
+                            if m:
+                                try: num = float(m.group(1))
+                                except ValueError: continue
+                                if "cm" in kl or "cm" in str(v).lower():
+                                    num *= 10
+                                if "m" in kl and "mm" not in kl and "cm" not in kl:
+                                    num *= 1000
+                                if 1 < num < 10000:  # plausible 1mm..10m
+                                    value_norm[dim_name] = int(num)
+                                    if dim_name == "length_mm": L = int(num)
+                                    if dim_name == "width_mm": W = int(num)
+                                    if dim_name == "height_mm": H = int(num)
+                                    break
+
+            if w and "weight_g" not in value_norm: value_norm["weight_g"] = w
+            if L and "length_mm" not in value_norm: value_norm["length_mm"] = L
+            if W and "width_mm" not in value_norm: value_norm["width_mm"] = W
+            if H and "height_mm" not in value_norm: value_norm["height_mm"] = H
             if fd_specs.get("material") or fd_specs.get("Material"):
                 value_norm["material"] = fd_specs.get("material") or fd_specs.get("Material")
             if fd_specs.get("ip_rating") or fd_specs.get("IP rating") or fd_specs.get("Degree of protection (IP)"):
