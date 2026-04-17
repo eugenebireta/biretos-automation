@@ -112,12 +112,16 @@ def run_phase1_recon(
         f"Confirm the brand, product type, and EAN if available."
     )
 
-    resp = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=500,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": user_prompt}],
-    )
+    from orchestrator._api_cost_tracker import log_api_call, timed
+    model = "claude-haiku-4-5-20251001"
+    with timed() as t:
+        resp = client.messages.create(
+            model=model,
+            max_tokens=500,
+            system=SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_prompt}],
+        )
+    log_api_call(__file__, model, resp.usage, duration_ms=t.ms)
 
     text = resp.content[0].text.strip()
     # Parse JSON from response
