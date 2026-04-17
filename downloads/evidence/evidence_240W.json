@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "240W",
   "pn_variants": [],
-  "brand": "Unknown - NOT Honeywell",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Зарядное устройство Honeywell 240W",
   "assembled_title": "Зарядное устройство Honeywell 240W",
   "our_price_raw": "1756,00",
@@ -663,5 +663,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Unknown - NOT Honeywell"
   }
 }

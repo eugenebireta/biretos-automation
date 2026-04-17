@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "3240190",
   "pn_variants": [],
-  "brand": "Phoenix Contact",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Перфорированная DIN-рейка 3240190",
   "assembled_title": "Рейка Honeywell 3240190",
   "our_price_raw": "1715,48",
@@ -677,5 +677,12 @@
     },
     "red_flags": [],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Phoenix Contact"
   }
 }

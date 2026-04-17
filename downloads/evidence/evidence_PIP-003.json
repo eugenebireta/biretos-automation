@@ -6,8 +6,8 @@
     "PIP.003",
     "PIP003"
   ],
-  "brand": "ASD",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Союзное соединение ASD SOCKET UNION 25MM PK10 PIP-003",
   "assembled_title": "Соединение Honeywell PIP-003",
   "our_price_raw": "3083,85",
@@ -735,5 +735,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "ASD"
   }
 }

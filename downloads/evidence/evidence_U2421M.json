@@ -778,5 +778,12 @@
       "brand_correction_reason": "U2421M is definitively a Dell UltraSharp monitor model. The 'U' prefix denotes Dell's UltraSharp series, and U2421M is a well-known 24-inch professional monitor. Honeywell does not manufacture computer monitors. The PN is correct but assigned to wrong brand.",
       "brand_correction_confidence": "high"
     }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "Dell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Dell"
   }
 }

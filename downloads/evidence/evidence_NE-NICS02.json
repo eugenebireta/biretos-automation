@@ -6,8 +6,8 @@
     "NE.NICS02",
     "NENICS02"
   ],
-  "brand": "Honeywell",
-  "subbrand": null,
+  "brand": "NEC",
+  "subbrand": "",
   "name": "Сетевая карта Honeywell NE-NICS02",
   "assembled_title": "Сетевая карта Honeywell NE-NICS02",
   "our_price_raw": "87612,50",
@@ -652,5 +652,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "NEC",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell"
   }
 }

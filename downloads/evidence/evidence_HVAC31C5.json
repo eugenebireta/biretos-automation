@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "HVAC31C5",
   "pn_variants": [],
-  "brand": "NXL",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Инвертор HVAC NXL 15KW/400V/31A/IP54 HVAC31C5",
   "assembled_title": "Инвертор Honeywell HVAC31C5",
   "our_price_raw": "330186,67",
@@ -677,5 +677,12 @@
     "detected_brand": null,
     "red_flags": [],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "NXL"
   }
 }

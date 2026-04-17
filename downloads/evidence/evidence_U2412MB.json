@@ -737,5 +737,12 @@
       "brand_correction_reason": "Part number U2412MB matches Dell UltraSharp monitor naming convention (U-series monitors). Dell U2412M is a well-known 24-inch UltraSharp monitor model. Honeywell does not manufacture monitors. The 'B' suffix likely indicates a regional variant or bundle. Brand should be corrected to Dell.",
       "brand_correction_confidence": "high"
     }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "Dell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Dell"
   }
 }

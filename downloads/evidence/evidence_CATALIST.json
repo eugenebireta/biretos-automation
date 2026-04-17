@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "CATALIST",
   "pn_variants": [],
-  "brand": "Honeywell UOP",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Свитч Honeywell CATALIST",
   "assembled_title": "Свитч Honeywell CATALIST",
   "our_price_raw": "0,00",
@@ -638,5 +638,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell UOP"
   }
 }

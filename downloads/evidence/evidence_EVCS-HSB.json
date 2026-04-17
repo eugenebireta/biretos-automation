@@ -6,8 +6,8 @@
     "EVCS.HSB",
     "EVCSHSB"
   ],
-  "brand": "Honeywell",
-  "subbrand": null,
+  "brand": "Notifier",
+  "subbrand": "",
   "name": "Пульт вызова Honeywell EVCS-HSB",
   "assembled_title": "Пульт Notifier EVCS-HSB",
   "our_price_raw": "14960,00",
@@ -833,5 +833,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Notifier",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell"
   }
 }

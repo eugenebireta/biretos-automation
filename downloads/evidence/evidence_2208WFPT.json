@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "2208WFPT",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": null,
+  "brand": "Dell",
+  "subbrand": "",
   "name": "Системный блок Honeywell 2208WFPT",
   "assembled_title": "Системный блок Dell 2208WFPT",
   "our_price_raw": "1129,00",
@@ -633,5 +633,12 @@
     "detected_brand": null,
     "red_flags": [],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Dell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell"
   }
 }

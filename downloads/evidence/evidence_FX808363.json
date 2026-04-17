@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "FX808363",
   "pn_variants": [],
-  "brand": "PEHA",
-  "subbrand": "Esser",
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Расширение блока питания FX808363",
   "assembled_title": "Расширение Honeywell FX808363",
   "our_price_raw": "38408,48",
@@ -681,5 +681,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "PEHA"
   }
 }

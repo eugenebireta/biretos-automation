@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "HVAC23C5",
   "pn_variants": [],
-  "brand": "HVAC (or unknown manufacturer)",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Инвертор HVAC NXL 11KW/400V/23A/IP54 HVAC23C5",
   "assembled_title": "Инвертор Honeywell HVAC23C5",
   "our_price_raw": "265202,00",
@@ -665,5 +665,12 @@
     "detected_brand": null,
     "red_flags": [],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "HVAC (or unknown manufacturer)"
   }
 }

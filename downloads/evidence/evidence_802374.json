@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "802374",
   "pn_variants": [],
-  "brand": "Esser (Honeywell)",
-  "subbrand": "Esser",
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Комбинированный извещатель O²T мультисенсорный 802374",
   "assembled_title": "Извещатель Honeywell 802374",
   "our_price_raw": "6111,00",
@@ -649,5 +649,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Esser (Honeywell)"
   }
 }

@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "EP10427213",
   "pn_variants": [],
-  "brand": "PEHA",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Датчик присутствия Honeywell PD-ATMO360i/8 T KNX",
   "assembled_title": "Датчик Honeywell EP10427213",
   "our_price_raw": "36607,00",
@@ -785,5 +785,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "PEHA"
   }
 }

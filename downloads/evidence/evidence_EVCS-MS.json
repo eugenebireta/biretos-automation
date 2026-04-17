@@ -6,8 +6,8 @@
     "EVCS.MS",
     "EVCSMS"
   ],
-  "brand": "Honeywell",
-  "subbrand": null,
+  "brand": "Notifier",
+  "subbrand": "",
   "name": "Настольная трубка Honeywell EVCS-MS",
   "assembled_title": "Трубка Notifier EVCS-MS",
   "our_price_raw": "262764,00",
@@ -735,5 +735,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Notifier",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell"
   }
 }

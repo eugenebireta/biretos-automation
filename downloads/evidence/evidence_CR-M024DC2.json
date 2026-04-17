@@ -6,8 +6,8 @@
     "CR.M024DC2",
     "CRM024DC2"
   ],
-  "brand": "ESB",
-  "subbrand": null,
+  "brand": "ABB",
+  "subbrand": "",
   "name": "Реле интерфейсное ABB CR-M024DC2, 24V DC, 2CO, 250V/12A",
   "assembled_title": "Реле Honeywell CR-M024DC2",
   "our_price_raw": "676,50",
@@ -738,5 +738,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "different_brand",
+    "final_brand": "ABB",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "ESB"
   }
 }

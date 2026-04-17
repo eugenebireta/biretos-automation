@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "3240199",
   "pn_variants": [],
-  "brand": "PEHA",
-  "subbrand": null,
+  "brand": "Phoenix Contact",
+  "subbrand": "",
   "name": "Кабельный канал Phoenix Contact CD 60×80, ПВХ, 2 м",
   "assembled_title": "Канал Honeywell 3240199",
   "our_price_raw": "3159,72",
@@ -693,5 +693,12 @@
       }
     ],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "different_brand",
+    "final_brand": "Phoenix Contact",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "PEHA"
   }
 }

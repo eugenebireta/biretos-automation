@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "HVAC46C5",
   "pn_variants": [],
-  "brand": "Hyundai",
-  "subbrand": null,
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Инвертор NXL HVAC 22KW/400V/46A/IP54",
   "assembled_title": "Инвертор Honeywell HVAC46C5",
   "our_price_raw": "448615,00",
@@ -662,5 +662,12 @@
     "detected_brand": null,
     "red_flags": [],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Hyundai"
   }
 }

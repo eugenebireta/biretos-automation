@@ -6,8 +6,8 @@
     "RIC.F.LCU24.01C",
     "RICFLCU2401C"
   ],
-  "brand": "Rehau",
-  "subbrand": null,
+  "brand": "Siemon",
+  "subbrand": "",
   "name": "Панель Quick-Pack RIC-F-LCU24-01C",
   "assembled_title": "Панель Honeywell RIC-F-LCU24-01C",
   "our_price_raw": "15363,43",
@@ -612,5 +612,12 @@
       "brand_correction_reason": "RIC prefix stands for Rehau's underfloor heating control system line (Rehau Industrial Controls). The 'Quick-Pack' terminology in Russian seed name is consistent with Rehau's Quick-Pack underfloor heating system branding. LCU likely means Local Control Unit. This is not a Honeywell product - part number format and product naming clearly indicate Rehau brand.",
       "brand_correction_confidence": "high"
     }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "different_brand",
+    "final_brand": "Siemon",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Rehau"
   }
 }

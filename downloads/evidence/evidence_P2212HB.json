@@ -737,5 +737,12 @@
       "brand_correction_reason": "P2212H is a well-known Dell monitor model (21.5-inch display). Honeywell manufactures industrial automation and building controls, not computer monitors. The 'B' suffix in P2212HB may be a variant code or error, but the base model P2212H is definitively Dell. The seed name incorrectly attributes this Dell monitor to Honeywell.",
       "brand_correction_confidence": "high"
     }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "Dell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Dell"
   }
 }

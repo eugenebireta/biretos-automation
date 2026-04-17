@@ -6,8 +6,8 @@
     "1011894.RU",
     "1011894RU"
   ],
-  "brand": "Honeywell",
-  "subbrand": null,
+  "brand": "Sperian",
+  "subbrand": "",
   "name": "Страховочная привязь SPERIAN Titan 2-точечная с поясом",
   "assembled_title": "Привязь Sperian 1011894-RU",
   "our_price_raw": "2706,30",
@@ -598,5 +598,12 @@
     "detected_brand": null,
     "red_flags": [],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Sperian",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell"
   }
 }

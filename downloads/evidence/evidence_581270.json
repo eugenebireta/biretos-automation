@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "581270",
   "pn_variants": [],
-  "brand": "Esser by Honeywell",
-  "subbrand": "Esser",
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Настенный громкоговоритель Honeywell 581270, 6 Вт",
   "assembled_title": "Громкоговоритель Honeywell 581270",
   "our_price_raw": "2242,25",
@@ -659,5 +659,12 @@
       "brand_correction_reason": "PN 581270 is an Esser product (fire alarm/PA system component). Esser is a Honeywell subsidiary brand for fire safety. The audit correctly identified brand confusion - product should be branded as 'Esser by Honeywell' or just 'Esser', not standalone 'Honeywell'. The 6W wall speaker specification aligns with Esser's fire alarm notification devices. Product also needs complete datasheet and expanded description.",
       "brand_correction_confidence": "high"
     }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "medium",
+    "original_auto_fix_new_brand": "Esser by Honeywell"
   }
 }

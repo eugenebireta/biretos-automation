@@ -6,8 +6,8 @@
     "808610-10",
     "80861010"
   ],
-  "brand": "Esser (Honeywell)",
-  "subbrand": "Esser",
+  "brand": "Honeywell",
+  "subbrand": "",
   "name": "Транспондер Esserbus 12 реле 808610.10",
   "assembled_title": "Транспондер Honeywell 808610.10",
   "our_price_raw": "23371,04",
@@ -673,5 +673,12 @@
     },
     "red_flags": [],
     "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Esser (Honeywell)"
   }
 }
