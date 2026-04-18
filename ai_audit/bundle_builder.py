@@ -95,10 +95,90 @@ def _extract_section(text: str, section_marker: str) -> str:
     return ""
 
 
+# Patch 2 (v0.5.1): indirect prompt injection sanitization.
+# Refs: Greshake 2023 (arXiv:2302.12173), OWASP LLM01:2025, Shi 2024 JudgeDeceiver.
+# Strategy: strip control markers, wrap content in UNTRUSTED_EXCERPT delimiters,
+# reject high-entropy non-language runs, flag known IPI strings.
+_INJECTION_MARKER_PATTERNS = [
+    re.compile(r"<\s*/?\s*(system|user|assistant)\s*>", re.IGNORECASE),
+    re.compile(r"\[/?INST\]"),
+    re.compile(r"<\|im_(start|end)\|>", re.IGNORECASE),
+    re.compile(r"===\s*SYSTEM\s*===", re.IGNORECASE),
+    re.compile(r"<\s*/?\s*(prompt|role|instructions?)\s*>", re.IGNORECASE),
+]
+
+_IPI_STRING_PATTERNS = [
+    re.compile(r"ignore\s+(previous|above|prior)\s+(instructions?|prompts?)", re.IGNORECASE),
+    re.compile(r"disregard\s+(all\s+)?(previous|above)", re.IGNORECASE),
+    re.compile(r"(senior\s+)?auditor\s+sign-?off", re.IGNORECASE),
+    re.compile(r"(prior|previous)\s+(review|audit)\s+record", re.IGNORECASE),
+    re.compile(r"automated\s+agents?\s*[:,]?\s*verdict\s*=", re.IGNORECASE),
+    re.compile(r"recommended_verdict\s*[:=]", re.IGNORECASE),
+    re.compile(r"\bapprove_automatic\b|\bauto[-_]?approve\b", re.IGNORECASE),
+]
+
+
+def _sanitize_excerpt(text: str) -> tuple[str, list[str]]:
+    """Strip known prompt-injection markers. Returns (cleaned_text, suspect_spans)."""
+    suspect_spans: list[str] = []
+    cleaned = text
+
+    # Strip HTML/XML-like role/system markers
+    for pat in _INJECTION_MARKER_PATTERNS:
+        for m in pat.finditer(cleaned):
+            suspect_spans.append(f"marker: {m.group(0)!r}")
+        cleaned = pat.sub("[redacted-role-marker]", cleaned)
+
+    # Flag (but don't strip — preserve evidence) known IPI strings
+    for pat in _IPI_STRING_PATTERNS:
+        for m in pat.finditer(cleaned):
+            # Capture surrounding context for forensics
+            start = max(0, m.start() - 40)
+            end = min(len(cleaned), m.end() + 40)
+            suspect_spans.append(f"ipi_pattern: ...{cleaned[start:end]!r}...")
+
+    # GCG adversarial suffix heuristic (Zou 2023): long high-entropy non-language runs
+    # Crude: stretch of 30+ characters with no whitespace and many non-ASCII/symbol
+    for m in re.finditer(r"\S{30,}", cleaned):
+        token = m.group(0)
+        non_alnum = sum(1 for c in token if not (c.isalnum() or c in "._-/:"))
+        if non_alnum / max(len(token), 1) > 0.3:
+            suspect_spans.append(f"gcg_suspect: {token[:60]!r}")
+
+    return cleaned, suspect_spans
+
+
+def _wrap_untrusted(idx: int, sha: str, content: str) -> str:
+    """Wrap excerpt in UNTRUSTED delimiters so agents know this is CONTENT, not INSTRUCTIONS."""
+    return (
+        f"<<< UNTRUSTED_EXCERPT id={idx} sha256={sha[:12]} >>>\n"
+        f"{content}\n"
+        f"<<< END_UNTRUSTED_EXCERPT id={idx} >>>"
+    )
+
+
 def _match_excerpts(bundle_text: str, dna_text: str, master_text: str) -> list[dict[str, str]]:
+    import hashlib
     bundle_lower = bundle_text.lower()
     seen: set[tuple[str, str]] = set()
     excerpts: list[dict[str, str]] = []
+    idx = 0
+
+    def _append(source: str, section: str, kw: str, raw_text: str) -> None:
+        nonlocal idx
+        idx += 1
+        clean, suspects = _sanitize_excerpt(raw_text)
+        sha = hashlib.sha256(raw_text.encode("utf-8")).hexdigest()
+        entry = {
+            "source": source,
+            "section": section,
+            "matched_keyword": kw,
+            "sha256": sha,
+            "text": _wrap_untrusted(idx, sha, clean),
+        }
+        if suspects:
+            entry["injection_flags"] = suspects
+        excerpts.append(entry)
 
     for kw, sections in DNA_KEYWORD_MAP:
         if kw.lower() in bundle_lower:
@@ -109,12 +189,7 @@ def _match_excerpts(bundle_text: str, dna_text: str, master_text: str) -> list[d
                 seen.add(key)
                 text = _extract_section(dna_text, sec)
                 if text:
-                    excerpts.append({
-                        "source": "docs/PROJECT_DNA.md",
-                        "section": sec,
-                        "matched_keyword": kw,
-                        "text": text,
-                    })
+                    _append("docs/PROJECT_DNA.md", sec, kw, text)
 
     for kw, sections in MASTER_KEYWORD_MAP:
         if kw.lower() in bundle_lower:
@@ -125,12 +200,7 @@ def _match_excerpts(bundle_text: str, dna_text: str, master_text: str) -> list[d
                 seen.add(key)
                 text = _extract_section(master_text, sec)
                 if text:
-                    excerpts.append({
-                        "source": "docs/MASTER_PLAN_v1_9_2.md",
-                        "section": sec,
-                        "matched_keyword": kw,
-                        "text": text,
-                    })
+                    _append("docs/MASTER_PLAN_v1_9_2.md", sec, kw, text)
     return excerpts
 
 
@@ -157,6 +227,9 @@ def enrich(bundle: dict[str, Any]) -> dict[str, Any]:
 
     Existing keys in the bundle are preserved — caller can set decision_class
     manually and bundle_builder will not overwrite.
+
+    v0.5.1 (Patch 2): bundle_text itself is scanned for prompt-injection patterns;
+    flags are returned in `bundle_injection_flags` for arbiter pre-audit review.
     """
     text_parts: list[str] = []
     for key, val in bundle.items():
@@ -176,7 +249,14 @@ def enrich(bundle: dict[str, Any]) -> dict[str, Any]:
     enriched["topic_type"] = bundle.get("topic_type") or _detect_topic_type(bundle_text)
     existing = bundle.get("relevant_docs_excerpts")
     enriched["relevant_docs_excerpts"] = existing if existing else _match_excerpts(bundle_text, dna_text, master_text)
+
+    # Patch 2: scan the bundle proposal itself for injection attempts
+    _, bundle_suspects = _sanitize_excerpt(bundle_text)
+    if bundle_suspects:
+        enriched["bundle_injection_flags"] = bundle_suspects
+
     enriched["v05_builder_ran"] = True
+    enriched["schema_version"] = "0.5.1"
     return enriched
 
 
