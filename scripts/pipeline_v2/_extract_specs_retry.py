@@ -170,12 +170,22 @@ def main():
                 raw = (resp.text or "").strip()
                 usage_in = getattr(resp.usage_metadata, "prompt_token_count", 0) or 0
                 usage_out = getattr(resp.usage_metadata, "candidates_token_count", 0) or 0
+                import sys as _sys2
+                from pathlib import Path as _Path2
+                _sys2.path.insert(0, str(_Path2(__file__).resolve().parent.parent.parent))
+                from orchestrator._api_cost_tracker import log_api_call as _log_api_call
+                _log_api_call(__file__, args.model, getattr(resp, "usage_metadata", None))
             else:
                 response = client.messages.create(
                     model=args.model,
                     max_tokens=4000,
                     messages=[{"role": "user", "content": full_prompt}],
                 )
+                import sys as _sys
+                from pathlib import Path as _Path
+                _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent.parent))
+                from orchestrator._api_cost_tracker import log_api_call
+                log_api_call(__file__, args.model, response.usage)
                 raw = response.content[0].text.strip()
                 usage_in = response.usage.input_tokens
                 usage_out = response.usage.output_tokens
@@ -205,6 +215,28 @@ def main():
                 prev["ean"] = data["ean"]
             if data.get("certifications") and not prev.get("certifications"):
                 prev["certifications"] = data["certifications"]
+
+            # Provenance footprint (per 4th external reviewer 2026-04-18).
+            # Every extraction records its (model, prompt_sha, pdf_sha, timestamp)
+            # so downstream auditors can answer: who produced this spec, when,
+            # with what model. Required for LLM regression detection.
+            import hashlib as _h
+            from datetime import datetime, timezone
+            pdf_sha = _h.sha256(pdf_path.read_bytes()).hexdigest()
+            prompt_sha_16 = _h.sha256(PROMPT.encode("utf-8")).hexdigest()[:16]
+            prev["extraction_provenance"] = {
+                "model_id": args.model,
+                "prompt_sha_16": prompt_sha_16,
+                "pdf_sha256": pdf_sha,
+                "extracted_at": datetime.now(timezone.utc).isoformat(),
+                "specs_count": len(specs) if isinstance(specs, dict) else 0,
+                "ran_via_script": "scripts/pipeline_v2/_extract_specs_retry.py",
+                # Negative result reason (per 4th reviewer recommendation): if
+                # specs are empty but PDF had enough text, mark as likely non-
+                # datasheet. Downstream tools can then skip re-extraction until
+                # a new datasheet arrives.
+                "reason": ("empty_model_output" if not specs else None),
+            }
             extracted[pn] = prev
 
             specs_count = len(specs)
@@ -252,15 +284,24 @@ def main():
         merged = 0
         for pn, data in extracted.items():
             specs = data.get("specs", {}) or {}
-            if not specs:
-                continue
+            prov = data.get("extraction_provenance") or {}
             ev_file = EV_DIR / f"evidence_{pn}.json"
             if not ev_file.exists():
                 continue
             ev = json.loads(ev_file.read_text(encoding="utf-8"))
             fd = ev.get("from_datasheet") or {}
+
+            # Always record extraction history (append-only), even on empty
+            # result — this way "extraction ran and found nothing" is
+            # distinguishable from "extraction never ran".
+            history = fd.get("extraction_history") or []
+            if prov and (not history or history[-1].get("extracted_at") != prov.get("extracted_at")):
+                history.append(prov)
+                fd["extraction_history"] = history
+                fd["latest_extraction"] = prov
+
             # Merge: don't overwrite existing non-empty specs
-            if not fd.get("specs"):
+            if specs and not fd.get("specs"):
                 fd["specs"] = specs
                 fd["specs_count"] = len(specs)
                 if data.get("weight_g") and not fd.get("weight_g"):
@@ -271,10 +312,10 @@ def main():
                     fd["series"] = data["series"]
                 if data.get("certifications") and not fd.get("certifications"):
                     fd["certifications"] = data["certifications"]
-                ev["from_datasheet"] = fd
-                ev_file.write_text(json.dumps(ev, indent=2, ensure_ascii=False), encoding="utf-8")
                 merged += 1
-        print(f"Merged specs into {merged} evidence files")
+            ev["from_datasheet"] = fd
+            ev_file.write_text(json.dumps(ev, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"Merged specs into {merged} evidence files (provenance written to all attempted)")
 
 
 if __name__ == "__main__":
