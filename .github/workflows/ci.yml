@@ -109,14 +109,57 @@ jobs:
           done
 
           # M3b: Core business tables — raw DML from Tier-3 forbidden (PROJECT_DNA §5)
+          #
+          # Whitelist tracks 8 pre-existing violations per AI-Audit
+          # `_scratchpad/ai_audits/2026-04-18_pr-blocker-iron-fence-m3b.md` (Variant A amended).
+          # Backlog tickets + refactor direction: docs/_governance/CORE_DML_REFACTOR_BACKLOG.md
+          #
+          # Policy: append-only-shrinking.
+          # - New unwhitelisted violation → CI fail (enforces §5 for new code).
+          # - Stale whitelist entry (line no longer matches) → CI fail (forces whitelist
+          #   shrink when refactor lands; remove entry + close ticket in same PR).
+          # Adding a new whitelist entry requires explicit owner governance batch.
           CORE_BIZ_TABLES="order_ledger|shipments|payment_transactions|reservations|stock_ledger_entries|availability_snapshot|documents"
-          for dir in $TIER3_DIRS; do
+
+          # file:line pairs excluded from M3b check. Each pair must be tracked in
+          # docs/_governance/CORE_DML_REFACTOR_BACKLOG.md under a CORE-DML-NN ticket.
+          M3B_WHITELIST=$(cat <<'WHITELIST_EOF'
+ru_worker/ru_worker.py:983
+ru_worker/ru_worker.py:1016
+ru_worker/ru_worker.py:1790
+ru_worker/ru_worker.py:1821
+ru_worker/pii_redactor.py:172
+ru_worker/pii_redactor.py:196
+side_effects/cdek_shipment_worker.py:231
+side_effects/insales_paid_worker.py:136
+side_effects/invoice_worker.py:132
+side_effects/invoice_worker.py:207
+side_effects/invoice_worker.py:290
+side_effects/telegram_command_worker.py:531
+WHITELIST_EOF
+          )
+
+          ACTUAL_M3B=$(for dir in $TIER3_DIRS; do
             [ -d "$dir" ] || continue
-            if grep -rn --include='*.py' -E "(INSERT|UPDATE|DELETE|ALTER|DROP).*(${CORE_BIZ_TABLES})" "$dir"; then
-              echo "::error::BOUNDARY VIOLATION: $dir contains DML against Core business tables (DNA §5)"
-              FAILED=1
-            fi
-          done
+            grep -rn --include='*.py' -E "(INSERT|UPDATE|DELETE|ALTER|DROP).*(${CORE_BIZ_TABLES})" "$dir" || true
+          done | awk -F: '{print $1":"$2}' | sort -u)
+          EXPECTED_M3B=$(printf '%s\n' "$M3B_WHITELIST" | sort -u)
+
+          UNKNOWN_M3B=$(comm -23 <(printf '%s\n' "$ACTUAL_M3B") <(printf '%s\n' "$EXPECTED_M3B") | grep -v '^$' || true)
+          STALE_M3B=$(comm -13 <(printf '%s\n' "$ACTUAL_M3B") <(printf '%s\n' "$EXPECTED_M3B") | grep -v '^$' || true)
+
+          if [ -n "$UNKNOWN_M3B" ]; then
+            echo "::error::M3b BOUNDARY VIOLATION: new Tier-3 DML against Core business tables (DNA §5), not in whitelist"
+            echo "$UNKNOWN_M3B" | while IFS= read -r line; do echo "  new violation: $line"; done
+            echo "  See docs/_governance/CORE_DML_REFACTOR_BACKLOG.md for policy."
+            FAILED=1
+          fi
+
+          if [ -n "$STALE_M3B" ]; then
+            echo "::error::M3b STALE WHITELIST: whitelisted line no longer matches pattern — refactor landed, remove from whitelist + close ticket in CORE_DML_REFACTOR_BACKLOG.md in the same PR"
+            echo "$STALE_M3B" | while IFS= read -r line; do echo "  stale entry: $line"; done
+            FAILED=1
+          fi
 
           FORBIDDEN_IMPORTS="from domain\.reconciliation_service|from domain\.reconciliation_verify|from domain\.reconciliation_alerts|from domain\.structural_checks|from domain\.observability_service|from retention_policy|import reconciliation_service|import reconciliation_verify|import reconciliation_alerts|import structural_checks|import observability_service"
           for dir in $TIER3_DIRS; do
