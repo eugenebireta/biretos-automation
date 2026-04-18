@@ -7,7 +7,7 @@
     "MCPPROM"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "Esser",
   "name": "Ручной извещатель MCP-PRO-M",
   "assembled_title": "Извещатель Honeywell MCP-PRO-M",
   "our_price_raw": "607,20",
@@ -177,7 +177,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqPmxNJ3q8QvmC9WTvsh'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -195,9 +195,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -351,7 +349,10 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "Possible manual call point/alarm device; insufficient confirmation",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -374,7 +375,7 @@
     "description": "Ручной извещатель MCP-PRO-M используется для ручного запуска системы пожарной сигнализации. Он обеспечивает надежное и быстрое оповещение о пожаре.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Извещатель",
+    "product_type": "Alarm buzzer",
     "seed_name": "Ручной извещатель MCP-PRO-M",
     "description_long_ru": "В прайсе встречаются цены в RUB и частично в EUR на другие позиции"
   },
@@ -657,5 +658,75 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "fire detector"
+  "training_urls": [
+    "https://www.notifier.com.au/product/notifier-mcp-pro-m/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1265.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://systemsensor.ru/upload/medialibrary/22b/22b73bef7ab83be14ee66076a0340b33.pdf",
+    "our_price_raw": "607,20",
+    "our_price_parsed": 607.2,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1265.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Ручной извещатель MCP-PRO-M используется для ручного запуска системы пожарной сигнализации. Он обеспечивает надежное и быстрое оповещение о пожаре.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/ESSER_MCP-PRO-M.jpg",
+    "best_photo_source": "vps_static",
+    "best_description_ru_short": "Ручной извещатель MCP-PRO-M используется для ручного запуска системы пожарной сигнализации. Он обеспечивает надежное и быстрое оповещение о пожаре.",
+    "best_description_ru": "<p>Извещатель пожарный дымовой оптико-электронный ECO1003М от бренда Esser (артикул MCP-PRO-M) — это современное устройство для обнаружения дыма и запуска системы пожарной сигнализации. Данный прибор разработан специалистами компании Esser, известной своим опытом в области пожарной безопасности. Извещатель предназначен для использования в различных помещениях и обеспечивает надежное и быстрое оповещение о возникновении пожара, позволяя своевременно принять необходимые меры по эвакуации людей и защите имущества.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оптико-электронный принцип обнаружения дыма</li>\n<li>Высокая чувствительность и надежность срабатывания</li>\n<li>Быстрое реагирование на появление дыма</li>\n<li>Компактный и удобный дизайн</li>\n<li>Простота монтажа и обслуживания</li>\n<li>Совместимость с системами пожарной сигнализации</li>\n<li>Долговечность и стабильная работа</li>\n<li>Соответствие современным стандартам безопасности</li>\n</ul>\n\n<p><b>Применение:</b> Извещатель ECO1003М используется в жилых и коммерческих помещениях, офисных зданиях, складах, производственных объектах и других местах, где требуется обеспечение пожарной безопасности. Устройство интегрируется в централизованные системы пожарной сигнализации и автоматического пожаротушения, обеспечивая непрерывный контроль за состоянием воздуха в помещении и своевременное обнаружение очагов возгорания на ранних стадиях развития пожара.</p>\n\n<p><b>Преимущества:</b> Выбирая извещатель Esser ECO1003М, вы получаете надежное решение для защиты от пожара с проверенной технологией оптико-электронного обнаружения. Прибор отличается высокой точностью, минимальным количеством ложных срабатываний и простотой эксплуатации. Инвестиция в качественное оборудование пожарной безопасности — это инвестиция в защиту жизни людей и сохранение имущества.</p>",
+    "best_description_ru_word_count": 196,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Извещатель пожарный дымовой оптико-электронный ECO1003М",
+    "description": "",
+    "specs": {
+      "fire_detector_type": "optical-electronic smoke",
+      "fire_detector_classification_standard": "ИП 212-58М",
+      "base_included": "no"
+    },
+    "specs_count": 3,
+    "series": "ECO1000",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\MCP-PRO-M.pdf",
+    "datasheet_size_kb": 359,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Извещатель пожарный дымовой оптико-электронный ECO1003М от бренда Esser (артикул MCP-PRO-M) — это современное устройство для обнаружения дыма и запуска системы пожарной сигнализации. Данный прибор разработан специалистами компании Esser, известной своим опытом в области пожарной безопасности. Извещатель предназначен для использования в различных помещениях и обеспечивает надежное и быстрое оповещение о возникновении пожара, позволяя своевременно принять необходимые меры по эвакуации людей и защите имущества.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оптико-электронный принцип обнаружения дыма</li>\n<li>Высокая чувствительность и надежность срабатывания</li>\n<li>Быстрое реагирование на появление дыма</li>\n<li>Компактный и удобный дизайн</li>\n<li>Простота монтажа и обслуживания</li>\n<li>Совместимость с системами пожарной сигнализации</li>\n<li>Долговечность и стабильная работа</li>\n<li>Соответствие современным стандартам безопасности</li>\n</ul>\n\n<p><b>Применение:</b> Извещатель ECO1003М используется в жилых и коммерческих помещениях, офисных зданиях, складах, производственных объектах и других местах, где требуется обеспечение пожарной безопасности. Устройство интегрируется в централизованные системы пожарной сигнализации и автоматического пожаротушения, обеспечивая непрерывный контроль за состоянием воздуха в помещении и своевременное обнаружение очагов возгорания на ранних стадиях развития пожара.</p>\n\n<p><b>Преимущества:</b> Выбирая извещатель Esser ECO1003М, вы получаете надежное решение для защиты от пожара с проверенной технологией оптико-электронного обнаружения. Прибор отличается высокой точностью, минимальным количеством ложных срабатываний и простотой эксплуатации. Инвестиция в качественное оборудование пожарной безопасности — это инвестиция в защиту жизни людей и сохранение имущества.</p>",
+    "description_seo_word_count": 196,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Извещатель пожарный дымовой оптико-электронный ECO1003М' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -4,7 +4,7 @@
   "pn": "MAU8/MS",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Внешняя резьба с уплотнительным кольцом MAU8/MS",
   "assembled_title": "Резьба Honeywell MAU8/MS",
   "our_price_raw": "6547,55",
@@ -160,7 +160,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqPgoB1SpaDJZ2q4pBH5'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -178,9 +178,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -334,7 +332,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -574,5 +574,156 @@
     "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "fitting",
-  "product_category": "fitting"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/sensors/detector-test-equipment/mau-threaded-joint",
+    "https://eu.mouser.com/ProductDetail/Honeywell/MAU8-MS?qs=iGCpDQK01Mr5TOE9PXY48A%3D%3D",
+    "https://shop.contact-evolution.ch/en/reference/24662-mau8-ms.html",
+    "https://www.mouser.com/ProductDetail/Honeywell/MAU8-MS?qs=iGCpDQK01Mr5TOE9PXY48A%3D%3D"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "6547,55",
+    "our_price_parsed": 6547.55,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 135.3,
+    "best_price_currency": "EUR",
+    "best_price_source": "phase3a",
+    "best_description": "Внешняя резьба с уплотнительным кольцом MAU8/MS используется для соединения труб и фитингов. Она обеспечивает надежную герметизацию и долговечность соединений.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_MAU8_MS.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "phase3a_price": {
+    "price": 135.3,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://emoteek.net/en/product/sonde-pthdb0062v3-honeywell-sonde-de-pression-differentielle-avec-hmi-06-bar-3-fils-0210-v-0420-ma-ip65/",
+    "confidence": "medium",
+    "notes": "Accessory listed on product page as Honeywell MAU8/Ms adapter, excluding VAT",
+    "search_used": "MAU8/MS Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Smart DCM DIFF",
+    "description": "",
+    "specs": {
+      "pressure_measurement_range": "0…20 bar (differential)",
+      "sensor_type": "Piezo",
+      "power_supply": "18…35 Vdc",
+      "power_supply_current": "max. 30 mA (without load)",
+      "main_switch_load": "250 mA (overcurrent protection)",
+      "output_high_level": "VSUPPLY minus 5 V (min.)",
+      "output_low_level": "GND plus 0.5 V (max.)",
+      "warn_output_voltage_passive": "VSUPPLY minus 2 V",
+      "warn_output_voltage_active": "≤ 0.5 V",
+      "reaction_time": "max. 300 ms",
+      "cycle_time": "100 ms",
+      "operating_temperature": "-20…+70 °C",
+      "medium_temperature": "-20…+80 °C",
+      "storage_temperature": "-30…+80 °C",
+      "humidity": "0…95% r.h., non-condensing",
+      "climate_class_indoors": "4K4H (EN 60721-3-4)",
+      "climate_class_outdoors": "3K8H (EN 60721-3-3)",
+      "vibration": "10 g (IEC 68-2-6, up to 2000 Hz)",
+      "mechanical_shock": "50 g (IEC 68-2-27)",
+      "protection_class": "IP65 (EN 60529-2)",
+      "safety_class": "II (EN 61010)",
+      "emc": "EN 61326",
+      "process_connection": "2 x G¼\" internal thread",
+      "electrical_connection": "4-prong A-coded M12x1 plug",
+      "materials_in_contact_with_medium": "Stainless steel 1.4404 (AISI 316L)",
+      "chemical_resistance": "4C4 (EN 60721-3-4)",
+      "hmi_material": "PA66 GB30",
+      "lcd_size": "19 X 19 mm",
+      "lcd_backlight": "bicolor (white = normal operation; red = fault mode)",
+      "lcd_refresh_rate": "1…9 seconds (adjustable)",
+      "hmi_swivel_angle": "310°",
+      "hmi_rotation_steps": "90°",
+      "output_type": "Open-collector",
+      "monitor_functions": "min./max./window monitor (configurable)",
+      "accuracy_0_100mbar": "±1.0% FS",
+      "accuracy_300mbar_to_20bar": "±1.0% FS",
+      "temperature_effect_on_span_0_100mbar_max": "±1.2% FS / 10 K",
+      "temperature_effect_on_span_0_100mbar_typical": "±0.5% FS / 10 K",
+      "temperature_effect_on_span_300mbar_to_20bar_max": "±0.4% FS / 10 K",
+      "temperature_effect_on_span_300mbar_to_20bar_typical": "±0.2% FS / 10 K",
+      "temperature_effect_on_offset_0_100mbar_max": "±1.2% FS / 10 K",
+      "temperature_effect_on_offset_0_100mbar_typical": "±0.5% FS / 10 K",
+      "temperature_effect_on_offset_300mbar_to_20bar_max": "±0.4% FS / 10 K",
+      "temperature_effect_on_offset_300mbar_to_20bar_typical": "±0.2% FS / 10 K",
+      "long_term_drift_max": "±0.5% FS / year",
+      "long_term_drift_typical": "±0.25% FS / year",
+      "overrange_pressure_PSHDM1002": "900 mbar",
+      "overrange_pressure_PSHDM3002": "900 mbar",
+      "overrange_pressure_PSHDB0012": "3 bar",
+      "overrange_pressure_PSHDB0032": "9 bar",
+      "overrange_pressure_PSHDB0062": "21 bar",
+      "overrange_pressure_PSHDB0202": "60 bar",
+      "overrange_pressure_reversed_PSHDM1002": "900 mbar",
+      "overrange_pressure_reversed_PSHDM3002": "900 mbar",
+      "overrange_pressure_reversed_PSHDB0012": "3 bar",
+      "overrange_pressure_reversed_PSHDB0032": "7 bar",
+      "overrange_pressure_reversed_PSHDB0062": "7 bar",
+      "overrange_pressure_reversed_PSHDB0202": "7 bar",
+      "differential_burst_pressure_PSHDM1002": "1.2 bar",
+      "differential_burst_pressure_PSHDM3002": "1.2 bar",
+      "differential_burst_pressure_PSHDB0012": "4 bar",
+      "differential_burst_pressure_PSHDB0032": "12 bar",
+      "differential_burst_pressure_PSHDB0062": "28 bar",
+      "differential_burst_pressure_PSHDB0202": "70 bar",
+      "max_allowable_system_pressure_all_models": "70 bar",
+      "temperature_compensation_range": "0…80 °C"
+    },
+    "specs_count": 66,
+    "series": "Smart DCM DIFF",
+    "category": "",
+    "weight_g": "600",
+    "dimensions_mm": "79x60x56",
+    "certifications": [
+      "EN 60721-3-4",
+      "EN 60721-3-3",
+      "IEC 68-2-6",
+      "IEC 68-2-27",
+      "EN 61326",
+      "EN 61010",
+      "EN 60529-2",
+      "DIN EN 837"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\MAU8_MS.pdf",
+    "datasheet_size_kb": 374,
+    "product_photos": [
+      "downloads\\datasheet_photos\\MAU8_MS_p1_0.jpeg",
+      "downloads\\datasheet_photos\\MAU8_MS_p4_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/MAU8_MS_p1_0.jpeg",
+      "downloads/datasheet_photos/MAU8_MS_p4_0.jpeg"
+    ],
+    "verified_photo_count": 2
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Smart DCM DIFF' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

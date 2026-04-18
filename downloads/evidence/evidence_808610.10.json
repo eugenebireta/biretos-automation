@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Видна электронная плата с реле и клеммными колодками, соответствует транспондеру Esserbus",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://all-bez.ru/catalog/808610_10/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -315,7 +312,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Esserbus",
+    "confirmed_manufacturer": "Honeywell/ESSER",
+    "discontinued": false,
+    "identity_notes_p1": "Esserbus transponder with 12 relays (8-bit), relay outputs 1A/30V per channel",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -338,7 +340,7 @@
     "description": "Транспондер Esserbus с 12 реле предназначен для управления и коммутации в системах пожарной сигнализации. Обеспечивает надежную работу и возможность подключения нескольких устройств. Поддерживает интеграцию с различными системами.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Транспондер",
+    "product_type": "Relay module transponder",
     "seed_name": "Транспондер Esserbus 12 реле 808610.10",
     "description_long_ru": "Also $578.16 on another eBay listing; .10B = bare PCB"
   },
@@ -563,5 +565,127 @@
   },
   "dr_category": "Fire alarm transponder",
   "dr_image_url": "https://www.esser-systems.com/productimages/transponders/esserbus//80861010-esserbus-transponder-12-relays-8-bit_Inherited_product_pic_300_300_BM808610_10xxx_PLFR_SF3C_00.jpg",
-  "product_category": "Esser transponder"
+  "training_urls": [
+    "https://www.ebay.com/itm/176824912823",
+    "https://www.ebay.com/itm/375268691103",
+    "https://www.esser-systems.com/en/products/details/transponders/esserbus/80861010-esserbus-transponder-12-relays-8-bit/",
+    "https://www.firesafetycentre.uk/product/esser-808610-10-esserbus-transponder-12-relays-8-bit/",
+    "https://www.orbitadigital.com/en/discontinued/21618-80861010.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "23371,04",
+    "our_price_parsed": 23371.04,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 393.3,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Транспондер Esserbus с 12 реле предназначен для управления и коммутации в системах пожарной сигнализации. Обеспечивает надежную работу и возможность подключения нескольких устройств. Поддерживает интеграцию с различными системами.",
+    "best_description_source": "content",
+    "best_photo_url": "https://all-bez.ru/catalog/808610_10/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Транспондер Esserbus с 12 реле предназначен для управления и коммутации в системах пожарной сигнализации. Обеспечивает надежную работу и возможность подключения нескольких устройств. Поддерживает интеграцию с различными системами.",
+    "best_description_ru": "<p>Представляем вашему вниманию высокоэффективный и надежный esserbus transponder 12 relays (8 bit) от ведущего производителя Esser, артикул 808610.10. Этот транспондер, входящий в инновационную серию esserbus, разработан специально для обеспечения безупречного управления и коммутации в самых сложных системах пожарной сигнализации. Он является незаменимым компонентом для построения надежной и гибкой инфраструктуры безопасности, гарантируя стабильную работу и возможность подключения множества периферийных устройств.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Рабочее напряжение: 10 ... 28 В постоянного тока, обеспечивающее широкую совместимость с различными источниками питания.</li>\n<li>Ток покоя при 19 В постоянного тока: всего около 250 мкА, что свидетельствует о высокой энергоэффективности устройства.</li>\n<li>Потребление тока при 12 В постоянного тока: приблизительно 3 мА, минимизируя нагрузку на систему питания.</li>\n<li>Нагрузка на контакты реле: 30 В постоянного тока / 1 А (максимум 3 А на каждый транспондер), позволяя коммутировать различные нагрузки.</li>\n<li>Диапазон рабочих температур: от -10 °C до 50 °C, гарантируя стабильную работу в различных климатических условиях.</li>\n<li>Количество реле: 12, из которых 11 программируемых, предоставляя широкие возможности для настройки и управления.</li>\n<li>Максимальная длина линии от транспондера до внешнего устройства: 1000 м, обеспечивая гибкость в размещении оборудования.</li>\n<li>Степень защиты: IP 40 (с корпусом), защищающая от пыли и брызг воды.</li>\n<li>Требуется всего один адрес шлейфа на транспондер, что упрощает адресацию и настройку системы.</li>\n</ul>\n\n<p>Данный транспондер находит широкое применение в комплексных системах пожарной сигнализации, где требуется точное и своевременное управление различными исполнительными устройствами. Он идеально подходит для коммутации сигналов, активации систем оповещения, управления дымоудалением, разблокировки дверей и других критически важных функций. Благодаря своей универсальности и возможности интеграции с различными системами, esserbus transponder 12 relays может быть использован как в небольших объектах, так и в крупных промышленных комплексах, обеспечивая высокий уровень безопасности и автоматизации.</p>\n\n<p>Выбирая esserbus transponder 12 relays, вы получаете не просто устройство, а надежное решение, спроектированное для долгосрочной и бесперебойной работы. Его ключевые преимущества включают высокую энергоэффективность, гибкость в настройке благодаря 11 программируемым реле, а также простоту интеграции в существующие системы Esser. Дополнительно, возможность подключения до 100 транспондеров на одну панель управления и до 32 на один шлейф или зону обнаружения значительно расширяет масштабируемость вашей системы безопасности.</p>",
+    "best_description_ru_word_count": 335,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "phase3a_price": {
+    "price": 393.3,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/226838014591",
+    "confidence": "medium",
+    "notes": "New ESSERBUS transponder 12 relays listing.",
+    "search_used": "808610.10 ESSER"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "esserbus transponder 12 relays (8 bit)",
+    "description": "The esserbus transponder works as a loop device on the multi-functional primary line. With the 12 relays module, it is possible to expand the number of control zones per control unit. Depending on the control unit, it can be integrated or used with fire detectors in mixed operation. The esserbus transponder can be optionally extended by adding the additional isolator board Part No. 788612. esserbus transponder voltage supply: via the multi-functional primary line. The esserbus transponder can be wired with an external switching voltage of 12V DC or 24V DC for the K1 to K12 relays. The external voltage supply of the transponder can be programmed to be monitored in the customer data in the operating mode. In the \"floating\" operating mode, no external switching voltage of the relays is necessary. 11 relays are freely programmable. The maximum line length from the transponder to the external device is up to 1000 m.",
+    "specs": {
+      "operating_voltage": "10 ... 28 V DC",
+      "quiescent_current_at_19V_DC": "approx. 250 µA",
+      "current_consumption_at_12V_DC": "approx. 3 mA",
+      "contact_load_relay": "30 V DC / 1 A (max. 3 A each transponder)",
+      "ambient_temperature": "-10 °C ... 50 °C",
+      "storage_temperature": "-25 °C ... 75 °C",
+      "air_humidity": "< 95%",
+      "ip_rating": "IP 40 (with housing)",
+      "declaration_of_performance": "DoP-20611130701",
+      "features": [
+        "Only one loop address is needed per transponder",
+        "Max. 100 transponders per FACP",
+        "Max. 32 transponders per loop",
+        "Max. 32 transponders per detector zone"
+      ],
+      "number_of_relays": 12,
+      "programmable_relays": 11,
+      "external_switching_voltage": "12V DC or 24V DC",
+      "max_line_length_transponder_to_external_device": "1000 m",
+      "monitoring": "No monitored control according to EN 54 possible",
+      "optional_extension": "Loop isolator PCB (Part No. 788612)"
+    },
+    "specs_count": 16,
+    "series": "esserbus",
+    "category": "Transponder, Relay Module",
+    "weight_g": 110,
+    "dimensions_mm": "150 x 82 x 20",
+    "certifications": [
+      "VdS",
+      "BOSEC"
+    ],
+    "article_no": "808610.10",
+    "datasheet_pdf": "downloads\\datasheets_v2\\808610.10.pdf",
+    "datasheet_size_kb": 2094,
+    "product_photos": [
+      "downloads\\datasheet_photos\\808610.10_p1_0.jpeg",
+      "downloads\\datasheet_photos\\808610.10_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/808610.10_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The datasheet title explicitly mentions 'esserbus transponder' and the EAN prefix issue flagged expected '4007185' for Esser brand. Esser (now part of Honeywell) uses PN format 808xxx.xx. The current_brand should be 'Esser' or 'Esser by Honeywell' rather than just 'Honeywell'. The PN format and product nomenclature are consistent with Esser fire safety equipment.",
+      "brand_correction_confidence": "high",
+      "needs_new_datasheet": true,
+      "reason": "PN format 808610.10 matches Esser/Honeywell fire alarm system components. Title and datasheet confirm this is an Esserbus transponder with 12 relays. Brand is correct. However, critical data issues exist: missing EAN (should have 4007185 prefix for Esser), severely truncated description (58 words vs 200 minimum), and incomplete product information. The record needs complete data re-entry from the datasheet rather than simple correction.",
+      "marked_wrong": true
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию высокоэффективный и надежный esserbus transponder 12 relays (8 bit) от ведущего производителя Esser, артикул 808610.10. Этот транспондер, входящий в инновационную серию esserbus, разработан специально для обеспечения безупречного управления и коммутации в самых сложных системах пожарной сигнализации. Он является незаменимым компонентом для построения надежной и гибкой инфраструктуры безопасности, гарантируя стабильную работу и возможность подключения множества периферийных устройств.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Рабочее напряжение: 10 ... 28 В постоянного тока, обеспечивающее широкую совместимость с различными источниками питания.</li>\n<li>Ток покоя при 19 В постоянного тока: всего около 250 мкА, что свидетельствует о высокой энергоэффективности устройства.</li>\n<li>Потребление тока при 12 В постоянного тока: приблизительно 3 мА, минимизируя нагрузку на систему питания.</li>\n<li>Нагрузка на контакты реле: 30 В постоянного тока / 1 А (максимум 3 А на каждый транспондер), позволяя коммутировать различные нагрузки.</li>\n<li>Диапазон рабочих температур: от -10 °C до 50 °C, гарантируя стабильную работу в различных климатических условиях.</li>\n<li>Количество реле: 12, из которых 11 программируемых, предоставляя широкие возможности для настройки и управления.</li>\n<li>Максимальная длина линии от транспондера до внешнего устройства: 1000 м, обеспечивая гибкость в размещении оборудования.</li>\n<li>Степень защиты: IP 40 (с корпусом), защищающая от пыли и брызг воды.</li>\n<li>Требуется всего один адрес шлейфа на транспондер, что упрощает адресацию и настройку системы.</li>\n</ul>\n\n<p>Данный транспондер находит широкое применение в комплексных системах пожарной сигнализации, где требуется точное и своевременное управление различными исполнительными устройствами. Он идеально подходит для коммутации сигналов, активации систем оповещения, управления дымоудалением, разблокировки дверей и других критически важных функций. Благодаря своей универсальности и возможности интеграции с различными системами, esserbus transponder 12 relays может быть использован как в небольших объектах, так и в крупных промышленных комплексах, обеспечивая высокий уровень безопасности и автоматизации.</p>\n\n<p>Выбирая esserbus transponder 12 relays, вы получаете не просто устройство, а надежное решение, спроектированное для долгосрочной и бесперебойной работы. Его ключевые преимущества включают высокую энергоэффективность, гибкость в настройке благодаря 11 программируемым реле, а также простоту интеграции в существующие системы Esser. Дополнительно, возможность подключения до 100 транспондеров на одну панель управления и до 32 на один шлейф или зону обнаружения значительно расширяет масштабируемость вашей системы безопасности.</p>",
+    "description_seo_word_count": 335,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire safety",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Esser (Honeywell)"
+  }
 }

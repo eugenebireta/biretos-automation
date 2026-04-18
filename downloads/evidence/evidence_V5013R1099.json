@@ -4,7 +4,7 @@
   "pn": "V5013R1099",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Трехходовой клапан Honeywell V5013R1099",
   "assembled_title": "Клапан Honeywell V5013R1099",
   "our_price_raw": "26083,14",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "трехходовой клапан угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeyvell.energy/honeywell-v5013r1099/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -354,7 +351,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "V5013 series",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "3-way linear valve, DN50, KVs40, brass body with internal threads",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -379,7 +381,7 @@
     "description": "Трехходовой клапан Honeywell V5013R1099 предназначен для управления потоками жидкости в системах отопления и кондиционирования. Он выдерживает давление до 16 бар и имеет пропускную способность Kvs 40.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Клапан",
+    "product_type": "Control valve",
     "seed_name": "Трехходовой клапан Honeywell V5013R1099",
     "description_long_ru": "V5013R series; £284.52 ex-VAT; Amazon UK £401.69; 4 in stock at Kempston"
   },
@@ -605,5 +607,113 @@
   "dr_price": 284.52,
   "dr_currency": "GBP",
   "dr_price_source": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
-  "product_category": "valve"
+  "training_urls": [
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/...",
+    "https://www.amazon.co.uk/Honeywell-V5013R1099-v5013r1099-Valve-3-Way/dp/B00HNT5FTW",
+    "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
+    "https://www.mkwheatingcontrols.co.uk/honeywell-v5013r1099-valve-p-6304.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 284.52,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://www.kempstoncontrols.co.uk/V5013R1099/Honeywell-Fema/sku/182788",
+    "our_price_raw": "26083,14",
+    "our_price_parsed": 26083.14,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 284.52,
+    "best_price_currency": "GBP",
+    "best_price_source": "price_contract",
+    "best_description": "Трехходовой клапан Honeywell V5013R1099 предназначен для управления потоками жидкости в системах отопления и кондиционирования. Он выдерживает давление до 16 бар и имеет пропускную способность Kvs 40.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeyvell.energy/honeywell-v5013r1099/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Трехходовой клапан Honeywell V5013R1099 предназначен для управления потоками жидкости в системах отопления и кондиционирования. Он выдерживает давление до 16 бар и имеет пропускную способность Kvs 40.",
+    "best_description_ru": "<p>Клапан Honeywell V5013R1099 — это надежный трехходовой клапан, разработанный компанией Honeywell, мировым лидером в области автоматизации и управления климатом. Данный клапан предназначен для профессионального управления потоками жидкости в системах отопления и кондиционирования воздуха. Он обеспечивает точное распределение теплоносителя между различными контурами, позволяя оптимизировать работу инженерных систем и поддерживать комфортную температуру в помещениях любого назначения.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Тип: трехходовой клапан для управления потоками жидкости</li>\n<li>Максимальное рабочее давление: 16 бар</li>\n<li>Пропускная способность Kvs: 40</li>\n<li>Производитель: Honeywell — признанный мировой бренд в области климатической техники</li>\n<li>Артикул: V5013R1099 для точной идентификации и заказа</li>\n<li>Надежная конструкция, обеспечивающая долгий срок службы</li>\n<li>Совместимость с различными системами отопления и охлаждения</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5013R1099 широко используется в системах центрального отопления, теплоснабжения и кондиционирования воздуха как в жилых, так и в коммерческих зданиях. Он применяется для управления распределением теплоносителя между различными контурами отопления, регулирования температуры в многозональных системах климатизации и обеспечения эффективной работы тепловых насосов. Клапан идеально подходит для установки в инженерных системах средней и высокой мощности.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5013R1099, вы получаете продукт от проверенного производителя с многолетней репутацией качества. Высокая пропускная способность обеспечивает эффективное управление потоками, а устойчивость к давлению до 16 бар гарантирует надежную работу в сложных условиях. Клапан отличается долговечностью, простотой монтажа и совместимостью с современными системами автоматизации.</p>",
+    "best_description_ru_word_count": 205,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "product_type": "3-way mixing valve",
+      "valve_operation": "Stem up closes section A-AB",
+      "nominal_pressure_PN": "16",
+      "flow_characteristic_A_AB": "Constant",
+      "flow_characteristic_B_AB": "Linear",
+      "regulation_ratio": "50:1",
+      "valve_tightness": "0.05% of KVS value",
+      "stroke_length_mm": "20",
+      "housing_material": "Brass",
+      "connection_type": "Internal thread per ISO228",
+      "seat_material_DN15": "Stainless steel",
+      "seat_material_DN20_50": "Built-in to housing",
+      "disk_material": "Stainless steel",
+      "stem_material": "Stainless steel",
+      "seal_type": "Spring-loaded carbon fiber reinforced with fluoroplast rings",
+      "operating_temperature_range_1": "2...120°C",
+      "max_pressure_at_120C": "1600 kPa",
+      "operating_temperature_range_2": "120...170°C",
+      "max_pressure_at_170C": "1490 kPa",
+      "max_temperature_differential": "60 K",
+      "KVS_DN15_2.5": "2.5",
+      "KVS_DN15_4": "4",
+      "KVS_DN20": "6.3",
+      "KVS_DN25": "10",
+      "KVS_DN32": "16",
+      "KVS_DN40": "25",
+      "KVS_DN50": "40",
+      "service_life": "10 years",
+      "warranty_period": "12 months from date of sale or 18 months from manufacture",
+      "certification": "GOST R certified",
+      "compatible_electric_actuators": "ML6420/25, ML7420/25, M6421, M7421",
+      "compatible_pneumatic_actuators": "MP953"
+    },
+    "specs_count": 32,
+    "series": "V5013R",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "See dimensional table: DN15: A=83xB=39.5xC=65; DN20: A=83xB=39.5xC=65; DN25: A=103xB=39.5xC=65.5; DN32: A=106xB=39.5xC=72.5; DN40: A=120xB=46.5xC=77; DN50: A=134xB=46.5xC=83.5",
+    "certifications": [
+      "GOST R"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\V5013R1099.pdf",
+    "datasheet_size_kb": 269,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format V5013R1099 is consistent with Honeywell valve nomenclature. Seed name clearly identifies this as a Honeywell three-way valve (Трехходовой клапан = three-way valve in Russian). The datasheet exists but appears corrupted/incomplete (empty title, no specs, truncated description). Brand and PN are correct, but a complete datasheet is needed to populate missing fields."
+    },
+    "description_seo_ru": "<p>Клапан Honeywell V5013R1099 — это надежный трехходовой клапан, разработанный компанией Honeywell, мировым лидером в области автоматизации и управления климатом. Данный клапан предназначен для профессионального управления потоками жидкости в системах отопления и кондиционирования воздуха. Он обеспечивает точное распределение теплоносителя между различными контурами, позволяя оптимизировать работу инженерных систем и поддерживать комфортную температуру в помещениях любого назначения.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Тип: трехходовой клапан для управления потоками жидкости</li>\n<li>Максимальное рабочее давление: 16 бар</li>\n<li>Пропускная способность Kvs: 40</li>\n<li>Производитель: Honeywell — признанный мировой бренд в области климатической техники</li>\n<li>Артикул: V5013R1099 для точной идентификации и заказа</li>\n<li>Надежная конструкция, обеспечивающая долгий срок службы</li>\n<li>Совместимость с различными системами отопления и охлаждения</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5013R1099 широко используется в системах центрального отопления, теплоснабжения и кондиционирования воздуха как в жилых, так и в коммерческих зданиях. Он применяется для управления распределением теплоносителя между различными контурами отопления, регулирования температуры в многозональных системах климатизации и обеспечения эффективной работы тепловых насосов. Клапан идеально подходит для установки в инженерных системах средней и высокой мощности.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5013R1099, вы получаете продукт от проверенного производителя с многолетней репутацией качества. Высокая пропускная способность обеспечивает эффективное управление потоками, а устойчивость к давлению до 16 бар гарантирует надежную работу в сложных условиях. Клапан отличается долговечностью, простотой монтажа и совместимостью с современными системами автоматизации.</p>",
+    "description_seo_word_count": 205,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

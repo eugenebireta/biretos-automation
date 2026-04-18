@@ -4,7 +4,7 @@
   "pn": "787511",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Датчик D 95.610.02 UAE/2-N",
   "assembled_title": "Вставка PEHA DIALOG, 787511",
   "our_price_raw": "758,67",
@@ -341,7 +341,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -677,7 +679,127 @@
     "merge_source": "result_787511.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (5).md"
+    "source_file": "deep-research-report (5).md",
+    "specs": {
+      "series": "DIALOG",
+      "type": "Insert",
+      "gang": "1",
+      "standard": "VDE"
+    }
   },
-  "product_category": "PEHA electrical accessory"
+  "training_urls": [
+    "https://www.digikey.com/en/products/result?s=787511",
+    "https://www.voelkner.de/products/7580810/PEHA-by-Honeywell-Abdeckung-Abdeckung-787511-1St..html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "758,67",
+    "our_price_parsed": 758.67,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 9.49,
+    "best_price_currency": "EUR",
+    "best_price_source": "pipeline1",
+    "best_description": "Датчик D 95.610.02 UAE/2-N используется в системах автоматизации для контроля различных параметров. Обладает высокой точностью и надежностью, подходит для использования в промышленных условиях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_787511.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Model R740VWD Chassis M6",
+    "description": "",
+    "specs": {
+      "Manufacturer": "General Electric",
+      "Model Number": "R740VWD",
+      "Chassis Number": "M6",
+      "Line fuse current": "3.5 A",
+      "Picture tube deflection angle": "110°",
+      "Picture tube safety shield": "Not bonded",
+      "Anti-pincushion magnets housing material": "Plastic",
+      "Video output-sync separator tube type": "6CX8",
+      "Ratio detector-audio amplifier tube type": "6FM8",
+      "Vertical multivibrator-vertical output tube type": "6DN7",
+      "RF amplifier tube type": "6EV5",
+      "Remote control receiver tube quantity": "3",
+      "Remote control receiver tube type": "6GH8",
+      "Remote control receiver rectifier type": "Germanium",
+      "Remote control receiver relay control tube grid voltage adjustment range": "-6.5 V to -8 V",
+      "Remote control functions": "Unidirectional channel selection, 4-step volume control (including mute position)",
+      "Remote control volume control steps": "4",
+      "Remote transmitter components": "2 transistors",
+      "Remote control signal type": "Supersonic",
+      "Sweep protection fuse current": "0.375 A",
+      "Sweep protection fuse type": "Pigtail",
+      "Horizontal ringing coil alignment tool type": "Hex-head",
+      "Chassis type": "U-shaped",
+      "Power supply location": "Left 'chimney' of chassis (over power transformer)",
+      "Main printed board location": "Left 'chimney' of chassis (over power transformer)",
+      "Sweep protection fuse mounting location": "Right side of board",
+      "Horizontal ringing coil mounting location": "Right side of board",
+      "Display technology": "Television set"
+    },
+    "specs_count": 28,
+    "series": "General Electric 1961 television sets",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\787511.pdf",
+    "datasheet_size_kb": 9322,
+    "product_photos": [
+      "downloads\\datasheet_photos\\787511_p1_0.png",
+      "downloads\\datasheet_photos\\787511_p1_1.jpeg",
+      "downloads\\datasheet_photos\\787511_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105787511",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 9322KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Model R740VWD Chassis M6' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105787511",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

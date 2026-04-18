@@ -4,7 +4,7 @@
   "pn": "815611",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "D 95.610.02 TV NA",
   "assembled_title": "Вставка PEHA DIALOG, 815611",
   "our_price_raw": "462,47",
@@ -178,7 +178,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Видна лицевая панель розетки TV/Radio/SAT — электротехнический компонент Honeywell угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -196,10 +196,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://volzhsk.aelektro.ru/catalog/nakladki/dlya-televizionnykh-rozetok/nakladk"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -313,7 +310,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -635,5 +634,131 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "PEHA electrical accessory"
+  "training_urls": [
+    "https://www.galco.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 9.03,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.watt24.com/en/p/peha-zentralplatte-d-95.610.02-tv-na-00815611/",
+    "our_price_raw": "462,47",
+    "our_price_parsed": 462.47,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 9.03,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Устройство D 95.610.02 TV NA применяется в системах автоматизации и управления. Обеспечивает выполнение специфических функций в зависимости от конфигурации и назначения. Изготовлено с учетом высоких стандартов качества.",
+    "best_description_source": "content",
+    "best_photo_url": "https://volzhsk.aelektro.ru/catalog/nakladki/dlya-televizionnykh-rozetok/nakladk",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "product_type": "Flanged Globe Valves",
+      "models": "VGF21, VGF22, VGF31, VGF32",
+      "valve_configurations": "2-way and 3-way (mixing/diverting)",
+      "port_sizes": "2-1/2, 3, 4, 5, 6 inches",
+      "body_material": "Cast iron ASTM A126 Class B (GG25)",
+      "trim_material": "Stainless steel",
+      "seat_material": "Stainless steel, body integrated (mixing), metal-to-metal seating",
+      "plug_material": "Stainless steel, skirt guided",
+      "stem_material": "Stainless steel",
+      "packing_type": "Spring loaded PTFE cone rings, self-adjusting",
+      "end_connections": "Flanged per ANSI/ISA S75.03, bolt holes per ANSI B16.1",
+      "pressure_ratings_class_125": "ANSI Class 125",
+      "pressure_ratings_class_250": "ANSI Class 250",
+      "maximum_steam_pressure": "100 psig (6.9 bar)",
+      "controlled_media": "Water, saturated steam (2-way up to 100 psig), water-glycol solutions up to 50% concentration",
+      "temperature_range_water": "35 to 356°F (2 to 180°C)",
+      "maximum_temperature_differential": "108°F (60°C) alternating hot/cold water",
+      "differential_pressure_rating": "Up to 175 psi, ANSI Class IV on pressure-balanced models",
+      "flow_characteristics": "Equal percentage (VGF__E_), Linear (VGF__L_), Linear port B-AB (VGF3__)",
+      "rangeability": "50:1",
+      "leakage_class_iv": "<0.01% of Cv (ANSI Class IV) pressure-balanced",
+      "leakage_class_iii": "<0.05% of Cv (ANSI Class III) standard",
+      "leakage_3way_mixing": "<0.5% of Cv A-AB; <1% of Cv B-AB",
+      "leakage_3way_diverting": "<0.05% of Cv AB-A; <0.1% of Cv AB-B",
+      "stroke_small_valves": "3/4 in. (20 mm)",
+      "stroke_large_valves": "1-1/2 in. (38 mm)",
+      "bonnet_small_valves": "1-3/8 in.",
+      "bonnet_large_valves": "1-7/8 in.",
+      "constant_flow_3way": "Constant total flow throughout full plug travel",
+      "actuation_options": "ML6984/7984, ML6420/6425, ML6421/7421 Electric Linear Actuators, MP953 Pneumatic Actuators, Modutrol Motors with Q5001 linkage, MN/MS Series Direct Coupled Actuators with Q5020 linkage",
+      "action_mixing": "Stem up to close port A-AB",
+      "action_others": "Stem down to close port A-AB",
+      "standard_trim": "Stainless steel",
+      "not_suitable_for": "Combustible gases"
+    },
+    "specs_count": 34,
+    "series": "VGF Flanged Globe Valves",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "ANSI Class 125",
+      "ANSI Class 250",
+      "ANSI/ISA S75.03",
+      "ANSI B16.1",
+      "ASTM A126 Class B"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\815611.pdf",
+    "datasheet_size_kb": 396,
+    "product_photos": [
+      "downloads\\datasheet_photos\\815611_p1_0.png",
+      "downloads\\datasheet_photos\\815611_p1_1.png",
+      "downloads\\datasheet_photos\\815611_p1_2.png"
+    ],
+    "photo_count": 3,
+    "ean": "4010105815610",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/815611_p1_0.png",
+      "downloads/datasheet_photos/815611_p1_1.png",
+      "downloads/datasheet_photos/815611_p1_2.png"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 815611 is 6-digit numeric matching PEHA format. Seed name 'D 95.610.02 TV NA' follows PEHA's German naming convention (D prefix with dotted numeric codes). This is incorrectly branded as Honeywell. Needs proper PEHA datasheet to extract specifications."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105815610",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

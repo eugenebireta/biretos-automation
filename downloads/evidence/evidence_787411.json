@@ -4,7 +4,7 @@
   "pn": "787411",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Датчик D 95.610.03 UAE/2-N",
   "assembled_title": "Вставка PEHA DIALOG, 787411",
   "our_price_raw": "603,25",
@@ -339,7 +339,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -668,5 +670,90 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "PEHA electrical accessory"
+  "training_urls": [
+    "http://www.o2xygen.com/parts/7/84.htm"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 174.99,
+    "dr_currency": "CZK",
+    "dr_source_url": "https://www.conrad.cz/cs/p/peha-by-honeywell-kryt-kryt-787411-1-ks-2855853.html",
+    "our_price_raw": "603,25",
+    "our_price_parsed": 603.25,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 174.99,
+    "best_price_currency": "CZK",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик D 95.610.03 UAE/2-N используется в системах автоматизации для контроля различных параметров. Обладает высокой точностью и надежностью, подходит для использования в промышленных условиях.",
+    "best_description_source": "content",
+    "best_photo_url": "Mod IV HSG; AMP/Honeywell 7870",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Annual report and consolidated and separate financial statements for the year ended 31 March 2025",
+    "description": "Honeywell Flour Mills Plc is principally involved in the manufacturing and marketing of wheat based products such as flour, semolina, whole wheat meal, noodles and pasta, and management of Free Trade Zone Enterprises.",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "ISO-certified",
+      "Corporate Governance Rating System assessment"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\787411.pdf",
+    "datasheet_size_kb": 4786,
+    "product_photos": [
+      "downloads\\datasheet_photos\\787411_p1_0.jpeg",
+      "downloads\\datasheet_photos\\787411_p5_0.jpeg"
+    ],
+    "photo_count": 2,
+    "ean": "4010105787412",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Annual report and consolidated and separate financial statem' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105787412",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

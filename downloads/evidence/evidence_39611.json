@@ -4,7 +4,7 @@
   "pn": "39611",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Устройство Honeywell D 20.545.192",
   "assembled_title": "Клавиша PEHA NOVA, 39611",
   "our_price_raw": "669,60",
@@ -164,7 +164,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Двойной выключатель/устройство управления Honeywell угадывается чётко",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -182,10 +182,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-39611-1"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -293,7 +290,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -550,5 +549,161 @@
   "dr_price": 5.64,
   "dr_currency": "EUR",
   "dr_price_source": "https://www.pehastore.de/20-545-192.html",
-  "product_category": "PEHA rocker switch"
+  "training_urls": [
+    "https://www.pehastore.de/20-545-192.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 5.64,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.pehastore.de/20-545-192.html",
+    "our_price_raw": "669,60",
+    "our_price_parsed": 669.6,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 5.64,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Honeywell D 20.545.192 — это устройство, предназначенное для использования в системах автоматизации. Обеспечивает надежное выполнение задач управления и контроля.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.conrad.ch/fr/p/peha-by-honeywell-cache-bouton-a-bascule-noir-39611-1",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Honeywell D 20.545.192 — это устройство, предназначенное для использования в системах автоматизации. Обеспечивает надежное выполнение задач управления и контроля.",
+    "best_description_ru": "<p>Представляем вашему вниманию инновационное устройство PEHA STEALTH® FAMILY, артикул 39611, разработанное для интеграции в современные системы автоматизации. Это высокотехнологичное решение, основанное на компоненте Honeywell D 20.545.192, создано для обеспечения бесперебойного и точного выполнения широкого спектра задач по управлению и контролю. Продукт от PEHA, известного своей надежностью и качеством, станет незаменимым элементом в любой сложной автоматизированной системе, где требуется высокая степень точности и стабильности работы.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Высокая надежность: Устройство спроектировано для длительной и бесперебойной работы в самых требовательных условиях, минимизируя необходимость в обслуживании.</li>\n<li>Точность управления: Обеспечивает исключительную точность в выполнении команд и контроле параметров, что критически важно для сложных автоматизированных процессов.</li>\n<li>Интеграция с Honeywell D 20.545.192: Основано на проверенном и высокоэффективном компоненте Honeywell, что гарантирует совместимость и стабильность.</li>\n<li>Универсальность применения: Подходит для широкого спектра задач в различных отраслях автоматизации, от промышленного контроля до умных зданий.</li>\n<li>Простота установки: Разработано с учетом удобства монтажа и подключения, что сокращает время на ввод в эксплуатацию.</li>\n<li>Долговечность: Изготовлено из качественных материалов, устойчивых к износу и внешним воздействиям, что продлевает срок службы устройства.</li>\n<li>Энергоэффективность: Оптимизированное потребление энергии способствует снижению эксплуатационных расходов.</li>\n<li>Соответствие стандартам: Продукт соответствует высоким стандартам качества и безопасности, что подтверждает его пригодность для профессионального использования.</li>\n</ul>\n<p>Устройство PEHA STEALTH® FAMILY находит свое применение в самых разнообразных областях, где требуется автоматизация процессов. Оно идеально подходит для использования в системах управления производственными линиями, обеспечивая точный контроль над каждым этапом. Также оно незаменимо в системах \"умного дома\" и \"умного здания\", где отвечает за централизованное управление освещением, климатом, безопасностью и другими функциями. В промышленных условиях оно может быть интегрировано в SCADA-системы для мониторинга и регулирования технологических процессов, гарантируя стабильность и эффективность работы оборудования.</p>\n<p>Выбор PEHA STEALTH® FAMILY — это инвестиция в надежность и эффективность вашей системы автоматизации. Благодаря использованию компонента Honeywell D 20.545.192, устройство гарантирует высокую производительность и долговечность. Его универсальность позволяет применять его в широком спектре задач, а простота интеграции значительно сокращает время на внедрение. Это решение обеспечит стабильное и точное выполнение всех поставленных задач, минимизируя риски сбоев и повышая общую эффективность вашей автоматизированной системы.</p>",
+    "best_description_ru_word_count": 329,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "STEALTH® FAMILY",
+    "description": "",
+    "specs": {
+      "product_family": "Honeywell Uvex Stealth",
+      "variants": [
+        "Stealth",
+        "Stealth OTG",
+        "Stealth Reader"
+      ],
+      "frame_material": "elastomer",
+      "lens_type": "toric lens",
+      "lens_tints_available": [
+        "Clear",
+        "Amber",
+        "Gray"
+      ],
+      "anti_fog_coating": "HydroShield® Anti-Fog (Stealth/OTG), Uvextreme® Anti-Fog (Reader)",
+      "anti_fog_performance": "90X longer lasting fog-free performance than majority of other anti-fog coatings",
+      "scratch_resistance": "2X greater scratch-resistance vs standard coatings",
+      "uv_protection": "greater than 99.9% protection from harmful UV rays",
+      "impact_resistance": "high impact resistant",
+      "ventilation_system": "indirect venting system",
+      "headband_types": [
+        "Neoprene",
+        "Fabric"
+      ],
+      "headband_adjustment": "pivoting, quick-adjust headband with clips",
+      "design_profile": "low profile, wraparound style",
+      "peripheral_vision": "unobstructed peripheral vision",
+      "chemical_protection": "D3 chemical splash protection",
+      "certifications": [
+        "ANSI Z87.1 (high impact)",
+        "ANSI Z87.1+ (high impact)",
+        "CSA Certified",
+        "CSA Z94.3"
+      ],
+      "reader_diopter_strengths": [
+        "+1.5",
+        "+2.0",
+        "+2.5"
+      ],
+      "otg_design": "fits comfortably over most prescription eyewear",
+      "rx_insert_available": true,
+      "lens_replacement_system": "replaceable lenses",
+      "manufacturing": "Made in USA",
+      "body_colors": [
+        "Gray",
+        "Teal",
+        "Orange",
+        "Navy Blue"
+      ],
+      "packaging_goggles": "Individual Box, 50 per Master Case",
+      "packaging_replacement_lenses": "Individual Polybag, 10 per Stocker",
+      "master_case_weight_lbs": "50",
+      "master_case_weight_kg": "22.68",
+      "master_case_dimensions_inches": "20 x 19 x 17",
+      "reader_case_weight_lbs": "20",
+      "reader_case_weight_kg": "9.07",
+      "reader_case_dimensions_inches": "20 x 18 x 15.6"
+    },
+    "specs_count": 31,
+    "series": "Honeywell Uvex Stealth",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "ANSI Z87.1",
+      "ANSI Z87.1+",
+      "CSA Z94.3",
+      "EN 166/168"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\39611.pdf",
+    "datasheet_size_kb": 8443,
+    "product_photos": [
+      "downloads\\datasheet_photos\\39611_p1_0.jpg",
+      "downloads\\datasheet_photos\\39611_p2_0.jpg",
+      "downloads\\datasheet_photos\\39611_p2_1.jpg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105039610",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/39611_p1_0.jpg",
+      "downloads/datasheet_photos/39611_p2_0.jpg",
+      "downloads/datasheet_photos/39611_p2_1.jpg"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The seed name 'Устройство Honeywell D 20.545.192' appears to have a brand error. 'D 20.545.192' follows PEHA's typical part number format (alphanumeric with dots). The datasheet shows 'STEALTH® FAMILY' which is a generic family name, not a specific product. The current PN '39611' appears to be an internal catalog number, not the manufacturer's part number. PEHA is the likely correct brand based on PN format, and a proper datasheet matching D 20.545.192 is needed."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию инновационное устройство PEHA STEALTH® FAMILY, артикул 39611, разработанное для интеграции в современные системы автоматизации. Это высокотехнологичное решение, основанное на компоненте Honeywell D 20.545.192, создано для обеспечения бесперебойного и точного выполнения широкого спектра задач по управлению и контролю. Продукт от PEHA, известного своей надежностью и качеством, станет незаменимым элементом в любой сложной автоматизированной системе, где требуется высокая степень точности и стабильности работы.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Высокая надежность: Устройство спроектировано для длительной и бесперебойной работы в самых требовательных условиях, минимизируя необходимость в обслуживании.</li>\n<li>Точность управления: Обеспечивает исключительную точность в выполнении команд и контроле параметров, что критически важно для сложных автоматизированных процессов.</li>\n<li>Интеграция с Honeywell D 20.545.192: Основано на проверенном и высокоэффективном компоненте Honeywell, что гарантирует совместимость и стабильность.</li>\n<li>Универсальность применения: Подходит для широкого спектра задач в различных отраслях автоматизации, от промышленного контроля до умных зданий.</li>\n<li>Простота установки: Разработано с учетом удобства монтажа и подключения, что сокращает время на ввод в эксплуатацию.</li>\n<li>Долговечность: Изготовлено из качественных материалов, устойчивых к износу и внешним воздействиям, что продлевает срок службы устройства.</li>\n<li>Энергоэффективность: Оптимизированное потребление энергии способствует снижению эксплуатационных расходов.</li>\n<li>Соответствие стандартам: Продукт соответствует высоким стандартам качества и безопасности, что подтверждает его пригодность для профессионального использования.</li>\n</ul>\n<p>Устройство PEHA STEALTH® FAMILY находит свое применение в самых разнообразных областях, где требуется автоматизация процессов. Оно идеально подходит для использования в системах управления производственными линиями, обеспечивая точный контроль над каждым этапом. Также оно незаменимо в системах \"умного дома\" и \"умного здания\", где отвечает за централизованное управление освещением, климатом, безопасностью и другими функциями. В промышленных условиях оно может быть интегрировано в SCADA-системы для мониторинга и регулирования технологических процессов, гарантируя стабильность и эффективность работы оборудования.</p>\n<p>Выбор PEHA STEALTH® FAMILY — это инвестиция в надежность и эффективность вашей системы автоматизации. Благодаря использованию компонента Honeywell D 20.545.192, устройство гарантирует высокую производительность и долговечность. Его универсальность позволяет применять его в широком спектре задач, а простота интеграции значительно сокращает время на внедрение. Это решение обеспечит стабильное и точное выполнение всех поставленных задач, минимизируя риски сбоев и повышая общую эффективность вашей автоматизированной системы.</p>",
+    "description_seo_word_count": 329,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 8443KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'STEALTH® FAMILY' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105039610",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

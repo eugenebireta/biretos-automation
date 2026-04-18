@@ -4,7 +4,7 @@
   "pn": "FX808338",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Дополнительный корпус FlexES FX808338",
   "assembled_title": "Корпус Honeywell FX808338",
   "our_price_raw": "11552,38",
@@ -146,7 +146,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqNHydoSeqFNdFM8nDq6'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -164,9 +164,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "public_price",
@@ -274,7 +272,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "FlexES Control (Esser/Honeywell)",
+    "confirmed_manufacturer": "Esser",
+    "discontinued": false,
+    "identity_notes_p1": "FlexES Control fire alarm expansion housing with 2 DIN rails; made by Esser (Honeywell subsidiary)",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -286,7 +289,7 @@
     "description": "Дополнительный корпус FlexES используется для расширения систем пожарной сигнализации. Он позволяет разместить дополнительные модули и компоненты, обеспечивая гибкость и масштабируемость системы.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Корпус",
+    "product_type": "Expansion housing",
     "seed_name": "Дополнительный корпус FlexES FX808338",
     "description_long_ru": "Net price; €583.10 gross incl. 19% VAT"
   },
@@ -499,5 +502,119 @@
   "dr_price": 490.0,
   "dr_currency": "EUR",
   "dr_price_source": "https://www.brandmelde-shop.de/esser-fx808338-erweiterungsgehaeuse-mit-2-din-schienen",
-  "product_category": "Fire alarm expansion housing"
+  "training_urls": [
+    "https://www.brandmelde-shop.de/esser-fx808338-erweiterungsgehaeuse-mit-2-din-schienen",
+    "https://www.esser-systems.com/produkte/details/system-flexes-control/zubehoer-flexes-control/fx808338-erweiterungsgehaeuse-mit-2-din-schienen-2/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 490.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.brandmelde-shop.de/esser-fx808338-erweiterungsgehaeuse-mit-2-din-schienen",
+    "our_price_raw": "11552,38",
+    "our_price_parsed": 11552.38,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 490.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Дополнительный корпус FlexES используется для расширения систем пожарной сигнализации. Он позволяет разместить дополнительные модули и компоненты, обеспечивая гибкость и масштабируемость системы.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/ESSER_FX808338.jpg",
+    "best_photo_source": "vps_static",
+    "best_description_ru_short": "Дополнительный корпус FlexES используется для расширения систем пожарной сигнализации. Он позволяет разместить дополнительные модули и компоненты, обеспечивая гибкость и масштабируемость системы.",
+    "best_description_ru": "<p>Дополнительный корпус FlexES от компании Honeywell (артикул FX808338) — это профессиональное решение для расширения и модернизации систем пожарной сигнализации. Изделие разработано известным мировым производителем систем безопасности и предназначено для установки дополнительных модулей и компонентов в существующие пожарные системы. Корпус обеспечивает гибкость конфигурации и позволяет легко масштабировать систему в соответствии с растущими потребностями объекта.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — мировой лидер в области систем безопасности и автоматизации</li>\n<li>Назначение: расширение функциональности систем пожарной сигнализации</li>\n<li>Совместимость: разработан для работы с системами серии FlexES</li>\n<li>Модульная конструкция: позволяет добавлять дополнительные модули и компоненты</li>\n<li>Гибкая архитектура: обеспечивает масштабируемость системы под конкретные требования</li>\n<li>Надежность: изготовлен в соответствии с высокими стандартами качества Honeywell</li>\n<li>Простота интеграции: легко подключается к существующей инфраструктуре</li>\n</ul>\n\n<p><b>Применение:</b> Дополнительный корпус FlexES используется на объектах различного назначения, где требуется расширение возможностей пожарной сигнализации. Это могут быть офисные здания, торговые центры, производственные предприятия, учреждения здравоохранения и образования. Корпус позволяет добавить новые зоны контроля, подключить дополнительные датчики и оборудование без необходимости замены всей системы.</p>\n\n<p><b>Преимущества:</b> Выбор дополнительного корпуса FlexES гарантирует долгосрочную инвестицию в безопасность. Система легко адаптируется к изменяющимся условиям и требованиям объекта. Качество и надежность продукции Honeywell обеспечивают стабильную работу системы на протяжении многих лет. Модульный подход снижает затраты на модернизацию и позволяет оптимизировать расходы на безопасность.</p>",
+    "best_description_ru_word_count": 202,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Declaration of Performance",
+    "description": "",
+    "specs": {
+      "product_type": "Fire alarm control panel",
+      "model": "IQ8Control C/M",
+      "intended_use": "Fire protection in accordance with EN 54-2, EN 54-4",
+      "manufacturer": "Novar GmbH, a Honeywell Company",
+      "manufacturer_address": "Dieselstrasse 2, 41469 Neuss, Germany",
+      "assessment_system": "System 1",
+      "notified_body": "VdS Schadenverhütung GmbH",
+      "notified_body_id": "0786",
+      "declaration_number": "DoP-20827130701",
+      "issue_date": "05.02.2020",
+      "constancy_of_performance_fire_event_en54_2": "Passed",
+      "trigger_delay_response_time_alarm": "Passed",
+      "operating_reliability": "Passed",
+      "operational_reliability_temperature_resistance": "Passed",
+      "operational_reliability_vibration_resistance": "Passed",
+      "operational_reliability_electrical_stability": "Passed",
+      "operational_reliability_humidity_resistance": "Passed",
+      "constancy_of_performance_fire_event_en54_4": "Passed",
+      "operational_reliability_en54_4": "Passed",
+      "operational_reliability_temperature_resistance_en54_4": "Passed",
+      "operational_reliability_vibration_resistance_en54_4": "Passed",
+      "operational_reliability_electrical_stability_en54_4": "Passed",
+      "operational_reliability_humidity_resistance_en54_4": "Passed"
+    },
+    "specs_count": 23,
+    "series": "IQ8Control",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "EN 54-2:1997/A1:2006",
+      "EN 54-4:1997/A2:2006"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FX808338.pdf",
+    "datasheet_size_kb": 10171,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The PN format 'FX808338' is consistent with Honeywell products. The seed name 'Дополнительный корпус FlexES FX808338' (Additional housing FlexES FX808338) clearly indicates this is an enclosure/housing component for Honeywell's FlexES fire alarm system. The current datasheet is just a Declaration of Performance certificate, not a product datasheet. The PN and brand appear correct, but a proper technical datasheet is needed to extract specifications and product details."
+    },
+    "description_seo_ru": "<p>Дополнительный корпус FlexES от компании Honeywell (артикул FX808338) — это профессиональное решение для расширения и модернизации систем пожарной сигнализации. Изделие разработано известным мировым производителем систем безопасности и предназначено для установки дополнительных модулей и компонентов в существующие пожарные системы. Корпус обеспечивает гибкость конфигурации и позволяет легко масштабировать систему в соответствии с растущими потребностями объекта.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — мировой лидер в области систем безопасности и автоматизации</li>\n<li>Назначение: расширение функциональности систем пожарной сигнализации</li>\n<li>Совместимость: разработан для работы с системами серии FlexES</li>\n<li>Модульная конструкция: позволяет добавлять дополнительные модули и компоненты</li>\n<li>Гибкая архитектура: обеспечивает масштабируемость системы под конкретные требования</li>\n<li>Надежность: изготовлен в соответствии с высокими стандартами качества Honeywell</li>\n<li>Простота интеграции: легко подключается к существующей инфраструктуре</li>\n</ul>\n\n<p><b>Применение:</b> Дополнительный корпус FlexES используется на объектах различного назначения, где требуется расширение возможностей пожарной сигнализации. Это могут быть офисные здания, торговые центры, производственные предприятия, учреждения здравоохранения и образования. Корпус позволяет добавить новые зоны контроля, подключить дополнительные датчики и оборудование без необходимости замены всей системы.</p>\n\n<p><b>Преимущества:</b> Выбор дополнительного корпуса FlexES гарантирует долгосрочную инвестицию в безопасность. Система легко адаптируется к изменяющимся условиям и требованиям объекта. Качество и надежность продукции Honeywell обеспечивают стабильную работу системы на протяжении многих лет. Модульный подход снижает затраты на модернизацию и позволяет оптимизировать расходы на безопасность.</p>",
+    "description_seo_word_count": 202,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Esser, record says Honeywell",
+        "severity": "high"
+      },
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 10171KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Declaration of Performance' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

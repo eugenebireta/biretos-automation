@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "183791",
-  "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "pn_variants": [
+    "00183791"
+  ],
+  "brand": "PEHA",
+  "subbrand": "PEHA",
   "name": "Модуль управления Honeywell D 20.671.201.022",
   "assembled_title": "Рамка 1-постовая PEHA NOVA, 183791",
   "our_price_raw": "3348,82",
@@ -342,7 +344,14 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.671.201.022",
+    "series": "NOVA",
+    "color_material": "wood (oak)",
+    "identity_notes_p1": "NOVA Elements wood, 83x83mm",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -377,7 +386,7 @@
     "description": "Модуль управления используется в системах автоматизации для контроля и управления различными процессами. Обеспечивает надежную работу и простоту интеграции.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Модуль",
+    "product_type": "frame 1-gang",
     "seed_name": "Модуль управления Honeywell D 20.671.201.022",
     "description_long_ru": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук."
   },
@@ -605,11 +614,11 @@
       }
     ]
   },
-  "dr_price": null,
-  "dr_currency": null,
-  "dr_price_source": null,
+  "dr_price": 88.23,
+  "dr_currency": "USD",
+  "dr_price_source": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
   "dr_category": "Hardware",
-  "dr_price_type": null,
+  "dr_price_type": "list_price",
   "dr_sources": [
     {
       "url": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
@@ -644,7 +653,91 @@
     ]
   },
   "deep_research": {
-    "description_ru": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук."
+    "description_ru": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук.",
+    "descriptions_all": {
+      "legacy": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук."
+    }
   },
-  "product_category": "PEHA NOVA frame"
+  "training_urls": [
+    "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+    "https://www.conrad.nl/nl/p/peha-by-honeywell-183791-frame-frame-wit-10-stuk-s-2856802.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 88.23,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.clarkcountynv.gov/adobe/assets/fy22-q1-expenditures.pdf",
+    "our_price_raw": "3348,82",
+    "our_price_parsed": 3348.82,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": 10,
+    "judge_reason": "PEHA NOVA frame, qty=10 detected in context. Known pack trap."
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 88.23,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Декоративная рамка для электроустановочных изделий PEHA by Honeywell, белого цвета. Предназначена для монтажа в стандартные установочные коробки. Упаковка: 10 штук.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_183791.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "phase3a_price": {
+    "price": 34.29,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://www.techniekwebshop.nl/peha-nova-d-20-671-201-022-afdekramen-elements-naturals-1voudig-british-oak-levend-wit-afdekraam-schakelmateriaal-verkoop-per-1-x-1-stuk-00183791-4010105183795-10406499-montagerichting-horizontaal-en-verticaal-geschikt-voor-inbouwinstallatie.html",
+    "confidence": "high",
+    "notes": "PEHA 1-gang frame; unit price",
+    "search_used": "D 20.671.201.022"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "4010105183795",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 183791 is 6-digit numeric matching PEHA format. The audit explicitly states product brand is 'PEHA' but title incorrectly mentions 'Honeywell'. The D 20.671.201.022 appears to be a PEHA model/type designation. Brand should be corrected to PEHA and title rebuilt without Honeywell reference.",
+      "brand_correction_confidence": "medium"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105183795",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "PEHA",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "PEHA"
+  }
 }

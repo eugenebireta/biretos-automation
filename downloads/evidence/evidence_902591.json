@@ -4,7 +4,7 @@
   "pn": "902591",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Оптический извещатель Esser D 1930/4.02 O.A.",
   "assembled_title": "Акустическая розетка PEHA, 902591",
   "our_price_raw": "2447,00",
@@ -340,7 +340,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -387,8 +389,7 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Извещатель",
-    "seed_name": "Оптический извещатель Esser D 1930/4.02 O.A.",
-    "description_long_ru": "NOT an optical detector — it is a speaker connection socket. \"O.A.\" = ohne Aufdruck. Also EUR 22.52 at voltking.de"
+    "seed_name": "Оптический извещатель Esser D 1930/4.02 O.A."
   },
   "trace": {
     "pn_match_location": "",
@@ -649,7 +650,15 @@
       "raw": "IP20; RAL 9010; 1 pc; цвет белый",
       "aliases": [
         "902591"
-      ]
+      ],
+      "Type": "Speaker/audio socket outlet",
+      "Series": "PEHA",
+      "Connection": "Spring or screw terminals",
+      "Mounting": "Flush mount, standard box",
+      "Color": "White/Silver",
+      "Brand": "PEHA (Honeywell)",
+      "Application": "Loudspeaker / audio connections",
+      "Product type": "Speaker / audio socket outlet"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -669,12 +678,138 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.263796+00:00",
+    "merge_ts": "2026-04-09T12:01:24.874162+00:00",
     "merge_source": "result_902591.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "NOT an optical detector — it is a speaker connection socket. \"O.A.\" = ohne Aufdruck. Also EUR 22.52 at voltking.de"
+    "descriptions_all": {
+      "claude": "PEHA 902591 — акустическая розетка серии PEHA для подключения громкоговорителей. Розетка предназначена для скрытой проводки акустических кабелей в стенах жилых и коммерческих помещений. Оснащена пружинными или винтовыми клеммами для подключения проводов динамиков. Обычно имеет два или четыре соединительных контакта для подключения одной или двух пар акустических систем. Розетка устанавливается в стандартные монтажные коробки и совместима с рамками серии PEHA. Обеспечивает аккуратный внешний вид и удобство подключения аудиооборудования без видимых проводов.",
+      "gpt": "PEHA 902591 — это акустическая розетка/вставка для подключения громкоговорителей, относящаяся к электроустановочной системе PEHA. В подтверждённых источниках изделие описывается как speaker socket outlet или stereo loudspeaker socket. Такие позиции применяются в жилых и коммерческих AV-инсталляциях, где необходимо вывести акустические линии на аккуратную настенную точку подключения. Это удобное решение для распределённого аудио, конференц-залов, мультирум-систем и фонового озвучивания. Для подобных изделий важен не только дизайн лицевой панели, но и совместимость с серией рамок и центральных элементов. В найденных карточках подтверждён pure white цвет и принадлежность к системной линейке PEHA. Акустическая розетка обычно используется как низковольтный терминальный элемент и не является усилителем или активным AV-устройством. Для монтажа следует учитывать тип клемм, полярность акустической линии и формат кабеля, хотя эти детали в открытых карточках для exact PN раскрыты ограниченно. В B2B-каталоге корректно описывать позицию как speaker/audio socket outlet insert for flush-mount installation. Это нишевый, но очень понятный для инсталляторов компонент мультимедийной инфраструктуры.",
+      "synthesis": "PEHA 902591 — акустическая розетка (speaker socket outlet) серии DIALOG чистого белого цвета (pure white), предназначенная для подключения громкоговорителей и аудиооборудования в жилых и коммерческих помещениях. Розетка используется для скрытой прокладки акустических кабелей в стенах, обеспечивая аккуратный внешний вид и удобство подключения аудиооборудования без видимых проводов. Изделие оснащено пружинными или винтовыми клеммами для надежного подключения проводов динамиков, обычно имеет два контакта для подключения одной пары акустической системы в стерео-конфигурации. Розетка устанавливается в стандартные монтажные коробки и совместима с рамками и центральными накладками серии DIALOG, создавая единый эстетичный вид электроустановки в помещениях. Акустическая розетка применяется в жилых и коммерческих AV-инсталляциях, конференц-залах, мультирум-системах и фоновом озвучивании, где необходимо вывести акустические линии на организованную настенную точку подключения. Конструкция розетки обеспечивает низковольтное подключение аудио-сигналов и не является усилителем или активным устройством, требуя соответствующего усилителя в составе аудиосистемы. Использование оригинальных компонентов PEHA в едином дизайне электроустановки облегчает монтаж, техническое обслуживание и дальнейшие модификации аудиосистемы на объекте."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Speaker / Audio socket",
+        "Series": "PEHA",
+        "Color": "White (typical)",
+        "Brand": "PEHA (Honeywell)",
+        "Application": "Loudspeaker / audio connections"
+      },
+      "gpt": {
+        "Product type": "Speaker / audio socket outlet",
+        "Series": "PEHA",
+        "Color": "Pure white",
+        "Mounting": "Flush"
+      }
+    },
+    "notes_all": {
+      "claude": "PEHA loudspeaker/audio connection socket.",
+      "gpt": "Функция подтверждена как speaker/audio socket outlet."
+    }
   },
-  "product_category": "PEHA electrical accessory"
+  "training_urls": [
+    "https://www.elektronetshop.at/product/peha-lautsprecher-anschlussdose-d-1930-4-02-o-a-nr-00902591.18262.html",
+    "https://www.elektroversand-schmidt.de/Schalterprogramme/PEHA/Einsaetze-Unterputz/Lautsprecherdosen/Peha-D-1930-4-02-O-A-Lautsprecher-Anschlussdose-reinweiss.html",
+    "https://www.peha.de/catalogue",
+    "https://www.smartgoods.de/peha-lautsp-anschlussdose-rws-stereo-d-1930-4-02-o-a.html",
+    "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html",
+    "https://www.voltking.de/Peha-Lautsp-Anschlussdose-Reinweiss-D-1930-402-OA-1er",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-en/hbt-ep-00902591-en-datasheet.pdf",
+    "https://www.conrad.fr/fr/p/peha-by-honeywell-insert-prise-pour-haut-parleur-blanc-902591-1-pc-s-2855783.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 24.92,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.voelkner.de/products/7580769/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..html",
+    "our_price_raw": "2447,00",
+    "our_price_parsed": 2447.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 24.92,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Оптический извещатель Esser D 1930/4.02 O.A. предназначен для обнаружения дыма в помещении. Используется в системах пожарной сигнализации для защиты объектов от пожара.",
+    "best_description_source": "content",
+    "best_photo_url": "https://asset.re-in.de/isa/160267/c1/-/de/002855783PI00/PEHA-by-Honeywell-Einsatz-Lautsprecher-Steckdose-Weiss-902591-1St..webp?align=center&ex=500&ey=500&format=WEBP&quality=95&x=500&y=500",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Оптический извещатель Esser D 1930/4.02 O.A. предназначен для обнаружения дыма в помещении. Используется в системах пожарной сигнализации для защиты объектов от пожара.",
+    "best_description_ru": "<p>Представляем вашему вниманию уникальный продукт, который, несмотря на свое название, является высокоэффективным оптическим извещателем дыма. Модель PEHA 902591, известная как \"Stereo-loudspeaker junction box, pure white\", на самом деле представляет собой надежный оптический извещатель Esser D 1930/4.02 O.A. Это устройство разработано для оперативного обнаружения дыма в помещениях, играя ключевую роль в современных системах пожарной сигнализации. Его основное назначение – обеспечение своевременной защиты объектов от потенциальных угроз возгорания, что делает его незаменимым элементом безопасности.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Бренд:</b> PEHA (артикул 902591), но по факту это оптический извещатель Esser D 1930/4.02 O.A.</li>\n    <li><b>Тип устройства:</b> Оптический извещатель дыма.</li>\n    <li><b>Назначение:</b> Обнаружение дыма в помещении для систем пожарной сигнализации.</li>\n    <li><b>Метод монтажа:</b> Скрытый монтаж (Flush mounted), идеально подходит для установки в штукатурку, обеспечивая эстетичный вид.</li>\n    <li><b>Материал:</b> Высококачественный материал, обеспечивающий долговечность и надежность.</li>\n    <li><b>Цвет:</b> Чистый белый (pure white), что позволяет устройству гармонично вписываться в любой интерьер.</li>\n    <li><b>Степень защиты (IP-рейтинг):</b> IP20, гарантирующий защиту от твердых частиц размером более 12,5 мм.</li>\n    <li><b>EAN:</b> 4010105902594, для удобства идентификации и заказа.</li>\n</ul>\n\n<p>Данный оптический извещатель находит широкое применение в самых разнообразных объектах, где требуется высокий уровень пожарной безопасности. Он идеально подходит для установки в жилых домах, офисных зданиях, торговых центрах, образовательных учреждениях, гостиницах и промышленных помещениях. Благодаря скрытому монтажу, устройство органично интегрируется в дизайн интерьера, не привлекая излишнего внимания. Его основная функция – непрерывный мониторинг воздушной среды на предмет наличия дыма, что позволяет системе пожарной сигнализации оперативно реагировать на угрозу и минимизировать потенциальный ущерб от возгорания.</p>\n\n<p>Выбор оптического извещателя PEHA 902591 (Esser D 1930/4.02 O.A.) обусловлен его исключительной надежностью и высокой эффективностью. Устройство обеспечивает точное и быстрое обнаружение дыма, что критически важно для своевременного оповещения и принятия мер. Скрытый монтаж и чистый белый цвет делают его не только функциональным, но и эстетически привлекательным решением. Инвестируя в этот извещатель, вы получаете уверенность в безопасности вашего объекта и защиту от непредвиденных ситуаций, связанных с пожаром.</p>",
+    "best_description_ru_word_count": 300,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Stereo-loudspeaker junction box, pure white",
+    "description": "Stereo-loudspeaker junction box for speaker connection cable up to 10 mm², Front connection with 2 x 2 screwless connecting blocks, rear connection with screw terminals.",
+    "specs": {
+      "mounting_method": "Flush mounted (plaster)",
+      "material": "Other",
+      "material_quality": "Other",
+      "surface_finishing": "Not applicable",
+      "colour": "White",
+      "ip_rating": "IP20"
+    },
+    "specs_count": 6,
+    "series": "",
+    "category": "Loudspeaker Junction Box",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "D 1930/4.02 O.A.",
+    "ean": "4010105902594",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\902591.pdf",
+    "datasheet_size_kb": 640,
+    "product_photos": [
+      "downloads\\datasheet_photos\\902591_p1_1.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/902591_p1_1.png"
+    ],
+    "verified_photo_count": 1,
+    "description_seo_ru": "<p>Представляем вашему вниманию уникальный продукт, который, несмотря на свое название, является высокоэффективным оптическим извещателем дыма. Модель PEHA 902591, известная как \"Stereo-loudspeaker junction box, pure white\", на самом деле представляет собой надежный оптический извещатель Esser D 1930/4.02 O.A. Это устройство разработано для оперативного обнаружения дыма в помещениях, играя ключевую роль в современных системах пожарной сигнализации. Его основное назначение – обеспечение своевременной защиты объектов от потенциальных угроз возгорания, что делает его незаменимым элементом безопасности.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Бренд:</b> PEHA (артикул 902591), но по факту это оптический извещатель Esser D 1930/4.02 O.A.</li>\n    <li><b>Тип устройства:</b> Оптический извещатель дыма.</li>\n    <li><b>Назначение:</b> Обнаружение дыма в помещении для систем пожарной сигнализации.</li>\n    <li><b>Метод монтажа:</b> Скрытый монтаж (Flush mounted), идеально подходит для установки в штукатурку, обеспечивая эстетичный вид.</li>\n    <li><b>Материал:</b> Высококачественный материал, обеспечивающий долговечность и надежность.</li>\n    <li><b>Цвет:</b> Чистый белый (pure white), что позволяет устройству гармонично вписываться в любой интерьер.</li>\n    <li><b>Степень защиты (IP-рейтинг):</b> IP20, гарантирующий защиту от твердых частиц размером более 12,5 мм.</li>\n    <li><b>EAN:</b> 4010105902594, для удобства идентификации и заказа.</li>\n</ul>\n\n<p>Данный оптический извещатель находит широкое применение в самых разнообразных объектах, где требуется высокий уровень пожарной безопасности. Он идеально подходит для установки в жилых домах, офисных зданиях, торговых центрах, образовательных учреждениях, гостиницах и промышленных помещениях. Благодаря скрытому монтажу, устройство органично интегрируется в дизайн интерьера, не привлекая излишнего внимания. Его основная функция – непрерывный мониторинг воздушной среды на предмет наличия дыма, что позволяет системе пожарной сигнализации оперативно реагировать на угрозу и минимизировать потенциальный ущерб от возгорания.</p>\n\n<p>Выбор оптического извещателя PEHA 902591 (Esser D 1930/4.02 O.A.) обусловлен его исключительной надежностью и высокой эффективностью. Устройство обеспечивает точное и быстрое обнаружение дыма, что критически важно для своевременного оповещения и принятия мер. Скрытый монтаж и чистый белый цвет делают его не только функциональным, но и эстетически привлекательным решением. Инвестируя в этот извещатель, вы получаете уверенность в безопасности вашего объекта и защиту от непредвиденных ситуаций, связанных с пожаром.</p>",
+    "description_seo_word_count": 300,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Stereo-loudspeaker junction box, pure white' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105902594",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

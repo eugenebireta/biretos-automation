@@ -4,8 +4,8 @@
   "pn": "3240357",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
-  "name": "Кабельный канал 3240357",
+  "subbrand": null,
+  "name": "Кабельный канал безгалогенный Phoenix Contact CD-HF 80×40, светло-серый, 2 м",
   "assembled_title": "Канал Honeywell 3240357",
   "our_price_raw": "4618,21",
   "expected_category": "Канал",
@@ -178,7 +178,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "кабельный канал с крышкой чётко виден",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -196,10 +196,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.y-ic.my/pdf/Phoenix-Contact/3240357.html"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -312,7 +309,10 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Phoenix Contact",
+    "identity_notes_p1": "Cable duct component; likely Phoenix Contact based on PN pattern",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -361,9 +361,8 @@
     "description": "Кабельный канал используется для укладки кабелей в системах автоматизации и управления. Обеспечивает защиту и удобство монтажа.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Канал",
-    "seed_name": "Кабельный канал 3240357",
-    "description_long_ru": "Actual mfr: Phoenix Contact. Indian price INR 24066 (marked up). Also on eBay via OnlineComponents.com"
+    "product_type": "Cable duct",
+    "seed_name": "Кабельный канал 3240357"
   },
   "trace": {
     "pn_match_location": "",
@@ -635,13 +634,153 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.080063+00:00",
+    "merge_ts": "2026-04-09T12:01:24.818590+00:00",
     "merge_source": "result_3240357.json",
     "title_ru": "wire duct / raceway",
     "provider": "unknown",
     "model": "unknown",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "Actual mfr: Phoenix Contact. Indian price INR 24066 (marked up). Also on eBay via OnlineComponents.com"
+    "descriptions_all": {
+      "gpt": "Phoenix Contact / Honeywell 3240357 CD-HF 80X40 — это кабельный канал для монтажа и укладки проводников в шкафах автоматики и распределительных щитах. Позиция относится к семейству wiring duct / cable duct, где канал состоит из основания и крышки, что облегчает последующую ревизию и добавление проводов. Габариты 80 x 40 mm делают изделие удобным для организации силовых, сигнальных и управляющих цепей в панелях управления. Материал halogen-free material выбран с учётом промышленного применения и упрощённой обработки при сборке шкафа. Такой канал помогает отделять группы проводов, улучшает читаемость монтажа и снижает риск случайного повреждения изоляции при обслуживании. Изделие обычно ставят в щитах автоматизации, BMS, HVAC, машиностроительных шкафах и других панелях с плотной кабельной разводкой. При проектировании важно учитывать заполнение канала, радиусы ввода и запас по сечению, чтобы крышка закрывалась без деформации кабелей. Монтаж выполняется на ровную поверхность шкафа или монтажной панели, а длина 2 м удобна для раскроя под конкретный проект. Увеличенная ширина по сравнению с 40x40 делает модель удобной для более плотной укладки проводников при сохранении умеренной высоты канала. В открытых источниках этот номер однозначно связан с OEM Phoenix Contact, поэтому если он проходит в базе как Honeywell, это выглядит как внутренняя ресейл/ERP-привязка, а не оригинальный бренд."
+    },
+    "specs_all": {
+      "gpt": {
+        "OEM": "Phoenix Contact",
+        "Product type": "Cable duct",
+        "Model": "CD-HF 80X40",
+        "Width": "80 mm",
+        "Height": "40 mm",
+        "Length": "2000 mm",
+        "Color": "Light gray",
+        "Halogen-free": "Yes"
+      }
+    },
+    "specs": {
+      "OEM": "Phoenix Contact",
+      "Product type": "Cable duct",
+      "Model": "CD-HF 80X40",
+      "Width": "80 mm",
+      "Height": "40 mm",
+      "Length": "2000 mm",
+      "Color": "Light gray",
+      "Halogen-free": "Yes"
+    },
+    "notes_all": {
+      "gpt": "У DigiKey отмечается obsolete, поэтому фактическую доступность стоит проверять заранее."
+    }
   },
-  "product_category": "wire duct / raceway"
+  "training_urls": [
+    "http://www.xiamenjiyang.com/wap/products_show.asp?id=1584",
+    "https://www.ebay.com/itm/175894178205",
+    "https://www.industrybuying.com/electrical-conduits-and-fittings-phoenix-contact-ELE.CAB.726455416",
+    "https://www.phoenixcontact.com/en-us/products/wiring-duct-cd-hf-80x40-3240357",
+    "https://www.digikey.com/en/products/detail/phoenix-contact/3240357/2683401"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 56.155,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.digikey.com/en/products/detail/phoenix-contact/3240357/2641146",
+    "our_price_raw": "4618,21",
+    "our_price_parsed": 4618.21,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 56.155,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Кабельный канал используется для укладки кабелей в системах автоматизации и управления. Обеспечивает защиту и удобство монтажа.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.y-ic.my/pdf/Phoenix-Contact/3240357.html",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Кабельный канал используется для укладки кабелей в системах автоматизации и управления. Обеспечивает защиту и удобство монтажа.",
+    "best_description_ru": "<p>Представляем вам высококачественные механические микропереключатели от всемирно известного бренда Honeywell, артикул 3240357. Эти компактные и надежные компоненты являются неотъемлемой частью любой современной системы автоматизации и управления, обеспечивая точное и мгновенное срабатывание при минимальном физическом воздействии. Разработанные для долгосрочной и бесперебойной работы, микропереключатели Honeywell зарекомендовали себя как эталон надежности и эффективности в самых требовательных промышленных условиях, гарантируя стабильность процессов и безопасность эксплуатации.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Бренд: Honeywell – гарантия качества и многолетнего опыта в сфере промышленной автоматизации.</li>\n<li>Тип: Механические микропереключатели – обеспечивают четкое и надежное срабатывание.</li>\n<li>Артикул: 3240357 – уникальный идентификатор для легкого поиска и заказа.</li>\n<li>Надежность: Высокая степень долговечности, рассчитанная на миллионы циклов срабатывания.</li>\n<li>Точность: Мгновенное и точное переключение контактов при минимальном усилии.</li>\n<li>Компактность: Небольшие размеры позволяют интегрировать переключатели в ограниченные пространства.</li>\n<li>Универсальность: Подходят для широкого спектра применений в различных отраслях.</li>\n<li>Простота монтажа: Легко устанавливаются и подключаются к существующим системам.</li>\n</ul>\n<p><b>Применение:</b> Механические микропереключатели Honeywell 3240357 находят широкое применение в самых разнообразных областях, где требуется точное определение положения, контроль движения или срабатывание по достижении определенного порога. Они идеально подходят для использования в системах безопасности, промышленных машинах, автоматических дверях, лифтах, конвейерных системах, а также в бытовой технике и медицинском оборудовании. Благодаря своей надежности и точности, эти микропереключатели являются ключевым элементом для обеспечения безопасной и эффективной работы сложного оборудования, гарантируя стабильность производственных процессов и минимизацию простоев.</p>\n<p><b>Преимущества:</b> Выбирая микропереключатели Honeywell 3240357, вы инвестируете в надежность и долговечность ваших систем. Продукция Honeywell известна своим безупречным качеством и соответствием самым строгим промышленным стандартам. Эти переключатели обеспечивают высокую точность срабатывания, что критически важно для автоматизированных процессов, где каждая миллисекунда имеет значение. Их компактный размер и простота интеграции делают их идеальным выбором для модернизации существующих систем и разработки новых решений, обеспечивая бесперебойную работу и снижение эксплуатационных расходов.</p>",
+    "best_description_ru_word_count": 281,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Phoenix Contact",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Microswitches, mechanical",
+    "description": "",
+    "specs": {
+      "product_type": "Mechanical Microswitches - Spare Parts Catalogue",
+      "application": "Warewashing equipment (dishwashers, glasswashers, cupwashers, pan/utensilwashing machines)",
+      "contact_capacity_typical": "10A 250V",
+      "contact_capacity_range": "0.1A to 16A at 250V",
+      "contact_types": "NO (normally open), NC (normally closed), NO-NC (changeover)",
+      "manufacturers_included": [
+        "BITRON",
+        "ELECTRICA (Series C, GN/NR)",
+        "HONEYWELL (Series BZ, V5)",
+        "OMRON",
+        "PIZZATO (Series MF/MS/MV, MKF/MKH/MKV)",
+        "ROLD (Series VR)",
+        "SAIA-BURGESS (Series BVM3, V4L/V4N/V4NC, XC, XG, XKA/XP/XTD, X3)"
+      ],
+      "cable_length_available": "1900 mm",
+      "housing_material": "Not specified in catalogue",
+      "mounting_types": "Lever, pin, bracket mounted variants",
+      "actuator_types": "Lever, pin, magnet-operated, float switch",
+      "accessories_included": "Bushings, gaskets, nuts, holders, end caps, springs",
+      "connector_types": "Various - specific to each microswitch model",
+      "material_gasket": "EPDM",
+      "contact_configuration": "1 contact NA, NA-NC (changeover)",
+      "magnet_options": "With/without magnet variants available",
+      "mounting_bracket_options": "Available for select models",
+      "double_switch_variants": "Available (marked 'double' in notes)"
+    },
+    "specs_count": 17,
+    "series": "BITRON N16/S16, ELECTRICA C4AZN/C23ZN/C26HX/C60ZN/C102/GN1N5/NR6K5/NR48W5/NR64K5/NR115K5/NRA6W5, HONEYWELL V5B010CB3E/V5B010FB3/V5F110BB/V5H011BB4C, OMRON A-20GV22-B/D2VW-5L22-3M-157/D3V/V-16/V-162/V-163/V-165/V-166/VX-5/Z-15, PIZZATO MF/MS/MV/MKF/MKH/MKV, ROLD VR, SAIA-BURGESS BVM3/V4L/V4N/V4NC/XC/XG/XKA/XP/XTD/X3",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\3240357.pdf",
+    "datasheet_size_kb": 4000,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format (7-digit numeric) is consistent with Honeywell. Datasheet title 'Microswitches, mechanical' confirms this is a microswitch, not a cable duct ('Кабельный канал'). The seed name is clearly wrong. However, datasheet appears to be generic/category level rather than product-specific, explaining missing specs and generic title. Need product-specific datasheet for PN 3240357 to get proper specifications, EAN, and detailed description."
+    },
+    "description_seo_ru": "<p>Представляем вам высококачественные механические микропереключатели от всемирно известного бренда Honeywell, артикул 3240357. Эти компактные и надежные компоненты являются неотъемлемой частью любой современной системы автоматизации и управления, обеспечивая точное и мгновенное срабатывание при минимальном физическом воздействии. Разработанные для долгосрочной и бесперебойной работы, микропереключатели Honeywell зарекомендовали себя как эталон надежности и эффективности в самых требовательных промышленных условиях, гарантируя стабильность процессов и безопасность эксплуатации.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Бренд: Honeywell – гарантия качества и многолетнего опыта в сфере промышленной автоматизации.</li>\n<li>Тип: Механические микропереключатели – обеспечивают четкое и надежное срабатывание.</li>\n<li>Артикул: 3240357 – уникальный идентификатор для легкого поиска и заказа.</li>\n<li>Надежность: Высокая степень долговечности, рассчитанная на миллионы циклов срабатывания.</li>\n<li>Точность: Мгновенное и точное переключение контактов при минимальном усилии.</li>\n<li>Компактность: Небольшие размеры позволяют интегрировать переключатели в ограниченные пространства.</li>\n<li>Универсальность: Подходят для широкого спектра применений в различных отраслях.</li>\n<li>Простота монтажа: Легко устанавливаются и подключаются к существующим системам.</li>\n</ul>\n<p><b>Применение:</b> Механические микропереключатели Honeywell 3240357 находят широкое применение в самых разнообразных областях, где требуется точное определение положения, контроль движения или срабатывание по достижении определенного порога. Они идеально подходят для использования в системах безопасности, промышленных машинах, автоматических дверях, лифтах, конвейерных системах, а также в бытовой технике и медицинском оборудовании. Благодаря своей надежности и точности, эти микропереключатели являются ключевым элементом для обеспечения безопасной и эффективной работы сложного оборудования, гарантируя стабильность производственных процессов и минимизацию простоев.</p>\n<p><b>Преимущества:</b> Выбирая микропереключатели Honeywell 3240357, вы инвестируете в надежность и долговечность ваших систем. Продукция Honeywell известна своим безупречным качеством и соответствием самым строгим промышленным стандартам. Эти переключатели обеспечивают высокую точность срабатывания, что критически важно для автоматизированных процессов, где каждая миллисекунда имеет значение. Их компактный размер и простота интеграции делают их идеальным выбором для модернизации существующих систем и разработки новых решений, обеспечивая бесперебойную работу и снижение эксплуатационных расходов.</p>",
+    "description_seo_word_count": 281,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Phoenix Contact",
+      "candidates": [],
+      "product_hint": "",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Phoenix Contact, record says Honeywell",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Microswitches, mechanical' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

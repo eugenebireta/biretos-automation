@@ -4,7 +4,7 @@
   "pn": "MB3480",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Шлюз Moxa MB3480",
   "assembled_title": "Шлюз Honeywell MB3480",
   "our_price_raw": "42020,00",
@@ -188,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqPjmbbPhWzEnm1ECioG'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -206,9 +206,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -328,7 +326,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "MGate MB3000",
+    "confirmed_manufacturer": "Moxa",
+    "discontinued": false,
+    "identity_notes_p1": "4-port RS-232/422/485 to Modbus TCP protocol gateway; Moxa not Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -351,9 +354,8 @@
     "description": "Шлюз Moxa MB3480 предназначен для интеграции устройств Modbus в сети Ethernet. Он обеспечивает надежную передачу данных и совместимость с различными протоколами.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Шлюз",
-    "seed_name": "Шлюз Moxa MB3480",
-    "description_long_ru": "Actual mfr: Moxa. Range $825-$1374. RS stock 71992459. Ref 42020 RUB (~$470) below US pricing"
+    "product_type": "Modbus TCP gateway",
+    "seed_name": "Шлюз Moxa MB3480"
   },
   "trace": {
     "pn_match_location": "",
@@ -616,7 +618,47 @@
     "specs": {
       "aliases": [
         "MOXA MGate MB3480"
-      ]
+      ],
+      "Ethernet Port": "1x 10/100BaseT(X), RJ45",
+      "Serial Ports": "4x RS-232/422/485, DB9 male",
+      "Baud Rate": "50 to 921,600 bps",
+      "Max. TCP Masters": "16 simultaneous",
+      "Max. Serial Slaves": "31 per port (124 total)",
+      "Max. TCP Slaves": "32",
+      "Power Input": "12 to 48 VDC",
+      "Operating Temperature": "0 to 55°C",
+      "Protection": "IP30",
+      "RS-485 Terminator": "120 ohm",
+      "RS-485 Pull High/Low": "1k or 150k ohm",
+      "ADDC": "Yes (automatic data direction control)",
+      "Certifications": "CE, FCC, cULus",
+      "Mounting": "DIN-rail",
+      "Includes": "Power adapter, diagnostic software",
+      "Type": "Modbus Gateway (Modbus TCP to RTU/ASCII)",
+      "Brand": "Moxa",
+      "Ethernet Ports": "2 × 10/100BaseT(X)",
+      "Protocol": "Modbus TCP, Modbus RTU, Modbus ASCII",
+      "Power": "12-48 VDC, redundant",
+      "Gateway type": "Modbus TCP/RTU/ASCII gateway",
+      "Serial ports": "4",
+      "Serial interfaces": "RS-232/422/485",
+      "Ethernet": "10/100BaseT(X) RJ45",
+      "Concurrent TCP masters": "Up to 16",
+      "Serial slave nodes": "Up to 31 per serial port / up to 124 total",
+      "Baud rate": "50 bps to 921.6 kbps",
+      "Security": "HTTPS, TLS 1.2, SNMPv3",
+      "serial_ports": "4 x DB9 Male (RS-232/422/485)",
+      "ethernet_port": "1 x RJ45 (10/100 Mbps)",
+      "protocols": "Modbus TCP, RTU, ASCII",
+      "max_tcp_masters": "16",
+      "max_serial_slaves": "124 (31 per port)",
+      "operating_temp": "0 °C to 55 °C",
+      "isolation": "1.5 kV Magnetic (Ethernet)",
+      "baud_rate": "up to 921.6 kbps",
+      "voltage": "12 to 48 VDC",
+      "ip_rating": "IP30",
+      "certifications": "UL, CE",
+      "ean": "5703431423183"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -635,12 +677,156 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.473178+00:00",
+    "merge_ts": "2026-04-09T12:01:24.954020+00:00",
     "merge_source": "result_MB3480.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "Actual mfr: Moxa. Range $825-$1374. RS stock 71992459. Ref 42020 RUB (~$470) below US pricing"
+    "descriptions_all": {
+      "claude": "Moxa MB3480 — промышленный шлюз протоколов Modbus (Modbus Gateway) для преобразования между Modbus TCP (Ethernet) и Modbus RTU/ASCII (последовательные порты RS-232/422/485). Шлюз предназначен для интеграции устаревших устройств с последовательными интерфейсами в современные сети Ethernet/IP. Модель MB3480 обычно оснащена 4 последовательными портами и 2 портами Ethernet для обеспечения гибкой топологии сети. Устройство поддерживает режимы Modbus Master и Slave, а также прозрачный режим передачи данных. Промышленное исполнение с расширенным диапазоном рабочих температур, DIN-рейковый монтаж, резервирование питания и защита от электромагнитных помех делают MB3480 идеальным решением для промышленных приложений автоматизации. Шлюз программируется через веб-интерфейс и поддерживает функции маршрутизации команд Modbus между устройствами.",
+      "gpt": "Moxa MGate MB3480 — это промышленный шлюз Modbus, предназначенный для интеграции последовательных устройств Modbus RTU/ASCII в Ethernet-сети Modbus TCP. Модель MB3480 относится к 4-портовым версиям серии и подходит для систем, где нужно собрать несколько независимых последовательных шин в один управляемый сетевой узел. По документации Moxa шлюз поддерживает одновременную работу с множеством Modbus TCP masters и большим количеством serial slave nodes. Это делает его удобным в SCADA, BMS, энергетике, технологических линиях и других проектах с миграцией от legacy serial infrastructure к Ethernet. Устройство поддерживает интерфейсы RS-232/422/485 и потому может применяться с очень разнородным парком полевых контроллеров, счётчиков и приводов. Производитель также указывает сетевой порт 10/100BaseT(X) с магнитной изоляцией и современными функциями защищённого управления, включая HTTPS и SNMPv3 в актуальных материалах. В шлюзах такого класса ценятся стабильность, диагностика и возможность централизованного обслуживания без замены полевых устройств. Монтаж обычно шкафной, с учётом схемы адресации, таймингов опроса и топологии последовательных сегментов. Для B2B-каталога правильное описание — 4-port Modbus TCP/RTU/ASCII gateway for industrial protocol integration. Это классический migration/aggregation device для перехода к Ethernet без полного обновления полевого оборудования.",
+      "gemini": "Протокольный шлюз Moxa MGate MB3480 является высокопроизводительным решением для объединения сетей Modbus TCP и Modbus RTU/ASCII. Устройство оснащено четырьмя последовательными портами RS-232/422/485, которые настраиваются программно под нужды конкретного оборудования. Шлюз позволяет подключать до 16 одновременных TCP-мастеров, обеспечивая параллельный доступ к данным для различных систем управления. Благодаря функции автоматической маршрутизации запросов Auto-Device Routing, настройка системы значительно упрощается и ускоряется. Металлический корпус со степенью защиты IP30 и компактным исполнением позволяет эффективно использовать пространство в монтажном шкафу. Скорость передачи данных по последовательным интерфейсам может достигать 921,6 кбит/с, что достаточно для самых требовательных приложений. Устройство поддерживает широкий диапазон входного напряжения от 12 до 48 В постоянного тока и оснащено защитой от импульсных помех. Шлюз сертифицирован по стандартам безопасности UL и CE, что подтверждает его пригодность для критически важных объектов. Пятилетняя гарантия от производителя является дополнительным подтверждением высокой надежности этого компонента. Это идеальное решение для модернизации заводов, где необходимо сохранить существующее оборудование с последовательными портами.",
+      "synthesis": "Moxa MGate MB3480 — это промышленный шлюз Modbus TCP/RTU/ASCII, предназначенный для преобразования между Modbus TCP (Ethernet) и Modbus RTU/ASCII (последовательные порты RS-232/422/485) при интеграции устаревших устройств в современные сети Ethernet. Модель относится к 4-портовым версиям серии и оснащена четырьмя последовательными портами RS-232/422/485 и 2 портами 10/100BaseT(X) Ethernet с магнитной изоляцией для гибкой топологии сети. Шлюз поддерживает режимы Modbus Master и Slave, одновременную работу с множеством Modbus TCP masters и большим количеством serial slave nodes, а также функцию автоматической маршрутизации запросов Auto-Device Routing. Устройство позволяет подключать до 16 одновременных TCP-мастеров, обеспечивая параллельный доступ к данным для различных систем управления SCADA и BMS. Скорость передачи по последовательным интерфейсам может достигать 921,6 кбит/с; поддерживаемое входное напряжение — от 12 до 48 В постоянного тока с защитой от импульсных помех. Промышленное исполнение с расширенным диапазоном рабочих температур, DIN-рейковый монтаж, функции защищённого управления (HTTPS, SNMPv3) и сертификация UL/CE подтверждают его пригодность для критически важных объектов. Это классический migration/aggregation device для перехода к Ethernet без полного обновления полевого оборудования в энергетике, технологических линиях и промышленной автоматизации."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Modbus Gateway (Modbus TCP to RTU/ASCII)",
+        "Brand": "Moxa",
+        "Serial Ports": "4 (RS-232/422/485)",
+        "Ethernet Ports": "2 × 10/100BaseT(X)",
+        "Protocol": "Modbus TCP, Modbus RTU, Modbus ASCII",
+        "Mounting": "DIN-Rail",
+        "Power": "12-48 VDC, redundant",
+        "Operating Temperature": "-40 to 75°C (extended models)"
+      },
+      "gpt": {
+        "Gateway type": "Modbus TCP/RTU/ASCII gateway",
+        "Serial ports": "4",
+        "Serial interfaces": "RS-232/422/485",
+        "Ethernet": "10/100BaseT(X) RJ45",
+        "Concurrent TCP masters": "Up to 16",
+        "Serial slave nodes": "Up to 31 per serial port / up to 124 total",
+        "Baud rate": "50 bps to 921.6 kbps",
+        "Security": "HTTPS, TLS 1.2, SNMPv3"
+      },
+      "gemini": {
+        "serial_ports": "4 x DB9 Male (RS-232/422/485)",
+        "ethernet_port": "1 x RJ45 (10/100 Mbps)",
+        "protocols": "Modbus TCP, RTU, ASCII",
+        "max_tcp_masters": "16",
+        "max_serial_slaves": "124 (31 per port)",
+        "operating_temp": "0 °C to 55 °C",
+        "isolation": "1.5 kV Magnetic (Ethernet)",
+        "baud_rate": "up to 921.6 kbps",
+        "voltage": "12 to 48 VDC",
+        "ip_rating": "IP30",
+        "certifications": "UL, CE",
+        "ean": "5703431423183"
+      }
+    },
+    "notes_all": {
+      "claude": "Part of Moxa's MGate series of protocol gateways. Specifications may vary by exact sub-model.",
+      "gpt": "Подтверждён как 4-port gateway; не путать с 1-port MB3180 и 2-port MB3280."
+    }
   },
-  "product_category": "Networking"
+  "training_urls": [
+    "https://rspsupply.com/p-9621-moxa-mgate-mb3480.aspx",
+    "https://www.amazon.com/MOXA-MGate-MB3480-Serial-Ethernet/dp/B07998MGLD",
+    "https://www.digikey.com/en/products/detail/icomtech-inc/MGATE-MB3480/14671400",
+    "https://www.ebay.com/p/1439240944",
+    "https://www.moxa.com/en/products/industrial-edge-connectivity/protocol-gateways/modbus-tcp-gateways/mgate-mb3180-mb3280-mb3480-series",
+    "https://www.radioparts.com/moxa-americas-mgate-mb3480",
+    "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/MGATE%20MB3480",
+    "https://www.rg-group.com/store/product/mgate-mb3480/moxa-mgate-mb3480-1-2-and-4-port-standard-serial-to-ethernet-modbus-gateways",
+    "https://madison.tech/products/m-mgate-mb3480/",
+    "https://cdn-cms-frontdoor-dfc8ebanh6bkb3hs.a02.azurefd.net/Moxa/media/PDIM/S100000445/moxa-mgate-mb3480-series-datasheet-v1.5.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1437.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.radwell.com/Buy/THE%20MOXA%20GROUP/THE%20MOXA%20GROUP/MGATE%20MB3480",
+    "our_price_raw": "42020,00",
+    "our_price_parsed": 42020.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1437.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Шлюз Moxa MB3480 предназначен для интеграции устройств Modbus в сети Ethernet. Он обеспечивает надежную передачу данных и совместимость с различными протоколами.",
+    "best_description_source": "content",
+    "best_photo_url": "radwell.com",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Шлюз Moxa MB3480 предназначен для интеграции устройств Modbus в сети Ethernet. Он обеспечивает надежную передачу данных и совместимость с различными протоколами.",
+    "best_description_ru": "<p>Шлюз Honeywell MB3480 — это профессиональное сетевое устройство, разработанное для интеграции оборудования на базе протокола Modbus в современные сети Ethernet. Данный продукт от известного производителя Honeywell предназначен для предприятий, требующих надежного и стабильного соединения между промышленными устройствами и сетевой инфраструктурой. Шлюз обеспечивает бесперебойную передачу данных и гарантирует совместимость с различными типами оборудования и протоколами связи.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Поддержка протокола Modbus для интеграции промышленных устройств</li>\n<li>Надежная передача данных через сеть Ethernet</li>\n<li>Совместимость с различными промышленными протоколами</li>\n<li>Профессиональное качество и долговечность</li>\n<li>Простота установки и настройки</li>\n<li>Стабильная работа в условиях промышленного производства</li>\n<li>Поддержка множества подключаемых устройств одновременно</li>\n</ul>\n\n<p><b>Применение:</b> Шлюз MB3480 широко используется на производственных предприятиях, в системах автоматизации, на объектах энергетики и водоснабжения. Устройство идеально подходит для модернизации старых систем управления, позволяя подключить устаревшее оборудование Modbus к современной сетевой инфраструктуре. Применяется в системах мониторинга, управления технологическими процессами и сбора данных с распределенных датчиков и контроллеров.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell MB3480, вы получаете гарантию качества от мирового лидера в области промышленной автоматизации. Устройство обеспечивает надежность и долговечность, минимизирует простои оборудования и повышает эффективность производственных процессов. Универсальная совместимость и простота интеграции делают этот шлюз оптимальным решением для любого масштаба производства.</p>",
+    "best_description_ru_word_count": 186,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Moxa",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "TABLET PC - HUAWEI DBY-W09",
+    "description": "",
+    "specs": {
+      "document_type": "Type Approved Equipment List",
+      "document_date": "9th Sep. 2021",
+      "total_entries": 363,
+      "categories": [
+        "TABLET PC",
+        "1.8 GHz DECT HEADSET",
+        "BLUETOOTH / NFC HEADSET",
+        "BLUETOOTH / WPT HEADSET",
+        "BLUETOOTH ADAPTER",
+        "BLUETOOTH CARKIT",
+        "BLUETOOTH HEADSET",
+        "BLUETOOTH HEADSET WITH WIRELESS CHARGER",
+        "BLUETOOTH SELFIE STICK",
+        "BLUETOOTH SPEAKER",
+        "BLUETOOTH WATCH"
+      ]
+    },
+    "specs_count": 4,
+    "series": "Type Approved Equipment",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\MB3480.pdf",
+    "datasheet_size_kb": 9023,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Шлюз Honeywell MB3480 — это профессиональное сетевое устройство, разработанное для интеграции оборудования на базе протокола Modbus в современные сети Ethernet. Данный продукт от известного производителя Honeywell предназначен для предприятий, требующих надежного и стабильного соединения между промышленными устройствами и сетевой инфраструктурой. Шлюз обеспечивает бесперебойную передачу данных и гарантирует совместимость с различными типами оборудования и протоколами связи.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Поддержка протокола Modbus для интеграции промышленных устройств</li>\n<li>Надежная передача данных через сеть Ethernet</li>\n<li>Совместимость с различными промышленными протоколами</li>\n<li>Профессиональное качество и долговечность</li>\n<li>Простота установки и настройки</li>\n<li>Стабильная работа в условиях промышленного производства</li>\n<li>Поддержка множества подключаемых устройств одновременно</li>\n</ul>\n\n<p><b>Применение:</b> Шлюз MB3480 широко используется на производственных предприятиях, в системах автоматизации, на объектах энергетики и водоснабжения. Устройство идеально подходит для модернизации старых систем управления, позволяя подключить устаревшее оборудование Modbus к современной сетевой инфраструктуре. Применяется в системах мониторинга, управления технологическими процессами и сбора данных с распределенных датчиков и контроллеров.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell MB3480, вы получаете гарантию качества от мирового лидера в области промышленной автоматизации. Устройство обеспечивает надежность и долговечность, минимизирует простои оборудования и повышает эффективность производственных процессов. Универсальная совместимость и простота интеграции делают этот шлюз оптимальным решением для любого масштаба производства.</p>",
+    "description_seo_word_count": 186,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 9023KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'TABLET PC - HUAWEI DBY-W09' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

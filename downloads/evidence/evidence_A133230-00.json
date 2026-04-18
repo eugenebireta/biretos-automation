@@ -7,7 +7,7 @@
     "A13323000"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Коммуникационный модуль Honeywell STRAALH.COMMMK2, BISON., STAND.",
   "assembled_title": "Модуль Honeywell A133230-00 Анализ ценТендерная аналитика",
   "our_price_raw": "23011,39",
@@ -209,7 +209,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqKs3wq8vNNAaEadn6rh'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -227,10 +227,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.bicotender.ru/tender184558738.html"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -345,7 +342,11 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Personal protection",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "Commander sandblast helmet with bisonyl hood; industrial safety equipment, not automation parts",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -388,9 +389,8 @@
     "description": "Коммуникационный модуль Honeywell используется для интеграции и управления системами безопасности и автоматизации. Обеспечивает надежную связь и управление.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Модуль",
-    "seed_name": "Коммуникационный модуль Honeywell STRAALH.COMMMK2, BISON., STAND.",
-    "description_long_ru": "NOT a communication module — it is a supplied-air shotblasting helmet (Honeywell North brand). Dutch: Straalhelm=shotblasting helmet"
+    "product_type": "Sandblast helmet",
+    "seed_name": "Коммуникационный модуль Honeywell STRAALH.COMMMK2, BISON., STAND."
   },
   "trace": {
     "pn_match_location": "",
@@ -668,7 +668,15 @@
     "specs": {
       "aliases": [
         "Honeywell Commander / 36-A133230-00"
-      ]
+      ],
+      "Part number": "A133230-00",
+      "Brand": "Honeywell",
+      "Type": "Analytics module / Tender analysis module",
+      "Application": "Procurement analytics, tender analysis, DCS systems",
+      "Part Number": "A133230-00",
+      "Model": "Commander",
+      "Device Type": "Sandblasting helmet",
+      "Cape Material": "Bisonyl"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -687,12 +695,150 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.276309+00:00",
+    "merge_ts": "2026-04-09T12:01:24.877163+00:00",
     "merge_source": "result_A133230-00.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "NOT a communication module — it is a supplied-air shotblasting helmet (Honeywell North brand). Dutch: Straalhelm=shotblasting helmet"
+    "descriptions_all": {
+      "claude": "Модуль Honeywell A133230-00 — это аналитический программный или аппаратный модуль, используемый в системах тендерного анализа и управления закупками. Согласно описанию из каталога, данный модуль связан с аналитикой ценообразования и тендерных процедур. В промышленной автоматизации Honeywell модули серии A1xxxxx относятся к различным компонентам систем управления — от модулей ввода-вывода для DCS (распределённых систем управления) до программных модулей для систем аналитики данных. Модуль может использоваться в составе платформы Honeywell для анализа данных о закупках, оптимизации стоимости и управления цепочками поставок. Точное назначение и технические характеристики модуля определяются внутренней документацией Honeywell и могут быть уточнены через авторизованного дистрибьютора.",
+      "gpt": "Honeywell A133230-00 — это не электронный модуль, а шлем пескоструйщика или защитный шлем Honeywell Commander с накидкой из bisonyl. Изделие относится к средствам индивидуальной защиты для абразивоструйных работ и предназначено для защиты головы, лица и шеи оператора в тяжёлых условиях. Такие шлемы применяются при пескоструйной очистке, дробеструйной обработке, подготовке поверхностей и других процессах с высоким уровнем пыли и абразива. Конструкция рассчитана на подключение к системе подачи воздуха, обеспечивающей оператору пригодную для дыхания среду в процессе работы. Наличие защитной накидки помогает закрыть верхнюю часть туловища и уменьшить попадание абразива и пыли внутрь рабочей зоны оператора. Подобное оборудование используется в судостроении, металлообработке, на ремонтных предприятиях и в тяжёлой промышленности. При подборе необходимо учитывать совместимость с системой воздухоподачи, расход воздуха, условия эксплуатации и требования по охране труда. Такое изделие нельзя путать с электронными модулями или компонентами автоматики, так как это полноценное СИЗ специального назначения. Для эксплуатации важно соблюдать требования Honeywell и локальные нормы по использованию средств защиты органов дыхания и головы. В B2B-каталоге позицию следует категоризировать в PPE / sandblasting protection, а не в industrial electronics.",
+      "synthesis": "Honeywell A133230-00 — это шлем пескоструйщика серии Commander с накидкой из материала bisonyl для защиты от абразивных сред. Изделие относится к средствам индивидуальной защиты (СИЗ) и предназначено для защиты головы, лица, шеи и верхней части туловища оператора при пескоструйной очистке, дробеструйной обработке и других процессах с высоким уровнем пыли и абразива. Шлем оснащён подключением к системе подачи воздуха, обеспечивающей пригодную для дыхания среду в процессе работы. Наличие защитной накидки уменьшает попадание абразива и пыли внутрь рабочей зоны оператора. Применяется в судостроении, металлообработке, на ремонтных предприятиях и в тяжёлой промышленности. При подборе необходимо учитывать совместимость с системой воздухоподачи, расход воздуха и требования по охране труда. Это полноценное СИЗ специального назначения, которое не следует путать с электронными модулями или компонентами автоматики. Для эксплуатации обязательно соблюдение требований Honeywell и локальных норм по использованию средств защиты органов дыхания и головы."
+    },
+    "specs_all": {
+      "claude": {
+        "Part number": "A133230-00",
+        "Brand": "Honeywell",
+        "Type": "Analytics module / Tender analysis module",
+        "Application": "Procurement analytics, tender analysis, DCS systems"
+      },
+      "gpt": {
+        "Brand": "Honeywell",
+        "Part Number": "A133230-00",
+        "Model": "Commander",
+        "Device Type": "Sandblasting helmet",
+        "Cape Material": "Bisonyl",
+        "Application": "Abrasive blasting PPE"
+      }
+    },
+    "notes_all": {
+      "claude": "Description in Excel mentions 'Анализ ценТендерная аналитика'. Could be a software license or analytics hardware module.",
+      "gpt": "Common misclassification risk: this is PPE, not an electronic module."
+    }
   },
-  "product_category": "PPE sandblasting helmet"
+  "training_urls": [
+    "https://automation.honeywell.com/gb/en/products/personal-protective-equipment/respiratory/supplied-air-respirators-sar/commander",
+    "https://www.d-s.dk/web/image/product.template/13165/image_1920?unique=73b7ca3",
+    "https://www.ebay.com/",
+    "https://www.ots-store.com",
+    "https://sps.honeywell.com/us/en/products/safety/head-eye-and-face-protection/air-fed-face-and-head-protection/commander-ii-air-fed-visor-sandblasting-helmet-with-bisonyl-cape-a133230-00",
+    "https://sps-support.honeywell.com/s/article/Commander-II-Air-fed-visor-sandblasting-helmet-with-bisonyl-cape-A133230-00",
+    "https://www.honeywellsafety.com/Products/Respiratory_Protection/Commander_II.aspx?site=/ae"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 449.16,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.safety-workwear-shop.com/en/honeywell-commander-a133230-00.html",
+    "our_price_raw": "23011,39",
+    "our_price_parsed": 23011.39,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 449.16,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Коммуникационный модуль Honeywell используется для интеграции и управления системами безопасности и автоматизации. Обеспечивает надежную связь и управление.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.bicotender.ru/tender184558738.html",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Коммуникационный модуль Honeywell используется для интеграции и управления системами безопасности и автоматизации. Обеспечивает надежную связь и управление.",
+    "best_description_ru": "<p>Представляем вашему вниманию Honeywell COMMANDER Shotblasting Helmet, артикул A133230-00 – высокоэффективное средство индивидуальной защиты, разработанное для обеспечения максимальной безопасности и комфорта при выполнении работ, связанных с абразивной обработкой. Этот шлем является частью престижной серии COMMANDER от всемирно известного бренда Honeywell, лидера в области промышленных решений. Он создан специально для защиты пользователя от абразивных частиц, шума и других опасностей, присущих пескоструйным и дробеструйным работам, гарантируя надежную защиту и бесперебойную работу.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Вес, включая шланг и регулятор: всего 2000 грамм, что обеспечивает легкость и минимизирует нагрузку на пользователя в течение длительного времени.</li>\n    <li>Размеры визора: 145x90 мм, предоставляющие широкий обзор и отличную видимость рабочей зоны.</li>\n    <li>Порог срабатывания сигнализации низкого потока: 140 л/мин или 37 галлонов США/мин, что является критически важной функцией для повышения безопасности оператора.</li>\n    <li>Номинальный коэффициент защиты (NPF): 2000, обеспечивающий исключительную степень защиты органов дыхания.</li>\n    <li>Присвоенный коэффициент защиты (APF): 40, подтверждающий высокий уровень безопасности в сложных условиях.</li>\n    <li>Материалы накидки: доступны варианты из кожи, хлопка, а также водонепроницаемого бизонила (для защиты от химических опасностей), что позволяет выбрать оптимальный вариант для конкретных условий.</li>\n    <li>Защита от опасностей: эффективно защищает от абразивного износа, взвешенных частиц в воздухе и шума.</li>\n    <li>Материал покрытия: резина и полиэстер, усиленный стекловолокном, гарантирующие долговечность и устойчивость к внешним воздействиям.</li>\n    <li>Особенности: комфортное давление, индикатор низкого потока для повышенной безопасности, защита плеч, спины и груди с помощью накидки, сменный одноразовый визор для защиты основного, сетчатый экран, регулируемое оголовье, легко заменяемые детали.</li>\n</ul>\n\n<p>Шлем Honeywell COMMANDER Shotblasting Helmet идеально подходит для использования в различных промышленных секторах, где требуется надежная защита при выполнении абразивных работ. Это включает в себя судостроение, металлообработку, строительство, автомобильную промышленность, а также любые другие области, где проводятся пескоструйные, дробеструйные или шлифовальные работы. Шлем обеспечивает комплексную защиту головы, лица, органов дыхания и части тела от летящих частиц, пыли и шума, что делает его незаменимым инструментом для обеспечения безопасности операторов в условиях повышенной опасности.</p>\n\n<p>Выбор Honeywell COMMANDER Shotblasting Helmet – это инвестиция в безопасность и производительность. Его продуманная конструкция, включающая легко заменяемые детали и регулируемое оголовье, обеспечивает не только высокий уровень защиты, но и исключительный комфорт при длительном использовании. Индикатор низкого потока воздуха и возможность выбора материала накидки подчеркивают универсальность и адаптивность шлема к различным условиям работы, делая его оптимальным решением для самых требовательных профессионалов.</p>",
+    "best_description_ru_word_count": 363,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "COMMANDER Shotblasting Helmet",
+    "description": "The Honeywell COMMANDER is a series of shotblasting helmets with air supply, offering proven solutions for users in harsh environments. These helmets provide high-level protection with comfortable pressure, featuring a rubber coating to reduce noise and wear. Key features include a low flow indicator for increased safety, shoulder, back, and chest protection via a cape, a disposable visor protecting the main visor, a mesh screen, and an adjustable headband for comfort. All parts are easily replaceable. The cape is available in three versions: leather, cotton, or waterproof bisonyl for chemical hazards. The helmet is polyester reinforced with fiberglass and has a rubber coating. It offers a focused field of view of 145mmx90mm with no visual distraction. Other available product numbers include A133230-00 (with bisonyl cape), A133730-00 (with cotton cape), and A133230-01 (with bisonyl cape).",
+    "specs": {
+      "weight_including_hose_regulator_g": 2000,
+      "visor_dimensions_mm": "145x90",
+      "alarm_trigger_flow_rate": "140 l/min or 37 US gal/min",
+      "npf": 2000,
+      "apf": 40,
+      "cape_material_options": [
+        "leather",
+        "cotton",
+        "waterproof bisonyl (for chemical hazards)"
+      ],
+      "hazards_protection": [
+        "Abrasion",
+        "Airborne Particulates",
+        "Noise"
+      ],
+      "coating_material": [
+        "Rubber",
+        "Polyester reinforced with fiberglass"
+      ],
+      "features": [
+        "Comfortable pressure",
+        "Low flow indicator for increased safety",
+        "Shoulder, back and chest protection with cape",
+        "Disposable visor protecting the main visor",
+        "Mesh screen",
+        "Adjustable headband",
+        "All parts easily replaceable"
+      ]
+    },
+    "specs_count": 9,
+    "series": "COMMANDER",
+    "category": "Respiratory Protection / Shotblasting Helmets",
+    "weight_g": 2000,
+    "dimensions_mm": "",
+    "certifications": [
+      "EN 14594",
+      "CE certified"
+    ],
+    "article_no": "A133130-00",
+    "datasheet_pdf": "downloads\\datasheets_v2\\A133230-00.pdf",
+    "datasheet_size_kb": 182,
+    "product_photos": [
+      "downloads\\datasheet_photos\\A133230-00_p1_6.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/A133230-00_p1_6.png"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "The datasheet correctly identifies this as a Honeywell COMMANDER Shotblasting Helmet (PN A133230-00). However, the seed name from Excel is completely wrong - it mentions 'Коммуникационный модуль' (Communication Module) and references 'STRAALH.COMMMK2, BISON., STAND.' which appears to be a different product entirely. The PN format and datasheet are consistent with Honeywell safety equipment. The record needs to be flagged as the source data (seed_name) is incorrect and may indicate a data entry error or product mismatch in the original Excel file. The product itself is correctly identified in the datasheet, but the Excel source data conflicts fundamentally with what the product actually is."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию Honeywell COMMANDER Shotblasting Helmet, артикул A133230-00 – высокоэффективное средство индивидуальной защиты, разработанное для обеспечения максимальной безопасности и комфорта при выполнении работ, связанных с абразивной обработкой. Этот шлем является частью престижной серии COMMANDER от всемирно известного бренда Honeywell, лидера в области промышленных решений. Он создан специально для защиты пользователя от абразивных частиц, шума и других опасностей, присущих пескоструйным и дробеструйным работам, гарантируя надежную защиту и бесперебойную работу.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Вес, включая шланг и регулятор: всего 2000 грамм, что обеспечивает легкость и минимизирует нагрузку на пользователя в течение длительного времени.</li>\n    <li>Размеры визора: 145x90 мм, предоставляющие широкий обзор и отличную видимость рабочей зоны.</li>\n    <li>Порог срабатывания сигнализации низкого потока: 140 л/мин или 37 галлонов США/мин, что является критически важной функцией для повышения безопасности оператора.</li>\n    <li>Номинальный коэффициент защиты (NPF): 2000, обеспечивающий исключительную степень защиты органов дыхания.</li>\n    <li>Присвоенный коэффициент защиты (APF): 40, подтверждающий высокий уровень безопасности в сложных условиях.</li>\n    <li>Материалы накидки: доступны варианты из кожи, хлопка, а также водонепроницаемого бизонила (для защиты от химических опасностей), что позволяет выбрать оптимальный вариант для конкретных условий.</li>\n    <li>Защита от опасностей: эффективно защищает от абразивного износа, взвешенных частиц в воздухе и шума.</li>\n    <li>Материал покрытия: резина и полиэстер, усиленный стекловолокном, гарантирующие долговечность и устойчивость к внешним воздействиям.</li>\n    <li>Особенности: комфортное давление, индикатор низкого потока для повышенной безопасности, защита плеч, спины и груди с помощью накидки, сменный одноразовый визор для защиты основного, сетчатый экран, регулируемое оголовье, легко заменяемые детали.</li>\n</ul>\n\n<p>Шлем Honeywell COMMANDER Shotblasting Helmet идеально подходит для использования в различных промышленных секторах, где требуется надежная защита при выполнении абразивных работ. Это включает в себя судостроение, металлообработку, строительство, автомобильную промышленность, а также любые другие области, где проводятся пескоструйные, дробеструйные или шлифовальные работы. Шлем обеспечивает комплексную защиту головы, лица, органов дыхания и части тела от летящих частиц, пыли и шума, что делает его незаменимым инструментом для обеспечения безопасности операторов в условиях повышенной опасности.</p>\n\n<p>Выбор Honeywell COMMANDER Shotblasting Helmet – это инвестиция в безопасность и производительность. Его продуманная конструкция, включающая легко заменяемые детали и регулируемое оголовье, обеспечивает не только высокий уровень защиты, но и исключительный комфорт при длительном использовании. Индикатор низкого потока воздуха и возможность выбора материала накидки подчеркивают универсальность и адаптивность шлема к различным условиям работы, делая его оптимальным решением для самых требовательных профессионалов.</p>",
+    "description_seo_word_count": 363,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'COMMANDER Shotblasting Helmet' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

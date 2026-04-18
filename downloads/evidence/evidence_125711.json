@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T11:57:32.170030Z",
   "pn": "125711",
-  "pn_variants": [],
+  "pn_variants": [
+    "00125711"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Термостатический вентиль Honeywell D 20.610.21 TV",
   "assembled_title": "Вставка PEHA AURA, 125711",
   "our_price_raw": "714,10",
@@ -304,7 +306,14 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "type_designation": "D 20.610.21 TV",
+    "series": "AURA",
+    "color_material": "anthracite",
+    "identity_notes_p1": "coaxial antenna socket, DIN 45330",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -327,7 +336,7 @@
     "description": "Термостатический вентиль предназначен для регулирования температуры в системах отопления и охлаждения. Обеспечивает точное поддержание заданной температуры, что способствует экономии энергии.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Вентиль",
+    "product_type": "central plate (TV/antenna)",
     "seed_name": "Термостатический вентиль Honeywell D 20.610.21 TV",
     "description_long_ru": "**NOT a standard insert** — it's an antenna socket cover plate. No German price found"
   },
@@ -536,8 +545,77 @@
     "description_ru": "Сальник из фторсиликона для герметизации места установки переключателя в панель. Устойчив к воздействию авиационного керосина, гидравлических жидкостей и озона. Обеспечивает долговечную работу узла в условиях высокого атмосферного давления. Используется в системах управления шасси и закрылками.",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report-prompt-v3.md"
+    "source_file": "deep-research-report-prompt-v3.md",
+    "descriptions_all": {
+      "legacy": "Сальник из фторсиликона для герметизации места установки переключателя в панель. Устойчив к воздействию авиационного керосина, гидравлических жидкостей и озона. Обеспечивает долговечную работу узла в условиях высокого атмосферного давления. Используется в системах управления шасси и закрылками."
+    }
   },
   "dr_image_url": "—",
-  "product_category": "PEHA insert"
+  "training_urls": [
+    "https://electrica-online.ru/catalog/brendy_po_seriyam/peha_aura_pekha_aura/peha_aura_chernyy/34611/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "714,10",
+    "our_price_parsed": 714.1,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 5.7,
+    "best_price_currency": "EUR",
+    "best_price_source": "phase3a",
+    "best_description": "Сальник из фторсиликона для герметизации места установки переключателя в панель. Устойчив к воздействию авиационного керосина, гидравлических жидкостей и озона. Обеспечивает долговечную работу узла в условиях высокого атмосферного давления. Используется в системах управления шасси и закрылками.",
+    "best_description_source": "dr",
+    "best_photo_url": "—",
+    "best_photo_source": "dr_image"
+  },
+  "phase3a_price": {
+    "price": 5.7,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://bankoflamps.com/afdekraam-aura-basis-2-voudigantraciet-4010105174212",
+    "confidence": "medium",
+    "notes": "Snippet shows exact MPN 00125711 / D 20.610.21 TV, package 1.",
+    "search_used": "D 20.610.21 TV"
+  },
+  "product_category": "cover plate",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "4010105125719",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\125711.pdf",
+    "datasheet_size_kb": 9,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105125719",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

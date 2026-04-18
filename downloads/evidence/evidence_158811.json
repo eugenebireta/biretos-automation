@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "158811",
-  "pn_variants": [],
+  "pn_variants": [
+    "00158811"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Термостатический вентиль Honeywell D 20.244.02 JR",
   "assembled_title": "Клавиша PEHA AURA, 158811",
   "our_price_raw": "490,60",
@@ -340,7 +342,13 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.244.02 JR",
+    "series": "AURA",
+    "identity_notes_p1": "rocker switch for mechanical interlocking blind control",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -388,7 +396,7 @@
     "description": "Этот вентиль предназначен для регулирования температуры в системах отопления, обеспечивая стабильную работу и экономию энергии.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Вентиль",
+    "product_type": "switch insert (blind/venetian)",
     "seed_name": "Термостатический вентиль Honeywell D 20.244.02 JR",
     "description_long_ru": "Компактный регулирующий клапан для фанкойлов и малых вентиляционных установок. Обеспечивает высокую точность поддержания температуры в офисных помещениях. Обладает низким уровнем шума при протекании теплоносителя. Легко монтируется в ограниченном пространстве благодаря малым габаритам."
   },
@@ -656,7 +664,119 @@
   },
   "dr_image_url": "FV-158811",
   "deep_research": {
-    "description_ru": "Компактный регулирующий клапан для фанкойлов и малых вентиляционных установок. Обеспечивает высокую точность поддержания температуры в офисных помещениях. Обладает низким уровнем шума при протекании теплоносителя. Легко монтируется в ограниченном пространстве благодаря малым габаритам."
+    "description_ru": "Компактный регулирующий клапан для фанкойлов и малых вентиляционных установок. Обеспечивает высокую точность поддержания температуры в офисных помещениях. Обладает низким уровнем шума при протекании теплоносителя. Легко монтируется в ограниченном пространстве благодаря малым габаритам.",
+    "descriptions_all": {
+      "legacy": "Компактный регулирующий клапан для фанкойлов и малых вентиляционных установок. Обеспечивает высокую точность поддержания температуры в офисных помещениях. Обладает низким уровнем шума при протекании теплоносителя. Легко монтируется в ограниченном пространстве благодаря малым габаритам."
+    }
   },
-  "product_category": "rocker cover (wippe)"
+  "training_urls": [
+    "https://aeliyamarinetech.com/en-cn/collections/seal-repair-kit/products/asco-fv-158811"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 8.75,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.voelkner.de/products/7580214/PEHA-by-Honeywell-Abdeckung-Wippe-Weiss-158811-1St..html",
+    "our_price_raw": "490,60",
+    "our_price_parsed": 490.6,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 8.75,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Компактный регулирующий клапан для фанкойлов и малых вентиляционных установок. Обеспечивает высокую точность поддержания температуры в офисных помещениях. Обладает низким уровнем шума при протекании теплоносителя. Легко монтируется в ограниченном пространстве благодаря малым габаритам.",
+    "best_description_source": "dr",
+    "best_photo_url": "FV-158811",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Spare parts list",
+    "description": "",
+    "specs": {
+      "product_name": "GAS P70/2 CE TL",
+      "manufacturer": "SIEMENS",
+      "document_number": "DOC128673",
+      "document_date": "October 2014",
+      "product_type": "Gas burner",
+      "motor_power": "1.1 kW",
+      "motor_manufacturer": "SIMEL",
+      "air_fan_diameter": "240 mm",
+      "air_fan_depth": "79 mm",
+      "control_box_model": "SIEMENS LME22.331",
+      "actuator_model": "SIEMENS SQN70.254A20",
+      "air_pressure_switch": "KROM SCHROEDER DL5A-3",
+      "ignition_transformer": "HONEYWELL ZT931",
+      "fuse_rating": "5 A",
+      "fuse_dimensions": "Ø5X20",
+      "thermo_relay_range": "2.0-3.3 A",
+      "ignition_electrode": "133269",
+      "ionization_electrode": "133270",
+      "connector_type": "ILME 6 pin",
+      "fire_tube": "052909",
+      "inspection_glass": "274000"
+    },
+    "specs_count": 21,
+    "series": "GAS P70/2 CE",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "CE"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\158811.pdf",
+    "datasheet_size_kb": 691,
+    "product_photos": [
+      "downloads\\datasheet_photos\\158811_p1_0.jpeg",
+      "downloads\\datasheet_photos\\158811_p1_1.png",
+      "downloads\\datasheet_photos\\158811_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105158816",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/158811_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Spare parts list' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105158816",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

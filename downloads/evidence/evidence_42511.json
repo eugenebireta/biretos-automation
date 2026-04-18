@@ -4,7 +4,7 @@
   "pn": "42511",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "Esser",
   "name": "Устройство Honeywell D 20.677.192-Z",
   "assembled_title": "Устройство Honeywell 42511",
   "our_price_raw": "1134,90",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Металлический компонент устройства Honeywell угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://kz.y-ic.com/pdf/AMP-Connectors-TE-Connectivity/42511-2.html"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -310,7 +307,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -551,7 +549,16 @@
       "raw": "—",
       "aliases": [
         "—"
-      ]
+      ],
+      "Brand": "PEHA",
+      "Material no.": "00742511",
+      "Product type": "Support plate for Modular Jack",
+      "Mounting": "Flush mounted",
+      "Material": "Metal",
+      "Fixing": "Screw fixing",
+      "Capacity": "Up to 2 modular jack connectors",
+      "Compatibility": "SIEMON MX6-FS",
+      "EAN": "4010105742510"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -573,8 +580,224 @@
     "merge_source": "result_42511.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "PEHA / Honeywell 42511 соответствует материалу 00742511 и представляет собой опорную пластину для модульных разъёмов Modular Jack. Изделие предназначено для скрытого монтажа и используется как механическая база для установки до двух модульных разъёмов. По карточке производителя пластина выполнена из металла, что обеспечивает жёсткость и стабильность при креплении в монтажной коробке. Такая деталь нужна в телекоммуникационных и слаботочных установках, где используются информационные розетки, структурированная кабельная сеть или специальные модульные интерфейсы. Позиция рассчитана на винтовое крепление и совместима, в частности, с SIEMON MX6-FS по официальному описанию. Сам по себе артикул не является лицевой информационной розеткой, а служит несущим монтажным элементом. В каталогах PEHA подобные пластины применяются как часть законченного механизма, поэтому для итоговой сборки обычно требуются дополнительные декоративные и функциональные элементы серии. При подборе важно сверить совместимость по серии рамок и по типу устанавливаемого jack-модуля. Для B2B-проектов такая позиция полезна при комплектации офисной инфраструктуры, гостиниц, жилых объектов и специализированных слаботочных систем."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "PEHA",
+        "Material no.": "00742511",
+        "Product type": "Support plate for Modular Jack",
+        "Mounting": "Flush mounted",
+        "Material": "Metal",
+        "Fixing": "Screw fixing",
+        "Capacity": "Up to 2 modular jack connectors",
+        "Compatibility": "SIEMON MX6-FS",
+        "EAN": "4010105742510"
+      }
+    },
+    "notes_all": {
+      "gpt": "В пользовательском списке дан сокращённый номер 42511; публичный полный материал-номер PEHA — 00742511."
+    }
   },
   "dr_category": "Device (unidentified)",
-  "product_category": "Device (unidentified)"
+  "training_urls": [
+    "https://www.ebay.com/p/1837180162",
+    "https://www.ebay.com/p/20058167434",
+    "https://www.peha.de/en/catalog/product/00742511/",
+    "https://www.elektrikshop.nl/peha-00742511-steunplaat-voor-modular-jack-2-voudig"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "1134,90",
+    "our_price_parsed": 1134.9,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1134.9,
+    "best_price_currency": "RUB",
+    "best_price_source": "our_estimate",
+    "best_description": "Устройство Honeywell D 20.677.192-Z применяется в системах автоматизации для выполнения специфических функций. Известно своей надежностью и долговечностью.",
+    "best_description_source": "content",
+    "best_photo_url": "https://kz.y-ic.com/pdf/AMP-Connectors-TE-Connectivity/42511-2.html",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Устройство Honeywell D 20.677.192-Z применяется в системах автоматизации для выполнения специфических функций. Известно своей надежностью и долговечностью.",
+    "best_description_ru": "<p>Представляем вашему вниманию высоконадежное устройство Esser Transistor, артикул 42511, разработанное для интеграции в сложные системы автоматизации. Этот компонент, известный также как Honeywell D 20.677.192-Z, является воплощением инженерной мысли, направленной на обеспечение бесперебойной и эффективной работы критически важных процессов. Продукт от Esser, лидера в области систем безопасности и автоматизации, гарантирует стабильность и долговечность, что делает его незаменимым элементом для широкого спектра промышленных и коммерческих приложений, где требуется точность и надежность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Высокая надежность: Разработан для длительной и бесперебойной работы в требовательных условиях.</li>\n<li>Долговечность: Изготовлен из качественных материалов, устойчивых к износу и внешним воздействиям.</li>\n<li>Специфические функции: Предназначен для выполнения специализированных задач в системах автоматизации.</li>\n<li>Совместимость: Легко интегрируется с существующими системами Honeywell и Esser.</li>\n<li>Оптимизированная производительность: Обеспечивает стабильное и точное выполнение операций.</li>\n<li>Простота установки: Разработан для удобного и быстрого монтажа.</li>\n<li>Эффективность: Способствует повышению общей производительности автоматизированных систем.</li>\n<li>Минимальное обслуживание: Требует незначительного внимания после установки.</li>\n</ul>\n\n<p>Устройство Esser Transistor находит свое применение в самых разнообразных сферах, где требуется высокая степень автоматизации и контроля. Оно идеально подходит для использования в промышленных комплексах, системах управления зданиями, пожарных сигнализациях, а также в других критически важных инфраструктурных проектах. Его способность выполнять специфические функции делает его незаменимым для точного регулирования процессов, мониторинга состояния оборудования и обеспечения безопасности. Этот компонент играет ключевую роль в создании интеллектуальных и адаптивных систем, способных оперативно реагировать на изменения и поддерживать оптимальный режим работы.</p>\n\n<p>Выбор Esser Transistor, артикул 42511, обусловлен его исключительной надежностью и долговечностью, что является залогом бесперебойной работы вашей системы на протяжении многих лет. Инвестиции в этот компонент окупятся за счет минимизации простоев, снижения эксплуатационных расходов и повышения общей эффективности автоматизированных процессов. Esser — это синоним качества и инноваций, и данный продукт полностью соответствует этим стандартам, предлагая оптимальное решение для самых требовательных задач в области автоматизации.</p>",
+    "best_description_ru_word_count": 285,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Transistor",
+    "description": "",
+    "specs": {
+      "Product Type": "Television Chassis",
+      "Manufacturer": "Admiral",
+      "Model": "976, G7 Series",
+      "Screen Sizes": "23 inch (23FRP4), 25 inch (25HP4)",
+      "IF Frequencies": "47.25 MHz trap, 45.75 MHz, 45.5 MHz, 44.7 MHz, 42.0 MHz, 41.25 MHz",
+      "Sound IF": "4.5 MHz",
+      "UHF/VHF": "Dual tuner (VHF and UHF selector)",
+      "Tube Complement": "6HS8, 1/2 6BF11, 1/2 6JZ8, 6FQ7, V26B, V26JZ8, V26Y9, 23FRP4/25HP4 (CRT)",
+      "Video Detection": "1N87A",
+      "AGC Clamp": "1N87A",
+      "Horizontal Phase Detection": "1N82A",
+      "UHF Mixer": "1N82A",
+      "Rectifier": "1AY2, Silicon (93B30-3)",
+      "Blanking Diode": "1N82A",
+      "Key Resistors": {
+        "R210": "27K 2W",
+        "R301": "11 Ω 5% 1/2W",
+        "R304": "2M 5% 1/2W",
+        "R306": "330Ω 5% 1/2W",
+        "R311": "1000Ω 1W",
+        "R315": "4.7K 1W",
+        "R317": "1.5K 1W",
+        "R323": "10K 1W",
+        "R325": "30K contrast",
+        "R328": "1M brightness G7",
+        "R334": "5.6K 7W 10%",
+        "R402": "30K AGC control",
+        "R404": "6.8M 5% 1/2W",
+        "R405": "5.6M 5% 1/2W",
+        "R406": "750K 5% 1/2W",
+        "R407": "3.3K 1W",
+        "R408": "22K 1W",
+        "R417": "2.7M height",
+        "R422": "112M vert hold G7",
+        "R423": "150Ω 1W",
+        "R425": "100K 1W",
+        "R427": "68K 1W",
+        "R430": "350K vert lin",
+        "R440/R441": "47K 1W",
+        "R450": "56K 5% 1/2W",
+        "R451": "24K 5% 1/2W",
+        "R454": "3.6K 2W",
+        "R456": "27K 1W 10%",
+        "R457": "4.7K 1W",
+        "R458": "Thermistor",
+        "R460": "1K 5% 1/2W",
+        "R469": "0.68Ω 1W",
+        "R503": "180Ω 3W"
+      },
+      "Key Capacitors": {
+        "C209": "0.010µF 500V GMV",
+        "C212": "0.010µF 1.4kV",
+        "C213": "0.01µF 500V GMV",
+        "C301/C302": "5.6pF ± 0.25pF 500V",
+        "C303": "17pF 5% 500V",
+        "C304": "6.8pF 5% 500V",
+        "C305": "4700pF 500V",
+        "C306": "0.0015µF 500V",
+        "C308": "1500pF 500V",
+        "C310/C312": "18pF 5% 500V",
+        "C317": "560pF 5% 500V",
+        "C318": "3.3pF 5% 500V",
+        "C319": "6.8pF 5% 500V",
+        "C321": "47pF 5% 500V",
+        "C327": "0.22µF 1kV mylar",
+        "C412": "0.039µF 10% 600V mylar",
+        "C413": "0.033µF 10% 1kV mylar",
+        "C414": "0.001µF 1kV",
+        "C415/C416": "0.047µF 1kV mylar",
+        "C417": "0.047µF 1kV mylar",
+        "C418": "100pF NPO 500V",
+        "C430": "5pF 10% 1kV",
+        "C432": "68pF 5V",
+        "C434": "82pF 3kV",
+        "C435": "0.002µF 1kV mylar",
+        "C441": "5µF 100V electrolytic",
+        "C502/C503": "0.001µF 1kV",
+        "C504A": "2000µF 200V electrolytic",
+        "C504B": "150µF 200V electrolytic",
+        "C504C": "150µF 200V electrolytic"
+      },
+      "Inductors": {
+        "L201": "Quad coil",
+        "L301": "47.25MHz trap",
+        "L302": "IF input coil",
+        "L303": "RF choke",
+        "L304": "RF choke",
+        "L305": "RF choke",
+        "L306": "Peaking coil",
+        "L307/L308": "Peaking coil",
+        "L309": "Filament choke",
+        "L401": "Horiz lock coil",
+        "L403": "Spook choke",
+        "L404": "Width coil",
+        "L502": "Filter choke"
+      },
+      "Transformers": {
+        "T201": "Sound IF",
+        "T202": "Audio output",
+        "T301": "1st IF transformer",
+        "T302": "2nd IF transformer",
+        "T303": "3rd IF and video detection",
+        "T304": "Sound take-off",
+        "T401": "Vertical output",
+        "T402": "Deflection yoke",
+        "T403": "Horizontal output",
+        "T501": "Power transformer"
+      },
+      "Controls": {
+        "R208A": "3M volume with switch",
+        "R208B": "5M tone",
+        "R323": "1M brightness",
+        "R422": "1.2M vertical hold",
+        "R805": "13K 2W",
+        "C211": "0.0033µF 500V",
+        "C215": "0.0015µF 500V",
+        "C707": "62pF 5% 500V"
+      },
+      "Tuners": "VHF tuner, UHF tuner",
+      "Selector Switches": "VHF and UHF selector, Channel selector (12 position), Contrast, Brightness, Volume/On-Off"
+    },
+    "specs_count": 21,
+    "series": "Admiral 976 G7 Series",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\42511.pdf",
+    "datasheet_size_kb": 14889,
+    "product_photos": [
+      "downloads\\datasheet_photos\\42511_p1_0.png",
+      "downloads\\datasheet_photos\\42511_p1_1.jpeg",
+      "downloads\\datasheet_photos\\42511_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Представляем вашему вниманию высоконадежное устройство Esser Transistor, артикул 42511, разработанное для интеграции в сложные системы автоматизации. Этот компонент, известный также как Honeywell D 20.677.192-Z, является воплощением инженерной мысли, направленной на обеспечение бесперебойной и эффективной работы критически важных процессов. Продукт от Esser, лидера в области систем безопасности и автоматизации, гарантирует стабильность и долговечность, что делает его незаменимым элементом для широкого спектра промышленных и коммерческих приложений, где требуется точность и надежность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Высокая надежность: Разработан для длительной и бесперебойной работы в требовательных условиях.</li>\n<li>Долговечность: Изготовлен из качественных материалов, устойчивых к износу и внешним воздействиям.</li>\n<li>Специфические функции: Предназначен для выполнения специализированных задач в системах автоматизации.</li>\n<li>Совместимость: Легко интегрируется с существующими системами Honeywell и Esser.</li>\n<li>Оптимизированная производительность: Обеспечивает стабильное и точное выполнение операций.</li>\n<li>Простота установки: Разработан для удобного и быстрого монтажа.</li>\n<li>Эффективность: Способствует повышению общей производительности автоматизированных систем.</li>\n<li>Минимальное обслуживание: Требует незначительного внимания после установки.</li>\n</ul>\n\n<p>Устройство Esser Transistor находит свое применение в самых разнообразных сферах, где требуется высокая степень автоматизации и контроля. Оно идеально подходит для использования в промышленных комплексах, системах управления зданиями, пожарных сигнализациях, а также в других критически важных инфраструктурных проектах. Его способность выполнять специфические функции делает его незаменимым для точного регулирования процессов, мониторинга состояния оборудования и обеспечения безопасности. Этот компонент играет ключевую роль в создании интеллектуальных и адаптивных систем, способных оперативно реагировать на изменения и поддерживать оптимальный режим работы.</p>\n\n<p>Выбор Esser Transistor, артикул 42511, обусловлен его исключительной надежностью и долговечностью, что является залогом бесперебойной работы вашей системы на протяжении многих лет. Инвестиции в этот компонент окупятся за счет минимизации простоев, снижения эксплуатационных расходов и повышения общей эффективности автоматизированных процессов. Esser — это синоним качества и инноваций, и данный продукт полностью соответствует этим стандартам, предлагая оптимальное решение для самых требовательных задач в области автоматизации.</p>",
+    "description_seo_word_count": 285,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 14889KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Transistor' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

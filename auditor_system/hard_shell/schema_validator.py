@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import Any
 
 from .contracts import (
@@ -25,6 +26,31 @@ from .contracts import (
 logger = logging.getLogger(__name__)
 
 REQUIRED_FIELDS = {"verdict", "summary", "issues"}
+
+
+def extract_json_from_response(text: str) -> str:
+    """
+    Extract a JSON object from a free-form LLM response string.
+    Handles: raw JSON, markdown code fences, prose+JSON, trailing commas.
+
+    Used by all auditor providers — single shared implementation.
+    """
+    text = text.strip()
+
+    # Markdown code fence: ```json ... ``` or ``` ... ```
+    fence_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
+    if fence_match:
+        text = fence_match.group(1)
+    elif not text.startswith("{"):
+        # Find first { to last } (handles prose before/after JSON)
+        start = text.find("{")
+        end = text.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            text = text[start : end + 1]
+
+    # Remove trailing commas before ] or } (some models generate non-standard JSON)
+    text = re.sub(r",\s*([\]}])", r"\1", text)
+    return text
 
 
 class SchemaViolationError(Exception):

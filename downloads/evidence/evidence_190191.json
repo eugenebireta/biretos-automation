@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "190191",
-  "pn_variants": [],
+  "pn_variants": [
+    "00190191"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Детектор пламени Honeywell D 20.674.201.702",
   "assembled_title": "Рамка 4-постовая PEHA NOVA, 190191",
   "our_price_raw": "12697,00",
@@ -340,7 +342,14 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.674.201.702",
+    "series": "NOVA",
+    "color_material": "aluminum",
+    "identity_notes_p1": "NOVA Elements metal, 83x296mm",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -396,9 +405,8 @@
     "description": "Детектор пламени Honeywell D 20.674.201.702 обеспечивает быстрое и точное обнаружение пламени. Подходит для использования в системах пожарной сигнализации.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Детектор",
-    "seed_name": "Детектор пламени Honeywell D 20.674.201.702",
-    "description_long_ru": "Price €100.96 is for sister variant .022 (reinweiß). Alu variant (.702) may be slightly higher. NOVA Elements Wood."
+    "product_type": "frame 4-gang",
+    "seed_name": "Детектор пламени Honeywell D 20.674.201.702"
   },
   "trace": {
     "pn_match_location": "",
@@ -684,13 +692,173 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:47:36.473328+00:00",
+    "merge_ts": "2026-04-09T12:01:24.796568+00:00",
     "merge_source": "result_190191.json",
     "title_ru": "PEHA by Honeywell: рамка/элемент серии (упаковка 5 шт)",
     "provider": "unknown",
     "model": "unknown",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "Price €100.96 is for sister variant .022 (reinweiß). Alu variant (.702) may be slightly higher. NOVA Elements Wood."
+    "specs": {
+      "series": "NOVA elements",
+      "type": "Frame",
+      "gang": "4",
+      "material": "Elements mix",
+      "dimensions": "86x299mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    }
   },
-  "product_category": "PEHA NOVA frame"
+  "training_urls": [
+    "https://m.obeta.de/artikel/Peha-D20-674-201-702-Rahmen/V99493",
+    "https://www.pehastore.de/20-674-201-022.html",
+    "https://www.radwell.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2959.0,
+    "dr_currency": "PLN",
+    "dr_source_url": "https://elecena.pl/product/26063623/peha-by-honeywell-ramka-ramka-drewno-190191-5-szt",
+    "our_price_raw": "12697,00",
+    "our_price_parsed": 12697.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2959.0,
+    "best_price_currency": "PLN",
+    "best_price_source": "price_contract",
+    "best_description": "Детектор пламени Honeywell D 20.674.201.702 обеспечивает быстрое и точное обнаружение пламени. Подходит для использования в системах пожарной сигнализации.",
+    "best_description_source": "content",
+    "best_photo_url": "radwell.com",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Детектор пламени Honeywell D 20.674.201.702 обеспечивает быстрое и точное обнаружение пламени. Подходит для использования в системах пожарной сигнализации.",
+    "best_description_ru": "<p>Представляем вашему вниманию высокотехнологичный детектор пламени PEHA PCD1.W5200-A20 E-Line S-Serie RIO 8AO, артикул 190191. Этот инновационный прибор, разработанный с использованием передовых технологий, предназначен для быстрого и точного обнаружения открытого пламени в различных промышленных и коммерческих условиях. Он является незаменимым компонентом современных систем пожарной сигнализации, обеспечивая надежную защиту и своевременное реагирование на угрозы возгорания, минимизируя потенциальный ущерб и гарантируя безопасность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Высокая чувствительность: Быстрое обнаружение даже небольших очагов пламени.</li>\n    <li>Точность: Минимизация ложных срабатываний благодаря передовым алгоритмам обработки сигнала.</li>\n    <li>Надежность: Стабильная работа в широком диапазоне условий эксплуатации.</li>\n    <li>Интеграция: Легко интегрируется в существующие и новые системы пожарной сигнализации.</li>\n    <li>Долговечность: Изготовлен из высококачественных материалов, обеспечивающих длительный срок службы.</li>\n    <li>Соответствие стандартам: Разработан с учетом международных стандартов безопасности.</li>\n    <li>Простота установки: Удобный монтаж и подключение к системе.</li>\n    <li>Технология Honeywell: Использование проверенных и надежных решений от лидера отрасли.</li>\n</ul>\n\n<p>Детектор пламени PEHA PCD1.W5200-A20 E-Line S-Serie RIO 8AO находит широкое применение в самых разнообразных сферах, где требуется оперативное обнаружение возгораний. Он идеально подходит для установки на промышленных предприятиях, в складских помещениях, на объектах нефтегазовой отрасли, в энергетических комплексах, а также в крупных торговых центрах и офисных зданиях. Его способность быстро реагировать на появление пламени делает его незаменимым элементом комплексных систем безопасности, способным предотвратить распространение пожара и защитить ценное имущество и человеческие жизни.</p>\n\n<p>Выбирая детектор пламени PEHA PCD1.W5200-A20 E-Line S-Serie RIO 8AO, вы инвестируете в надежность и безопасность. Его высокая точность обнаружения, минимальное количество ложных срабатываний и долговечность обеспечивают бесперебойную работу системы пожарной сигнализации. Этот прибор гарантирует своевременное оповещение о возгорании, что позволяет оперативно принять меры по тушению и эвакуации, значительно повышая общий уровень безопасности объекта.</p>",
+    "best_description_ru_word_count": 258,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "PCD1.W5200-A20 E-Line S-Serie RIO 8AO",
+    "description": "",
+    "specs": {
+      "product_name": "PCD1.W5200-A20 E-Line S-Serie RIO 8AO",
+      "supply_voltage": "24 VDC, –15/+20% max. incl. 5% ripple",
+      "power_consumption": "1.2 … 3 W",
+      "power_supply_bridge": "24 VDC, 5 A max., up to 40 modules",
+      "communications_interface": "RS-485",
+      "baud_rate": "9,600, 19,200, 38,400, 57,600, 115,200 bps (Autobauding)",
+      "connector_type": "Micro USB Type B",
+      "address_switch": "Two rotary switches 0 … 9",
+      "address_range": "0 … 98",
+      "bus_termination": "Integrated switch to activate and inactivate resistor termination",
+      "operating_temperature": "0 … +55 °C",
+      "storage_temperature": "−40 … +70 °C",
+      "protection_class": "IP 20",
+      "mounting": "On a 35 mm top-hat rail (in accordance with DIN EN 60715 TH35)",
+      "housing_width": "6 HP (105 mm)",
+      "housing_compatibility": "DIN 43880, size 2 × 55 mm",
+      "number_of_analogue_outputs": "8",
+      "output_resolution": "10 bit",
+      "output_signal_range": "0 … 10V",
+      "output_protection": "Short-circuit protection",
+      "resolution_step": "9.77 mV",
+      "max_load_at_output": "1 kΩ (10 mA @ 10 V)",
+      "accuracy_at_25C": "0.3% of the value ± 10 mV",
+      "residual_ripple": "< 15 mVpp",
+      "temperature_error_0_to_55C": "+/– 0.2%",
+      "channel_update_time": "1 ms (all channels are updated during this time)",
+      "output_filter_time_constant": "τ = 2.5 ms",
+      "terminal_technology": "Push-in spring terminals, rigid or flexible wires up to 1.5 mm², max. 1 mm² with cable end sleeves",
+      "reset_button_factory_default": "20 seconds minimum",
+      "boot_mode_activation": "Press at power up, release before 5 seconds",
+      "communication_protocol": "S-Bus and Modbus",
+      "status_led_off": "No Power",
+      "status_led_green": "Communication OK",
+      "status_led_green_blink": "Auto bauding in progress",
+      "status_led_orange": "No communication",
+      "status_led_red": "Error",
+      "status_led_red_green_alternate": "Booter mode (e.g. during Firmware download)",
+      "status_led_red_blink": "Internal fatal error",
+      "output_indication_led_0V": "LED Off",
+      "output_indication_led_1_to_10V": "LED Green",
+      "manual_override_led_automatic": "Off",
+      "manual_override_led_manual": "Orange",
+      "manual_override_blink_code_local": "No blink (local manual override)",
+      "manual_override_blink_code_remote": "Blinking 1 flash per second (remote manual override)",
+      "manual_operation_modes": "5 configurable modes",
+      "start_up_procedure_reboot": "All outputs are cleared (Off state)",
+      "start_up_procedure_manual_outputs": "< 1 sec. - Output in manual operation are set according to the state before power down",
+      "safe_state_power_on_timeout": "Configurable",
+      "safe_state_communication_timeout": "Configurable",
+      "standard_compliance": "IEC EN 61131-2",
+      "rail_standard": "DIN EN 60715 TH35",
+      "cabinet_standard": "DIN 43880"
+    },
+    "specs_count": 52,
+    "series": "E-Line S-Serie RIO",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "105x55x",
+    "certifications": [
+      "EN 61131-2",
+      "IEC 61131-2",
+      "DIN EN 60715",
+      "DIN 43880"
+    ],
+    "article_no": "",
+    "ean": "4010105190199",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\190191.pdf",
+    "datasheet_size_kb": 1488,
+    "product_photos": [
+      "downloads\\datasheet_photos\\190191_p1_0.jpeg",
+      "downloads\\datasheet_photos\\190191_p2_0.jpeg",
+      "downloads\\datasheet_photos\\190191_p2_1.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/190191_p2_0.jpeg",
+      "downloads/datasheet_photos/190191_p2_1.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "description_seo_ru": "<p>Представляем вашему вниманию высокотехнологичный детектор пламени PEHA PCD1.W5200-A20 E-Line S-Serie RIO 8AO, артикул 190191. Этот инновационный прибор, разработанный с использованием передовых технологий, предназначен для быстрого и точного обнаружения открытого пламени в различных промышленных и коммерческих условиях. Он является незаменимым компонентом современных систем пожарной сигнализации, обеспечивая надежную защиту и своевременное реагирование на угрозы возгорания, минимизируя потенциальный ущерб и гарантируя безопасность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Высокая чувствительность: Быстрое обнаружение даже небольших очагов пламени.</li>\n    <li>Точность: Минимизация ложных срабатываний благодаря передовым алгоритмам обработки сигнала.</li>\n    <li>Надежность: Стабильная работа в широком диапазоне условий эксплуатации.</li>\n    <li>Интеграция: Легко интегрируется в существующие и новые системы пожарной сигнализации.</li>\n    <li>Долговечность: Изготовлен из высококачественных материалов, обеспечивающих длительный срок службы.</li>\n    <li>Соответствие стандартам: Разработан с учетом международных стандартов безопасности.</li>\n    <li>Простота установки: Удобный монтаж и подключение к системе.</li>\n    <li>Технология Honeywell: Использование проверенных и надежных решений от лидера отрасли.</li>\n</ul>\n\n<p>Детектор пламени PEHA PCD1.W5200-A20 E-Line S-Serie RIO 8AO находит широкое применение в самых разнообразных сферах, где требуется оперативное обнаружение возгораний. Он идеально подходит для установки на промышленных предприятиях, в складских помещениях, на объектах нефтегазовой отрасли, в энергетических комплексах, а также в крупных торговых центрах и офисных зданиях. Его способность быстро реагировать на появление пламени делает его незаменимым элементом комплексных систем безопасности, способным предотвратить распространение пожара и защитить ценное имущество и человеческие жизни.</p>\n\n<p>Выбирая детектор пламени PEHA PCD1.W5200-A20 E-Line S-Serie RIO 8AO, вы инвестируете в надежность и безопасность. Его высокая точность обнаружения, минимальное количество ложных срабатываний и долговечность обеспечивают бесперебойную работу системы пожарной сигнализации. Этот прибор гарантирует своевременное оповещение о возгорании, что позволяет оперативно принять меры по тушению и эвакуации, значительно повышая общий уровень безопасности объекта.</p>",
+    "description_seo_word_count": 258,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'PCD1.W5200-A20 E-Line S-Serie RIO 8AO' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105190199",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

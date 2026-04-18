@@ -6,10 +6,10 @@
     "SCDUPLEX9/125.10",
     "SCDUPLEX9/12510"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Sonlex",
+  "subbrand": null,
   "name": "Оптический кабель SCDUPLEX9/125-10",
-  "assembled_title": "Кабель Honeywell SCDUPLEX9/125-10",
+  "assembled_title": "Кабель Sonlex SCDUPLEX9/125-10",
   "our_price_raw": "617,50",
   "expected_category": "Кабель",
   "card_status": "DRAFT_ONLY",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Виден оптический SC дуплексный адаптер/модуль, соответствует оптическому кабельному изделию SC Duplex",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,10 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.qubix.it/en/prodotto/module-for-multimedia-box-with-1-scduplex-adapt"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -328,7 +325,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Sonlex",
+    "brand_source": "dr_claude_39_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -631,5 +630,41 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "cable"
+  "training_urls": [
+    "https://www.showmecables.com/catalogsearch/result/?q=9%2F125+single+mode"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 596.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy/page4.html",
+    "our_price_raw": "617,50",
+    "our_price_parsed": 617.5,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 596.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Оптический кабель длиной 10 метров для соединения устройств в сетях передачи данных. Обеспечивает надежное и стабильное соединение с высокой скоростью передачи.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.qubix.it/en/prodotto/module-for-multimedia-box-with-1-scduplex-adapt",
+    "best_photo_source": "photo_verdict"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from ..hard_shell.contracts import AuditVerdict, TaskPack
+from ..hard_shell.contracts import AuditVerdict, DefectRegister, RepairEntry, TaskPack
 from .base import BuilderProvider
 
 
@@ -57,3 +57,30 @@ class MockBuilder(BuilderProvider):
             f"## Full proposal (unchanged — MockBuilder does not modify code)\n\n"
             f"{original_proposal}"
         )
+
+    async def repair(
+        self,
+        task: TaskPack,
+        current_proposal: str,
+        defect_register: DefectRegister,
+        repair_prompt: str,
+        context: dict[str, Any],
+    ) -> tuple[str, list[RepairEntry]]:
+        """Mock repair: marks all open defects as FIXED, returns unchanged proposal."""
+        manifest = [
+            RepairEntry(
+                defect_id=d.defect_id,
+                action="FIXED",
+                changes=[f"MockBuilder: simulated fix for {d.defect_id}"],
+                test_evidence=None,
+            )
+            for d in defect_register.open_blockers
+        ]
+
+        repaired = (
+            f"## Repair pass\n"
+            f"Addressed {len(manifest)} defect(s) from register.\n\n"
+            f"## Full proposal (unchanged — MockBuilder does not modify code)\n\n"
+            f"{current_proposal}"
+        )
+        return repaired, manifest

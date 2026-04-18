@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Инверторы Honeywell серии HVAC чётко видны на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeywell.nt-rt.ru/price/product/355657"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -353,7 +350,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "NXL HVAC",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "Compact HVAC frequency converter 15kW 400V 31A IP54; cooling/heating control applications",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -384,7 +386,7 @@
     "description": "Инвертор HVAC NXL мощностью 15 кВт предназначен для управления системами отопления, вентиляции и кондиционирования воздуха. Он обеспечивает высокую энергоэффективность и надежность работы при напряжении 400 В и токе 31 А.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Инвертор",
+    "product_type": "VFD inverter/converter",
     "seed_name": "Инвертор HVAC NXL 15KW/400V/31A/IP54 HVAC31C5",
     "description_long_ru": "Listed at Kempston Controls; login/quote required"
   },
@@ -610,5 +612,331 @@
     "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "HVAC inverter (VFD)",
-  "product_category": "HVAC inverter (VFD)"
+  "training_urls": [
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/bms-from-hco-030923/hbt-bms-en0b0619-ge51r0511.pdf",
+    "https://www.kempstoncontrols.com/HVAC31C5/Honeywell-Fema/sku/872687",
+    "https://www.manualslib.com/manual/70023/Honeywell-Nxl.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "330186,67",
+    "our_price_parsed": 330186.67,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 507.0,
+    "best_price_currency": "GBP",
+    "best_price_source": "phase3a",
+    "best_description": "Инвертор HVAC NXL мощностью 15 кВт предназначен для управления системами отопления, вентиляции и кондиционирования воздуха. Он обеспечивает высокую энергоэффективность и надежность работы при напряжении 400 В и токе 31 А.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell.nt-rt.ru/price/product/355657",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Инвертор HVAC NXL мощностью 15 кВт предназначен для управления системами отопления, вентиляции и кондиционирования воздуха. Он обеспечивает высокую энергоэффективность и надежность работы при напряжении 400 В и токе 31 А.",
+    "best_description_ru": "<p>Инвертор HVAC NXL от компании Honeywell (артикул HVAC31C5) — это высокотехнологичное устройство для управления системами отопления, вентиляции и кондиционирования воздуха. Разработанный ведущим мировым производителем автоматизации и управления, этот преобразователь частоты обеспечивает оптимальное управление мощностью и энергопотреблением в HVAC-системах любого масштаба. С номинальной мощностью 15 кВт инвертор предназначен для работы с трёхфазным напряжением 400 В и номинальным током 31 А, что делает его идеальным решением для промышленных и коммерческих объектов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Мощность: 15 кВт для эффективного управления крупными HVAC-системами</li>\n<li>Напряжение питания: 400 В трёхфазное</li>\n<li>Номинальный ток: 31 А</li>\n<li>Высокая энергоэффективность благодаря технологии переменной частоты</li>\n<li>Надёжная работа в различных климатических условиях</li>\n<li>Совместимость с современными системами управления и автоматизации</li>\n<li>Долгий срок службы и минимальные затраты на обслуживание</li>\n<li>Компактный дизайн для удобного монтажа</li>\n</ul>\n\n<p><b>Применение:</b> Инвертор HVAC NXL используется в системах кондиционирования и вентиляции офисных зданий, торговых центров, производственных помещений и жилых комплексов. Устройство позволяет автоматически регулировать скорость вращения электродвигателей в зависимости от текущих потребностей в охлаждении или отоплении, что обеспечивает комфортный микроклимат при минимальном энергопотреблении. Преобразователь частоты идеально подходит для модернизации существующих систем и установки в новых проектах.</p>\n\n<p><b>Преимущества:</b> Выбирая инвертор Honeywell HVAC31C5, вы получаете надёжное оборудование от признанного мирового лидера в области автоматизации. Устройство значительно снижает энергозатраты благодаря оптимизации работы электродвигателей, обеспечивает стабильную работу системы и увеличивает её срок службы. Инвертор отличается простотой установки, интеграцией с системами управления и отличным соотношением цены и качества.</p>",
+    "best_description_ru_word_count": 224,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "phase3a_price": {
+    "price": 507.0,
+    "currency": "GBP",
+    "unit_basis": "unit",
+    "source_url": "https://www.cjsautomation.com/parts/honeywell-automation/part/hvac31c5/",
+    "confidence": "medium",
+    "notes": "Used condition",
+    "search_used": "HVAC31C5 Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "mains_connection_input_voltage": "380-500 Vac (±10%), 3~",
+      "mains_connection_input_frequency": "45-66 Hz",
+      "mains_connection_frequency": "Once per minute or less",
+      "motor_connection_output_voltage": "0 - Uin",
+      "motor_connection_continuous_output_current_low_overload_ambient_peak_temperature": "max. +45°C (with 24h average ambient +40°C)",
+      "motor_connection_continuous_output_current_low_overload_overload_ratio": "1.1 x IL (1min/10min)",
+      "motor_connection_starting_torque_low_overload": "150%",
+      "motor_connection_starting_current": "2 x IH 2s/20s",
+      "motor_connection_output_frequency": "0-320 Hz",
+      "motor_connection_frequency_resolution": "0.01 Hz",
+      "control_characteristics_method": "Frequency Control U/f, Open Loop Sensorless Vector Control",
+      "control_characteristics_switching_frequency": "1-16 kHz; default 6 kHz (no derating)",
+      "control_characteristics_frequency_reference_analogue_input_resolution": "0.1% (10 bit)",
+      "control_characteristics_frequency_reference_analogue_input_accuracy": "±1%",
+      "control_characteristics_frequency_reference_keypad_resolution": "0.01 Hz",
+      "control_characteristics_field_weakening_point": "30-320 Hz",
+      "control_characteristics_acceleration_time": "0.1-3000 sec",
+      "control_characteristics_deceleration_time": "0.1-3000 sec",
+      "control_characteristics_braking_torque_dc_brake_without_option": "30%*TN",
+      "ambient_operating_temperature_low_overload": "-10°C (no frost) to +45°C (with 24 h average ambient +40°C)",
+      "storage_temperature": "-40°C to +70°C",
+      "relative_humidity": "0-95% RH, non-condensing, non-corrosive, no dripping water",
+      "air_quality_chemical_vapors_class": "IEC 721-3-3, unit in operation, class 3C2",
+      "air_quality_mechanical_particles_class": "IEC 721-3-3, unit in operation, class 3S2",
+      "altitude_load_capacity_no_derating": "up to 1000 m",
+      "altitude_derating": "-1% derating for each 100 m above 1000 m; max. 3000 m",
+      "vibration_frequency_range": "5-150 Hz",
+      "vibration_standard": "EN50178/EN60068-2-6",
+      "vibration_displacement_amplitude": "1 (peak) mm at 5-15.8 Hz",
+      "vibration_max_acceleration_amplitude": "1 g at 15.8-150 Hz",
+      "shock_ups_drop_test_standard": "EN50178, IEC 68-2-27",
+      "shock_storage_and_shipping_in_package": "max 15 g, 11 ms",
+      "enclosure_class_ip21_models": "HVAC__C2",
+      "enclosure_class_ip54_models": "HVAC__C5",
+      "emc_immunity_standard": "EN50082-1, -2, EN61800-3",
+      "emc_emissions_ip21_level": "H",
+      "emc_emissions_ip21_standard": "EN 61800-3 (2004) Cat C2, EN 55011 Class A",
+      "emc_emissions_ip54_level": "C",
+      "emc_emissions_ip54_standard": "EN 61800-3 (2004) Cat C1, EN 55011 Class B",
+      "safety_standards": "EN50178, EN60204-1, CE, GOST R, IEC 61800-5",
+      "control_connections_analogue_input_voltage": "0-+10V",
+      "control_connections_analogue_input_voltage_input_resistance": "200kohm",
+      "control_connections_analogue_input_voltage_resolution": "10 bit",
+      "control_connections_analogue_input_voltage_accuracy": "±1%",
+      "control_connections_analogue_input_voltage_isolation": "Galvanically isolated",
+      "control_connections_analogue_input_current": "0(4)-20 mA",
+      "control_connections_analogue_input_current_input_resistance": "250ohm",
+      "control_connections_analogue_input_current_differential_resolution": "0.1%",
+      "control_connections_analogue_input_current_accuracy": "±1%",
+      "control_connections_analogue_input_current_isolation": "electrically isolated",
+      "control_connections_digital_inputs": "6 positive logic; 18-24 Vdc (+1 analogue input can be configured as digital input)",
+      "control_connections_auxiliary_voltage_output": "+24 V, ±15%, max. 100 mA",
+      "control_connections_output_reference_voltage": "+10 V, +3%, max. load 10 mA",
+      "control_connections_analogue_output": "0(4)-20 mA",
+      "control_connections_analogue_output_rl_max": "500 ohm",
+      "control_connections_analogue_output_resolution": "16 bit",
+      "control_connections_analogue_output_accuracy": "±1%",
+      "control_connections_relay_outputs": "2 programmable change over relay output (1 NO/NC and 1 NO)",
+      "control_connections_relay_output_switching_capacity_dc": "24 Vdc / 8 A",
+      "control_connections_relay_output_switching_capacity_ac": "250 Vac / 8 A",
+      "control_connections_relay_output_switching_capacity_dc_high_voltage": "125 Vdc / 0.4 A",
+      "control_connections_relay_output_min_switching_load": "5 V / 10 mA",
+      "control_connections_motor_thermistor_input_rtrip": "4.7 kohm (PTC)",
+      "control_connections_motor_thermistor_input_isolation": "electrically isolated",
+      "protection_overvoltage": "911 Vdc",
+      "protection_undervoltage": "333 Vdc",
+      "protection_earth_fault": "In case of earth fault in motor or motor cable, only the frequency converter is protected",
+      "protection_unit_overtemperature": true,
+      "protection_motor_overload": true,
+      "protection_motor_stall": true,
+      "protection_motor_underload": true,
+      "protection_short_circuit_24v_10v_reference_voltages": true,
+      "protection_overcurrent_trip_limit": "4.0*IH instantaneously",
+      "motor_shaft_power_low_overload_40c": "1.1 to 30 kW",
+      "motor_shaft_power_high_overload_50c": "0.75 to 22 kW",
+      "rated_continuous_current_il_low_overload": "3.3 to 61 A",
+      "10_percent_overload_current_low_overload": "3.6 to 67 A",
+      "rated_continuous_current_ih_high_overload": "2.2 to 46 A",
+      "50_percent_overload_current_high_overload": "3.3 to 69 A",
+      "mechanical_size_types": [
+        "MF4",
+        "MF5",
+        "MF6"
+      ],
+      "model_dimensions_wxhxd_mm": {
+        "MF4": "128x292x190",
+        "MF5": "144x391x214",
+        "MF6": "195x519x237"
+      },
+      "model_weight_kg": {
+        "MF4": 5,
+        "MF5": 8.1,
+        "MF6": 18.5
+      },
+      "emc_level_h_applicable_models": "HVAC03-61C2",
+      "emc_level_c_applicable_models": "HVAC03-61C5",
+      "product_identification_enclosure_emc_class_2_description": "IP21, EMC class H (fulfils EN 61800-3 cat C2, EN 55011 class A)",
+      "product_identification_enclosure_emc_class_5_description": "IP54, EMC class C (fullfils EN 61800-3 cat C1, EN 55011 class B)",
+      "product_identification_control_keypad_c_description": "Standard 7-segment keypad",
+      "product_identification_nominal_current_low_overload_03_description": "3 A etc.",
+      "mounting_type": "Fixed with four screws or bolts",
+      "mounting_clearance_around_frequency_converter_a_mm": {
+        "MF4": 20,
+        "MF5": 20,
+        "MF6": 30
+      },
+      "mounting_distance_between_converters_or_to_cabinet_wall_b_mm": "20",
+      "mounting_free_space_above_converter_c_mm": {
+        "MF4": 100,
+        "MF5": 120,
+        "MF6": 160
+      },
+      "mounting_free_space_underneath_converter_d_mm": {
+        "MF4": 50,
+        "MF5": 60,
+        "MF6": 80
+      },
+      "mounting_dimensions_w1_mm": {
+        "MF4": 128,
+        "MF5": 144,
+        "MF6": 195
+      },
+      "mounting_dimensions_w2_mm": {
+        "MF4": 100,
+        "MF5": 100,
+        "MF6": 148
+      },
+      "mounting_dimensions_h1_mm": {
+        "MF4": 327,
+        "MF5": 419,
+        "MF6": 558
+      },
+      "mounting_dimensions_h2_mm": {
+        "MF4": 313,
+        "MF5": 406,
+        "MF6": 541
+      },
+      "mounting_dimensions_h3_mm": {
+        "MF4": 292,
+        "MF5": 391,
+        "MF6": 519
+      },
+      "mounting_dimensions_d1_mm": {
+        "MF4": 190,
+        "MF5": 214,
+        "MF6": 237
+      },
+      "mounting_hole_diameter_for_screws_or_bolts": {
+        "MF4": "7 mm",
+        "MF5": "7 mm",
+        "MF6": "9 mm"
+      },
+      "mounting_hole_e1_diameter": {
+        "MF4": "3 x 28.3 mm",
+        "MF5": "2 x 37 mm",
+        "MF6": "3 x 37 mm"
+      },
+      "mounting_hole_e2_diameter": {
+        "MF5": "1 x 28.3 mm"
+      },
+      "cooling_air_required_m3_h": {
+        "MF4": 70,
+        "MF5": 190,
+        "MF6": 425
+      },
+      "cabling_heat_resistance": "at least +70°C",
+      "cabling_mains_cable_type": "Power cable intended for fixed installation and the specific mains voltage. Shielded cable not required. (NKCABLES/MCMK or similar recommended)",
+      "cabling_motor_cable_type": "Power cable equipped with compact low-impedance shield and intended for the specific mains voltage. (NKCABLES /MCCMK, SAB/ÖZCUY-J or similar recommended). (360º earthing of both motor and FC connection required to meet the EMC requirements)",
+      "cabling_control_cable_type": "Screened cable equipped with compact low-impedance shield (NKCABLES /jamak, SAB/ÖZCuY-O or similar)",
+      "cabling_main_terminal_size_mm2": {
+        "MF4_HVAC03-12": "1-4",
+        "MF5_HVAC16-31": "1-10",
+        "MF6_HVAC38-61": "2.5-50 Cu / 6-50 Al"
+      },
+      "cabling_earth_terminal_size_mm2": {
+        "MF4": "1-2.5",
+        "MF5": "1-10",
+        "MF6": "6-35"
+      },
+      "cabling_control_terminal_size_mm2": "0.5-1.5",
+      "cabling_relay_terminal_size_mm2": "0.5-2.5",
+      "cabling_fuse_a": {
+        "MF4_HVAC03-09": 10,
+        "MF4_HVAC12": 16,
+        "MF5_HVAC16": 20,
+        "MF5_HVAC23": 25,
+        "MF5_HVAC31": 35,
+        "MF6_HVAC38-46": 50,
+        "MF6_HVAC61": 63
+      },
+      "cabling_mains_cable_cu_size_mm2": {
+        "MF4_HVAC03-09": "3*1.5+1.5",
+        "MF4_HVAC12": "3*2.5+2.5",
+        "MF5_HVAC16": "3*4+4",
+        "MF5_HVAC23": "3*6+6",
+        "MF5_HVAC31": "3*10+10",
+        "MF6_HVAC38-46": "3*10+10",
+        "MF6_HVAC61": "3*16+16"
+      },
+      "control_connections_pinout": {
+        "1": "+10 Vref (Reference output voltage for potentiometer etc.)",
+        "2": "AI1 + (Analogue Input 1, V signal)",
+        "3": "AI1 – (I/O Ground)",
+        "4": "AI2 + (Analogue Input 2, mA signal)",
+        "5": "AI2 – (Analogue Input 2, mA signal)",
+        "6": "+24 V (Auxiliary +24 V output, max. 0.1 A)",
+        "7": "GND (I/O ground)",
+        "8": "DIN1 (Digital Input 1, Start forward)",
+        "9": "DIN2 (Digital Input 2, Start reverse)",
+        "10": "DIN3 (Digital Input 3, Preset speed 1, default: 10 Hz)",
+        "11": "GND (I/O Ground)",
+        "12": "+24 V (Auxiliary +24 V output, max. 150 mA)",
+        "13": "GND (I/O ground)",
+        "14": "DIE1 (Exp. Digital Input 1, Preset speed 2, default: 50 Hz)",
+        "15": "DIE2 (Exp. Digital Input 2, Fault Reset)",
+        "16": "DIE3 (Exp. Digital Input 3, Disable PID)",
+        "18": "AO1 + (Analogue output 1)",
+        "19": "AO1 – (Analogue output 1)",
+        "A": "RS485 (Modbus RTU, serial bus)",
+        "B": "RS485 (Modbus RTU, serial bus)",
+        "30": "+24V (Input for +24 V backup voltage)",
+        "25": "ROE1 (Exp. Relay 1 NO, run)",
+        "26": "ROE1 (Exp. Relay 1 NO, run)",
+        "28": "TI+ (Thermistor Input)",
+        "29": "TI – (Thermistor Input)",
+        "21": "RO1 (Relay 1 NO/NC, fault)",
+        "22": "RO1 (Relay 1 NO/NC, fault)",
+        "23": "RO1 (Relay 1 NO/NC, fault)"
+      }
+    },
+    "specs_count": 114,
+    "series": "NXL HVAC",
+    "category": "",
+    "weight_g": 5000,
+    "dimensions_mm": "128x190x292",
+    "certifications": [
+      "EN50082-1",
+      "EN50082-2",
+      "EN61800-3",
+      "EN50178",
+      "EN60204-1",
+      "CE",
+      "GOST R",
+      "IEC 61800-5",
+      "EN 61800-3 (2004) Cat C2",
+      "EN 55011 Class A",
+      "EN 61800-3 (2004) Cat C1",
+      "EN 55011 Class B",
+      "IEC 721-3-3 class 3C2",
+      "IEC 721-3-3 class 3S2",
+      "EN60068-2-6",
+      "IEC 68-2-27"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\HVAC31C5.pdf",
+    "datasheet_size_kb": 1055,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The seed_name clearly states 'Инвертор HVAC NXL 15KW/400V/31A/IP54'. NXL is the brand that manufactures HVAC inverters/frequency drives. The product is a 15KW 400V 31A IP54-rated inverter. Honeywell does not use this PN format or NXL branding. The PN HVAC31C5 matches the specifications (31A, C-series). The datasheet needs to be properly parsed to populate missing title, EAN, specs, and complete description.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Инвертор HVAC NXL от компании Honeywell (артикул HVAC31C5) — это высокотехнологичное устройство для управления системами отопления, вентиляции и кондиционирования воздуха. Разработанный ведущим мировым производителем автоматизации и управления, этот преобразователь частоты обеспечивает оптимальное управление мощностью и энергопотреблением в HVAC-системах любого масштаба. С номинальной мощностью 15 кВт инвертор предназначен для работы с трёхфазным напряжением 400 В и номинальным током 31 А, что делает его идеальным решением для промышленных и коммерческих объектов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Мощность: 15 кВт для эффективного управления крупными HVAC-системами</li>\n<li>Напряжение питания: 400 В трёхфазное</li>\n<li>Номинальный ток: 31 А</li>\n<li>Высокая энергоэффективность благодаря технологии переменной частоты</li>\n<li>Надёжная работа в различных климатических условиях</li>\n<li>Совместимость с современными системами управления и автоматизации</li>\n<li>Долгий срок службы и минимальные затраты на обслуживание</li>\n<li>Компактный дизайн для удобного монтажа</li>\n</ul>\n\n<p><b>Применение:</b> Инвертор HVAC NXL используется в системах кондиционирования и вентиляции офисных зданий, торговых центров, производственных помещений и жилых комплексов. Устройство позволяет автоматически регулировать скорость вращения электродвигателей в зависимости от текущих потребностей в охлаждении или отоплении, что обеспечивает комфортный микроклимат при минимальном энергопотреблении. Преобразователь частоты идеально подходит для модернизации существующих систем и установки в новых проектах.</p>\n\n<p><b>Преимущества:</b> Выбирая инвертор Honeywell HVAC31C5, вы получаете надёжное оборудование от признанного мирового лидера в области автоматизации. Устройство значительно снижает энергозатраты благодаря оптимизации работы электродвигателей, обеспечивает стабильную работу системы и увеличивает её срок службы. Инвертор отличается простотой установки, интеграцией с системами управления и отличным соотношением цены и качества.</p>",
+    "description_seo_word_count": 224,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "NXL"
+  }
 }

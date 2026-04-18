@@ -4,12 +4,11 @@
   "pn": "PRECITHION",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Системный блок Компьютер PRECITHION",
   "assembled_title": "Системный блок Honeywell PRECITHION",
   "our_price_raw": "0,00",
   "expected_category": "Системный блок",
-  "card_status": "DRAFT_ONLY",
   "review_reasons": [
     "IDENTITY_WEAK",
     "NO_IMAGE_EVIDENCE",
@@ -188,7 +187,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqRYs89p48VSeFFVvmfE'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -206,9 +205,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -324,7 +321,17 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "PRECITHION",
+    "identity_notes_p1": "Cannot confirm; possible data entry error (misspelling)",
+    "phase1_recon_done": true,
+    "real_model": "Dell Precision T1700",
+    "search_hint": "Dell Precision T1700 workstation",
+    "model_confidence": "high",
+    "model_notes": "Found in Excel: precithion t1700; typo of Precision T1700 workstation",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Dell",
+    "model_source": "excel"
   },
   "negative_evidence": {
     "photo": [],
@@ -342,9 +349,8 @@
     "description": "Системный блок Компьютер PRECITHION предлагает высокую производительность и надежность для работы с профессиональными приложениями. Он подходит для использования в офисах и студиях.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Системный блок",
-    "seed_name": "Системный блок Компьютер PRECITHION",
-    "description_long_ru": "Misspelling of PRECISION. Cyrillic-Latin transliteration error. Same product as PRECISION"
+    "product_type": "System block",
+    "seed_name": "Системный блок Компьютер PRECITHION"
   },
   "trace": {
     "pn_match_location": "",
@@ -586,7 +592,14 @@
       "raw": "—",
       "aliases": [
         "См. источники по PRECISION"
-      ]
+      ],
+      "Type": "Professional workstation series (Dell Precision)",
+      "Note": "PRECITHION is a typo — correct name is PRECISION",
+      "Brand": "Dell",
+      "Normalized family": "Precision",
+      "Category": "Workstation",
+      "Data quality": "Typo / alias",
+      "Exact model": "Unknown"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -594,12 +607,76 @@
       "По орфографическим вариантам в публичном рынке подтверждений не получено; наиболее близкий кластер — «Precision» (термостаты/потенциометры). citeturn65search1turn65search9",
       "Aliases: См. источники по PRECISION"
     ],
-    "merge_ts": "2026-04-10T11:05:35.557365+00:00",
+    "merge_ts": "2026-04-09T12:01:24.986550+00:00",
     "merge_source": "result_PRECITHION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Misspelling of PRECISION. Cyrillic-Latin transliteration error. Same product as PRECISION"
+    "descriptions_all": {
+      "claude": "Dell Precision (записано как PRECITHION — вероятная опечатка) — линейка профессиональных рабочих станций Dell Technologies. Правильное написание — PRECISION. Серия предназначена для ресурсоёмких профессиональных задач, включая проектирование, 3D-моделирование, рендеринг, видеопроизводство, инженерные расчёты и научные вычисления. Рабочие станции Precision оснащаются процессорами Intel Xeon, профессиональными видеокартами NVIDIA Quadro/RTX или AMD Radeon Pro и памятью ECC. Все модели проходят сертификацию совместимости с ведущими профессиональными приложениями (ISV). Серия включает настольные модели различных форм-факторов (Tower, SFF, Rack) и мобильные рабочие станции. Dell Precision широко применяются в инженерных, архитектурных, дизайнерских и научных организациях, а также в нефтегазовой отрасли и промышленной автоматизации.",
+      "gpt": "PRECITHION в пользовательском списке выглядит как опечатка, и наиболее вероятная нормализация — Dell Precision. Такие ошибки часто встречаются в старых Excel-выгрузках, актах, RFQ и переписках, где семейство рабочих станций указывается вручную. Линейка Dell Precision относится к профессиональным workstation-решениям для CAD, 3D, инженерии, аналитики и других задач с повышенными требованиями к вычислительным ресурсам. Публиковать такую запись как самостоятельный SKU не стоит, потому что она не соответствует нормализованному названию производителя. Для каталога правильнее либо автоматически сопоставлять ее с сущностью Dell Precision, либо отправлять в manual review перед публикацией. Если позиция встречается в документах клиента, полезно сохранить исходную ошибочную строку в alias-полях для дальнейшего поиска и дедупликации. С точки зрения e-commerce и ERP это типичный пример грязных данных, которые нужно лечить нормализацией справочника брендов и серий. После нормализации описание, совместимость и атрибуты следует наследовать от семейства Precision, а не создавать новую карточку. До уточнения точной модели характеристики рабочей станции остаются переменными, потому что семейство включает множество поколений и форм-факторов. Поэтому safest approach — трактовать эту позицию как typo alias for Dell Precision.",
+      "synthesis": "PRECITHION в пользовательском списке выглядит как опечатка, и наиболее вероятная нормализация — Dell Precision, такая же ошибка часто встречается в старых Excel-выгрузках, актах и RFQ. Публиковать такую запись как самостоятельный SKU не стоит, потому что она не соответствует нормализованному названию производителя. Линейка Dell Precision относится к профессиональным workstation-решениям для CAD, 3D, инженерии, аналитики и других задач с повышенными требованиями к вычислительным ресурсам, предназначена для инженерных, архитектурных, дизайнерских и научных организаций. Для каталога правильнее либо автоматически сопоставлять ошибочное обозначение с сущностью Dell Precision, либо отправлять в manual review перед публикацией. Если позиция встречается в документах клиента, полезно сохранить исходную ошибочную строку в alias-полях для дальнейшего поиска и дедупликации. С точки зрения e-commerce и ERP это типичный пример грязных данных, которые нужно лечить нормализацией справочника брендов и серий. После нормализации описание, совместимость и атрибуты следует наследовать от семейства Precision, а не создавать новую карточку. До уточнения точной модели характеристики рабочей станции остаются переменными, потому что семейство включает множество поколений, форм-факторов (tower/rack/mobile) и конфигураций. Поэтому safest approach — трактовать эту позицию как typo alias for Dell Precision."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Professional workstation series (Dell Precision)",
+        "Note": "PRECITHION is a typo — correct name is PRECISION"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Normalized family": "Precision",
+        "Category": "Workstation",
+        "Data quality": "Typo / alias",
+        "Exact model": "Unknown"
+      }
+    },
+    "notes_all": {
+      "claude": "PRECITHION is a typo/misspelling of Dell PRECISION. See PRECISION entry for full details.",
+      "gpt": "Treated as typo alias of Dell Precision; do not publish as standalone SKU without normalization."
+    }
   },
-  "product_category": "â"
+  "training_urls": [
+    "https://sps-support.honeywell.com/s/article/AST-Is-there-a-cross-reference-replacement-for-the-Precision-Thermostat-part-number-3001-01590002",
+    "https://www.ebay.com/b/dell-precision/bn_7006317183",
+    "https://www.dell.com/en-us/shop/desktops-all-in-one-pcs/sf/precision-desktops",
+    "https://www.dell.com/en-us/shop/dell-laptops-and-notebooks/sf/precision-laptops"
+  ],
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 44.09,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Системный блок Компьютер PRECITHION предлагает высокую производительность и надежность для работы с профессиональными приложениями. Он подходит для использования в офисах и студиях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/DELL_PRECITHION.jpg",
+    "best_photo_source": "vps_static",
+    "best_description_ru_short": "Системный блок Компьютер PRECITHION предлагает высокую производительность и надежность для работы с профессиональными приложениями. Он подходит для использования в офисах и студиях.",
+    "best_description_ru": "<p>Системный блок Honeywell PRECITHION — это мощный компьютер, разработанный известным брендом Honeywell для профессионального использования. Данный системный блок представляет собой надежное решение, предназначенное для работы с требовательными приложениями и обработки сложных задач. Компьютер PRECITHION сочетает в себе высокую производительность и стабильность работы, что делает его идеальным выбором для офисных помещений, творческих студий и профессиональных рабочих пространств. Благодаря репутации Honeywell как производителя качественной техники, этот системный блок гарантирует долгосрочную надежность и эффективность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — мировой лидер в области технологий и электроники</li>\n<li>Модель: PRECITHION — специализированная серия для профессионального применения</li>\n<li>Высокая производительность для работы с ресурсоемкими приложениями</li>\n<li>Надежная конструкция, обеспечивающая стабильную работу в течение длительного времени</li>\n<li>Оптимизированная система охлаждения для предотвращения перегрева</li>\n<li>Компактный дизайн, позволяющий легко разместить компьютер на рабочем столе</li>\n<li>Поддержка современных операционных систем и программного обеспечения</li>\n<li>Расширяемость и возможность модернизации компонентов</li>\n</ul>\n\n<p><b>Применение:</b> Системный блок Honeywell PRECITHION идеально подходит для использования в офисных средах, где требуется надежная и производительная техника. Компьютер эффективно работает в творческих студиях, занимающихся видеомонтажом, графическим дизайном и обработкой медиа-контента. Благодаря своей мощности, он справляется с одновременным запуском нескольких приложений без снижения производительности. Системный блок также подходит для инженерных расчетов, работы с базами данных и других профессиональных задач, требующих высокой вычислительной мощности.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell PRECITHION, вы получаете компьютер от проверенного производителя с многолетней историей качества. Система обеспечивает стабильную работу без сбоев, что критично для профессиональной деятельности. Надежность и производительность этого системного блока позволяют экономить время на выполнение задач и повышают общую эффективность работы. Инвестиция в такой компьютер окупается благодаря его долговечности и универсальности применения.</p>",
+    "best_description_ru_word_count": 252,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "phase3a_price": {
+    "price": 44.09,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/287134379335",
+    "confidence": "medium",
+    "notes": "Used workstation listing; input name appears to be typo of Precision",
+    "search_used": "Dell Precision T1700"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "PRECITHION is not a part number - it's a brand/store name for generic PC systems sold in Russia/CIS markets. Honeywell does not manufacture desktop computers. This appears to be a misclassified generic computer system incorrectly assigned to Honeywell. Without actual manufacturer details (likely a white-box/assembled PC), this record cannot be properly corrected and should be marked as invalid."
+    },
+    "description_seo_ru": "<p>Системный блок Honeywell PRECITHION — это мощный компьютер, разработанный известным брендом Honeywell для профессионального использования. Данный системный блок представляет собой надежное решение, предназначенное для работы с требовательными приложениями и обработки сложных задач. Компьютер PRECITHION сочетает в себе высокую производительность и стабильность работы, что делает его идеальным выбором для офисных помещений, творческих студий и профессиональных рабочих пространств. Благодаря репутации Honeywell как производителя качественной техники, этот системный блок гарантирует долгосрочную надежность и эффективность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — мировой лидер в области технологий и электроники</li>\n<li>Модель: PRECITHION — специализированная серия для профессионального применения</li>\n<li>Высокая производительность для работы с ресурсоемкими приложениями</li>\n<li>Надежная конструкция, обеспечивающая стабильную работу в течение длительного времени</li>\n<li>Оптимизированная система охлаждения для предотвращения перегрева</li>\n<li>Компактный дизайн, позволяющий легко разместить компьютер на рабочем столе</li>\n<li>Поддержка современных операционных систем и программного обеспечения</li>\n<li>Расширяемость и возможность модернизации компонентов</li>\n</ul>\n\n<p><b>Применение:</b> Системный блок Honeywell PRECITHION идеально подходит для использования в офисных средах, где требуется надежная и производительная техника. Компьютер эффективно работает в творческих студиях, занимающихся видеомонтажом, графическим дизайном и обработкой медиа-контента. Благодаря своей мощности, он справляется с одновременным запуском нескольких приложений без снижения производительности. Системный блок также подходит для инженерных расчетов, работы с базами данных и других профессиональных задач, требующих высокой вычислительной мощности.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell PRECITHION, вы получаете компьютер от проверенного производителя с многолетней историей качества. Система обеспечивает стабильную работу без сбоев, что критично для профессиональной деятельности. Надежность и производительность этого системного блока позволяют экономить время на выполнение задач и повышают общую эффективность работы. Инвестиция в такой компьютер окупается благодаря его долговечности и универсальности применения.</p>",
+    "description_seo_word_count": 252,
+    "description_seo_model": "claude-haiku-4-5"
+  }
 }

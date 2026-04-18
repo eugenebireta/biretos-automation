@@ -4,7 +4,7 @@
   "pn": "191091",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Детектор пламени Honeywell D 20.674.221.192",
   "assembled_title": "Рамка 4-постовая PEHA NOVA, 191091",
   "our_price_raw": "12641,00",
@@ -340,7 +340,14 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.674.221.192",
+    "series": "NOVA",
+    "color_material": "metal, cast iron",
+    "identity_notes_p1": "NOVA Elements, metal cast iron",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -396,7 +403,7 @@
     "description": "Детектор пламени Honeywell D 20.674.221.192 предназначен для использования в системах пожарной сигнализации. Обеспечивает надежное обнаружение пламени.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Детектор",
+    "product_type": "Frame 4-gang",
     "seed_name": "Детектор пламени Honeywell D 20.674.221.192",
     "description_long_ru": "Рамка для электроустановочных изделий PEHA by Honeywell, черного цвета. Предназначена для монтажа модульных электрических компонентов в стандартные установочные коробки."
   },
@@ -661,7 +668,119 @@
   ],
   "dr_price_type": "legacy hardware catalog number",
   "deep_research": {
-    "description_ru": "Рамка для электроустановочных изделий PEHA by Honeywell, черного цвета. Предназначена для монтажа модульных электрических компонентов в стандартные установочные коробки."
+    "description_ru": "Рамка для электроустановочных изделий PEHA by Honeywell, черного цвета. Предназначена для монтажа модульных электрических компонентов в стандартные установочные коробки.",
+    "specs": {
+      "series": "NOVA elements",
+      "type": "Frame",
+      "gang": "4",
+      "material": "Elements mix",
+      "dimensions": "86x299mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    },
+    "descriptions_all": {
+      "legacy": "Рамка для электроустановочных изделий PEHA by Honeywell, черного цвета. Предназначена для монтажа модульных электрических компонентов в стандартные установочные коробки."
+    }
   },
-  "product_category": "PEHA NOVA frame"
+  "training_urls": [
+    "https://www.radwell.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "12641,00",
+    "our_price_parsed": 12641.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 127.5,
+    "best_price_currency": "EUR",
+    "best_price_source": "pipeline1",
+    "best_description": "Рамка для электроустановочных изделий PEHA by Honeywell, черного цвета. Предназначена для монтажа модульных электрических компонентов в стандартные установочные коробки.",
+    "best_description_source": "dr",
+    "best_photo_url": "radwell.com",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "6 Bar Pressure Relief Valve",
+    "description": "",
+    "specs": {
+      "product_type": "Cylinder Spares Catalogue",
+      "catalogue_edition": "2019 V6 Enhanced Edition",
+      "publication_date": "16/10/2018",
+      "product_categories": "Pressure Relief Valves, Temperature & Pressure Relief Valves, Cold Water Inlet Controls, Immersion Heaters, Thermostats, Expansion Vessels, Thermostatic Blending Valves",
+      "manufacturers_listed": "ACV, Advanced Appliances, Albion, Ariston, Baxi, Boss, Chaffateaux, Copperform, Dimplex, Elson, Ferroli, Flamco, Gledhill, Glowworm, Grant, Heatrae Sadia, Heatstore, Hyco, Joule, Keston, Kingspan, Main, OSO, Potterton, Santon, Telford, Vaillant, Viessmann, Warmflow, Worcester, Zip",
+      "pressure_relief_valve_ratings": "3 Bar, 3.5 Bar, 4 Bar, 4.5 Bar, 4.75 Bar, 5 Bar, 6 Bar, 7 Bar, 8 Bar, 10 Bar",
+      "temperature_pressure_relief_valve_ratings": "4 Bar, 4.5 Bar, 6 Bar, 7 Bar, 10 Bar",
+      "immersion_heater_power": "3kW, 4.5kW",
+      "immersion_heater_lengths": "11 inch, 14 inch, 16 inch",
+      "immersion_heater_thread_sizes": "1 3/4 inch, 2 1/4 inch, 1 1/2 inch",
+      "immersion_heater_materials": "Incoloy, Titanium",
+      "expansion_vessel_capacities": "2L, 5L, 8L, 12L, 18L, 24L, 35L, 50L",
+      "expansion_vessel_types": "Potable Vessel, Heating Vessel",
+      "connection_types": "BSP, Compression, Union, Push Fit, Loose Nut, MxF, FxF",
+      "valve_connection_sizes": "15mm, 22mm, 28mm, 1/2 inch, 3/4 inch, 1 inch, 1 1/4 inch, 1 1/2 inch",
+      "tundish_sizes": "22mm x 15mm, 28mm x 22mm, 15mm x 22mm, 15mm x 32mm",
+      "thermostat_probe_length": "200mm",
+      "shock_arrester_capacity": "0.16L",
+      "expansion_vessel_bracket_compatibility": "8-24L, 35-50L"
+    },
+    "specs_count": 19,
+    "series": "HRP Trade Cylinder Spares",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105191097",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\191091.pdf",
+    "datasheet_size_kb": 4203,
+    "product_photos": [
+      "downloads\\datasheet_photos\\191091_p1_0.jpg",
+      "downloads\\datasheet_photos\\191091_p1_1.jpg",
+      "downloads\\datasheet_photos\\191091_p4_0.jpg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/191091_p4_0.jpg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title '6 Bar Pressure Relief Valve' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105191097",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

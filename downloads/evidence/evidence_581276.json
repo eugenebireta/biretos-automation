@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "581276",
-  "pn_variants": [],
+  "pn_variants": [
+    "581276-10W"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Настенный громкоговоритель Honeywell 581276, 10 Вт",
   "assembled_title": "Громкоговоритель Honeywell 581276",
   "our_price_raw": "12745,04",
@@ -164,7 +166,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqHRjY7cJ7UM2FLTExES'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -182,10 +184,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://germes-security.ru/esser/korpusnie-gromkogovoriteli-modely-581276/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -295,7 +294,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Esserbus audio",
+    "confirmed_manufacturer": "Honeywell/ESSER",
+    "discontinued": false,
+    "identity_notes_p1": "10W wall-mounted loudspeaker, ABS plastic housing, white",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -313,7 +317,7 @@
     "description": "Настенный громкоговоритель Honeywell 581276 мощностью 10 Вт предназначен для использования в системах оповещения и звукового сопровождения. Обеспечивает высокое качество звука и надежность.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Громкоговоритель",
+    "product_type": "Cabinet loudspeaker",
     "seed_name": "Настенный громкоговоритель Honeywell 581276, 10 Вт",
     "description_long_ru": "Out of stock at layta.ru; B2B pricing"
   },
@@ -510,7 +514,22 @@
       "raw": "10W (10/5/2.5W taps); ABS; 150Hz–17kHz; white RAL9003; fire-resistant plastic",
       "aliases": [
         "L-PWP10A"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Model": "L-PWP10A",
+      "Product type": "Cabinet loudspeaker",
+      "Rated power": "10 W",
+      "Available taps": "5 W / 10 W",
+      "Line voltage": "100 V",
+      "Material": "ABS",
+      "Dimensions": "345 x 240 x 100 mm",
+      "Compliance": "CE / RoHS",
+      "Rated Power": "10 W",
+      "Power Taps": "10 / 5 W",
+      "Frequency Range": "150 Hz - 17 kHz",
+      "Sensitivity": "High SPL",
+      "Mounting": "Wall Mount",
+      "Color": "White (RAL 9003)"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -532,8 +551,97 @@
     "merge_source": "result_581276.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 581276 — это корпусный громкоговоритель L‑PWP10A повышенной мощности для 100‑вольтовых систем трансляции и оповещения. В отличие от 6‑ваттных младших моделей, эта версия рассчитана на номинальную мощность до 10 Вт и обычно применяется там, где нужен больший запас по громкости. ABS-корпус делает изделие пригодным для типовых внутренних инсталляций в офисах, коридорах, входных зонах, общественных пространствах и производственных помещениях с неагрессивной средой. Производитель позиционирует модель для понятной передачи речи и фоновой музыки, что соответствует задачам PA/VA-систем. Наличие нескольких отводов мощности позволяет адаптировать громкость под размер помещения и расчёт нагрузки линии. Подключение выполняется в стандартную 100 V сеть громкоговорителей, поэтому очень важно учитывать общий баланс мощности усилителя и всех точек на линии. Настенное или корпусное исполнение удобно для ретрофита объектов, где потолочный монтаж не подходит. При установке желательно ориентировать громкоговоритель так, чтобы минимизировать отражения и получить лучшую разборчивость речевых сообщений. Для B2B-каталога это типовой инсталляционный громкоговоритель Honeywell для систем оповещения зданий.",
+      "gemini": "Громкоговоритель настенного типа Honeywell L-PWP10A обеспечивает номинальную мощность 10 Вт для озвучивания общественных зон. Корпус выполнен из ударопрочного белого ABS-пластика, который гармонично вписывается в любую архитектуру. Модель выделяется расширенным частотным диапазоном (150 Гц — 17 кГц) и мощным басовым откликом. Устройство предлагает два режима мощности — 10 Вт и 5 Вт — для адаптации к конкретным акустическим условиям. Громкоговоритель обладает высоким уровнем звукового давления, что критически важно для разборчивости речи при пожаре. Продукт прошел сертификацию на соответствие нормам EN 54-24 для систем пожарного оповещения. Устройство надежно работает при температурах от -25 до +55 градусов Цельсия. Пружинные клеммы на задней панели упрощают процесс подключения проводов и сокращают время монтажа. Лаконичный белый дизайн и высокое качество сборки делают этот громкоговоритель стандартом для профессиональных инсталляций. Совместим с системами Variodyn ONE и Variodyn D1."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Model": "L-PWP10A",
+        "Product type": "Cabinet loudspeaker",
+        "Rated power": "10 W",
+        "Available taps": "5 W / 10 W",
+        "Line voltage": "100 V",
+        "Material": "ABS",
+        "Dimensions": "345 x 240 x 100 mm",
+        "Compliance": "CE / RoHS"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "L-PWP10A",
+        "Rated Power": "10 W",
+        "Power Taps": "10 / 5 W",
+        "Frequency Range": "150 Hz - 17 kHz",
+        "Sensitivity": "High SPL",
+        "Material": "ABS Plastic",
+        "Mounting": "Wall Mount",
+        "Color": "White (RAL 9003)",
+        "Dimensions": "345 x 240 x 100 mm"
+      }
+    },
+    "notes_all": {
+      "gpt": "Корпусный 100V-громкоговоритель повышенной мощности."
+    }
   },
   "dr_category": "PA cabinet speaker",
-  "product_category": "PA speaker"
+  "training_urls": [
+    "https://www.esser-systems.com/en/products/details/loud-speaker/wall-surface-mounted-speakers/581276-10-w-cabinet-loudspeaker-abs/",
+    "https://www.layta.ru/esser-581276.html",
+    "https://www.teknosan.ru/katalog/esser/581276/",
+    "https://buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/VARIODYN-D1-PA-VA/L-PWP10A.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/525000-549999/529971-da-01-en-Honeywell_581276_Wandlautsprecher_10_W_1_St.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "12745,04",
+    "our_price_parsed": 12745.04,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 12745.04,
+    "best_price_currency": "RUB",
+    "best_price_source": "our_estimate",
+    "best_description": "Настенный громкоговоритель Honeywell 581276 мощностью 10 Вт предназначен для использования в системах оповещения и звукового сопровождения. Обеспечивает высокое качество звука и надежность.",
+    "best_description_source": "content",
+    "best_photo_url": "https://germes-security.ru/esser/korpusnie-gromkogovoriteli-modely-581276/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Настенный громкоговоритель Honeywell 581276 мощностью 10 Вт предназначен для использования в системах оповещения и звукового сопровождения. Обеспечивает высокое качество звука и надежность.",
+    "best_description_ru": "<p>Представляем вашему вниманию высококачественный настенный громкоговоритель Honeywell 581276 PA cabinet speaker, разработанный для обеспечения четкого и мощного звукового оповещения в самых разнообразных условиях. Этот громкоговоритель является идеальным решением для интеграции в системы оповещения о пожаре, эвакуации, а также для трансляции фоновой музыки или объявлений. Продукция Honeywell традиционно ассоциируется с надежностью и инновациями, и модель 581276 не является исключением, предлагая превосходное качество звука и долговечность.</p>\n<p><b>Ключевые характеристики:</b></p><ul><li>Мощность: 10 Вт, обеспечивающая достаточное звуковое давление для большинства помещений.</li><li>Тип: Настенный громкоговоритель, предназначенный для удобного и незаметного монтажа на вертикальных поверхностях.</li><li>Назначение: Идеально подходит для систем оповещения и звукового сопровождения.</li><li>Качество звука: Высокое качество воспроизведения голоса и музыки, что критически важно для систем оповещения.</li><li>Надежность: Прочная конструкция и компоненты, гарантирующие длительный срок службы и стабильную работу.</li><li>Универсальность: Подходит для широкого спектра коммерческих и общественных объектов.</li><li>Бренд: Honeywell – мировой лидер в производстве систем безопасности и автоматизации.</li><li>Артикул: 581276, для легкой идентификации и заказа.</li></ul>\n<p><b>Применение:</b> Настенный громкоговоритель Honeywell 581276 PA cabinet speaker находит широкое применение в различных сферах, где требуется эффективное звуковое оповещение и качественное звуковое сопровождение. Он идеально подходит для установки в офисных зданиях, торговых центрах, образовательных учреждениях, медицинских учреждениях, гостиницах, а также на производственных предприятиях. Его можно использовать для трансляции экстренных сообщений, объявлений, фоновой музыки или информационных сообщений, обеспечивая четкое и равномерное распределение звука по всему помещению.</p>\n<p><b>Преимущества:</b> Выбирая настенный громкоговоритель Honeywell 581276, вы инвестируете в надежное и эффективное решение для вашей системы звукового оповещения. Его высокая мощность в 10 Вт гарантирует отличную слышимость, а проверенное качество Honeywell обеспечивает долговечность и бесперебойную работу. Простота монтажа и универсальный дизайн делают его идеальным выбором для любого интерьера, а превосходное качество звука обеспечивает четкое и понятное донесение информации, что критически важно в экстренных ситуациях.</p>",
+    "best_description_ru_word_count": 271,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 581276 is a 6-digit numeric format consistent with Honeywell's product numbering. The seed name clearly identifies this as a Honeywell wall-mounted speaker (Настенный громкоговоритель) with 10W power rating. Brand and PN appear correct, but product lacks critical data (EAN, specifications, proper description, datasheet PDF). Needs complete data enrichment from reliable sources."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию высококачественный настенный громкоговоритель Honeywell 581276 PA cabinet speaker, разработанный для обеспечения четкого и мощного звукового оповещения в самых разнообразных условиях. Этот громкоговоритель является идеальным решением для интеграции в системы оповещения о пожаре, эвакуации, а также для трансляции фоновой музыки или объявлений. Продукция Honeywell традиционно ассоциируется с надежностью и инновациями, и модель 581276 не является исключением, предлагая превосходное качество звука и долговечность.</p>\n<p><b>Ключевые характеристики:</b></p><ul><li>Мощность: 10 Вт, обеспечивающая достаточное звуковое давление для большинства помещений.</li><li>Тип: Настенный громкоговоритель, предназначенный для удобного и незаметного монтажа на вертикальных поверхностях.</li><li>Назначение: Идеально подходит для систем оповещения и звукового сопровождения.</li><li>Качество звука: Высокое качество воспроизведения голоса и музыки, что критически важно для систем оповещения.</li><li>Надежность: Прочная конструкция и компоненты, гарантирующие длительный срок службы и стабильную работу.</li><li>Универсальность: Подходит для широкого спектра коммерческих и общественных объектов.</li><li>Бренд: Honeywell – мировой лидер в производстве систем безопасности и автоматизации.</li><li>Артикул: 581276, для легкой идентификации и заказа.</li></ul>\n<p><b>Применение:</b> Настенный громкоговоритель Honeywell 581276 PA cabinet speaker находит широкое применение в различных сферах, где требуется эффективное звуковое оповещение и качественное звуковое сопровождение. Он идеально подходит для установки в офисных зданиях, торговых центрах, образовательных учреждениях, медицинских учреждениях, гостиницах, а также на производственных предприятиях. Его можно использовать для трансляции экстренных сообщений, объявлений, фоновой музыки или информационных сообщений, обеспечивая четкое и равномерное распределение звука по всему помещению.</p>\n<p><b>Преимущества:</b> Выбирая настенный громкоговоритель Honeywell 581276, вы инвестируете в надежное и эффективное решение для вашей системы звукового оповещения. Его высокая мощность в 10 Вт гарантирует отличную слышимость, а проверенное качество Honeywell обеспечивает долговечность и бесперебойную работу. Простота монтажа и универсальный дизайн делают его идеальным выбором для любого интерьера, а превосходное качество звука обеспечивает четкое и понятное донесение информации, что критически важно в экстренных ситуациях.</p>",
+    "description_seo_word_count": 271,
+    "description_seo_model": ""
+  }
 }

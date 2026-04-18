@@ -4,7 +4,7 @@
   "pn": "V5329C1059",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Трехходовой клапан Honeywell V5329C1059",
   "assembled_title": "Клапан Honeywell V5329C1059",
   "our_price_raw": "43659,90",
@@ -178,7 +178,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Трехходовой клапан Honeywell с фланцевым подключением clearly visible",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -196,10 +196,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeyvell.energy/honeywell-v5329c1059/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -313,7 +310,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -569,7 +567,167 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report.md",
     "description_ru": "Фланцевый смесительный клапан облегченной серии с номинальным давлением 6 бар. Оптимален для применения в локальных котельных и ИТП жилых домов, где рабочее давление не превышает установленных норм. Сочетает чугунный корпус и прецизионный стальной плунжер.",
-    "specs": "Size: DN40; PN: 6; Kvs: 25; Stroke: 20mm; Temp: 2..170C"
+    "specs": "Size: DN40; PN: 6; Kvs: 25; Stroke: 20mm; Temp: 2..170C",
+    "descriptions_all": {
+      "legacy": "Фланцевый смесительный клапан облегченной серии с номинальным давлением 6 бар. Оптимален для применения в локальных котельных и ИТП жилых домов, где рабочее давление не превышает установленных норм. Сочетает чугунный корпус и прецизионный стальной плунжер."
+    }
   },
-  "product_category": "valve"
+  "training_urls": [],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 609.4,
+    "dr_currency": "CHF",
+    "dr_source_url": "https://www.hlkshop.ch/de/honeywell-dreiwegeventil-pn-6-flansch-niro-garnitur-dn-40-kvs-wert-25-artnr-v5329c1059",
+    "our_price_raw": "43659,90",
+    "our_price_parsed": 43659.9,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 609.4,
+    "best_price_currency": "CHF",
+    "best_price_source": "price_contract",
+    "best_description": "Фланцевый смесительный клапан облегченной серии с номинальным давлением 6 бар. Оптимален для применения в локальных котельных и ИТП жилых домов, где рабочее давление не превышает установленных норм. Сочетает чугунный корпус и прецизионный стальной плунжер.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://honeyvell.energy/honeywell-v5329c1059/",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "V5329A,C FLANGED LINEAR VALVE PN6/16",
+    "description": "",
+    "specs": {
+      "action": "Stem up to close port A-AB",
+      "nominal_pressure_rating_V5329A": "PN16",
+      "nominal_pressure_rating_V5329C": "PN6",
+      "flow_characteristic_port_A_AB": "Equal percentage",
+      "flow_characteristic_port_B_AB": "Linear",
+      "rangeability": "50:1",
+      "leakage_rate_port_A_AB": "0.5% of kVS",
+      "leakage_rate_port_B_AB": "1% of kVS",
+      "stroke_mm": "20",
+      "valve_body_material": "Cast iron (GG25)",
+      "end_connections": "Flanged per ISO 7005-2",
+      "plug_material": "Stainless steel, skirt-guided",
+      "stem_material": "Stainless steel",
+      "packing": "Spring-loaded PTFE cone rings",
+      "seat": "Body integrated",
+      "medium_temperature_PN16_2_120°C": "1600 kPa",
+      "medium_temperature_PN16_120_150°C": "1440 kPa",
+      "medium_temperature_PN16_150_170°C": "1370 kPa",
+      "medium_temperature_PN6_2_120°C": "600 kPa",
+      "medium_temperature_PN6_120_150°C": "540 kPa",
+      "medium_temperature_PN6_150_170°C": "510 kPa",
+      "maximum_temperature_differential": "60 K",
+      "valve_sizes_available": "DN15, DN20, DN25, DN32, DN40, DN50, DN65, DN80",
+      "kVS_DN15": "2.5, 4.0",
+      "kVS_DN20": "6.3",
+      "kVS_DN25": "10.0",
+      "kVS_DN32": "16.0",
+      "kVS_DN40": "25.0",
+      "kVS_DN50": "40.0",
+      "kVS_DN65": "63.0",
+      "kVS_DN80": "100.0",
+      "compatible_electric_actuators": "ML6420/6425, ML7420/7425, ML6421/7421",
+      "compatible_pneumatic_actuators": "MP953",
+      "ML6420A_6425A_B_ML7420A_ML7425A_B_force": "600 N",
+      "ML6421A_ML7421A_force": "1800 N",
+      "dimensions_DN15_A_mm": "130",
+      "dimensions_DN15_B_mm": "63",
+      "dimensions_DN15_C_mm": "90",
+      "dimensions_DN15_Y1_mm": "107",
+      "dimensions_DN20_A_mm": "150",
+      "dimensions_DN20_B_mm": "95",
+      "dimensions_DN20_C_mm": "90",
+      "dimensions_DN20_Y1_mm": "107",
+      "dimensions_DN25_A_mm": "160",
+      "dimensions_DN25_B_mm": "80",
+      "dimensions_DN25_C_mm": "100",
+      "dimensions_DN25_Y1_mm": "107",
+      "dimensions_DN32_A_mm": "180",
+      "dimensions_DN32_B_mm": "105",
+      "dimensions_DN32_C_mm": "100",
+      "dimensions_DN32_Y1_mm": "107",
+      "dimensions_DN40_A_mm": "200",
+      "dimensions_DN40_B_mm": "115",
+      "dimensions_DN40_C_mm": "125",
+      "dimensions_DN40_Y1_mm": "107",
+      "dimensions_DN50_A_mm": "230",
+      "dimensions_DN50_B_mm": "94",
+      "dimensions_DN50_C_mm": "125",
+      "dimensions_DN50_Y1_mm": "107",
+      "dimensions_DN65_A_mm": "290",
+      "dimensions_DN65_B_mm": "105",
+      "dimensions_DN65_C_mm": "145",
+      "dimensions_DN65_Y1_mm": "107",
+      "dimensions_DN80_A_mm": "310",
+      "dimensions_DN80_B_mm": "112",
+      "dimensions_DN80_C_mm": "155",
+      "dimensions_DN80_Y1_mm": "107",
+      "ML6420A_ML6425A_B_ML7420A_ML7425A_B_height_mm": "322",
+      "ML6420A_ML6425A_B_ML7420A_ML7425A_B_height_with_high_temp_kit_mm": "402",
+      "ML6421A_ML7421A_height_mm": "364",
+      "ML6421A_ML7421A_height_with_high_temp_kit_mm": "444",
+      "MP953A_5_inch_E_mm": "130",
+      "MP953A_5_inch_F_mm": "192",
+      "MP953A_5_inch_H_mm": "120",
+      "MP953A_8_inch_E_mm": "210",
+      "MP953A_8_inch_F_mm": "237",
+      "MP953A_8_inch_H_mm": "140",
+      "MP953B_E_mm": "180",
+      "MP953B_F_mm": "242",
+      "MP953B_H_mm": "120",
+      "MP953B_K_mm": "107",
+      "repair_packing_kit_DN15_32": "R43176754001",
+      "repair_packing_kit_DN40_80": "R43176754002"
+    },
+    "specs_count": 83,
+    "series": "V5329A,C",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\V5329C1059.pdf",
+    "datasheet_size_kb": 549,
+    "product_photos": [
+      "downloads\\datasheet_photos\\V5329C1059_p1_0.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/V5329C1059_p1_0.png"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - V5329C1059 is a valid Honeywell valve part number. The datasheet title confirms this is a V5329A,C series flanged linear valve PN6/16. The seed name correctly identifies it as a three-way valve. However, the product record is missing critical data (EAN, description, specs, dimensions) that should be extracted from the existing datasheet or requires a more complete datasheet source to populate all required fields."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'V5329A,C FLANGED LINEAR VALVE PN6/16' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -6,10 +6,10 @@
     "36206.RU",
     "36206RU"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "DKC",
+  "subbrand": null,
   "name": "Соединительный муфта Honeywell 36206-RU, 400x80мм",
-  "assembled_title": "Муфта Honeywell 36206-RU",
+  "assembled_title": "Муфта DKC 36206-RU",
   "our_price_raw": "4746,00",
   "expected_category": "Муфта",
   "card_status": "DRAFT_ONLY",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqGfeEuC1p4fDgQvw3B3'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,10 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://us.evocdn.io/dealer/1228/catalog/product/images/hw-ru6500-removebg-previ"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -320,7 +317,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "Connector muff/coupling 400x80mm; Russian market variant; cable duct fitting",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -338,9 +339,8 @@
     "description": "Соединительная муфта Honeywell 36206-RU используется для соединения кабелей в промышленных системах. Она обеспечивает надежное соединение и защиту от внешних воздействий. Размеры муфты составляют 400x80 мм.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Муфта",
-    "seed_name": "Соединительный муфта Honeywell 36206-RU, 400x80мм",
-    "description_long_ru": "Not found on any platform. Likely proprietary Russian-market ERP code"
+    "product_type": "Coupling muff",
+    "seed_name": "Соединительный муфта Honeywell 36206-RU, 400x80мм"
   },
   "trace": {
     "pn_match_location": "",
@@ -600,7 +600,23 @@
       "raw": "Поиск с «‑RU» и без «‑RU» дал нерелевантный шум и/или закрытые страницы; подтверждённой карточки с ценой не извлечено.",
       "aliases": [
         "возможный шум: «36206» встречается как неродственные коды"
-      ]
+      ],
+      "Material": "Polyamide PA6.6",
+      "Color": "Black",
+      "Temperature range": "-40°C to +105°C (short-term up to +150°C)",
+      "IP rating": "IP40 / IP65 / IP67 (depending on accessories)",
+      "Halogen-free": "Yes",
+      "Thread type": "Metric",
+      "System": "DKC Cosmec / Express",
+      "Brand": "DKC",
+      "Product type": "Cross branch for cable tray",
+      "Series": "DPX / S5 Combitech compatible",
+      "Nominal size": "400 x 80 mm",
+      "Application": "Cable tray routing and branching",
+      "Region suffix": "RU variant / localized SKU",
+      "brand": "DKC",
+      "compliance": "GOST / EAC",
+      "market": "Russia"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -618,12 +634,181 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.121101+00:00",
+    "merge_ts": "2026-04-09T12:01:24.826616+00:00",
     "merge_source": "result_36206-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "Not found on any platform. Likely proprietary Russian-market ERP code"
+    "descriptions_all": {
+      "claude": "Муфта DKC 36206-RU представляет собой соединительный элемент типа «труба-коробка», предназначенный для герметичного соединения гофрированных или жёстких труб с корпусами распределительных коробок, шкафов и щитков в электромонтажных системах. Данная муфта является частью обширной линейки кабеленесущих систем DKC и обеспечивает надёжную фиксацию трубы при прокладке электропроводки. Изделие изготовлено из высококачественного полиамида (PA6.6) чёрного цвета, что обеспечивает устойчивость к механическим нагрузкам, УФ-излучению и химическим воздействиям. Муфта не содержит галогенов, что делает её безопасной для применения в местах массового скопления людей, включая общественные здания и торговые центры. Диапазон рабочих температур составляет от –40 до +105 °С с возможностью кратковременного воздействия до +150 °С. Степень защиты зависит от комплектации: IP40 без уплотнителей, IP65/IP67 с уплотнительными элементами. Муфта оснащена метрической резьбой и самозажимным механизмом, обеспечивающим быструю и надёжную стыковку с трубой. Широко применяется в промышленном и гражданском строительстве при монтаже кабельных трасс. Суффикс '-RU' указывает на адаптацию изделия для российского рынка.",
+      "gpt": "DKC 36206-RU — это крестообразный ответвитель серии DPX для листовых кабельных лотков, применяемый в системах кабельных трасс на промышленных и коммерческих объектах. По найденным источникам базовый артикул DKC 36206 соответствует исполнению 400x80 мм, а суффикс -RU в прайсах обычно указывает на российскую локализацию артикула и не меняет функциональное назначение изделия. Элемент нужен тогда, когда магистральную трассу необходимо не только повернуть, но и организовать ответвление в четыре направления без самодельных стыковочных решений. Корпус выполнен из оцинкованной стали, поэтому изделие рассчитано на долговременную эксплуатацию в составе стационарных кабеленесущих систем. Такой аксессуар применяют в распределительных сетях электроснабжения, слаботочных системах, системах безопасности и на технологических площадках, где важна стандартизованная механика лотков. При проектировании важно проверять совместимость по высоте борта и ширине трассы, поскольку ответвитель должен совпадать с геометрией основной серии лотка. Монтаж обычно выполняется штатным крепежом DKC, а крышка и сопряженные элементы подбираются из той же серии для сохранения механической жесткости и аккуратной геометрии трассы. Для B2B-каталога эту позицию корректно описывать как кабеленесущий аксессуар, а не как просто 'муфту' или 'переходник', потому что изделие работает именно как Х-образный узел маршрутизации. Если товар публикуется в интернет-магазине, желательно отдельно указать совместимую систему лотков и материал покрытия, так как для монтажников это критично. Перед закупкой имеет смысл сверить локальный индекс -RU и исполнение по каталогу поставщика, чтобы исключить путаницу с оцинкованными и иными вариантами поставки.",
+      "synthesis": "DKC 36206-RU представляет собой крестообразный элемент кабельной трассы серии листовых лотков для систем размером 400x80 мм, применяемый в промышленном и коммерческом электромонтаже. Позиция предназначена для организации Х-образного узла маршрутизации, позволяя магистральной трассе организовать ответвление в четыре направления без самодельных стыковочных решений. Корпус выполнен из оцинкованной стали, обеспечивающей базовую коррозионную стойкость и долговременную эксплуатацию в составе стационарных кабеленесущих систем. Перфорированные стенки облегчают крепление и улучшают вентиляцию кабельной системы, а встроенный соединитель обеспечивает надежное соединение элементов трассы. Аксессуар применяется в распределительных сетях электроснабжения, слаботочных системах, системах безопасности и на технологических площадках, где важна стандартизованная механика лотков. При проектировании необходимо проверять совместимость по высоте борта и ширине трассы, поскольку ответвитель должен совпадать с геометрией основной серии. Монтаж выполняется штатным крепежом DKC, при этом крышка и сопряженные элементы подбираются из той же серии для сохранения механической жесткости и аккуратной конечной геометрии трассы."
+    },
+    "specs_all": {
+      "claude": {
+        "Material": "Polyamide PA6.6",
+        "Color": "Black",
+        "Temperature range": "-40°C to +105°C (short-term up to +150°C)",
+        "IP rating": "IP40 / IP65 / IP67 (depending on accessories)",
+        "Halogen-free": "Yes",
+        "Thread type": "Metric",
+        "System": "DKC Cosmec / Express"
+      },
+      "gpt": {
+        "Brand": "DKC",
+        "Product type": "Cross branch for cable tray",
+        "Series": "DPX / S5 Combitech compatible",
+        "Nominal size": "400 x 80 mm",
+        "Material": "Sendzimir galvanized steel",
+        "Application": "Cable tray routing and branching",
+        "Region suffix": "RU variant / localized SKU"
+      },
+      "gemini": {
+        "brand": "DKC",
+        "compliance": "GOST / EAC",
+        "market": "Russia"
+      }
+    },
+    "notes_all": {
+      "claude": "Exact PN 36206-RU not found on DKC website; likely internal/project-specific code. Description based on DKC tube-to-box coupling product range.",
+      "gpt": "Exact functional match found for DKC 36206. '-RU' was not separately documented on the official page; treated as localized Russian-market SKU suffix."
+    }
   },
-  "product_category": "RU Localized; Pressure regulation"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/electrical-and-wiring/cable-management/trunking-fittings",
+    "https://us.rs-online.com/product/icotek/36206/72429144/",
+    "https://www.resideo.com/",
+    "https://www.dkc.ru/ru/catalog/1119/",
+    "https://www.dkc.ru/ru/catalog/1076/",
+    "https://www.dkc.ru/ru/catalog/23/36206/",
+    "https://www.dkcmarket.ru/36206.html",
+    "https://www.elektro.ru/product/otvetvitel_dpx_krestoobraznyy_400kh_80_36206/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "4746,00",
+    "our_price_parsed": 4746.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 4746.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "our_estimate",
+    "best_description": "Соединительная муфта Honeywell 36206-RU используется для соединения кабелей в промышленных системах. Она обеспечивает надежное соединение и защиту от внешних воздействий. Размеры муфты составляют 400x80 мм.",
+    "best_description_source": "content",
+    "best_photo_url": "https://us.evocdn.io/dealer/1228/catalog/product/images/hw-ru6500-removebg-previ",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Соединительная муфта Honeywell 36206-RU используется для соединения кабелей в промышленных системах. Она обеспечивает надежное соединение и защиту от внешних воздействий. Размеры муфты составляют 400x80 мм.",
+    "best_description_ru": "<p>Представляем вашему вниманию высококачественную соединительную муфту Honeywell 36206-RU от известного бренда DKC, предназначенную для обеспечения надежного и безопасного соединения кабелей в самых требовательных промышленных системах. Этот незаменимый компонент разработан для защиты критически важных кабельных соединений от неблагоприятных внешних воздействий, гарантируя бесперебойную работу вашего оборудования. Муфта DKC 36206-RU является эталоном надежности и долговечности в сфере промышленной автоматизации и электромонтажа, подтверждая репутацию DKC как лидера в производстве высококачественных решений.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Надежное соединение:</b> Муфта обеспечивает прочное и стабильное соединение кабелей, минимизируя риск обрывов и потерь сигнала.</li>\n<li><b>Защита от внешних воздействий:</b> Эффективно предохраняет соединение от пыли, влаги, механических повреждений и агрессивных сред, продлевая срок службы кабелей.</li>\n<li><b>Промышленные стандарты:</b> Разработана с учетом строгих требований промышленных систем, гарантируя высокую производительность и безопасность.</li>\n<li><b>Оптимальные размеры:</b> Габариты муфты 400x80 мм обеспечивают удобство монтажа и интеграции в различные кабельные трассы.</li>\n<li><b>Долговечность:</b> Изготовлена из высококачественных материалов, устойчивых к износу и коррозии, что гарантирует длительный срок службы.</li>\n<li><b>Универсальность:</b> Подходит для широкого спектра кабелей и применений в промышленных условиях.</li>\n<li><b>Простота монтажа:</b> Конструкция муфты разработана для быстрой и легкой установки, что сокращает время монтажных работ.</li>\n</ul>\n<p>Соединительная муфта DKC 36206-RU находит широкое применение в различных отраслях промышленности, где требуется высокая надежность кабельных соединений. Она идеально подходит для использования в системах автоматизации производственных линий, на объектах энергетики, в телекоммуникационных сетях, а также при монтаже систем безопасности и видеонаблюдения. Муфта обеспечивает герметичное и механически прочное соединение, что критически важно для поддержания целостности и функциональности кабельных трасс в условиях повышенных нагрузок и агрессивных сред. Ее универсальность позволяет использовать ее для соединения различных типов кабелей, что делает ее незаменимым элементом в арсенале любого инженера-электрика.</p>\n<p>Выбор соединительной муфты DKC 36206-RU – это инвестиция в долговечность и бесперебойность работы ваших промышленных систем. Она гарантирует не только надежное соединение, но и существенное снижение эксплуатационных расходов за счет минимизации простоев и необходимости частого обслуживания. Высокое качество материалов и продуманная конструкция обеспечивают исключительную устойчивость к внешним факторам, что критически важно для поддержания стабильной работы оборудования в самых суровых условиях. DKC 36206-RU – это синоним надежности и эффективности, подтвержденный многолетним опытом бренда DKC.</p>",
+    "best_description_ru_word_count": 332,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "QST Amateur Radio",
+    "description": "The April 1936 issue of QST, the official organ of the American Radio Relay League, featuring articles on amateur radio technology, station activities, and news. The cover highlights an article on 'A Simplified High-Performance Superhet'.",
+    "specs": {
+      "product_name": "Super Pro",
+      "product_type": "special amateur professional receiver",
+      "tuning_dial_calibration_units": "megacycles, kilocycles",
+      "main_tuning_dial_illumination": "Yes",
+      "band_spread_tuning_dial_illumination": "Yes",
+      "band_switch_bands": "five",
+      "audio_frequency_gain_control_present": "Yes",
+      "radio_frequency_gain_control_present": "Yes",
+      "intermediate_frequency_gain_control_present": "Yes",
+      "selectivity_control_present": "Yes",
+      "beat_frequency_control_present": "Yes",
+      "tone_control_present": "Yes",
+      "speaker_phone_switch_present": "Yes",
+      "send_receive_switch_present": "Yes",
+      "avc_manual_switch_present": "Yes",
+      "cw_modulation_switch_present": "Yes",
+      "input_shielding": "electrostatically shielded",
+      "rf_stages_tuned_all_bands": "two",
+      "if_transformers_type": "four air-tuned",
+      "selectivity_adjustment": "continuously variable",
+      "audio_stages": "three",
+      "band_switch_material_plating": "silver plated",
+      "tuning_meter_visibility": "visible",
+      "power_supply_configuration": "separate unit",
+      "grid_bias_supply_configuration": "separate unit",
+      "main_tuning_dial_range_megacycles_1": "2.5 to 5",
+      "main_tuning_dial_range_megacycles_2": "5 to 10",
+      "main_tuning_dial_range_megacycles_3": "10 to 20",
+      "main_tuning_dial_range_kilocycles_1": "540 to 1160",
+      "main_tuning_dial_range_kilocycles_2": "1160 to 2500",
+      "high_frequency_range_ratio": "2 to 1",
+      "band_changing_switch_principle": "knife switch",
+      "band_changing_switch_actuation_mechanism": "eccentric cams",
+      "band_changing_switch_sections_material": "bakelite",
+      "band_changing_switch_blades_material": "silver-plated phosphor bronze",
+      "band_changing_switch_spring_clips_material": "silver plated phosphor bronze",
+      "band_changing_switch_contact_points": "6-point positive contact",
+      "plate_voltage_rectifier_tube": "5Z3",
+      "grid_voltage_rectifier_tube": "1-V",
+      "power_supply_output_voltage_types": [
+        "C-bias",
+        "B voltage"
+      ],
+      "power_supply_output_ripple": "humless",
+      "power_supply_connection_cable_leads": "10",
+      "speaker_field_connections_source": "power supply unit",
+      "coil_form_material": "highest grade bakelite",
+      "coil_base_material": "Isolantite",
+      "variable_air_transformers_coupling_range_variation": "from 1/2 critical coupling to over 3 times critical coupling"
+    },
+    "specs_count": 46,
+    "series": "None",
+    "category": "Magazine",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\36206-RU.pdf",
+    "datasheet_size_kb": 11645,
+    "product_photos": [
+      "downloads\\datasheet_photos\\36206-RU_p1_0.png",
+      "downloads\\datasheet_photos\\36206-RU_p2_0.png",
+      "downloads\\datasheet_photos\\36206-RU_p3_0.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Представляем вашему вниманию высококачественную соединительную муфту Honeywell 36206-RU от известного бренда DKC, предназначенную для обеспечения надежного и безопасного соединения кабелей в самых требовательных промышленных системах. Этот незаменимый компонент разработан для защиты критически важных кабельных соединений от неблагоприятных внешних воздействий, гарантируя бесперебойную работу вашего оборудования. Муфта DKC 36206-RU является эталоном надежности и долговечности в сфере промышленной автоматизации и электромонтажа, подтверждая репутацию DKC как лидера в производстве высококачественных решений.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Надежное соединение:</b> Муфта обеспечивает прочное и стабильное соединение кабелей, минимизируя риск обрывов и потерь сигнала.</li>\n<li><b>Защита от внешних воздействий:</b> Эффективно предохраняет соединение от пыли, влаги, механических повреждений и агрессивных сред, продлевая срок службы кабелей.</li>\n<li><b>Промышленные стандарты:</b> Разработана с учетом строгих требований промышленных систем, гарантируя высокую производительность и безопасность.</li>\n<li><b>Оптимальные размеры:</b> Габариты муфты 400x80 мм обеспечивают удобство монтажа и интеграции в различные кабельные трассы.</li>\n<li><b>Долговечность:</b> Изготовлена из высококачественных материалов, устойчивых к износу и коррозии, что гарантирует длительный срок службы.</li>\n<li><b>Универсальность:</b> Подходит для широкого спектра кабелей и применений в промышленных условиях.</li>\n<li><b>Простота монтажа:</b> Конструкция муфты разработана для быстрой и легкой установки, что сокращает время монтажных работ.</li>\n</ul>\n<p>Соединительная муфта DKC 36206-RU находит широкое применение в различных отраслях промышленности, где требуется высокая надежность кабельных соединений. Она идеально подходит для использования в системах автоматизации производственных линий, на объектах энергетики, в телекоммуникационных сетях, а также при монтаже систем безопасности и видеонаблюдения. Муфта обеспечивает герметичное и механически прочное соединение, что критически важно для поддержания целостности и функциональности кабельных трасс в условиях повышенных нагрузок и агрессивных сред. Ее универсальность позволяет использовать ее для соединения различных типов кабелей, что делает ее незаменимым элементом в арсенале любого инженера-электрика.</p>\n<p>Выбор соединительной муфты DKC 36206-RU – это инвестиция в долговечность и бесперебойность работы ваших промышленных систем. Она гарантирует не только надежное соединение, но и существенное снижение эксплуатационных расходов за счет минимизации простоев и необходимости частого обслуживания. Высокое качество материалов и продуманная конструкция обеспечивают исключительную устойчивость к внешним факторам, что критически важно для поддержания стабильной работы оборудования в самых суровых условиях. DKC 36206-RU – это синоним надежности и эффективности, подтвержденный многолетним опытом бренда DKC.</p>",
+    "description_seo_word_count": 332,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "cable management",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 11645KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'QST Amateur Radio' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -6,8 +6,8 @@ Reads all evidence files, computes a FRESH readiness view based on
 current DR-enriched data (NOT stale card_status from photo_pipeline runs).
 
 Key insight: card_status in evidence is stale (computed before DR enrichment).
-This script evaluates readiness directly from evidence fields: dr_price,
-dr_image_url, assembled_title, product_category, review_reasons, our_price_raw.
+This script evaluates readiness from normalized{} block (evidence_normalize.py),
+which unifies price/description/photo from all 3 pipelines into canonical fields.
 
 Outputs:
   1. downloads/export/export_ready_view.json   — per-SKU readiness record
@@ -121,71 +121,71 @@ def compute_readiness(evidence: dict) -> dict:
     Compute fresh export-readiness record from evidence fields.
 
     Does NOT use stale card_status from photo_pipeline runs.
-    Uses: dr_price, dr_image_url, assembled_title, product_category,
-          review_reasons, our_price_raw, deep_research.*
+    Reads price/description/photo from normalized{} block (evidence_normalize.py).
+    Falls back to raw evidence fields when normalized{} is absent.
     """
     pn = evidence.get("pn", "")
     brand = evidence.get("brand", "Honeywell") or "Honeywell"
     subbrand = evidence.get("subbrand", "") or ""
     assembled_title = evidence.get("assembled_title", "") or ""
-    our_price_raw = evidence.get("our_price_raw", "") or ""
     product_category = evidence.get("product_category", "") or ""
     review_reasons_raw = evidence.get("review_reasons", []) or []
 
     dr = evidence.get("deep_research", {}) or {}
     title_ru = dr.get("title_ru", "") or ""
-    description_ru = dr.get("description_ru", "") or ""
     specs = dr.get("specs", {}) or {}
 
-    dr_price = evidence.get("dr_price")
-    dr_currency = evidence.get("dr_currency", "") or ""
-    dr_price_source = evidence.get("dr_price_source", "") or ""
+    # dr_price_blocked still read directly — it's a quality gate, not a data field
     dr_price_blocked = evidence.get("dr_price_blocked")
-    dr_image_url = evidence.get("dr_image_url", "") or ""
+    dr_price_source = evidence.get("dr_price_source", "") or ""
+
+    # ── Normalized block (single source of truth for price/desc/photo) ───────────
+    norm = evidence.get("normalized") or {}
+    best_price: float | None = norm.get("best_price")
+    best_price_currency: str = norm.get("best_price_currency") or ""
+    best_price_source: str | None = norm.get("best_price_source")  # price_contract|pipeline1|our_estimate
+    best_description: str = (norm.get("best_description") or "").strip()
+    best_photo_url: str = (norm.get("best_photo_url") or "").strip()
 
     # ── Title ────────────────────────────────────────────────────────────────────
     display_title = title_ru.strip() if not _is_empty(title_ru) else assembled_title.strip()
     title_ok = not _is_empty(display_title)
     title_status = "ok" if title_ok else "missing"
 
-    # ── Price ────────────────────────────────────────────────────────────────────
-    price_ok_dr = (
-        dr_price is not None
-        and not _is_empty(str(dr_price))
+    # ── Price (from normalized, quality-gated by dr_price_blocked) ───────────────
+    # Market sources: price_contract (DR pipeline) + pipeline1 (Phase A SerpAPI)
+    #                 phase3a (GPT Think price search)
+    # Estimate source: our_estimate (RUB market estimate from internal Excel)
+    price_market = (
+        best_price is not None
+        and best_price_source in ("price_contract", "pipeline1", "phase3a")
         and not dr_price_blocked
     )
-    # Parse our_price_raw (RUB, comma decimal)
-    our_price_rub: float | None = None
-    if our_price_raw and str(our_price_raw).strip():
-        try:
-            our_price_rub = float(str(our_price_raw).replace(",", ".").replace("\xa0", "").strip())
-            if our_price_rub <= 0:
-                our_price_rub = None
-        except ValueError:
-            our_price_rub = None
+    price_estimate = (
+        best_price is not None
+        and best_price_source == "our_estimate"
+        and not price_market
+    )
 
-    price_ok_ref = our_price_rub is not None and not price_ok_dr
-
-    # Choose export price
     export_price_rub: float | None = None
     price_source_label = "none"
     price_currency_original = ""
     price_volatile = False
 
-    if price_ok_dr:
-        rub, is_vol = _to_rub(float(dr_price), dr_currency)
+    if price_market:
+        rub, is_vol = _to_rub(float(best_price), best_price_currency)
         export_price_rub = rub
-        price_source_label = "dr_price"
-        price_currency_original = dr_currency
+        price_source_label = best_price_source  # "price_contract" or "pipeline1"
+        price_currency_original = best_price_currency
         price_volatile = is_vol
-    elif price_ok_ref:
-        export_price_rub = our_price_rub
-        price_source_label = "our_price_raw"
+    elif price_estimate:
+        export_price_rub = float(best_price)  # already in RUB
+        price_source_label = "our_estimate"
         price_currency_original = "RUB"
 
-    if price_ok_dr:
+    if price_market:
         price_status = "validated_market"
-    elif price_ok_ref:
+    elif price_estimate:
         price_status = "ref_price_only"
     elif dr_price_blocked:
         price_status = "blocked"
@@ -195,8 +195,8 @@ def compute_readiness(evidence: dict) -> dict:
     else:
         price_status = "missing"
 
-    # ── Photo ────────────────────────────────────────────────────────────────────
-    photo_url = dr_image_url.strip() if not _is_empty(dr_image_url) else ""
+    # ── Photo (from normalized — respects photo.verdict KEEP/ACCEPT) ─────────────
+    photo_url = best_photo_url
     local_path = _local_photo_path(pn) if not photo_url else None
 
     if photo_url:
@@ -219,8 +219,8 @@ def compute_readiness(evidence: dict) -> dict:
     # ── Specs ────────────────────────────────────────────────────────────────────
     specs_status = "ok" if not _is_empty(specs) else "missing"
 
-    # ── Description ──────────────────────────────────────────────────────────────
-    desc_status = "ok" if not _is_empty(description_ru) else "missing"
+    # ── Description (from normalized — best of dr.description_ru + content.description) ──
+    desc_status = "ok" if len(best_description) >= 10 else "missing"
 
     # ── Category ─────────────────────────────────────────────────────────────────
     category_status = "ok" if not _is_empty(product_category) else "missing"
@@ -246,16 +246,16 @@ def compute_readiness(evidence: dict) -> dict:
     if identity_blocked:
         missing_fields.append("identity_conflict")
 
-    review_needed = identity_blocked or price_volatile or price_source_label == "our_price_raw"
+    review_needed = identity_blocked or price_volatile or price_source_label == "our_estimate"
 
     if identity_blocked:
-        if price_ok_dr or price_ok_ref:
+        if price_market or price_estimate:
             export_status = "REVIEW_BLOCKED"
         else:
             export_status = "BLOCKED_NO_PRICE"
-    elif price_ok_dr:
+    elif price_market:
         export_status = "EXPORT_READY"
-    elif price_ok_ref:
+    elif price_estimate:
         export_status = "DRAFT_EXPORT"
     else:
         export_status = "BLOCKED_NO_PRICE"
@@ -269,7 +269,7 @@ def compute_readiness(evidence: dict) -> dict:
     elif export_status == "DRAFT_EXPORT":
         best_next_action = f"Get market price: DR/Gemini fast for {pn} to replace ref price"
     elif price_volatile:
-        best_next_action = f"Verify price: {dr_currency} is volatile currency, check manually"
+        best_next_action = f"Verify price: {best_price_currency} is volatile currency, check manually"
 
     return {
         "pn": pn,
@@ -296,7 +296,7 @@ def compute_readiness(evidence: dict) -> dict:
         "review_needed": review_needed,
         "missing_fields": missing_fields,
         "best_next_action": best_next_action,
-        "description_ru": description_ru[:300] if description_ru else "",
+        "description_ru": best_description[:300] if best_description else "",
     }
 
 
@@ -417,6 +417,7 @@ def write_insales_excel(records: list[dict], dry_run: bool = False) -> Path:
     # ── Sheet 0: Summary ──────────────────────────────────────────────────────────
     ws_sum = wb.active
     ws_sum.title = "Сводка"
+    _market_sources = ("price_contract", "pipeline1", "phase3a")
     summary_rows = [
         ["EXPORT-READY CONTROL LAYER v1", "", ""],
         ["Дата генерации", datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), ""],
@@ -425,7 +426,7 @@ def write_insales_excel(records: list[dict], dry_run: bool = False) -> Path:
         ["EXPORT_READY", sum(1 for r in records if r["export_status"] == "EXPORT_READY"),
          "Рыночная цена + без конфликта идентичности → готов к загрузке в InSales"],
         ["DRAFT_EXPORT", sum(1 for r in records if r["export_status"] == "DRAFT_EXPORT"),
-         "Только внутренняя цена (our_price_raw) → нужна рыночная цена"],
+         "Оценочная цена (our_estimate, RUB ~2022) → нужна рыночная цена"],
         ["REVIEW_BLOCKED", sum(1 for r in records if r["export_status"] == "REVIEW_BLOCKED"),
          "CRITICAL_MISMATCH: конфликт идентичности → нельзя публиковать"],
         ["BLOCKED_NO_PRICE", sum(1 for r in records if r["export_status"] == "BLOCKED_NO_PRICE"),
@@ -434,8 +435,11 @@ def write_insales_excel(records: list[dict], dry_run: bool = False) -> Path:
         ["ИТОГО SKU", len(records), ""],
         ["", "", ""],
         ["Покрытие полей", "Кол-во", "%"],
-        ["Цена (dr_price)", sum(1 for r in records if r["price_source"] == "dr_price"),
-         f"{int(100*sum(1 for r in records if r['price_source']=='dr_price')/len(records))}%"],
+        ["Цена (рыночная)",
+         sum(1 for r in records if r["price_source"] in _market_sources),
+         f"{int(100 * sum(1 for r in records if r['price_source'] in _market_sources) / len(records))}%"],
+        ["Цена (оценочная)", sum(1 for r in records if r["price_source"] == "our_estimate"),
+         f"{int(100*sum(1 for r in records if r['price_source']=='our_estimate')/len(records))}%"],
         ["Фото (url/local)", sum(1 for r in records if r["photo_status"] != "missing"),
          f"{int(100*sum(1 for r in records if r['photo_status']!='missing')/len(records))}%"],
         ["Описание", sum(1 for r in records if r["desc_status"] == "ok"),
@@ -538,7 +542,7 @@ def write_missing_data_queue(records: list[dict], dry_run: bool = False) -> Path
             sev = SEVERITY.get(gap, "P2")
             current = ""
             if gap == "price":
-                current = "no dr_price, no our_price_raw"
+                current = "no normalized.best_price"
             elif gap == "price_blocked":
                 current = f"blocked: {r.get('price_status','')}"
             elif gap == "identity_conflict":
@@ -590,8 +594,10 @@ def run(dry_run: bool = False, pn_filter: str | None = None) -> dict:
 
     # Field coverage
     summary["coverage"] = {
-        "price_dr": sum(1 for r in records if r["price_source"] == "dr_price"),
-        "price_ref": sum(1 for r in records if r["price_source"] == "our_price_raw"),
+        "price_contract": sum(1 for r in records if r["price_source"] == "price_contract"),
+        "price_pipeline1": sum(1 for r in records if r["price_source"] == "pipeline1"),
+        "price_phase3a": sum(1 for r in records if r["price_source"] == "phase3a"),
+        "price_estimate": sum(1 for r in records if r["price_source"] == "our_estimate"),
         "photo_url": sum(1 for r in records if r["photo_status"] == "url_available"),
         "photo_local": sum(1 for r in records if r["photo_status"] == "local_file"),
         "photo_missing": sum(1 for r in records if r["photo_status"] == "missing"),
@@ -609,8 +615,12 @@ def run(dry_run: bool = False, pn_filter: str | None = None) -> dict:
     print("\nField coverage:")
     cov = summary["coverage"]
     n = summary["total"]
-    print(f"  Price (dr):       {cov['price_dr']:3d} / {n} ({int(100*cov['price_dr']/n)}%)")
-    print(f"  Price (ref only): {cov['price_ref']:3d} / {n}")
+    price_total = cov['price_contract'] + cov['price_pipeline1'] + cov['price_phase3a'] + cov['price_estimate']
+    print(f"  Price (total):    {price_total:3d} / {n} ({int(100*price_total/n)}%)")
+    print(f"    price_contract: {cov['price_contract']:3d}  (DR pipeline)")
+    print(f"    pipeline1:      {cov['price_pipeline1']:3d}  (SerpAPI Phase A)")
+    print(f"    phase3a:        {cov['price_phase3a']:3d}  (GPT Think price search)")
+    print(f"    our_estimate:   {cov['price_estimate']:3d}  (RUB estimate, ~2022)")
     print(f"  Photo (url):      {cov['photo_url']:3d} / {n}")
     print(f"  Photo (local):    {cov['photo_local']:3d} / {n}")
     print(f"  Photo (missing):  {cov['photo_missing']:3d} / {n}")

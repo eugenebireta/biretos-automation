@@ -1,0 +1,124 @@
+{
+  "_description": "Universal rules for catalog enrichment that apply to ANY brand/PN. Used as pre-filters before AI calls.",
+  "_last_updated": "2026-04-16",
+  "_schema_version": 1,
+
+  "datasheet_extraction_patterns": {
+    "ean_field_locations": [
+      "Last page of datasheet (>page 2)",
+      "Near manufacturer address/contact info",
+      "In 'Material No.' / 'Article No.' / 'EAN-code' / 'GTIN' table",
+      "After strings: 'EAN:', 'EAN-code:', 'GTIN:', 'Barcode:', 'Artikel-Nr.:'",
+      "On product label image"
+    ],
+    "specs_field_locations": [
+      "First 1-3 pages (main product data)",
+      "Technical Data / Technische Daten section",
+      "Specification Table",
+      "Right sidebar in product datasheets"
+    ],
+    "weight_keywords": ["weight", "Gewicht", "Вес", "net weight", "package weight"],
+    "dimensions_keywords": ["dimensions", "Abmessungen", "Размеры", "Width", "Height", "Depth", "Length"],
+    "ip_rating_keywords": ["IP rating", "Degree of protection", "Schutzart", "IP Class"]
+  },
+
+  "pn_normalization_rules": [
+    "Strip leading zeros for numeric comparison (00020211 → 20211)",
+    "Keep original PN format in catalog (different systems use different formats)",
+    "Strip brand prefix if duplicated (PEHA-00020211 → 00020211)",
+    "Strip color/variant suffix (109411-BLK → 109411)",
+    "Strip regional suffix (36022-RU → 36022 for matching)",
+    "Lowercase for comparison only, preserve original case for display"
+  ],
+
+  "brand_detection_from_pn": [
+    {"regex": "^2CDG[0-9]{6}R[0-9]{4}$", "brand": "ABB", "product": "KNX i-bus"},
+    {"regex": "^1SFA", "brand": "ABB", "product": "miniature selector"},
+    {"regex": "^CR-[A-Z]", "brand": "ABB", "product": "relay"},
+    {"regex": "^[0-9]{6}\\.[0-9]{2}$", "brand": "Esser", "product": "fire safety"},
+    {"regex": "^FX[0-9]{6}", "brand": "Esser", "product": "fire"},
+    {"regex": "^EVCS-", "brand": "Notifier", "product": "voice evacuation"},
+    {"regex": "^[0-9]{6}$", "brand_candidates": ["PEHA", "Esser"], "requires_disambiguation": true},
+    {"regex": "^V[0-9]{4}[A-Z][0-9]{3,4}$", "brand": "Honeywell", "product": "HVAC valve"},
+    {"regex": "^ML[0-9]{4}[A-Z][0-9]{4}$", "brand": "Honeywell", "product": "actuator"},
+    {"regex": "^T[0-9]{4}[A-Z][0-9]{4}$", "brand": "Honeywell", "product": "sensor"},
+    {"regex": "^CF[0-9]{3}[A-Z]$", "brand": "HP", "product": "toner"},
+    {"regex": "^P[0-9]{4}[A-Z]+$", "brand_candidates": ["Dell"], "product": "monitor"},
+    {"regex": "^[0-9]{10}$", "brand": "Weidmüller", "product": "terminal"},
+    {"regex": "^32[0-9]{5}", "brand": "Phoenix Contact"},
+    {"regex": "^[0-9]{5,6}-RU$", "brand": "DKC", "product": "cable management"},
+    {"regex": "^CM[0-9]{6}$", "brand": "DKC", "product": "fastener"},
+    {"regex": "^10[0-9]{5}$", "brand": "Howard Leight", "product": "PPE"}
+  ],
+
+  "quality_red_flags": [
+    {"rule": "brand_mismatch", "description": "PN format indicates brand X but record says brand Y", "action": "flag_for_review"},
+    {"rule": "wrong_ean_prefix", "description": "EAN prefix doesn't match brand's known GS1 prefix", "action": "verify_ean"},
+    {"rule": "datasheet_title_mismatch", "description": "Datasheet title mentions different product than PN/seed_name", "action": "re_download_datasheet"},
+    {"rule": "empty_datasheet_big_file", "description": "PDF >5MB but zero specs extracted = wrong document", "action": "re_parse_or_re_download"},
+    {"rule": "generic_description", "description": "Description is boilerplate without product specifics", "action": "regenerate_with_more_context"},
+    {"rule": "missing_critical_fields", "description": "For Ozon/WB: no weight/dimensions/EAN", "action": "mark_not_ready_for_marketplace"},
+    {"rule": "price_outlier", "description": "Price 3σ from brand's median = possibly pack or wrong product", "action": "verify_price"}
+  ],
+
+  "marketplace_requirements": {
+    "InSales": {
+      "required_fields": ["title", "price", "description", "category"],
+      "recommended_fields": ["photo", "weight", "brand", "pn"],
+      "category_tree": "Каталог/... (594 paths)"
+    },
+    "Ozon": {
+      "required_fields": ["title", "price", "description", "barcode_ean", "weight_g", "dimensions_mm", "category_id", "photo"],
+      "category_id": "numeric from Ozon tree",
+      "title_max_length": 150,
+      "description_max_length": 6000
+    },
+    "Wildberries": {
+      "required_fields": ["title", "price", "description", "barcode", "weight_g", "dimensions_mm", "subject_id", "photo"],
+      "subject_id": "numeric from WB tree",
+      "title_max_length": 100,
+      "description_max_length": 5000
+    }
+  },
+
+  "ai_routing_rules": {
+    "tasks": {
+      "pdf_extract_structured_data": {
+        "primary": "gemini-2.5-flash",
+        "fallback_on_short_output": "claude-haiku-4-5",
+        "fallback_on_error": "claude-haiku-4-5",
+        "reasoning": "Gemini Flash cheap + accurate (80% EAN hit rate)"
+      },
+      "quality_reasoning_check": {
+        "primary": "claude-sonnet-4-5",
+        "reasoning": "Requires complex reasoning (brand mismatches, wrong datasheets). Cheap models miss subtle issues."
+      },
+      "description_generation_ru": {
+        "primary": "gemini-2.5-flash",
+        "fallback_on_short_output": "claude-haiku-4-5",
+        "reasoning": "Both produce good Russian, Gemini cheaper when it works"
+      },
+      "image_classification": {
+        "primary": "gemini-2.5-flash",
+        "fallback_on_rate_limit": "claude-haiku-4-5",
+        "reasoning": "Simple classification, but Gemini rate limit strict"
+      },
+      "strategy_learning": {
+        "primary": "claude-sonnet-4-5",
+        "reasoning": "One-time deep analysis per brand. Worth paying for quality."
+      }
+    }
+  },
+
+  "url_quality_filters": {
+    "denylist_reasons": [
+      "Marketplace with copied content (temu, wish, shein)",
+      "Aliexpress copies (product descriptions copy-paste)",
+      "Aggregators without authoritative data (sometimes useful for price aggregation)"
+    ],
+    "prefer_trusted": [
+      "Manufacturer site > Authorized distributor > Industrial distributor > Marketplace",
+      "Domain in GS1 prefix registry for that brand"
+    ]
+  }
+}

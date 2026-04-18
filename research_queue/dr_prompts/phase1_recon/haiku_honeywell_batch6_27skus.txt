@@ -1,0 +1,59 @@
+# Phase 1 — Identity Recon: Honeywell products (batch 6/6)
+
+## Your task
+Identify each product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## Search rules
+- Search as "Honeywell {PN}" or just "{PN}" in quotes
+- Suffix -RU: try without suffix too (Russian market variant)
+- Suffix -L3: kit — search base PN without suffix
+- Sites: honeywellsensors.com, distech-controls.com, automation24.com, rs-components.com
+
+## What I need per SKU
+1. **product_type** — short English name: "smoke detector", "HVAC sensor", "gas detector"
+2. **product_line** — family/series name
+3. **manufacturer** — confirm Honeywell or identify real OEM
+4. **pn_aliases** — alternative PNs on distributor sites
+5. **discontinued** — yes/no
+6. **identity_notes** — OEM info, replaced by, kit contents, regional variant
+
+## Products (27 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | SC-SCDUPLEX9/125-5 | Кабель Honeywell SC-SCDUPLEX9/125-5 | Оптический кабель SC-SCDuplex9/125 5m | SC.SCDUPLEX9/125.5, SCSCDUPLEX9/1255 | no_photo |
+| 2 | SCDUPLEX9/125-10 | Кабель Honeywell SCDUPLEX9/125-10 | Оптический кабель SCDUPLEX9/125-10 | SCDUPLEX9/125.10, SCDUPLEX9/12510 | no_photo |
+| 3 | SCDUPLEX9/125-15 | Кабель Honeywell SCDUPLEX9/125-15 | Оптический кабель SCDUPLEX9/125-15 | SCDUPLEX9/125.15, SCDUPLEX9/12515 | no_photo |
+| 4 | SDM-S93 | Монитор Honeywell SDM-S93 | Монитор SDM-S93 | SDM.S93, SDMS93 | no_price |
+| 5 | SK8115 | Док-станция Honeywell SK8115 | Док-станция Honeywell SK8115 | - | no_photo |
+| 6 | SM-0.9-SC-UPC-1.5 | Оптический шнур Honeywell SM-0.9-SC-UPC-1.5 | Оптический шнур Honeywell SM-0.9-SC-UPC-1.5 | SM-0-9-SC-UPC-1-5, SM.0.9.SC.UPC.1.5, SM09SCUPC15 | no_desc |
+| 7 | SNR-RMB-1UC | Крепление Honeywell SNR-RMB-1UC | Крепление для Cisco Honeywell SNR-RMB-1UC | SNR.RMB.1UC, SNRRMB1UC | no_photo |
+| 8 | T7460A1018 | Датчик Honeywell T7460A1018 | Комнатный датчик PT1000 Honeywell T7460A1018 | - | no_price |
+| 9 | T7560A1000 | Модуль Honeywell T7560A1000 | Цифровой настенный модуль Honeywell T7560A1000 | - | no_price |
+| 10 | T7560B1024 | Модуль Honeywell T7560B1024 | Цифровой настенный модуль Honeywell T7560B1024 | - | no_dr, no_price, no_photo, no_desc |
+| 11 | TPPR-V-1030 | Модуль Honeywell TPPR-V-1030 | Модуль цифрового ввода Honeywell TPPR-V-1030 | TPPR.V.1030, TPPRV1030 | no_desc |
+| 12 | TRAY-3 | Сплайс-бокс Honeywell TRAY-3 | Сплайс-бокс Honeywell TRAY-3 | TRAY.3, TRAY3 | no_photo |
+| 13 | U2410F | Монитор Honeywell U2410F | Монитор Honeywell U2410F | - | no_price, no_desc |
+| 14 | U2412M | Монитор Honeywell U2412M | Монитор Honeywell U2412M | - | no_desc |
+| 15 | U2412MB | Монитор Honeywell U2412MB | Монитор Honeywell U2412MB | - | no_desc |
+| 16 | U2421M | Монитор Honeywell U2421M | Монитор Honeywell U2421M | - | no_price, no_photo, no_desc |
+| 17 | V5013R1099 | Клапан Honeywell V5013R1099 | Трехходовой клапан Honeywell V5013R1099 | - | no_photo |
+| 18 | V5328A1047 | Клапан Honeywell V5328A1047 | Двухходовой клапан Honeywell V5328A1047 | - | no_price |
+| 19 | V5832A1046 | Клапан Honeywell V5832A1046 | Двухходовой клапан Honeywell V5832A1046 | - | no_price, no_photo |
+| 20 | VQ450MA1015 | Клапан Honeywell VQ450MA1015 | Комбинированный клапан Honeywell VQ450MA1015 | - | no_desc |
+| 21 | VQ450MB1006 | Клапан Honeywell VQ450MB1006 | Комбинированный клапан Honeywell VQ450MB1006 | - | no_desc |
+| 22 | VR420AB1002-0000 | Клапан Honeywell VR420AB1002-0000 | Комбинированный газовый клапан Honeywell VR420AB1002-0000 | VR420AB1002.0000, VR420AB10020000 | no_price, no_photo |
+| 23 | VR420VA1004-0000 | Клапан Honeywell VR420VA1004-0000 | Комбинированный газовый клапан Honeywell VR420VA1004-0000 | VR420VA1004.0000, VR420VA10040000 | no_price, no_photo |
+| 24 | VSOF-320-4.0 | Клапан Honeywell VSOF-320-4.0 | Трехходовой клапан Honeywell VSOF-320-4.0 | VSOF-320-4-0, VSOF.320.4.0, VSOF32040 | no_price |
+| 25 | XFLR822A | Модуль Honeywell XFLR822A | Аналоговый выходной модуль Honeywell XFLR822A | - | no_price |
+| 26 | XFLR824A | Модуль Honeywell XFLR824A | Модуль с 6 реле Honeywell XFLR824A | - | no_price |
+| 27 | МЕТРОВ | Кабель Honeywell МЕТРОВ | Кабель Honeywell МЕТРОВ | - | no_price, no_photo |
+
+## Required output — markdown table only
+
+| PN | product_type | product_line | manufacturer | pn_aliases | discontinued | identity_notes |
+|----|-------------|-------------|-------------|-----------|-------------|----------------|
+
+- Cannot confirm → write "unknown" in product_type
+- manufacturer: "Honeywell" only if confirmed, else real OEM name
+- Return ONLY the table, no preamble

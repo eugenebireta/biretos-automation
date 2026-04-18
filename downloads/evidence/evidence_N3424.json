@@ -4,7 +4,7 @@
   "pn": "N3424",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод заслонки Honeywell N3424",
   "assembled_title": "Привод Honeywell N3424",
   "our_price_raw": "18994,00",
@@ -160,7 +160,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqQVQa2dVyi8FHitVWAk'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -178,9 +178,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -305,7 +303,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -560,5 +559,124 @@
   "dr_price": 358.78,
   "dr_currency": "GBP",
   "dr_price_source": "https://www.mytub.co.uk/honeywell-n3424-smartact-actuator-34nm-24v-product-307846",
-  "product_category": "actuator"
+  "training_urls": [
+    "https://blackhawksupply.com/products/honeywell-mn6134a1003...",
+    "https://bolasystems.com/actuator-smartact-honeywell-n3424-34nm-24vac",
+    "https://kempstoncontrols.com/N3424",
+    "https://www.bolasystems.com/damper-actuator-honeywell-n3424",
+    "https://www.ebay.com/itm/294472150332",
+    "https://www.mytub.co.uk/honeywell-n3424-smartact-actuator-34nm-24v-product-307846"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 358.78,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://www.mytub.co.uk/honeywell-n3424-smartact-actuator-34nm-24v-product-307846",
+    "our_price_raw": "18994,00",
+    "our_price_parsed": 18994.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 358.78,
+    "best_price_currency": "GBP",
+    "best_price_source": "price_contract",
+    "best_description": "Привод заслонки Honeywell N3424 с крутящим моментом 34 Нм предназначен для управления воздушными заслонками в системах вентиляции. Работает от напряжения 24 В и поддерживает плавающее управление, обеспечивая надежное регулирование потока воздуха.",
+    "best_description_source": "content",
+    "best_photo_url": "https://i.ebayimg.com/images/g/CBYAAOSwtxpj9rrY/s-l1600.jpg",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Привод заслонки Honeywell N3424 с крутящим моментом 34 Нм предназначен для управления воздушными заслонками в системах вентиляции. Работает от напряжения 24 В и поддерживает плавающее управление, обеспечивая надежное регулирование потока воздуха.",
+    "best_description_ru": "<p>Привод заслонки Honeywell N3424 — это надежное устройство от известного мирового производителя систем автоматизации и управления. Данный привод относится к категории низовой автоматики и трубопроводной арматуры, предназначенной для профессионального использования в системах вентиляции и кондиционирования воздуха. Компания Honeywell гарантирует высокое качество и долговечность всех своих изделий, что делает этот привод отличным выбором для объектов любого масштаба.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Крутящий момент: 34 Нм, обеспечивающий мощное и стабильное управление заслонками</li>\n<li>Напряжение питания: 24 В, что соответствует стандартам низковольтных систем автоматизации</li>\n<li>Тип управления: плавающее управление, позволяющее точно регулировать положение заслонки</li>\n<li>Производитель: Honeywell — лидер в области систем управления и автоматизации</li>\n<li>Артикул: N3424 для удобства идентификации и заказа</li>\n<li>Надежная конструкция, рассчитанная на длительный срок эксплуатации</li>\n<li>Совместимость с различными типами воздушных заслонок стандартного размера</li>\n</ul>\n\n<p><b>Применение:</b> Привод Honeywell N3424 активно используется в системах вентиляции жилых и коммерческих зданий, офисных центров, промышленных объектов и медицинских учреждений. Устройство предназначено для автоматического управления потоком воздуха, регулирования температурного режима в помещениях и обеспечения оптимальных условий микроклимата. Плавающее управление позволяет точно настраивать положение заслонки в зависимости от текущих потребностей системы.</p>\n\n<p><b>Преимущества:</b> Выбирая привод Honeywell N3424, вы получаете проверенное временем решение от мирового лидера в области автоматизации. Устройство отличается высокой надежностью, точностью управления и длительным сроком службы. Низкое напряжение питания (24 В) обеспечивает безопасность при монтаже и эксплуатации. Мощный крутящий момент 34 Нм гарантирует эффективное управление даже в сложных условиях.</p>",
+    "best_description_ru_word_count": 220,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Низовая автоматика и трубопроводная арматура",
+    "description": "Всё для систем отопления, централизованного теплоснабжения и вентиляции",
+    "specs": {
+      "product_type": "Disc Butterfly Valves, Manually Operated (Handle or Gearbox)",
+      "nominal_diameter_range": "DN50 - DN900",
+      "nominal_pressure": "PN16",
+      "medium_temperature_range": "-10°C to +110°C (maximum)",
+      "leakage": "None visible",
+      "medium_type": "Hot and cold water",
+      "mounting_type": "Wafer (inter-flange)",
+      "control_type": "Manual (handle or gearbox)",
+      "opening_closing_angle": "90°",
+      "control_positions": "9",
+      "flange_recommendation": "Collar flanges (GOST 12821-80)",
+      "body_material_DN50-DN150": "GG25 (Cast Iron)",
+      "body_material_DN200-DN900": "GGG40 (Spheroidal Graphite Cast Iron)",
+      "disc_material": "Nickel-plated GGG40 (Spheroidal Graphite Cast Iron)",
+      "stem_material": "SS416",
+      "seat_seal_material": "EPDM",
+      "gearbox_material": "Cast Iron",
+      "handle_material": "Cast Iron",
+      "stopper_material": "Nylon",
+      "insert_material": "PTFE",
+      "o_ring_material": "EPDM",
+      "split_washer_material": "ASTM 1020",
+      "washer_material": "SS304",
+      "spring_ring_material": "SS304",
+      "pin_material": "SS304 / SS416",
+      "kvs_max_flow_coefficient_range": "109 - 81923",
+      "manual_operator_weight_kg_range": "0.7 - 124",
+      "total_weight_kg_range": "3.2 - 830.8",
+      "valve_body_thickness_C_mm_range": "43 - 203"
+    },
+    "specs_count": 29,
+    "series": "BF-HWC4, BF-MWC5",
+    "category": "Product Catalog",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\N3424.pdf",
+    "datasheet_size_kb": 6283,
+    "product_photos": [
+      "downloads\\datasheet_photos\\N3424_p1_0.jpeg",
+      "downloads\\datasheet_photos\\N3424_p1_3.jpeg",
+      "downloads\\datasheet_photos\\N3424_p1_4.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/N3424_p1_0.jpeg",
+      "downloads/datasheet_photos/N3424_p1_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN N3424 is a valid Honeywell damper actuator part number. The seed_name 'Привод заслонки Honeywell N3424' (Damper Actuator Honeywell N3424) correctly identifies the product. However, the datasheet appears to be wrong or corrupted - it shows a generic category title instead of product specs, has no technical specifications, and incomplete description. The brand and PN are correct, but proper datasheet with full specifications and description is needed."
+    },
+    "description_seo_ru": "<p>Привод заслонки Honeywell N3424 — это надежное устройство от известного мирового производителя систем автоматизации и управления. Данный привод относится к категории низовой автоматики и трубопроводной арматуры, предназначенной для профессионального использования в системах вентиляции и кондиционирования воздуха. Компания Honeywell гарантирует высокое качество и долговечность всех своих изделий, что делает этот привод отличным выбором для объектов любого масштаба.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Крутящий момент: 34 Нм, обеспечивающий мощное и стабильное управление заслонками</li>\n<li>Напряжение питания: 24 В, что соответствует стандартам низковольтных систем автоматизации</li>\n<li>Тип управления: плавающее управление, позволяющее точно регулировать положение заслонки</li>\n<li>Производитель: Honeywell — лидер в области систем управления и автоматизации</li>\n<li>Артикул: N3424 для удобства идентификации и заказа</li>\n<li>Надежная конструкция, рассчитанная на длительный срок эксплуатации</li>\n<li>Совместимость с различными типами воздушных заслонок стандартного размера</li>\n</ul>\n\n<p><b>Применение:</b> Привод Honeywell N3424 активно используется в системах вентиляции жилых и коммерческих зданий, офисных центров, промышленных объектов и медицинских учреждений. Устройство предназначено для автоматического управления потоком воздуха, регулирования температурного режима в помещениях и обеспечения оптимальных условий микроклимата. Плавающее управление позволяет точно настраивать положение заслонки в зависимости от текущих потребностей системы.</p>\n\n<p><b>Преимущества:</b> Выбирая привод Honeywell N3424, вы получаете проверенное временем решение от мирового лидера в области автоматизации. Устройство отличается высокой надежностью, точностью управления и длительным сроком службы. Низкое напряжение питания (24 В) обеспечивает безопасность при монтаже и эксплуатации. Мощный крутящий момент 34 Нм гарантирует эффективное управление даже в сложных условиях.</p>",
+    "description_seo_word_count": 220,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6283KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Низовая автоматика и трубопроводная арматура' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

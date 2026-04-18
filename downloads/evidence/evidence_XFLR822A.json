@@ -4,7 +4,7 @@
   "pn": "XFLR822A",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Аналоговый выходной модуль Honeywell XFLR822A",
   "assembled_title": "Модуль Honeywell XFLR822A",
   "our_price_raw": "39715,33",
@@ -362,7 +362,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Excel 800 I/O",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": true,
+    "identity_notes_p1": "LONWORKS bus analog output module with 8 outputs and manual overrides, discontinued",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -385,7 +390,7 @@
     "description": "Аналоговый выходной модуль Honeywell XFLR822A (LON) используется для преобразования цифровых сигналов в аналоговые. Применяется в системах автоматизации для управления различными устройствами.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Модуль",
+    "product_type": "Output module",
     "seed_name": "Аналоговый выходной модуль Honeywell XFLR822A",
     "description_long_ru": "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket."
   },
@@ -612,9 +617,125 @@
     "merge_source": "result_XFLR822A.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "DISCONTINUED. Honeywell Excel 800/Web/5000 system. $901 Radwell pkg; $819 refurb. eBay historical $149.99. Pluggable on XS821-22 socket."
+    }
   },
   "dr_category": "BAS analog output module",
   "dr_image_url": "(available on Radwell page)",
-  "product_category": "BAS analog output module"
+  "training_urls": [
+    "https://www.cochranesupply.com/building-automation-systems/honeywell-webs/controllers/xflr822a-honeywell-excel-800-io-10-io.html",
+    "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/XFLR822-A/",
+    "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/XFLR822AU",
+    "https://www.rms-dcs.com/uploads/XFL821A.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "39715,33",
+    "our_price_parsed": 39715.33,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2727.84,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Аналоговый выходной модуль Honeywell XFLR822A (LON) используется для преобразования цифровых сигналов в аналоговые. Применяется в системах автоматизации для управления различными устройствами.",
+    "best_description_source": "content",
+    "best_photo_url": "(available on Radwell page)",
+    "best_photo_source": "dr_image"
+  },
+  "phase3a_price": {
+    "price": 2727.84,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/233532884759",
+    "confidence": "medium",
+    "notes": "New old stock / open box",
+    "search_used": "XFLR822A"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Excel Web – LON I/O Modules",
+    "description": "",
+    "specs": {
+      "Analog Input Module XFL821A - Number of I/Os": "8 analog inputs",
+      "Analog Input Module XFL821A - Input characteristics": "Linear Graph 0..10 Vdc with pull-up, 0(2)…10 Vdc without pull-up",
+      "Analog Input Module XFL821A - Temperature sensors supported": "NTC20kΩ (-50…+150 °C, default), NTC10kΩ (-30…+100 °C), PT1000-1 (-50…150°C), PT1000-2 (0…400°C), NI1000TK5000 (-30…+130 °C), PT3000 (-50…150°C), BALCO500 (-30…120°C)",
+      "Analog Input Module XFL821A - Also configurable as": "Binary inputs, Linear graph (0…10 V with pull-up)",
+      "Analog Input Module XFL821A - Resolution": "16-bit",
+      "Analog Input Module XFL821A - Auxiliary voltage": "10 Vdc, Imax = 5 mA",
+      "Analog Input Module XFL821A - Configurable offset": "Per input",
+      "Analog Output Module XFL822A, XFLR822A - Number of I/Os": "8 analog outputs",
+      "Analog Output Module XFL822A, XFLR822A - Output range": "0…11 Vdc / 1 mA",
+      "Analog Output Module XFL822A, XFLR822A - Also configurable as": "Floating outputs or binary outputs (0 V / 10 V)",
+      "Analog Output Module XFL822A, XFLR822A - Resolution": "8-bit",
+      "Analog Output Module XFL822A, XFLR822A - Safety positions": "Remain, 0%, 50%, 100%",
+      "Analog Output Module XFL822A, XFLR822A - LED per output": "Red LED, brightness follows output level in auto mode",
+      "Analog Output Module XFLR822A - Manual override": "1 potentiometer per output, auto feedback signal (mode + value), blinking in manual override position",
+      "Binary Input Module XFL823A - Number of I/Os": "12 binary inputs",
+      "Binary Input Module XFL823A - Input type": "Static binary inputs (default: dry contact)",
+      "Binary Input Module XFL823A - Also configurable as": "Totalizers (20 Hz)",
+      "Binary Input Module XFL823A - LEDs": "1 LED per input, Color mode can be set per input to OFF/yellow or green/red using CARE",
+      "Relay Output Module XFL824A, XFLR824A - Number of I/Os": "6 relay outputs",
+      "Relay Output Module XFL824A, XFLR824A - Relay type": "Changeover relays",
+      "Relay Output Module XFL824A, XFLR824A - Voltage range": "19…250 Vac, 1…29 Vdc, P>50 mW",
+      "Relay Output Module XFL824A, XFLR824A - Max total current": "12 A",
+      "Relay Output Module XFL824A, XFLR824A - Current per relay N.O.": "4(4) A ac or 4(1) A dc",
+      "Relay Output Module XFL824A, XFLR824A - Current per relay N.C.": "2(1) A ac or 4(1) A dc",
+      "Relay Output Module XFL824A, XFLR824A - Safety positions": "Remain, 0%, 100%",
+      "Relay Output Module XFL824A, XFLR824A - LED per output": "Yellow LED",
+      "Relay Output Module XFLR824A - Manual override": "1 switch per output, auto feedback signal (mode + value), blinking in manual override position",
+      "Relay Output Module - Max load 19…250 Vac": "12 A",
+      "Relay Output Module - Max load 1…24 Vdc": "12 A resistive, 3 A inductive",
+      "Relay Output Module N.O. - Max load 19…250 Vac": "4 A resistive or inductive",
+      "Relay Output Module N.O. - Max load 1…24 Vdc": "4 A resistive, 1 A inductive",
+      "Relay Output Module - Min load": "P > 50 mW",
+      "All modules - Overvoltage protection": "Protected against 24 Vac +20% and 30 Vdc",
+      "All modules - Short circuit protection": "Yes",
+      "LonWorks modules - Neuron chip": "3120",
+      "LonWorks modules - Transceiver": "FTT-10A (linki power compatible)",
+      "All modules - Power LED": "One green",
+      "All modules - Service LED": "One yellow",
+      "All modules - Microprocessor": "Yes, each module equipped with its own microprocessor"
+    },
+    "specs_count": 39,
+    "series": "Honeywell Excel 5000 Open System - Excel Web LON I/O Modules",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "EN ISO 16484-2:2004"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\XFLR822A.pdf",
+    "datasheet_size_kb": 523,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - XFLR822A is a valid Honeywell Excel Web series part number. The datasheet title 'Excel Web – LON I/O Modules' is too generic (covers entire module family). The seed_name 'Аналоговый выходной модуль' (Analog Output Module) is more specific and likely correct - the '822A' suffix in Honeywell's Excel Web series typically indicates analog output modules. Current datasheet covers the series but lacks product-specific details (no EAN, specs, or description). Needs product-specific datasheet or detailed spec sheet for XFLR822A model specifically."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Excel Web – LON I/O Modules' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

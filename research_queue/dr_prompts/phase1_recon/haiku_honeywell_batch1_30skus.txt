@@ -1,0 +1,62 @@
+# Phase 1 — Identity Recon: Honeywell products (batch 1/6)
+
+## Your task
+Identify each product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## Search rules
+- Search as "Honeywell {PN}" or just "{PN}" in quotes
+- Suffix -RU: try without suffix too (Russian market variant)
+- Suffix -L3: kit — search base PN without suffix
+- Sites: honeywellsensors.com, distech-controls.com, automation24.com, rs-components.com
+
+## What I need per SKU
+1. **product_type** — short English name: "smoke detector", "HVAC sensor", "gas detector"
+2. **product_line** — family/series name
+3. **manufacturer** — confirm Honeywell or identify real OEM
+4. **pn_aliases** — alternative PNs on distributor sites
+5. **discontinued** — yes/no
+6. **identity_notes** — OEM info, replaced by, kit contents, regional variant
+
+## Products (30 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | 033588.17 | Соединение Honeywell 033588.17 | Шарнирное соединение для настенного монтажа | 33588.17, 033588-17, 03358817 | no_price |
+| 2 | 129625-L3 | Набор Honeywell 129625-L3 | Набор для подключения Honeywell GasAlert Series IR 129625-L3 | 129625.L3, 129625L3 | no_photo |
+| 3 | 13960 | Источник питания Honeywell 13960 | Источник питания Honeywell PSU 52Ah для MB-Secure | - | no_price |
+| 4 | 1631930000 | Клеммный блок Honeywell 1631930000 | Клеммный блок Weidmüller 1631930000 SCHT 5S PA66 BG | - | no_dr, no_price, no_photo |
+| 5 | 2208WFPT | Системный блок Honeywell 2208WFPT | Системный блок Honeywell 2208WFPT | - | no_dr |
+| 6 | 240W | Зарядное устройство Honeywell 240W | Зарядное устройство Honeywell 240W | - | no_dr, no_price, no_photo |
+| 7 | 272369098 | Разъем Honeywell 272369098 | Кабельный разъем Honeywell 6pol Socket H07RN | - | no_price, no_photo |
+| 8 | 280869341 | Комплект Honeywell 280869341 | Комплект Honeywell ASD1/V2-COMPLETE | - | no_price, no_desc |
+| 9 | 280870645 | Кабель Honeywell 280870645 | Кабель соединительный Honeywell ATR1-CONNECTING CABLE-2POL | - | no_desc |
+| 10 | 2904617 | Источник питания Honeywell 2904617 | Источник питания Honeywell QUINT4-PS/1AC/24DC/20/+ | - | no_dr, no_price, no_photo |
+| 11 | 2CDG110177R0011 | Интерфейс Honeywell 2CDG110177R0011 | IP-интерфейс Honeywell IPS/S3.1.1 | - | no_dr, no_photo, no_desc |
+| 12 | 2SM-3.0-SCU-SCU-1 | Шнур Honeywell 2SM-3.0-SCU-SCU-1 | Оптический соединительный шнур Honeywell 2SM-3.0-SCU-SCU-1 | 2SM-3-0-SCU-SCU-1, 2SM.3.0.SCU.SCU.1, 2SM30SCUSCU1 | no_photo |
+| 13 | 2SM-3.0-SCU-SCU-15 | Шнур Honeywell 2SM-3.0-SCU-SCU-15 | Оптический соединительный шнур Honeywell 2SM-3.0-SCU-SCU-15 | 2SM-3-0-SCU-SCU-15, 2SM.3.0.SCU.SCU.15, 2SM30SCUSCU15 | no_photo |
+| 14 | 304L | Беруши Honeywell 304L | Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS | - | no_price |
+| 15 | 3240190 | Рейка Honeywell 3240190 | Перфорированная DIN-рейка 3240190 | - | no_price |
+| 16 | 3240197 | Канал Honeywell 3240197 | Кабельный канал 3240197 | - | no_desc |
+| 17 | 3240199 | Канал Honeywell 3240199 | Кабельный канал 3240199 | - | no_desc |
+| 18 | 3240248 | Канал Honeywell 3240248 | Кабельный канал 3240248 | - | no_price, no_desc |
+| 19 | 3240348 | Канал Honeywell 3240348 | Кабельный канал 3240348 | - | no_desc |
+| 20 | 3240357 | Канал Honeywell 3240357 | Кабельный канал 3240357 | - | no_desc |
+| 21 | 3240605 | Канал Honeywell 3240605 | Кабельный канал 3240605 | - | no_desc |
+| 22 | 36022-RU | Угол Honeywell 36022-RU | Горизонтальный угол 100x80мм 36022-RU | 36022.RU, 36022RU | no_price, no_desc |
+| 23 | 36024-RU | Угол Honeywell 36024-RU | Горизонтальный угол 200x80мм 36024-RU | 36024.RU, 36024RU | no_price, no_desc |
+| 24 | 36026-RU | Угол Honeywell 36026-RU | Горизонтальный угол 400x80мм 36026-RU | 36026.RU, 36026RU | no_photo, no_desc |
+| 25 | 36142-RU | Соединитель Honeywell 36142-RU | Т-образный соединитель 100x80мм 36142-RU | 36142.RU, 36142RU | no_desc |
+| 26 | 36144-RU | Соединитель Honeywell 36144-RU | Т-образный соединитель 200x80мм 36144-RU | 36144.RU, 36144RU | no_desc |
+| 27 | 36146-RU | Соединитель Honeywell 36146-RU | Т-образный соединитель 400x80мм 36146-RU | 36146.RU, 36146RU | no_desc |
+| 28 | 36204-RU | Соединитель Honeywell 36204-RU | Перекрестный соединитель 200x80мм 36204-RU | 36204.RU, 36204RU | no_price, no_photo |
+| 29 | 36206-RU | Муфта Honeywell 36206-RU | Соединительный муфта Honeywell 36206-RU, 400x80мм | 36206.RU, 36206RU | no_price, no_photo, no_desc |
+| 30 | 36299-RU | Адаптер Honeywell 36299-RU | Адаптер RRC Honeywell 36299-RU, 400x200мм | 36299.RU, 36299RU | no_price, no_photo |
+
+## Required output — markdown table only
+
+| PN | product_type | product_line | manufacturer | pn_aliases | discontinued | identity_notes |
+|----|-------------|-------------|-------------|-----------|-------------|----------------|
+
+- Cannot confirm → write "unknown" in product_type
+- manufacturer: "Honeywell" only if confirmed, else real OEM name
+- Return ONLY the table, no preamble

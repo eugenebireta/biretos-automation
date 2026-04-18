@@ -31,6 +31,7 @@ import argparse
 import json
 import logging
 import re
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -800,6 +801,14 @@ def run(dry_run: bool = False, pn_filter: str | None = None) -> dict:
     log.info(f"Merge complete: {merged} merged, {skipped} skipped, "
              f"{no_evidence} no evidence, {no_result} no result")
     log.info(f"Fields added: {field_counts}")
+
+    # Auto-normalize: update normalized{} blocks after evidence modification
+    if not dry_run and merged > 0:
+        print("\n[auto-normalize] Updating normalized{} blocks...")
+        subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "evidence_normalize.py")],
+            check=False,
+        )
 
     return summary
 

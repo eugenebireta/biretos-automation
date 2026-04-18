@@ -2,9 +2,12 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "C7355A1050",
-  "pn_variants": [],
+  "pn_variants": [
+    "C7355A",
+    "C7355"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Мультисенсор настенный Honeywell C7355A1050",
   "assembled_title": "Мультисенсор Honeywell C7355A1050",
   "our_price_raw": "182410,00",
@@ -179,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqLN7npQHJGDw8ySe4i8'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://yorklandcontrols.com/products/c7355a1050-multi-iaq-sensor-honeywell"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -312,7 +312,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "C7355",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "Wall-mount; T-H-CO2-PM2.5-TVOC; RS-485 Modbus; Discontinued per Kele",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -335,7 +340,7 @@
     "description": "Мультисенсор Honeywell C7355A1050 предназначен для измерения температуры, влажности, уровня CO2, PM2.5 и TVOC в помещении. Он используется в системах автоматизации зданий для мониторинга и управления качеством воздуха. Устройство обеспечивает высокую точность измерений и может интегрироваться с различными системами управления.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Мультисенсор",
+    "product_type": "IAQ multisensor",
     "seed_name": "Мультисенсор настенный Honeywell C7355A1050",
     "description_long_ru": "Blackhawk Supply lists at $1,625.63; Radwell surplus $2,136; Kele discontinued"
   },
@@ -570,5 +575,92 @@
   },
   "dr_category": "multisensor",
   "dr_image_url": "https://i.ebayimg.com/images/g/AmkAAeSw6UtperOY/s-l1600.jpg",
-  "product_category": "multisensor"
+  "training_urls": [
+    "https://blackhawksupply.com/products/honeywell-c7355a1050",
+    "https://customer.honeywell.com/en-US/.../C7355A1050",
+    "https://kele.com/product/.../c7355a1050",
+    "https://www.ebay.com/itm/116578744302",
+    "https://www.ebay.com/itm/396121523060",
+    "https://www.ebay.com/p/18058082287"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "182410,00",
+    "our_price_parsed": 182410.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 6906.95,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Мультисенсор Honeywell C7355A1050 предназначен для измерения температуры, влажности, уровня CO2, PM2.5 и TVOC в помещении. Он используется в системах автоматизации зданий для мониторинга и управления качеством воздуха. Устройство обеспечивает высокую точность измерений и может интегрироваться с различными системами управления.",
+    "best_description_source": "content",
+    "best_photo_url": "https://yorklandcontrols.com/products/c7355a1050-multi-iaq-sensor-honeywell",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Мультисенсор Honeywell C7355A1050 предназначен для измерения температуры, влажности, уровня CO2, PM2.5 и TVOC в помещении. Он используется в системах автоматизации зданий для мониторинга и управления качеством воздуха. Устройство обеспечивает высокую точность измерений и может интегрироваться с различными системами управления.",
+    "best_description_ru": "<p>Представляем вам Honeywell C7355A Room IAQ Monitor – передовое решение для комплексного мониторинга качества воздуха в помещениях. Этот мультисенсор от всемирно известного бренда Honeywell, лидера в области автоматизации и управления, разработан для обеспечения точных и надежных данных о ключевых параметрах микроклимата. Модель C7355A1050 является незаменимым инструментом для создания здоровой и комфортной среды, позволяя эффективно контролировать и оптимизировать условия в любом здании.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Комплексный мониторинг:</b> Измеряет температуру, влажность, уровень CO2, PM2.5 и TVOC, предоставляя полную картину качества воздуха.</li>\n<li><b>Высокая точность:</b> Гарантирует прецизионные измерения для каждого параметра, что критически важно для принятия обоснованных решений.</li>\n<li><b>Интеграция с системами автоматизации:</b> Легко интегрируется с различными системами управления зданием (BMS), обеспечивая централизованный контроль.</li>\n<li><b>Надежность бренда Honeywell:</b> Продукт от компании с многолетним опытом и безупречной репутацией в сфере промышленных и бытовых решений.</li>\n<li><b>Широкий диапазон измерений:</b> Способен отслеживать изменения в широком диапазоне значений для каждого измеряемого параметра.</li>\n<li><b>Простота установки:</b> Разработан для удобного и быстрого монтажа в различных типах помещений.</li>\n<li><b>Долговечность:</b> Изготовлен из качественных материалов, обеспечивающих длительный срок службы и стабильную работу.</li>\n<li><b>Оптимизация энергопотребления:</b> Позволяет точно регулировать системы вентиляции и кондиционирования, снижая затраты на энергию.</li>\n</ul>\n<p><b>Применение:</b> Мультисенсор Honeywell C7355A1050 находит широкое применение в самых разнообразных зданиях и учреждениях. Он идеально подходит для офисных центров, школ, больниц, гостиниц, торговых комплексов и жилых помещений, где поддержание оптимального качества воздуха является приоритетом. Устройство используется в системах автоматизации зданий для непрерывного мониторинга и динамического управления климатическим оборудованием, таким как системы вентиляции, кондиционирования и отопления, обеспечивая своевременное реагирование на изменения параметров и поддержание заданных условий.</p>\n<p><b>Преимущества:</b> Выбирая Honeywell C7355A Room IAQ Monitor, вы инвестируете в здоровье и благополучие людей, находящихся в помещении. Высокая точность измерений и надежность бренда Honeywell гарантируют стабильную работу и долговечность устройства. Возможность интеграции с существующими системами управления зданием значительно упрощает эксплуатацию и позволяет эффективно оптимизировать энергопотребление, что приводит к существенной экономии средств. Этот мультисенсор – это ваш шаг к созданию интеллектуальной и комфортной среды.</p>",
+    "best_description_ru_word_count": 307,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "phase3a_price": {
+    "price": 6906.95,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://libertysupply.com/products/lsi6n7lk4r",
+    "confidence": "high",
+    "notes": "Honeywell C7355 Multi Sensor.",
+    "search_used": "C7355A1050 Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "C7355A Room IAQ Monitor",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\C7355A1050.pdf",
+    "datasheet_size_kb": 806,
+    "product_photos": [
+      "downloads\\datasheet_photos\\C7355A1050_p1_0.jpeg",
+      "downloads\\datasheet_photos\\C7355A1050_p2_0.png"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/C7355A1050_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - C7355A is a genuine Honeywell product line for room IAQ monitoring. The datasheet exists and title matches. The issues (missing EAN, short description, no specs, no dimensions) indicate incomplete data extraction from the datasheet, not wrong product identification. The datasheet needs to be re-processed to extract complete specifications, dimensions, weight, and generate proper description."
+    },
+    "description_seo_ru": "<p>Представляем вам Honeywell C7355A Room IAQ Monitor – передовое решение для комплексного мониторинга качества воздуха в помещениях. Этот мультисенсор от всемирно известного бренда Honeywell, лидера в области автоматизации и управления, разработан для обеспечения точных и надежных данных о ключевых параметрах микроклимата. Модель C7355A1050 является незаменимым инструментом для создания здоровой и комфортной среды, позволяя эффективно контролировать и оптимизировать условия в любом здании.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Комплексный мониторинг:</b> Измеряет температуру, влажность, уровень CO2, PM2.5 и TVOC, предоставляя полную картину качества воздуха.</li>\n<li><b>Высокая точность:</b> Гарантирует прецизионные измерения для каждого параметра, что критически важно для принятия обоснованных решений.</li>\n<li><b>Интеграция с системами автоматизации:</b> Легко интегрируется с различными системами управления зданием (BMS), обеспечивая централизованный контроль.</li>\n<li><b>Надежность бренда Honeywell:</b> Продукт от компании с многолетним опытом и безупречной репутацией в сфере промышленных и бытовых решений.</li>\n<li><b>Широкий диапазон измерений:</b> Способен отслеживать изменения в широком диапазоне значений для каждого измеряемого параметра.</li>\n<li><b>Простота установки:</b> Разработан для удобного и быстрого монтажа в различных типах помещений.</li>\n<li><b>Долговечность:</b> Изготовлен из качественных материалов, обеспечивающих длительный срок службы и стабильную работу.</li>\n<li><b>Оптимизация энергопотребления:</b> Позволяет точно регулировать системы вентиляции и кондиционирования, снижая затраты на энергию.</li>\n</ul>\n<p><b>Применение:</b> Мультисенсор Honeywell C7355A1050 находит широкое применение в самых разнообразных зданиях и учреждениях. Он идеально подходит для офисных центров, школ, больниц, гостиниц, торговых комплексов и жилых помещений, где поддержание оптимального качества воздуха является приоритетом. Устройство используется в системах автоматизации зданий для непрерывного мониторинга и динамического управления климатическим оборудованием, таким как системы вентиляции, кондиционирования и отопления, обеспечивая своевременное реагирование на изменения параметров и поддержание заданных условий.</p>\n<p><b>Преимущества:</b> Выбирая Honeywell C7355A Room IAQ Monitor, вы инвестируете в здоровье и благополучие людей, находящихся в помещении. Высокая точность измерений и надежность бренда Honeywell гарантируют стабильную работу и долговечность устройства. Возможность интеграции с существующими системами управления зданием значительно упрощает эксплуатацию и позволяет эффективно оптимизировать энергопотребление, что приводит к существенной экономии средств. Этот мультисенсор – это ваш шаг к созданию интеллектуальной и комфортной среды.</p>",
+    "description_seo_word_count": 307,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'C7355A Room IAQ Monitor' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

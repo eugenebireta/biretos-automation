@@ -1,0 +1,94 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- Items with brand **PEHA**: search as "PEHA {PN}" (e.g. "PEHA 171111"). **Do NOT search "Honeywell {PN}" for these — they are indexed under PEHA, not Honeywell.**
+- Items with brand **Беруши**: search as "Беруши {PN}" (e.g. "Беруши 1006186"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Беруши, not Honeywell.**
+- Items with brand **Предохранитель**: search as "Предохранитель {PN}" (e.g. "Предохранитель D-71570"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Предохранитель, not Honeywell.**
+- Items with brand **Клеммный**: search as "Клеммный {PN}" (e.g. "Клеммный 1631930000"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Клеммный, not Honeywell.**
+- **PEHA** search sites: ebay.de, conrad.de, voelkner.de, watt24.com, pehastore.de, heiz24.de, elektroversand.de. Single-unit price sources: watt24.com, heiz24.de, alles-mit-stecker.de (avoid Conrad/voelkner pack prices >200 EUR).
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | 171111 | PEHA AURA frame | Рамка 1-постовая PEHA AURA, 171111 | 598.00 |
+| 2 | 171411 | PEHA AURA frame | Рамка 4-постовая PEHA AURA, 171411 | 2018.40 |
+| 3 | 174111 | PEHA AURA frame | Рамка 1-постовая PEHA AURA, 174111 | 561.58 |
+| 4 | 125711 | PEHA AURA insert | Вставка PEHA AURA, 125711 | 714.10 |
+| 5 | 369211 | PEHA DIALOG frame | Рамка 2-постовая PEHA DIALOG, 369211 | 552.60 |
+| 6 | 820511 | PEHA DIALOG frame | Рамка 5-постовая PEHA DIALOG, 820511 | 763.00 |
+| 7 | 336011 | PEHA DIALOG insert | Вставка PEHA DIALOG, 336011 | 1402.00 |
+| 8 | 787511 | PEHA DIALOG insert | Вставка PEHA DIALOG, 787511 | 758.67 |
+| 9 | 885711 | PEHA DIALOG insert | Вставка PEHA DIALOG, 885711 | 338.50 |
+| 10 | 821811 | PEHA DIALOG rocker switch | Клавиша PEHA DIALOG, 821811 | 697.50 |
+| 11 | 830811 | PEHA DIALOG rocker switch | Клавиша PEHA DIALOG, 830811 | 448.70 |
+| 12 | 29313 | PEHA NOVA center plate | Центральная накладка PEHA NOVA, 29313 | 10645.00 |
+| 13 | 940293 | PEHA NOVA center plate | Центральная накладка PEHA NOVA, 940293 | 1295.53 |
+| 14 | 179433 | PEHA NOVA frame | Рамка 3-постовая PEHA NOVA, 179433 | 13032.00 |
+| 15 | 183791 | PEHA NOVA frame | Рамка 1-постовая PEHA NOVA, 183791 | 3348.82 |
+| 16 | 184791 | PEHA NOVA frame | Рамка 1-постовая PEHA NOVA, 184791 | 3348.81 |
+| 17 | 187591 | PEHA NOVA frame | Рамка 2-постовая PEHA NOVA, 187591 | 3348.83 |
+| 18 | 190891 | PEHA NOVA frame | Рамка 4-постовая PEHA NOVA, 190891 | 11817.67 |
+| 19 | 191091 | PEHA NOVA frame | Рамка 4-постовая PEHA NOVA, 191091 | 12641.00 |
+| 20 | 20511 | PEHA NOVA frame | Рамка 5-постовая PEHA NOVA, 20511 | 3654.50 |
+| 21 | 27711 | PEHA NOVA insert | Вставка PEHA NOVA, 27711 | 1318.20 |
+| 22 | 29011 | PEHA NOVA insert | Вставка PEHA NOVA, 29011 | 825.00 |
+| 23 | 38511 | PEHA NOVA rocker switch | Клавиша PEHA NOVA, 38511 | 467.10 |
+| 24 | 1006186 | earplugs (PPE) | Беруши 303L FOAMPLUG | 1920.61 |
+| 25 | 304L | earplugs (PPE) | Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS | 0.00 |
+| 26 | D-71570 [also: D.71570, D71570] | fuse | Электронный предохранитель Honeywell D-71570 | 11866.00 |
+| 27 | 13960 | power supply | Источник питания Honeywell PSU 52Ah для MB-Secure | 46288.36 |
+| 28 | 2904617 | power supply | Источник питания Honeywell QUINT4-PS/1AC/24DC/20/+ | 41943.19 |
+| 29 | 1631930000 | terminal block | Клеммный блок Weidmüller 1631930000 SCHT 5S PA66 BG | 520.30 |
+| 30 | KCD2090XI | monitor | Монитор KCD2090XI | 4456.00 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

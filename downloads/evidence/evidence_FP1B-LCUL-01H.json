@@ -6,8 +6,8 @@
     "FP1B.LCUL.01H",
     "FP1BLCUL01H"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Siemon",
+  "subbrand": null,
   "name": "Пигтейл Honeywell FP1B-LCUL-01H",
   "assembled_title": "Пигтейл Honeywell FP1B-LCUL-01H",
   "our_price_raw": "588,00",
@@ -167,7 +167,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Пигтейл с LC-коннектором на жёлтом одномодовом кабеле — соответствует артикулу FP1B-LCUL-01H",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -185,10 +185,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://eac.com.pe/productos/producto/descripcion/?producto=84181"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -306,7 +303,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Siemon",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -551,12 +550,139 @@
     "merge_source": "result_FP1B-LCUL-01H.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Siemon XGLO series. \"H\" = LSOH jacket. Price is for OFNR version; LSOH may be marginally higher."
+    }
   },
   "dr_category": "Fiber optic pigtail",
   "dr_image_url": "https://www.eelaf.com/web/image/product.template/18324/image_1920?unique=7c356d0",
   "dr_price": 12.9,
   "dr_currency": "USD",
   "dr_price_source": "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions",
-  "product_category": "fiber pigtail"
+  "training_urls": [
+    "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions",
+    "https://files.siemon.com/int-download-product-specsheets/siemon-xglo-jumper-and-pigtails_spec-sheet.pdf",
+    "https://mtech.co.ke/catalogue/siemon-fp1b-lcul-01h-1m-lc-pigtails/",
+    "https://www.anixter.com/en_us/products/FP1B-LCUL-01/SIEMON-COMPANY/Fiber-Optic-Cable-Assemblies/p/361705"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 12.9,
+    "dr_currency": "USD",
+    "dr_source_url": "http://www.eaccu-tech.com/siemon/fp1b-lcul-01-siemon-solutions",
+    "our_price_raw": "588,00",
+    "our_price_parsed": 588.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 12.9,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Пигтейл Honeywell FP1B-LCUL-01H используется для соединения оптических волокон. Он обеспечивает надежное и качественное соединение в телекоммуникационных системах.",
+    "best_description_source": "content",
+    "best_photo_url": "https://eac.com.pe/productos/producto/descripcion/?producto=84181",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "fiber_type_multimode_om3": "50/125µm",
+      "fiber_type_multimode_om4": "50/125µm",
+      "fiber_type_singlemode": "OS2",
+      "connector_types": [
+        "SC",
+        "LC",
+        "ST"
+      ],
+      "duplex_options": [
+        "SC-SC",
+        "LC-LC",
+        "LC-SC",
+        "ST-ST",
+        "ST-SC",
+        "LC-ST"
+      ],
+      "simplex_pigtail_buffer": "900 micron",
+      "jacket_color_multimode": "aqua",
+      "jacket_color_singlemode": "yellow",
+      "connector_color_multimode": "beige",
+      "connector_color_singlemode": "blue",
+      "cable_jacket_standard_ofnr": "OFNR",
+      "cable_jacket_standard_lsoh": "IEC 60332-3C",
+      "om3_wavelength_1_nm": "850",
+      "om3_wavelength_2_nm": "1300",
+      "om3_wavelength_3_nm": "850",
+      "om3_cable_bandwidth_850nm_mhz_km": "1500 (OFL)",
+      "om3_cable_bandwidth_1300nm_mhz_km": "500 (OFL)",
+      "om3_cable_bandwidth_850nm_emb_mhz_km": "2000 (EMB)",
+      "om3_max_insertion_loss_db": "0.25 (0.10 Typical)",
+      "om3_min_return_loss_db": "30 (35 Typical)",
+      "om4_wavelength_1_nm": "850",
+      "om4_wavelength_2_nm": "1300",
+      "om4_wavelength_3_nm": "850",
+      "om4_cable_bandwidth_850nm_mhz_km": "3500 (OFL)",
+      "om4_cable_bandwidth_1300nm_mhz_km": "500 (OFL)",
+      "om4_cable_bandwidth_850nm_emb_mhz_km": "4700 (EMB)",
+      "om4_max_insertion_loss_db": "0.25 (0.10 Typical)",
+      "om4_min_return_loss_db": "30 (35 Typical)",
+      "os2_wavelength_nm": "1310/1550",
+      "os2_max_insertion_loss_db": "0.40 (0.10 Typical)",
+      "os2_min_return_loss_db": "55 (60 Typical)",
+      "standard_ieee_802_3": "10 Gigabit Ethernet",
+      "standard_iec_60793_2_10": "IEC-60793-2-10",
+      "standard_tia_492aaac": "OM3",
+      "standard_tia_492aaad": "OM4",
+      "specification_compliance": "Telcordia, ISO/IEC, TIA/EIA, ANSI/TIA",
+      "warranty_years": "20",
+      "available_lengths_m": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "dust_caps_included": "yes",
+      "duplexing_clip": "SC duplexing clip for polarity correction"
+    },
+    "specs_count": 40,
+    "series": "XGLO",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "RoHS Compliant",
+      "IEEE 802.3 10 Gigabit Ethernet",
+      "IEC-60793-2-10",
+      "TIA-492AAAC",
+      "TIA-492AAAD",
+      "Telcordia",
+      "ISO/IEC",
+      "TIA/EIA",
+      "ANSI/TIA",
+      "IEC 60332-3C"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FP1B-LCUL-01H.pdf",
+    "datasheet_size_kb": 637,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

@@ -1,0 +1,62 @@
+# Phase 1 — Identity Recon: Honeywell products (batch 2/6)
+
+## Your task
+Identify each product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## Search rules
+- Search as "Honeywell {PN}" or just "{PN}" in quotes
+- Suffix -RU: try without suffix too (Russian market variant)
+- Suffix -L3: kit — search base PN without suffix
+- Sites: honeywellsensors.com, distech-controls.com, automation24.com, rs-components.com
+
+## What I need per SKU
+1. **product_type** — short English name: "smoke detector", "HVAC sensor", "gas detector"
+2. **product_line** — family/series name
+3. **manufacturer** — confirm Honeywell or identify real OEM
+4. **pn_aliases** — alternative PNs on distributor sites
+5. **discontinued** — yes/no
+6. **identity_notes** — OEM info, replaced by, kit contents, regional variant
+
+## Products (30 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | 400-ATII | Жесткий диск Honeywell 400-ATII | Жесткий диск Honeywell 400-ATII, 300GB 15K RPM SAS 12Gbps | 400.ATII, 400ATII | no_desc |
+| 2 | 42511 | Устройство Honeywell 42511 | Устройство Honeywell D 20.677.192-Z | - | no_price, no_photo |
+| 3 | 57511 | Устройство Honeywell 57511 | Устройство Honeywell D 20.677.702-Z | - | no_price, no_photo |
+| 4 | 580249.11 | Усилитель Honeywell 580249.11 | Усилитель Honeywell 580249.11, 4XD500, Версия 1.1 | 580249-11, 58024911 | no_price |
+| 5 | 581263 | Громкоговоритель Honeywell 581263 | Потолочный громкоговоритель Honeywell 581263, 6 Вт | - | no_price |
+| 6 | 581276 | Громкоговоритель Honeywell 581276 | Настенный громкоговоритель Honeywell 581276, 10 Вт | - | no_price, no_photo |
+| 7 | 583491A | Кабель Honeywell 583491A | Кабель входной Honeywell 583491A, DOM-amp. 0,5м зеленый | - | no_price |
+| 8 | 583520 | Станция вызова Honeywell 583520 | Цифровая станция вызова Honeywell DCS Plus e54-16 | - | no_desc |
+| 9 | 600GB-SAS2.5 | Жесткий диск Honeywell 600GB-SAS2.5 | Жесткий диск Honeywell 600GB-SAS2.5, 600 GB SAS 10K | 600GB-SAS2-5, 600GB.SAS2.5, 600GBSAS25 | no_desc |
+| 10 | 600GB-SAS3.5 | Жесткий диск Honeywell 600GB-SAS3.5 | Жесткий диск 3.5" HDD 600 GB SATA | 600GB-SAS3-5, 600GB.SAS3.5, 600GBSAS35 | no_desc |
+| 11 | 6500-LRK | Извещатель Honeywell 6500-LRK | Линейный извещатель ACCESS BEAM CONV/L REFLECTOR 75M-100M | 6500.LRK, 6500LRK | no_photo |
+| 12 | 65UL3J | Светодиодная панель Honeywell 65UL3J | Светодиодная панель LED 65UL3J-E | - | no_price, no_photo |
+| 13 | 704960 | Запасное стекло Honeywell 704960 | Запасное стекло для малого MCP | - | no_desc |
+| 14 | 7508001857 | Модуль ввода Honeywell 7508001857 | Модуль ввода FTA-C300-16DI-F-SLIM-G3-S | - | no_desc |
+| 15 | 7508001858 | Модуль ввода Honeywell 7508001858 | Модуль ввода FTA-C300-16DI-F-SLIM-G3-S | - | no_desc |
+| 16 | 7508002114 | Модуль питания Honeywell 7508002114 | Модуль распределения питания Power Distribution FTA | - | no_desc |
+| 17 | 788013.40.RU | Панель управления Honeywell 788013.40.RU | Панель управления пожаротушением Exting. control panel 8010, | 788013-40-RU, 78801340RU | no_desc |
+| 18 | 805576 | Табличка Honeywell 805576 | Табличка для базы извещателя (набор из 10) 805576 | - | no_desc |
+| 19 | 805577 | Адаптер Honeywell 805577 | Адаптер для монтажа (набор из 10) 805577 | - | no_desc |
+| 20 | 805590 | База Honeywell 805590 | База извещателя стандартная 805590 | - | no_photo |
+| 21 | 806602 | Рейка Honeywell 806602 | NS 35/15 WH PERF 2000MM 806602 | - | no_price, no_photo |
+| 22 | 808610.10 | Транспондер Honeywell 808610.10 | Транспондер Esserbus 12 реле 808610.10 | 808610-10, 80861010 | no_price |
+| 23 | 808621 | Транспондер Honeywell 808621 | Транспондер шины IQ8FCT LP 808621 | - | no_photo |
+| 24 | 871-229-201 | Зарядная станция Honeywell 871-229-201 | Зарядная станция Honeywell MULTIDOCK, CHARGE ONLY CK3, AD22 | 871.229.201, 871229201 | no_dr, no_price, no_photo, no_desc |
+| 25 | 91940-RU | Труба Honeywell 91940-RU | Гибкая гофрированная труба Honeywell (в метрах) | 91940.RU, 91940RU | no_desc |
+| 26 | A133230-00 | Модуль Honeywell A133230-00 Анализ ценТендерная аналитика | Коммуникационный модуль Honeywell STRAALH.COMMMK2, BISON., S | A133230.00, A13323000 | no_desc |
+| 27 | AT-TRAY4 | Кронштейн Honeywell AT-TRAY4 | Кронштейн для монтажа Allied Telesis AT-TRAY4 | AT.TRAY4, ATTRAY4 | no_desc |
+| 28 | BF-HWC4-PN16-0125 | Задвижка Honeywell BF-HWC4-PN16-0125 | Задвижка с диском Honeywell DN125 MBV DI Body Disk Matl Epox | BF.HWC4.PN16.0125, BFHWC4PN160125 | no_desc |
+| 29 | BS-420G2 | Извещатель Honeywell BS-420G2 | Пожарный извещатель Autronica BS 420G2 | BS.420G2, BS420G2 | no_price |
+| 30 | BWC4-Y-R | Газоанализатор Honeywell BWC4-Y-R | Газоанализатор Honeywell BWC4 - O2, LEL, H2S, CO, Yellow, RU | BWC4.Y.R, BWC4YR | no_dr, no_photo, no_desc |
+
+## Required output — markdown table only
+
+| PN | product_type | product_line | manufacturer | pn_aliases | discontinued | identity_notes |
+|----|-------------|-------------|-------------|-----------|-------------|----------------|
+
+- Cannot confirm → write "unknown" in product_type
+- manufacturer: "Honeywell" only if confirmed, else real OEM name
+- Return ONLY the table, no preamble

@@ -4,7 +4,7 @@
   "pn": "704960",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Запасное стекло для малого MCP",
   "assembled_title": "Запасное стекло Honeywell 704960",
   "our_price_raw": "2550,65",
@@ -313,7 +313,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "IQ8 detector accessories",
+    "confirmed_manufacturer": "Esser",
+    "discontinued": false,
+    "identity_notes_p1": "EN 54-11 compliant glass panel for small MCP with white foil and pictogram",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [
@@ -342,9 +347,8 @@
     "description": "Запасное стекло для малого ручного пожарного извещателя (MCP). Используется для замены поврежденного стекла в извещателях, обеспечивая их работоспособность и надежность.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Запасное стекло",
-    "seed_name": "Запасное стекло для малого MCP",
-    "description_long_ru": "Esser by Honeywell (Novar GmbH). Price is ex-VAT"
+    "product_type": "Spare glass pane",
+    "seed_name": "Запасное стекло для малого MCP"
   },
   "trace": {
     "pn_match_location": "",
@@ -600,7 +604,23 @@
       "raw": "EN 54-11 type A; W56mm; H49.5mm; D1.85mm; pictogram + foil",
       "aliases": [
         "704960 (VE=10 pcs у части поставщиков)"
-      ]
+      ],
+      "Part number": "704960",
+      "Type": "Spare glass pane for MCP (Manual Call Point)",
+      "Design": "Small MCP design",
+      "Standard": "EN 54-11 (Type A)",
+      "Included": "Glass pane + white stick-on foil with pictogram",
+      "Packing unit": "10 pcs (VE10)",
+      "Compatible MCPs": "804960, 804961, 804970 and other small design MCPs",
+      "Manufacturer": "Esser by Honeywell (Novar GmbH)",
+      "Brand": "ESSER by Honeywell",
+      "Part Number": "704960",
+      "Device Type": "Spare glass pane",
+      "Compatibility": "Small MCP manual call points",
+      "Pack Quantity": "10 pcs",
+      "type": "Replacement Glass for Manual Call Point",
+      "activation_type": "Break-glass Type A",
+      "ean": "4019324020960"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -620,12 +640,113 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.159181+00:00",
+    "merge_ts": "2026-04-09T12:01:24.843635+00:00",
     "merge_source": "result_704960.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "Esser by Honeywell (Novar GmbH). Price is ex-VAT"
+    "descriptions_all": {
+      "claude": "Запасное стекло Esser 704960 представляет собой сменную стеклянную панель для ручных пожарных извещателей (MCP — Manual Call Point) малого дизайна производства Esser by Honeywell. Стекло поставляется в комплекте с белой самоклеящейся плёнкой и напечатанной пиктограммой в соответствии с европейским стандартом EN 54-11 (тип A). Запасное стекло предназначено для замены разбитого стекла после активации ручного извещателя. Совместимо с извещателями малого дизайна серий 804960, 804961, 804970 и другими компактными MCP от Esser. Поставляется в упаковке по 10 штук (VE10). Стекло является обязательным расходным материалом для поддержания пожарной сигнализации Esser в рабочем состоянии. После каждого срабатывания извещателя необходимо установить новое стекло для восстановления готовности устройства. Esser (Novar GmbH, a Honeywell Company) — ведущий европейский производитель систем пожарной сигнализации.",
+      "gpt": "ESSER 704960 — это запасное стекло для ручного извещателя или кнопки малого исполнения MCP. Такая деталь используется как сервисный расходный компонент при восстановлении работоспособности ручного пожарного извещателя после срабатывания или повреждения стеклянной вставки. Изделие не является самостоятельным извещателем, а служит запасной частью для технического обслуживания и ремонта существующего оборудования. В системах пожарной сигнализации это важно, поскольку позволяет вернуть ручной извещатель в рабочее состояние без полной замены всего узла. Оригинальное стекло обеспечивает корректную совместимость по размерам и механике с соответствующими малыми MCP-устройствами серии ESSER. Подобные запасные части применяются обслуживающими организациями, на объектах с большим количеством ручных точек вызова и в сервисных комплектах. При заказе необходимо сверять тип корпуса извещателя и совместимость именно с small MCP, поскольку у разных серий могут отличаться размеры вставок. Монтаж обычно выполняется квалифицированным персоналом при сервисном обслуживании, после чего извещатель должен быть приведён в штатное состояние по инструкции. Для пожарных систем также важно сохранять требования применимых норм и использовать оригинальные или одобренные изготовителем запчасти. В каталоге B2B позицию разумно вести как spare glass pane for small MCP с указанием упаковки, если она критична для закупки.",
+      "synthesis": "Запасное стекло Esser 704960 представляет собой сменную стеклянную панель для ручных пожарных извещателей (MCP) малого дизайна производства Esser by Honeywell. Стекло поставляется в комплекте с белой самоклеящейся плёнкой и напечатанной пиктограммой в соответствии с европейским стандартом EN 54-11 (тип A). Изделие совместимо с ручными извещателями серий 804960, 804961, 804970 и другими компактными моделями MCP от Esser, поставляясь в упаковке по 10 штук (VE10). Запасное стекло является обязательным расходным материалом для поддержания пожарной сигнализации Esser в рабочем состоянии, поскольку после каждого срабатывания извещателя необходимо установить новое стекло для восстановления его готовности к дальнейшему использованию. Использование оригинального стекла обеспечивает корректную совместимость по размерам и механике с соответствующими малыми MCP-устройствами, позволяя квалифицированному персоналу выполнить замену при сервисном обслуживании. При заказе необходимо сверять тип корпуса извещателя и совместимость именно с small MCP, поскольку у разных серий могут отличаться размеры стеклянных вставок, а для пожарных систем важно использовать только оригинальные или производителем одобренные запчасти."
+    },
+    "specs_all": {
+      "claude": {
+        "Part number": "704960",
+        "Type": "Spare glass pane for MCP (Manual Call Point)",
+        "Design": "Small MCP design",
+        "Standard": "EN 54-11 (Type A)",
+        "Included": "Glass pane + white stick-on foil with pictogram",
+        "Packing unit": "10 pcs (VE10)",
+        "Compatible MCPs": "804960, 804961, 804970 and other small design MCPs",
+        "Manufacturer": "Esser by Honeywell (Novar GmbH)"
+      },
+      "gpt": {
+        "Brand": "ESSER by Honeywell",
+        "Part Number": "704960",
+        "Device Type": "Spare glass pane",
+        "Compatibility": "Small MCP manual call points",
+        "Pack Quantity": "10 pcs",
+        "Standard": "EN 54"
+      },
+      "gemini": {
+        "type": "Replacement Glass for Manual Call Point",
+        "activation_type": "Break-glass Type A",
+        "ean": "4019324020960"
+      }
+    },
+    "notes_all": {
+      "gpt": "Service spare part. Some Honeywell regional pages indicate discontinued status."
+    }
   },
-  "product_category": "manual call point spare part"
+  "training_urls": [
+    "https://dieffematic.com/en/products/spare-glass-esser-704960-surveillance-safety-original-warranty-new",
+    "https://stockonfire.com/product/esser-704960-spare-glass/",
+    "https://walde.ee/en/esser-mcp-spare-glass-compact-10pcs",
+    "https://www.esser-systems.com/en/products/details/manual-call-points/small-design-accessories/704960-spare-glass-pane-for-small-mcp-en54/",
+    "https://www.esser-systems.com/fileadmin/uploads/Service/Downloads/054581g0-bmt-katalog.pdf",
+    "https://www.hls-austria.com/en/business/fire-alarm-systems/esser-by-honeywell/products/manual-call-points/accessories-for-mcp-small-design/704960",
+    "https://www.supplyhouse.com/Honeywell-704960-Burner-Gasket",
+    "https://www.esser-systems.com/en/products/details/manual-call-points/accessories-for-mcp-small-design/704960-spare-glass-pane-for-small-mcp-en54/",
+    "https://stockonfire.com/product/esser-704960-spare-glass-2/",
+    "https://www.boydens.co.uk/esser-704960-spare-glass-pane-for-small-mcp-pack-of-10",
+    "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/systems-and-peripherals/spare-glass-pane-small-mcp-10-pcs",
+    "https://www.alarm-lade.de/media/pdf/31/4d/8c/MB_esser_hon_700961_3tpg37l8OYU20.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 34.0,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://www.isssafety.com/products/704960-honeywell-spare-glass-pane-with-white-stick-on-foil-and-printed-pictogram-in-compliance-with-en-54-11",
+    "our_price_raw": "2550,65",
+    "our_price_parsed": 2550.65,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": 10,
+    "judge_reason": "kf: 'VE=10 pcs' and 'упаковка 10 шт' — explicitly pack of 10"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 34.0,
+    "best_price_currency": "GBP",
+    "best_price_source": "price_contract",
+    "best_description": "Запасное стекло для малого ручного пожарного извещателя (MCP). Используется для замены поврежденного стекла в извещателях, обеспечивая их работоспособность и надежность.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-704960-primaryimage",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Запасное стекло для малого ручного пожарного извещателя (MCP). Используется для замены поврежденного стекла в извещателях, обеспечивая их работоспособность и надежность.",
+    "best_description_ru": "<p>Представляем вашему вниманию оригинальную запасную часть от всемирно известного бренда Honeywell – артикул 704960, предназначенную для ручных пожарных извещателей. Этот компонент, известный как \"manual call point spare part\", является незаменимым элементом для поддержания функциональности и эстетического вида систем пожарной безопасности. Он разработан специально для замены поврежденного стекла в малых ручных пожарных извещателях (MCP), обеспечивая их бесперебойную работу и соответствие стандартам безопасности.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оригинальная запасная часть от Honeywell, гарантирующая полную совместимость.</li>\n<li>Артикул: 704960, что облегчает идентификацию и заказ.</li>\n<li>Предназначено для малых ручных пожарных извещателей (MCP).</li>\n<li>Высококачественное стекло, обеспечивающее прозрачность и прочность.</li>\n<li>Разработано для быстрой и легкой замены поврежденных элементов.</li>\n<li>Восстанавливает первоначальный внешний вид и функциональность извещателя.</li>\n<li>Необходимый элемент для поддержания соответствия систем пожарной безопасности нормативным требованиям.</li>\n<li>Надежное решение для продления срока службы существующих устройств.</li>\n</ul>\n\n<p>Данное запасное стекло находит свое применение в широком спектре объектов, где установлены ручные пожарные извещатели Honeywell. Оно идеально подходит для использования в офисных зданиях, торговых центрах, промышленных предприятиях, образовательных учреждениях, медицинских учреждениях и жилых комплексах. Замена поврежденного стекла является критически важной процедурой, поскольку треснутое или разбитое стекло может препятствовать активации извещателя или снижать его видимость, что потенциально ставит под угрозу безопасность людей в случае пожара. Процесс замены прост и не требует специальных инструментов.</p>\n\n<p>Выбор запасного стекла Honeywell 704960 является оптимальным решением для тех, кто ценит надежность и долговечность. Использование оригинальных комплектующих гарантирует идеальную совместимость и восстановление изначальных эксплуатационных характеристик вашего пожарного извещателя. Это обеспечивает не только эстетическую целостность устройства, но и, что более важно, его бесперебойную и эффективную работу в критических ситуациях, подтверждая высокий стандарт качества и безопасности, присущий продукции Honeywell.</p>",
+    "best_description_ru_word_count": 257,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 704960 is 6-digit numeric matching PEHA format, but seed name 'Запасное стекло для малого MCP' (Russian for 'Spare glass for small MCP') indicates fire safety equipment spare part consistent with Honeywell's fire alarm product line. MCP = Manual Call Point (fire alarm activation device). Brand likely correct as Honeywell manufactures fire safety equipment. Needs official datasheet to confirm specifications and obtain proper title/EAN."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию оригинальную запасную часть от всемирно известного бренда Honeywell – артикул 704960, предназначенную для ручных пожарных извещателей. Этот компонент, известный как \"manual call point spare part\", является незаменимым элементом для поддержания функциональности и эстетического вида систем пожарной безопасности. Он разработан специально для замены поврежденного стекла в малых ручных пожарных извещателях (MCP), обеспечивая их бесперебойную работу и соответствие стандартам безопасности.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оригинальная запасная часть от Honeywell, гарантирующая полную совместимость.</li>\n<li>Артикул: 704960, что облегчает идентификацию и заказ.</li>\n<li>Предназначено для малых ручных пожарных извещателей (MCP).</li>\n<li>Высококачественное стекло, обеспечивающее прозрачность и прочность.</li>\n<li>Разработано для быстрой и легкой замены поврежденных элементов.</li>\n<li>Восстанавливает первоначальный внешний вид и функциональность извещателя.</li>\n<li>Необходимый элемент для поддержания соответствия систем пожарной безопасности нормативным требованиям.</li>\n<li>Надежное решение для продления срока службы существующих устройств.</li>\n</ul>\n\n<p>Данное запасное стекло находит свое применение в широком спектре объектов, где установлены ручные пожарные извещатели Honeywell. Оно идеально подходит для использования в офисных зданиях, торговых центрах, промышленных предприятиях, образовательных учреждениях, медицинских учреждениях и жилых комплексах. Замена поврежденного стекла является критически важной процедурой, поскольку треснутое или разбитое стекло может препятствовать активации извещателя или снижать его видимость, что потенциально ставит под угрозу безопасность людей в случае пожара. Процесс замены прост и не требует специальных инструментов.</p>\n\n<p>Выбор запасного стекла Honeywell 704960 является оптимальным решением для тех, кто ценит надежность и долговечность. Использование оригинальных комплектующих гарантирует идеальную совместимость и восстановление изначальных эксплуатационных характеристик вашего пожарного извещателя. Это обеспечивает не только эстетическую целостность устройства, но и, что более важно, его бесперебойную и эффективную работу в критических ситуациях, подтверждая высокий стандарт качества и безопасности, присущий продукции Honeywell.</p>",
+    "description_seo_word_count": 257,
+    "description_seo_model": ""
+  }
 }

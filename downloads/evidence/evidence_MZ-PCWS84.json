@@ -7,7 +7,7 @@
     "MZPCWS84"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Рабочая станция HP Z4 G4 RAID1 TOWER",
   "assembled_title": "Рабочая станция Honeywell MZ-PCWS84",
   "our_price_raw": "43032,00",
@@ -177,7 +177,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqQ48ZARdjbyArNZzJNC'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -195,10 +195,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.plcdcspro.com/products/mz-pcws92-51156044-100-honeywell-computers-de"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -314,7 +311,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "HP Z4 G4",
+    "confirmed_manufacturer": "HP",
+    "identity_notes_p1": "HP Z4 G4 tower workstation with RAID1; not Honeywell product",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -332,7 +333,7 @@
     "description": "Рабочая станция HP Z4 G4 в форм-факторе Tower с поддержкой RAID1 предназначена для профессионального использования в различных отраслях. Обеспечивает высокую производительность и надежность благодаря мощным компонентам и возможностям расширения.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Рабочая станция",
+    "product_type": "Workstation/System block",
     "seed_name": "Рабочая станция HP Z4 G4 RAID1 TOWER",
     "description_long_ru": "**NOT Morley fire workstation.** Honeywell Experion PKS platform. End of Sale Q2 2024. Honeywell-channel only"
   },
@@ -552,9 +553,118 @@
     "merge_source": "result_MZ-PCWS84.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "**NOT Morley fire workstation.** Honeywell Experion PKS platform. End of Sale Q2 2024. Honeywell-channel only"
+    }
   },
   "dr_category": "Industrial DCS workstation",
   "dr_image_url": "—",
-  "product_category": "workstation"
+  "training_urls": [
+    "https://process.honeywell.com/content/dam/process/en/documents/document-lists/doc_list_hints/2024/2024-March-System%20HINTS.pdf",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/pmt/hps/products/pas/experion-pks/operations/experion-collaboration-station/pmt-hps-ep03-220-520-collaborationstation.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "43032,00",
+    "our_price_parsed": 43032.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 43032.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "our_estimate",
+    "best_description": "Рабочая станция HP Z4 G4 в форм-факторе Tower с поддержкой RAID1 предназначена для профессионального использования в различных отраслях. Обеспечивает высокую производительность и надежность благодаря мощным компонентам и возможностям расширения.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.plcdcspro.com/products/mz-pcws92-51156044-100-honeywell-computers-de",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Рабочая станция HP Z4 G4 в форм-факторе Tower с поддержкой RAID1 предназначена для профессионального использования в различных отраслях. Обеспечивает высокую производительность и надежность благодаря мощным компонентам и возможностям расширения.",
+    "best_description_ru": "<p>Experion Collaboration Station от компании Honeywell — это профессиональная рабочая станция HP Z4 G4 в корпусе Tower, разработанная для требовательных пользователей, работающих в различных отраслях промышленности и науки. Данное устройство сочетает в себе мощные вычислительные возможности с надежностью и стабильностью, необходимыми для выполнения сложных задач обработки данных, 3D-моделирования, видеомонтажа и научных расчетов. Благодаря поддержке RAID1, станция обеспечивает защиту данных и непрерывность работы даже при отказе одного из накопителей.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Форм-фактор Tower для удобного размещения на рабочем столе или под столом</li>\n<li>Поддержка RAID1 для надежной защиты и резервирования данных</li>\n<li>Мощные компоненты, обеспечивающие высокую производительность при обработке сложных задач</li>\n<li>Возможности расширения для модернизации и адаптации под растущие требования</li>\n<li>Профессиональная архитектура, оптимизированная для многопоточных приложений</li>\n<li>Надежная система охлаждения для стабильной работы в течение длительного времени</li>\n<li>Совместимость с профессиональным программным обеспечением и операционными системами</li>\n</ul>\n\n<p><b>Применение:</b> Experion Collaboration Station идеально подходит для работы в инженерных компаниях, студиях цифрового контента, научно-исследовательских учреждениях и центрах разработки. Станция используется для выполнения ресурсоемких задач, включая трехмерное моделирование, визуализацию данных, обработку видео высокого разрешения, симуляции и вычислительные анализы. Благодаря надежности и производительности, она обеспечивает беспрерывную работу в многопользовательских окружениях и поддерживает совместную работу специалистов.</p>\n\n<p><b>Преимущества:</b> Выбирая Experion Collaboration Station, вы получаете профессиональное решение, которое гарантирует высокую производительность и безопасность данных. Поддержка RAID1 защищает ваши проекты от потери информации, а расширяемая архитектура позволяет адаптировать систему под будущие требования. Надежность и долговечность делают эту станцию выгодным инвестированием для серьезных профессионалов.</p>",
+    "best_description_ru_word_count": 231,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=HP/Dell",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Experion Collaboration Station",
+    "description": "",
+    "specs": {
+      "max_collaboration_stations_connected_to_eserver": "4",
+      "max_collaboration_stations_connected_to_experion_server": "7",
+      "max_radial_menus_per_workspace_eserver": "50",
+      "max_radial_menus_per_workspace_experion_server": "100",
+      "max_parameters_per_workspace_eserver": "400",
+      "max_parameters_per_workspace_experion_server": "700",
+      "max_parameters_per_workspace_flex_server": "350",
+      "parameters_per_second_eserver": "700",
+      "parameters_per_second_experion_server": "1000",
+      "max_dynamic_parameters_eserver": "2000",
+      "max_dynamic_parameters_experion_server": "3000",
+      "max_items_per_radial_menu_petal": "10",
+      "max_alarm_icons_per_workspace_eserver": "50",
+      "max_zoom_regions_per_workspace_eserver": "50",
+      "max_zoom_regions_per_workspace_experion_server": "100",
+      "max_open_schematics_per_collaboration_station": "40",
+      "max_live_updated_schematics_per_collaboration_station": "10",
+      "max_open_applications_per_collaboration_station": "20",
+      "max_experion_server_nodes_standard_hardware": "30",
+      "max_experion_server_nodes_performance_hardware": "40",
+      "max_trend_pens_eserver": "100",
+      "processor": "3.60GHz, 4-core processor",
+      "RAM": "16 GB",
+      "networking": "100 Mbps Ethernet",
+      "video_resolution": "3840x2160",
+      "operating_system": "Microsoft Windows 10 IoT Enterprise LTSC 2019",
+      "hard_drive": "1 TB",
+      "browser": "Microsoft Internet Explorer 11",
+      "screen_definition": "UHD (4K)",
+      "multi_touch_support": "2 point or greater with gesture control",
+      "audio_support": "Yes",
+      "screen_size_minimum_inches": "60",
+      "screen_size_maximum_inches": "92",
+      "experion_release_compatibility": "R520",
+      "supported_dsa_connected_experion_server_releases": "R52x, R51x, R50x, R43x",
+      "qualified_lg_screens": "86 inch LG 86TN3F-B, 75 inch available"
+    },
+    "specs_count": 36,
+    "series": "Experion Collaboration Station",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\MZ-PCWS84.pdf",
+    "datasheet_size_kb": 288,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The PN MZ-PCWS84 and title 'Experion Collaboration Station' are consistent with Honeywell's industrial automation product line (Experion is Honeywell's DCS platform). The seed_name 'HP Z4 G4 RAID1 TOWER' is incorrect/misleading - it appears to describe the hardware platform used, not the actual product. Honeywell often bundles HP workstations as part of their industrial collaboration stations. The datasheet appears corrupted/incomplete (truncated description, missing specs, no EAN). Correct brand is Honeywell, correct PN is MZ-PCWS84, but a complete datasheet is needed."
+    },
+    "description_seo_ru": "<p>Experion Collaboration Station от компании Honeywell — это профессиональная рабочая станция HP Z4 G4 в корпусе Tower, разработанная для требовательных пользователей, работающих в различных отраслях промышленности и науки. Данное устройство сочетает в себе мощные вычислительные возможности с надежностью и стабильностью, необходимыми для выполнения сложных задач обработки данных, 3D-моделирования, видеомонтажа и научных расчетов. Благодаря поддержке RAID1, станция обеспечивает защиту данных и непрерывность работы даже при отказе одного из накопителей.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Форм-фактор Tower для удобного размещения на рабочем столе или под столом</li>\n<li>Поддержка RAID1 для надежной защиты и резервирования данных</li>\n<li>Мощные компоненты, обеспечивающие высокую производительность при обработке сложных задач</li>\n<li>Возможности расширения для модернизации и адаптации под растущие требования</li>\n<li>Профессиональная архитектура, оптимизированная для многопоточных приложений</li>\n<li>Надежная система охлаждения для стабильной работы в течение длительного времени</li>\n<li>Совместимость с профессиональным программным обеспечением и операционными системами</li>\n</ul>\n\n<p><b>Применение:</b> Experion Collaboration Station идеально подходит для работы в инженерных компаниях, студиях цифрового контента, научно-исследовательских учреждениях и центрах разработки. Станция используется для выполнения ресурсоемких задач, включая трехмерное моделирование, визуализацию данных, обработку видео высокого разрешения, симуляции и вычислительные анализы. Благодаря надежности и производительности, она обеспечивает беспрерывную работу в многопользовательских окружениях и поддерживает совместную работу специалистов.</p>\n\n<p><b>Преимущества:</b> Выбирая Experion Collaboration Station, вы получаете профессиональное решение, которое гарантирует высокую производительность и безопасность данных. Поддержка RAID1 защищает ваши проекты от потери информации, а расширяемая архитектура позволяет адаптировать систему под будущие требования. Надежность и долговечность делают эту станцию выгодным инвестированием для серьезных профессионалов.</p>",
+    "description_seo_word_count": 231,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Experion Collaboration Station' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

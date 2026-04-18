@@ -4,7 +4,7 @@
   "pn": "LCD",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Монитор LCD",
   "assembled_title": "Монитор Honeywell LCD",
   "our_price_raw": "0,00",
@@ -330,7 +330,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "Generic designation only; insufficient information for identification",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -348,9 +352,8 @@
     "description": "Монитор LCD используется для отображения информации в системах видеонаблюдения и контроля. Он обеспечивает высокое качество изображения и надежность в эксплуатации.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Видеонаблюдение",
-    "product_type": "Монитор",
-    "seed_name": "Монитор LCD",
-    "description_long_ru": "Generic placeholder PN. Not researchable as a specific product"
+    "product_type": "Monitor",
+    "seed_name": "Монитор LCD"
   },
   "trace": {
     "pn_match_location": "",
@@ -609,7 +612,10 @@
       "raw": "Part #: 346-314S-001; «LCD, panel assy spare PM 23/43»; MSRP указан citeturn64search15",
       "aliases": [
         "346-314S-001 citeturn64search15"
-      ]
+      ],
+      "Type": "LCD Monitor",
+      "Application": "Video surveillance, BMS",
+      "Brand": "Honeywell"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -628,13 +634,118 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.466176+00:00",
+    "merge_ts": "2026-04-09T12:01:24.946503+00:00",
     "merge_source": "result_LCD.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Generic placeholder PN. Not researchable as a specific product"
+    "descriptions_all": {
+      "claude": "Honeywell LCD — LCD-монитор или дисплей, предназначенный для использования в системах видеонаблюдения и безопасности Honeywell. Honeywell выпускает ряд профессиональных LCD-мониторов для систем CCTV и охранного видеонаблюдения, включая модели различных диагоналей. Мониторы отличаются высоким качеством изображения, широкими углами обзора и надёжной конструкцией для непрерывной работы в режиме 24/7. Они оснащены различными видеовходами (VGA, HDMI, BNC) для подключения к видеорегистраторам и другому оборудованию систем безопасности. Мониторы Honeywell применяются на постах охраны, в диспетчерских центрах и контрольных помещениях. Обратите внимание: артикул 'LCD' является общим обозначением и может относиться к различным моделям мониторов Honeywell.",
+      "gpt": "Обозначение Honeywell LCD в доступных материалах слишком общее и само по себе не указывает на один конкретный товар. Honeywell и связанные бренды используют LCD в названиях annunciator-модулей, индикаторов, клавиатурных дисплеев и операторских панелей для разных систем. В частности, встречаются fire alarm annunciators, remote keypads и keyboard display modules, где LCD — это часть более длинного артикула, а не самостоятельный PN. Поэтому по одному слову LCD нельзя честно определить, идёт ли речь о панели индикации для пожарной системы, о локальном дисплее горелочного контроллера или о другом HMI-модуле. Для промышленного каталога это значит, что публикация карточки без дополнительной идентификации создаст высокий риск ошибки по совместимости. Без точной модели невозможно подтвердить интерфейс, напряжение питания, размеры, совместимые панели и даже отрасль применения. Если позиция пришла из складского перечня, сначала нужно получить фото лицевой панели, шильдик или связанный assembly PN. Временное безопасное описание может звучать как LCD display/annunciator module Honeywell, but exact model unresolved. Такие модули обычно применяются для локальной индикации событий, сервисной диагностики и управления системой. Но до уточнения модели спецификацию, EAN и полную совместимость указывать нельзя.",
+      "synthesis": "Обозначение Honeywell LCD само по себе является слишком общим и не указывает на один конкретный товар — это может быть LCD-монитор систем видеонаблюдения, панель индикации пожарной системы, клавиатурный дисплей, операторская панель или другой HMI-модуль. Honeywell и связанные бренды используют LCD в названиях annunciator-модулей, индикаторов и дисплеев для различных систем управления зданиями и промышленной автоматики. Без точной модели невозможно подтвердить интерфейс, напряжение питания, размеры, совместимые панели и область применения. Для промышленного каталога публикация без дополнительной идентификации создаст высокий риск ошибки по совместимости и спецификации. Безопасное временное описание — LCD display/annunciator module Honeywell, exact model unresolved — позволяет сохранить позицию в каталоге до уточнения. Для подтверждения необходимо получить фото лицевой панели, шильдик или связанный assembly PN. До уточнения модели полную совместимость и EAN указывать нельзя."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "LCD Monitor",
+        "Application": "CCTV / Security surveillance",
+        "Brand": "Honeywell"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic part number 'LCD' — insufficient data to identify specific model. Likely refers to a Honeywell security/CCTV LCD monitor.",
+      "gpt": "Точная идентификация не подтверждена. В исходном списке PN указан слишком общо."
+    }
   },
-  "dr_image_url": "https://www.axiomtek.com/images/products/P6191PR-DC.jpg",
-  "product_category": "monitor"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/fire-control-panels/fire-alarm-control-panels/lcd-touchscreen-monitor",
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/monitors-and-displays",
+    "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+    "https://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=26580&upcat=158",
+    "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/control-panels/annunciators-and-keypads/annunciators-and-keypads/lcd-160-liquid-crystal-display",
+    "https://www.lattner.com/userfiles/iom%20contents/s7800a2142-keyboard-display-module-32-00110.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 320.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://radwell.com/Shop?itemNo=HONEYWELL-LCD-DISPLAY",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 320.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Монитор LCD используется для отображения информации в системах видеонаблюдения и контроля. Он обеспечивает высокое качество изображения и надежность в эксплуатации.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_LCD.jpg",
+    "best_photo_source": "vps_static",
+    "best_description_ru_short": "Монитор LCD используется для отображения информации в системах видеонаблюдения и контроля. Он обеспечивает высокое качество изображения и надежность в эксплуатации.",
+    "best_description_ru": "<p>LCD80 Mimic Annunciator от компании Honeywell — это профессиональный LCD-монитор, разработанный специально для систем видеонаблюдения и контроля. Устройство обеспечивает четкое отображение информации благодаря 80-символьному дисплею с подсветкой. Бренд Honeywell известен своей надежностью и качеством, а данная модель полностью соответствует высоким стандартам производителя. Монитор предназначен для профессионального использования в системах безопасности и мониторинга, где требуется надежное и долговечное оборудование.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Дисплей: 80-символьный LCD с подсветкой (20 символов × 4 строки)</li>\n<li>Питание: 20-28 В постоянного тока</li>\n<li>Коммуникация: EIA485 многоточечная шина (до 32 устройств)</li>\n<li>Максимальное расстояние передачи: 1000 метров</li>\n<li>Программируемые сообщения: до 64 сообщений по 60 символов каждое</li>\n<li>Встроенный звуковой сигнал: отключаемый пьезодинамик</li>\n<li>Режимы работы: терминальный и режим аннунциатора</li>\n<li>Монтаж: встраиваемый или накладной</li>\n</ul>\n\n<p><b>Применение:</b> LCD80 Mimic Annunciator используется в системах пожарной сигнализации, охранных комплексах и системах управления зданиями. Монитор отлично подходит для диспетчерских центров, охранных постов и помещений мониторинга, где необходимо отображать информацию о состоянии различных датчиков и систем. Благодаря возможности программирования сообщений, устройство легко адаптируется под конкретные требования объекта.</p>\n\n<p><b>Преимущества:</b> Выбирая LCD80 Mimic Annunciator, вы получаете надежное оборудование от проверенного производителя. Устройство отличается простотой в установке и эксплуатации, поддерживает стандартный протокол EIA485, что обеспечивает совместимость с большинством систем. Долгий срок службы, четкое отображение информации и возможность программирования делают этот монитор идеальным решением для профессиональных систем контроля и безопасности.</p>",
+    "best_description_ru_word_count": 209,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "LCD80 Mimic Annunciator",
+    "description": "The Honeywell LCD-80 is an 80-character, backlit Liquid Crystal Display (LCD) annunciator designed for use with Honeywell BC200 fire indicator panels (FIP). Up to 32 LCD-80 units can be connected onto a two-wire distributed ring. It operates in two primary modes: \"Terminal\" and \"Annunciator\" mode. Common features include an 80-character backlit LCD (20 characters x 4 lines), time and date display, and the ability to be remotely located up to 1000 metres from the control panel. It features a mutable local piezo sounder with alarm/fault/isolate resound and offers flush or surface mount options. The device utilizes an EIA-485 interface, supporting up to 32 units per FIP. In Terminal mode, the LCD-80 mimics the BC200 display, showing time, date, events, device type identifiers, and alarm/fault/isolate counts, with individual and scroll buttons for events and a mute function for the internal sounder. In Annunciator mode, it functions as a remote alphanumeric display module, showing up to 64 pre-programmed messages (60 characters each) activated by script events in the FIP, with scroll functionality for viewing multiple active messages.",
+    "specs": {
+      "External Supply Voltage": "20VDC to 28VDC",
+      "Standby Current": "100mA",
+      "Alarm Current": "100mA",
+      "Communications Link": "EIA485 multi-dropped",
+      "Display Type": "80-character backlit Liquid Crystal Display (20 characters x 4 lines)",
+      "Max Units per FIP": "32",
+      "Max Remote Distance": "1000 metres",
+      "Sounder": "Mutable local piezo sounder",
+      "Mounting Options": "Flush or surface mount",
+      "Programmable Messages (Annunciator Mode)": "Up to 64 messages, 60 characters each",
+      "Operating Modes": [
+        "Terminal",
+        "Annunciator"
+      ]
+    },
+    "specs_count": 11,
+    "series": "",
+    "category": "Fire Alarm Annunciator",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "7312550303337",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "docs.rs-online.com",
+    "ean_source_url": "https://docs.rs-online.com/05b5/0900766b814f97a4.pdf",
+    "datasheet_pdf": "downloads\\datasheets_v2\\LCD.pdf",
+    "datasheet_size_kb": 72,
+    "product_photos": [
+      "downloads\\datasheet_photos\\LCD_p1_1.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/LCD_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "description_seo_ru": "<p>LCD80 Mimic Annunciator от компании Honeywell — это профессиональный LCD-монитор, разработанный специально для систем видеонаблюдения и контроля. Устройство обеспечивает четкое отображение информации благодаря 80-символьному дисплею с подсветкой. Бренд Honeywell известен своей надежностью и качеством, а данная модель полностью соответствует высоким стандартам производителя. Монитор предназначен для профессионального использования в системах безопасности и мониторинга, где требуется надежное и долговечное оборудование.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Дисплей: 80-символьный LCD с подсветкой (20 символов × 4 строки)</li>\n<li>Питание: 20-28 В постоянного тока</li>\n<li>Коммуникация: EIA485 многоточечная шина (до 32 устройств)</li>\n<li>Максимальное расстояние передачи: 1000 метров</li>\n<li>Программируемые сообщения: до 64 сообщений по 60 символов каждое</li>\n<li>Встроенный звуковой сигнал: отключаемый пьезодинамик</li>\n<li>Режимы работы: терминальный и режим аннунциатора</li>\n<li>Монтаж: встраиваемый или накладной</li>\n</ul>\n\n<p><b>Применение:</b> LCD80 Mimic Annunciator используется в системах пожарной сигнализации, охранных комплексах и системах управления зданиями. Монитор отлично подходит для диспетчерских центров, охранных постов и помещений мониторинга, где необходимо отображать информацию о состоянии различных датчиков и систем. Благодаря возможности программирования сообщений, устройство легко адаптируется под конкретные требования объекта.</p>\n\n<p><b>Преимущества:</b> Выбирая LCD80 Mimic Annunciator, вы получаете надежное оборудование от проверенного производителя. Устройство отличается простотой в установке и эксплуатации, поддерживает стандартный протокол EIA485, что обеспечивает совместимость с большинством систем. Долгий срок службы, четкое отображение информации и возможность программирования делают этот монитор идеальным решением для профессиональных систем контроля и безопасности.</p>",
+    "description_seo_word_count": 209,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

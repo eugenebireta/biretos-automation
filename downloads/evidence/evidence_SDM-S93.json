@@ -4,10 +4,11 @@
   "pn": "SDM-S93",
   "pn_variants": [
     "SDM.S93",
-    "SDMS93"
+    "SDMS93",
+    "SDM-S93/B"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Монитор SDM-S93",
   "assembled_title": "Монитор Honeywell SDM-S93",
   "our_price_raw": "713,00",
@@ -182,7 +183,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "монитор угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +201,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://partsokey.ru/catalog/monitory/monitor_sony_sdm_s93_1280x1024_75_gts_mva_"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -357,7 +355,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "StylePro",
+    "confirmed_manufacturer": "Sony",
+    "discontinued": false,
+    "identity_notes_p1": "19\" SXGA LCD monitor by Sony, not Honeywell product",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -380,7 +383,7 @@
     "description": "Монитор для отображения информации в системах автоматизации и управления. Обеспечивает четкое и яркое изображение, подходит для использования в промышленных условиях.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Монитор",
+    "product_type": "LCD monitor",
     "seed_name": "Монитор SDM-S93",
     "description_long_ru": "Sony StylePro series; discontinued ~2003; used only; also $79.99 at DougDeals; $99.99 at BuffaloComputerParts; ErgoBright auto-brightness"
   },
@@ -602,9 +605,106 @@
     "merge_source": "result_SDM-S93.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7c264914-6a25-4f35-b4a4-7f6b3d4ff1bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Sony StylePro series; discontinued ~2003; used only; also $79.99 at DougDeals; $99.99 at BuffaloComputerParts; ErgoBright auto-brightness"
+    }
   },
   "dr_category": "Monitor",
   "dr_image_url": "https://c1.neweggimages.com/productimage/nb640/24-006-069-06.jpg",
-  "product_category": "monitor"
+  "training_urls": [
+    "https://www.amazon.com/Sony-SDM-S93-LCD-1280-1024/dp/B0000ANF0P",
+    "https://www.buffalocomputerparts.com/products/sony-19in-lcd-500-1-1280x1024-slim-sdm-s93",
+    "https://www.dougdeals.com/sony-sdm-s93-tft-lcd-1280-x-1024-19-inch-500-1-sxga-color-19-display-screen/",
+    "https://www.ebay.com/itm/335545956286",
+    "https://www.ebay.com/p/78704554",
+    "https://www.newegg.com/sony-sdm-s93-b-19-sxga/p/N82E16824006069",
+    "https://www.tomshardware.com/reviews/affordable-19,673-13.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "713,00",
+    "our_price_parsed": 713.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 35.0,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Монитор для отображения информации в системах автоматизации и управления. Обеспечивает четкое и яркое изображение, подходит для использования в промышленных условиях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://partsokey.ru/catalog/monitory/monitor_sony_sdm_s93_1280x1024_75_gts_mva_",
+    "best_photo_source": "photo_verdict"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Sony",
+  "phase3a_price": {
+    "price": 35.0,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/335545956286",
+    "confidence": "medium",
+    "notes": "Used Sony SDM-S93 monitor",
+    "search_used": "SDM-S93"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Справочник военного переводчика",
+    "description": "",
+    "specs": {
+      "title": "Справочник военного переводчика",
+      "author": "В.Н. Шевчук",
+      "editor": "к.ф.н. Е.Н. Ожогин",
+      "publisher": "ООО «Издательство «Русь»",
+      "publication_location": "Санкт-Петербург",
+      "publication_year": "2016",
+      "number_of_pages": "400",
+      "illustrated": "yes",
+      "UDC": "81-26(03)",
+      "BBK_1": "68я2",
+      "BBK_2": "81.43я2",
+      "copyright_holder": "Шевчук В.Н."
+    },
+    "specs_count": 12,
+    "series": "Справочник",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\SDM-S93.pdf",
+    "datasheet_size_kb": 40118,
+    "product_photos": [
+      "downloads\\datasheet_photos\\SDM-S93_p3_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 40118KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Справочник военного переводчика' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

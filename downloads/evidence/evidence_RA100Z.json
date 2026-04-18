@@ -3,10 +3,10 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "RA100Z",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "System Sensor",
+  "subbrand": null,
   "name": "Выносной индикатор RA100Z",
-  "assembled_title": "Индикатор Honeywell RA100Z",
+  "assembled_title": "Индикатор System Sensor RA100Z",
   "our_price_raw": "3241,04",
   "expected_category": "Индикатор",
   "card_status": "REVIEW_REQUIRED",
@@ -174,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Выносной индикатор тревоги с надписью ALARM и световым индикатором угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -192,9 +192,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -350,7 +348,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "System Sensor",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -596,12 +596,101 @@
     "merge_source": "result_RA100Z.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "System Sensor / Honeywell. Also $22.83 Next Security; $26.99 Protegis; €69 Credex EU. Replaces RA400Z."
+    }
   },
   "dr_category": "Remote LED annunciator",
   "dr_image_url": "(available on Amazon and Credex pages)",
   "dr_price": 21.29,
   "dr_currency": "USD",
   "dr_price_source": "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2",
-  "product_category": "Remote LED annunciator"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/fire-life-safety/sensors-and-detectors/intelligent-detectors/accessories/remote-annunciator-red-led",
+    "https://nextsecuritycorp.com/products/ra100z-system-sensor",
+    "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2",
+    "https://www.credexalarmsystems.eu/en/notifier-ra100z-indicator-with-led-for-dnre-and-d2e.html",
+    "https://www.protegis.com/products/system-sensor-ra100z"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 21.29,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.amazon.com/Notifier-RA100Z-Remote-LED/dp/B0778ZRRT2",
+    "our_price_raw": "3241,04",
+    "our_price_parsed": 3241.04,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 21.29,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Выносной индикатор для систем пожарной сигнализации. Обеспечивает визуальную индикацию состояния системы. Компактный и надежный, подходит для установки в различных помещениях.",
+    "best_description_source": "content",
+    "best_photo_url": "(available on Amazon and Credex pages)",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "DNR Duct Smoke Detector",
+    "description": "Model DNR Air Duct Smoke Detector uses photoelectric technology for the detection of smoke. This detection method, when combined with an efficient housing design, samples air passing through the duct and allows detection of a developing hazardous condition. When sufficient smoke is sensed, an alarm signal is initiated at the fire control panel monitoring the detector, and appropriate action can be taken to shut off fans, blowers, change over air handling systems, etc. These actions can facilitate the management of toxic smoke and fire gases throughout the areas served by the duct system.",
+    "specs": {
+      "operating_temperature_celsius": {
+        "general": "-20 to 70",
+        "with_module_installed": "0 to 49"
+      },
+      "storage_temperature_celsius": "-30 to 70",
+      "humidity": "0% to 93% Relative Humidity Non-condensing",
+      "air_velocity": "100 to 4000 ft./min. (0.5 to 20.3 m/sec.)",
+      "rectangular_footprint_dimensions_mm": "370 L x 127 W x 63.6 D",
+      "square_footprint_dimensions_mm": "197 L x 229 W x 63.5 D",
+      "voltage_vdc": 24,
+      "current_ra100z_standby_ma": 0,
+      "current_ra100z_alarm_max_ma": 12,
+      "current_rts151_standby_ma": 0,
+      "current_rts151_alarm_max_ma": 12,
+      "current_rts151key_standby_ma": 0,
+      "current_rts151key_alarm_max_ma": 12
+    },
+    "specs_count": 13,
+    "series": "DNR",
+    "category": "Duct Smoke Detector",
+    "weight_g": 730,
+    "dimensions_mm": "370 L x 127 W x 63.6 D (Rectangular Footprint)",
+    "certifications": [
+      "UL 268A"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\RA100Z.pdf",
+    "datasheet_size_kb": 1018,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The PN RA100Z and seed name 'Выносной индикатор' (Remote Indicator) are consistent - RA100Z is indeed a remote annunciator/indicator accessory for System Sensor's DNR duct smoke detector. The datasheet uploaded is for the DNR detector itself, not for the RA100Z accessory. The PN and brand are correct, but the wrong datasheet was attached. Need correct RA100Z datasheet that describes the remote indicator unit."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'DNR Duct Smoke Detector' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

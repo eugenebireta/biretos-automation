@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "815511",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "PEHA",
+  "subbrand": "PEHA",
   "name": "D 95.610.02 TAE NA",
   "assembled_title": "Вставка PEHA DIALOG, 815511",
   "our_price_raw": "1068,60",
@@ -341,7 +341,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -377,8 +379,7 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Устройство",
-    "seed_name": "D 95.610.02 TAE NA",
-    "description_long_ru": "PEHA DIALOG series. Estimated EUR 6-10"
+    "seed_name": "D 95.610.02 TAE NA"
   },
   "trace": {
     "pn_match_location": "",
@@ -649,7 +650,15 @@
       "raw": "Computersalg: DKK 209.00 (ex moms 167.20); Tesli: накладка на аудиорозетку DIALOG",
       "aliases": [
         "815511"
-      ]
+      ],
+      "Type": "Insert/mechanism (special function)",
+      "Series": "PEHA DIALOG",
+      "Color": "White",
+      "Mounting": "Flush mount",
+      "Brand": "PEHA (Honeywell)",
+      "Product type": "Central plate for TAE and UAE/TAE junction boxes",
+      "Connections": "Up to 3",
+      "Labeling field": "7 x 64 mm"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -669,12 +678,163 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.236278+00:00",
+    "merge_ts": "2026-04-09T12:01:24.864654+00:00",
     "merge_source": "result_815511.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "PEHA DIALOG series. Estimated EUR 6-10"
+    "descriptions_all": {
+      "claude": "PEHA 815511 — вставка (механизм) серии DIALOG для электроустановочных изделий белого цвета. Артикул 8155xx обычно относится к механизмам розеток или специальных вставок серии PEHA DIALOG. Данный механизм предназначен для монтажа в стандартные подрозетники и совместим со всеми рамками и накладками серии DIALOG. Изготовлен из высококачественного пластика с металлическими контактными элементами. Серия DIALOG от PEHA отличается надёжностью и современным дизайном.",
+      "gpt": "PEHA 815511 — это центральная накладка для TAE и UAE/TAE junction boxes, рассчитанная на до трёх подключений и снабжённая полем для маркировки 7 x 64 мм. Каталожные источники относят её к серии DIALOG и указывают исполнение pure white. Это означает, что изделие предназначено для телекоммуникационных/информационных розеток, а не для силовой точки и не для аудиоразъёма. Такие центральные части используются в телефонных и слаботочных инсталляциях, где важно аккуратно оформить выход и обозначить линию или порт. Наличие поля для маркировки особенно полезно в офисах, гостиницах, административных объектах и других местах с большим количеством информационных подключений. Позиция не является полноценным механизмом сама по себе и должна использоваться с совместимым базовым элементом. Для монтажника важно проверять тип базовой коробки и требуемое число подключений, потому что в той же серии есть схожие детали для UAE, TDO, TV и других стандартов. В B2B-каталоге эту позицию правильно описывать как central plate for TAE and UAE/TAE junction boxes, pure white, with labeling field. Это намного точнее, чем общее описание «insert/mechanism». Исходная трактовка в задании не подтверждена и должна быть исправлена на коммуникационную накладку.",
+      "synthesis": "PEHA 815511 — центральная накладка для подключения коммуникационных систем серии DIALOG чистого белого цвета (pure white), предназначенная для оформления TAE и UAE/TAE junction boxes на до трёх подключений. Накладка предусмотрена для телефонных и информационных розеток, обеспечивая единое оформление с остальной электроустановочной серией DIALOG при разных типах коммуникационных подключений. Наличие поля для маркировки размером 7 x 64 мм особенно полезно в офисах, гостиницах, административных объектах и других местах с большим количеством информационных подключений, позволяя четко идентифицировать каждую линию или порт. Центральная часть выполнена из пластика с типовой для внутренних помещений степенью защиты IP20, совместима с базовыми монтажными элементами серии DIALOG и упрощает интеграцию в типовые слаботочные инсталляции. Изделие не является полноценным механизмом само по себе и должно использоваться с совместимым базовым элементом, закрывая и оформляя соответствующую junction box в едином архитектурном стиле. Для монтажника важно проверять тип базовой коробки и требуемое число подключений, поскольку в той же серии есть схожие детали для различных стандартов коммуникационного оборудования. При реконструкции офисных и жилых слаботочных точек такая накладка часто используется для замены только лицевой части без переделки базовой инфраструктуры."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Insert / Mechanism",
+        "Series": "PEHA DIALOG",
+        "Color": "White",
+        "Brand": "PEHA (Honeywell)"
+      },
+      "gpt": {
+        "Product type": "Central plate for TAE and UAE/TAE junction boxes",
+        "Connections": "Up to 3",
+        "Labeling field": "7 x 64 mm",
+        "Series": "PEHA DIALOG",
+        "Color": "Pure white"
+      }
+    },
+    "notes_all": {
+      "claude": "Specific function not confirmed. PEHA DIALOG series insert.",
+      "gpt": "Исходное описание как special-function insert/mechanism не подтверждено. По каталогам это communication central plate для TAE/UAE-TAE."
+    }
   },
-  "product_category": "cover plate"
+  "training_urls": [
+    "https://www.eibabo.com/en/peha/central-plate-plate-tae-d-95.610.02-tae-na-eb10825693",
+    "https://www.indiamart.com/proddetail/honeywell-esser-iq8control-23154865188.html",
+    "https://www.voltus.de/schalterprogramme/peha/dialog/tae-netzwerk/",
+    "https://vivaset.ru/user_files/product_documents/Peha/catalog%202014-2015%20%28final%29.pdf",
+    "https://www.yumpu.com/en/document/view/24450573/peha-product-catalogue-2008-us-ship-supply"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 209.0,
+    "dr_currency": "DKK",
+    "dr_source_url": "https://www.computersalg.dk/i/10462556/peha-by-honeywell-afd%C3%A6kning-afd%C3%A6kning-815511-1-stk",
+    "our_price_raw": "1068,60",
+    "our_price_parsed": 1068.6,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 209.0,
+    "best_price_currency": "DKK",
+    "best_price_source": "price_contract",
+    "best_description": "Устройство D 95.610.02 TAE NA применяется в системах автоматизации и управления. Обеспечивает выполнение специфических функций в зависимости от конфигурации и назначения. Изготовлено с учетом высоких стандартов качества.",
+    "best_description_source": "content",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Audio Point Nova Design",
+    "description": "",
+    "specs": {
+      "supply_voltage": "220-240 V~, 50-60 Hz",
+      "max_output_power": "10 W",
+      "input_current_nominal": "60 mA",
+      "standby_power": "0 W",
+      "output_voltage": "5 V",
+      "output_current_max": "2.0 A",
+      "usb_connectors": "USB 2.0 Type A and USB 3.0",
+      "ip_rating": "IP 20",
+      "operating_temperature_min": "0°C",
+      "operating_temperature_max": "40°C",
+      "storage_temperature_min": "-20°C",
+      "storage_temperature_max": "70°C",
+      "standards": "IEC 61558-2-16, IEC 61000-6-1, IEC 61000-6-3",
+      "usb_ports_count": "2",
+      "output_current_per_port": "2 A",
+      "standby_energy_consumption": "0 W",
+      "product_type": "USB Charging Device"
+    },
+    "specs_count": 17,
+    "series": "PEHA (NOVA, AURA, DIALOG)",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "IEC 61558-2-16",
+      "IEC 61000-6-1",
+      "IEC 61000-6-3"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\815511.pdf",
+    "datasheet_size_kb": 21739,
+    "product_photos": [
+      "downloads\\datasheet_photos\\815511_p1_5.jpeg",
+      "downloads\\datasheet_photos\\815511_p2_0.jpeg",
+      "downloads\\datasheet_photos\\815511_p3_0.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105815511",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/815511_p3_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 815511 is 6-digit numeric matching PEHA format. 'D 95.610.02 TAE NA' follows PEHA's product naming convention (D-series). 'Audio Point Nova Design' indicates a PEHA Nova design line intercom/doorbell component. This is not a Honeywell product.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 21739KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Audio Point Nova Design' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105815511",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "PEHA",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "PEHA"
+  }
 }

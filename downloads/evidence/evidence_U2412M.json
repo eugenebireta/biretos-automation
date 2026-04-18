@@ -4,7 +4,7 @@
   "pn": "U2412M",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Монитор Honeywell U2412M",
   "assembled_title": "Монитор Honeywell U2412M",
   "our_price_raw": "9913,69",
@@ -319,7 +319,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "UltraSharp",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "24\" professional monitor by Dell, not Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -337,9 +342,8 @@
     "description": "Монитор Honeywell U2412M используется в офисных и промышленных средах. Он обеспечивает четкое изображение и удобство работы благодаря эргономичному дизайну и широкому углу обзора.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Монитор",
-    "seed_name": "Монитор Honeywell U2412M",
-    "description_long_ru": "Dell UltraSharp; ref price 9,913 RUB is reasonable vs market"
+    "product_type": "LCD monitor",
+    "seed_name": "Монитор Honeywell U2412M"
   },
   "trace": {
     "pn_match_location": "",
@@ -594,7 +598,34 @@
     "specs": {
       "aliases": [
         "Dell UltraSharp U2412M"
-      ]
+      ],
+      "Screen size": "24 inches",
+      "Resolution": "1920x1200 (WUXGA, 16:10)",
+      "Panel type": "IPS with LED backlight",
+      "Viewing angles": "178°/178°",
+      "Brightness": "300 cd/m²",
+      "Contrast": "1000:1 (static)",
+      "Response time": "8 ms (typical)",
+      "Inputs": "VGA, DVI-D, DisplayPort",
+      "USB hub": "4x USB 2.0",
+      "VESA mount": "100x100 mm",
+      "Stand adjustments": "Height (115mm), tilt, swivel, pivot",
+      "Power consumption": "~36W (typical)",
+      "Brand": "Dell",
+      "Series": "UltraSharp",
+      "Screen Size": "24 in",
+      "Native Resolution": "1920 x 1200",
+      "Aspect Ratio": "16:10",
+      "Panel Type": "LED-backlit LCD",
+      "USB Hub": "Yes",
+      "Ergonomics": "Height, tilt, swivel, pivot",
+      "panel": "e-IPS",
+      "resolution": "1920 x 1200",
+      "aspect_ratio": "16:10",
+      "brightness": "300 cd/m2",
+      "color_gamut": "99% sRGB",
+      "usb_hub": "4 x USB 2.0",
+      "ean": "0884116065180"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -613,12 +644,102 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.633084+00:00",
+    "merge_ts": "2026-04-09T12:01:25.012077+00:00",
     "merge_source": "result_U2412M.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "Dell UltraSharp; ref price 9,913 RUB is reasonable vs market"
+    "descriptions_all": {
+      "claude": "Dell UltraSharp U2412M — это профессиональный IPS-монитор с диагональю 24 дюйма и разрешением WUXGA 1920×1200 пикселей (формат 16:10). Монитор является одним из самых популярных профессиональных мониторов Dell благодаря отличному соотношению цены и качества. IPS-матрица с LED-подсветкой обеспечивает точную цветопередачу с охватом 82% CIE 1976 и углами обзора 178°/178°. Яркость — 300 кд/м², статическая контрастность — 1000:1. Время отклика — 8 мс (типичное). Интерфейсы подключения: VGA, DVI-D, DisplayPort. Встроенный USB-хаб с 4 портами USB 2.0. Эргономичная подставка поддерживает регулировку по высоте (115 мм), наклон, поворот и разворот в портретный режим (pivot). Поддерживается VESA 100×100 мм. Энергопотребление в рабочем режиме — около 36 Вт. Формат 16:10 обеспечивает дополнительное вертикальное рабочее пространство, что ценится при работе с документами и кодом.",
+      "gpt": "Dell UltraSharp U2412M — это 24-дюймовый профессиональный монитор формата 16:10, рассчитанный на офисную работу, инженерные приложения, таблицы и длительную эксплуатацию в корпоративной среде. Модель построена вокруг разрешения 1920×1200, что даёт больше вертикального пространства по сравнению с обычными Full HD дисплеями и удобно для документов, ERP-систем, CAD-окон и веб-интерфейсов. Серия UltraSharp ориентирована на более качественную матрицу, расширенную эргономику и стабильную работу в составе офисных парков техники. В мониторе реализована регулируемая по высоте подставка, наклон, поворот и разворот в портретный режим, поэтому его легко адаптировать под конкретное рабочее место. Для подключения обычно используются DVI-D, DisplayPort и VGA, что делает модель совместимой как с более старыми, так и с современными настольными системами. Наличие USB-хаба упрощает подключение периферии на рабочем столе и позволяет использовать монитор как удобную точку коммутации. Экран хорошо подходит для длительной повседневной работы с текстом и табличными данными, где важны комфорт, читаемость и достаточная площадь по высоте. Модель широко применялась в офисах, диспетчерских, проектных организациях и корпоративных ИТ-парках благодаря сочетанию надёжности и удобства настройки. При закупке на вторичном рынке важно учитывать ревизию, состояние матрицы, наработку подсветки и комплектацию кабелей, так как модель уже не новая. Для замены внутри современной линейки Dell обычно рассматривают более поздние 24-дюймовые мониторы формата 16:10, но U2412M до сих пор остаётся востребованным как проверенное рабочее решение.",
+      "synthesis": "Dell UltraSharp U2412M — это 24-дюймовый профессиональный IPS-монитор с разрешением WUXGA 1920×1200 (соотношение сторон 16:10), рассчитанный на офисную работу, инженерные приложения, таблицы и долгосрочную корпоративную эксплуатацию. IPS-матрица с LED-подсветкой обеспечивает точную цветопередачу с охватом 82% CIE 1976 и углами обзора 178°/178°; яркость 300 кд/м², статическая контрастность 1000:1, время отклика 8 мс. Формат 16:10 даёт дополнительное вертикальное пространство по сравнению с обычными Full HD дисплеями, что удобно для документов, ERP-систем, CAD-окон и веб-интерфейсов. Расширенная эргономика включает регулировку по высоте (115 мм), наклон, поворот и разворот в портретный режим, позволяя адаптировать монитор под конкретное рабочее место. Интерфейсы подключения: VGA, DVI-D, DisplayPort; встроенный USB-хаб с 4 портами USB 2.0 упрощает подключение периферии на рабочем столе. Поддерживается VESA 100×100 мм монтаж; энергопотребление в рабочем режиме — около 36 Вт. Экран хорошо подходит для длительной повседневной работы с текстом и табличными данными, где важны комфорт, читаемость и достаточная площадь по высоте. Монитор широко применялся в офисах, диспетчерских, проектных организациях и корпоративных ИТ-парках благодаря сочетанию надёжности и удобства настройки. Это проверенное рабочее решение, остающееся востребованным на вторичном рынке для офисной инфраструктуры."
+    },
+    "specs_all": {
+      "claude": {
+        "Screen size": "24 inches",
+        "Resolution": "1920x1200 (WUXGA, 16:10)",
+        "Panel type": "IPS with LED backlight",
+        "Viewing angles": "178°/178°",
+        "Brightness": "300 cd/m²",
+        "Contrast": "1000:1 (static)",
+        "Response time": "8 ms (typical)",
+        "Inputs": "VGA, DVI-D, DisplayPort",
+        "USB hub": "4x USB 2.0",
+        "VESA mount": "100x100 mm",
+        "Stand adjustments": "Height (115mm), tilt, swivel, pivot",
+        "Power consumption": "~36W (typical)"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Series": "UltraSharp",
+        "Screen Size": "24 in",
+        "Native Resolution": "1920 x 1200",
+        "Aspect Ratio": "16:10",
+        "Panel Type": "LED-backlit LCD",
+        "Inputs": "DisplayPort, DVI-D, VGA",
+        "USB Hub": "Yes",
+        "Ergonomics": "Height, tilt, swivel, pivot"
+      },
+      "gemini": {
+        "panel": "e-IPS",
+        "resolution": "1920 x 1200",
+        "aspect_ratio": "16:10",
+        "brightness": "300 cd/m2",
+        "color_gamut": "99% sRGB",
+        "usb_hub": "4 x USB 2.0",
+        "ean": "0884116065180"
+      }
+    },
+    "notes_all": {
+      "claude": "Very popular corporate monitor. Discontinued but widely used.",
+      "gpt": "Legacy UltraSharp 24in 16:10 monitor. Current replacements are newer Dell 24in 16:10 business displays."
+    }
   },
-  "product_category": "monitor"
+  "training_urls": [
+    "https://dl.dell.com/manuals/all-products/esuprt_display_projector/esuprt_display/dell-u2412m_user%27s%20guide_en-us.pdf",
+    "https://www.amazon.com/Dell-UltraSharp-24-Inch-LED-Lit-Monitor/dp/B005JN9310",
+    "https://www.bhphotovideo.com/c/product/883561-REG/Dell_U2412M_UltraSharp_24_LED.html",
+    "https://www.displayspecifications.com/en/model/8d00557",
+    "https://www.ebay.com/itm/395402227859",
+    "https://www.newegg.com/dell-u2412m-24/p/N82E16824260047",
+    "https://www.walmart.com/ip/Dell-UltraSharp-U2412M-LED-monitor-24/21281827",
+    "https://www.dell.com/support/product-details/en-us/product/dell-u2412m/",
+    "https://dl.dell.com/manuals/all-products/esuprt_display_projector/esuprt_display/dell-u2412m_user%27s%20guide_ja-jp.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 407.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/395402227859",
+    "our_price_raw": "9913,69",
+    "our_price_parsed": 9913.69,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 407.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Монитор Honeywell U2412M используется в офисных и промышленных средах. Он обеспечивает четкое изображение и удобство работы благодаря эргономичному дизайну и широкому углу обзора.",
+    "best_description_source": "content",
+    "best_photo_url": "ebay.com",
+    "best_photo_source": "dr_image"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell",
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

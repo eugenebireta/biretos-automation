@@ -4,7 +4,7 @@
   "pn": "311513",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Датчик температуры D 95.810.70 HR",
   "assembled_title": "Центральная накладка PEHA DIALOG, 311513",
   "our_price_raw": "1849,00",
@@ -343,7 +343,13 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 95.810.70 HR",
+    "series": "DIALOG",
+    "identity_notes_p1": "DIALOG temperature sensor central plate HR variant",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -402,9 +408,8 @@
     "description": "Датчик температуры D 95.810.70 HR используется для контроля температуры в системах отопления и вентиляции. Отличается высокой точностью и долговечностью.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Датчик",
-    "seed_name": "Датчик температуры D 95.810.70 HR",
-    "description_long_ru": "UVP EUR 26.17. Also EUR 15.99 at technikprimus.de. DIALOG series"
+    "product_type": "Temperature control plate",
+    "seed_name": "Датчик температуры D 95.810.70 HR"
   },
   "trace": {
     "pn_match_location": "",
@@ -661,7 +666,7 @@
   },
   "deep_research": {
     "confidence": "low",
-    "merge_ts": "2026-04-10T11:05:35.052972+00:00",
+    "merge_ts": "2026-04-09T12:01:24.813591+00:00",
     "merge_source": "result_311513.json",
     "title_ru": "cover plate",
     "sources": [
@@ -679,7 +684,194 @@
     "provider": "unknown",
     "model": "unknown",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "UVP EUR 26.17. Also EUR 15.99 at technikprimus.de. DIALOG series"
+    "specs": {
+      "series": "DIALOG",
+      "type": "Central plate",
+      "gang": "1",
+      "mounting_standard": "DIN 49075",
+      "standard": "VDE"
+    }
   },
-  "product_category": "cover plate"
+  "training_urls": [
+    "https://www.computersalg.se/i/10462259/peha-by-honeywell-311513-t%C3%A4cklock-t%C3%A4cklock-aluminium",
+    "https://www.elektro4000.de/Schalterprogramme/Peha/Abdeckungen-fuer-Schalter-Taster-Dimmer-Jalousie/Weitere-Abdeckungen-Von-Peha/Peha-Zentralplatte-alu-D-95-810-70-HR::77883.html",
+    "https://www.peha.de/bildpreisliste_2013/page161.html",
+    "https://www.technikprimus.de/Peha-Zentralplatte-alu-mit-Knopf-D-9581070-HR"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 345.0,
+    "dr_currency": "SEK",
+    "dr_source_url": "https://www.computersalg.se/i/10462259/peha-by-honeywell-311513-t%C3%A4cklock-t%C3%A4cklock-aluminium",
+    "our_price_raw": "1849,00",
+    "our_price_parsed": 1849.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 345.0,
+    "best_price_currency": "SEK",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик температуры D 95.810.70 HR используется для контроля температуры в системах отопления и вентиляции. Отличается высокой точностью и долговечностью.",
+    "best_description_source": "content",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Датчик температуры D 95.810.70 HR используется для контроля температуры в системах отопления и вентиляции. Отличается высокой точностью и долговечностью.",
+    "best_description_ru": "<p>Представляем вашему вниманию высокоточный датчик температуры PEHA DA 1220 wall inlet fine-meshed (артикул 311513), разработанный для эффективного и надежного контроля температурных режимов в самых разнообразных системах отопления и вентиляции. Этот компонент является неотъемлемой частью современных климатических решений, обеспечивая стабильность и комфорт в помещениях. Продукция бренда PEHA зарекомендовала себя как эталон качества и долговечности, что делает данный датчик идеальным выбором для профессиональных инсталляций и бытового использования.</p>\n<p><b>Ключевые характеристики:</b></p><ul><li>Модель: PEHA DA 1220 wall inlet fine-meshed</li><li>Артикул: 311513</li><li>Тип устройства: Датчик температуры</li><li>Назначение: Контроль температуры в системах отопления и вентиляции</li><li>Высокая точность измерений: Гарантирует максимально корректные показания температуры для оптимального управления климатом.</li><li>Долговечность: Изготовлен из высококачественных материалов, обеспечивающих продолжительный срок службы без потери функциональности.</li><li>Надежность: Стабильная работа в различных условиях эксплуатации, минимизирующая риски сбоев.</li><li>Простота монтажа: Разработан для удобной и быстрой установки в стену.</li><li>Совместимость: Легко интегрируется с большинством современных систем управления климатом.</li><li>Эффективность: Способствует оптимизации энергопотребления за счет точного поддержания заданной температуры.</li></ul>\n<p><b>Применение:</b> Датчик температуры PEHA DA 1220 wall inlet fine-meshed находит широкое применение в жилых, коммерческих и промышленных объектах, где требуется точный и постоянный мониторинг температуры. Он идеально подходит для использования в системах \"умный дом\", централизованных системах отопления, вентиляции и кондиционирования воздуха (HVAC), а также в специализированных климатических установках. Устройство обеспечивает сбор данных, необходимых для автоматического регулирования работы нагревательных и охлаждающих элементов, поддерживая заданный микроклимат и предотвращая перегрев или переохлаждение помещений.</p>\n<p><b>Преимущества:</b> Выбирая датчик PEHA DA 1220 wall inlet fine-meshed, вы получаете не просто измерительный прибор, а надежное решение для долгосрочного контроля температуры. Его высокая точность гарантирует оптимальное функционирование вашей системы, а исключительная долговечность минимизирует необходимость в обслуживании и замене. Инвестиция в этот датчик окупается за счет повышения энергоэффективности и создания комфортного и стабильного микроклимата, что является ключевым фактором для любого современного помещения.</p>",
+    "best_description_ru_word_count": 273,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "DA 1220 wall inlet fine-meshed",
+    "description": "",
+    "specs": {
+      "DA 1220 wall inlet (433120) mesh type": "fine-meshed",
+      "DA 1220 wall inlet (433020) mesh type": "coarse-mesh",
+      "DA 1220 wall inlet (433320) net configuration": "without net",
+      "DA 1220 wall inlet (433001) net configuration": "transparent, without net",
+      "DA 1224 wall inlet (433124) mesh type": "fine-meshed",
+      "DA 1224 wall inlet (433024) mesh type": "coarse-mesh",
+      "DA 1224 wall inlet (433324) net configuration": "without net",
+      "DA 1224 wall inlet (433002) net configuration": "transparent, without net",
+      "DA 1229 wall inlet (433129) mesh type": "fine-meshed",
+      "DA 1229 wall inlet (433029) mesh type": "coarse-mesh",
+      "DA 1229 wall inlet (433329) net configuration": "without net",
+      "DA 1229 wall inlet (433003) net configuration": "transparent, without net",
+      "DA 1233 wall inlet (433133) mesh type": "fine-meshed",
+      "DA 1233 wall inlet (433033) mesh type": "coarse-mesh",
+      "DA 1233 wall inlet (433333) net configuration": "without net",
+      "DA 1233 wall inlet (433004) net configuration": "transparent, without net",
+      "DA 1211 flange inlet nominal size": "11 cm",
+      "DA 1211 flange inlet (433160) flap type": "transparent",
+      "DA 1211 flange inlet (433044) feature": "Anti-freeze",
+      "DA 1211B flange inlet nominal size": "11 cm",
+      "DA 1911 flange inlet (433161) nominal size": "11cm",
+      "DA 1911 flange inlet (433169) nominal size": "11cm",
+      "DA 1911 flange inlet (433169) mesh type": "coarse mesh",
+      "DA 1911 flange inlet (433130) flap type": "transparent",
+      "DA 1911 HP flange inlet (433131) nominal size": "11cm",
+      "DA 1911 HP flange inlet (433131) mesh type": "coarse mesh",
+      "DA 1911B flange inlet (433165) nominal size": "11 cm",
+      "DA 1911B flange inlet (*433165F) nominal size": "11 cm",
+      "DA 3800 AFC flange inlet (433354) configuration": "w/inlet funnel",
+      "DA 3800 AFC flange inlet (433374) configuration": "wo/inlet funnel",
+      "DA 3800 flange inlet (433353) configuration": "w/inlet funnel",
+      "DA 3800 flange inlet (433373) configuration": "wo/inlet funnel",
+      "DA 1540 HP ceiling inlet (401370) type": "HP",
+      "DA 1500 ceiling inlet (*401321) status": "phased out",
+      "DA 1800 ceiling inlet (*401322) status": "phased out",
+      "DA 30K ceiling inlet dimensions": "60 x 40 cm",
+      "DA 30S ceiling inlet dimensions": "71 x 40 cm",
+      "DA 17K Tunnel inlet (433700, 433716) insulation": "highly insulated",
+      "DA 17K Tunnel inlet (433701, 433717) insulation": "semi-insulated",
+      "DA 10K Tunnel inlet (433707) insulation": "highly insulated",
+      "DA 10K Tunnel inlet (433708) insulation": "semi-insulated",
+      "DA 10K Tunnel inlet (433713) material": "transparent",
+      "DA 40A air supply unit (433404) type": "air supply unit",
+      "DA 60-920 unit type": "equal pressure unit",
+      "DA 50-650 roof cap (433474) color": "grey",
+      "DA 50-920 funnel tube (*433444) color": "grey",
+      "DA 50-920 funnel tube (*433543) color": "black",
+      "DA 1000 blue inlet shutter (401940) color": "blue",
+      "Clamp (522006) for pull rod diameter": "8 mm",
+      "DA 1000 spring (401906) dimensions": "9x50 mm",
+      "DA 1000 spring (401906) material": "stainless steel",
+      "DA 1000 spring (401907) dimensions": "9x20 mm",
+      "DA 1000 spring (401907) material": "stainless steel",
+      "DA 1200 plug set (433018) hole diameter (50 pcs)": "Ø6 mm",
+      "DA 1200 plug set (433018) hole diameter (20 pcs)": "Ø4 mm",
+      "DA 1200 flap (526024) fixing points": "3",
+      "DA 1200 short spring (433903) dimensions": "14.3x64.3 mm",
+      "DA 1200 long spring (433904) dimensions": "14.3x91.7 mm",
+      "Nylon string (522940) dimensions": "3x650 mm",
+      "Nylon string (522940) material": "Nylon",
+      "DA 1200 nylon cord (433932) dimensions": "Ø3x950 mm",
+      "DA 1200 nylon cord (433932) material": "nylon",
+      "DA 1200 lock spring (433905) dimensions": "Ø8x58 mm",
+      "DA 1200 open.spring (433906) dimensions": "Ø7.8x55 mm",
+      "DA 1200 open.spring (433907) dimensions": "Ø8.2x71 mm",
+      "String clip (413046) compatible string diameter range": "2-3 mm",
+      "String clip (413046) material": "plastic",
+      "DA 1200 extension rod (433039) length": "240 mm",
+      "DA 1200 net (433016) mesh type": "fine",
+      "DA 1200 net (433016) mesh size": "10x10",
+      "DA 1200 net (433015) mesh type": "coarse",
+      "DA 1200 net (433015) mesh size": "65x20",
+      "Shim for light trap (372175) dimensions": "1140x750x30 mm",
+      "DA 1200 flap (526021) material": "transparent",
+      "DA 1200 flap (526021) fixing points": "3",
+      "DA 1200 flap (526057) fixing points": "1",
+      "DA 1200 flap (526057) color": "white",
+      "DA 1211B short spring (433913) dimensions": "Ø12x64.3 mm",
+      "DA 1211B long spring (433914) dimensions": "Ø12x91.7 mm"
+    },
+    "specs_count": 79,
+    "series": "DA Air Inlet Systems",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\311513.pdf",
+    "datasheet_size_kb": 28794,
+    "product_photos": [
+      "downloads\\datasheet_photos\\311513_p2_1.jpeg",
+      "downloads\\datasheet_photos\\311513_p2_2.jpeg",
+      "downloads\\datasheet_photos\\311513_p2_3.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105311518",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/311513_p2_2.jpeg",
+      "downloads/datasheet_photos/311513_p2_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "description_seo_ru": "<p>Представляем вашему вниманию высокоточный датчик температуры PEHA DA 1220 wall inlet fine-meshed (артикул 311513), разработанный для эффективного и надежного контроля температурных режимов в самых разнообразных системах отопления и вентиляции. Этот компонент является неотъемлемой частью современных климатических решений, обеспечивая стабильность и комфорт в помещениях. Продукция бренда PEHA зарекомендовала себя как эталон качества и долговечности, что делает данный датчик идеальным выбором для профессиональных инсталляций и бытового использования.</p>\n<p><b>Ключевые характеристики:</b></p><ul><li>Модель: PEHA DA 1220 wall inlet fine-meshed</li><li>Артикул: 311513</li><li>Тип устройства: Датчик температуры</li><li>Назначение: Контроль температуры в системах отопления и вентиляции</li><li>Высокая точность измерений: Гарантирует максимально корректные показания температуры для оптимального управления климатом.</li><li>Долговечность: Изготовлен из высококачественных материалов, обеспечивающих продолжительный срок службы без потери функциональности.</li><li>Надежность: Стабильная работа в различных условиях эксплуатации, минимизирующая риски сбоев.</li><li>Простота монтажа: Разработан для удобной и быстрой установки в стену.</li><li>Совместимость: Легко интегрируется с большинством современных систем управления климатом.</li><li>Эффективность: Способствует оптимизации энергопотребления за счет точного поддержания заданной температуры.</li></ul>\n<p><b>Применение:</b> Датчик температуры PEHA DA 1220 wall inlet fine-meshed находит широкое применение в жилых, коммерческих и промышленных объектах, где требуется точный и постоянный мониторинг температуры. Он идеально подходит для использования в системах \"умный дом\", централизованных системах отопления, вентиляции и кондиционирования воздуха (HVAC), а также в специализированных климатических установках. Устройство обеспечивает сбор данных, необходимых для автоматического регулирования работы нагревательных и охлаждающих элементов, поддерживая заданный микроклимат и предотвращая перегрев или переохлаждение помещений.</p>\n<p><b>Преимущества:</b> Выбирая датчик PEHA DA 1220 wall inlet fine-meshed, вы получаете не просто измерительный прибор, а надежное решение для долгосрочного контроля температуры. Его высокая точность гарантирует оптимальное функционирование вашей системы, а исключительная долговечность минимизирует необходимость в обслуживании и замене. Инвестиция в этот датчик окупается за счет повышения энергоэффективности и создания комфортного и стабильного микроклимата, что является ключевым фактором для любого современного помещения.</p>",
+    "description_seo_word_count": 273,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 28794KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'DA 1220 wall inlet fine-meshed' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105311518",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

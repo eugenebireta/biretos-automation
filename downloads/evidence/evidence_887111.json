@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "887111",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Esser (Honeywell)",
+  "subbrand": "PEHA",
   "name": "Тепловой извещатель Esser D 95.244.02 T",
   "assembled_title": "Клавиша PEHA DIALOG, 887111",
   "our_price_raw": "490,50",
@@ -340,7 +340,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -663,5 +665,75 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "PEHA rocker switch"
+  "training_urls": [
+    "https://www.equipt.com/brands/oem/country/united-states/state/florida/condition/new",
+    "https://www.conrad.ch/fr/p/peha-by-honeywell-cache-bouton-a-bascule-blanc-887111-1-pc-s-2855106.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 59.99,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.equipt.com/brands/oem/country/united-states/state/florida/condition/new",
+    "our_price_raw": "490,50",
+    "our_price_parsed": 490.5,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 59.99,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Тепловой извещатель Esser D 95.244.02 T используется для обнаружения повышения температуры. Надежный и точный, он обеспечивает своевременное обнаружение возгораний.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_887111.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "ean": "4010105887112",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The seed_name clearly identifies this as 'Esser D 95.244.02 T' thermal detector. Esser is a Honeywell fire detection brand. PN 887111 appears to be an incorrect reference - likely a distributor/catalog number. The actual manufacturer PN is 'D 95.244.02 T'. PEHA makes electrical installation equipment, not fire detectors, confirming the brand mismatch. Current_brand shows Honeywell which aligns with Esser being part of Honeywell.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": {
+      "ean": "4010105887112",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "Esser (Honeywell)",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Esser (Honeywell)"
+  }
 }

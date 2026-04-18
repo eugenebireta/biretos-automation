@@ -4,7 +4,7 @@
   "pn": "804905",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "Esser",
   "name": "Электронный модуль IQ8MCP 804905",
   "assembled_title": "Модуль Honeywell 804905",
   "our_price_raw": "6387,92",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Электронный модуль/устройство пожарной сигнализации ESSER угадывается на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/ruchnye_pozh"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -312,7 +309,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -562,12 +561,126 @@
     "merge_source": "result_804905.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "ESSER by Honeywell. Electronic module w/ isolator for manual call points. Requires separate housing (704900 red / 704901 blue). Made in Germany."
+    }
   },
   "dr_category": "Fire alarm MCP module",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-704900-primaryimage",
   "dr_price": 81.0,
   "dr_currency": "EUR",
   "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
-  "product_category": "Fire alarm MCP module"
+  "training_urls": [
+    "https://buildings.honeywell.com/pl/en/products/by-category/fire-life-safety/manual-call-points-pull-stations-and-panic-buttons/manual-call-points-pull-stations/iq8mcp-electronic-module",
+    "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
+    "https://www.fireprojects.co.in/products/Honeywell-ESSAR-Electronic-Module-with-Isolator-804905-IQ8MCP",
+    "https://www.orbitadigital.com/en/cctv/fire/analogue/push-buttons/28855-electronic-modular-analog-pushbutton-with-isolator-mounting-box-not-included.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 81.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/manual-call-points-esser",
+    "our_price_raw": "6387,92",
+    "our_price_parsed": 6387.92,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 81.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Электронный модуль IQ8MCP предназначен для использования в системах пожарной сигнализации. Обеспечивает надежную работу и интеграцию с другими компонентами системы. Поддерживает различные функции управления и контроля.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/ruchnye_pozh",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Электронный модуль IQ8MCP предназначен для использования в системах пожарной сигнализации. Обеспечивает надежную работу и интеграцию с другими компонентами системы. Поддерживает различные функции управления и контроля.",
+    "best_description_ru": "<p>Представляем вашему вниманию электронный модуль Esser IQ8MCP с изолятором, артикул 804905, являющийся ключевым компонентом в современных системах пожарной сигнализации. Этот модуль, разработанный в рамках передовой серии IQ8 от Esser, обеспечивает безупречную надежность и высокую степень интеграции с другими элементами вашей охранной системы. Он предназначен для эффективного управления и контроля, гарантируя безопасность и спокойствие в любых условиях эксплуатации, будь то коммерческие или промышленные объекты.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Рабочее напряжение: Широкий диапазон от 8 до 42 В постоянного тока, обеспечивающий стабильность работы.</li>\n    <li>Ток покоя: Минимальное потребление энергии – всего 45 мкА при 19 В постоянного тока, что значительно снижает эксплуатационные расходы.</li>\n    <li>Ток тревоги: 18 мА (без коммуникационного занавеса), обеспечивающий четкую индикацию тревоги.</li>\n    <li>Максимальное количество извещателей на зону: До 10 извещателей, что позволяет эффективно покрывать большие площади.</li>\n    <li>Максимальное количество извещателей на шлейф: До 127 извещателей, обеспечивая гибкость и масштабируемость системы.</li>\n    <li>Индикатор работы: Яркий зеленый светодиод для наглядного отображения текущего состояния.</li>\n    <li>Индикатор тревоги: Четкий красный светодиод, мгновенно сигнализирующий о возникновении чрезвычайной ситуации.</li>\n    <li>Диапазон рабочих температур: От -20 °C до 70 °C, гарантирующий надежность в различных климатических условиях.</li>\n    <li>Степень защиты IP: IP 44 в корпусе и IP 55 с аксессуарами, обеспечивающая защиту от пыли и влаги.</li>\n    <li>Материал корпуса: Прочный PC ASA пластик, устойчивый к внешним воздействиям.</li>\n</ul>\n\n<p>Электронный модуль Esser IQ8MCP находит широкое применение в самых разнообразных системах пожарной сигнализации, от небольших офисов до крупных промышленных комплексов и жилых зданий. Его универсальность позволяет использовать его как в новых инсталляциях, так и для модернизации существующих систем. Модуль легко интегрируется с центральными панелями управления Esser, обеспечивая бесперебойную передачу данных и оперативное реагирование на любые потенциальные угрозы. Он идеально подходит для создания комплексных решений безопасности, где требуется высокая надежность и точность.</p>\n\n<p>Выбор модуля Esser IQ8MCP обусловлен его выдающимися преимуществами, такими как исключительная надежность и долговечность, подтвержденная строгими стандартами качества. Низкое энергопотребление значительно сокращает эксплуатационные расходы, а широкий диапазон рабочих температур гарантирует стабильную работу в самых сложных условиях. Простота монтажа в стандартную установочную коробку и интуитивно понятная индикация делают его удобным в использовании и обслуживании. Этот модуль является инвестицией в безопасность, которая окупится благодаря своей эффективности и долговечности.</p>",
+    "best_description_ru_word_count": 339,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "IQ8MCP electronic module with isolator",
+    "description": "Addressable electronic module suitable for use in the esserbus and powered loop with alarm latch and alarm indicator. Optional connection for conventional MCP. Without BUS connection, the detector operates as conventional MCP. Built-in loop isolator in the manual call point. An external detector zone (D-line) could be connected with up to ten conventional manual call points (internal Alarm resistor for each detector 1 KOhm) - e.g. Part No. 804900 or 804901 to this IQ8 manual call point model and configure required operation with tools 8000. When an alarm is triggered the address and the programmed additional text of the MCP IQ8 to which the conventional zone is connected are displayed automatically. Cable length of the D-line max. 500 meters! Features include: Slimline design, Low power consumption, Plug-in connection clamps, Optional terminal clamps, 2 x cable entries on top, at the bottom and on the rear panel, Fixing on standard flush mounted installation box, Test function via manual call point service key, Detectors that are not ready for operation can be marked with the \"Out of order\" label by reversing the enclosed operating front foil. Note: For a LARGE MCP, you have to order the electronic module and the MCP housing separately to have a complete MCP.",
+    "specs": {
+      "operating_voltage": "8 - 42 V DC",
+      "quiescent_current": "45 µA @ 19 V DC",
+      "alarm_current": "18 mA (w/o communication curtain)",
+      "max_detectors_per_zone": 10,
+      "max_detectors_per_loop": 127,
+      "operation_indicator": "LED, green",
+      "alarm_display": "LED, red",
+      "connection_terminal_cross_section": "max. 2.5 mm² (AWG 26-14)",
+      "application_temperature_range": "-20 °C to 70 °C",
+      "storage_temperature_range": "-30 °C to 75 °C",
+      "air_humidity": "< 95%",
+      "ip_rating_in_housing": "IP 44",
+      "ip_rating_with_accessory": "IP 55",
+      "housing_material": "PC ASA plastic",
+      "mounting_type": "Standard flush mounted installation box",
+      "cable_entries": "2 (top, bottom, rear panel)",
+      "d_line_cable_length": "max. 500 meters"
+    },
+    "specs_count": 17,
+    "series": "IQ8",
+    "category": "Electronic module for Manual Call Point",
+    "weight_g": 236,
+    "dimensions_mm": "133 (W) x 133 (H) x 36 (D)",
+    "certifications": [
+      "VdS",
+      "EN 54-11 type B",
+      "DoP-20489130701"
+    ],
+    "article_no": "804905",
+    "datasheet_pdf": "downloads\\datasheets_v2\\804905.pdf",
+    "datasheet_size_kb": 2099,
+    "product_photos": [
+      "downloads\\datasheet_photos\\804905_p1_0.jpeg",
+      "downloads\\datasheet_photos\\804905_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/804905_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 804905 is valid Honeywell format. IQ8MCP is a genuine Honeywell fire alarm control module. The datasheet title confirms this is a Honeywell product. However, the missing EAN with expected prefix '4007185' (which is a PEHA/Honeywell prefix) and truncated description suggest the datasheet is incomplete or corrupted. The product data is correct but needs a complete datasheet to extract missing EAN and full description."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию электронный модуль Esser IQ8MCP с изолятором, артикул 804905, являющийся ключевым компонентом в современных системах пожарной сигнализации. Этот модуль, разработанный в рамках передовой серии IQ8 от Esser, обеспечивает безупречную надежность и высокую степень интеграции с другими элементами вашей охранной системы. Он предназначен для эффективного управления и контроля, гарантируя безопасность и спокойствие в любых условиях эксплуатации, будь то коммерческие или промышленные объекты.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Рабочее напряжение: Широкий диапазон от 8 до 42 В постоянного тока, обеспечивающий стабильность работы.</li>\n    <li>Ток покоя: Минимальное потребление энергии – всего 45 мкА при 19 В постоянного тока, что значительно снижает эксплуатационные расходы.</li>\n    <li>Ток тревоги: 18 мА (без коммуникационного занавеса), обеспечивающий четкую индикацию тревоги.</li>\n    <li>Максимальное количество извещателей на зону: До 10 извещателей, что позволяет эффективно покрывать большие площади.</li>\n    <li>Максимальное количество извещателей на шлейф: До 127 извещателей, обеспечивая гибкость и масштабируемость системы.</li>\n    <li>Индикатор работы: Яркий зеленый светодиод для наглядного отображения текущего состояния.</li>\n    <li>Индикатор тревоги: Четкий красный светодиод, мгновенно сигнализирующий о возникновении чрезвычайной ситуации.</li>\n    <li>Диапазон рабочих температур: От -20 °C до 70 °C, гарантирующий надежность в различных климатических условиях.</li>\n    <li>Степень защиты IP: IP 44 в корпусе и IP 55 с аксессуарами, обеспечивающая защиту от пыли и влаги.</li>\n    <li>Материал корпуса: Прочный PC ASA пластик, устойчивый к внешним воздействиям.</li>\n</ul>\n\n<p>Электронный модуль Esser IQ8MCP находит широкое применение в самых разнообразных системах пожарной сигнализации, от небольших офисов до крупных промышленных комплексов и жилых зданий. Его универсальность позволяет использовать его как в новых инсталляциях, так и для модернизации существующих систем. Модуль легко интегрируется с центральными панелями управления Esser, обеспечивая бесперебойную передачу данных и оперативное реагирование на любые потенциальные угрозы. Он идеально подходит для создания комплексных решений безопасности, где требуется высокая надежность и точность.</p>\n\n<p>Выбор модуля Esser IQ8MCP обусловлен его выдающимися преимуществами, такими как исключительная надежность и долговечность, подтвержденная строгими стандартами качества. Низкое энергопотребление значительно сокращает эксплуатационные расходы, а широкий диапазон рабочих температур гарантирует стабильную работу в самых сложных условиях. Простота монтажа в стандартную установочную коробку и интуитивно понятная индикация делают его удобным в использовании и обслуживании. Этот модуль является инвестицией в безопасность, которая окупится благодаря своей эффективности и долговечности.</p>",
+    "description_seo_word_count": 339,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'IQ8MCP electronic module with isolator' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

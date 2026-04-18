@@ -7,8 +7,8 @@
     "010130-10",
     "01013010"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "PEHA",
+  "subbrand": "Esser",
   "name": "Модуль 4DG/2OP BUS-2/BUS-1 s.m.",
   "assembled_title": "Модуль Honeywell 010130.10",
   "our_price_raw": "13288,04",
@@ -290,7 +290,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_claude_39_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -562,12 +564,153 @@
     "merge_source": "result_010130.10.json",
     "provider": "claude_web_search",
     "model": "claude-sonnet-4-6",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Модуль 010130.10 предназначен для расширения охранных панелей MB-Secure или MB12/24/48/100/256 plus посредством подключения по шине BUS. Обеспечивает 4 входа групп детекторов с функцией сброса и 2 транзисторных выхода (макс. 30 В пост. тока / 50 мА на выход), совместим с любой панелью стандарта BUS-2 или BUS-1."
+    }
   },
   "dr_category": "Охранная сигнализация — шинные модули расширения (интрузионные системы безопасности)",
   "dr_image_url": "https://honeywell.roteiv-shop.de/media/e7/ff/12/1774609009/art_18651.jpg?ts=1774609009",
   "dr_price": 204.0,
   "dr_currency": "EUR",
   "dr_price_source": "https://honeywell.roteiv-shop.de/alarmanlagen-einbruchmeldetechnik/einbruchmelder-kontakte-schalter-schaltmodule/bus-anschluss-relais-schaltmodule/18651/honeywell-010130.10-4-meldergruppen/2-ausgangsmodul-bus-2/bus-1-ap",
-  "product_category": "Охранная сигнализация — шинные модули расширения (интрузионные системы безопасности)"
+  "training_urls": [
+    "http://datenblatt.roteiv.shop/0.08-010130.10.pdf",
+    "https://honeywell.roteiv-shop.de/alarmanlagen-einbruchmeldetechnik/.../18651/honeywell-010130.10-4-meldergruppen/2-ausgangsmodul-bus-2/bus-1-ap",
+    "https://picclick.de/Novar-Honeywell-01013010-Anschlussmodul-4MG-2A-Modul-BUS-2-BUS-1-aP-164888843149.html",
+    "https://www.security.honeywell.de/en/products/7796956/intrusion-alarm-technology/connection-modules/bus-moduls/bus-2bus-1/010130.10/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 204.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://honeywell.roteiv-shop.de/alarmanlagen-einbruchmeldetechnik/einbruchmelder-kontakte-schalter-schaltmodule/bus-anschluss-relais-schaltmodule/18651/honeywell-010130.10-4-meldergruppen/2-ausgangsmodul-bus-2/bus-1-ap",
+    "our_price_raw": "13288,04",
+    "our_price_parsed": 13288.04,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 204.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Модуль 010130.10 предназначен для расширения охранных панелей MB-Secure или MB12/24/48/100/256 plus посредством подключения по шине BUS. Обеспечивает 4 входа групп детекторов с функцией сброса и 2 транзисторных выхода (макс. 30 В пост. тока / 50 мА на выход), совместим с любой панелью стандарта BUS-2 или BUS-1.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://honeywell.roteiv-shop.de/media/e7/ff/12/1774609009/art_18651.jpg?ts=1774609009",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Модуль 010130.10 предназначен для расширения охранных панелей MB-Secure или MB12/24/48/100/256 plus посредством подключения по шине BUS. Обеспечивает 4 входа групп детекторов с функцией сброса и 2 транзисторных выхода (макс. 30 В пост. тока / 50 мА на выход), совместим с любой панелью стандарта BUS-2 или BUS-1.",
+    "best_description_ru": "<p>Представляем модуль Esser 4MG/2A Modul BUS-2/BUS-1, aP с артикулом 010130.10 – незаменимое решение для расширения функциональных возможностей вашей системы охранной сигнализации. Этот высокотехнологичный компонент разработан ведущим производителем Esser и предназначен для интеграции с охранными панелями серий MB-Secure, а также MB12/24/48/100/256 plus. Он служит для значительного увеличения количества подключаемых детекторов и управляемых выходов, обеспечивая гибкость и масштабируемость вашей охранной инфраструктуры.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Бренд: Esser, гарантия качества и надежности от мирового лидера в области систем безопасности.</li>\n<li>Артикул: 010130.10, уникальный идентификатор для простого заказа и обслуживания.</li>\n<li>Название: 4MG/2A Modul BUS-2/BUS-1, aP, точно отражающее функционал модуля.</li>\n<li>Расширение охранных панелей: Совместим с широким спектром панелей MB-Secure и MB12/24/48/100/256 plus.</li>\n<li>Подключение по шине BUS: Использует стандартную шину BUS-2 или BUS-1 для надежной и быстрой передачи данных.</li>\n<li>4 входа групп детекторов: Позволяет подключить до четырех групп охранных детекторов, значительно расширяя зону контроля.</li>\n<li>Функция сброса: Обеспечивает возможность дистанционного сброса состояния детекторов для удобства эксплуатации.</li>\n<li>2 транзисторных выхода: Предоставляет два управляемых выхода для подключения внешних устройств или исполнительных механизмов.</li>\n<li>Максимальные параметры выходов: До 30 В постоянного тока / 50 мА на каждый выход, что подходит для большинства стандартных задач.</li>\n<li>Совместимость: Полная совместимость с любой панелью, поддерживающей стандарты BUS-2 или BUS-1.</li>\n</ul>\n\n<p>Модуль Esser 4MG/2A Modul BUS-2/BUS-1, aP находит свое применение в самых разнообразных сценариях, где требуется надежное и эффективное расширение охранной системы. Он идеально подходит для объектов коммерческой недвижимости, таких как офисные центры, магазины и склады, а также для промышленных предприятий и крупных жилых комплексов. Установка модуля позволяет значительно увеличить количество контролируемых зон без необходимости замены основной охранной панели, что экономит время и ресурсы. Благодаря своей универсальности и простоте интеграции, он является оптимальным решением для модернизации существующих систем или создания новых, масштабируемых охранных комплексов.</p>\n\n<p>Выбор модуля Esser 010130.10 – это инвестиция в надежность и долговечность вашей системы безопасности. Его ключевые преимущества включают высокую степень совместимости с различными охранными панелями Esser, что обеспечивает гибкость при проектировании и модернизации. Простота установки и подключения по шине BUS минимизирует затраты на монтаж. Расширенные возможности по подключению детекторов и управлению внешними устройствами делают его универсальным инструментом для создания комплексных и эффективных охранных решений, способных адаптироваться к изменяющимся потребностям объекта.</p>",
+    "best_description_ru_word_count": 346,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "4MG/2A Modul BUS-2/BUS-1, aP",
+    "description": "",
+    "specs": {
+      "module_type": "4MG/2A Modul BUS-2/BUS-1, aP",
+      "article_number": "010130.10",
+      "document_number": "800-23968",
+      "document_date": "2018-06-07",
+      "meldergruppen_inputs": 4,
+      "meldergruppen_voltage": "8 V DC stabilized",
+      "meldergruppen_internal_resistance": "1 kΩ",
+      "standard_termination_resistor": "12 kΩ 1%",
+      "monitoring_range": "±20%",
+      "semiconductor_outputs": 2,
+      "output_type": "open collector, LOW active",
+      "output_max_voltage": "30 V DC",
+      "output_max_current": "50 mA per output",
+      "output_short_circuit_protected": true,
+      "output_current_limited": true,
+      "led_indicators": 4,
+      "led_optical_guides": 4,
+      "supply_voltage_option_1": "+12 V DC from BUS",
+      "supply_voltage_option_2": "External voltage max 30 V DC",
+      "external_supply_max_current": "50 mA",
+      "sabotage_monitoring": "Cover contact integrated",
+      "bus_systems_supported": [
+        "BUS-2",
+        "BUS-1"
+      ],
+      "operating_modes_bus1": [
+        "Meldergruppen-Anschlussmodul",
+        "Schaltmodul",
+        "Universal-Anschlussmodul"
+      ],
+      "operating_modes_bus2": [
+        "5 Eingangs-Modul",
+        "DUO I/O Modul"
+      ],
+      "compatible_relay_module": "DUO Relaismodul 230V AC / 8A (Art.-Nr. 010121.17)",
+      "dip_switch_configuration": "S1 with 8 positions",
+      "firmware_version_referenced": "EBDUO.01.0V03.xx",
+      "bus2_participant_type_default": "new BUS-2 participant type for MB-Secure",
+      "alternative_participant_type": "DUO I/O Modul for MB12/24/48/100.10",
+      "multidrop_input_design": "Multi balanced inputs",
+      "z_wiring_compatible": true,
+      "clear_function": "Reset signal from central resets latching detectors without logic"
+    },
+    "specs_count": 32,
+    "series": "4MG/2A Modul BUS-2/BUS-1",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "VdS"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\010130.10.pdf",
+    "datasheet_size_kb": 448,
+    "product_photos": [
+      "downloads\\datasheet_photos\\010130.10_p1_1.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/010130.10_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN format '010130.10' matches PEHA's 6-8 digit numeric pattern with decimal point. Expected EAN prefix '4007185' belongs to PEHA (German building technology brand). German module naming (BUS-2/BUS-1, aP) and terminology are consistent with PEHA's product line. Honeywell is incorrect brand assignment. The title discrepancy (4DG/2OP vs 4MG/2A) appears to be a minor variation/typo in source data but doesn't change the brand identification.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Представляем модуль Esser 4MG/2A Modul BUS-2/BUS-1, aP с артикулом 010130.10 – незаменимое решение для расширения функциональных возможностей вашей системы охранной сигнализации. Этот высокотехнологичный компонент разработан ведущим производителем Esser и предназначен для интеграции с охранными панелями серий MB-Secure, а также MB12/24/48/100/256 plus. Он служит для значительного увеличения количества подключаемых детекторов и управляемых выходов, обеспечивая гибкость и масштабируемость вашей охранной инфраструктуры.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Бренд: Esser, гарантия качества и надежности от мирового лидера в области систем безопасности.</li>\n<li>Артикул: 010130.10, уникальный идентификатор для простого заказа и обслуживания.</li>\n<li>Название: 4MG/2A Modul BUS-2/BUS-1, aP, точно отражающее функционал модуля.</li>\n<li>Расширение охранных панелей: Совместим с широким спектром панелей MB-Secure и MB12/24/48/100/256 plus.</li>\n<li>Подключение по шине BUS: Использует стандартную шину BUS-2 или BUS-1 для надежной и быстрой передачи данных.</li>\n<li>4 входа групп детекторов: Позволяет подключить до четырех групп охранных детекторов, значительно расширяя зону контроля.</li>\n<li>Функция сброса: Обеспечивает возможность дистанционного сброса состояния детекторов для удобства эксплуатации.</li>\n<li>2 транзисторных выхода: Предоставляет два управляемых выхода для подключения внешних устройств или исполнительных механизмов.</li>\n<li>Максимальные параметры выходов: До 30 В постоянного тока / 50 мА на каждый выход, что подходит для большинства стандартных задач.</li>\n<li>Совместимость: Полная совместимость с любой панелью, поддерживающей стандарты BUS-2 или BUS-1.</li>\n</ul>\n\n<p>Модуль Esser 4MG/2A Modul BUS-2/BUS-1, aP находит свое применение в самых разнообразных сценариях, где требуется надежное и эффективное расширение охранной системы. Он идеально подходит для объектов коммерческой недвижимости, таких как офисные центры, магазины и склады, а также для промышленных предприятий и крупных жилых комплексов. Установка модуля позволяет значительно увеличить количество контролируемых зон без необходимости замены основной охранной панели, что экономит время и ресурсы. Благодаря своей универсальности и простоте интеграции, он является оптимальным решением для модернизации существующих систем или создания новых, масштабируемых охранных комплексов.</p>\n\n<p>Выбор модуля Esser 010130.10 – это инвестиция в надежность и долговечность вашей системы безопасности. Его ключевые преимущества включают высокую степень совместимости с различными охранными панелями Esser, что обеспечивает гибкость при проектировании и модернизации. Простота установки и подключения по шине BUS минимизирует затраты на монтаж. Расширенные возможности по подключению детекторов и управлению внешними устройствами делают его универсальным инструментом для создания комплексных и эффективных охранных решений, способных адаптироваться к изменяющимся потребностям объекта.</p>",
+    "description_seo_word_count": 346,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire safety",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title '4MG/2A Modul BUS-2/BUS-1, aP' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "PEHA",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "PEHA"
+  }
 }

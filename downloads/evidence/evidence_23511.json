@@ -4,7 +4,7 @@
   "pn": "23511",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Датчик Honeywell D 20.540.022 GLK",
   "assembled_title": "Клавиша PEHA NOVA, 23511",
   "our_price_raw": "448,70",
@@ -343,7 +343,14 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.540.022 GLK",
+    "series": "NOVA",
+    "color_material": "plastic, pure white",
+    "identity_notes_p1": "NOVA rocker with control lens, 500 series basic element",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -383,7 +390,7 @@
     "description": "Датчик Honeywell D 20.540.022 GLK предназначен для использования в системах автоматизации. Обеспечивает точные измерения и устойчив к внешним воздействиям.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Датчик",
+    "product_type": "Switch rocker",
     "seed_name": "Датчик Honeywell D 20.540.022 GLK",
     "description_long_ru": "Цена из листинга бренда; может отличаться при смене страны/налоговой зоны"
   },
@@ -650,7 +657,153 @@
     ]
   },
   "deep_research": {
-    "description_ru": "Цена из листинга бренда; может отличаться при смене страны/налоговой зоны"
+    "description_ru": "Цена из листинга бренда; может отличаться при смене страны/налоговой зоны",
+    "specs": {
+      "series": "NOVA brilliance",
+      "type": "Rocker with lens",
+      "gang": "1",
+      "finish": "Pure White",
+      "material": "ABS high-gloss",
+      "lens": "for indicator/orientation light",
+      "standard": "VDE"
+    }
   },
-  "product_category": "rocker cover (wippe)"
+  "training_urls": [
+    "https://www.surplusrecord.com/",
+    "https://www.conrad.se/sv/p/peha-by-honeywell-vippa-centrumplatta-gungbrada-vit-23511-1-st-2855149.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 5.15,
+    "dr_currency": "CHF",
+    "dr_source_url": "https://www.conrad.ch/de/marken/peha-by-honeywell.html",
+    "our_price_raw": "448,70",
+    "our_price_parsed": 448.7,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 5.15,
+    "best_price_currency": "CHF",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик Honeywell D 20.540.022 GLK предназначен для использования в системах автоматизации. Обеспечивает точные измерения и устойчив к внешним воздействиям.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_23511.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "VisionPRO® IAQ Total Home Comfort System",
+    "description": "",
+    "specs": {
+      "product_document_id": "68-0287-04",
+      "product_name": "VisionPRO® IAQ Total Home Comfort System",
+      "thermostat_description": "Effortless, 7-Day programmable touchscreen thermostat",
+      "electrical_rating_voltage_range_vac": "20 - 30",
+      "electrical_rating_frequency_hz": "50/60",
+      "electrical_rating_current_w1_heating_a": "0.02 - 1.0",
+      "electrical_rating_current_w2_aux_heating_a": "0.02 - 1.0",
+      "electrical_rating_current_w3_aux2_heating_a": "0.02 - 1.0",
+      "electrical_rating_current_y_cooling_a": "0.02 - 1.0",
+      "electrical_rating_current_y2_cooling_a": "0.02 - 1.0",
+      "electrical_rating_current_g_fan_a": "0.02 - 1.0",
+      "temperature_setting_range_heating_f": "40 to 90",
+      "temperature_setting_range_heating_c": "4.5 to 32",
+      "temperature_setting_range_cooling_f": "50 to 99",
+      "temperature_setting_range_cooling_c": "10 to 37",
+      "operating_ambient_temperature_visionpro_iaq_thermostats_f": "0 to 120",
+      "operating_ambient_temperature_visionpro_iaq_thermostats_c": "-18 to 49",
+      "operating_ambient_temperature_thm5421c1008_f": "-30 to 150",
+      "operating_ambient_temperature_thm5421c1008_c": "-34 to 66",
+      "operating_ambient_temperature_c7089u1006_f": "-40 to 120",
+      "operating_ambient_temperature_c7089u1006_c": "-40 to 49",
+      "operating_ambient_temperature_c7189u1005_f": "45 to 88",
+      "operating_ambient_temperature_c7189u1005_c": "7 to 32",
+      "shipping_temperature_visionpro_iaq_thermostats_f": "-30 to 150",
+      "shipping_temperature_visionpro_iaq_thermostats_c": "-34 to 66",
+      "shipping_temperature_thm5421c1008_f": "-30 to 150",
+      "shipping_temperature_thm5421c1008_c": "-34 to 66",
+      "operating_relative_humidity_visionpro_iaq_thermostats_non_condensing_percent": "5 to 90",
+      "operating_relative_humidity_thm5421c1008_non_condensing_percent": "5 to 90",
+      "operating_relative_humidity_c7089u1006_non_condensing_percent": "5 to 95",
+      "operating_relative_humidity_c7189u1005_non_condensing_percent": "5 to 95",
+      "humidification_setting_range_heating_rh_percent": "10 to 60",
+      "dehumidification_setting_range_heating_rh_percent": "40 to 80",
+      "humidity_display_range_percent": "0 to 99",
+      "cycle_rates_heating_cycles_per_hour": "1 - 12 (selectable)",
+      "cycle_rates_cooling_cycles_per_hour": "1 - 6 (selectable)",
+      "finish_visionpro_iaq_thermostats": "Premier White® color",
+      "finish_thm5421c1008": "Premier White® color",
+      "finish_c7189u1005_wall_mount_remote_indoor_sensor": "Premier White® color",
+      "clock_accuracy_per_year": "+/- 1 minute",
+      "c7089u1006_outdoor_sensor_resistance_characteristics": "Negative temperature coefficient (NTC)",
+      "c7189u1005_remote_indoor_sensor_resistance_characteristics": "Negative temperature coefficient (NTC)",
+      "calibration": "Factory-calibrated (C7089U1006, C7189U1005, VisionPRO® IAQ Comfort Systems), no field calibration required",
+      "interstage_differential": "Droopless control; 2nd stage energizes when 1st stage runs at 90% capacity",
+      "mounting_means_visionpro_iaq_comfort_system": "Directly on wall in living space using mounting screws and anchors provided. Fits a vertical or horizontal 2 x 4 in. junction box.",
+      "mounting_means_thm5421c1008_eim": "On HVAC equipment or on a wall in the equipment room.",
+      "mounting_means_c7089u1006_outdoor_sensor": "Outside of living space with mounting clip and screws provided.",
+      "mounting_means_c7189u1005_remote_indoor_sensor": "Directly on the wall using mounting screws and anchors provided.",
+      "cover_plate_model": "32003796-001",
+      "dimensions_thm5421c1008_eim_mm": "185x175x34",
+      "dimensions_c7089u1006_outdoor_sensor_mounting_clip_mm": "200x38x84",
+      "dimensions_32003796_001_cover_plate_mm": "200x140",
+      "dimensions_c7189u1005_remote_indoor_sensor_mm": "58x58x18",
+      "powering_method": "Common wire only",
+      "system_types_max_heat_cool": "4 heat/2 cool",
+      "system_types_supported": "Gas, oil or electric heat with air conditioning; Warm air, hot water, high-efficiency furnaces, heat pumps, steam and gravity; Heat only with fan; Cool only",
+      "changeover": "Manual or Auto changeover selectable",
+      "system_setting": "Heat-Off-Cool-Auto",
+      "fan_setting": "Auto-On-Circ",
+      "wire_gauge_recommendation": "18-gauge thermostat wire",
+      "thermostat_recommended_mounting_height_ft": "5",
+      "thermostat_recommended_mounting_height_m": "1.5"
+    },
+    "specs_count": 62,
+    "series": "VisionPRO® IAQ",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "152x116x35",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105023510",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\23511.pdf",
+    "datasheet_size_kb": 2661,
+    "product_photos": [
+      "downloads\\datasheet_photos\\23511_p1_0.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/23511_p1_0.png"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'VisionPRO® IAQ Total Home Comfort System' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105023510",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

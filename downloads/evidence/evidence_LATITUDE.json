@@ -4,7 +4,7 @@
   "pn": "LATITUDE",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Ноутбук LATITUDE",
   "assembled_title": "Ноутбук Honeywell LATITUDE",
   "our_price_raw": "0,00",
@@ -343,7 +343,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Latitude Series",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "Dell Latitude laptop series; not a Honeywell product",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -361,9 +366,8 @@
     "description": "Ноутбук LATITUDE предназначен для использования в офисных и полевых условиях. Он обеспечивает высокую производительность и надежность, поддерживает различные функции и интерфейсы.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Ноутбук",
-    "seed_name": "Ноутбук LATITUDE",
-    "description_long_ru": "Actual mfr: Dell. Generic product line, not specific PN. Refurb $150-400"
+    "product_type": "Notebook",
+    "seed_name": "Ноутбук LATITUDE"
   },
   "trace": {
     "pn_match_location": "",
@@ -618,7 +622,26 @@
       "raw": "—",
       "aliases": [
         "—"
-      ]
+      ],
+      "Type": "Business laptop series",
+      "Screen sizes": "12\", 13\", 14\", 15\"",
+      "Processors": "Intel Core / AMD (varies by model/generation)",
+      "RAM": "DDR4/DDR5, up to 64 GB",
+      "Storage": "SSD (NVMe/SATA)",
+      "Security": "TPM 2.0, fingerprint reader, smart card reader (optional)",
+      "Management": "Intel vPro (select models), Dell Client Command Suite",
+      "Connectivity": "Wi-Fi 6/6E, Bluetooth, optional 4G/5G LTE",
+      "OS": "Windows 10/11 Pro",
+      "Brand": "Dell",
+      "Product family": "Latitude",
+      "Category": "Business laptops / 2-in-1",
+      "Positioning": "Commercial / enterprise",
+      "Typical features": "Security, manageability, mobile productivity",
+      "Configuration": "Varies by generation",
+      "series": "Latitude 3000/5000/7000/9000",
+      "standard": "MIL-STD 810G",
+      "ai_feature": "Dell Optimizer",
+      "certifications": "Energy Star, EPEAT"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -626,23 +649,114 @@
       "Встречается как термин «latitude/longitude» в аэрокосмических материалах, но не как PN для закупки. citeturn64search2turn64search18",
       "Aliases: —"
     ],
-    "merge_ts": "2026-04-10T11:05:35.458668+00:00",
+    "merge_ts": "2026-04-09T12:01:24.945504+00:00",
     "merge_source": "result_LATITUDE.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Actual mfr: Dell. Generic product line, not specific PN. Refurb $150-400",
-    "sources": [
-      {
-        "url": "https://www.ebay.com/b/Dell-Latitude-PC-Laptops-Netbooks/177/bn_7118472159",
-        "type": "surplus",
-        "domain": "www.ebay.com",
-        "supports": [
-          "identity",
-          "price"
-        ]
+    "descriptions_all": {
+      "claude": "Dell Latitude — это серия бизнес-ноутбуков корпоративного класса, разработанная компанией Dell Technologies для профессионального использования в корпоративной среде. Линейка Latitude включает модели различных размеров и конфигураций: от ультракомпактных 12-дюймовых до полноразмерных 15-дюймовых ноутбуков. Серия отличается повышенной надёжностью, прочным корпусом, расширенными возможностями безопасности (TPM-модуль, сканер отпечатков пальцев, считыватель смарт-карт) и поддержкой корпоративного управления (Intel vPro, Dell Client Command Suite). Ноутбуки Latitude оснащаются процессорами Intel Core или AMD, оперативной памятью DDR4/DDR5, SSD-накопителями, дисплеями с матрицами IPS различного разрешения. Поддерживаются стандарты Wi-Fi 6/6E, Bluetooth 5.x, опционально — модули 4G/5G LTE. Серия рассчитана на многолетний жизненный цикл с длительной поддержкой драйверов и BIOS. Ноутбуки Latitude широко используются в государственных учреждениях, финансовых организациях, промышленных предприятиях и системах АСУ ТП.",
+      "gpt": "Dell Latitude — это не один конкретный SKU, а товарная линейка корпоративных ноутбуков и 2-in-1 Dell. В каталогах производителя такие семейства обычно охватывают несколько поколений и конфигураций, поэтому при загрузке в e-commerce важно не смешивать семейство и конкретную модель. Линейка ориентирована на мобильную работу в офисе, командировках и гибридном формате. Официальная страница Latitude подчеркивает акцент на business-class надежности, безопасности и производительности для повседневных рабочих задач. Для B2B-заказчиков ценность таких устройств обычно определяется не только процессором или диагональю экрана, но и стабильностью платформы, удобством обслуживания и длительностью жизненного цикла. При публикации карточки без точного model code лучше описывать товар как семейство и обязательно выносить в notes требование уточнения конфигурации по сервис-тегу или полному артикулу. Это особенно важно для тендеров и сервисных поставок, потому что внутри одной линейки могут различаться поколения CPU, типы портов, емкость накопителей и набор опций безопасности. Если задача каталога — подбор аналога или идентификация товара из старой переписки, семейственная карточка полезна как временная заглушка до появления точного model code. В старых поколениях под Latitude также выпускались модели вроде D610/PP11L, поэтому в legacy-базах этот бренд часто встречается как общее обозначение делового ноутбука. С точки зрения SEO и карточки товара семейство можно использовать как базовую сущность, но для коммерческого предложения, счета и сервисной совместимости желательно переходить на конкретный PN или Service Tag.",
+      "synthesis": "Dell Latitude — это серия бизнес-ноутбуков корпоративного класса, охватывающая несколько поколений и конфигураций от 12 до 15 дюймов для профессионального использования в корпоративной среде. Линейка включает модели различных размеров, отличающиеся повышенной надёжностью, прочным корпусом и расширенными возможностями безопасности: TPM-модуль, сканер отпечатков пальцев, считыватель смарт-карт. Ноутбуки оснащаются процессорами Intel Core или AMD, оперативной памятью DDR4/DDR5, SSD-накопителями и дисплеями с матрицами IPS различного разрешения. Поддерживаются стандарты Wi-Fi 6/6E, Bluetooth 5.x, модули 4G/5G LTE, технологии Intel vPro и Dell Client Command Suite для корпоративного управления. Серия рассчитана на многолетний жизненный цикл с длительной поддержкой драйверов и BIOS, что особенно важно для государственных учреждений, финансовых организаций и промышленных предприятий. При публикации без точного модель-кода рекомендуется описывать товар как семейство и уточнять конфигурацию по сервис-тегу, поскольку внутри линейки различаются поколения CPU, типы портов и наборы опций безопасности."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Business laptop series",
+        "Screen sizes": "12\", 13\", 14\", 15\"",
+        "Processors": "Intel Core / AMD (varies by model/generation)",
+        "RAM": "DDR4/DDR5, up to 64 GB",
+        "Storage": "SSD (NVMe/SATA)",
+        "Security": "TPM 2.0, fingerprint reader, smart card reader (optional)",
+        "Management": "Intel vPro (select models), Dell Client Command Suite",
+        "Connectivity": "Wi-Fi 6/6E, Bluetooth, optional 4G/5G LTE",
+        "OS": "Windows 10/11 Pro"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product family": "Latitude",
+        "Category": "Business laptops / 2-in-1",
+        "Positioning": "Commercial / enterprise",
+        "Typical features": "Security, manageability, mobile productivity",
+        "Configuration": "Varies by generation"
+      },
+      "gemini": {
+        "series": "Latitude 3000/5000/7000/9000",
+        "standard": "MIL-STD 810G",
+        "ai_feature": "Dell Optimizer",
+        "certifications": "Energy Star, EPEAT"
       }
-    ]
+    },
+    "notes_all": {
+      "claude": "Generic series name, not a specific model. Cannot determine exact configuration without additional details.",
+      "gpt": "Family-level entry, not a single SKU. Exact model must be identified separately before pricing or final sale."
+    }
   },
-  "product_category": "workstation"
+  "training_urls": [
+    "https://www.backmarket.com/en-us/l/dell-latitude/",
+    "https://www.dellrefurbished.com/laptops",
+    "https://www.ebay.com/b/Dell-Latitude-PC-Laptops-Netbooks/177/bn_7118472159",
+    "https://www.ebay.com/sch/i.html?_nkw=honeywell+latitude",
+    "https://www.dell.com/en-us/shop/dell-laptops/sc/laptops/latitude-laptops",
+    "https://www.dell.com/en-us/shop/laptops/sf/latitude-laptops",
+    "https://www.dell.com/en-uk/dt/latitude/index.htm"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1850.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/Dell-Latitude-Honeywell-Experion",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1850.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Ноутбук LATITUDE предназначен для использования в офисных и полевых условиях. Он обеспечивает высокую производительность и надежность, поддерживает различные функции и интерфейсы.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/DELL_LATITUDE.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "Customer-specified Serial Number Programming Range (General Protocols)": "1-4096",
+      "Customer-specified Serial Number Programming Range (Standard Location Protocols, 24-bit Aircraft Address)": "1-511",
+      "Aircraft Address Protocol Bit Length": "24",
+      "Aircraft Address Protocol Hex Digits": "6",
+      "ICAO Operator Code Character Length": "3"
+    },
+    "specs_count": 5,
+    "series": "RESCU 406",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\LATITUDE.pdf",
+    "datasheet_size_kb": 2182,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

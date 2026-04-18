@@ -6,10 +6,10 @@
     "3240197.RU",
     "3240197RU"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Phoenix Contact",
+  "subbrand": null,
   "name": "Кабельный канал 3240197-RU",
-  "assembled_title": "Канал Honeywell 3240197-RU",
+  "assembled_title": "Канал Phoenix Contact 3240197-RU",
   "our_price_raw": "1808,89",
   "expected_category": "Канал",
   "card_status": "REVIEW_REQUIRED",
@@ -150,7 +150,7 @@
       "pn_not_confirmed",
       "no_usable_image"
     ],
-    "overall_label_prior": "VERY_LOW",
+    "overall_label_prior": "MEDIUM",
     "recalculated": true,
     "signals": {
       "identity_strong": true,
@@ -306,7 +306,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title_suffix_variant"
+    "structured_pn_match_location": "title_suffix_variant",
+    "confirmed_manufacturer": "Phoenix Contact",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -534,10 +536,133 @@
     "description_ru": "Phoenix Contact product, NOT Honeywell. -RU = Russian EAC certification. Regular $16.78; surplus $40 at GPM Surplus. Pack qty 10.",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Phoenix Contact product, NOT Honeywell. -RU = Russian EAC certification. Regular $16.78; surplus $40 at GPM Surplus. Pack qty 10."
+    }
   },
   "dr_image_url": "(available on RSP Supply page)",
   "dr_price": 13.98,
   "dr_currency": "USD",
-  "dr_price_source": "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx"
+  "dr_price_source": "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx",
+  "training_urls": [
+    "https://gpmsurplus.com/product/phoenix-contact-3240197-cd-25x80-cable-duct-gray/",
+    "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx",
+    "https://www.octparts.com/part/3240197",
+    "https://www.phoenixcontact.com/en-us/products/wiring-duct-cd-25x80-3240197"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 13.98,
+    "dr_currency": "USD",
+    "dr_source_url": "https://rspsupply.com/p-155757-phoenix-contact-3240197-cable-duct-cd-25x80.aspx",
+    "our_price_raw": "1808,89",
+    "our_price_parsed": 1808.89,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": null,
+    "judge_reason": "cable channel, quantity in specs text is dimensions not pack"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 13.98,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Кабельный канал используется для организации и защиты кабельных трасс в различных системах. Обеспечивает удобство монтажа и эстетичный вид.",
+    "best_description_source": "content",
+    "best_photo_url": "https://smart-shop.pro/itemcard/PHOENIX%20CONTACT/3240197",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Кабельный канал используется для организации и защиты кабельных трасс в различных системах. Обеспечивает удобство монтажа и эстетичный вид.",
+    "best_description_ru": "<p>Представляем кабельный канал Phoenix Contact серии CD, артикул 3240197-RU – незаменимое решение для профессиональной организации и надежной защиты кабельных трасс в самых разнообразных системах. Этот высококачественный продукт от всемирно известного немецкого бренда Phoenix Contact разработан для обеспечения максимального удобства монтажа, долговечности и эстетичного внешнего вида. Он идеально подходит для создания аккуратных и безопасных кабельных систем, где важна каждая деталь и безупречная функциональность.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Размеры:</b> Компактная ширина 25 мм и высота 80 мм при стандартной длине 2000 мм позволяют эффективно использовать пространство.</li>\n<li><b>Материал:</b> Изготовлен из прочного ПВХ (PVC), что гарантирует долговечность и устойчивость к внешним воздействиям.</li>\n<li><b>Цвет:</b> Универсальный серый цвет (gray) легко вписывается в большинство интерьеров и промышленных сред.</li>\n<li><b>Пожаробезопасность:</b> Высокий рейтинг воспламеняемости UL94 V0 обеспечивает максимальную безопасность в случае возгорания.</li>\n<li><b>Экологичность:</b> Компоненты кабельного канала не содержат свинца (Lead-free), что подчеркивает заботу о здоровье и окружающей среде.</li>\n<li><b>Номинальное сечение:</b> Впечатляющее номинальное поперечное сечение 1202 мм² позволяет размещать значительное количество кабелей.</li>\n<li><b>Температурный диапазон:</b> Рабочая температура от -5 до 60 °C гарантирует стабильную работу в различных климатических условиях.</li>\n<li><b>Упаковка:</b> Поставляется в удобной упаковке по 10 штук, с возможностью минимального заказа от 1 штуки.</li>\n</ul>\n<p>Кабельный канал Phoenix Contact CD 25X80 находит широкое применение в самых разнообразных сферах: от промышленных предприятий и коммерческих объектов до офисных помещений и жилых зданий. Он идеально подходит для прокладки силовых и слаботочных кабелей, организации структурированных кабельных систем, а также для защиты проводов от механических повреждений и внешних факторов. Благодаря своей конструкции, канал обеспечивает легкий доступ к кабелям для обслуживания и модификации, при этом сохраняя аккуратный и профессиональный вид инсталляции.</p>\n<p>Выбор кабельного канала Phoenix Contact CD 25X80 – это инвестиция в надежность и долговечность вашей кабельной инфраструктуры. Его превосходное качество, подтвержденное немецким происхождением и строгими стандартами Phoenix Contact, гарантирует бесперебойную работу системы на протяжении многих лет. Высокая пожаробезопасность, экологичность и удобство монтажа делают этот продукт оптимальным решением для любого проекта, где требуется профессиональная и безопасная организация кабельных трасс.</p>",
+    "best_description_ru_word_count": 311,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "product_category": "wire duct / raceway",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Cable duct - CD 25X80",
+    "description": "Cable duct for installation and mounting in control cabinets, gray, comprising upper part and mounting base, width: 25 mm, height: 80 mm, length: 2000 mm. Key advantages include predetermined breaking points for tool-free, burr-free bar removal, easy and burr-free cutting with PPS CD or CUTFOX-CD cable duct cutters, wide diagonal heads for secure cover fitting, wire retaining clips for secure conductor holding, and plastic body-bound rivets for easy fixing.",
+    "specs": {
+      "width_mm": 25,
+      "height_mm": 80,
+      "length_mm": 2000,
+      "color": "gray",
+      "material": "PVC",
+      "flammability_rating_ul94": "V0",
+      "components": "Lead-free",
+      "nominal_cross_section_mm2": 1202,
+      "halogen_free": "no",
+      "ambient_temperature_operation_c": "-5 ... 60",
+      "packing_unit_pc": 10,
+      "minimum_order_quantity_pc": 1,
+      "customs_tariff_number": "39259020",
+      "country_of_origin": "DE",
+      "classifications": {
+        "ECLASS-9.0": "27400703",
+        "ECLASS-10.0.1": "27400703",
+        "ECLASS-11.0": "27400703",
+        "ETIM-8.0": "EC000012",
+        "UNSPSC-21.0": "39131700"
+      },
+      "environmental_compliance": {
+        "china_rohs": "Environmentally friendly use period: unlimited = EFUP-e, No hazardous substances above threshold values"
+      }
+    },
+    "specs_count": 16,
+    "series": "CD",
+    "category": "Cable duct",
+    "weight_g": 800,
+    "dimensions_mm": "25 x 80 x 2000",
+    "certifications": [
+      "CSA (Approval ID: 248269)",
+      "UL Recognized (Approval ID: FILE E 328576)",
+      "VDE Zeichengenehmigung (Approval ID: 40027969)",
+      "EAC (Approval ID: RU C-DE.PB68.W.00478)"
+    ],
+    "article_no": "3240197",
+    "ean": "4046356459136",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\3240197-RU.pdf",
+    "datasheet_size_kb": 249,
+    "product_photos": [
+      "downloads\\datasheet_photos\\3240197-RU_p1_0.jpeg",
+      "downloads\\datasheet_photos\\3240197-RU_p3_0.png",
+      "downloads\\datasheet_photos\\3240197-RU_p8_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/3240197-RU_p1_0.jpeg",
+      "downloads/datasheet_photos/3240197-RU_p8_0.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "description_seo_ru": "<p>Представляем кабельный канал Phoenix Contact серии CD, артикул 3240197-RU – незаменимое решение для профессиональной организации и надежной защиты кабельных трасс в самых разнообразных системах. Этот высококачественный продукт от всемирно известного немецкого бренда Phoenix Contact разработан для обеспечения максимального удобства монтажа, долговечности и эстетичного внешнего вида. Он идеально подходит для создания аккуратных и безопасных кабельных систем, где важна каждая деталь и безупречная функциональность.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Размеры:</b> Компактная ширина 25 мм и высота 80 мм при стандартной длине 2000 мм позволяют эффективно использовать пространство.</li>\n<li><b>Материал:</b> Изготовлен из прочного ПВХ (PVC), что гарантирует долговечность и устойчивость к внешним воздействиям.</li>\n<li><b>Цвет:</b> Универсальный серый цвет (gray) легко вписывается в большинство интерьеров и промышленных сред.</li>\n<li><b>Пожаробезопасность:</b> Высокий рейтинг воспламеняемости UL94 V0 обеспечивает максимальную безопасность в случае возгорания.</li>\n<li><b>Экологичность:</b> Компоненты кабельного канала не содержат свинца (Lead-free), что подчеркивает заботу о здоровье и окружающей среде.</li>\n<li><b>Номинальное сечение:</b> Впечатляющее номинальное поперечное сечение 1202 мм² позволяет размещать значительное количество кабелей.</li>\n<li><b>Температурный диапазон:</b> Рабочая температура от -5 до 60 °C гарантирует стабильную работу в различных климатических условиях.</li>\n<li><b>Упаковка:</b> Поставляется в удобной упаковке по 10 штук, с возможностью минимального заказа от 1 штуки.</li>\n</ul>\n<p>Кабельный канал Phoenix Contact CD 25X80 находит широкое применение в самых разнообразных сферах: от промышленных предприятий и коммерческих объектов до офисных помещений и жилых зданий. Он идеально подходит для прокладки силовых и слаботочных кабелей, организации структурированных кабельных систем, а также для защиты проводов от механических повреждений и внешних факторов. Благодаря своей конструкции, канал обеспечивает легкий доступ к кабелям для обслуживания и модификации, при этом сохраняя аккуратный и профессиональный вид инсталляции.</p>\n<p>Выбор кабельного канала Phoenix Contact CD 25X80 – это инвестиция в надежность и долговечность вашей кабельной инфраструктуры. Его превосходное качество, подтвержденное немецким происхождением и строгими стандартами Phoenix Contact, гарантирует бесперебойную работу системы на протяжении многих лет. Высокая пожаробезопасность, экологичность и удобство монтажа делают этот продукт оптимальным решением для любого проекта, где требуется профессиональная и безопасная организация кабельных трасс.</p>",
+    "description_seo_word_count": 311,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Phoenix Contact",
+      "candidates": [],
+      "product_hint": "",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Cable duct - CD 25X80' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

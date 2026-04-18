@@ -4,7 +4,7 @@
   "pn": "129464N/U",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Миниатюрная трубка Honeywell Mini Peeper 129464N/U",
   "assembled_title": "Трубка Honeywell 129464N/U",
   "our_price_raw": "1997,60",
@@ -180,7 +180,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "На изображении видна миниатюрная трубка Honeywell/Beckett 129464N, товар угадывается",
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\129464N_U.jpg",
     "sha1": "bfe962be5ec36e10525be9051297042645ceeacc",
@@ -196,9 +196,7 @@
     "photo_status": "exact_evidence",
     "photo_evidence_role": "exact",
     "photo_is_temporary": false,
-    "replacement_required": false,
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "replacement_required": false
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -277,7 +275,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell/Fireye"
   },
   "content": {
     "specs": {},
@@ -580,7 +579,13 @@
       "aliases": [
         "129464N/U",
         "IR-130-5863"
-      ]
+      ],
+      "temperature_range": "-40 to +121 degC (-40 to +250 degF)",
+      "spectral_response": "185-260 nm",
+      "mounting": "Field replaceable in C7035 series",
+      "pressure_rating": "5 psi (34.5 kPa)",
+      "weight": "0.038 kg",
+      "compatible_detectors": "C7035, C7061"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -605,7 +610,74 @@
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "Сменная фоточувствительная трубка для обнаружения ультрафиолетового излучения пламени. Предназначена для использования в газовых и жидкотопливных горелках промышленного назначения. Является ключевым компонентом систем с динамической самопроверкой для предотвращения аварий. Работает в широком температурном диапазоне до \\+121 °C."
+    "description_ru": "Сменная фоточувствительная трубка для обнаружения ультрафиолетового излучения пламени. Предназначена для использования в газовых и жидкотопливных горелках промышленного назначения. Является ключевым компонентом систем с динамической самопроверкой для предотвращения аварий. Работает в широком температурном диапазоне до \\+121 °C.",
+    "descriptions_all": {
+      "legacy": "Сменная фоточувствительная трубка для обнаружения ультрафиолетового излучения пламени. Предназначена для использования в газовых и жидкотопливных горелках промышленного назначения. Является ключевым компонентом систем с динамической самопроверкой для предотвращения аварий. Работает в широком температурном диапазоне до \\+121 °C."
+    }
   },
-  "product_category": "UV Tube"
+  "training_urls": [
+    "https://www.ebay.com/itm/388510039698",
+    "https://www.ebay.com/itm/389106407042"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 246.66,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/388510039698",
+    "our_price_raw": "1997,60",
+    "our_price_parsed": 1997.6,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_en",
+    "pack_qty": null,
+    "judge_reason": "tube/probe, 'Open Box' triggered pack_marker — false positive"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 246.66,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Сменная фоточувствительная трубка для обнаружения ультрафиолетового излучения пламени. Предназначена для использования в газовых и жидкотопливных горелках промышленного назначения. Является ключевым компонентом систем с динамической самопроверкой для предотвращения аварий. Работает в широком температурном диапазоне до \\+121 °C.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://i.ebayimg.com/images/g/H~AAAOSw~R1m~W~q/s-l1600.jpg",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "EC7820 Primary Control Meeting European Community Timings",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "0085267006804",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\129464N_U.pdf",
+    "datasheet_size_kb": 2636,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'EC7820 Primary Control Meeting European Community Timings' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

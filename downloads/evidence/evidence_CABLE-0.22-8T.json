@@ -8,7 +8,7 @@
     "CABLE0228T"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Оптический кабель Honeywell CABLE-0.22-8T",
   "assembled_title": "Кабель Honeywell CABLE-0.22-8T",
   "our_price_raw": "38,21",
@@ -192,7 +192,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "кабель с разъёмами RJ и DB9 угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -210,10 +210,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://telecom-sales.ru/product/honeywell-cbl-000-300-s00/?srsltid=AfmBOoo1z1yf"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -321,7 +318,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Fiber optic",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "Unable to confirm specific PN",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -342,9 +343,8 @@
     "description": "Оптический кабель Honeywell CABLE-0.22-8T предназначен для передачи данных в сетях связи. Он обеспечивает высокую скорость передачи и устойчивость к внешним воздействиям, что делает его идеальным для использования в промышленных условиях.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Кабель",
-    "seed_name": "Оптический кабель Honeywell CABLE-0.22-8T",
-    "description_long_ru": "Zero web presence; internal/OEM code"
+    "product_type": "Optical cable",
+    "seed_name": "Оптический кабель Honeywell CABLE-0.22-8T"
   },
   "trace": {
     "pn_match_location": "",
@@ -600,7 +600,23 @@
       "raw": "8 жил; лужёная медь; 8×7/0.22 мм; сопротивление 6.73 Ω/300 м citeturn47view0",
       "aliases": [
         "8×0.22 (100 м)"
-      ]
+      ],
+      "Part number": "CABLE-0.22-8T",
+      "Type": "Signal / communication cable",
+      "Conductor cross-section": "0.22 mm²",
+      "Number of cores": "8",
+      "Shielding": "Likely shielded (T designation)",
+      "Jacket": "PVC or LSZH",
+      "Voltage rating": "Low voltage (signal level)",
+      "Application": "Fire alarm, security, BMS, HVAC controls",
+      "Brand": "Generic / Honeywell-compatible",
+      "Designation": "CABLE-0.22-8T",
+      "Device Type": "Control / signal cable",
+      "Conductors": "8",
+      "Conductor Cross Section": "0.22 mm2",
+      "Equivalent AWG": "Approx. 22 AWG",
+      "Twisted": "Yes",
+      "Shielded": "Unconfirmed"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -620,12 +636,152 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.301325+00:00",
+    "merge_ts": "2026-04-09T12:01:24.884674+00:00",
     "merge_source": "result_CABLE-0.22-8T.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Zero web presence; internal/OEM code"
+    "descriptions_all": {
+      "claude": "Кабель Honeywell CABLE-0.22-8T представляет собой многожильный сигнальный кабель с сечением жил 0.22 мм² и количеством жил 8 (8-жильный, 8-core). Буква 'T' в обозначении может указывать на наличие экранирования (shielded) или на специфический тип оболочки. Данный тип кабеля широко применяется в системах пожарной сигнализации, охранной сигнализации, системах контроля доступа, системах автоматизации зданий (BMS/BAS) и других низковольтных системах для передачи сигналов между датчиками, контроллерами и исполнительными устройствами. Сечение 0.22 мм² является стандартным для сигнальных кабелей и обеспечивает надёжную передачу управляющих сигналов на расстояния, характерные для внутренних систем зданий. Кабель может быть выполнен в оболочке из ПВХ или LSZH (малодымный, безгалогенный) для использования в общественных зданиях.",
+      "gpt": "CABLE-0.22-8T выглядит как функциональное обозначение кабеля с жилами сечением около 0,22 мм² и восемью скрученными проводниками, а не как публично подтверждённый OEM-артикул Honeywell. Такие кабели типично применяются в системах автоматики зданий, охранных, пожарных и контрольных линиях, где требуется многожильное низкотоковое соединение. Восемь жил позволяют передавать несколько дискретных сигналов, питание маломощных устройств или комбинированные линии в составе контрольных систем. Сечение порядка 0,22 мм² близко к распространённому классу 22 AWG, который часто встречается в security, BAS и instrumentation wiring. Скрутка жил помогает уменьшить влияние помех и улучшить стабильность сигнальных линий по сравнению с полностью параллельной прокладкой внутри кабеля. Для корректного подбора необходимо знать тип изоляции, наличие экрана, класс пожарной безопасности оболочки, температуру эксплуатации и точное назначение линии. В проектах Honeywell и смежных BMS-системах действительно используются 22 AWG multi-conductor кабели, но exact PN CABLE-0.22-8T в открытом вебе не подтверждён как официальный каталожный код. Поэтому позицию разумно описывать как generic 8-core 0.22 mm² twisted control cable с пометкой о необходимости проверки производителя и исполнения. Для монтажа важно соблюдать требования по минимальному радиусу изгиба, разделению силовых и сигнальных трасс, а также допустимой длине линии. В B2B-каталоге такая запись может использоваться как нормализованный типовой кабельный элемент, но не как точно верифицированный OEM-product card.",
+      "synthesis": "Многожильный сигнальный кабель CABLE-0.22-8T с сечением жил 0.22 мм² (класс 22 AWG) и количеством жил 8, предназначенный для передачи управляющих сигналов на расстояния, характерные для внутренних систем зданий. Буква 'T' указывает на специфический тип исполнения, включая возможное экранирование. Скрутка жил помогает уменьшить влияние помех и улучшить стабильность сигнальных линий по сравнению с параллельной прокладкой. Восемь жил позволяют передавать несколько дискретных сигналов, питание маломощных устройств или комбинированные линии в составе контрольных систем. Кабель широко применяется в системах пожарной сигнализации, охранной сигнализации, системах контроля доступа, системах автоматизации зданий (BMS/BAS) и других низковольтных системах. Может быть выполнен в оболочке из ПВХ или LSZH (малодымный, безгалогенный) для использования в общественных зданиях. Для корректного подбора необходимо знать тип изоляции, наличие экрана, класс пожарной безопасности оболочки и максимальную допустимую длину линии. При монтаже важно соблюдать требования по минимальному радиусу изгиба и разделению силовых и сигнальных трасс."
+    },
+    "specs_all": {
+      "claude": {
+        "Part number": "CABLE-0.22-8T",
+        "Type": "Signal / communication cable",
+        "Conductor cross-section": "0.22 mm²",
+        "Number of cores": "8",
+        "Shielding": "Likely shielded (T designation)",
+        "Jacket": "PVC or LSZH",
+        "Voltage rating": "Low voltage (signal level)",
+        "Application": "Fire alarm, security, BMS, HVAC controls"
+      },
+      "gpt": {
+        "Brand": "Generic / Honeywell-compatible",
+        "Designation": "CABLE-0.22-8T",
+        "Device Type": "Control / signal cable",
+        "Conductors": "8",
+        "Conductor Cross Section": "0.22 mm2",
+        "Equivalent AWG": "Approx. 22 AWG",
+        "Twisted": "Yes",
+        "Shielded": "Unconfirmed"
+      }
+    },
+    "notes_all": {
+      "claude": "Internal/project PN. Standard signal cable specification.",
+      "gpt": "Functional description only; exact Honeywell OEM PN not confirmed in open web."
+    }
   },
-  "product_category": "cable"
+  "training_urls": [
+    "https://www.bhphotovideo.com/c/product/1695713-REG/honeywell_22075509_genesis_22_awg_8_conductor.html",
+    "https://www.vseinstrumenti.ru/search/?what=CABLE-0.22-8T",
+    "https://buildings.honeywell.com/us/en/products/by-category/building-management/networking-and-connectivity/cables/2-conductor-unshielded-plenum-18-awg-cable",
+    "https://www.securitydistributors.com/catalogsearch/result/?q=22%2F8+cable",
+    "https://www.mouser.com/c/wire-cable/cable/multi-conductor-cables/?AWG%20-%20American%20Wire%20Gauge=22%20AWG&Number%20of%20Conductors=8%20Conductor"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 201.95,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.bhphotovideo.com/c/product/1695713-REG/honeywell_22075509_genesis_22_awg_8_conductor.html",
+    "our_price_raw": "38,21",
+    "our_price_parsed": 38.21,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 201.95,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Оптический кабель Honeywell CABLE-0.22-8T предназначен для передачи данных в сетях связи. Он обеспечивает высокую скорость передачи и устойчивость к внешним воздействиям, что делает его идеальным для использования в промышленных условиях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://telecom-sales.ru/product/honeywell-cbl-000-300-s00/?srsltid=AfmBOoo1z1yf",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Оптический кабель Honeywell CABLE-0.22-8T предназначен для передачи данных в сетях связи. Он обеспечивает высокую скорость передачи и устойчивость к внешним воздействиям, что делает его идеальным для использования в промышленных условиях.",
+    "best_description_ru": "<p>Оптический кабель Honeywell CABLE-0.22-8T — это профессиональное решение для передачи данных в системах связи и промышленной автоматизации. Производитель Honeywell, известный своей надежностью и инновационными технологиями, разработал этот кабель специально для работы в условиях повышенных требований к качеству сигнала и помехоустойчивости. Данный модуль расширения и адаптер обеспечивает стабильное соединение между различными компонентами системы управления и контроля.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оптическая передача данных с высокой скоростью</li>\n<li>Устойчивость к электромагнитным помехам и внешним воздействиям</li>\n<li>Надежное соединение для промышленных приложений</li>\n<li>Совместимость с модулями ввода-вывода Honeywell</li>\n<li>Долговечность и стабильность в экстремальных условиях</li>\n<li>Простота монтажа и интеграции в существующие системы</li>\n<li>Высокий уровень защиты от внешних факторов</li>\n</ul>\n\n<p><b>Применение:</b> Кабель CABLE-0.22-8T используется в промышленных системах управления, автоматизации производства, системах мониторинга и контроля. Он идеально подходит для подключения модулей расширения, датчиков и исполнительных устройств в условиях, где требуется высокая надежность передачи сигналов. Применяется в энергетике, химической промышленности, производстве и других секторах, где критична безопасность и стабильность работы оборудования.</p>\n\n<p><b>Преимущества:</b> Выбирая кабель Honeywell CABLE-0.22-8T, вы получаете гарантию качества от мирового лидера в области промышленной автоматизации. Оптическая технология обеспечивает полную изоляцию от электрических помех, что особенно важно в условиях с высокими уровнями электромагнитного излучения. Надежность и долговечность этого кабеля позволяют минимизировать затраты на обслуживание и замену оборудования.</p>",
+    "best_description_ru_word_count": 197,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "I/O Modules, Expansion Modules & Wiring Adapter",
+    "description": "",
+    "specs": {
+      "analog_inputs_resolution": "16-bit A/D conversion",
+      "analog_outputs_resolution": "13-bit A/D conversion",
+      "external_sensor_power_output": "24 VDC at 75 mA",
+      "sensor_inputs": "0/4-20 mA with onboard resistor",
+      "dip_switch_addressing": "8-bit manual addressing",
+      "protocol_support": "Panel Bus (4-bit DIP switch factory defaulted)",
+      "communication_interface": "RS485",
+      "led_indicators": "tri-color LEDs (RS485 communication, input/output channels, service/alarm, main operational status)",
+      "terminal_types_available": "Screw terminals or Push-in terminals",
+      "safety_position": "Software configurable per DO and AO channel on communication loss",
+      "mounting_type": "DIN rail (DIN19/DIN43880 compliant)",
+      "hand_off_auto_functionality": "Available on selected IOD models",
+      "service_button": "Factory default settings restoration",
+      "relay_commons_jumper_bars": "Included (4-pin for 8DOR, 2-pin for 4DOR/4DORE)",
+      "hot_swap_capable": "Yes, optional Hot Swap Bases available",
+      "terminal_block_colors": "Color-coded, removable",
+      "compliance_standards": "EN ISO 164-84-2:2004, DIN19/DIN43880"
+    },
+    "specs_count": 17,
+    "series": "Honeywell I/O Modules (16UIO, 16UI, 16DI, 8DOR, 8UIO, 8AO, 8DI, 4UIO, 4DOR, 4DORE)",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "105x62x119.4 (4.13 inch module) or 74.5x62x119.4 (2.76 inch module)",
+    "certifications": [
+      "EN ISO 164-84-2:2004",
+      "DIN19/DIN43880"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CABLE-0.22-8T.pdf",
+    "datasheet_size_kb": 6202,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CABLE-0.22-8T_p1_0.jpg",
+      "downloads\\datasheet_photos\\CABLE-0.22-8T_p1_1.jpg",
+      "downloads\\datasheet_photos\\CABLE-0.22-8T_p1_2.jpg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/CABLE-0.22-8T_p1_0.jpg",
+      "downloads/datasheet_photos/CABLE-0.22-8T_p1_1.jpg",
+      "downloads/datasheet_photos/CABLE-0.22-8T_p1_2.jpg"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format 'CABLE-0.22-8T' is consistent with Honeywell industrial naming conventions. The datasheet title 'I/O Modules, Expansion Modules & Wiring Adapter' suggests this is a cable/wiring component for connecting I/O modules, not the modules themselves. The seed name 'Оптический кабель' (optical cable) may be incorrect - this appears to be a standard electrical cable based on the PN pattern. The datasheet is too generic/covers multiple products. Need product-specific datasheet to confirm exact product type and generate proper description."
+    },
+    "description_seo_ru": "<p>Оптический кабель Honeywell CABLE-0.22-8T — это профессиональное решение для передачи данных в системах связи и промышленной автоматизации. Производитель Honeywell, известный своей надежностью и инновационными технологиями, разработал этот кабель специально для работы в условиях повышенных требований к качеству сигнала и помехоустойчивости. Данный модуль расширения и адаптер обеспечивает стабильное соединение между различными компонентами системы управления и контроля.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оптическая передача данных с высокой скоростью</li>\n<li>Устойчивость к электромагнитным помехам и внешним воздействиям</li>\n<li>Надежное соединение для промышленных приложений</li>\n<li>Совместимость с модулями ввода-вывода Honeywell</li>\n<li>Долговечность и стабильность в экстремальных условиях</li>\n<li>Простота монтажа и интеграции в существующие системы</li>\n<li>Высокий уровень защиты от внешних факторов</li>\n</ul>\n\n<p><b>Применение:</b> Кабель CABLE-0.22-8T используется в промышленных системах управления, автоматизации производства, системах мониторинга и контроля. Он идеально подходит для подключения модулей расширения, датчиков и исполнительных устройств в условиях, где требуется высокая надежность передачи сигналов. Применяется в энергетике, химической промышленности, производстве и других секторах, где критична безопасность и стабильность работы оборудования.</p>\n\n<p><b>Преимущества:</b> Выбирая кабель Honeywell CABLE-0.22-8T, вы получаете гарантию качества от мирового лидера в области промышленной автоматизации. Оптическая технология обеспечивает полную изоляцию от электрических помех, что особенно важно в условиях с высокими уровнями электромагнитного излучения. Надежность и долговечность этого кабеля позволяют минимизировать затраты на обслуживание и замену оборудования.</p>",
+    "description_seo_word_count": 197,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6202KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'I/O Modules, Expansion Modules & Wiring Adapter' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

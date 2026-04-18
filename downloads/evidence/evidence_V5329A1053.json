@@ -4,7 +4,7 @@
   "pn": "V5329A1053",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Трехходовой клапан Honeywell V5329A1053",
   "assembled_title": "Клапан Honeywell V5329A1053",
   "our_price_raw": "53526,00",
@@ -178,7 +178,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CZqqtxbucoFszdp4NqDQF'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -196,10 +196,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeywell-rus.ru/product/3-h-hodovoj-linejnyj-klapan-honeywell-v5329a105"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -313,7 +310,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -573,7 +571,50 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report.md",
     "description_ru": "Промышленный смесительный клапан фланцевого типа для систем с номинальным давлением 16 бар. Обеспечивает стабильное регулирование температуры благодаря высокому коэффициенту динамического диапазона (50:1). Пружинное уплотнение штока ПТФЭ не требует обслуживания.",
-    "specs": "Size: DN40; PN: 16; Kvs: 25; Stroke: 20mm; Leakage: <0.5%"
+    "specs": "Size: DN40; PN: 16; Kvs: 25; Stroke: 20mm; Leakage: <0.5%",
+    "descriptions_all": {
+      "legacy": "Промышленный смесительный клапан фланцевого типа для систем с номинальным давлением 16 бар. Обеспечивает стабильное регулирование температуры благодаря высокому коэффициенту динамического диапазона (50:1). Пружинное уплотнение штока ПТФЭ не требует обслуживания."
+    }
   },
-  "product_category": "valve"
+  "training_urls": [],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 217.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.ibc.ie/wp-content/uploads/New-2019-Catalogue_Valve-Catalogue-Microsoft-to-PDF-1.pdf",
+    "our_price_raw": "53526,00",
+    "our_price_parsed": 53526.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 217.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Промышленный смесительный клапан фланцевого типа для систем с номинальным давлением 16 бар. Обеспечивает стабильное регулирование температуры благодаря высокому коэффициенту динамического диапазона (50:1). Пружинное уплотнение штока ПТФЭ не требует обслуживания.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://honeywell-rus.ru/product/3-h-hodovoj-linejnyj-klapan-honeywell-v5329a105",
+    "best_photo_source": "photo_verdict"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

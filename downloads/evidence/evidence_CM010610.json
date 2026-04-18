@@ -3,10 +3,10 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "CM010610",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "DKC",
+  "subbrand": null,
   "name": "Винт с квадратной головкой Honeywell CM010610",
-  "assembled_title": "Винт Honeywell CM010610",
+  "assembled_title": "Винт DKC CM010610",
   "our_price_raw": "4,09",
   "expected_category": "Винт",
   "card_status": "DRAFT_ONLY",
@@ -314,7 +314,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -333,8 +335,7 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Винт",
-    "seed_name": "Винт с квадратной головкой Honeywell CM010610",
-    "description_long_ru": "DKC product (not Honeywell); M5 Combitech cable tray system"
+    "seed_name": "Винт с квадратной головкой Honeywell CM010610"
   },
   "trace": {
     "pn_match_location": "",
@@ -596,7 +597,20 @@
       "raw": "M6; длина 10 мм; класс прочности 4.8 (по карточке) citeturn62view0",
       "aliases": [
         "CM010610"
-      ]
+      ],
+      "Thread size": "M6x10",
+      "Head type": "Phillips cross-slotted, semi-countersunk (spherical)",
+      "Material": "Hardened steel",
+      "Surface treatment": "Galvanic/electrolytic zinc coating",
+      "Packing unit": "200 pcs",
+      "System": "M5 Combitech",
+      "Application": "Cable tray assembly and accessory mounting",
+      "Brand": "DKC",
+      "Part number": "CM010610",
+      "Product type": "Square neck bolt",
+      "Thread": "M6",
+      "Length": "10 mm",
+      "Finish": "Corrosion-protected / zinc-coated"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -616,12 +630,171 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.313836+00:00",
+    "merge_ts": "2026-04-09T12:01:24.888672+00:00",
     "merge_source": "result_CM010610.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "DKC product (not Honeywell); M5 Combitech cable tray system"
+    "descriptions_all": {
+      "claude": "Винт DKC CM010610 с крестообразным шлицем типоразмера М6х10 является крепёжным элементом из системы монтажных метизов «M5 Combitech» производства DKC. Винт предназначен для соединения металлических кабельных лотков между собой, а также для крепления к ним различных монтажных аксессуаров — консолей, подвесов, траверс на основе С-образного профиля типоразмеров 21x41 и 41x41. Изготовлен из закалённой стали с гальваническим/электролитическим цинковым покрытием, что обеспечивает высокую прочность и надёжную защиту от коррозии. Головка винта имеет полупотайную (сферическую) форму с крестообразным шлицем Phillips, что позволяет скрывать винт после установки и создавать аккуратный внешний вид конструкции. Винт устанавливается в незенкованное отверстие с предварительно подготовленной метрической резьбой. Поставляется в упаковках по 200 штук. Данный крепёж может применяться для сборки всех видов металлических кабеленесущих систем ДКС, включая листовые и проволочные лотки, лестничные лотки и перфорированные короба.",
+      "gpt": "DKC CM010610 — это крепежный болт M6x10, который используется в кабеленесущих и монтажных системах DKC. В официальном каталоге он описан как square neck bolt M6x10, то есть болт с квадратным подголовком, рассчитанный на совместную работу с фирменными монтажными элементами. Такая геометрия нужна для того, чтобы крепеж не проворачивался при сборке лотков, подвесов и других металлических узлов. Изделие применяется в сборке металлических кабельных трасс, стоек, соединительных пластин и крепежных аксессуаров серии Combitech и смежных систем. Для промышленного монтажа это важная мелкая позиция, потому что от стандартизованного крепежа зависит скорость сборки и повторяемость узлов. Обычно такие болты изготавливаются из стали с антикоррозионным покрытием, поэтому они подходят для внутренних технических помещений и стандартных промышленных условий. При подборе обязательно нужно проверять не только резьбу M6, но и длину 10 мм, потому что в одной и той же системе могут использоваться похожие болты другой длины. Для каталога лучше указывать товар как системный крепеж DKC, а не как универсальный метиз, чтобы покупатель понимал его назначение и совместимость. Если изделие закупается для сервисных комплектов, полезно дополнительно указывать совместимую гайку и серию монтажных аксессуаров. На практике эта позиция чаще всего покупается не поштучно, а как расходный крепеж для сборки кабельных трасс и металлоконструкций.",
+      "synthesis": "DKC CM010610 — болт квадратным подголовком (square neck bolt) М6×10 из закалённой стали с гальваническим/электролитическим цинковым покрытием, принадлежащий системе монтажных метизов «M5 Combitech» производства DKC. Геометрия квадратного подголовка обеспечивает надёжное блокирование от проворачивания при сборке лотков и подвесов. Винт предназначен для соединения металлических кабельных лотков между собой, а также для крепления к ним различных монтажных аксессуаров — консолей, подвесов, траверс на основе С-образного профиля типоразмеров 21x41 и 41x41. Высокая прочность материала и антикоррозионное покрытие обеспечивают долговечность и надёжную защиту от коррозии при эксплуатации в стандартных промышленных условиях. Болт может применяться для сборки всех видов металлических кабеленесущих систем ДКС, включая листовые и проволочные лотки, лестничные лотки и перфорированные короба. Поставляется в упаковках по 200 штук. При промышленном монтаже это важная мелкая позиция, потому что от стандартизованного крепежа зависит скорость сборки, повторяемость узлов и надёжность конструкции. При подборе обязательно нужно проверять не только резьбу M6, но и длину 10 мм, потому что в одной и той же системе могут использоваться похожие болты другой длины."
+    },
+    "specs_all": {
+      "claude": {
+        "Thread size": "M6x10",
+        "Head type": "Phillips cross-slotted, semi-countersunk (spherical)",
+        "Material": "Hardened steel",
+        "Surface treatment": "Galvanic/electrolytic zinc coating",
+        "Packing unit": "200 pcs",
+        "System": "M5 Combitech",
+        "Application": "Cable tray assembly and accessory mounting"
+      },
+      "gpt": {
+        "Brand": "DKC",
+        "Part number": "CM010610",
+        "Product type": "Square neck bolt",
+        "Thread": "M6",
+        "Length": "10 mm",
+        "Application": "Cable tray and mounting system assembly",
+        "Material": "Steel",
+        "Finish": "Corrosion-protected / zinc-coated"
+      }
+    },
+    "notes_all": {
+      "gpt": "Official DKC page confirms CM010610 as square neck bolt M6x10. Secondary Russian seller describes it as M6x10 mounting screw."
+    }
   },
-  "product_category": "Fastener (tray systems)"
+  "training_urls": [
+    "https://anbik.ru/metalcabellotky/item-2486/",
+    "https://satro-paladin.com/catalog/product/43607/",
+    "https://shop220.ru/cm010610-vint-s-krestoobraznym-shlitsem-m6h10.htm",
+    "https://www.dkc.ru/en/catalog/209/cm010610/",
+    "https://www.dkcmarket.ru/cm010610.html",
+    "https://www.vseinstrumenti.ru/product/vint-m6h10-200-sht-s-krestoobraznym-shlitsem-dkc-cm010610-703441/",
+    "https://dkc.com.ru/cm010610-vint-s-krestoobraznym-shlicem-m6h10-dkc.html",
+    "https://www.chipdip.ru/product0/8000757816",
+    "https://www.abn.ru/catalog/10376/",
+    "https://www.dkc.ru/en/catalog/209/CM010610/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 7.15,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://shop220.ru/cm010610-vint-s-krestoobraznym-shlitsem-m6h10.htm",
+    "our_price_raw": "4,09",
+    "our_price_parsed": 4.09,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 7.15,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Винт Honeywell CM010610 с квадратной головкой используется для крепления и фиксации различных компонентов в промышленных системах. Он обеспечивает надежное соединение и устойчивость к вибрациям.",
+    "best_description_source": "content",
+    "best_photo_url": "https://shop220.ru/images/data/cat/53824_big.jpg",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Винт Honeywell CM010610 с квадратной головкой используется для крепления и фиксации различных компонентов в промышленных системах. Он обеспечивает надежное соединение и устойчивость к вибрациям.",
+    "best_description_ru": "<p>Представляем вашему вниманию высококачественный крепежный винт DKC CM010610 из инновационной серии C5 Combitech, разработанный для обеспечения максимальной надежности и долговечности в самых требовательных промышленных условиях. Этот винт с квадратной головкой, производимый под брендом DKC, является незаменимым элементом для надежного крепления и фиксации различных компонентов в сложных инженерных системах. Он гарантирует прочное соединение, устойчивость к вибрациям и долгий срок службы, что делает его идеальным выбором для профессионалов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Класс защиты:</b> Соответствует стандартам IP20, IP40, IP44, обеспечивая надежную защиту от пыли и влаги в зависимости от условий эксплуатации.</li>\n<li><b>Тип монтажа:</b> Универсальные возможности монтажа – настенный, потолочный, подвесной и комбинированный, что значительно расширяет сферы применения.</li>\n<li><b>Соответствие стандартам:</b> Полностью соответствует CEI 23-31 (для металлических элементов) и CEI 23-32 (для изоляции), подтверждая высокое качество и безопасность.</li>\n<li><b>Сертификация:</b> Продукция сертифицирована авторитетным органом I.M.Q., что является гарантией соответствия международным стандартам качества.</li>\n<li><b>Стандарт испытаний на нагрузку:</b> Испытания проведены согласно CEI EN 61537 1-е издание 2003-06 (пункт 10.3.2), подтверждая высокую несущую способность и надежность.</li>\n<li><b>Размеры пазов:</b> Точные размеры пазов основания 25x7 мм и края 10x7 мм обеспечивают идеальную совместимость с различными профилями.</li>\n<li><b>Спецификации края:</b> Подходит для профилей H50 P1, H80 P2, H100 P2, что гарантирует универсальность применения.</li>\n<li><b>Отверстия для перфорированных элементов:</b> Отверстия в основании 7x19 мм и на краю 7x10 мм для удобства крепления.</li>\n<li><b>Соединение винтов:</b> Винты M6 для скользящего и не скользящего крепления основания (2 винта для не скользящего), а также винты M5 для скользящего и не скользящего крепления крышки (2 винта для не скользящего).</li>\n</ul>\n\n<p>Винт крепежный DKC CM010610 находит широкое применение в различных промышленных и строительных проектах, где требуется высокая надежность крепления. Он идеально подходит для монтажа кабельных лотков, систем освещения, вентиляционных каналов, а также для фиксации других элементов инженерных коммуникаций. Благодаря своей прочной конструкции и устойчивости к внешним воздействиям, этот винт незаменим при создании долговечных и безопасных систем в производственных цехах, складских помещениях, коммерческих зданиях и инфраструктурных объектах.</p>\n\n<p>Выбирая винт DKC CM010610, вы инвестируете в надежность и долговечность ваших систем. Его высокая прочность, подтвержденная многочисленными стандартами и сертификациями, гарантирует стабильность соединений даже в условиях повышенных вибраций и нагрузок. Универсальность монтажа и соответствие международным стандартам делают его оптимальным решением для широкого спектра задач, обеспечивая простоту установки и уверенность в качестве на долгие годы.</p>",
+    "best_description_ru_word_count": 359,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "protection_class": "IP20, IP40, IP44",
+      "installation_type": "wall-mounted, ceiling-mounted, hanging, combined",
+      "standards_conformity": "CEI 23-31 (metal), CEI 23-32 (isolation)",
+      "certification_body": "I.M.Q.",
+      "load_test_standard": "CEI EN 61537 1st edition 2003-06 (point 10.3.2)",
+      "slot_dimensions_base": "25x7 mm",
+      "slot_dimensions_edge": "10x7 mm",
+      "edge_specifications": "H50 P1, H80 P2, H100 P2",
+      "perforated_element_base_hole": "7x19 mm",
+      "perforated_element_edge_hole": "7x10 mm",
+      "cover_connector_hole": "M5",
+      "screw_coupling_base_slide_in": "M6",
+      "screw_coupling_base_non_slide_in": "M6 (2 screws)",
+      "screw_coupling_cover_slide_in": "M5",
+      "screw_coupling_cover_non_slide_in": "M5 (2 screws)",
+      "material_steel_thickness_straight_elements": "0.7-1-1.2 mm (galvanized steel), 0.8 mm (AISI 304 stainless)",
+      "material_steel_thickness_covers": "0.6-0.8 mm (galvanized steel), 0.6 mm (AISI 304 stainless)",
+      "material_steel_thickness_accessories": "0.8-1 mm (galvanized steel), 0.8 mm (AISI 304 stainless)",
+      "material_options": "Sendzimir galvanized steel, pre-galvanized steel, AISI 304 stainless steel, AISI 316 stainless steel (on request)",
+      "finish_colors": "RAL 7035, Electric Blue, natural galvanized",
+      "galvanizing_standard": "CEI 7.6 (hot deep galvanized after producing)",
+      "electrical_continuity": "guaranteed by raised ring-shaped grounding area on all components",
+      "grounding_connection_plate": "PTCE (nickel-plated copper)",
+      "available_heights_mm": "50, 80, 100",
+      "available_base_widths_mm": "50, 80, 100, 150, 200, 300, 400, 500, 600",
+      "straight_element_lengths_mm": "1000, 2000, 3000",
+      "cover_height_mm": "15",
+      "non_perforated_element_3000mm_weights_kg_m": "1.26-6.91 (height 50), 1.48-7.48 (height 80), 1.82-7.87 (height 100)",
+      "perforated_element_weights_kg_m": "0.81-6.97 (height 50), 1.41-6.99 (height 80), 1.74-7.87 (height 100)",
+      "divider_weight_kg": "0.48-0.68",
+      "cover_with_ground_connector_weights_kg_m": "0.27-4.09",
+      "cover_without_ground_connector_weights_kg_m": "0.55-3.75"
+    },
+    "specs_count": 32,
+    "series": "C5 Combitech",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "CEI 23-31",
+      "CEI 23-32",
+      "CEI EN 61537",
+      "I.M.Q. certified",
+      "IP20",
+      "IP40",
+      "IP44"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CM010610.pdf",
+    "datasheet_size_kb": 15754,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CM010610_p1_0.jpeg",
+      "downloads\\datasheet_photos\\CM010610_p2_0.jpeg",
+      "downloads\\datasheet_photos\\CM010610_p2_1.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/CM010610_p1_0.jpeg",
+      "downloads/datasheet_photos/CM010610_p2_1.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "description_seo_ru": "<p>Представляем вашему вниманию высококачественный крепежный винт DKC CM010610 из инновационной серии C5 Combitech, разработанный для обеспечения максимальной надежности и долговечности в самых требовательных промышленных условиях. Этот винт с квадратной головкой, производимый под брендом DKC, является незаменимым элементом для надежного крепления и фиксации различных компонентов в сложных инженерных системах. Он гарантирует прочное соединение, устойчивость к вибрациям и долгий срок службы, что делает его идеальным выбором для профессионалов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Класс защиты:</b> Соответствует стандартам IP20, IP40, IP44, обеспечивая надежную защиту от пыли и влаги в зависимости от условий эксплуатации.</li>\n<li><b>Тип монтажа:</b> Универсальные возможности монтажа – настенный, потолочный, подвесной и комбинированный, что значительно расширяет сферы применения.</li>\n<li><b>Соответствие стандартам:</b> Полностью соответствует CEI 23-31 (для металлических элементов) и CEI 23-32 (для изоляции), подтверждая высокое качество и безопасность.</li>\n<li><b>Сертификация:</b> Продукция сертифицирована авторитетным органом I.M.Q., что является гарантией соответствия международным стандартам качества.</li>\n<li><b>Стандарт испытаний на нагрузку:</b> Испытания проведены согласно CEI EN 61537 1-е издание 2003-06 (пункт 10.3.2), подтверждая высокую несущую способность и надежность.</li>\n<li><b>Размеры пазов:</b> Точные размеры пазов основания 25x7 мм и края 10x7 мм обеспечивают идеальную совместимость с различными профилями.</li>\n<li><b>Спецификации края:</b> Подходит для профилей H50 P1, H80 P2, H100 P2, что гарантирует универсальность применения.</li>\n<li><b>Отверстия для перфорированных элементов:</b> Отверстия в основании 7x19 мм и на краю 7x10 мм для удобства крепления.</li>\n<li><b>Соединение винтов:</b> Винты M6 для скользящего и не скользящего крепления основания (2 винта для не скользящего), а также винты M5 для скользящего и не скользящего крепления крышки (2 винта для не скользящего).</li>\n</ul>\n\n<p>Винт крепежный DKC CM010610 находит широкое применение в различных промышленных и строительных проектах, где требуется высокая надежность крепления. Он идеально подходит для монтажа кабельных лотков, систем освещения, вентиляционных каналов, а также для фиксации других элементов инженерных коммуникаций. Благодаря своей прочной конструкции и устойчивости к внешним воздействиям, этот винт незаменим при создании долговечных и безопасных систем в производственных цехах, складских помещениях, коммерческих зданиях и инфраструктурных объектах.</p>\n\n<p>Выбирая винт DKC CM010610, вы инвестируете в надежность и долговечность ваших систем. Его высокая прочность, подтвержденная многочисленными стандартами и сертификациями, гарантирует стабильность соединений даже в условиях повышенных вибраций и нагрузок. Универсальность монтажа и соответствие международным стандартам делают его оптимальным решением для широкого спектра задач, обеспечивая простоту установки и уверенность в качестве на долгие годы.</p>",
+    "description_seo_word_count": 359,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "fastener",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 15754KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

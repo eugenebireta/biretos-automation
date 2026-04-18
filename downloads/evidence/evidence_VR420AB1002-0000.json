@@ -7,7 +7,7 @@
     "VR420AB10020000"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Комбинированный газовый клапан Honeywell VR420AB1002-0000",
   "assembled_title": "Клапан Honeywell VR420AB1002-0000",
   "our_price_raw": "109988,00",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqrezwXb18bTcBEG2Ghj'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://ankas.ru/gazovye-klapany/honeywell-vr420ab1002-0000-9149"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -321,7 +318,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "VR420 series",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "Combined gas valve, DN20, 220-240V solenoid, servo-combi type",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -353,7 +355,7 @@
     "description": "Комбинированный газовый клапан Honeywell VR420AB1002-0000 предназначен для управления потоком газа в системах отопления и промышленного оборудования. Работает при напряжении 220/240 В. Обеспечивает надежное и безопасное управление газовыми потоками.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Клапан",
+    "product_type": "Gas control valve",
     "seed_name": "Комбинированный газовый клапан Honeywell VR420AB1002-0000",
     "description_long_ru": "VR400/VR800 series; all distributors show price on request; 8-10 week lead time"
   },
@@ -575,5 +577,167 @@
     "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "valve",
-  "product_category": "valve"
+  "training_urls": [
+    "https://customer.honeywell.com/en-US/Pages/Product.aspx?...VR420AB1002-0000",
+    "https://krom.lt/catalog/vr420-gas-valves",
+    "https://process.honeywell.com/us/en/products/thermal-solutions/fuel-and-air-delivery/control-valves/vr400-vr800-series",
+    "https://www.nexinstrument.com/vr420ab1002-0000"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "109988,00",
+    "our_price_parsed": 109988.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 624.0,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Комбинированный газовый клапан Honeywell VR420AB1002-0000 предназначен для управления потоком газа в системах отопления и промышленного оборудования. Работает при напряжении 220/240 В. Обеспечивает надежное и безопасное управление газовыми потоками.",
+    "best_description_source": "content",
+    "best_photo_url": "https://ankas.ru/gazovye-klapany/honeywell-vr420ab1002-0000-9149",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Комбинированный газовый клапан Honeywell VR420AB1002-0000 предназначен для управления потоком газа в системах отопления и промышленного оборудования. Работает при напряжении 220/240 В. Обеспечивает надежное и безопасное управление газовыми потоками.",
+    "best_description_ru": "<p>Комбинированный газовый клапан Honeywell VR420AB1002-0000 — это профессиональное оборудование серии VR400/VR800 Class \"A\", разработанное компанией Honeywell для точного управления потоком газа. Клапан предназначен для использования в системах отопления, газоснабжения и промышленном оборудовании. Устройство работает при напряжении 220/240 В и обеспечивает надежное, безопасное и эффективное управление газовыми потоками в различных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Сервоуправляемый комбинированный клапан высокого класса надежности</li>\n<li>Рабочее напряжение: 220/240 В</li>\n<li>Серия VR400/VR800 Class \"A\" — профессиональный стандарт качества</li>\n<li>Точное регулирование расхода газа</li>\n<li>Надежная конструкция для длительной эксплуатации</li>\n<li>Безопасность и стабильность работы в различных режимах</li>\n<li>Совместимость с системами автоматизации отопления</li>\n<li>Артикул: VR420AB1002-0000</li>\n</ul>\n\n<p><b>Применение:</b> Клапан Honeywell VR420AB1002-0000 широко используется в системах центрального отопления, газовых котельных и промышленном оборудовании. Он обеспечивает точное управление подачей газа, позволяя поддерживать оптимальную температуру и давление в системе. Клапан применяется как в жилых, так и в коммерческих объектах, где требуется надежное и безопасное газораспределение.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell VR420AB1002-0000, вы получаете проверенное временем оборудование от мирового лидера в области автоматизации и управления климатом. Устройство отличается высокой точностью регулирования, надежностью и долговечностью. Профессиональный класс \"A\" гарантирует соответствие строгим стандартам качества и безопасности, что делает его идеальным выбором для ответственных приложений.</p>",
+    "best_description_ru_word_count": 186,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "phase3a_price": {
+    "price": 624.0,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.nexinstrument.com/vr420ab1002-0000",
+    "confidence": "high",
+    "notes": "",
+    "search_used": "VR420AB1002-0000"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "VR400/VR800 Series CLASS „A“ SERVO REGULATED COMBINATION VALVES",
+    "description": "",
+    "specs": {
+      "product_series": "VR400/VR800 Series",
+      "valve_classification": "Class A + A according EN 126/EN 161",
+      "regulator_classification": "Class C according EN 126/EN 88",
+      "application": "Control and regulation of gaseous fuels in gas fired power burners, atmospheric gas boilers, melting furnaces, incinerators",
+      "models": "VR415/VR815 (DN15, 1/2\"), VR420/VR820 (DN20, 3/4\"), VR425/VR825 (DN25, 1\"), VR432/VR832 (DN32, 1¼\"), VR434/VR834 (DN32, 1¼\")",
+      "pipe_connection_type": "Straight flanged, ISO 7-1 internal pipe thread",
+      "supply_voltage": "230 Vac, 50/60 Hz",
+      "operational_voltage_range": "85% to 110% of rated voltage",
+      "electrical_equipment": "DC current coils with combined rectifier inside cover",
+      "coil_insulation_class": "Class F",
+      "electrical_connector": "DIN plug connector according DIN 43650",
+      "enclosure_rating": "IP 40",
+      "body_material": "Aluminium alloy die cast",
+      "closing_spring_material": "AISI 302 steel",
+      "valve_plunger_material": "Coated Fe 360",
+      "seals_gaskets_material": "Hydrocarbon resistant NBR and Viton rubber types",
+      "strainer_material": "AISI 303 steel, fine mesh screen diameter 0.34 mm",
+      "strainer_specification": "Meets requirements for strainer according EN 161",
+      "ambient_temperature_range": "-15 to 60 °C",
+      "maximum_operating_pressure_VR400_1000": "200 mbar",
+      "maximum_operating_pressure_VR400_4000": "360 mbar",
+      "maximum_operating_pressure_VR400_5000": "100 mbar",
+      "maximum_operating_pressure_VR800": "100 mbar",
+      "maximum_operating_pressure_VR432_VR832": "100 mbar",
+      "maximum_operating_pressure_VR434_VR834": "100 mbar",
+      "high_pressure_test": "1.5 bar (air) inlet pressure without damage in OFF condition",
+      "minimum_regulating_capacity_VR415_VR815": "1 m³/hr",
+      "minimum_regulating_capacity_VR420_VR820": "1 m³/hr",
+      "minimum_regulating_capacity_VR425_VR825": "1.5 m³/hr",
+      "minimum_regulating_capacity_VR432_VR832": "1.5 m³/hr",
+      "minimum_regulating_capacity_VR434_VR834": "1.5 m³/hr",
+      "opening_time_dead_time_maximum": "< 1 second",
+      "opening_time_dead_time_VR434": "< 0.5 second",
+      "first_valve_V1_opening_time": "< 1 second",
+      "second_valve_V2_fast_opening": "Reaches 50% of adjustable outlet pressure within 0.5 sec after start flow",
+      "second_valve_V2_characterized_opening": "Adjustable from 1 to 30 seconds at rated capacity",
+      "opening_characteristic_factory_setting": "Approximately 6 seconds at 80% of rated capacity, 30 mbar supply pressure, nominal voltage, 20°C, 2.5 mbar pressure drop, no step pressure",
+      "opening_time_temperature_variance": "±4 seconds due to ambient temperature influence (-15 to 60°C)",
+      "closing_time_V1_V2": "< 1 second for all valves",
+      "maximum_working_frequency": "1 cycle per minute",
+      "duty_cycle": "Coil suitable for permanent energization in cooperation with ignition controller",
+      "maximum_allowable_leakage_outerwall": "50 cm³/h at test pressure 6 and 540 mbar",
+      "maximum_allowable_leakage_safety_valve": "40 cm³/h at test pressure 6 and 540 mbar",
+      "maximum_allowable_leakage_main_valve": "40 cm³/h at test pressure 6 and 540 mbar",
+      "oscillation_maximum": "0.5 mbar (all versions except gas/air 1:1)",
+      "tap_sensitivity_outlet_pressure": "Maximum deviation 1 mbar for all gases",
+      "repeatability_outlet_pressure_setpoint": "±0.3 mbar or +3% of set point value, whichever greatest",
+      "torsion_bending_stress": "Group 2 according EN 161",
+      "pressure_taps_inlet_outlet": "1/8\" pressure taps at inlet and outlet flanges",
+      "flange_connections": "8 flange connections on main body for pressure switches or Valve Proving System (VPS)",
+      "IP_application_connections": "Two 1/8\" connections for Intermittent Pilot applications",
+      "valve_seats": "Single seat for each of two main valves",
+      "power_consumption_VR415_VR815_V1": "15.4 W at 230V, 15.4 mA",
+      "power_consumption_VR415_VR815_V2": "15.4 W at 230V, 15.4 mA",
+      "power_consumption_VR420_VR820_V1": "14.6 W at 230V, 14.6 mA",
+      "power_consumption_VR420_VR820_V2": "14.6 W at 230V, 14.6 mA",
+      "power_consumption_VR425_VR825_V1": "10.8 W at 230V, 10.8 mA",
+      "power_consumption_VR425_VR825_V2": "10.8 W at 230V, 10.8 mA",
+      "power_consumption_VR432_VR832_V1": "18.6 W at 230V, 18.6 mA",
+      "power_consumption_VR432_VR832_V2": "22.1 W at 230V, 22.1 mA",
+      "power_consumption_VR434_VR834_V1": "15.5 W at 230V, 15.5 mA",
+      "power_consumption_VR434_VR834_V2": "15.5 W at 230V, 15.5 mA",
+      "power_consumption_startup": "Design life: 50,000 cycles",
+      "design_life_cycles": "500,000 cycles",
+      "coils_field_replaceable": "Yes",
+      "rectifier_boards_field_replaceable": "Yes",
+      "suitable_for_electric_modulation": "Yes",
+      "suitable_for_electric_two_stage_regulator": "Yes",
+      "suitable_for_gas_air_modulation": "Yes",
+      "DBI_application": "Direct Burner Ignition available",
+      "IP_application": "Intermittent Pilot available"
+    },
+    "specs_count": 71,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "217.5x131x87.7 (primary body dimensions, variable with flange kit)",
+    "certifications": [
+      "EN 161",
+      "EN 126",
+      "EN 88",
+      "EN 54-18"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\VR420AB1002-0000.pdf",
+    "datasheet_size_kb": 1173,
+    "product_photos": [
+      "downloads\\datasheet_photos\\VR420AB1002-0000_p1_0.jpeg",
+      "downloads\\datasheet_photos\\VR420AB1002-0000_p5_0.png"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/VR420AB1002-0000_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - VR420AB1002-0000 follows Honeywell's gas valve naming convention. The datasheet title confirms this is a VR400/VR800 Series Class A servo regulated combination gas valve. However, the record is missing critical data (EAN, specifications, series field, dimensions, weight, and insufficient description). The datasheet exists but data extraction was incomplete or failed. Need to re-process datasheet to extract missing technical specifications and product details."
+    },
+    "description_seo_ru": "<p>Комбинированный газовый клапан Honeywell VR420AB1002-0000 — это профессиональное оборудование серии VR400/VR800 Class \"A\", разработанное компанией Honeywell для точного управления потоком газа. Клапан предназначен для использования в системах отопления, газоснабжения и промышленном оборудовании. Устройство работает при напряжении 220/240 В и обеспечивает надежное, безопасное и эффективное управление газовыми потоками в различных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Сервоуправляемый комбинированный клапан высокого класса надежности</li>\n<li>Рабочее напряжение: 220/240 В</li>\n<li>Серия VR400/VR800 Class \"A\" — профессиональный стандарт качества</li>\n<li>Точное регулирование расхода газа</li>\n<li>Надежная конструкция для длительной эксплуатации</li>\n<li>Безопасность и стабильность работы в различных режимах</li>\n<li>Совместимость с системами автоматизации отопления</li>\n<li>Артикул: VR420AB1002-0000</li>\n</ul>\n\n<p><b>Применение:</b> Клапан Honeywell VR420AB1002-0000 широко используется в системах центрального отопления, газовых котельных и промышленном оборудовании. Он обеспечивает точное управление подачей газа, позволяя поддерживать оптимальную температуру и давление в системе. Клапан применяется как в жилых, так и в коммерческих объектах, где требуется надежное и безопасное газораспределение.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell VR420AB1002-0000, вы получаете проверенное временем оборудование от мирового лидера в области автоматизации и управления климатом. Устройство отличается высокой точностью регулирования, надежностью и долговечностью. Профессиональный класс \"A\" гарантирует соответствие строгим стандартам качества и безопасности, что делает его идеальным выбором для ответственных приложений.</p>",
+    "description_seo_word_count": 186,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'VR400/VR800 Series CLASS „A“ SERVO REGULATED COMBINATION VAL' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

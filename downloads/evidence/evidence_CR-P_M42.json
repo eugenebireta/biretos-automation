@@ -7,7 +7,7 @@
     "CRP/M42"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Защитный диод Honeywell CR-P/M42",
   "assembled_title": "Диод Honeywell CR-P/M42",
   "our_price_raw": "98,00",
@@ -217,7 +217,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Защитный диодный модуль CR-P/M 42 чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -235,10 +235,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://octopart.com/cr-p%2Fm42-abb+control-65273402"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -397,7 +394,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -432,8 +431,7 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Диод",
-    "seed_name": "Защитный диод Honeywell CR-P/M42",
-    "description_long_ru": "ABB product; MSRP $10.72; for CR-P/CR-M relay sockets"
+    "seed_name": "Защитный диод Honeywell CR-P/M42"
   },
   "trace": {
     "pn_match_location": "",
@@ -728,7 +726,37 @@
       "raw": "CR‑P/M42; диод + LED; 6–24VDC (по описанию продавца) citeturn28view0",
       "aliases": [
         "1SVR405652R0000"
-      ]
+      ],
+      "rated_voltage": "6-24 V DC",
+      "indicator": "Red LED",
+      "protection": "Free-wheeling diode, reverse polarity",
+      "socket_compatibility": "CR-P and CR-M series",
+      "standards": "UL 508, IEC/EN 61984",
+      "width": "13 mm",
+      "weight": "0.003 kg",
+      "Part Number": "1SVR405652R0000",
+      "Rated Control Supply Voltage": "6-24 VDC",
+      "Resistance": "3 kOhm",
+      "Power": "0.25 W",
+      "Diode Rating": "1 A, 1000 V",
+      "LED Color": "Red",
+      "Material": "PA6-GFV2",
+      "Dimensions": "9 x 13 x 24 mm (L x W x H)",
+      "Compatibility": "CR-P and CR-M range sockets",
+      "Function": "Reverse polarity protection / free wheeling diode + LED indication",
+      "Manufacturer": "ABB",
+      "Part Number (ABB)": "1SVR405652R0000",
+      "Compatible Sockets": "CR-P and CR-M range",
+      "Connection": "A1+, A2-",
+      "Dimensions (W×H×D)": "13 × 24 × 9 mm",
+      "Weight": "0.003 kg",
+      "Sub-Function": "Pluggable function module for PCB and miniature relay sockets",
+      "Accessory type": "Pluggable module for relay sockets",
+      "Compatible relay series": "CR-P, CR-M",
+      "Protection": "Reverse polarity protection / free-wheeling diode",
+      "Indicator": "Red LED",
+      "Rated control supply voltage": "6 ... 24 V DC",
+      "Product ID": "1SVR405652R0000"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -748,12 +776,132 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.342873+00:00",
+    "merge_ts": "2026-04-09T12:01:24.896185+00:00",
     "merge_source": "result_CR-P_M42.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "ABB product; MSRP $10.72; for CR-P/CR-M relay sockets"
+    "descriptions_all": {
+      "claude": "CR-P/M42 — подключаемый функциональный модуль (диод с LED-индикацией) для использования с гнёздами интерфейсных реле серий CR-P и CR-M производства ABB. Данный модуль обеспечивает защиту от обратной полярности и функцию свободного хода диода (free-wheeling diode), что защищает управляющую электронику от обратных ЭДС при отключении индуктивных нагрузок. Модуль оснащён красным светодиодом (LED) для индикации состояния цепи управления. Рабочее напряжение управления составляет от 6 до 24 В постоянного тока с подключением A1+ и A2-. Модуль имеет компактные размеры (13 × 24 × 9 мм) и массу всего 3 грамма, что делает его идеальным решением для плотного монтажа в электрических шкафах. Установка модуля осуществляется простым подключением в гнездо релейного модуля без использования дополнительных инструментов. Данный модуль широко применяется в системах промышленной автоматизации, управления освещением и HVAC-системах для защиты контактов реле от искрообразования и продления срока службы оборудования. Несмотря на указание бренда Honeywell в каталоге заказчика, фактическим производителем является ABB (артикул 1SVR405652R0000).",
+      "gpt": "ABB CR-P/M42 — это вставной модуль для релейных розеток серий CR-P и CR-M, предназначенный для защиты цепи управления и индикации состояния. Он не является самостоятельным реле, а устанавливается в соответствующее основание реле как дополнительный функциональный элемент. Главная задача модуля — реализовать защиту от переполюсовки и подавление выбросов самоиндукции при отключении катушки постоянного тока. Для визуального контроля предусмотрен красный светодиод, поэтому модуль удобен в шкафах автоматики и релейной логики. Такое решение часто применяют в PLC-системах, интерфейсных шкафах и вспомогательных цепях, где нужно повысить надёжность коммутации и упростить диагностику. Модуль рассчитан на цепи управления 6…24 V DC и подходит к стандартным розеткам реле CR-P/CR-M от ABB. Установка выполняется как plug-in accessory, без переделки самого реле, что удобно при дооснащении уже собранного шкафа. При подборе важно учитывать, что этот аксессуар предназначен именно для DC-цепей и не заменяет защитные схемы для AC-катушек. Для B2B-каталога позицию правильно описывать как pluggable function module with LED and diode for relay sockets. Это типичный аксессуар для промышленной автоматики, где важны защита, сервисопригодность и стандартизованный монтаж.",
+      "synthesis": "ABB CR-P/M42 — подключаемый функциональный модуль (plug-in diode module with LED indicator) для использования с гнёздами интерфейсных реле серий CR-P и CR-M производства ABB. Модуль не является самостоятельным реле, а устанавливается в соответствующее основание как дополнительный функциональный элемент. Главная задача модуля — реализовать защиту от переполюсовки и подавление выбросов самоиндукции при отключении катушки постоянного тока, обеспечивая защиту от обратной ЭДС (back EMF). Для визуального контроля предусмотрен красный светодиод, поэтому модуль удобен в шкафах автоматики и релейной логики. Рабочее напряжение управления составляет от 6 до 24 В постоянного тока с подключением A1+ и A2-. Модуль имеет компактные размеры (13 × 24 × 9 мм) и массу всего 3 грамма, что делает его идеальным решением для плотного монтажа в электрических шкафах. Установка модуля осуществляется простым подключением в гнездо релейного модуля без использования дополнительных инструментов. Такое решение часто применяют в PLC-системах, интерфейсных шкафах и вспомогательных цепях, где нужно повысить надёжность коммутации и упростить диагностику. При подборе важно учитывать, что этот аксессуар предназначен именно для DC-цепей и не заменяет защитные схемы для AC-катушек."
+    },
+    "specs_all": {
+      "claude": {
+        "Manufacturer": "ABB",
+        "Part Number (ABB)": "1SVR405652R0000",
+        "Function": "Pluggable module — diode + LED red",
+        "Compatible Sockets": "CR-P and CR-M range",
+        "Rated Control Supply Voltage": "6...24 V DC",
+        "Connection": "A1+, A2-",
+        "Dimensions (W×H×D)": "13 × 24 × 9 mm",
+        "Weight": "0.003 kg",
+        "LED Color": "Red",
+        "Sub-Function": "Pluggable function module for PCB and miniature relay sockets"
+      },
+      "gpt": {
+        "Accessory type": "Pluggable module for relay sockets",
+        "Compatible relay series": "CR-P, CR-M",
+        "Protection": "Reverse polarity protection / free-wheeling diode",
+        "Indicator": "Red LED",
+        "Rated control supply voltage": "6 ... 24 V DC",
+        "Product ID": "1SVR405652R0000"
+      }
+    },
+    "notes_all": {
+      "claude": "This is an ABB product (not Honeywell). Part number 1SVR405652R0000. Also available as CR-P/M42V (green LED, 1SVR405652R1000) and CR-P/M42B (24-60VDC, 1SVR405652R4000).",
+      "gpt": "Подтверждён как аксессуар ABB, а не как самостоятельное реле."
+    }
   },
-  "product_category": "Relay Module"
+  "training_urls": [
+    "https://new.abb.com/products/1SVR405652R0000/cr-p-m-42",
+    "https://rspsupply.com/p-127207-abb-1svr405652r0000-pluggable-module-cr-pm-42.aspx",
+    "https://store.lydey.com/products/1SVR405652R0000",
+    "https://www.ebay.com/itm/147094333910",
+    "https://www.kempstoncontrols.com/1SVR405652R0000/ABB/sku/387552",
+    "https://www.lcsc.com/product-detail/C5182689.html",
+    "https://www.electricautomationnetwork.com/en/abb/cr-p-m-42-pluggable-module-diode-and-led-red-6-24vdc-a1-a2-abb-cr-p-m42-1svr405652r0000",
+    "https://www.santaclarasystems.com/abb/cr-p-m-42v",
+    "https://new.abb.com/products/1SVR405652R0000/cr-p-m42"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 0.76,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.lcsc.com/product-detail/C5182689.html",
+    "our_price_raw": "98,00",
+    "our_price_parsed": 98.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 0.76,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Защитный диод Honeywell CR-P/M42 используется для защиты электрических цепей от перенапряжений и обратных токов. Он обеспечивает надежную защиту и продлевает срок службы оборудования.",
+    "best_description_source": "content",
+    "best_photo_url": "https://octopart.com/cr-p%2Fm42-abb+control-65273402",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Fundamental and Applied Problems of Engineering and Technology",
+    "description": "Scientific and technical journal published since 1995, issued six times a year. It covers fundamental and applied problems of engineering and technology. The journal is registered in the Federal Agency for Supervision of Communications, Information Technology and Mass Media (Certificate PI № FS77–67029 from 30.08.2016). It is indexed in the Russian Science Citation Index (RSCI), Chemical Abstracts, and Google Scholar. It is also included in the list of peer-reviewed scientific publications by the Higher Attestation Commission (VAK) and equated to K1 category publications.",
+    "specs": {},
+    "specs_count": 0,
+    "series": "№ 2 (370) 2025",
+    "category": "Scientific and Technical Journal",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "ISSN 2073-7408",
+      "Certificate of registration PI № FS77–67029 from 30.08.2016",
+      "Indexed in Russian Science Citation Index (RSCI)",
+      "Indexed in Chemical Abstracts",
+      "Indexed in Google Scholar",
+      "Higher Attestation Commission K1 category"
+    ],
+    "article_no": "2073-7408",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CR-P_M42.pdf",
+    "datasheet_size_kb": 11347,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "ABB",
+      "candidates": [],
+      "product_hint": "relay",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests ABB, record says Honeywell",
+        "severity": "high"
+      },
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 11347KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Fundamental and Applied Problems of Engineering and Technolo' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

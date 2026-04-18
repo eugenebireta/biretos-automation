@@ -8,7 +8,7 @@
     "600GBSAS25"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Жесткий диск Honeywell 600GB-SAS2.5, 600 GB SAS 10K",
   "assembled_title": "Жесткий диск Honeywell 600GB-SAS2.5",
   "our_price_raw": "27720,00",
@@ -192,7 +192,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqHZQoxVeDxxbzvkAUpC'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -210,10 +210,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://market.yandex.ru/search?text=%D0%96%D0%B5%D1%81%D1%82%D0%BA%D0%B8%D0%B9%"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -321,7 +318,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Enterprise storage",
+    "identity_notes_p1": "600GB SAS 10K RPM 2.5\" form factor; unable to confirm manufacturer",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Dell"
   },
   "negative_evidence": {
     "photo": [],
@@ -339,9 +340,8 @@
     "description": "Жесткий диск Honeywell 600GB-SAS2.5 с объемом 600 GB и скоростью вращения 10K RPM предназначен для использования в серверах и системах хранения данных. Обеспечивает высокую скорость передачи данных благодаря интерфейсу SAS.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Жесткий диск",
-    "seed_name": "Жесткий диск Honeywell 600GB-SAS2.5, 600 GB SAS 10K",
-    "description_long_ru": "Refurbished $31-49; new OEM ~$692 (Dell); Honeywell-internal code"
+    "product_type": "Hard disk drive",
+    "seed_name": "Жесткий диск Honeywell 600GB-SAS2.5, 600 GB SAS 10K"
   },
   "trace": {
     "pn_match_location": "",
@@ -604,7 +604,26 @@
     "specs": {
       "aliases": [
         "HPE 600GB 10K 12G SAS 2.5 SFF"
-      ]
+      ],
+      "Capacity": "600 GB",
+      "Interface": "SAS (6Gb/s or 12Gb/s)",
+      "Form factor": "2.5-inch SFF",
+      "Spindle speed": "10K or 15K RPM (model dependent)",
+      "Hot-pluggable": "Yes",
+      "Type": "Enterprise HDD",
+      "Brand": "Dell",
+      "Product type": "Enterprise hard drive",
+      "Hot-plug": "Yes",
+      "Use case": "Servers / storage arrays",
+      "capacity": "600 GB",
+      "interface": "SAS 12Gb/s",
+      "form_factor": "2.5 inch",
+      "spindle_speed": "10000 RPM",
+      "cache": "128 MB",
+      "device_type": "Hard Drive Hot-Swap",
+      "data_transfer_rate": "1.2 GBps",
+      "compatibility": "Dell 14G/15G PowerEdge",
+      "ean": "0884116172604"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -623,12 +642,129 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.145141+00:00",
+    "merge_ts": "2026-04-09T12:01:24.839125+00:00",
     "merge_source": "result_600GB-SAS2.5.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "Refurbished $31-49; new OEM ~$692 (Dell); Honeywell-internal code"
+    "descriptions_all": {
+      "claude": "Жёсткий диск Dell 600GB-SAS2.5 представляет собой серверный накопитель ёмкостью 600 ГБ с интерфейсом SAS (Serial Attached SCSI) в форм-факторе 2.5 дюйма (SFF — Small Form Factor). Данный тип дисков широко применяется в серверах Dell PowerEdge различных поколений для обеспечения высокопроизводительного хранения данных. Скорость вращения шпинделя, как правило, составляет 10 000 или 15 000 об/мин в зависимости от конкретной модели, что обеспечивает быстрый доступ к данным и низкую латентность. Интерфейс SAS обеспечивает скорость передачи данных до 6 или 12 Гбит/с в зависимости от поколения. Накопитель поддерживает горячую замену (hot-swap) и предназначен для работы в составе RAID-массивов. Применяется в дата-центрах, корпоративных серверах и системах хранения данных для задач, требующих высокой надёжности и производительности: базы данных, виртуализация, ERP-системы.",
+      "gpt": "Позиция 600GB-SAS2.5 в данном batch логично интерпретируется как серверный жесткий диск Dell емкостью 600 GB в форм-факторе 2.5 дюйма с интерфейсом SAS. Официальная карточка Dell для близкой актуальной позиции подтверждает типовую конфигурацию: 600GB, 10K RPM, SAS 12Gbps, 2.5in, hot-plug. Такой накопитель применяется в серверных корзинах малого форм-фактора и обычно используется в PowerEdge и PowerVault для системных разделов, виртуализации и массивов общего назначения. По сравнению с настольными SATA-дисками серверный SAS-накопитель рассчитан на большую надежность, лучшую очередность команд и более предсказуемую работу под постоянной нагрузкой. Форм-фактор 2.5 дюйма позволяет разместить больше дисков в одном шасси и повысить плотность хранения в сервере. Для каталога важно отдельно указывать, поставляется ли позиция с фирменной салазкой Dell, потому что один и тот же диск может продаваться как bare drive или как готовый hot-plug kit. Также полезно описывать, что SAS-диски не предназначены для обычных потребительских ноутбуков и ПК без совместимого контроллера. Эта позиция подходит как для замены штатного диска, так и для добора накопителей в RAID-массив при условии проверки совместимости по поколению сервера. Если закупка идет под сервисный склад, стоит фиксировать скорость вращения, тип интерфейса и carrier, чтобы не смешивать 6G и 12G варианты. В карточке B2B-магазина товар лучше позиционировать как Dell enterprise 2.5-inch SAS hot-plug HDD 600 GB.",
+      "gemini": "Накопитель Dell 600GB-SAS2.5 является стандартом для современных центров обработки данных, где требуется высокая плотность хранения и производительность ввода-вывода. Благодаря форм-фактору 2,5 дюйма (SFF) серверные шасси могут вмещать до 24 таких дисков, что существенно повышает суммарный показатель IOPS всей подсистемы хранения. Интерфейс SAS со скоростью 12 Гбит/с обеспечивает надежную передачу данных с низким уровнем ошибок благодаря встроенным алгоритмам проверки четности. Скорость вращения 10 000 об/мин представляет собой идеальный баланс между производительностью, тепловыделением и энергопотреблением. Данный диск часто поставляется в комплекте с гибридными салазками, позволяющими устанавливать его в 3,5-дюймовые отсеки, что расширяет возможности модернизации парка серверов. Устройство поддерживает технологию самодиагностики SMART, уведомляющую администратора о потенциальном износе механики до момента возникновения отказа. Высокая устойчивость к вибрациям позволяет использовать эти накопители в плотно укомплектованных дисковых полках. Это проверенное решение для виртуализации и облачных инфраструктур, требующих предсказуемого времени отклика.",
+      "synthesis": "Dell 600GB-SAS2.5 — это серверный накопитель ёмкостью 600 ГБ с интерфейсом SAS 12 Гбит/с в форм-факторе 2.5 дюйма (SFF), широко применяемый в серверах Dell PowerEdge для обеспечения высокопроизводительного хранения данных. Скорость вращения шпинделя 10 000 об/мин представляет собой идеальный баланс между производительностью, тепловыделением и энергопотреблением, обеспечивая быстрый доступ к данным с низкой латентностью. Форм-фактор 2.5 дюйма позволяет разместить до 24 дисков в одном шасси, существенно повышая плотность хранения и суммарный показатель IOPS подсистемы. Накопитель поддерживает горячую замену и работает в составе RAID-массивов, обеспечивает надежную передачу данных с низким уровнем ошибок благодаря встроенным алгоритмам проверки четности. Диск рассчитан на высокую надежность и применяется в дата-центрах, виртуализации, системах хранения и облачных инфраструктурах, где требуется предсказуемое время отклика. При закупке важно указывать, поставляется ли диск с фирменной салазкой Dell или как bare drive, а также проверять совместимость по поколению сервера и наличию совместимого контроллера для работы с SAS-интерфейсом."
+    },
+    "specs_all": {
+      "claude": {
+        "Capacity": "600 GB",
+        "Interface": "SAS (6Gb/s or 12Gb/s)",
+        "Form factor": "2.5-inch SFF",
+        "Spindle speed": "10K or 15K RPM (model dependent)",
+        "Hot-pluggable": "Yes",
+        "Type": "Enterprise HDD"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product type": "Enterprise hard drive",
+        "Capacity": "600 GB",
+        "Spindle speed": "10000 RPM",
+        "Interface": "SAS 12 Gb/s",
+        "Form factor": "2.5 in",
+        "Hot-plug": "Yes",
+        "Use case": "Servers / storage arrays"
+      },
+      "gemini": {
+        "capacity": "600 GB",
+        "interface": "SAS 12Gb/s",
+        "form_factor": "2.5 inch",
+        "spindle_speed": "10000 RPM",
+        "cache": "128 MB",
+        "device_type": "Hard Drive Hot-Swap",
+        "data_transfer_rate": "1.2 GBps",
+        "compatibility": "Dell 14G/15G PowerEdge",
+        "ean": "0884116172604"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic/internal PN; not a standard Dell catalog number. Likely refers to any Dell-compatible 600GB SAS 2.5\" drive.",
+      "gpt": "Generic bucket description based on Dell 600GB 10K SAS 12Gb/s 2.5in hot-plug offerings. Exact Dell spare PN was not supplied in the user list."
+    }
   },
-  "product_category": "Computing"
+  "training_urls": [
+    "https://www.amazon.com/Seagate-ST600MM0026-600GB-SAS-6GB-Renewed/dp/B08F9H7SCR",
+    "https://www.ebay.com/",
+    "https://www.serverbasket.net/p/600gb-10k-sas-2-5-inch-hdd/",
+    "https://www.servermonkey.com/parts-and-upgrades/drives/sas.html",
+    "https://www.dell.com/en-us/shop/dell-600gb-10k-rpm-sas-12gbps-25in-hot-plug-drive/apd/400-ajpl/storage-drives-media",
+    "https://www.servermonkey.com/600gb-10k-rpm-12gbps-sas-2-5-dell-hard-drive.html",
+    "https://www.serversupply.com/HARD%20DRIVES%20W-TRAY/SAS-12GBPS/600GB-10000RPM/DELL/400-AJOW_260732.htm"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 145.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/",
+    "our_price_raw": "27720,00",
+    "our_price_parsed": 27720.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 145.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Жесткий диск Honeywell 600GB-SAS2.5 с объемом 600 GB и скоростью вращения 10K RPM предназначен для использования в серверах и системах хранения данных. Обеспечивает высокую скорость передачи данных благодаря интерфейсу SAS.",
+    "best_description_source": "content",
+    "best_photo_url": "https://market.yandex.ru/search?text=%D0%96%D0%B5%D1%81%D1%82%D0%BA%D0%B8%D0%B9%",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "HP LIGHTWEIGHT NOTEBOOK",
+    "description": "",
+    "specs": {
+      "product_type": "SECURE KVM SWITCH",
+      "port_count": 4,
+      "interface_support": [
+        "USB",
+        "AUDIO",
+        "CAC"
+      ],
+      "video_interface": "DVI-UNCOMPRESSED",
+      "video_resolution_max": "2560X1600"
+    },
+    "specs_count": 5,
+    "series": "Secure KVM",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "NSA APPROVED"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\600GB-SAS2.5.pdf",
+    "datasheet_size_kb": 2321,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'HP LIGHTWEIGHT NOTEBOOK' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

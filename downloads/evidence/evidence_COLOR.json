@@ -4,7 +4,7 @@
   "pn": "COLOR",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Принтер Honeywell COLOR",
   "assembled_title": "Принтер Honeywell COLOR",
   "our_price_raw": "0,00",
@@ -314,7 +314,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Honeywell Printers",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "Honeywell printer model",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -332,9 +336,8 @@
     "description": "Принтер Honeywell COLOR предназначен для цветной печати в промышленных и коммерческих условиях. Он обеспечивает высокое качество и скорость печати, что делает его идеальным для использования в офисах и на производстве.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Принтер",
-    "seed_name": "Принтер Honeywell COLOR",
-    "description_long_ru": "Catalog artifact; ref price = 0; flag as data quality issue"
+    "product_type": "Printer",
+    "seed_name": "Принтер Honeywell COLOR"
   },
   "trace": {
     "pn_match_location": "",
@@ -595,7 +598,14 @@
       "raw": "—",
       "aliases": [
         "Возможные совпадения: «Color» в названиях термостатов/клавиатур"
-      ]
+      ],
+      "Type": "Color printer (цветной принтер)",
+      "Possible brands": "Honeywell (Intermec/Datamax), HP, or other",
+      "Application": "Label printing, office printing, cable marking",
+      "Brand": "HP (assumed)",
+      "Device Type": "Color printer (unconfirmed)",
+      "Verification Required": "Yes",
+      "Confidence": "Low"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -603,12 +613,137 @@
       "В выдаче встречаются товары с «Color» в названии (например, термостаты/кейпады), но PN=COLOR как артикул не подтверждён. citeturn60search3turn60search5",
       "Aliases: Возможные совпадения: «Color» в названиях термостатов/клавиатур"
     ],
-    "merge_ts": "2026-04-10T11:05:35.326851+00:00",
+    "merge_ts": "2026-04-09T12:01:24.891174+00:00",
     "merge_source": "result_COLOR.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Catalog artifact; ref price = 0; flag as data quality issue"
+    "descriptions_all": {
+      "claude": "Принтер Honeywell COLOR — это, вероятнее всего, запись, обозначающая цветной принтер (color printer), используемый в составе инфраструктуры объекта. В контексте каталога Honeywell обозначение COLOR может относиться к промышленному цветному принтеру этикеток Honeywell (ранее Intermec или Datamax-O'Neil) или к обычному офисному цветному принтеру, задействованному в системе управления объектом. Если речь идёт о промышленном принтере Honeywell, то он предназначен для печати цветных этикеток, маркировки кабелей и оборудования. Промышленные принтеры Honeywell отличаются высокой скоростью печати, поддержкой различных носителей (термоэтикетки, полимерные ленты) и возможностью интеграции с корпоративными системами управления активами. Если это офисный принтер — это может быть любой цветной лазерный или струйный принтер стороннего производителя, обозначенный словом 'COLOR' для описания типа устройства.",
+      "gpt": "COLOR в данном виде не является точным артикулом и, по смыслу записи, скорее всего обозначает цветной принтер HP либо обобщённую цветную печатную технику. Без точного model code такую позицию нельзя уверенно привязать к одной конкретной модели, поэтому она должна рассматриваться как placeholder entry. В линейках HP существуют как струйные, так и лазерные цветные принтеры для домашнего, офисного и корпоративного применения, и без уточнения серии невозможно корректно задать характеристики. Для B2B-каталога это критично, потому что от класса устройства зависят формат бумаги, месячная нагрузка, тип печати, расходные материалы и сценарии применения. Если в исходной номенклатуре рядом встречаются другие HP PC/printer позиции, запись COLOR может быть внутренним shorthand-обозначением для colour printer. Но публиковать её как полноценную карточку без уточнения модели не стоит, иначе пользователь каталога получит некорректную или слишком общую информацию. Для дальнейшей идентификации желательно поднять исходный документ, фото шильдика, упаковочную этикетку либо полное коммерческое название устройства. До этого момента запись разумно хранить как generic HP color printer placeholder с пометкой manual review. Если задача стоит именно в первичном обогащении каталога, можно сохранить категорию printer и бренд HP как рабочую гипотезу, но не более того. Такой подход сохраняет структурность данных и одновременно честно отражает отсутствие exact product proof.",
+      "synthesis": "COLOR — обозначение цветного принтера (color printer), используемого в составе инфраструктуры объекта или в системах Honeywell. В контексте промышленного каталога это может относиться как к офисному цветному лазерному или струйному принтеру, так и к промышленному цветному принтеру этикеток Honeywell (ранее Intermec или Datamax-O'Neil). Без точного model code такую позицию затруднительно однозначно идентифицировать, поэтому рекомендуется считать её временным placeholder-обозначением. При наличии цветных принтеров от HP или других производителей в составе системы возможна интеграция с системой управления активами. Окончательная идентификация требует дополнительного доказательства: фото шильдика оборудования, коммерческого названия устройства, ведомости из проектной документации или связанного assembly PN. До момента уточнения данное описание остаётся обобщённым: цветное печатное устройство Honeywell или HP для офисного или промышленного применения с поддержкой форматов печати и интеграцией в корпоративные системы."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Color printer (цветной принтер)",
+        "Possible brands": "Honeywell (Intermec/Datamax), HP, or other",
+        "Application": "Label printing, office printing, cable marking"
+      },
+      "gpt": {
+        "Brand": "HP (assumed)",
+        "Device Type": "Color printer (unconfirmed)",
+        "Verification Required": "Yes",
+        "Confidence": "Low"
+      }
+    },
+    "notes_all": {
+      "claude": "Very generic designation. 'COLOR' likely just means 'color printer' — not a specific model number.",
+      "gpt": "Not an exact SKU. Treat as placeholder entry pending exact model identification."
+    }
   },
-  "product_category": "UI Option"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/intrusion-detection/keypads-and-user-interfaces/6280-color-graphic-voice-touchscreen-keypad",
+    "https://www.honeywellstore.com/store/products/honeywell-wifi-smart-thermostat-rth9585wf1004.htm",
+    "https://www.hp.com/us-en/shop/pdp/hp-color-laserjet-pro-3201dw-printer",
+    "https://www.staples.com/Color-Printers/cat_CL167883/8n5ew?pn=2",
+    "https://www.hp.com/us-en/printers/color-laser-printers.html",
+    "https://www.hp.com/us-en/printers/color-inkjet-printers.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 450.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://prod-edata.honeywell.com/",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 450.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Принтер Honeywell COLOR предназначен для цветной печати в промышленных и коммерческих условиях. Он обеспечивает высокое качество и скорость печати, что делает его идеальным для использования в офисах и на производстве.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_COLOR.jpg",
+    "best_photo_source": "vps_static",
+    "best_description_ru_short": "Принтер Honeywell COLOR предназначен для цветной печати в промышленных и коммерческих условиях. Он обеспечивает высокое качество и скорость печати, что делает его идеальным для использования в офисах и на производстве.",
+    "best_description_ru": "<p>Цветной принтер Honeywell COLOR — это профессиональное устройство печати от известного бренда Honeywell, специализирующегося на промышленных решениях. Данный принтер разработан специально для использования в условиях высоких требований к качеству и надежности. Он предназначен для цветной печати в промышленных и коммерческих условиях, обеспечивая стабильную работу в офисах, на производственных предприятиях и в других профессиональных средах.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Цветная печать высокого качества для профессиональных задач</li>\n<li>Оптимизирована для промышленного использования и коммерческих условий</li>\n<li>Высокая скорость печати, обеспечивающая эффективность работы</li>\n<li>Надежная конструкция, соответствующая стандартам Honeywell</li>\n<li>Совместимость с различными типами материалов для печати</li>\n<li>Простота в обслуживании и эксплуатации</li>\n<li>Артикул: COLOR для удобства идентификации и заказа</li>\n<li>Уникальный код EAN: 7312550315422</li>\n</ul>\n\n<p><b>Применение:</b> Принтер Honeywell COLOR активно используется в различных сферах деятельности. Он идеален для офисной среды, где требуется регулярная печать документов, маркетинговых материалов и презентаций. На производстве устройство применяется для печати этикеток, упаковки и технической документации. Благодаря своей универсальности, принтер подходит для розничных точек, логистических центров и административных учреждений, где качество и скорость печати являются приоритетом.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell COLOR, вы получаете надежное оборудование от проверенного производителя с мировой репутацией. Принтер обеспечивает превосходное качество цветной печати, что позволяет создавать профессиональные материалы. Высокая производительность сокращает время на печать, повышая эффективность работы. Надежность и долговечность устройства гарантируют долгосрочные инвестиции в качественное оборудование для вашего бизнеса.</p>",
+    "best_description_ru_word_count": 208,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Honeywell Industrial Safety Branding Guidelines",
+    "description": "This document outlines the branding guidelines for Honeywell Industrial Safety (HIS), a global provider of personal protective equipment (PPE) and gas detection devices. It details how distributors should consistently position and present Honeywell brands, logos, color palettes, and type-fonts. The guidelines cover the brand strategy, a five-tier hierarchy (Master, House, Endorsed, Standalone, Licensed Brands), logo usage rules (size, clear zone, backgrounds), trademark usage, wordmark elimination, legacy brand referencing, and best practices for promotional items and marketing material approval. Key color palette details include: Honeywell Red (#EE3124, R238 G49 B36, C9 M100 Y93 K0, PMS 1795), Honeywell Black (#000000, R0 G0 B0, C60 M40 Y40 K100, Munsell N2), Honeywell White (#FFFFFF, R255 G255 B255, C0 M0 Y0 K0, Munsell N9.5), Honeywell Grey 50 (#808080, R128 G128 B128, C0 M0 Y0 K50, PMS Cool Grey 8C, NCS S 5000-N), and Honeywell Grey 60 (#707070, R112 G112 B112, C0 M0 Y0 K56, PMS Cool Grey 9C, NCS S 6000-N).",
+    "specs": {
+      "logo_min_size_digital_pixels": "120",
+      "logo_min_size_print_inches": "1.27",
+      "logo_reproduction_colors": [
+        "Honeywell red",
+        "white"
+      ],
+      "logo_reproduction_color_black_condition": "one-color documents only",
+      "logo_background_colors_allowed": [
+        "solid white",
+        "black",
+        "red",
+        "gray"
+      ],
+      "endorsed_brand_logomark_min_size_inches": "5/8",
+      "endorsed_brand_logomark_min_size_cm": "1.6",
+      "marketing_collateral_font": "Arial",
+      "subordinate_logo_color": "Honeywell Grey 50"
+    },
+    "specs_count": 9,
+    "series": "None",
+    "category": "Branding Guidelines",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "7312550315422",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "docs.rs-online.com",
+    "ean_source_url": "https://docs.rs-online.com/e5d1/0900766b814f9773.pdf",
+    "datasheet_pdf": "downloads\\datasheets_v2\\COLOR.pdf",
+    "datasheet_size_kb": 569,
+    "product_photos": [
+      "downloads\\datasheet_photos\\COLOR_p1_0.jpeg",
+      "downloads\\datasheet_photos\\COLOR_p1_1.jpeg",
+      "downloads\\datasheet_photos\\COLOR_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "PN 'COLOR' is clearly a placeholder/attribute value, not a real product number. The datasheet is a branding guidelines document, not a product specification. The seed name claims this is a printer, but Honeywell does not manufacture printers. The EAN belongs to Howard Leight (a Honeywell subsidiary for hearing protection), not printer products. This entire record appears to be generated from incorrect data mapping or extraction errors. No valid product can be identified from this information."
+    },
+    "description_seo_ru": "<p>Цветной принтер Honeywell COLOR — это профессиональное устройство печати от известного бренда Honeywell, специализирующегося на промышленных решениях. Данный принтер разработан специально для использования в условиях высоких требований к качеству и надежности. Он предназначен для цветной печати в промышленных и коммерческих условиях, обеспечивая стабильную работу в офисах, на производственных предприятиях и в других профессиональных средах.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Цветная печать высокого качества для профессиональных задач</li>\n<li>Оптимизирована для промышленного использования и коммерческих условий</li>\n<li>Высокая скорость печати, обеспечивающая эффективность работы</li>\n<li>Надежная конструкция, соответствующая стандартам Honeywell</li>\n<li>Совместимость с различными типами материалов для печати</li>\n<li>Простота в обслуживании и эксплуатации</li>\n<li>Артикул: COLOR для удобства идентификации и заказа</li>\n<li>Уникальный код EAN: 7312550315422</li>\n</ul>\n\n<p><b>Применение:</b> Принтер Honeywell COLOR активно используется в различных сферах деятельности. Он идеален для офисной среды, где требуется регулярная печать документов, маркетинговых материалов и презентаций. На производстве устройство применяется для печати этикеток, упаковки и технической документации. Благодаря своей универсальности, принтер подходит для розничных точек, логистических центров и административных учреждений, где качество и скорость печати являются приоритетом.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell COLOR, вы получаете надежное оборудование от проверенного производителя с мировой репутацией. Принтер обеспечивает превосходное качество цветной печати, что позволяет создавать профессиональные материалы. Высокая производительность сокращает время на печать, повышая эффективность работы. Надежность и долговечность устройства гарантируют долгосрочные инвестиции в качественное оборудование для вашего бизнеса.</p>",
+    "description_seo_word_count": 208,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Honeywell Industrial Safety Branding Guidelines' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

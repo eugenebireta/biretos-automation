@@ -7,7 +7,7 @@
     "VR420VA10040000"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Комбинированный газовый клапан Honeywell VR420VA1004-0000",
   "assembled_title": "Клапан Honeywell VR420VA1004-0000",
   "our_price_raw": "115744,61",
@@ -190,7 +190,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CZqrm8T8gv8L5b1aBb1es'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -208,10 +208,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://ankas.ru/gazovye-klapany/honeywell-vr420va1004-0000-26409"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -323,7 +320,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "VR420 series",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "Combined gas valve, DN20, 230V solenoid",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -359,7 +361,7 @@
     "description": "Газовый клапан Honeywell VR420VA1004-0000 используется в системах отопления для управления подачей газа. Работает при напряжении 230 В. Обеспечивает высокую надежность и безопасность в эксплуатации.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Клапан",
+    "product_type": "Gas control valve",
     "seed_name": "Комбинированный газовый клапан Honeywell VR420VA1004-0000",
     "description_long_ru": "VR420 series; VA variant; Suner EU lists with stock TBC"
   },
@@ -580,5 +582,117 @@
     "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
   },
   "dr_category": "valve",
-  "product_category": "valve"
+  "training_urls": [
+    "https://krom.lt/catalog/vr420-gas-valves",
+    "https://www.nexinstrument.com/vr420va1004-0000",
+    "https://www.suner.eu/en/products/vr420va1004-0000-dn20-230v-honeywell-valve-9477/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "115744,61",
+    "our_price_parsed": 115744.61,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 3250.0,
+    "best_price_currency": "AED",
+    "best_price_source": "pipeline1",
+    "best_description": "Газовый клапан Honeywell VR420VA1004-0000 используется в системах отопления для управления подачей газа. Работает при напряжении 230 В. Обеспечивает высокую надежность и безопасность в эксплуатации.",
+    "best_description_source": "content",
+    "best_photo_url": "https://ankas.ru/gazovye-klapany/honeywell-vr420va1004-0000-26409",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "NOTICES TECHNIQUES D’INSTALLATION ET D’UTILISATION",
+    "description": "",
+    "specs": {
+      "product_name": "CHAUDAGAZ 40M/60M/70M/80M/110M/150M/240M/300M",
+      "product_type": "Générateur gaz inox à condensation",
+      "category": "I2Er",
+      "manufacturer": "COLLARD et TROLART",
+      "burner_type": "BURNERTECH INVERTER 90 CE / INVERTER 250",
+      "fuel_type": "G20/G25 - 20/25 mbar",
+      "electrical_supply": "~230V 50Hz",
+      "electrical_power": "205 W",
+      "electrical_protection_index": "IP 41",
+      "nox_class": "Classe 5 (< 80 mg/kWh)",
+      "efficiency": ">106% PCI (eau à 65°C)",
+      "max_water_pressure": "7 bar",
+      "tank_capacity": "615 L",
+      "max_water_temperature": "80°C",
+      "heating_power_40M_max": "40 kW",
+      "heating_power_60M_max": "60 kW",
+      "heating_power_70M_max": "70 kW (65/15°C)",
+      "heating_power_70M_min": "4.7 kW (65/15°C)",
+      "heating_power_80M_max": "80 kW",
+      "heat_output_70M_max": "64.8 kW",
+      "heat_output_70M_min": "4.2 kW",
+      "combustion_system": "Double parcours de fumées, foyer pressurisé",
+      "heat_exchanger": "Serpentin(s) en acier inoxydable coaxial(aux)",
+      "insulation_material": "Laine de verre (M0)",
+      "casing_material": "Tôle pré-laquée et panneaux polyester (M1)",
+      "tank_material": "Acier inoxydable",
+      "sound_level": "<65 dB à 2m",
+      "warm_up_time": "<36 minutes",
+      "burner_modulation": "Modulante",
+      "ignition_system": "Allumage automatique (pas de veilleuse)",
+      "condensate_connection": "Siphon de raccordement",
+      "chimney_option": "Cheminée ou Ventouse en option",
+      "reference_number_70M": "0461/16",
+      "manufacturing_number_70M": "16 10 999 - 2016",
+      "burner_reference_90CE_70M": "91283 - FR",
+      "burner_reference_90CE_40M": "91281",
+      "burner_reference_90CE_60M": "91282",
+      "burner_reference_90CE_80M": "91283",
+      "burner_reference_90CE_110M": "91285",
+      "burner_reference_250_150M": "91289",
+      "burner_reference_250_240M": "91287",
+      "burner_reference_250_300M": "91288",
+      "burner_serial_number_90CE": "202800 10/16"
+    },
+    "specs_count": 43,
+    "series": "CHAUDAGAZ",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "CE"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\VR420VA1004-0000.pdf",
+    "datasheet_size_kb": 3333,
+    "product_photos": [
+      "downloads\\datasheet_photos\\VR420VA1004-0000_p4_1.jpeg",
+      "downloads\\datasheet_photos\\VR420VA1004-0000_p5_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format VR420VA matches Honeywell gas valve series. The seed_name correctly identifies this as 'Комбинированный газовый клапан' (Combined Gas Valve) Honeywell VR420VA1004. The datasheet is in French but appears to be generic installation instructions rather than product-specific documentation. The PN likely should be VR420VA1004 without the trailing '-0000' suffix (common Honeywell variant notation). Brand is correct, product type is identifiable from Russian seed name, but proper English datasheet with specs is needed."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'NOTICES TECHNIQUES D’INSTALLATION ET D’UTILISATION' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

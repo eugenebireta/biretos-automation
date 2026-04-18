@@ -1,0 +1,93 @@
+{
+  "brand": "Honeywell",
+  "pn_naming_conventions": [
+    "Numeric 10-digit format (e.g., 1061200000, 1631930000) - likely Weidmüller products misattributed to Honeywell",
+    "Alphanumeric with slashes (e.g., 129464N/U) - actual Honeywell controls",
+    "Dash-separated numeric (e.g., 203-183-420) - barcode/scanning equipment",
+    "Short alphanumeric codes (e.g., 240W, 304L) - possibly suffixes or model variants, high confusion risk",
+    "7-digit numeric (e.g., 3240197, 3240357) - industrial components, possibly Phoenix Contact misattribution"
+  ],
+  "ean_locations": {
+    "primary": "gemini_grounding is most common source, distributor and datasheet_parse are more reliable when available",
+    "format": "13-digit EAN (400819..., 008526..., 083791..., 402551..., 404635...), leading zeros indicate UPC-A conversion"
+  },
+  "trusted_sources": {
+    "price": [
+      "digikey.com",
+      "phase3a",
+      "price_contract"
+    ],
+    "ean": [
+      "digikey.com",
+      "distributor databases",
+      "datasheet_parse"
+    ],
+    "photo": [
+      "digikey.com",
+      "help.honeywellaidc.com"
+    ],
+    "specs": [
+      "digikey.com",
+      "eshop.weidmueller.com",
+      "phoenixcontact.com",
+      "help.honeywellaidc.com"
+    ]
+  },
+  "common_pitfalls": [
+    "Brand misattribution: PNs starting with 10-digit, 16-digit numbers (1061200000, 1631930000) are Weidmüller, NOT Honeywell",
+    "Brand misattribution: 7-digit PNs like 3240197, 3240357 appear to be Phoenix Contact or similar",
+    "Generic PNs: '240W', '304L' are too generic - require series/context (AMD series, Bilsom series) for correct identification",
+    "Barcode equipment confusion: 203-xxx-xxx format is for scanning hardware, different product category with specialized suppliers",
+    "Price outliers: Prices range from €2 to €313, validate against product category (relays vs controls vs amplifiers)",
+    "Empty titles: PN 203-183-420 has no title, likely data quality issue",
+    "Missing EANs: Some products (304L, 3240357) have no EAN despite available datasheets"
+  ],
+  "validation_rules": [
+    {
+      "field": "pn",
+      "rule": "If PN is 10-digit starting with 10/16/24/32, cross-check brand against Weidmüller/Phoenix Contact catalogs",
+      "reason": "High rate of brand misattribution in dataset"
+    },
+    {
+      "field": "pn",
+      "rule": "If PN is very short (2-4 chars) or common word (240W), require series/family validation",
+      "reason": "Generic identifiers cause false matches"
+    },
+    {
+      "field": "price",
+      "rule": "If price >€100 and product is relay/switch, verify it's not a control system or amplifier",
+      "reason": "Price range suggests different product categories: relays €2-3, controls €130-250, amplifiers €300+"
+    },
+    {
+      "field": "ean",
+      "rule": "Prefer 'distributor' or 'datasheet_parse' sources over 'gemini_grounding'",
+      "reason": "Direct sources more reliable than AI inference"
+    },
+    {
+      "field": "title",
+      "rule": "If title is empty or generic ('Microswitches, mechanical'), flag for manual review",
+      "reason": "Indicates incomplete data scraping"
+    },
+    {
+      "field": "training_url_domains",
+      "rule": "If barcodefactory.com or barcodesinc.com appear, verify product is scanning/printing equipment",
+      "reason": "Domain clustering indicates product category"
+    }
+  ],
+  "search_query_templates": [
+    "{pn} site:digikey.com",
+    "Honeywell {pn} datasheet",
+    "{pn} site:help.honeywellaidc.com",
+    "{pn} EAN barcode",
+    "Honeywell {series} {pn} specifications",
+    "{pn} site:amazon.com -review (for EAN extraction)"
+  ],
+  "notes_for_cheap_ai": "CRITICAL: This dataset has severe brand misattribution issues. Many products labeled Honeywell are actually Weidmüller (10-digit PNs starting 10/16), Phoenix Contact (7-digit starting 32), or other brands. Always verify brand before enriching. For true Honeywell products: focus on control systems (EC series), barcode scanners (203-xxx series), amplifiers (AMD series), and safety equipment (Bilsom series). Use DigiKey as primary validation source. When PN is ambiguous (like 240W, 304L), you MUST find the series/family name first. Gemini_grounding EANs need validation from actual distributor sites. Price sanity check: components €2-10, controls €50-250, specialized equipment €300+. If you see weidmueller.com or phoenixcontact.com in training URLs, that's the real manufacturer, not Honeywell.",
+  "_meta": {
+    "examples_analyzed": 8,
+    "model": "claude-sonnet-4-5",
+    "tokens_in": 2045,
+    "tokens_out": 1424,
+    "cost_usd": 0.0275
+  }
+}

@@ -4,7 +4,7 @@
   "pn": "V5016A1135",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Двухходовой клапан Honeywell V5016A1135",
   "assembled_title": "Клапан Honeywell V5016A1135",
   "our_price_raw": "126215,50",
@@ -174,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Двухходовой клапан Honeywell с фланцевым присоединением, логотип и маркировка видны",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -192,9 +192,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -319,7 +317,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -579,5 +578,152 @@
   "dr_price": 2838.0,
   "dr_currency": "EUR",
   "dr_price_source": "https://www.oumanshop.com/product/v5016a1135/",
-  "product_category": "valve"
+  "training_urls": [
+    "https://buildings.honeywell.com/.../v5016-series-2-way-flanged-pressure-balanced-large-linear-valves-pn16",
+    "https://oumanshop.com/product/v5016a1135/",
+    "https://stockonfire.com/product/v5016a1135-linear-valve/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2838.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.oumanshop.com/product/v5016a1135/",
+    "our_price_raw": "126215,50",
+    "our_price_parsed": 126215.5,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2838.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Двухходовой клапан Honeywell V5016A1135 используется для регулирования потока в системах отопления и охлаждения. С номинальным диаметром DN80 и коэффициентом KVS100, он подходит для крупных промышленных установок.",
+    "best_description_source": "content",
+    "best_photo_url": "https://stockonfire.com/wp-content/uploads/2025/07/V5016A1135.jpg",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Двухходовой клапан Honeywell V5016A1135 используется для регулирования потока в системах отопления и охлаждения. С номинальным диаметром DN80 и коэффициентом KVS100, он подходит для крупных промышленных установок.",
+    "best_description_ru": "<p>Дисковый поворотный затвор Honeywell V5016A1135 — это надежный двухходовой клапан, разработанный ведущей компанией Honeywell для профессионального использования в системах отопления и охлаждения. Данный затвор предназначен для точного регулирования потока теплоносителя и охлаждающей жидкости в крупных промышленных и коммерческих установках. Благодаря высокому качеству изготовления и проверенной конструкции, этот клапан обеспечивает стабильную работу в самых требовательных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальный диаметр DN80 для работы с большими объемами жидкости</li>\n<li>Коэффициент пропускной способности KVS 100, обеспечивающий высокую производительность</li>\n<li>Двухходовая конструкция для гибкого управления потоком</li>\n<li>Ручное управление через удобную рукоятку или редуктор</li>\n<li>Применение в системах отопления и охлаждения</li>\n<li>Производство компанией Honeywell — мировым лидером в области автоматизации</li>\n<li>Артикул V5016A1135 для точной идентификации и заказа</li>\n<li>Надежная конструкция, рассчитанная на длительный срок службы</li>\n</ul>\n\n<p><b>Применение:</b> Затвор V5016A1135 широко используется в промышленных системах климатизации, центральном отоплении больших зданий, производственных комплексах и инженерных сетях. Клапан идеально подходит для объектов, требующих точного контроля температуры и расхода теплоносителя. Его применяют в котельных установках, системах распределения горячей и холодной воды, а также в технологических процессах, где необходимо регулирование потока жидкости.</p>\n\n<p><b>Преимущества:</b> Выбирая затвор Honeywell V5016A1135, вы получаете проверенное качество от мирового производителя с многолетней историей. Клапан обеспечивает точное регулирование, минимизирует потери энергии и способствует эффективной работе всей системы. Простое ручное управление делает его удобным в эксплуатации, а надежная конструкция гарантирует долгий срок службы без частого обслуживания.</p>",
+    "best_description_ru_word_count": 216,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "ДИСКОВОВЫЕ ПОВОРОТТНЫЕ ЗАТВОРЫ, С РУЧНЫМ УПРАВЛЕНИЕМ ЧЕРЕЗ РУКОЯТКУ ИЛИ РЕДУКТОР",
+    "description": "",
+    "specs": {
+      "Product Type": "Butterfly Valves",
+      "Control Type": "Manual (Handle or Reducer)",
+      "Nominal Diameter_range_DN": "50-900",
+      "Nominal Pressure_PN": "16",
+      "Medium Temperature_range_C": "-10 to +110 (maximum)",
+      "Leakage": "No visible leakage",
+      "Medium Type": "Hot and cold water",
+      "Flange Connection Type": "Interflange (Wafer)",
+      "Valve Operation": "90° opening/closing, 9 positions",
+      "Housing Material_DN50-DN150": "GG25",
+      "Housing Material_DN200-DN900": "GGG40",
+      "Stem Material": "SS416",
+      "Disc Material": "Nickel-plated cast iron GGG40",
+      "Seat Seal Material": "EPDM",
+      "Reducer Material": "Cast iron",
+      "Lever Material": "Cast iron",
+      "Stopper Material": "Nylon",
+      "Split Washer Material": "ASTM 1020",
+      "Washer Material": "SS304",
+      "Spring Ring Material": "SS304",
+      "Pin Material_DN400-DN600": "SS304",
+      "Pin Material_DN700-DN900": "SS416",
+      "O-Ring Material": "EPDM",
+      "Liner Material": "PTFE",
+      "Kvs_max_range": "109-81923",
+      "Manual Operator Weight_range_kg": "0.7-124",
+      "Total Weight_range_kg": "3.2-830.8",
+      "Dimensions_HandleControl_DN50": "A=130.5mm, B=66.5mm, C=43mm, ØD=52.7mm, H=42mm, L=190mm, K=118mm",
+      "Dimensions_HandleControl_DN65": "A=140mm, B=71mm, C=46mm, ØD=64.3mm, H=42mm, L=190mm, K=137mm",
+      "Dimensions_HandleControl_DN80": "A=150mm, B=83mm, C=46mm, ØD=78.6mm, H=42mm, L=190mm, K=143mm",
+      "Dimensions_HandleControl_DN100": "A=183mm, B=95mm, C=52mm, ØD=103.8mm, H=61mm, L=250mm, K=156mm",
+      "Dimensions_HandleControl_DN125": "A=178mm, B=110mm, C=56mm, ØD=123.1mm, H=61mm, L=250mm, K=190mm",
+      "Dimensions_HandleControl_DN150": "A=191mm, B=124mm, C=56mm, ØD=155.4mm, H=61mm, L=250mm, K=212mm",
+      "Dimensions_HandleControl_DN200": "A=239mm, B=163mm, C=60mm, ØD=202.3mm, H=72mm, L=350mm, K=268mm",
+      "Dimensions_HandleControl_DN250": "A=285mm, B=227mm, C=68mm, ØD=250.3mm, H=80mm, L=505mm, K=325mm",
+      "Dimensions_HandleControl_DN300": "A=315mm, B=252mm, C=78mm, ØD=301.3mm, H=80mm, L=505mm, K=403mm",
+      "Dimensions_ReducerControl_DN50": "A=130.5mm, B=66.5mm, C=43mm, ØD=52.7mm, H=54mm, F=147mm, J=45mm, K=118mm, G=68mm, ØN=150mm",
+      "Dimensions_ReducerControl_DN65": "A=140mm, B=71mm, C=46mm, ØD=64.3mm, H=54mm, F=147mm, J=45mm, K=137mm, G=68mm, ØN=150mm",
+      "Dimensions_ReducerControl_DN80": "A=150mm, B=83mm, C=46mm, ØD=78.6mm, H=54mm, F=147mm, J=45mm, K=143mm, G=68mm, ØN=150mm",
+      "Dimensions_ReducerControl_DN100": "A=183mm, B=95mm, C=52mm, ØD=103.8mm, H=54mm, F=147mm, J=45mm, K=156mm, G=68mm, ØN=150mm",
+      "Dimensions_ReducerControl_DN125": "A=178mm, B=110mm, C=56mm, ØD=123.1mm, H=54mm, F=147mm, J=45mm, K=190mm, G=68mm, ØN=150mm",
+      "Dimensions_ReducerControl_DN150": "A=191mm, B=124mm, C=56mm, ØD=155.4mm, H=54mm, F=147mm, J=45mm, K=212mm, G=68mm, ØN=150mm",
+      "Dimensions_ReducerControl_DN200": "A=239mm, B=163mm, C=60mm, ØD=202.3mm, H=76.5mm, F=213mm, J=66mm, K=268mm, G=76mm, ØN=300mm",
+      "Dimensions_ReducerControl_DN250": "A=285mm, B=227mm, C=68mm, ØD=250.3mm, E=102mm, F=250mm, G=86mm, H=75mm, J=63mm, K=325mm",
+      "Dimensions_ReducerControl_DN300": "A=315mm, B=252mm, C=78mm, ØD=301.3mm, E=102mm, F=227mm, G=83mm, H=81mm, J=80mm, K=403mm",
+      "Dimensions_ReducerControl_DN350": "A=368mm, B=267mm, C=78mm, ØD=333.3mm, E=81mm, F=227mm, G=83mm, H=81mm, J=80mm, K=436mm",
+      "Dimensions_ReducerControl_DN400": "A=400mm, B=309mm, C=102mm, ØD=389.6mm, K=488mm",
+      "Dimensions_ReducerControl_DN450": "A=422mm, B=321mm, C=114mm, ØD=440.5mm, K=539mm",
+      "Dimensions_ReducerControl_DN500": "A=480mm, B=368mm, C=127mm, ØD=491.6mm, K=591mm",
+      "Dimensions_ReducerControl_DN700": "A=624mm, B=520mm, C=165mm, ØD=695mm, ØD1=840mm, N-M(lug)=24-M33, A1=165mm, A2=162mm, A3=189mm, A4=244mm, A5=183mm, A6=157mm, ØF=400mm",
+      "Dimensions_ReducerControl_DN800": "A=672mm, B=591mm, C=190mm, ØD=745mm, ØD1=950mm, N-M(lug)=24-M36, A1=165mm, A2=162mm, A3=189mm, A4=244mm, A5=183mm, A6=157mm, ØF=400mm",
+      "Dimensions_ReducerControl_DN900": "A=720mm, B=656mm, C=203mm, ØD=865mm, ØD1=1050mm, N-M(lug)=28-M36, A1=215mm, A2=196mm, A3=220mm, A4=270mm, A5=215mm, A6=235mm, ØF=450mm"
+    },
+    "specs_count": 52,
+    "series": "BF-HWC4, BF-MWC5 SERIES",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "GOST 12821-80 (Flange installation recommendation)"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\V5016A1135.pdf",
+    "datasheet_size_kb": 6283,
+    "product_photos": [
+      "downloads\\datasheet_photos\\V5016A1135_p1_0.jpeg",
+      "downloads\\datasheet_photos\\V5016A1135_p1_3.jpeg",
+      "downloads\\datasheet_photos\\V5016A1135_p1_4.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/V5016A1135_p1_0.jpeg",
+      "downloads/datasheet_photos/V5016A1135_p1_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format V5016A1135 is consistent with Honeywell valve products. The datasheet title indicates this is actually a butterfly valve (поворотный затвор), not a two-way valve (двухходовой клапан) as stated in seed_name. The datasheet appears to be a generic category sheet rather than product-specific documentation. Brand and PN are likely correct, but proper product-specific datasheet needed to resolve product type conflict and get complete description."
+    },
+    "description_seo_ru": "<p>Дисковый поворотный затвор Honeywell V5016A1135 — это надежный двухходовой клапан, разработанный ведущей компанией Honeywell для профессионального использования в системах отопления и охлаждения. Данный затвор предназначен для точного регулирования потока теплоносителя и охлаждающей жидкости в крупных промышленных и коммерческих установках. Благодаря высокому качеству изготовления и проверенной конструкции, этот клапан обеспечивает стабильную работу в самых требовательных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальный диаметр DN80 для работы с большими объемами жидкости</li>\n<li>Коэффициент пропускной способности KVS 100, обеспечивающий высокую производительность</li>\n<li>Двухходовая конструкция для гибкого управления потоком</li>\n<li>Ручное управление через удобную рукоятку или редуктор</li>\n<li>Применение в системах отопления и охлаждения</li>\n<li>Производство компанией Honeywell — мировым лидером в области автоматизации</li>\n<li>Артикул V5016A1135 для точной идентификации и заказа</li>\n<li>Надежная конструкция, рассчитанная на длительный срок службы</li>\n</ul>\n\n<p><b>Применение:</b> Затвор V5016A1135 широко используется в промышленных системах климатизации, центральном отоплении больших зданий, производственных комплексах и инженерных сетях. Клапан идеально подходит для объектов, требующих точного контроля температуры и расхода теплоносителя. Его применяют в котельных установках, системах распределения горячей и холодной воды, а также в технологических процессах, где необходимо регулирование потока жидкости.</p>\n\n<p><b>Преимущества:</b> Выбирая затвор Honeywell V5016A1135, вы получаете проверенное качество от мирового производителя с многолетней историей. Клапан обеспечивает точное регулирование, минимизирует потери энергии и способствует эффективной работе всей системы. Простое ручное управление делает его удобным в эксплуатации, а надежная конструкция гарантирует долгий срок службы без частого обслуживания.</p>",
+    "description_seo_word_count": 216,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6283KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'ДИСКОВОВЫЕ ПОВОРОТТНЫЕ ЗАТВОРЫ, С РУЧНЫМ УПРАВЛЕНИЕМ ЧЕРЕЗ Р' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

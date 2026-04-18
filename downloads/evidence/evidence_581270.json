@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Настенный громкоговоритель с перфорированной решёткой угадывается чётко",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.orbitadigital.com/en/discontinued/15206-megafonia-honeywell-581270-a"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -310,7 +307,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -525,7 +523,24 @@
       "raw": "6W (6/3W taps); ABS; 260×162×77mm; 200Hz–20kHz; 90dB; white RAL9010",
       "aliases": [
         "L-PWP06A"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Model": "L-PWP06A",
+      "Product type": "Cabinet loudspeaker",
+      "Rated power": "6 W",
+      "Max power": "9 W",
+      "Power taps": "6 / 3 W",
+      "Line voltage": "100 V",
+      "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+      "Frequency response": "200 Hz - 20 kHz",
+      "Material": "ABS",
+      "Compliance": "CE / RoHS",
+      "Rated Power": "6 W",
+      "Transformer Taps": "6 / 3 W",
+      "Frequency Response": "200 Hz - 20 kHz",
+      "Sensitivity": "90 dB (1W/1m)",
+      "Dimensions": "260 x 162 x 77 mm",
+      "Color": "White (RAL 9003)"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -549,12 +564,114 @@
     "merge_source": "result_581270.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 581270 — это настенный или корпусный громкоговоритель L‑PWP06A для 100‑вольтовых трансляционных систем. Модель ориентирована на внутренние пространства, где необходима простая и надёжная установка без врезки в потолок. Номинальная мощность составляет 6 Вт, максимальная — 9 Вт, а наличие отводов 6/3 Вт позволяет подстроить уровень звука под конкретную зону. ABS-корпус облегчает монтаж и делает изделие удобным для коридоров, офисов, торговых помещений, административных зданий и других коммерческих объектов. Частотный диапазон модели достаточен для понятной передачи речевых сообщений и несложной фоновой трансляции. Громкоговоритель рассчитан на работу в составе 100 V линий, поэтому при проектировании нужно учитывать суммарную нагрузку и число точек в зоне. Настенное исполнение удобно там, где отсутствует подвесной потолок или требуется локально направить звук в определённую область. При инсталляции важно подобрать место, исключающее экранирование мебелью и отражения, ухудшающие разборчивость речи. Для систем эвакуации и оповещения сам по себе громкоговоритель должен рассматриваться как часть комплексно сертифицированной системы, а не как автономное решение.",
+      "gemini": "Настенный кабинетный громкоговоритель Honeywell L-PWP06A имеет мощность 6 Вт и выполнен в корпусе из огнестойкого ABS-пластика. Модель отличается малой глубиной установки, что позволяет размещать ее в ограниченных пространствах. Дизайн устройства разработан специально для интерьеров отелей, ресторанов и учебных заведений. Высококачественный диффузор обеспечивает превосходную разборчивость объявлений. Устройство поддерживает работу в линиях 70 В и 100 В с возможностью выбора мощности трансформатора: 6 или 3 Вт. Широкий угол рассеивания звука позволяет озвучивать большие площади меньшим количеством приборов. Продукт полностью соответствует стандартам экологичности RoHS и безопасности CE. Частотный диапазон 200 Гц — 20 кГц обеспечивает четкость речи и фоновой музыки. Чувствительность 90 дБ (1 Вт/1 м) гарантирует эффективное озвучивание при минимальной мощности. Это универсальное решение для систем аварийного оповещения и повседневной трансляции."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Model": "L-PWP06A",
+        "Product type": "Cabinet loudspeaker",
+        "Rated power": "6 W",
+        "Max power": "9 W",
+        "Power taps": "6 / 3 W",
+        "Line voltage": "100 V",
+        "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+        "Frequency response": "200 Hz - 20 kHz",
+        "Material": "ABS",
+        "Compliance": "CE / RoHS"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "L-PWP06A",
+        "Rated Power": "6 W",
+        "Transformer Taps": "6 / 3 W",
+        "Material": "Fire-resistant ABS",
+        "Frequency Response": "200 Hz - 20 kHz",
+        "Sensitivity": "90 dB (1W/1m)",
+        "Dimensions": "260 x 162 x 77 mm",
+        "Color": "White (RAL 9003)"
+      }
+    },
+    "notes_all": {
+      "gpt": "Корпусный или настенный 100V-громкоговоритель."
+    }
   },
   "dr_category": "PA cabinet speaker",
   "dr_image_url": "https://www.esser-systems.com/productimages/loud-speaker/wall-surface-mounted-speakers//581270-6-w-cabinet-loudspeaker-abs_Inherited_product_pic_300_300_581270_xxxxx_GEPE_SF3C_00.jpg",
   "dr_price": 8.318,
   "dr_currency": "RUB",
   "dr_price_source": "https://www.formagroup.ru/brends/honeywell/sistemy_opoveweniya/gromkogovoriteli/esser_581270/",
-  "product_category": "PA speaker"
+  "training_urls": [
+    "https://www.esser-systems.com/en/products/details/loud-speaker/wall-surface-mounted-speakers/581270-6-w-cabinet-loudspeaker-abs/",
+    "https://www.formagroup.ru/brends/honeywell/sistemy_opoveweniya/gromkogovoriteli/esser_581270/",
+    "https://www.teknosan.ru/katalog/esser/581270/",
+    "https://buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/VARIODYN-D1-PA-VA/L-PWP06A.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/525000-549999/529970-da-01-en-Honeywell_581270_Wandlautsprecher_6_W_1_St.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 8.318,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://www.formagroup.ru/brends/honeywell/sistemy_opoveweniya/gromkogovoriteli/esser_581270/",
+    "our_price_raw": "2242,25",
+    "our_price_parsed": 2242.25,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 8.318,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Настенный громкоговоритель Honeywell 581270 мощностью 6 Вт используется в системах оповещения и звукового сопровождения. Обеспечивает качественное воспроизведение звука и простоту установки.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.orbitadigital.com/en/discontinued/15206-megafonia-honeywell-581270-a",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Настенный громкоговоритель Honeywell 581270 мощностью 6 Вт используется в системах оповещения и звукового сопровождения. Обеспечивает качественное воспроизведение звука и простоту установки.",
+    "best_description_ru": "<p>Откройте для себя надежное и эффективное решение для систем оповещения и звукового сопровождения с настенным громкоговорителем Esser 581270. Этот высококачественный PA cabinet speaker от известного производителя Honeywell, представленный под брендом Esser, разработан для обеспечения чистого и мощного звука в различных условиях. Модель 581270 является идеальным выбором для тех, кто ценит надежность, простоту установки и превосходное качество воспроизведения, что делает её незаменимым компонентом любой современной аудиосистемы.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Мощность 6 Вт:</b> Оптимальная мощность для четкого и разборчивого звука в помещениях различного размера.</li>\n<li><b>Высокое качество звука:</b> Обеспечивает чистое воспроизведение речи и музыки, что критически важно для систем оповещения.</li>\n<li><b>Настенное крепление:</b> Простая и удобная установка на любую вертикальную поверхность, экономящая пространство.</li>\n<li><b>Надежность Esser/Honeywell:</b> Гарантия долговечности и стабильной работы от ведущего мирового производителя.</li>\n<li><b>Универсальность применения:</b> Подходит для широкого спектра задач, от экстренного оповещения до фонового звукового сопровождения.</li>\n<li><b>Эстетичный дизайн:</b> Нейтральный внешний вид позволяет громкоговорителю гармонично вписаться в любой интерьер.</li>\n<li><b>Простота подключения:</b> Разработан для легкой интеграции в существующие или новые аудиосистемы.</li>\n<li><b>Соответствие стандартам:</b> Продукт соответствует высоким стандартам качества и безопасности, что подтверждает его надежность.</li>\n</ul>\n\n<p><b>Применение:</b> Настенный громкоговоритель Esser 581270 находит широкое применение в самых разнообразных сферах, где требуется надежное и качественное звуковое оповещение. Он идеально подходит для установки в школах, больницах, офисных зданиях, торговых центрах, гостиницах и промышленных объектах. Благодаря своей конструкции, громкоговоритель легко интегрируется в системы пожарной сигнализации и эвакуации, обеспечивая четкую передачу голосовых сообщений. Также он может использоваться для фонового музыкального сопровождения, создавая комфортную атмосферу в общественных местах.</p>\n\n<p><b>Преимущества:</b> Выбирая настенный громкоговоритель Esser 581270, вы инвестируете в надежность и качество. Его основными преимуществами являются простота монтажа, что значительно сокращает время и затраты на установку, а также долговечность и стабильная работа, гарантированные брендом Esser/Honeywell. Высокое качество воспроизведения звука обеспечивает четкость и разборчивость сообщений, что критически важно для систем оповещения. Этот громкоговоритель — это оптимальное сочетание функциональности, эстетики и доступной цены, делающее его идеальным выбором для любого проекта.</p>",
+    "best_description_ru_word_count": 305,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PN 581270 is an Esser product (fire alarm/PA system component). Esser is a Honeywell subsidiary brand for fire safety. The audit correctly identified brand confusion - product should be branded as 'Esser by Honeywell' or just 'Esser', not standalone 'Honeywell'. The 6W wall speaker specification aligns with Esser's fire alarm notification devices. Product also needs complete datasheet and expanded description.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Откройте для себя надежное и эффективное решение для систем оповещения и звукового сопровождения с настенным громкоговорителем Esser 581270. Этот высококачественный PA cabinet speaker от известного производителя Honeywell, представленный под брендом Esser, разработан для обеспечения чистого и мощного звука в различных условиях. Модель 581270 является идеальным выбором для тех, кто ценит надежность, простоту установки и превосходное качество воспроизведения, что делает её незаменимым компонентом любой современной аудиосистемы.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Мощность 6 Вт:</b> Оптимальная мощность для четкого и разборчивого звука в помещениях различного размера.</li>\n<li><b>Высокое качество звука:</b> Обеспечивает чистое воспроизведение речи и музыки, что критически важно для систем оповещения.</li>\n<li><b>Настенное крепление:</b> Простая и удобная установка на любую вертикальную поверхность, экономящая пространство.</li>\n<li><b>Надежность Esser/Honeywell:</b> Гарантия долговечности и стабильной работы от ведущего мирового производителя.</li>\n<li><b>Универсальность применения:</b> Подходит для широкого спектра задач, от экстренного оповещения до фонового звукового сопровождения.</li>\n<li><b>Эстетичный дизайн:</b> Нейтральный внешний вид позволяет громкоговорителю гармонично вписаться в любой интерьер.</li>\n<li><b>Простота подключения:</b> Разработан для легкой интеграции в существующие или новые аудиосистемы.</li>\n<li><b>Соответствие стандартам:</b> Продукт соответствует высоким стандартам качества и безопасности, что подтверждает его надежность.</li>\n</ul>\n\n<p><b>Применение:</b> Настенный громкоговоритель Esser 581270 находит широкое применение в самых разнообразных сферах, где требуется надежное и качественное звуковое оповещение. Он идеально подходит для установки в школах, больницах, офисных зданиях, торговых центрах, гостиницах и промышленных объектах. Благодаря своей конструкции, громкоговоритель легко интегрируется в системы пожарной сигнализации и эвакуации, обеспечивая четкую передачу голосовых сообщений. Также он может использоваться для фонового музыкального сопровождения, создавая комфортную атмосферу в общественных местах.</p>\n\n<p><b>Преимущества:</b> Выбирая настенный громкоговоритель Esser 581270, вы инвестируете в надежность и качество. Его основными преимуществами являются простота монтажа, что значительно сокращает время и затраты на установку, а также долговечность и стабильная работа, гарантированные брендом Esser/Honeywell. Высокое качество воспроизведения звука обеспечивает четкость и разборчивость сообщений, что критически важно для систем оповещения. Этот громкоговоритель — это оптимальное сочетание функциональности, эстетики и доступной цены, делающее его идеальным выбором для любого проекта.</p>",
+    "description_seo_word_count": 305,
+    "description_seo_model": ""
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "medium",
+    "original_auto_fix_new_brand": "Esser by Honeywell"
+  }
 }

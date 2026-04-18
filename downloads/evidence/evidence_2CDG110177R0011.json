@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "2CDG110177R0011",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "ABB",
+  "subbrand": null,
   "name": "IP-интерфейс Honeywell IPS/S3.1.1",
   "assembled_title": "Интерфейс Honeywell 2CDG110177R0011",
   "our_price_raw": "66119,00",
@@ -188,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqFhvpjMk9hkKLAfNEEW'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -206,10 +206,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.dcscpu.com/ABB-SA-S-4-16-1-2CDG-110-063-R0011-SWITCH-ACTUATOR-p30072"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -321,7 +318,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "IPS/S3.1.1",
+    "identity_notes_p1": "IP interface module; cannot confirm Honeywell manufacturer",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "ABB"
   },
   "negative_evidence": {
     "photo": [],
@@ -359,9 +360,8 @@
     "description": "IP-интерфейс Honeywell IPS/S3.1.1 предназначен для интеграции различных устройств в сетевые системы автоматизации. Обеспечивает надежное соединение и высокую скорость передачи данных.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Интерфейс",
-    "seed_name": "IP-интерфейс Honeywell IPS/S3.1.1",
-    "description_long_ru": "Модуль ввода-вывода для системы автоматизации зданий ABB KNX. Обеспечивает интеграцию датчиков и исполнительных устройств в шину KNX для управления освещением, климатом и жалюзи."
+    "product_type": "Interface",
+    "seed_name": "IP-интерфейс Honeywell IPS/S3.1.1"
   },
   "trace": {
     "pn_match_location": "",
@@ -575,13 +575,168 @@
   "dr_currency": "ARS",
   "dr_price_source": "https://ar.wiautomation.com/abb/comunicacion-industrial/2cdg110177r0011-abb-ips-s311",
   "dr_category": "IP Interface module",
-  "deep_research": {
-    "title_ru": "Модуль ввода/вывода ABB KNX 2CDG110177R0011",
-    "description_ru": "Модуль ввода-вывода для системы автоматизации зданий ABB KNX. Обеспечивает интеграцию датчиков и исполнительных устройств в шину KNX для управления освещением, климатом и жалюзи.",
-    "provider": "gemini-batch-batch_gemini_v8_nodesc_b2",
-    "model": "gemini-2.5-pro",
-    "merge_ts": "2026-04-10T10:26:24.851421+00:00",
-    "merge_source": "result_2CDG110177R0011.json"
+  "training_urls": [
+    "https://new.abb.com/products/2CDG110177R0011/ips-s3-1-1-ip-interface-mdrc",
+    "https://search.abb.com/library/Download.aspx?DocumentID=2CDC514076D0201&LanguageCode=en&DocumentPartId=DataSheet&Action=Launch",
+    "https://mall.industry.siemens.com/goos/catalog/Pages/mmpdata.ashx?MLFB1=2CDG110177R0011&lang=en"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 567721.12,
+    "dr_currency": "ARS",
+    "dr_source_url": "https://ar.wiautomation.com/abb/comunicacion-industrial/2cdg110177r0011-abb-ips-s311",
+    "our_price_raw": "66119,00",
+    "our_price_parsed": 66119.0,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": null,
+    "judge_reason": "ABB interface module, ARS (Argentine Peso) from local supplier"
   },
-  "product_category": "IP Interface module"
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 567721.12,
+    "best_price_currency": "ARS",
+    "best_price_source": "price_contract",
+    "best_description": "IP-интерфейс Honeywell IPS/S3.1.1 предназначен для интеграции различных устройств в сетевые системы автоматизации. Обеспечивает надежное соединение и высокую скорость передачи данных.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.dcscpu.com/ABB-SA-S-4-16-1-2CDG-110-063-R0011-SWITCH-ACTUATOR-p30072",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "IP-интерфейс Honeywell IPS/S3.1.1 предназначен для интеграции различных устройств в сетевые системы автоматизации. Обеспечивает надежное соединение и высокую скорость передачи данных.",
+    "best_description_ru": "<p>\nИнтерфейс IP ABB IPS/S3.1.1 (артикул 2CDG110177R0011) из серии IPS/S3.1.1 представляет собой высокотехнологичное решение для построения современных систем автоматизации зданий и промышленных объектов. Этот компактный и мощный IP-интерфейс, разработанный ведущим мировым брендом ABB, предназначен для бесшовной интеграции различных устройств в единую сетевую инфраструктуру. Он обеспечивает надежное и стабильное соединение, гарантируя высокую скорость передачи данных, что критически важно для эффективного функционирования комплексных систем управления.\n</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> ABB – гарантия качества и надежности от мирового лидера в области электротехники и автоматизации.</li>\n<li><b>Артикул:</b> 2CDG110177R0011 – уникальный идентификатор для удобства заказа и учета.</li>\n<li><b>Серия:</b> IPS/S3.1.1 – часть специализированной линейки продуктов, разработанных для сетевой интеграции.</li>\n<li><b>Вспомогательное напряжение AC/DC:</b> 12 ... 30 В DC – широкий диапазон для гибкого подключения к источникам питания.</li>\n<li><b>Питание:</b> PoE (Power over Ethernet) – упрощает монтаж, исключая необходимость в дополнительных кабелях питания.</li>\n<li><b>Цвет:</b> Серый – нейтральный дизайн, легко вписывающийся в любой интерьер.</li>\n<li><b>Интерфейс связи:</b> Ethernet – стандарт для высокоскоростной и надежной передачи данных.</li>\n<li><b>Скорость связи:</b> 1 Мбит/с – оптимальная скорость для большинства задач автоматизации.</li>\n<li><b>Степень защиты:</b> IP20 – обеспечивает защиту от твердых частиц размером более 12,5 мм.</li>\n<li><b>Материал корпуса:</b> Пластик – легкий, прочный и долговечный материал.</li>\n<li><b>Тип монтажа:</b> DIN-рейка – стандартное крепление для удобной установки в электрических щитках.</li>\n<li><b>Потери мощности:</b> 1.5 Вт – низкое энергопотребление, способствующее экономии.</li>\n<li><b>Размеры:</b> 36 x 90 x 64.5 мм – компактный размер для экономии места.</li>\n<li><b>Вес:</b> 100 г – легкий и удобный в обращении.</li>\n</ul>\n\n<p>\nIP-интерфейс ABB IPS/S3.1.1 находит широкое применение в самых разнообразных сферах, где требуется эффективное управление и мониторинг. Он идеально подходит для интеграции систем освещения, отопления, вентиляции, кондиционирования воздуха, систем безопасности и других инженерных подсистем в интеллектуальных зданиях. Благодаря поддержке PoE, устройство может быть легко установлено в местах, где прокладка отдельных кабелей питания затруднена или нежелательна. Это делает его незаменимым компонентом для создания комплексных решений в офисных зданиях, гостиницах, торговых центрах, промышленных предприятиях и частных домах, обеспечивая централизованное управление и оптимизацию энергопотребления.\n</p>\n\n<p>\nВыбор IP-интерфейса ABB IPS/S3.1.1 обусловлен рядом неоспоримых преимуществ. Во-первых, это надежность и долговечность, присущие продукции ABB. Во-вторых, поддержка PoE значительно упрощает монтаж и снижает затраты на кабельную инфраструктуру. В-третьих, компактные размеры и монтаж на DIN-рейку обеспечивают удобство установки в стандартные электрические щитки. Наконец, высокая скорость передачи данных и стабильное соединение гарантируют бесперебойную работу вашей системы автоматизации, обеспечивая максимальную эффективность и комфорт.\n</p>",
+    "best_description_ru_word_count": 377,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "deep_research": {
+    "descriptions_all": {
+      "gpt": "ABB 2CDG110177R0011 — это интерфейс KNX/IP ABB i-bus IPS/S3.1.1 для связи шины KNX с Ethernet-сетью. Устройство используется там, где нужно программировать, диагностировать или интегрировать KNX-сегмент через локальную сеть без прямого физического подключения ПК к линии. Модель поддерживает KNXnet/IP tunneling и рассчитана на работу с ETS по LAN. Производитель указывает до пяти tunneling-серверов, поэтому интерфейс подходит для одновременного доступа нескольких инструментов или сервисных сессий в разумных пределах. Питание возможно от внешнего источника 12–30 В DC либо по PoE, что упрощает монтаж в щите и сетевой инфраструктуре. Корпус MDRC предназначен для установки на DIN-рейку рядом с остальным оборудованием автоматизации. Устройство помогает строить BMS/KNX-инфраструктуру в офисах, гостиницах, жилых комплексах и коммерческих зданиях, где требуется централизованный доступ к системе. Для корректного ввода в эксплуатацию нужно задать сетевые параметры, выбрать режим статического IP или DHCP и зарегистрировать устройство в ETS. Интерфейс не заменяет все функции IP-роутера, поэтому при проектировании нужно учитывать роль устройства именно как IP-interface/tunneling node.",
+      "gemini": "IP-интерфейс ABB IPS/S3.1.1 обеспечивает высокоскоростное соединение между шиной KNX и локальной сетью Ethernet. Устройство поддерживает протокол туннелирования KNXnet/IP, что позволяет программировать систему через LAN. Модель оснащена пятью серверами туннелирования для одновременного доступа нескольких пользователей. Питание интерфейса может осуществляться через внешний источник постоянного тока или через PoE. На лицевой панели расположены светодиоды для индикации состояния сети, трафика телеграмм и режима работы. Устройство поддерживает динамическое назначение IP-адресов через протокол DHCP. Малый размер в 2 модуля на DIN-рейке экономит место в распределительном щите. Интерфейс выполнен из экологичного безгалогенного пластика. Это критически важный компонент для интеграции системы умного дома в общую IT-инфраструктуру здания."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "ABB",
+        "Series": "ABB i-bus KNX",
+        "Model": "IPS/S3.1.1",
+        "Product type": "KNX IP interface",
+        "Mounting": "DIN rail (MDRC)",
+        "Protocol": "KNXnet/IP tunneling",
+        "Tunneling servers": "5",
+        "Power supply": "12...30 V DC or PoE",
+        "IP assignment": "Static IP / DHCP",
+        "Degree of protection": "IP20",
+        "Compliance": "CE / RoHS",
+        "EAN": "4016779906517"
+      },
+      "gemini": {
+        "Brand": "ABB",
+        "Model": "IPS/S3.1.1",
+        "Protocol": "KNXnet/IP (Tunneling)",
+        "Tunneling Servers": "5",
+        "Supply Voltage": "12-30 V DC / PoE",
+        "Ethernet Port": "RJ45 (10/100BaseT)",
+        "Power Loss": "1.5 W",
+        "Mounting": "DIN Rail",
+        "EAN": "4016779906517"
+      }
+    },
+    "specs": {
+      "Brand": "ABB",
+      "Series": "ABB i-bus KNX",
+      "Model": "IPS/S3.1.1",
+      "Product type": "KNX IP interface",
+      "Mounting": "DIN rail (MDRC)",
+      "Protocol": "KNXnet/IP tunneling",
+      "Tunneling servers": "5",
+      "Power supply": "12...30 V DC or PoE",
+      "IP assignment": "Static IP / DHCP",
+      "Degree of protection": "IP20",
+      "Compliance": "CE / RoHS",
+      "EAN": "4016779906517",
+      "Tunneling Servers": "5",
+      "Supply Voltage": "12-30 V DC / PoE",
+      "Ethernet Port": "RJ45 (10/100BaseT)",
+      "Power Loss": "1.5 W"
+    },
+    "notes_all": {
+      "gpt": "OEM — ABB; в некоторых BMS-каталогах позиция встречается как ресейл-артикул."
+    }
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "IPS/S3.1.1 IP Interface, MDRC",
+    "description": "The ABB IPS/S3.1.1 is a DIN-rail mountable IP interface that connects the KNX bus with an Ethernet network using the KNXnet/IP protocol for tunneling. It enables programming of KNX devices via LAN using ETS, offers 5 tunneling servers, supports fixed or DHCP IP addresses, and can be powered by 12-30 V DC or Power over Ethernet (PoE).",
+    "specs": {
+      "Auxiliary Voltage AC/DC": "12 ... 30 V DC",
+      "Power Supply": "PoE",
+      "Color": "Grey",
+      "Communication Interface": "Ethernet",
+      "Communication Speed": "1 Mbps",
+      "Degree of Protection": "IP20",
+      "Housing Material": "Plastic",
+      "Mounting Type": "DIN-rail",
+      "Number of LEDs": 3,
+      "Number of Outputs": 0,
+      "Power Loss": "1.5 W",
+      "Surface Finishing": "Matt",
+      "Minimum Order Quantity": "1 piece",
+      "Customs Tariff Number": "85176200",
+      "Number of Batteries": 0
+    },
+    "specs_count": 15,
+    "series": "IPS/S3.1.1",
+    "category": "KNX, System Infrastructure and Interfacing, IP Routers and Interfaces",
+    "weight_g": 100,
+    "dimensions_mm": "36 x 90 x 64.5",
+    "certifications": [
+      "CE",
+      "RoHS (EU Directive 2011/65/EU)"
+    ],
+    "article_no": "2CDG110177R0011",
+    "ean": "4016779906517",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\2CDG110177R0011.pdf",
+    "datasheet_size_kb": 208,
+    "product_photos": [
+      "downloads\\datasheet_photos\\2CDG110177R0011_p1_0.jpeg",
+      "downloads\\datasheet_photos\\2CDG110177R0011_p3_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/2CDG110177R0011_p1_0.jpeg",
+      "downloads/datasheet_photos/2CDG110177R0011_p3_0.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "PN format '2CDG110177R0011' is definitively ABB (2CDG prefix is ABB's KNX product line). Datasheet confirms 'IPS/S3.1.1 IP Interface, MDRC' which is an ABB product. The seed_name incorrectly attributed this ABB product to Honeywell. This is a seed data error - the original listing was miscategorized. The datasheet and PN are correct for ABB, but the seed should be removed or corrected."
+    },
+    "description_seo_ru": "<p>\nИнтерфейс IP ABB IPS/S3.1.1 (артикул 2CDG110177R0011) из серии IPS/S3.1.1 представляет собой высокотехнологичное решение для построения современных систем автоматизации зданий и промышленных объектов. Этот компактный и мощный IP-интерфейс, разработанный ведущим мировым брендом ABB, предназначен для бесшовной интеграции различных устройств в единую сетевую инфраструктуру. Он обеспечивает надежное и стабильное соединение, гарантируя высокую скорость передачи данных, что критически важно для эффективного функционирования комплексных систем управления.\n</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> ABB – гарантия качества и надежности от мирового лидера в области электротехники и автоматизации.</li>\n<li><b>Артикул:</b> 2CDG110177R0011 – уникальный идентификатор для удобства заказа и учета.</li>\n<li><b>Серия:</b> IPS/S3.1.1 – часть специализированной линейки продуктов, разработанных для сетевой интеграции.</li>\n<li><b>Вспомогательное напряжение AC/DC:</b> 12 ... 30 В DC – широкий диапазон для гибкого подключения к источникам питания.</li>\n<li><b>Питание:</b> PoE (Power over Ethernet) – упрощает монтаж, исключая необходимость в дополнительных кабелях питания.</li>\n<li><b>Цвет:</b> Серый – нейтральный дизайн, легко вписывающийся в любой интерьер.</li>\n<li><b>Интерфейс связи:</b> Ethernet – стандарт для высокоскоростной и надежной передачи данных.</li>\n<li><b>Скорость связи:</b> 1 Мбит/с – оптимальная скорость для большинства задач автоматизации.</li>\n<li><b>Степень защиты:</b> IP20 – обеспечивает защиту от твердых частиц размером более 12,5 мм.</li>\n<li><b>Материал корпуса:</b> Пластик – легкий, прочный и долговечный материал.</li>\n<li><b>Тип монтажа:</b> DIN-рейка – стандартное крепление для удобной установки в электрических щитках.</li>\n<li><b>Потери мощности:</b> 1.5 Вт – низкое энергопотребление, способствующее экономии.</li>\n<li><b>Размеры:</b> 36 x 90 x 64.5 мм – компактный размер для экономии места.</li>\n<li><b>Вес:</b> 100 г – легкий и удобный в обращении.</li>\n</ul>\n\n<p>\nIP-интерфейс ABB IPS/S3.1.1 находит широкое применение в самых разнообразных сферах, где требуется эффективное управление и мониторинг. Он идеально подходит для интеграции систем освещения, отопления, вентиляции, кондиционирования воздуха, систем безопасности и других инженерных подсистем в интеллектуальных зданиях. Благодаря поддержке PoE, устройство может быть легко установлено в местах, где прокладка отдельных кабелей питания затруднена или нежелательна. Это делает его незаменимым компонентом для создания комплексных решений в офисных зданиях, гостиницах, торговых центрах, промышленных предприятиях и частных домах, обеспечивая централизованное управление и оптимизацию энергопотребления.\n</p>\n\n<p>\nВыбор IP-интерфейса ABB IPS/S3.1.1 обусловлен рядом неоспоримых преимуществ. Во-первых, это надежность и долговечность, присущие продукции ABB. Во-вторых, поддержка PoE значительно упрощает монтаж и снижает затраты на кабельную инфраструктуру. В-третьих, компактные размеры и монтаж на DIN-рейку обеспечивают удобство установки в стандартные электрические щитки. Наконец, высокая скорость передачи данных и стабильное соединение гарантируют бесперебойную работу вашей системы автоматизации, обеспечивая максимальную эффективность и комфорт.\n</p>",
+    "description_seo_word_count": 377,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "ABB",
+      "candidates": [],
+      "product_hint": "KNX i-bus",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'IPS/S3.1.1 IP Interface, MDRC' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

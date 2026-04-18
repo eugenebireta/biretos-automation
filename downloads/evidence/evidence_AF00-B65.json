@@ -7,7 +7,7 @@
     "AF00B65"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Датчик температуры Honeywell OUTDOOR AIR PT1000, IP65",
   "assembled_title": "Датчик Honeywell AF00-B65",
   "our_price_raw": "2791,00",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Датчик Honeywell AF20 в защитном корпусе с монтажным кронштейном — соответствует уличному датчику температуры серии AF",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeywell.nt-rt.ru/price/product/353727"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -313,7 +310,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -568,5 +566,116 @@
   "dr_price": 75.12,
   "dr_currency": "EUR",
   "dr_price_source": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
-  "product_category": "Outdoor temperature sensor"
+  "training_urls": [
+    "https://buildings.honeywell.com/in/en/products/by-category/sensors/temperature-sensors/outside-temperature-sensor",
+    "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/ba-bms-AF00-AF10-and-AF20-OUTSIDE-TEMPERATURE-SENSORS-Datasheet-English.pdf",
+    "https://www.bolasystems.com/honeywell-af00-b65-outdoor-temperature-sensor-pt1000-40-70-c"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 75.12,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://emoteek.net/en/product/sonde-af00-b65-honeywell-sonde-temperature-exterieure-pt1000-ip65/",
+    "our_price_raw": "2791,00",
+    "our_price_parsed": 2791.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 75.12,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик температуры Honeywell OUTDOOR AIR PT1000 предназначен для измерения температуры воздуха на улице. Обладает защитой IP65, что делает его устойчивым к погодным условиям.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell.nt-rt.ru/price/product/353727",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Датчик температуры Honeywell OUTDOOR AIR PT1000 предназначен для измерения температуры воздуха на улице. Обладает защитой IP65, что делает его устойчивым к погодным условиям.",
+    "best_description_ru": "<p>Представляем вашему вниманию высокоточный датчик температуры Honeywell AF00-B65, разработанный для надежного и точного измерения температуры наружного воздуха. Этот компонент является частью обширной линейки датчиков Honeywell, включающей модели AF00, AF10, AF12 и AF20, каждая из которых создана для обеспечения стабильной работы в самых разнообразных климатических условиях. Датчик Honeywell OUTDOOR AIR PT1000 предназначен для интеграции в системы автоматизации зданий, климат-контроля и мониторинга окружающей среды, где требуется непрерывный и достоверный сбор данных о температуре.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Модель: AF00-B65, часть серии AF00, AF10, AF12, AF20 OUTSIDE TEMPERATURE SENSORS.</li>\n<li>Тип датчика: PT1000, обеспечивающий высокую точность и стабильность измерений.</li>\n<li>Назначение: Измерение температуры наружного воздуха.</li>\n<li>Степень защиты: IP65, гарантирующая полную защиту от пыли и струй воды с любого направления, что делает его идеальным для использования на улице.</li>\n<li>Надежность: Продукция Honeywell известна своим качеством и долговечностью, что обеспечивает долгий срок службы датчика.</li>\n<li>Совместимость: Легко интегрируется с большинством систем управления и контроллеров, поддерживающих входные сигналы PT1000.</li>\n<li>Устойчивость к погодным условиям: Разработан для работы в широком диапазоне температур и влажности, выдерживая экстремальные погодные явления.</li>\n<li>Простота монтажа: Компактный дизайн и продуманная конструкция облегчают установку и подключение.</li>\n</ul>\n\n<p><b>Применение:</b> Датчик Honeywell AF00-B65 находит широкое применение в различных сферах, где критически важен точный контроль температуры наружного воздуха. Он является незаменимым элементом в системах отопления, вентиляции и кондиционирования воздуха (HVAC) для оптимизации работы оборудования и поддержания комфортного микроклимата внутри помещений. Также датчик используется в системах управления зданием (BMS) для автоматического регулирования энергопотребления, в метеорологических станциях для сбора данных, а также в сельскохозяйственных комплексах и промышленных объектах, где требуется мониторинг внешних условий для производственных процессов.</p>\n\n<p><b>Преимущества:</b> Выбор датчика Honeywell AF00-B65 – это инвестиция в надежность и точность. Его высокая степень защиты IP65 гарантирует бесперебойную работу в самых суровых погодных условиях, минимизируя необходимость в обслуживании и замене. Точность сенсора PT1000 обеспечивает достоверные данные, что позволяет эффективно управлять системами и экономить ресурсы. Долговечность и качество продукции Honeywell, мирового лидера в области автоматизации, гарантируют долгий срок службы и стабильную работу, делая этот датчик оптимальным решением для любых задач по измерению температуры наружного воздуха.</p>",
+    "best_description_ru_word_count": 326,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "AF00, AF10, AF12 and AF20 OUTSIDE TEMPERATURE SENSORS",
+    "description": "",
+    "specs": {
+      "sensor_types": "Pt 1000, NTC 10k, NTC 12k, NTC 20k",
+      "sensing_range": "-40 to +70 °C (-40 to +158 °F)",
+      "nominal_value_Pt1000": "1000 Ω at 0 °C (32 °F)",
+      "nominal_value_NTC10k": "10 kΩ at 25 °C (77 °F)",
+      "nominal_value_NTC12k": "12 kΩ at 25 °C (77 °F)",
+      "nominal_value_NTC20k": "20 kΩ at 25 °C (77 °F)",
+      "accuracy_Pt1000": "±0.3 °C at 0 °C (IEC751 Class B)",
+      "accuracy_NTC10k": "±0.2 °C at 25 °C",
+      "accuracy_NTC12k": "±0.9 °C at 60 °C",
+      "accuracy_NTC20k": "±0.2 °C at 25 °C",
+      "sensitivity_Pt1000": "≈ 3.85 Ω / K",
+      "sensitivity_NTC10k": "≈ -440 Ω / K at 25 °C (non-linear)",
+      "sensitivity_NTC12k": "≈ -489 Ω / K at 25 °C (non-linear)",
+      "sensitivity_NTC20k": "≈ -935 Ω / K at 25 °C (non-linear)",
+      "connection_type": "two-wire (2x0.22 mm²)",
+      "time_constant": "≤ 8 min",
+      "enclosure_material": "polycarbonate/acrylonitrile-butadiene-styrene, UL94-V2 approved",
+      "protection_class": "IP65",
+      "protection_class_standard": "EN 60529",
+      "storage_temperature": "-40 to +70 °C (-40 to +158 °F)",
+      "humidity": "5 to 95% rh, non-condensing",
+      "max_wiring_length": "200 m (660 ft)",
+      "wire_offset_Pt1000_0.5mm2": "0.18 °C (0.324 °F) per 10 m",
+      "wire_offset_Pt1000_1.0mm2": "0.09 °C (0.162 °F) per 10 m",
+      "wire_offset_Pt1000_1.5mm2": "0.06 °C (0.108 °F) per 10 m",
+      "min_distance_power_lines": "15 cm (5.9 in)"
+    },
+    "specs_count": 26,
+    "series": "AF00, AF10, AF12, AF20",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "See datasheet Figure 1 (dimensions not numerically specified in text)",
+    "certifications": [
+      "IEC751 Class B",
+      "UL94-V2",
+      "EN 60529"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\AF00-B65.pdf",
+    "datasheet_size_kb": 176,
+    "product_photos": [
+      "downloads\\datasheet_photos\\AF00-B65_p1_1.jpeg",
+      "downloads\\datasheet_photos\\AF00-B65_p2_1.png"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/AF00-B65_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - Honeywell AF00 series temperature sensors are legitimate products. The datasheet title matches the product (AF00 OUTSIDE TEMPERATURE SENSORS). However, the audit shows critical data extraction failures: missing EAN, zero technical specs, truncated description, and no physical dimensions. The datasheet exists but data extraction was incomplete or failed. Need to re-process the datasheet to extract complete product information including specifications, full description, and physical characteristics."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию высокоточный датчик температуры Honeywell AF00-B65, разработанный для надежного и точного измерения температуры наружного воздуха. Этот компонент является частью обширной линейки датчиков Honeywell, включающей модели AF00, AF10, AF12 и AF20, каждая из которых создана для обеспечения стабильной работы в самых разнообразных климатических условиях. Датчик Honeywell OUTDOOR AIR PT1000 предназначен для интеграции в системы автоматизации зданий, климат-контроля и мониторинга окружающей среды, где требуется непрерывный и достоверный сбор данных о температуре.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Модель: AF00-B65, часть серии AF00, AF10, AF12, AF20 OUTSIDE TEMPERATURE SENSORS.</li>\n<li>Тип датчика: PT1000, обеспечивающий высокую точность и стабильность измерений.</li>\n<li>Назначение: Измерение температуры наружного воздуха.</li>\n<li>Степень защиты: IP65, гарантирующая полную защиту от пыли и струй воды с любого направления, что делает его идеальным для использования на улице.</li>\n<li>Надежность: Продукция Honeywell известна своим качеством и долговечностью, что обеспечивает долгий срок службы датчика.</li>\n<li>Совместимость: Легко интегрируется с большинством систем управления и контроллеров, поддерживающих входные сигналы PT1000.</li>\n<li>Устойчивость к погодным условиям: Разработан для работы в широком диапазоне температур и влажности, выдерживая экстремальные погодные явления.</li>\n<li>Простота монтажа: Компактный дизайн и продуманная конструкция облегчают установку и подключение.</li>\n</ul>\n\n<p><b>Применение:</b> Датчик Honeywell AF00-B65 находит широкое применение в различных сферах, где критически важен точный контроль температуры наружного воздуха. Он является незаменимым элементом в системах отопления, вентиляции и кондиционирования воздуха (HVAC) для оптимизации работы оборудования и поддержания комфортного микроклимата внутри помещений. Также датчик используется в системах управления зданием (BMS) для автоматического регулирования энергопотребления, в метеорологических станциях для сбора данных, а также в сельскохозяйственных комплексах и промышленных объектах, где требуется мониторинг внешних условий для производственных процессов.</p>\n\n<p><b>Преимущества:</b> Выбор датчика Honeywell AF00-B65 – это инвестиция в надежность и точность. Его высокая степень защиты IP65 гарантирует бесперебойную работу в самых суровых погодных условиях, минимизируя необходимость в обслуживании и замене. Точность сенсора PT1000 обеспечивает достоверные данные, что позволяет эффективно управлять системами и экономить ресурсы. Долговечность и качество продукции Honeywell, мирового лидера в области автоматизации, гарантируют долгий срок службы и стабильную работу, делая этот датчик оптимальным решением для любых задач по измерению температуры наружного воздуха.</p>",
+    "description_seo_word_count": 326,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'AF00, AF10, AF12 and AF20 OUTSIDE TEMPERATURE SENSORS' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

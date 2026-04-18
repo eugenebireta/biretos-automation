@@ -1,0 +1,62 @@
+# Phase 1 — Identity Recon: Honeywell products (batch 5/6)
+
+## Your task
+Identify each product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## Search rules
+- Search as "Honeywell {PN}" or just "{PN}" in quotes
+- Suffix -RU: try without suffix too (Russian market variant)
+- Suffix -L3: kit — search base PN without suffix
+- Sites: honeywellsensors.com, distech-controls.com, automation24.com, rs-components.com
+
+## What I need per SKU
+1. **product_type** — short English name: "smoke detector", "HVAC sensor", "gas detector"
+2. **product_line** — family/series name
+3. **manufacturer** — confirm Honeywell or identify real OEM
+4. **pn_aliases** — alternative PNs on distributor sites
+5. **discontinued** — yes/no
+6. **identity_notes** — OEM info, replaced by, kit contents, regional variant
+
+## Products (30 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | P2213T | Монитор Honeywell P2213T | Монитор Honeywell P2213T | - | no_desc |
+| 2 | P2217H | Системный блок Honeywell P2217H | Системный блок Honeywell P2217H | - | no_desc |
+| 3 | P2421D | Монитор Honeywell P2421D | Монитор P2421D | - | no_desc |
+| 4 | P400-RU | Видеокарта Honeywell P400-RU | Видеокарта NVIDIA Quadro P400-RU | P400.RU, P400RU | no_price |
+| 5 | P600 | Видеокарта Honeywell P600 | Видеокарта NVIDIA Quadro P600 | - | no_photo, no_desc |
+| 6 | PANC300-03 | Панель Honeywell PANC300-03 | Панель удаленных модулей C300 Panel PANC300-03 | PANC300.03, PANC30003 | no_desc |
+| 7 | PANC300-04 | Панель Honeywell PANC300-04 | Панель удаленных модулей C300 Panel PANC300-04 | PANC300.04, PANC30004 | no_desc |
+| 8 | PAVILION | Ноутбук Honeywell PAVILION | Ноутбук PAVILION | - | no_photo, no_desc |
+| 9 | PCD2.A200 | Модуль Honeywell PCD2.A200 | Модуль цифрового вывода PCD2.A200 | PCD2-A200, PCD2A200 | no_price |
+| 10 | PCD3.M3360 | Процессорный блок Honeywell PCD3.M3360 | Процессорный блок PCD3.M3360 | PCD3-M3360, PCD3M3360 | no_price, no_photo |
+| 11 | PCD7.L500 | Блок питания Honeywell PCD7.L500 | Блок питания PCD7.L500 | PCD7-L500, PCD7L500 | no_photo |
+| 12 | PERTHECTION | Сканер Honeywell PERTHECTION | Сканер PERTHECTION | - | no_price, no_photo |
+| 13 | PHASER | Принтер Honeywell PHASER | Принтер PHASER | - | no_price |
+| 14 | PIP-003 | Соединение Honeywell PIP-003 | Союзное соединение ASD SOCKET UNION 25MM PK10 PIP-003 | PIP.003, PIP003 | no_desc |
+| 15 | PP11L | Ноутбук Honeywell PP11L | Ноутбук PP11L | - | no_desc |
+| 16 | PRECISION | Системный блок Honeywell PRECISION | Системный блок Компьютер PRECISION | - | no_photo, no_desc |
+| 17 | PRECITHION | Системный блок Honeywell PRECITHION | Системный блок Компьютер PRECITHION | - | no_price, no_photo, no_desc |
+| 18 | PRECITION | Системный блок Honeywell PRECITION | Системный блок Компьютер PRECITION | - | no_price, no_photo, no_desc |
+| 19 | PROFI-O | Извещатель Honeywell PROFI-O | Дымовой извещатель PROFI-O | PROFI.O, PROFIO | no_price |
+| 20 | PW5K1ENC3E | Корпус Honeywell PW5K1ENC3E | Корпус удаленного монтажа PW-5000 TILE MOUNT REMOTE ENCLOSUR | - | no_price, no_photo |
+| 21 | R4343E1048-ST005 | Переключатель Honeywell R4343E1048-ST005 | УФ-переключатель пламени R4343E1048-ST005 | R4343E1048.ST005, R4343E1048ST005 | no_desc |
+| 22 | RDU300504 | Редуктор Honeywell RDU300504 | Редуктор RDU300504 | - | no_desc |
+| 23 | RIC-F-LCU24-01C | Панель Honeywell RIC-F-LCU24-01C | Панель Quick-Pack RIC-F-LCU24-01C | RIC.F.LCU24.01C, RICFLCU2401C | no_price |
+| 24 | RMK400AP-IV | Комплект Honeywell RMK400AP-IV | Комплект для встраиваемого монтажа RMK400AP-IV | RMK400AP.IV, RMK400APIV | no_photo |
+| 25 | ROL15-2761-04 | Комплект Honeywell ROL15-2761-04 | Комплект роликового вала ROL15-2761-04 | ROL15.2761.04, ROL15276104 | no_desc |
+| 26 | S05230-2POS | Привод Honeywell S05230-2POS | Привод заслонки S05230-2POS | S05230.2POS, S052302POS | no_photo |
+| 27 | S10010-SW2 | Привод Honeywell S10010-SW2 | Привод заслонки 10NM 24V с двумя переключателями S10010-SW2 | S10010.SW2, S10010SW2 | no_price |
+| 28 | SC-SC | Патч-корд Honeywell SC-SC | Волоконно-оптический патч-корд SC-SC Hyperline FC-D2-50-SC/P | SC.SC, SCSC | no_price |
+| 29 | SC-SCDUPLEX9/125-1 | Кабель Honeywell SC-SCDUPLEX9/125-1 | Оптический кабель SC-SCDuplex9/125 1m | SC.SCDUPLEX9/125.1, SCSCDUPLEX9/1251 | no_photo |
+| 30 | SC-SCDUPLEX9/125-2 | Кабель Honeywell SC-SCDUPLEX9/125-2 | Оптический кабель SC-SCDuplex9/125 2m | SC.SCDUPLEX9/125.2, SCSCDUPLEX9/1252 | no_photo |
+
+## Required output — markdown table only
+
+| PN | product_type | product_line | manufacturer | pn_aliases | discontinued | identity_notes |
+|----|-------------|-------------|-------------|-----------|-------------|----------------|
+
+- Cannot confirm → write "unknown" in product_type
+- manufacturer: "Honeywell" only if confirmed, else real OEM name
+- Return ONLY the table, no preamble

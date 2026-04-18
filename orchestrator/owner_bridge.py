@@ -151,33 +151,103 @@ def _handle_status(manifest: dict, payload: dict) -> tuple[dict, str]:
 
 
 def _handle_chat(manifest: dict, payload: dict) -> tuple[dict, str]:
-    """Direct chat — run claude -p with user message, return answer.
+    """Direct chat — Claude Code CLI on VPS via SSH (subscription, no API billing).
 
-    No manifest mutation. Runs claude CLI as subprocess.
+    No manifest mutation. Runs `claude --print` on biretos VPS via SSH.
+    History from owner_chat_history.jsonl is injected as context in the prompt.
+    Falls back to Anthropic API if SSH fails.
     """
     message = payload["message"]
+
+    # Build project context outside try — used by both SSH path and API fallback
+    state = manifest.get("fsm_state", "unknown")
+    task = manifest.get("current_task_id") or "нет"
+    goal = manifest.get("current_sprint_goal") or "нет"
+    park = manifest.get("park_reason") or "нет"
+    project_ctx = (
+        "О проекте biretos-automation:\n"
+        "Система обогащения каталога товаров для интернет-магазина Biretos.\n"
+        "Товары: Honeywell, PEHA, Esser — пожарная безопасность, электроустановка, датчики.\n"
+        "DR = Deep Research (глубокое исследование) — автоматический сбор данных о товарах "
+        "через API Gemini/Claude. Результат: evidence JSON с title_ru, description, ценой, фото.\n"
+        "Пайплайн: DR → evidence JSON → обогащение → экспорт в InSales (CMS магазина).\n"
+        "Скрипты: scripts/. Оркестратор: orchestrator/. Данные: downloads/evidence/.\n"
+        f"Состояние оркестратора: fsm={state}, task={task}, goal={goal}, park={park}\n"
+    )
+
     try:
-        import subprocess as _sp
+        try:
+            from chat_session import load_history, save_turn
+        except ImportError:
+            from orchestrator.chat_session import load_history, save_turn
+
+        # Inject last N history turns into prompt
+        history_turns = load_history()[-6:]  # last 6 exchanges max
+        history_text = ""
+        if history_turns:
+            lines = []
+            for turn in history_turns:
+                lines.append(f"Владелец: {turn['user']}")
+                lines.append(f"Ты: {turn['assistant']}")
+            history_text = "\n[История]\n" + "\n".join(lines) + "\n"
+
         prompt = (
-            f"Ты — ассистент проекта biretos-automation. "
-            f"Отвечай кратко, по-русски. "
-            f"Рабочая директория: {ROOT}\n\n"
-            f"Вопрос владельца: {message}"
+            "Ты — ассистент проекта biretos-automation, общаешься через MAX мессенджер.\n"
+            "Отвечай кратко, по-русски, строго по теме. Не придумывай.\n\n"
+            f"{project_ctx}"
+            f"{history_text}\n"
+            f"Владелец: {message}\nТы:"
         )
-        result = _sp.run(
-            [sys.executable, "-m", "claude", "-p", prompt],
-            capture_output=True, text=True, timeout=120,
-            cwd=str(ROOT),
+
+        import subprocess
+        result = subprocess.run(
+            ["ssh", "-o", "ConnectTimeout=10", "-o", "BatchMode=yes",
+             "biretos", f"claude --print {_shell_quote(prompt)}"],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=60,
         )
-        answer = (result.stdout or "").strip()
+        answer = result.stdout.strip()[:3900]
         if not answer:
-            answer = "(Claude не дал ответа)"
-        # Truncate for Telegram
-        if len(answer) > 3900:
-            answer = answer[:3900] + "\n\n… (обрезано)"
+            raise RuntimeError(result.stderr[:200] or "empty response")
+
+        save_turn(message, answer)
+
     except Exception as exc:
-        answer = f"Ошибка: {str(exc)[:200]}"
+        # Fallback: Anthropic API (with same project context)
+        try:
+            try:
+                from chat_engine import _load_anthropic_key
+            except ImportError:
+                from orchestrator.chat_engine import _load_anthropic_key
+            import anthropic  # type: ignore[import-untyped]
+            key = _load_anthropic_key()
+            if key:
+                client = anthropic.Anthropic(api_key=key)
+                resp = client.messages.create(
+                    model="claude-haiku-4-5-20251001",
+                    max_tokens=512,
+                    system=(
+                        "Ты — ассистент проекта biretos-automation. "
+                        "Отвечай кратко, по-русски, строго по теме. Не придумывай.\n\n"
+                        f"{project_ctx}"
+                    ),
+                    messages=[{"role": "user", "content": message}],
+                )
+                answer = resp.content[0].text.strip()[:3900]
+                save_turn(message, answer)
+            else:
+                answer = f"(SSH и API недоступны: {str(exc)[:120]})"
+        except Exception as exc2:
+            answer = f"Ошибка: {str(exc)[:100]} / {str(exc2)[:100]}"
     return {}, answer
+
+
+def _shell_quote(s: str) -> str:
+    """Wrap string in single quotes for SSH, escaping internal single quotes."""
+    return "'" + s.replace("'", "'\\''") + "'"
 
 
 def _handle_new_task(manifest: dict, payload: dict) -> tuple[dict, str]:
@@ -331,12 +401,16 @@ def _save_manifest(m: dict) -> None:
 
 # ── Bridge state (cursor + dedup) ──────────────────────────────────────
 
+_MSG_ID_DEDUP_MAX = 500  # keep last N processed msg_ids in bridge_state
+
+
 def _load_bridge_state() -> dict:
     return _load_json(BRIDGE_STATE_PATH, {
         "last_processed_update_id": 0,
         "last_processed_line": 0,
         "processed_count": 0,
         "dlq_count": 0,
+        "processed_msg_ids": [],
     })
 
 
@@ -414,12 +488,25 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
         entirely, so they never block the FSM pipeline and respond fast.
         TASK and CALLBACK streams acquire the manifest lock for FSM mutations.
     """
-    update_id = entry.get("update_id") or 0
+    _raw_uid = entry.get("update_id") or 0
+    # MAX uses string message IDs ("mid.xxx"); Telegram uses ints.
+    # Normalize to int — non-numeric IDs (MAX) are treated as 0,
+    # so line-cursor dedup is used instead of uid-cursor for MAX.
+    try:
+        update_id: int = int(_raw_uid)
+    except (TypeError, ValueError):
+        update_id = 0
     last_processed = bridge_state.get("last_processed_update_id", 0)
 
-    # Dedup: already processed
+    # Dedup: already processed (Telegram only; MAX relies on line cursor)
     if update_id and update_id <= last_processed:
         return True  # skip, already handled
+
+    # Dedup by msg_id — handles MAX duplicates that slip past line cursor
+    msg_id = entry.get("msg_id") or entry.get("update_id") or ""
+    processed_ids: list = bridge_state.setdefault("processed_msg_ids", [])
+    if msg_id and msg_id in processed_ids:
+        return True  # already handled this exact message
 
     text = (entry.get("text") or "").strip()
     if not text:
@@ -449,11 +536,11 @@ def process_inbox_entry(entry: dict, bridge_state: dict) -> bool:
     if route.stream in _READ_ONLY_STREAMS:
         # FAST PATH: no manifest lock, no FSM mutation
         return _process_read_only(entry, bridge_state, manifest,
-                                  input_type, payload, update_id)
+                                  input_type, payload, update_id, msg_id)
     else:
         # FSM PATH: acquire lock, re-read manifest, mutate
         return _process_fsm(entry, bridge_state, manifest,
-                            input_type, payload, update_id)
+                            input_type, payload, update_id, msg_id)
 
 
 def _process_read_only(
@@ -463,6 +550,7 @@ def _process_read_only(
     input_type: str,
     payload: dict,
     update_id: int,
+    msg_id: str = "",
 ) -> bool:
     """Fast path for QUERY/COMMAND — no manifest lock, no FSM mutation."""
     try:
@@ -487,13 +575,25 @@ def _process_read_only(
                    error_class="TRANSIENT", retriable=True)
         return True
 
-    # Advance cursor
+    # Advance cursor + record msg_id
     if update_id:
         bridge_state["last_processed_update_id"] = max(
             bridge_state.get("last_processed_update_id", 0), update_id
         )
+    _record_msg_id(bridge_state, msg_id)
     bridge_state["processed_count"] = bridge_state.get("processed_count", 0) + 1
     return True
+
+
+def _record_msg_id(bridge_state: dict, msg_id: str) -> None:
+    """Add msg_id to processed set, trim to max size."""
+    if not msg_id:
+        return
+    ids: list = bridge_state.setdefault("processed_msg_ids", [])
+    if msg_id not in ids:
+        ids.append(msg_id)
+    if len(ids) > _MSG_ID_DEDUP_MAX:
+        bridge_state["processed_msg_ids"] = ids[-_MSG_ID_DEDUP_MAX:]
 
 
 def _process_fsm(
@@ -503,6 +603,7 @@ def _process_fsm(
     input_type: str,
     payload: dict,
     update_id: int,
+    msg_id: str = "",
 ) -> bool:
     """FSM path for TASK/CALLBACK — acquires manifest lock, may mutate."""
     lock_fh = _acquire_manifest_lock()
@@ -560,11 +661,12 @@ def _process_fsm(
     finally:
         _release_manifest_lock(lock_fh)
 
-    # Advance cursor
+    # Advance cursor + record msg_id
     if update_id:
         bridge_state["last_processed_update_id"] = max(
             bridge_state.get("last_processed_update_id", 0), update_id
         )
+    _record_msg_id(bridge_state, msg_id)
     bridge_state["processed_count"] = bridge_state.get("processed_count", 0) + 1
     return True
 
@@ -606,8 +708,11 @@ def process_all_pending() -> int:
         if idx < last_line:
             continue
 
-        # Also skip by update_id if present (secondary cursor)
-        update_id = entry.get("update_id") or 0
+        # Also skip by update_id if present (secondary cursor, Telegram only)
+        try:
+            update_id: int = int(entry.get("update_id") or 0)
+        except (TypeError, ValueError):
+            update_id = 0
         if update_id and update_id <= last_uid:
             continue
 

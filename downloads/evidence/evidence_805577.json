@@ -4,7 +4,7 @@
   "pn": "805577",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Адаптер для монтажа (набор из 10) 805577",
   "assembled_title": "Адаптер Honeywell 805577",
   "our_price_raw": "2262,16",
@@ -178,7 +178,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Пластиковый монтажный адаптер/кронштейн угадывается чётко",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -196,10 +196,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/avtomatiches"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "hidden_price",
@@ -309,7 +306,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "IQ8 series accessories",
+    "confirmed_manufacturer": "Esser",
+    "discontinued": false,
+    "identity_notes_p1": "Mounting adapter for suspended ceiling installation, set of 10",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -332,9 +334,8 @@
     "description": "Адаптер для монтажа предназначен для установки различных устройств в системах безопасности и автоматизации. Поставляется в наборе из 10 штук. Обеспечивает надежное крепление и простоту установки.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Системы безопасности",
-    "product_type": "Адаптер",
-    "seed_name": "Адаптер для монтажа (набор из 10) 805577",
-    "description_long_ru": "Actual mfr: ESSER by Honeywell. Fire alarm accessory. Also EUR 40.80 at Walde AS"
+    "product_type": "Installation adapter",
+    "seed_name": "Адаптер для монтажа (набор из 10) 805577"
   },
   "trace": {
     "pn_match_location": "",
@@ -580,7 +581,22 @@
       "raw": "pack 10; совместимо с IQ8 detector & sounder bases; Tax included",
       "aliases": [
         "805577"
-      ]
+      ],
+      "Part number": "805577",
+      "Type": "Installation adapter for suspended ceilings",
+      "Compatible equipment": "IQ8Quad detector bases, 9x00 series, IQ8Alarm Plus, parallel indicators",
+      "Packing unit": "10 pcs",
+      "Manufacturer": "Esser by Honeywell",
+      "Brand": "ESSER by Honeywell",
+      "Part Number": "805577",
+      "Device Type": "Installation adapter",
+      "Application": "Suspended ceiling mounting",
+      "type": "Installation adapter for suspended ceilings",
+      "compatibility": "IQ8Quad, IQ8Alarm Plus, series 9x00",
+      "material": "ABS Plastic",
+      "color": "White (RAL 9001)",
+      "packing_unit": "10 pcs",
+      "mounting": "Hollow cavity fastening substitute"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -600,12 +616,135 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.228769+00:00",
+    "merge_ts": "2026-04-09T12:01:24.859144+00:00",
     "merge_source": "result_805577.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "Actual mfr: ESSER by Honeywell. Fire alarm accessory. Also EUR 40.80 at Walde AS"
+    "descriptions_all": {
+      "claude": "Адаптер Esser 805577 — это монтажный адаптер для установки на подвесные потолки (Installation Adapter for Suspended Ceilings) от Esser by Honeywell. Адаптер предназначен для быстрого и надёжного крепления цоколей пожарных извещателей серии IQ8Quad, серии 9×00, устройств оповещения IQ8Alarm Plus, параллельных индикаторов извещателей и другого оборудования пожарной сигнализации Esser к конструкциям подвесных потолочных систем. Использование адаптера 805577 избавляет от необходимости применять специализированные крепёжные элементы для пустотелых конструкций. Адаптер обеспечивает надёжную фиксацию оборудования на потолочных панелях и каркасах подвесных потолков различных типов. Поставляется в упаковке по 10 штук. Является важным монтажным аксессуаром при оснащении коммерческих и офисных зданий с подвесными потолками системой пожарной сигнализации Esser.",
+      "gpt": "ESSER 805577 — это монтажный адаптер для установки элементов пожарной системы в подвесной потолок. Аксессуар предназначен для применения с совместимыми устройствами ESSER и облегчает аккуратный и корректный монтаж в потолочные конструкции. Подобные адаптеры особенно востребованы на коммерческих объектах, где извещатели или связанные узлы необходимо интегрировать в модульные потолки без нарушения геометрии монтажа. Изделие не является активным электронным компонентом, а относится к категории монтажной оснастки и принадлежностей. Правильно подобранный адаптер упрощает установку, повышает аккуратность исполнения и помогает сохранить проектный вид конечной инсталляции. Для пожарной сигнализации важно использовать именно совместимый аксессуар, чтобы не повлиять на расположение устройства, доступность обслуживания и внешний вид. При заказе следует проверять точную совместимость с используемой серией извещателей или баз, поскольку аксессуары ESSER отличаются по назначению. Такой адаптер часто нужен при реконструкции офисных помещений, гостиниц, административных зданий и других объектов с подвесными потолками. Некоторые региональные карточки Honeywell маркируют эту позицию как discontinued, поэтому поставка может зависеть от остатков или альтернативных каналов снабжения. В каталоге B2B позицию стоит описывать как suspended ceiling installation adapter для пожарной автоматики ESSER.",
+      "gemini": "Монтажный адаптер Esser 805577 — это специализированное решение для быстрой и надежной установки баз извещателей IQ8Quad в подвесные потолочные системы. Адаптер значительно упрощает процесс монтажа, избавляя от необходимости использования специальных дюбелей для пустотелых конструкций. Крепежные винты базы извещателя вкручиваются непосредственно в соответствующие пазы на адаптере, обеспечивая жесткую и долговечную фиксацию. Изделие также предоставляет дополнительные возможности для организации кабельных вводов, позволяя надежно закрепить как жесткие трубы, так и гибкие гофрированные шланги. Белый цвет корпуса адаптера (RAL 9001) идеально сочетается с цветом стандартных детекторов и потолочных плит, обеспечивая эстетичный внешний вид системы. Адаптер изготовлен из высококачественного полимера, устойчивого к старению и воздействию окружающей среды. Применение таких аксессуаров сокращает время пусконаладочных работ и гарантирует соответствие монтажа проектным требованиям. Изделие поставляется в упаковках по 10 штук, что оптимально для крупных строительных проектов. Это важный элемент профессиональной инсталляции, повышающий общую культуру электромонтажа в здании.",
+      "synthesis": "ESSER 805577 — монтажный адаптер для крепления извещателей и связанных устройств пожарной сигнализации к подвесным потолочным конструкциям, избавляющий от необходимости применения специализированных крепёжных элементов для пустотелых конструкций. Адаптер предназначен для быстрого и надёжного крепления цоколей пожарных извещателей серии IQ8Quad, серии 9×00, устройств оповещения IQ8Alarm Plus и другого оборудования Esser к различным типам модульных потолочных систем. Крепежные винты базы извещателя вкручиваются непосредственно в соответствующие пазы адаптера, обеспечивая жесткую и долговечную фиксацию устройства без нарушения геометрии монтажа. Белый цвет адаптера (RAL 9001) идеально сочетается с цветом стандартных детекторов и потолочных плит, обеспечивая эстетичный внешний вид системы безопасности на объекте. Изделие изготовлено из высококачественного полимера, устойчивого к старению и воздействию окружающей среды, обеспечивая долгий срок службы в составе инсталляции. Адаптер предоставляет дополнительные возможности для организации кабельных вводов, позволяя надежно закрепить как жесткие трубы, так и гибкие гофрированные шланги без риска их смещения. Применение подобных аксессуаров сокращает время пусконаладочных работ, гарантирует соответствие монтажа проектным требованиям и упрощает дальнейшее техническое обслуживание системы безопасности на коммерческих и административных объектах. Поставляется в упаковках по 10 штук."
+    },
+    "specs_all": {
+      "claude": {
+        "Part number": "805577",
+        "Type": "Installation adapter for suspended ceilings",
+        "Compatible equipment": "IQ8Quad detector bases, 9x00 series, IQ8Alarm Plus, parallel indicators",
+        "Packing unit": "10 pcs",
+        "Manufacturer": "Esser by Honeywell"
+      },
+      "gpt": {
+        "Brand": "ESSER by Honeywell",
+        "Part Number": "805577",
+        "Device Type": "Installation adapter",
+        "Application": "Suspended ceiling mounting"
+      },
+      "gemini": {
+        "type": "Installation adapter for suspended ceilings",
+        "compatibility": "IQ8Quad, IQ8Alarm Plus, series 9x00",
+        "material": "ABS Plastic",
+        "color": "White (RAL 9001)",
+        "packing_unit": "10 pcs",
+        "mounting": "Hollow cavity fastening substitute"
+      }
+    },
+    "notes_all": {
+      "gpt": "Accessory item. Honeywell regional pages indicate discontinued status in some markets."
+    }
   },
-  "product_category": "Addressable; Red; IP44; Manual call point"
+  "training_urls": [
+    "https://buildings.honeywell.com/ae/en/products/by-category/sensors/accessories/mounting-adapter-for-suspended-ceilings",
+    "https://www.esser-systems.com/en/products/details/automatic-detectors/accessories/805577-installation-adapter-for-suspended-ceilings/",
+    "https://www.orbitadigital.com/en/esser-805577-installation-adapter",
+    "https://www.orbitadigital.com/en/fire/accessories/36086-esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.html",
+    "https://stockonfire.com/product/esser-805577-adapter/",
+    "https://www.boydens.co.uk/esser-805577-installation-adapter-for-suspended-ceiling",
+    "https://www.honeywellbuildings.in/en/products/by-category/fire-life-safety/control-panels/systems-and-peripherals/installation-adapter-for-suspended-ceiling",
+    "https://www.manualslib.de/manual/53568/Esser-Iq8quad.html?page=82"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 29.11,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.orbitadigital.com/en/fire/accessories/36086-esser-805577-pack-of-10-false-ceiling-mounting-accessories-to.html",
+    "our_price_raw": "2262,16",
+    "our_price_parsed": 2262.16,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": 10,
+    "judge_reason": "kf: 'pack of 10' explicitly stated in description"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 29.11,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Адаптер для монтажа предназначен для установки различных устройств в системах безопасности и автоматизации. Поставляется в наборе из 10 штук. Обеспечивает надежное крепление и простоту установки.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/avtomatiches",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Адаптер для монтажа предназначен для установки различных устройств в системах безопасности и автоматизации. Поставляется в наборе из 10 штук. Обеспечивает надежное крепление и простоту установки.",
+    "best_description_ru": "<p>Представляем esserbus® alarm transponder от всемирно известного бренда Honeywell, артикул 805577 – незаменимый компонент для профессиональных систем безопасности и автоматизации. Этот адаптер для монтажа разработан для обеспечения надежной и эффективной интеграции различных устройств в вашу инфраструктуру. Продукт поставляется в удобном наборе из 10 штук, что делает его идеальным решением для масштабных проектов и регулярного обслуживания систем, гарантируя бесперебойную работу и долговечность.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> Honeywell – гарантия качества и надежности от лидера отрасли.</li>\n<li><b>Артикул:</b> 805577 – уникальный идентификатор для легкого заказа и учета.</li>\n<li><b>Название:</b> esserbus® alarm transponder – точно отражает функциональное назначение.</li>\n<li><b>Тип продукта:</b> Адаптер для монтажа – специализированное решение для установки.</li>\n<li><b>Комплектация:</b> Набор из 10 штук – экономичное и практичное решение для крупных проектов.</li>\n<li><b>Назначение:</b> Обеспечивает надежное крепление различных устройств в системах безопасности.</li>\n<li><b>Простота установки:</b> Разработан для быстрой и интуитивно понятной интеграции.</li>\n<li><b>Совместимость:</b> Идеально подходит для использования в системах esserbus®, расширяя их возможности.</li>\n<li><b>Долговечность:</b> Изготовлен из высококачественных материалов, обеспечивающих длительный срок службы.</li>\n</ul>\n<p><b>Применение:</b> esserbus® alarm transponder находит широкое применение в различных сферах, где требуется интеграция устройств в комплексные системы безопасности и автоматизации. Он идеально подходит для установки датчиков, модулей управления, исполнительных механизмов и других компонентов в пожарных сигнализациях, системах контроля доступа, видеонаблюдения и умного дома. Благодаря своей универсальности, адаптер может быть использован как в коммерческих, так и в промышленных объектах, а также в жилых комплексах, обеспечивая гибкость и масштабируемость решений.</p>\n<p><b>Преимущества:</b> Выбирая esserbus® alarm transponder, вы получаете не просто адаптер, а надежное решение от Honeywell, которое значительно упрощает монтаж и повышает общую стабильность вашей системы. Комплект из 10 штук обеспечивает экономию средств и удобство при реализации крупных проектов. Простота установки сокращает время монтажных работ, а высокая надежность гарантирует бесперебойную работу оборудования на протяжении многих лет, минимизируя затраты на обслуживание и ремонт.</p>",
+    "best_description_ru_word_count": 284,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "esserbus® alarm transponder",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\805577.pdf",
+    "datasheet_size_kb": 2725,
+    "product_photos": [
+      "downloads\\datasheet_photos\\805577_p1_0.jpeg",
+      "downloads\\datasheet_photos\\805577_p1_1.jpeg",
+      "downloads\\datasheet_photos\\805577_p1_2.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/805577_p1_0.jpeg",
+      "downloads/datasheet_photos/805577_p1_1.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "description_seo_ru": "<p>Представляем esserbus® alarm transponder от всемирно известного бренда Honeywell, артикул 805577 – незаменимый компонент для профессиональных систем безопасности и автоматизации. Этот адаптер для монтажа разработан для обеспечения надежной и эффективной интеграции различных устройств в вашу инфраструктуру. Продукт поставляется в удобном наборе из 10 штук, что делает его идеальным решением для масштабных проектов и регулярного обслуживания систем, гарантируя бесперебойную работу и долговечность.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> Honeywell – гарантия качества и надежности от лидера отрасли.</li>\n<li><b>Артикул:</b> 805577 – уникальный идентификатор для легкого заказа и учета.</li>\n<li><b>Название:</b> esserbus® alarm transponder – точно отражает функциональное назначение.</li>\n<li><b>Тип продукта:</b> Адаптер для монтажа – специализированное решение для установки.</li>\n<li><b>Комплектация:</b> Набор из 10 штук – экономичное и практичное решение для крупных проектов.</li>\n<li><b>Назначение:</b> Обеспечивает надежное крепление различных устройств в системах безопасности.</li>\n<li><b>Простота установки:</b> Разработан для быстрой и интуитивно понятной интеграции.</li>\n<li><b>Совместимость:</b> Идеально подходит для использования в системах esserbus®, расширяя их возможности.</li>\n<li><b>Долговечность:</b> Изготовлен из высококачественных материалов, обеспечивающих длительный срок службы.</li>\n</ul>\n<p><b>Применение:</b> esserbus® alarm transponder находит широкое применение в различных сферах, где требуется интеграция устройств в комплексные системы безопасности и автоматизации. Он идеально подходит для установки датчиков, модулей управления, исполнительных механизмов и других компонентов в пожарных сигнализациях, системах контроля доступа, видеонаблюдения и умного дома. Благодаря своей универсальности, адаптер может быть использован как в коммерческих, так и в промышленных объектах, а также в жилых комплексах, обеспечивая гибкость и масштабируемость решений.</p>\n<p><b>Преимущества:</b> Выбирая esserbus® alarm transponder, вы получаете не просто адаптер, а надежное решение от Honeywell, которое значительно упрощает монтаж и повышает общую стабильность вашей системы. Комплект из 10 штук обеспечивает экономию средств и удобство при реализации крупных проектов. Простота установки сокращает время монтажных работ, а высокая надежность гарантирует бесперебойную работу оборудования на протяжении многих лет, минимизируя затраты на обслуживание и ремонт.</p>",
+    "description_seo_word_count": 284,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'esserbus® alarm transponder' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

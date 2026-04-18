@@ -4,7 +4,7 @@
   "pn": "KCD2090XI",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Монитор KCD2090XI",
   "assembled_title": "Монитор Honeywell KCD2090XI",
   "our_price_raw": "4456,00",
@@ -188,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Термостат Honeywell с дисплеем — устройство управления климатом, товар угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -206,10 +206,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.manua.ls/honeywell"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -325,7 +322,15 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "No match found in Honeywell or distributor databases; identity cannot be confirmed",
+    "phase1_recon_done": true,
+    "real_model": "KCD2090XI",
+    "search_hint": "Honeywell KCD2090XI monitor",
+    "model_confidence": "medium",
+    "model_notes": "Appears to be Honeywell control room monitor; limited documentation",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -343,7 +348,7 @@
     "description": "Монитор KCD2090XI предназначен для использования в системах видеонаблюдения и контроля. Он обеспечивает высокое качество изображения и надежность в эксплуатации.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Видеонаблюдение",
-    "product_type": "Монитор",
+    "product_type": "Unknown",
     "seed_name": "Монитор KCD2090XI",
     "description_long_ru": "Для добора обычно помогает связка «KCD2090XI + category» или поиск по локальным каталогам/фото шильдика."
   },
@@ -620,7 +625,42 @@
     "merge_source": "result_KCD2090XI.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "descriptions_all": {
+      "legacy": "Для добора обычно помогает связка «KCD2090XI + category» или поиск по локальным каталогам/фото шильдика."
+    }
   },
-  "product_category": "monitor"
+  "training_urls": [
+    "https://www.nseautomation.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "4456,00",
+    "our_price_parsed": 4456.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 4456.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "our_estimate",
+    "best_description": "Монитор KCD2090XI предназначен для использования в системах видеонаблюдения и контроля. Он обеспечивает высокое качество изображения и надежность в эксплуатации.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.manua.ls/honeywell",
+    "best_photo_source": "photo_verdict"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

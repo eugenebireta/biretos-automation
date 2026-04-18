@@ -12,15 +12,13 @@ JSON extracted from text response (Gemini does not guarantee structured output).
 """
 from __future__ import annotations
 
-import json
 import logging
-import re
 from typing import Any
 
-from ..hard_shell.contracts import AuditVerdict, AuditVerdictValue, TaskPack
-from ..hard_shell.schema_validator import validate_and_parse
+from ..hard_shell.contracts import AuditVerdict, DefectRegister, L2Report, RepairEntry, TaskPack
+from ..hard_shell.schema_validator import extract_json_from_response, validate_and_parse
 from .base import AuditorProvider
-from .openai_auditor import _build_system_prompt, _build_user_prompt
+from .openai_auditor import _build_re_review_user_prompt, _build_system_prompt, _build_user_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -55,28 +53,6 @@ class GeminiAuditor(AuditorProvider):
         self._client = genai.Client(api_key=api_key)
         self._types = types
 
-    def _extract_json(self, text: str) -> str:
-        """
-        Extract JSON object from Gemini response text.
-        Handles: raw JSON, markdown fences, prose+JSON, trailing commas.
-        """
-        text = text.strip()
-
-        # Markdown code fence
-        fence_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
-        if fence_match:
-            text = fence_match.group(1)
-        elif not text.startswith("{"):
-            # Find first { to last }
-            start = text.find("{")
-            end = text.rfind("}")
-            if start != -1 and end != -1 and end > start:
-                text = text[start : end + 1]
-
-        # Remove trailing commas (Gemini sometimes generates non-standard JSON)
-        text = re.sub(r",\s*([\]}])", r"\1", text)
-        return text
-
     async def _call(
         self,
         proposal: str,
@@ -101,7 +77,7 @@ class GeminiAuditor(AuditorProvider):
         # google-genai SDK uses synchronous client.models.generate_content()
         # Wrap in asyncio executor for async compatibility
         import asyncio
-        loop = asyncio.get_event_loop()
+        loop = asyncio.get_running_loop()
         response = await loop.run_in_executor(
             None,
             lambda: self._client.models.generate_content(
@@ -120,7 +96,7 @@ class GeminiAuditor(AuditorProvider):
             task.task_id, stage, len(raw_text),
         )
 
-        json_text = self._extract_json(raw_text)
+        json_text = extract_json_from_response(raw_text)
         try:
             verdict = validate_and_parse("gemini", json_text)
         except Exception:
@@ -143,7 +119,7 @@ class GeminiAuditor(AuditorProvider):
                 ),
             )
             raw_text = response2.text if response2.text else ""
-            json_text = self._extract_json(raw_text)
+            json_text = extract_json_from_response(raw_text)
             verdict = validate_and_parse("gemini", json_text)
         logger.info(
             "gemini_auditor: verdict=%s critical=%d warnings=%d task_id=%s",
@@ -166,3 +142,94 @@ class GeminiAuditor(AuditorProvider):
         context: dict[str, Any],
     ) -> AuditVerdict:
         return await self._call(revised_proposal, task, context, stage="revised_proposal")
+
+    async def debate(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        peer_verdict: "AuditVerdict",
+    ) -> AuditVerdict:
+        """Round 2 debate: re-audit with visibility into peer's Round 1 verdict."""
+        from ..debate import build_debate_context
+
+        debate_ctx = build_debate_context(context, peer_verdict)
+        return await self._call(proposal, task, debate_ctx, stage="debate")
+
+    async def re_review(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        defect_register: "DefectRegister",
+        repair_manifest: list["RepairEntry"],
+        l2_report: "L2Report",
+        original_diff: str = "",
+    ) -> AuditVerdict:
+        """
+        Consensus Pipeline Protocol v1: re-review after builder repair.
+        Uses structured checklist prompt instead of fresh critique.
+        """
+        from ..debate import build_re_review_context
+
+        re_review_ctx = build_re_review_context(
+            context,
+            defect_register,
+            repair_manifest,
+            l2_report,
+            original_diff,
+        )
+        system_prompt = _build_system_prompt(re_review_ctx)
+        user_prompt = (
+            _build_re_review_user_prompt(proposal, task, re_review_ctx)
+            + "\n\nReturn ONLY a JSON object matching the schema above. No prose outside JSON."
+        )
+        full_prompt = f"{system_prompt}\n\n---\n\n{user_prompt}"
+
+        logger.info(
+            "gemini_auditor: re_review API call model=%s task_id=%s",
+            self.model, task.task_id,
+        )
+        import asyncio
+        loop = asyncio.get_running_loop()
+        response = await loop.run_in_executor(
+            None,
+            lambda: self._client.models.generate_content(
+                model=self.model,
+                contents=full_prompt,
+                config=self._types.GenerateContentConfig(
+                    temperature=self._temperature,
+                    max_output_tokens=self._max_output_tokens,
+                ),
+            ),
+        )
+        raw_text = response.text if response.text else ""
+        json_text = extract_json_from_response(raw_text)
+        try:
+            verdict = validate_and_parse("gemini", json_text)
+        except Exception:
+            logger.warning("gemini_auditor: re_review parse failed, retrying task_id=%s", task.task_id)
+            retry_prompt = (
+                "You must respond with ONLY a valid JSON object, nothing else.\n"
+                "No markdown, no prose, no code fences. Start your response with { and end with }.\n\n"
+                + full_prompt
+            )
+            response2 = await loop.run_in_executor(
+                None,
+                lambda: self._client.models.generate_content(
+                    model=self.model,
+                    contents=retry_prompt,
+                    config=self._types.GenerateContentConfig(
+                        temperature=0.0,
+                        max_output_tokens=self._max_output_tokens,
+                    ),
+                ),
+            )
+            raw_text = response2.text if response2.text else ""
+            json_text = extract_json_from_response(raw_text)
+            verdict = validate_and_parse("gemini", json_text)
+        logger.info(
+            "gemini_auditor: re_review verdict=%s task_id=%s",
+            verdict.verdict.value, task.task_id,
+        )
+        return verdict

@@ -4,7 +4,7 @@
   "pn": "V5328A1013",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Двухходовой клапан Honeywell V5328A1013",
   "assembled_title": "Клапан Honeywell V5328A1013",
   "our_price_raw": "77177,00",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Двухходовой клапан Honeywell с фланцевым соединением чётко виден на изображении",
     "photo_status": "family_evidence",
     "photo_evidence_role": "family_supporting",
@@ -197,10 +197,7 @@
     "stock_photo_flag": true,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeywell-rus.ru/product/2-h-hodovoj-linejnyj-klapan-honeywell-v5328a113"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -314,7 +311,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [
@@ -577,5 +575,59 @@
   "dr_price": 692.68,
   "dr_currency": "EUR",
   "dr_price_source": "https://www.emoteek.nl/Honeywell-V5328A1013-Flanged-DN15-kvs1.6",
-  "product_category": "valve"
+  "training_urls": [
+    "https://buildings.honeywell.com/.../v5328-series-2-way-flanged-large-linear-valves-pn16",
+    "https://files.kempstoncontrols.com/.../V5328A1153.pdf",
+    "https://sbc-support.com/field-devices/en/ecatdata/fitsto_v5328v5049_v5328a1013.html",
+    "https://unisgroup.com/products/v5328a1013/",
+    "https://www.emoteek.nl/Honeywell-V5328A1013-Flanged-DN15-kvs1.6"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 692.68,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.emoteek.nl/Honeywell-V5328A1013-Flanged-DN15-kvs1.6",
+    "our_price_raw": "77177,00",
+    "our_price_parsed": 77177.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 692.68,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Двухходовой клапан Honeywell V5328A1013 используется для управления потоком в системах отопления. С диаметром DN15 и коэффициентом KVS1,6, он подходит для малых и средних систем.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell-rus.ru/product/2-h-hodovoj-linejnyj-klapan-honeywell-v5328a113",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Двухходовой клапан Honeywell V5328A1013 используется для управления потоком в системах отопления. С диаметром DN15 и коэффициентом KVS1,6, он подходит для малых и средних систем.",
+    "best_description_ru": "<p>Клапан Honeywell V5328A1013 — это надежный двухходовой регулирующий клапан, разработанный компанией Honeywell, мировым лидером в области автоматизации и управления климатом. Данный клапан предназначен для эффективного управления потоком теплоносителя в системах отопления жилых и коммерческих зданий. Благодаря компактным размерам и универсальной конструкции, устройство идеально подходит для установки в малые и средние системы отопления, обеспечивая точное регулирование температуры и экономию энергоресурсов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Диаметр подключения: DN15 (1/2 дюйма)</li>\n<li>Коэффициент пропускной способности: KVS 1,6 м³/ч</li>\n<li>Тип: двухходовой регулирующий клапан</li>\n<li>Производитель: Honeywell — компания с мировой репутацией</li>\n<li>Артикул: V5328A1013 для точной идентификации</li>\n<li>Предназначен для систем отопления и теплоснабжения</li>\n<li>Компактная конструкция для удобной установки</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5328A1013 используется в системах центрального отопления, тепловых сетях и индивидуальных котельных установках. Он обеспечивает автоматическое регулирование расхода теплоносителя в зависимости от температурных условий в помещении. Устройство совместимо с различными типами регуляторов температуры и контрольно-измерительной аппаратурой, что делает его универсальным решением для модернизации существующих систем отопления и установки в новых проектах.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5328A1013, вы получаете гарантию качества от проверенного производителя с многолетним опытом. Устройство обеспечивает точное управление температурой, что способствует снижению затрат на отопление и повышению комфорта в помещениях. Надежная конструкция гарантирует долгий срок службы без необходимости частого обслуживания и замены.</p>",
+    "best_description_ru_word_count": 196,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "description_seo_ru": "<p>Клапан Honeywell V5328A1013 — это надежный двухходовой регулирующий клапан, разработанный компанией Honeywell, мировым лидером в области автоматизации и управления климатом. Данный клапан предназначен для эффективного управления потоком теплоносителя в системах отопления жилых и коммерческих зданий. Благодаря компактным размерам и универсальной конструкции, устройство идеально подходит для установки в малые и средние системы отопления, обеспечивая точное регулирование температуры и экономию энергоресурсов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Диаметр подключения: DN15 (1/2 дюйма)</li>\n<li>Коэффициент пропускной способности: KVS 1,6 м³/ч</li>\n<li>Тип: двухходовой регулирующий клапан</li>\n<li>Производитель: Honeywell — компания с мировой репутацией</li>\n<li>Артикул: V5328A1013 для точной идентификации</li>\n<li>Предназначен для систем отопления и теплоснабжения</li>\n<li>Компактная конструкция для удобной установки</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5328A1013 используется в системах центрального отопления, тепловых сетях и индивидуальных котельных установках. Он обеспечивает автоматическое регулирование расхода теплоносителя в зависимости от температурных условий в помещении. Устройство совместимо с различными типами регуляторов температуры и контрольно-измерительной аппаратурой, что делает его универсальным решением для модернизации существующих систем отопления и установки в новых проектах.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5328A1013, вы получаете гарантию качества от проверенного производителя с многолетним опытом. Устройство обеспечивает точное управление температурой, что способствует снижению затрат на отопление и повышению комфорта в помещениях. Надежная конструкция гарантирует долгий срок службы без необходимости частого обслуживания и замены.</p>",
+    "description_seo_word_count": 196,
+    "description_seo_model": "claude-haiku-4-5"
+  }
 }

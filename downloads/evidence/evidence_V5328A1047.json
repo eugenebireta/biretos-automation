@@ -4,7 +4,7 @@
   "pn": "V5328A1047",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Двухходовой клапан Honeywell V5328A1047",
   "assembled_title": "Клапан Honeywell V5328A1047",
   "our_price_raw": "77177,00",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Двухходовой клапан Honeywell с фланцевым соединением чётко виден на изображении",
     "photo_status": "family_evidence",
     "photo_evidence_role": "family_supporting",
@@ -197,10 +197,7 @@
     "stock_photo_flag": true,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeywell-rus.ru/product/2-h-hodovoj-linejnyj-klapan-honeywell-v5328a113"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -312,7 +309,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "V5328 series",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "2-way linear control valve for heating/cooling systems",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [
@@ -341,7 +343,7 @@
     "description": "Двухходовой клапан Honeywell V5328A1047 предназначен для регулирования потока в системах отопления и охлаждения. Имеет диаметр DN20 и коэффициент KVS4, что делает его подходящим для средних систем.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Клапан",
+    "product_type": "Control valve",
     "seed_name": "Двухходовой клапан Honeywell V5328A1047",
     "description_long_ru": "V5328A series; confirmed in Honeywell datasheet EN0B-0291GE51"
   },
@@ -562,5 +564,52 @@
   },
   "dr_category": "valve",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-V5328A1054-left",
-  "product_category": "valve"
+  "training_urls": [
+    "https://buildings.honeywell.com/gb/en/.../v5328-series-2-way-flanged-large-linear-valves-pn16",
+    "https://prod-edam.honeywell.com/.../hbt-bms-v5328-et-sp01r0613.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "77177,00",
+    "our_price_parsed": 77177.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 657.31,
+    "best_price_currency": "USD",
+    "best_price_source": "pipeline1",
+    "best_description": "Двухходовой клапан Honeywell V5328A1047 предназначен для регулирования потока в системах отопления и охлаждения. Имеет диаметр DN20 и коэффициент KVS4, что делает его подходящим для средних систем.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell-rus.ru/product/2-h-hodovoj-linejnyj-klapan-honeywell-v5328a113",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Двухходовой клапан Honeywell V5328A1047 предназначен для регулирования потока в системах отопления и охлаждения. Имеет диаметр DN20 и коэффициент KVS4, что делает его подходящим для средних систем.",
+    "best_description_ru": "<p>Клапан Honeywell V5328A1047 — это надежный двухходовой регулирующий клапан, разработанный известным мировым производителем Honeywell для систем отопления и охлаждения. Данный клапан предназначен для точного регулирования потока теплоносителя в инженерных системах зданий и сооружений. С диаметром DN20 и коэффициентом KVS4, устройство идеально подходит для средних по мощности систем климатизации и отопления, обеспечивая эффективное управление температурным режимом.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Тип: двухходовой регулирующий клапан</li>\n<li>Диаметр условного прохода: DN20</li>\n<li>Коэффициент пропускной способности: KVS4</li>\n<li>Производитель: Honeywell (мировой лидер в области автоматизации)</li>\n<li>Назначение: регулирование потока в системах отопления и охлаждения</li>\n<li>Класс применения: средние системы теплоснабжения и кондиционирования</li>\n<li>Артикул: V5328A1047</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5328A1047 широко используется в системах центрального отопления многоквартирных домов, офисных зданий и промышленных объектов. Он устанавливается в контурах циркуляции теплоносителя для автоматического или ручного регулирования расхода воды. Клапан эффективно работает как в системах отопления, так и в системах охлаждения, позволяя поддерживать оптимальную температуру в помещениях и обеспечивая энергоэффективность всей системы климатизации.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5328A1047, вы получаете продукт от проверенного производителя с мировой репутацией. Устройство обеспечивает точное регулирование потока, надежную работу в течение длительного времени и совместимость с различными системами управления. Высокое качество изготовления гарантирует долговечность и минимальные затраты на обслуживание, что делает этот клапан экономически выгодным решением для любой системы отопления и охлаждения.</p>",
+    "best_description_ru_word_count": 202,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "description_seo_ru": "<p>Клапан Honeywell V5328A1047 — это надежный двухходовой регулирующий клапан, разработанный известным мировым производителем Honeywell для систем отопления и охлаждения. Данный клапан предназначен для точного регулирования потока теплоносителя в инженерных системах зданий и сооружений. С диаметром DN20 и коэффициентом KVS4, устройство идеально подходит для средних по мощности систем климатизации и отопления, обеспечивая эффективное управление температурным режимом.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Тип: двухходовой регулирующий клапан</li>\n<li>Диаметр условного прохода: DN20</li>\n<li>Коэффициент пропускной способности: KVS4</li>\n<li>Производитель: Honeywell (мировой лидер в области автоматизации)</li>\n<li>Назначение: регулирование потока в системах отопления и охлаждения</li>\n<li>Класс применения: средние системы теплоснабжения и кондиционирования</li>\n<li>Артикул: V5328A1047</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5328A1047 широко используется в системах центрального отопления многоквартирных домов, офисных зданий и промышленных объектов. Он устанавливается в контурах циркуляции теплоносителя для автоматического или ручного регулирования расхода воды. Клапан эффективно работает как в системах отопления, так и в системах охлаждения, позволяя поддерживать оптимальную температуру в помещениях и обеспечивая энергоэффективность всей системы климатизации.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5328A1047, вы получаете продукт от проверенного производителя с мировой репутацией. Устройство обеспечивает точное регулирование потока, надежную работу в течение длительного времени и совместимость с различными системами управления. Высокое качество изготовления гарантирует долговечность и минимальные затраты на обслуживание, что делает этот клапан экономически выгодным решением для любой системы отопления и охлаждения.</p>",
+    "description_seo_word_count": 202,
+    "description_seo_model": "claude-haiku-4-5"
+  }
 }

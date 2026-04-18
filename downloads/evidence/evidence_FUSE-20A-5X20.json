@@ -7,7 +7,7 @@
     "FUSE20A5X20"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Предохранитель плавкий Honeywell FUSE-20A-5X20",
   "assembled_title": "Предохранитель Honeywell FUSE-20A-5X20",
   "our_price_raw": "584,03",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqN3axQGUVqUWFk9jawY'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,10 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.promelec.ru/product/75288/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -328,7 +325,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -630,5 +629,159 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "fuse"
+  "training_urls": [
+    "https://www.amazon.com/20A-5x20mm-Fast-Blow-Fuses/dp/B004HLYV8G"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 0.5,
+    "dr_currency": "USD",
+    "dr_source_url": "Fuse",
+    "our_price_raw": "584,03",
+    "our_price_parsed": 584.03,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": null,
+    "judge_reason": "fuse 20A, '5X20' is physical size 5mm×20mm, not pack quantity"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 0.5,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Предохранитель плавкий Honeywell FUSE-20A-5X20 используется для защиты электрических цепей с высоким током. Он предотвращает перегрузки и защищает оборудование от повреждений.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.promelec.ru/product/75288/",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "H-S81-HS & S81-HS/C Industrial Fire Panels",
+    "description": "",
+    "specs": {
+      "supply_voltage": "120 VAC or 240 VAC",
+      "nominal_frequency": "50-60 Hz",
+      "maximum_input_current_S81_HS_C_PU0003_1_120VAC": "6 A",
+      "maximum_input_current_S81_HS_C_PU0003_1_240VAC": "3.5 A",
+      "maximum_input_current_S81_HS_C_PU0003_2_120VAC": "13 A",
+      "maximum_input_current_S81_HS_C_PU0003_2_240VAC": "6.5 A",
+      "maximum_input_current_H_S81_HS_PU0002_2_120VAC": "3 A",
+      "maximum_input_current_H_S81_HS_PU0002_2_240VAC": "1.5 A",
+      "maximum_input_current_H_S81_HS_PU0002_4_120VAC": "4 A",
+      "maximum_input_current_H_S81_HS_PU0002_4_240VAC": "2 A",
+      "total_nominal_system_current_S81_PU0002_2": "12 A max",
+      "total_nominal_system_current_S81_PU0002_4": "32 A max",
+      "total_nominal_system_current_S81_PU0003_1": "10 A max",
+      "total_nominal_system_current_S81_PU0003_2": "10 A max",
+      "battery_voltage": "24 V DC (two 12 V batteries in series)",
+      "charge_voltage": "26.2 to 28.7 V DC self-temperature compensated",
+      "max_charge_current_H_S81_HS": "8 A",
+      "max_charge_current_S81_HS_C": "4 A",
+      "suitable_battery_capacity_H_S81_HS": "120 Ah max",
+      "suitable_battery_capacity_S81_HS_C": "65 Ah max",
+      "IDC_wiring": "Class B Style B and Style C",
+      "IDC_power_limited": "Yes",
+      "IDC_supervised": "Open Line, Short Circuit, and Ground Fault",
+      "IDC_standby_current": "4 mA",
+      "IDC_alarm_current": "20 mA",
+      "IDC_max_line_current": "116 mA",
+      "IDC_end_of_line_resistor": "S81-EOL 5600 ohm 1/4W",
+      "IDC_line_voltage": "22 VDC ripple 68mV",
+      "IDC_maximum_line_impedance": "50 ohm",
+      "IDC_ground_fault_impedance": "<= 500 ohm",
+      "IDC_max_detectors_per_loop": "25",
+      "4_20mA_wiring": "Class B Style C",
+      "4_20mA_power_limited": "Yes",
+      "4_20mA_supervised": "Open Line, Short Circuit, and Ground Fault",
+      "4_20mA_transducer_output_voltage": "25 VDC protected with 1A fuse",
+      "4_20mA_input_current": "0-24 mA",
+      "4_20mA_maximum_line_impedance": "50 ohm",
+      "4_20mA_ground_fault_impedance": "<= 500 ohm",
+      "NAC_wiring": "Class B Style Y",
+      "NAC_power_limited": "Yes",
+      "NAC_supervised": "Open Line, Short Circuit, and Ground Fault",
+      "NAC_rated_voltage": "24 VDC",
+      "NAC_max_current": "250 mA",
+      "NAC_end_of_line_resistor": "S81-EOL 5600 ohm 1/4W",
+      "NAC_type": "Regulated",
+      "NAC_maximum_line_impedance": "40 ohm",
+      "NAC_ground_fault_impedance": "<= 500 ohm",
+      "SLC_rated_input_voltage": "24 VDC",
+      "SLC_wiring": "Class B Style 4, Class A Style 6 and Style 7",
+      "SLC_power_limited": "Yes",
+      "SLC_supervised": "Open Line, Short Circuit, and Ground Fault",
+      "SLC_rated_output_voltage_S81_F7001_1": "35 VDC",
+      "SLC_rated_output_voltage_S81_F7012_1": "24 VDC",
+      "SLC_max_current_S81_F7001_1": "100 mA power-limited",
+      "SLC_max_current_S81_F7012_1": "42 mA power-limited",
+      "SLC_max_communication_bit_rate": "1.2 KHz",
+      "SLC_maximum_line_impedance": "40 ohm",
+      "SLC_ground_fault_impedance": "<= 500 ohm",
+      "communication_port": "RS232 S81-E2003-1 (J5 connector)",
+      "communication_cable": "CFT10-2",
+      "programming_software": "ProHS81",
+      "auxiliary_power_output_power_limited": "Yes",
+      "auxiliary_power_output_supervised": "Open Line, Short Circuit, and Ground Fault",
+      "auxiliary_power_output_rated_voltage": "24 VDC",
+      "auxiliary_power_output_max_current": "500 mA",
+      "auxiliary_power_output_type": "Special Applications",
+      "auxiliary_power_output_battery_backed_up": "Yes",
+      "auxiliary_power_output_ground_fault_impedance": "<= 500 ohm",
+      "enclosure_type_H_S81_HS": "self-standing steel cabinet with swivel chassis and transparent door",
+      "operator_interface": "graphic LCD, 14 signaling LEDs, 23 button keyboard",
+      "field_programmable": "Yes using laptop with Off-site pre-programming capability",
+      "protocol_support": "Hochiki Digital Communication Protocol (DCP) and System Sensor Protocol (CLIP)",
+      "addressable_device_address_range_Hochiki": "1 to 127",
+      "addressable_device_address_range_System_Sensor": "1 to 99",
+      "S81_HS_C_max_IO_cards": "8",
+      "circuit_breaker_rating": "20 amps maximum"
+    },
+    "specs_count": 76,
+    "series": "H-S81-HS & S81-HS/C Industrial Fire Panels",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "700x500x250",
+    "certifications": [
+      "UL",
+      "NFPA 72"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FUSE-20A-5X20.pdf",
+    "datasheet_size_kb": 7988,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FUSE-20A-5X20_p1_0.jpeg",
+      "downloads\\datasheet_photos\\FUSE-20A-5X20_p1_1.jpeg",
+      "downloads\\datasheet_photos\\FUSE-20A-5X20_p2_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/FUSE-20A-5X20_p1_0.jpeg",
+      "downloads/datasheet_photos/FUSE-20A-5X20_p1_1.jpeg"
+    ],
+    "verified_photo_count": 2
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 7988KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'H-S81-HS & S81-HS/C Industrial Fire Panels' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

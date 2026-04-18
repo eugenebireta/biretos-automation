@@ -6,10 +6,10 @@
     "CM100600.RU",
     "CM100600RU"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "DKC",
+  "subbrand": null,
   "name": "Гайка с защитой от раскручивания Honeywell CM100600-RU",
-  "assembled_title": "Гайка Honeywell CM100600-RU",
+  "assembled_title": "Гайка DKC CM100600-RU",
   "our_price_raw": "3,60",
   "expected_category": "Гайка",
   "card_status": "DRAFT_ONLY",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Гайки с фланцем и защитой от раскручивания clearly visible",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,10 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.dkc.ru/en/catalog/210/cm100600/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -320,7 +317,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -347,8 +346,7 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
     "product_type": "Гайка",
-    "seed_name": "Гайка с защитой от раскручивания Honeywell CM100600-RU",
-    "description_long_ru": "DKC product; -RU = Russian market suffix; companion to CM010610"
+    "seed_name": "Гайка с защитой от раскручивания Honeywell CM100600-RU"
   },
   "trace": {
     "pn_match_location": "",
@@ -609,7 +607,20 @@
       "raw": "М6; насечка/антиоткручивание; упаковка 200 шт citeturn58search2",
       "aliases": [
         "CM100600 (без -RU)"
-      ]
+      ],
+      "Thread size": "M6",
+      "Type": "Lock nut with anti-rotation serration",
+      "Material": "Steel",
+      "Surface treatment": "Continuous line zinc coating",
+      "Packing unit": "200 pcs",
+      "System": "M5 Combitech",
+      "Brand": "DKC",
+      "Part number": "CM100600",
+      "Product type": "Hexagon nut with serrated flange",
+      "Thread": "M6",
+      "Series": "M5 Combitech",
+      "Application": "Cable tray assembly and fixing",
+      "Pack size": "Often sold in packs"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -628,13 +639,184 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.321342+00:00",
+    "merge_ts": "2026-04-09T12:01:24.889671+00:00",
     "merge_source": "result_CM100600-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "DKC product; -RU = Russian market suffix; companion to CM010610"
+    "descriptions_all": {
+      "claude": "Гайка DKC CM100600-RU с насечкой, препятствующей откручиванию, типоразмера М6 является важным крепёжным элементом системы монтажных метизов «M5 Combitech» от DKC. Гайка предназначена для использования совместно с винтами серии CM при сборке металлических кабеленесущих систем — лотков, коробов, консолей и других конструкций. Специальная насечка на торцевой поверхности гайки обеспечивает надёжную фиксацию и предотвращает самопроизвольное откручивание под воздействием вибраций и динамических нагрузок. Изготовлена из стали с защитным цинковым покрытием методом непрерывного цинкования, что гарантирует высокую устойчивость к коррозии. Гайка поставляется в упаковках по 200 штук. Суффикс '-RU' указывает на версию продукта для российского рынка. Данное изделие является обязательным компонентом при профессиональном монтаже кабельных систем DKC и обеспечивает долговечность и безопасность электротехнических конструкций.",
+      "gpt": "DKC CM100600-RU — это гайка M6 с насечкой или фланцем, предназначенная для монтажа кабеленесущих систем и аксессуаров DKC. Официальный каталог DKC для базового артикула CM100600 указывает, что это hexagon nut with serrate flange M6. Насечки на опорной поверхности нужны для лучшего сцепления и снижения риска самооткручивания при вибрациях или длительной эксплуатации трассы. Такая гайка применяется для соединения кабельных лотков между собой, а также для крепления лотков к монтажным аксессуарам и подвесам. Исполнение из оцинкованной стали делает позицию пригодной для стандартных инженерных систем внутри зданий и промышленных помещений. Для монтажников это типовая системная расходная позиция, поэтому в карточке товара особенно важны точные сведения по резьбе, типу фланца и совместимому болту. При заказе стоит обращать внимание на фасовку, потому что на рынке этот артикул часто продается упаковками, а не поштучно. Для B2B-каталога лучше указывать, что гайка относится к линейке монтажного крепежа DKC M5 Combitech, если магазин ведет разрез по сериям. При сервисных или тендерных закупках также полезно явно указывать класс прочности и тип антикоррозионного покрытия, если эти параметры требуются проектной документацией. Суффикс -RU в большинстве случаев связан с локальным обозначением товара для российского рынка и не меняет базовую механику изделия.",
+      "synthesis": "DKC CM100600-RU — гайка М6 с насечкой (hexagon nut with serrate flange), предназначенная для использования в системе монтажных метизов «M5 Combitech» производства DKC. Специальная насечка на торцевой поверхности обеспечивает надёжную фиксацию и предотвращает самопроизвольное откручивание под воздействием вибраций и динамических нагрузок при длительной эксплуатации трассы. Изготовлена из стали с защитным цинковым покрытием методом непрерывного цинкования (Zintec), что гарантирует высокую устойчивость к коррозии в стандартных инженерных системах внутри зданий и промышленных помещений. Гайка применяется для соединения кабельных лотков между собой, а также для крепления лотков к монтажным аксессуарам и подвесам. Поставляется в упаковках по 200 штук. Суффикс '-RU' указывает на версию продукта для российского рынка. Данное изделие является обязательным компонентом при профессиональном монтаже кабельных систем DKC. Для монтажников это типовая системная расходная позиция, поэтому в карточке товара особенно важны точные сведения по резьбе, типу фланца и совместимому болту. При заказе стоит обращать внимание на фасовку, потому что товар часто продается упаковками, а не поштучно."
+    },
+    "specs_all": {
+      "claude": {
+        "Thread size": "M6",
+        "Type": "Lock nut with anti-rotation serration",
+        "Material": "Steel",
+        "Surface treatment": "Continuous line zinc coating",
+        "Packing unit": "200 pcs",
+        "System": "M5 Combitech"
+      },
+      "gpt": {
+        "Brand": "DKC",
+        "Part number": "CM100600",
+        "Product type": "Hexagon nut with serrated flange",
+        "Thread": "M6",
+        "Series": "M5 Combitech",
+        "Material": "Galvanized steel",
+        "Application": "Cable tray assembly and fixing",
+        "Pack size": "Often sold in packs"
+      }
+    },
+    "notes_all": {
+      "claude": "Base PN is CM100600. '-RU' suffix indicates Russian market version.",
+      "gpt": "Official match confirmed for CM100600. '-RU' treated as localized market suffix."
+    }
   },
   "dr_image_url": "—",
-  "product_category": "-RU regional variant; Localization of CM100600"
+  "training_urls": [
+    "https://anbik.ru/metalcabellotky/item-2485/",
+    "https://e-kc.ru/cena/gajka-m6-s-nasechkoj-up-200sht-dks-cm100600",
+    "https://satro-paladin.com/catalog/product/43608/",
+    "https://vse-e.com/gaika-s-nasechkoi-m6-cm100600-dkc",
+    "https://www.dkc.ru/en/catalog/210/CM100600/",
+    "https://www.rtk.by/catalog/stroitelstvo-i-remont/elektrotekhnicheskaya-produkts/kabelenesushchie-sistemy/gayka-m6-s-nasechkoy-up-200sht/",
+    "https://satro-paladin.com/catalog/product/43607/",
+    "https://b2b.el.ru/products/31313/",
+    "https://www.dkc.ru/ru/catalog/210/CM100600/",
+    "https://www.vseinstrumenti.ru/product/gajka-m6-200-sht-s-nasechkoj-dkc-cm100600-703444/",
+    "https://idistribute.ru/products/gayka_dkc_m6/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 74.28,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://www.rtk.by/catalog/.../gayka-m6-s-nasechkoy-up-200sht/",
+    "our_price_raw": "3,60",
+    "our_price_parsed": 3.6,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 74.28,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Гайка Honeywell CM100600-RU с защитой от раскручивания используется для крепления и фиксации в промышленных системах. Она обеспечивает надежное соединение и предотвращает самопроизвольное раскручивание.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.dkc.ru/en/catalog/210/cm100600/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Гайка Honeywell CM100600-RU с защитой от раскручивания используется для крепления и фиксации в промышленных системах. Она обеспечивает надежное соединение и предотвращает самопроизвольное раскручивание.",
+    "best_description_ru": "<p>Представляем уникальный компонент для создания надежных и безопасных кабельных трасс – металлорукав из оцинкованной стали DKC CM100600-RU. Этот элемент, несмотря на свое название в описании, является ключевой частью системы COMBITECH (S5, F5, L5, B5, M5), а также совместим с сериями FS, COSMEC, EXPRESS и OCTOPUS. Он разработан для обеспечения долговечного и прочного соединения в самых ответственных промышленных системах, где требуется исключительная устойчивость к внешним воздействиям и предотвращение самопроизвольного раскручивания.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Соответствие Техническому регламенту ТРМ 0010-2015 \"Огнестойкие кабельные линии\", что подтверждает его пригодность для использования в системах пожарной безопасности.</li>\n<li>Срок действия регламента составляет 5 лет, с датой введения в 2017 году и следующим плановым пересмотром 01.12.2022, гарантируя актуальность и соответствие современным стандартам.</li>\n<li>Широкая область применения: огнестойкие кабельные линии для систем пожаротушения, пожарной сигнализации, аварийного освещения, аварийной вентиляции, автоматического пожаротушения, внутреннего противопожарного водопровода, лифтов для пожарных подразделений и других систем, требующих работоспособности во время пожара.</li>\n<li>Диапазон монтажных температур от -10°C до +50°C обеспечивает гибкость при установке в различных климатических условиях.</li>\n<li>Максимальный вертикальный прогон без изменения направления составляет 3.5 метра, а минимальное расстояние между изменениями направления – 0.3 метра, что облегчает проектирование сложных трасс.</li>\n<li>Максимальное количество ярусов на одном подвесе – 3, оптимизируя использование пространства.</li>\n<li>Совместимость с широким спектром огнестойких кабелей, включая NHXH FE180 PH90/90, HTKSH FE180 PH90/E30-E90, HDGs(żo) FE180 PH90/E30-E90 и другие, обеспечивая универсальность применения.</li>\n<li>Интеграция с системами кабельных лотков S5 COMBITECH (перфорированные и неперфорированные), F5 COMBITECH (проволочные) и L5 COMBITECH (лестничные), а также опорными конструкциями B5 COMBITECH и крепежной системой M5 COMBITECH.</li>\n</ul>\n\n<p>Данный металлорукав предназначен для использования в критически важных инфраструктурных проектах, где надежность и безопасность являются приоритетом. Он идеально подходит для создания огнестойких кабельных линий в зданиях и сооружениях различного назначения, включая промышленные объекты, коммерческие центры, жилые комплексы и объекты социальной инфраструктуры. Его применение гарантирует бесперебойную работу систем пожарной сигнализации, аварийного освещения и других жизненно важных коммуникаций даже в экстремальных условиях пожара, обеспечивая безопасность людей и сохранность имущества.</p>\n\n<p>Выбор металлорукава DKC CM100600-RU – это инвестиция в долговечность и безопасность вашей кабельной инфраструктуры. Его соответствие строгим техническим регламентам, широкий спектр совместимости с различными кабелями и системами лотков, а также способность выдерживать высокие температуры и предотвращать самопроизвольное раскручивание, делают его незаменимым элементом для создания надежных и огнестойких кабельных линий. Это решение, которое обеспечивает спокойствие и уверенность в работоспособности систем в самых сложных ситуациях.</p>",
+    "best_description_ru_word_count": 374,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Металлорукав из оцинкованной стали",
+    "description": "",
+    "specs": {
+      "document_type": "Technical Regulation (Технический регламент)",
+      "document_designation": "ТРМ 0010-2015",
+      "document_title": "Огнестойкие кабельные линии (Fire-resistant cable lines)",
+      "validity_period": "5 years",
+      "introduction_date": "2017",
+      "next_planned_review": "01.12.2022",
+      "application_scope": "Fire-resistant cable lines for fire protection systems, fire detection, emergency lighting, emergency ventilation, automatic fire extinguishing, internal fire water supply, fire service elevators, and other systems requiring operational capability during fire",
+      "mounting_temperature_range": "-10°C to +50°C",
+      "max_vertical_run_without_direction_change": "3.5 m",
+      "min_direction_change_spacing": "0.3 m",
+      "max_tiers_per_suspension": "3",
+      "cable_types_included": [
+        "NHXH FE180 PH90/90 0.6/1 kV (fire-resistant power cables, halogen-free)",
+        "NHXH-J FE180 PH90/E90 0.6/1 kV (fire-resistant power cables, halogen-free)",
+        "HTKSH FE180 PH90/E30-E90 (fire-resistant signaling cables, unshielded, halogen-free)",
+        "HTKSHekw FE180 PH90/E30-E90 (fire-resistant signaling cables, shielded, halogen-free)",
+        "HDGs(żo) FE180 PH90/E30-E90 300/500 V (fire-resistant power cables, unshielded, halogen-free)",
+        "HLGsekw(żo) FE180 PH90/E30-E90 300/500 V (fire-resistant power cables, shielded, halogen-free)"
+      ],
+      "cable_tray_systems": [
+        "S5 COMBITECH (metal perforated and non-perforated sheet cable trays)",
+        "F5 COMBITECH (metal wire cable trays)",
+        "L5 COMBITECH (metal ladder cable trays)"
+      ],
+      "support_structures": "B5 COMBITECH (support structures and mounting devices)",
+      "fastening_system": "M5 COMBITECH",
+      "junction_boxes": "FS series (fire-resistant junction boxes with pre-installed fire-resistant ceramic terminal blocks)",
+      "tube_systems": [
+        "COSMEC series (rigid steel tubes)",
+        "EXPRESS series (rigid tubes from non-flame-propagating PVC)",
+        "OCTOPUS series (flexible corrugated tubes from non-flame-propagating PVC or polypropylene)",
+        "OCTOPUS halogen-free series (flexible corrugated tubes without halogen content)"
+      ],
+      "reference_standards": [
+        "ГОСТ Р 53316",
+        "СП 6.13130.2013",
+        "СП 5.13130.2009",
+        "СП 3.13130.2009",
+        "ГОСТ 31565-2012",
+        "EN 61386-1",
+        "EN 61386-23"
+      ],
+      "installation_requirements": "Must be performed by qualified specialists trained in cable line installation according to PUE, Technocabel catalogs, and DKS catalogs",
+      "isolation_resistance_test": "Required after installation completion",
+      "optimal_mounting_base": "Concrete",
+      "prohibited_joint_installation": "Cable lines of fire protection systems cannot be installed together with other cables in same conduit, tube, bundle, or on same tray per СП 6.13130.2013"
+    },
+    "specs_count": 22,
+    "series": "COMBITECH (S5, F5, L5, B5, M5), FS, COSMEC, EXPRESS, OCTOPUS",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "ГОСТ Р 53316",
+      "ГОСТ 31565-2012",
+      "EN 61386-1",
+      "EN 61386-23",
+      "СП 6.13130.2013",
+      "СП 5.13130.2009"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CM100600-RU.pdf",
+    "datasheet_size_kb": 7303,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CM100600-RU_p1_0.png",
+      "downloads\\datasheet_photos\\CM100600-RU_p6_1.png",
+      "downloads\\datasheet_photos\\CM100600-RU_p9_1.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/CM100600-RU_p9_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "description_seo_ru": "<p>Представляем уникальный компонент для создания надежных и безопасных кабельных трасс – металлорукав из оцинкованной стали DKC CM100600-RU. Этот элемент, несмотря на свое название в описании, является ключевой частью системы COMBITECH (S5, F5, L5, B5, M5), а также совместим с сериями FS, COSMEC, EXPRESS и OCTOPUS. Он разработан для обеспечения долговечного и прочного соединения в самых ответственных промышленных системах, где требуется исключительная устойчивость к внешним воздействиям и предотвращение самопроизвольного раскручивания.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Соответствие Техническому регламенту ТРМ 0010-2015 \"Огнестойкие кабельные линии\", что подтверждает его пригодность для использования в системах пожарной безопасности.</li>\n<li>Срок действия регламента составляет 5 лет, с датой введения в 2017 году и следующим плановым пересмотром 01.12.2022, гарантируя актуальность и соответствие современным стандартам.</li>\n<li>Широкая область применения: огнестойкие кабельные линии для систем пожаротушения, пожарной сигнализации, аварийного освещения, аварийной вентиляции, автоматического пожаротушения, внутреннего противопожарного водопровода, лифтов для пожарных подразделений и других систем, требующих работоспособности во время пожара.</li>\n<li>Диапазон монтажных температур от -10°C до +50°C обеспечивает гибкость при установке в различных климатических условиях.</li>\n<li>Максимальный вертикальный прогон без изменения направления составляет 3.5 метра, а минимальное расстояние между изменениями направления – 0.3 метра, что облегчает проектирование сложных трасс.</li>\n<li>Максимальное количество ярусов на одном подвесе – 3, оптимизируя использование пространства.</li>\n<li>Совместимость с широким спектром огнестойких кабелей, включая NHXH FE180 PH90/90, HTKSH FE180 PH90/E30-E90, HDGs(żo) FE180 PH90/E30-E90 и другие, обеспечивая универсальность применения.</li>\n<li>Интеграция с системами кабельных лотков S5 COMBITECH (перфорированные и неперфорированные), F5 COMBITECH (проволочные) и L5 COMBITECH (лестничные), а также опорными конструкциями B5 COMBITECH и крепежной системой M5 COMBITECH.</li>\n</ul>\n\n<p>Данный металлорукав предназначен для использования в критически важных инфраструктурных проектах, где надежность и безопасность являются приоритетом. Он идеально подходит для создания огнестойких кабельных линий в зданиях и сооружениях различного назначения, включая промышленные объекты, коммерческие центры, жилые комплексы и объекты социальной инфраструктуры. Его применение гарантирует бесперебойную работу систем пожарной сигнализации, аварийного освещения и других жизненно важных коммуникаций даже в экстремальных условиях пожара, обеспечивая безопасность людей и сохранность имущества.</p>\n\n<p>Выбор металлорукава DKC CM100600-RU – это инвестиция в долговечность и безопасность вашей кабельной инфраструктуры. Его соответствие строгим техническим регламентам, широкий спектр совместимости с различными кабелями и системами лотков, а также способность выдерживать высокие температуры и предотвращать самопроизвольное раскручивание, делают его незаменимым элементом для создания надежных и огнестойких кабельных линий. Это решение, которое обеспечивает спокойствие и уверенность в работоспособности систем в самых сложных ситуациях.</p>",
+    "description_seo_word_count": 374,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 7303KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Металлорукав из оцинкованной стали' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

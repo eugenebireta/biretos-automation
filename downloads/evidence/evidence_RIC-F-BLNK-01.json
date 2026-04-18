@@ -6,8 +6,8 @@
     "RIC.F.BLNK.01",
     "RICFBLNK01"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Siemon",
+  "subbrand": null,
   "name": "Заглушка RIC-F-BLNK-01",
   "assembled_title": "Заглушка Honeywell RIC-F-BLNK-01",
   "our_price_raw": "349,00",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqRuzGrB5NmW2UzwoBjQ'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://bsai.com.mx/products/placa-adaptadora-quick-pack-ciega-color-negro?srslt"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -323,7 +320,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Siemon"
   },
   "negative_evidence": {
     "photo": [],
@@ -575,5 +573,134 @@
   "dr_price": 2.64,
   "dr_currency": "USD",
   "dr_price_source": "https://www.energyavenue.com/product/detail/3265186/siemon-ric-f-blnk-01",
-  "product_category": "blank plate"
+  "training_urls": [
+    "http://www.eaccu-tech.com/siemon/ric-f-sc6-01-siemon-solutions/",
+    "https://www.adiglobaldistribution.pr/Product/G4-RICFBLNK1",
+    "https://www.almiriasudan.com/product/siemon-ric-f-blnk-01-fiber-adapter-plate-blank/",
+    "https://www.ebay.com/itm/262720516335",
+    "https://www.energyavenue.com/product/detail/3265186/siemon-ric-f-blnk-01",
+    "https://www.newark.com/es/siemon/ric-f-blnk-01/blank-adapter-plate/dp/45Y9940"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2.64,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.energyavenue.com/product/detail/3265186/siemon-ric-f-blnk-01",
+    "our_price_raw": "349,00",
+    "our_price_parsed": 349.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2.64,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Заглушка для закрытия неиспользуемых портов и отверстий в панелях и корпусах. Обеспечивает защиту от пыли и влаги, поддерживая чистоту и безопасность оборудования.",
+    "best_description_source": "content",
+    "best_photo_url": "https://bsai.com.mx/products/placa-adaptadora-quick-pack-ciega-color-negro?srslt",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Rack Mount Interconnect Center (RIC3)",
+    "description": "",
+    "specs": {
+      "product_type": "Rack Mount Interconnect Center",
+      "color": "black",
+      "housing_material": "enclosure",
+      "mounting_type": "rack mount",
+      "door_type": "front and rear doors with single-finger latches and locks",
+      "tray_type": "removable cable management tray",
+      "tray_material": "rotating grommets",
+      "adapter_compatibility": "Quick-Pack adapter plates, MTP adapter plates",
+      "connector_types_supported": "ST, SC, LC, MTP",
+      "quick_pack_latch": "single-finger integrated latch",
+      "hinges": "spring-loaded quick-release hinges",
+      "management_features": "rotating grommets, cable ties, pre-installed fiber management clips, hinged labels",
+      "labeling": "laser-printable labels, hinged labels on front door",
+      "fiber_density_support": "24, 36, 48, 72, 96, 144, 192, 288, 384, 567, 768, 1152 fibers depending on model and adapter type",
+      "RIC3-24-01_fiber_capacity_standard": "24 to 96 fibers",
+      "RIC3-24-01_fiber_capacity_MTP": "384 fibers",
+      "RIC3-24-01_quick_pack_slots": "4",
+      "RIC3-24-01_height_mm": "86.6",
+      "RIC3-24-01_width_mm": "432",
+      "RIC3-24-01_depth_mm": "380",
+      "RIC3-24-01_rack_units": "2U",
+      "RIC3-36-01_fiber_capacity_standard": "36 to 144 fibers",
+      "RIC3-36-01_fiber_capacity_MTP": "576 fibers",
+      "RIC3-36-01_quick_pack_slots": "6",
+      "RIC3-36-01_height_mm": "86.6",
+      "RIC3-36-01_width_mm": "432",
+      "RIC3-36-01_depth_mm": "380",
+      "RIC3-36-01_rack_units": "2U",
+      "RIC3-48-01_fiber_capacity_standard": "48 to 192 fibers",
+      "RIC3-48-01_fiber_capacity_MTP": "768 fibers",
+      "RIC3-48-01_quick_pack_slots": "8",
+      "RIC3-48-01_height_mm": "133",
+      "RIC3-48-01_width_mm": "432",
+      "RIC3-48-01_depth_mm": "380",
+      "RIC3-48-01_rack_units": "3U",
+      "RIC3-72-01_fiber_capacity_standard": "72 to 288 fibers",
+      "RIC3-72-01_fiber_capacity_MTP": "1152 fibers",
+      "RIC3-72-01_quick_pack_slots": "12",
+      "RIC3-72-01_height_mm": "178",
+      "RIC3-72-01_width_mm": "432",
+      "RIC3-72-01_depth_mm": "380",
+      "RIC3-72-01_rack_units": "4U",
+      "maximum_fusion_splices_RIC24": "96",
+      "maximum_fusion_splices_RIC36": "96",
+      "maximum_fusion_splices_RIC48": "96",
+      "maximum_fusion_splices_RIC72": "144",
+      "1U_height_reference_mm": "44.5",
+      "tray_depth_mm": "254",
+      "maximum_fibers_per_FMT": "32",
+      "included_accessories": "laser-printable labels, cable ties, rack-mounting hardware, pre-installed fiber management clips"
+    },
+    "specs_count": 50,
+    "series": "RIC3",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\RIC-F-BLNK-01.pdf",
+    "datasheet_size_kb": 1963,
+    "product_photos": [
+      "downloads\\datasheet_photos\\RIC-F-BLNK-01_p1_0.jpeg",
+      "downloads\\datasheet_photos\\RIC-F-BLNK-01_p1_1.jpeg",
+      "downloads\\datasheet_photos\\RIC-F-BLNK-01_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/RIC-F-BLNK-01_p1_0.jpeg",
+      "downloads/datasheet_photos/RIC-F-BLNK-01_p1_1.jpeg",
+      "downloads/datasheet_photos/RIC-F-BLNK-01_p1_2.jpeg"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format 'RIC-F-BLNK-01' matches Siemon's naming convention. 'BLNK' clearly indicates blank/plug accessory. The seed name 'Заглушка' (Russian for 'blank/plug') is accurate. However, the datasheet PDF appears to be for the main RIC3 rack system rather than the specific blank panel accessory. The PN is correct, brand is correct, but a proper datasheet for this specific accessory component is needed to extract specifications, dimensions, and complete product data."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Rack Mount Interconnect Center (RIC3)' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -4,7 +4,7 @@
   "pn": "FX808431",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "Esser",
   "name": "Тяжелый ящик для блока питания FX808431",
   "assembled_title": "Ящик Honeywell FX808431",
   "our_price_raw": "98009,10",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Металлический корпус/ящик для монтажа блока питания угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://all-bez.ru/catalog/fx808431/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -318,7 +315,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -569,5 +567,92 @@
   "dr_price": 2.091,
   "dr_currency": "EUR",
   "dr_price_source": "https://www.brandmelde-shop.de/esser-fx808431-schwerlastschublade-fuer-energieversorgung-5-he",
-  "product_category": "Fire alarm PSU drawer"
+  "training_urls": [
+    "https://www.brandmelde-shop.de/esser-fx808431-schwerlastschublade-fuer-energieversorgung-5-he",
+    "https://www.esser-systems.com/en/products/details/system-flexes-control/flexes-control-in-the-built-in-cabinet/fx808431-heavy-duty-drawer-with-power-supply-unit-5-hu/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2.091,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.brandmelde-shop.de/esser-fx808431-schwerlastschublade-fuer-energieversorgung-5-he",
+    "our_price_raw": "98009,10",
+    "our_price_parsed": 98009.1,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2.091,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Тяжелый ящик для блока питания предназначен для размещения и защиты блока питания в системах пожарной сигнализации. Он обеспечивает надежное крепление и защиту от внешних воздействий.",
+    "best_description_source": "content",
+    "best_photo_url": "https://all-bez.ru/catalog/fx808431/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Тяжелый ящик для блока питания предназначен для размещения и защиты блока питания в системах пожарной сигнализации. Он обеспечивает надежное крепление и защиту от внешних воздействий.",
+    "best_description_ru": "<p>Heavy-duty drawer with power supply unit, 5 HU от бренда Esser (артикул FX808431) — это профессиональное решение для организации и защиты блоков питания в системах пожарной сигнализации и охранных комплексах. Данный тяжелый ящик обеспечивает надежное крепление оборудования, защиту от механических повреждений и внешних воздействий. Изделие разработано в соответствии с высокими стандартами качества и надежности, что делает его идеальным выбором для профессиональных установок.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Размер: 5 HU (высота в стойке)</li>\n<li>Поддержка батарей: до четырех аккумуляторов 12 В/24 Ач</li>\n<li>Выходная мощность блока питания: 24 В DC, 150 Вт (для модуля PSM FX808326)</li>\n<li>Материал конструкции: металл с шариковыми направляющими для надежного крепления</li>\n<li>Кабель подключения блока питания: длина 0,6 м</li>\n<li>Тяжелая конструкция обеспечивает устойчивость и защиту оборудования</li>\n<li>Совместимость с профессиональными системами безопасности</li>\n</ul>\n\n<p><b>Применение:</b> Ящик используется в системах пожарной сигнализации, охранных комплексах и других критичных системах безопасности. Он предназначен для установки в стандартные 19-дюймовые стойки и обеспечивает централизованное размещение блока питания и резервных аккумуляторов. Это решение особенно востребовано в объектах, где требуется высокая надежность и бесперебойное питание оборудования.</p>\n\n<p><b>Преимущества:</b> Выбор этого изделия гарантирует надежную защиту критичного оборудования от повреждений и внешних факторов. Металлическая конструкция с шариковыми направляющими обеспечивает долговечность и устойчивость. Поддержка нескольких аккумуляторов позволяет организовать резервное питание, а компактные размеры облегчают интеграцию в существующие системы.</p>",
+    "best_description_ru_word_count": 204,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Heavy-duty drawer with power supply unit, 5 HU",
+    "description": "Heavy-duty drawer on ball-bearing metal rails with a power supply module and space for up to four 12 V/24 Ah batteries. The drawer is designed for 5 rack units (HU). It includes: 1 x Mains adapter connection cable, 2 x Battery connection cables, 2 x Fasteners, 1 x Power supply module (PSM) FX808326 (24 V DC / 150 W) with plug-in connection cable, and 1 x PS connection module and connecting cable 0.6 m (PSC) FX808327. A dummy cover for the heavy-duty drawer PSU, 5 HU must be ordered separately.",
+    "specs": {
+      "rack_units": "5 HU",
+      "battery_support": "Up to four 12 V/24 Ah batteries",
+      "power_supply_module_output": "24 V DC, 150 W (for included PSM FX808326)",
+      "material": "Metal (ball-bearing metal rails)",
+      "included_ps_connection_cable_length": "0.6 m"
+    },
+    "specs_count": 5,
+    "series": "",
+    "category": "Heavy-duty drawer, Power supply unit",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "FX808431",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FX808431.pdf",
+    "datasheet_size_kb": 81,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FX808431_p1_3.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "FX prefix indicates Esser (fire safety division of Honeywell). The audit correctly identified EAN prefix should be '4007185' for Esser brand. Title from datasheet confirms this is a 5HU rack drawer with PSU. Current datasheet appears corrupted/incomplete (truncated description, missing technical specs). Brand should specify 'Esser by Honeywell' rather than just 'Honeywell'. PN format is correct for Esser products."
+    },
+    "description_seo_ru": "<p>Heavy-duty drawer with power supply unit, 5 HU от бренда Esser (артикул FX808431) — это профессиональное решение для организации и защиты блоков питания в системах пожарной сигнализации и охранных комплексах. Данный тяжелый ящик обеспечивает надежное крепление оборудования, защиту от механических повреждений и внешних воздействий. Изделие разработано в соответствии с высокими стандартами качества и надежности, что делает его идеальным выбором для профессиональных установок.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Размер: 5 HU (высота в стойке)</li>\n<li>Поддержка батарей: до четырех аккумуляторов 12 В/24 Ач</li>\n<li>Выходная мощность блока питания: 24 В DC, 150 Вт (для модуля PSM FX808326)</li>\n<li>Материал конструкции: металл с шариковыми направляющими для надежного крепления</li>\n<li>Кабель подключения блока питания: длина 0,6 м</li>\n<li>Тяжелая конструкция обеспечивает устойчивость и защиту оборудования</li>\n<li>Совместимость с профессиональными системами безопасности</li>\n</ul>\n\n<p><b>Применение:</b> Ящик используется в системах пожарной сигнализации, охранных комплексах и других критичных системах безопасности. Он предназначен для установки в стандартные 19-дюймовые стойки и обеспечивает централизованное размещение блока питания и резервных аккумуляторов. Это решение особенно востребовано в объектах, где требуется высокая надежность и бесперебойное питание оборудования.</p>\n\n<p><b>Преимущества:</b> Выбор этого изделия гарантирует надежную защиту критичного оборудования от повреждений и внешних факторов. Металлическая конструкция с шариковыми направляющими обеспечивает долговечность и устойчивость. Поддержка нескольких аккумуляторов позволяет организовать резервное питание, а компактные размеры облегчают интеграцию в существующие системы.</p>",
+    "description_seo_word_count": 204,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Heavy-duty drawer with power supply unit, 5 HU' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

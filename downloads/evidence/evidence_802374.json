@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Мультисенсорный извещатель 802374 IQ8Quad O²T с коробкой ESSER by Honeywell чётко виден",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.bireta.ru/product/izveschatel-dvoynoy-dymovoy-o2tiq8quad-s-dopolnite"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -313,7 +310,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -565,5 +563,182 @@
   "dr_price": 24.64,
   "dr_currency": "EUR",
   "dr_price_source": "https://www.orbitadigital.com/en/fire/esser/28749-esser-802374-iq8-multi-sensory-o2t-detector.html",
-  "product_category": "fire detector"
+  "training_urls": [
+    "https://www.brandmelde-shop.de/esser-802374black-o2t-multisensormelder-iq8quad-schwarz",
+    "https://www.ebay.com/itm/154934095627",
+    "https://www.esser-systems.com/en/products/details/automatic-detectors/series-iq8quad-intelligent-addressable/802374-o2t-multisensor-fire-detector-iq8quad-with-isolator/",
+    "https://www.orbitadigital.com/en/fire/esser/28749-esser-802374-iq8-multi-sensory-o2t-detector.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 24.64,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.orbitadigital.com/en/fire/esser/28749-esser-802374-iq8-multi-sensory-o2t-detector.html",
+    "our_price_raw": "6111,00",
+    "our_price_parsed": 6111.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 24.64,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Комбинированный мультисенсорный извещатель O²T объединяет функции оптического и теплового детекторов. Применяется для повышения точности обнаружения пожара. Идеален для использования в сложных условиях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.bireta.ru/product/izveschatel-dvoynoy-dymovoy-o2tiq8quad-s-dopolnite",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Комбинированный мультисенсорный извещатель O²T объединяет функции оптического и теплового детекторов. Применяется для повышения точности обнаружения пожара. Идеален для использования в сложных условиях.",
+    "best_description_ru": "<p>Представляем передовой комбинированный мультисенсорный извещатель Esser IQ8Quad-ST (артикул 802374), разработанный для обеспечения максимальной точности и надежности в системах пожарной безопасности. Этот инновационный детектор, входящий в серию самотестирующихся устройств, объединяет в себе функции оптического и теплового обнаружения, что позволяет значительно повысить эффективность выявления возгораний на ранних стадиях. Он идеально подходит для объектов, где требуется повышенная чувствительность и минимизация ложных срабатываний, обеспечивая комплексную защиту от различных типов пожаров.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Мультисенсорная технология O²T:</b> Объединяет оптический (дымовой) и тепловой датчики для всестороннего анализа ситуации.</li>\n<li><b>Повышенная точность обнаружения:</b> Комбинация сенсоров минимизирует ложные тревоги и обеспечивает быстрое реагирование на реальные угрозы.</li>\n<li><b>Функция самотестирования (Self-Test):</b> Автоматическая проверка работоспособности всех ключевых компонентов, гарантирующая постоянную готовность к работе.</li>\n<li><b>Адаптивность к сложным условиям:</b> Эффективно работает в средах с повышенной запыленностью, влажностью или температурными колебаниями.</li>\n<li><b>Интеллектуальная обработка сигналов:</b> Современные алгоритмы анализа данных позволяют различать реальные признаки пожара от фоновых помех.</li>\n<li><b>Надежность и долговечность:</b> Разработан с использованием высококачественных материалов для длительного срока службы.</li>\n<li><b>Простота интеграции:</b> Легко подключается к существующим системам пожарной сигнализации Esser.</li>\n<li><b>Соответствие стандартам безопасности:</b> Отвечает строгим международным и национальным требованиям к пожарным извещателям.</li>\n</ul>\n\n<p>Извещатель Esser IQ8Quad-ST находит широкое применение в самых разнообразных условиях, где требуется максимальная надежность и точность обнаружения пожара. Он незаменим для использования в промышленных помещениях, складских комплексах, офисных зданиях, торговых центрах, гостиницах, а также в учреждениях здравоохранения и образования. Благодаря своей способности эффективно работать в сложных условиях, таких как помещения с переменной температурой, высокой влажностью или наличием пыли, этот детектор обеспечивает непрерывную и эффективную защиту, минимизируя риски и повышая общий уровень безопасности объекта.</p>\n\n<p>Выбор Esser IQ8Quad-ST – это инвестиция в надежную и высокоэффективную систему пожарной безопасности. Его мультисенсорная технология и функция самотестирования гарантируют бесперебойную работу и минимизируют вероятность ложных срабатываний, что особенно важно для объектов с высокой проходимостью или ценным имуществом. Этот извещатель обеспечивает быстрое и точное обнаружение возгораний, позволяя своевременно принять меры и предотвратить серьезные последствия, что делает его оптимальным решением для современных систем пожарной защиты.</p>",
+    "best_description_ru_word_count": 313,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "IQ8Quad-ST - Self-Test series of detectors",
+    "description": "",
+    "specs": {
+      "series": "IQ8Quad-ST",
+      "detector_types": "TD (thermal), O (optical), OT (optical-thermal), O2T (dual optical-thermal), OTblue (optical-thermal-UV)",
+      "operating_voltage": "9.2–42.4 V DC; 14–42.4 V DC (EN 54-17); 34–42.4 V DC (Self-Test)",
+      "quiescent_current_TD_19V": "50 μA",
+      "quiescent_current_O_19V": "70 μA",
+      "quiescent_current_OT_19V": "75 μA",
+      "quiescent_current_O2T_19V": "80 μA",
+      "quiescent_current_OTblue_19V": "75 μA",
+      "quiescent_current_TD_27.5V": "0.09 mA",
+      "quiescent_current_TD_42V": "0.11 mA",
+      "quiescent_current_O_27.5V": "0.11 mA",
+      "quiescent_current_O_42V": "0.13 mA",
+      "quiescent_current_OT_27.5V": "0.11 mA",
+      "quiescent_current_OT_42V": "0.13 mA",
+      "quiescent_current_O2T_27.5V": "0.23 mA",
+      "quiescent_current_O2T_42V": "0.33 mA",
+      "quiescent_current_OTblue_27.5V": "0.11 mA",
+      "quiescent_current_OTblue_42V": "0.13 mA",
+      "ambient_temperature_TD": "-20 to 50 °C",
+      "ambient_temperature_O": "-20 to 72 °C",
+      "ambient_temperature_OT": "-20 to 50 °C",
+      "ambient_temperature_O2T": "-20 to 65 °C",
+      "ambient_temperature_OTblue": "-20 to 50 °C",
+      "storage_temperature": "-25 to 65 °C",
+      "min_ambient_temperature_self_test": "0 °C (smoke)",
+      "air_humidity": "≤95% (non-condensing)",
+      "housing_material": "ABS",
+      "color": "white, similar RAL 9010",
+      "ip_rating_without_base": "IP 21",
+      "ip_rating_with_base": "IP 21",
+      "ip_rating_with_option_805570": "IP 42",
+      "ip_rating_with_option_805572.50_or_805573": "IP 43",
+      "integrated_loop_isolator": "yes",
+      "detector_base_type": "standard detector base (fully compatible with IQ8Quad)",
+      "self_test_function": "patented automated self-test of optical and thermal sensors",
+      "anti_masking_function": "yes, detects covered detectors",
+      "bluetooth_interface": "integrated, for device localization",
+      "short_circuit_tolerance": "yes",
+      "interruption_tolerance": "yes",
+      "loop_length_max": "3.5 km",
+      "certifications_TD": "EN 54-5 A1R, EN 54-17",
+      "certifications_O": "EN 54-7, EN 54-17",
+      "certifications_OT": "EN 54-7, EN 54-5 A2, EN 54-17, EN 54-29",
+      "certifications_O2T": "EN 54-7, EN 54-5 B, EN 54-17, EN 54-29",
+      "certifications_OTblue": "EN 54-7, EN 54-5 A2, EN 54-17, EN 54-29",
+      "vds_number_TD": "G225003",
+      "vds_number_O": "G225002",
+      "vds_number_OT": "G225004",
+      "vds_number_O2T": "G225006",
+      "vds_number_OTblue": "G225005",
+      "part_number_TD": "802271-ST",
+      "part_number_O": "802371-ST",
+      "part_number_OT": "802373-ST",
+      "part_number_O2T": "802374-ST",
+      "part_number_OTblue": "802375-ST"
+    },
+    "specs_count": 55,
+    "series": "IQ8Quad-ST",
+    "category": "",
+    "weight_g": {
+      "TD": "86",
+      "O": "121",
+      "OT": "122",
+      "O2T": "122",
+      "OTblue": "122"
+    },
+    "dimensions_mm": "117 x 117 x 63 (without base); 117 x 117 x 70 (with base)",
+    "certifications": [
+      "EN 54-5 A1R",
+      "EN 54-5 A2",
+      "EN 54-5 B",
+      "EN 54-7",
+      "EN 54-17",
+      "EN 54-29",
+      "CEN/TS 54-14",
+      "DIN 14675",
+      "DIN 0833-2",
+      "VdS G225003",
+      "VdS G225002",
+      "VdS G225004",
+      "VdS G225006",
+      "VdS G225005"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\802374.pdf",
+    "datasheet_size_kb": 320,
+    "product_photos": [
+      "downloads\\datasheet_photos\\802374_p1_5.jpeg",
+      "downloads\\datasheet_photos\\802374_p2_0.png",
+      "downloads\\datasheet_photos\\802374_p2_1.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/802374_p1_5.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The datasheet title 'IQ8Quad-ST - Self-Test series' is an Esser product line (Honeywell Fire Safety division). The PN format 802374 (6-digit numeric) matches Esser's numbering scheme. The audit note about expected EAN prefix '4007185' confirms this is an Esser brand product. Esser is a Honeywell company specializing in fire detection systems. The O²T multi-sensor detector is part of Esser's IQ8Quad series. Current brand should be 'Esser by Honeywell' or 'Esser', not just 'Honeywell'.",
+      "brand_correction_confidence": "high",
+      "marked_wrong": true,
+      "reason": "Brand and PN appear correct - Esser 802374 is a valid fire detector model (IQ8Quad-ST series). However, the datasheet extraction failed critically: missing EAN (should have 4007185 prefix for Esser), empty specifications, incomplete description, and empty series field despite datasheet clearly indicating 'IQ8Quad-ST - Self-Test series'. The product data needs to be re-extracted from the datasheet to populate EAN, full specifications, proper description (>200 words), and series information."
+    },
+    "description_seo_ru": "<p>Представляем передовой комбинированный мультисенсорный извещатель Esser IQ8Quad-ST (артикул 802374), разработанный для обеспечения максимальной точности и надежности в системах пожарной безопасности. Этот инновационный детектор, входящий в серию самотестирующихся устройств, объединяет в себе функции оптического и теплового обнаружения, что позволяет значительно повысить эффективность выявления возгораний на ранних стадиях. Он идеально подходит для объектов, где требуется повышенная чувствительность и минимизация ложных срабатываний, обеспечивая комплексную защиту от различных типов пожаров.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Мультисенсорная технология O²T:</b> Объединяет оптический (дымовой) и тепловой датчики для всестороннего анализа ситуации.</li>\n<li><b>Повышенная точность обнаружения:</b> Комбинация сенсоров минимизирует ложные тревоги и обеспечивает быстрое реагирование на реальные угрозы.</li>\n<li><b>Функция самотестирования (Self-Test):</b> Автоматическая проверка работоспособности всех ключевых компонентов, гарантирующая постоянную готовность к работе.</li>\n<li><b>Адаптивность к сложным условиям:</b> Эффективно работает в средах с повышенной запыленностью, влажностью или температурными колебаниями.</li>\n<li><b>Интеллектуальная обработка сигналов:</b> Современные алгоритмы анализа данных позволяют различать реальные признаки пожара от фоновых помех.</li>\n<li><b>Надежность и долговечность:</b> Разработан с использованием высококачественных материалов для длительного срока службы.</li>\n<li><b>Простота интеграции:</b> Легко подключается к существующим системам пожарной сигнализации Esser.</li>\n<li><b>Соответствие стандартам безопасности:</b> Отвечает строгим международным и национальным требованиям к пожарным извещателям.</li>\n</ul>\n\n<p>Извещатель Esser IQ8Quad-ST находит широкое применение в самых разнообразных условиях, где требуется максимальная надежность и точность обнаружения пожара. Он незаменим для использования в промышленных помещениях, складских комплексах, офисных зданиях, торговых центрах, гостиницах, а также в учреждениях здравоохранения и образования. Благодаря своей способности эффективно работать в сложных условиях, таких как помещения с переменной температурой, высокой влажностью или наличием пыли, этот детектор обеспечивает непрерывную и эффективную защиту, минимизируя риски и повышая общий уровень безопасности объекта.</p>\n\n<p>Выбор Esser IQ8Quad-ST – это инвестиция в надежную и высокоэффективную систему пожарной безопасности. Его мультисенсорная технология и функция самотестирования гарантируют бесперебойную работу и минимизируют вероятность ложных срабатываний, что особенно важно для объектов с высокой проходимостью или ценным имуществом. Этот извещатель обеспечивает быстрое и точное обнаружение возгораний, позволяя своевременно принять меры и предотвратить серьезные последствия, что делает его оптимальным решением для современных систем пожарной защиты.</p>",
+    "description_seo_word_count": 313,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'IQ8Quad-ST - Self-Test series of detectors' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Esser (Honeywell)"
+  }
 }

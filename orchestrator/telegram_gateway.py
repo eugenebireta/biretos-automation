@@ -159,6 +159,9 @@ class TelegramGateway:
     Owns: auth, redaction, dedup, inbox/outbox file I/O, heartbeat.
     """
 
+    RECV_DEDUP_PATH = ORCH_DIR / "gateway_recv_dedup.json"
+    RECV_DEDUP_MAXSIZE = 1000  # keep last N hashes on disk
+
     def __init__(self, transport: MessengerTransport, owner_chat_id: int | None,
                  data_dir: Path):
         self.transport = transport
@@ -166,10 +169,36 @@ class TelegramGateway:
         self.data_dir = data_dir
 
         self._sent_dedup: collections.deque[str] = collections.deque(maxlen=500)
+        self._recv_dedup: collections.deque[str] = collections.deque(maxlen=self.RECV_DEDUP_MAXSIZE)
         self._started_at = datetime.now(timezone.utc)
         self._inbox_count = 0
         self._outbox_count = 0
         self._error_count = 0
+
+        # Load persisted recv dedup from disk (survives restarts)
+        self._load_recv_dedup()
+
+    # ── Persistent inbound dedup ────────────────────────────────────
+
+    def _load_recv_dedup(self) -> None:
+        """Load seen hashes from disk into _recv_dedup deque."""
+        try:
+            if self.RECV_DEDUP_PATH.exists():
+                data = json.loads(self.RECV_DEDUP_PATH.read_text(encoding="utf-8"))
+                for h in data.get("seen", []):
+                    self._recv_dedup.append(h)
+        except Exception:
+            pass
+
+    def _save_recv_dedup(self) -> None:
+        """Persist current seen hashes to disk."""
+        try:
+            _atomic_write_json(
+                self.RECV_DEDUP_PATH,
+                {"seen": list(self._recv_dedup)},
+            )
+        except Exception:
+            pass
 
     # ── Logging ─────────────────────────────────────────────────────
 
@@ -241,6 +270,16 @@ class TelegramGateway:
                           error=str(e)[:200],
                           error_class="TRANSIENT", retriable=True)
 
+        # Inbound dedup — skip if same raw_hash seen this session
+        dedup_key = event.raw_hash or event.message_id
+        if dedup_key and dedup_key in self._recv_dedup:
+            self._log("INFO", "inbox_skip_dup", msg_id=event.message_id,
+                      text_preview=text[:40])
+            return
+        if dedup_key:
+            self._recv_dedup.append(dedup_key)
+            self._save_recv_dedup()
+
         # Write to inbox — canonical event envelope
         entry = {
             "ts": _iso_z(),
@@ -258,12 +297,6 @@ class TelegramGateway:
         self._log("INFO", "inbox_write", msg_id=entry["msg_id"],
                   event_type=event.event_type,
                   text_preview=text[:80])
-
-        # Acknowledge to owner (skip for callbacks — already acked above)
-        if event.event_type != "callback":
-            self.transport.send_message(
-                str(self.owner_chat_id), "Принял. Передам."
-            )
 
     # ── Outbox dispatch ─────────────────────────────────────────────
 

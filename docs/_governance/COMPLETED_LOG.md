@@ -1,4 +1,42 @@
 ---
+DATE: 2026-04-11
+TITLE: export_ready.py — normalized{} integration
+RISK_LEVEL: LOW
+STATUS: COMPLETED (feat/rev-r1-catalog, commit d7f5faf)
+SCOPE:
+  - fix: export_ready.py reads from normalized{} block instead of raw evidence fields
+  - All 3 pipelines now unified: price_contract / pipeline1 / our_estimate
+  - desc_status now reads normalized.best_description (100% coverage vs ~60%)
+  - photo_url now reads normalized.best_photo_url (respects photo.verdict)
+KEY_FINDINGS:
+  - EXPORT_READY: 224 → 235 (+11 pipeline1 prices now treated as market price)
+  - DRAFT_EXPORT: 68 → 58 (our_estimate group, correct)
+  - Description coverage: ~60% → 100% (normalized combines dr + content pipelines)
+  - Photo missing: 0/370 (unchanged)
+NEXT: Owner decision on next batch
+
+---
+DATE: 2026-04-11
+TITLE: Evidence Foundation Hardening (3 batches)
+RISK_LEVEL: LOW
+STATUS: COMPLETED (feat/rev-r1-catalog)
+SCOPE:
+  - feat: evidence_contract_hardening_v1.py — subbrand, training_urls, price_contract skeleton
+  - fix: price_unit_judge.py — 2 bugs (EU currency set, x-pattern regex)
+  - feat: price_unit_judge_full_run.py — deterministic pass on 275 priced SKUs
+  - feat: price_unit_judge_llm_pass.py — knowledge-based judge for 42 unknowns (0 remaining)
+  - feat: evidence_normalize.py — canonical normalized{} block unifying 3 pipelines
+AUDITOR_EVIDENCE:
+  - evidence_normalize.py: AUTO_PASS (run_0a311a28da35, Gemini+Anthropic approve)
+  - price_unit_judge: all 42 unknowns resolved, 10 per_pack, 32 per_unit
+KEY_FINDINGS:
+  - 27 pipeline1-only prices now accessible via normalized.best_price
+  - Price coverage: 302/374 (80.7%) — up from reported 275
+  - Description: 370/374 (98.9%), Photo: 310/374 (82.9%)
+  - evidence_normalize.py: 20 deterministic tests, atomic write, trace_id in all logs
+NEXT: CONTEXT_RECON_V1 (67 REVIEW_BLOCKED SKUs)
+
+---
 DATE: 2026-04-08
 TITLE: R1 Revenue — Enrichment Improvements Batch v2 (9 blocks)
 RISK_LEVEL: SEMI

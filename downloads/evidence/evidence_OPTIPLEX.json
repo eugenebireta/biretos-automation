@@ -4,7 +4,7 @@
   "pn": "OPTIPLEX",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Системный блок Dell Optiplex",
   "assembled_title": "Системный блок Honeywell OPTIPLEX",
   "our_price_raw": "0,00",
@@ -360,7 +360,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Optiplex",
+    "confirmed_manufacturer": "Dell",
+    "identity_notes_p1": "Dell Optiplex desktop system block; not a Honeywell product",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -378,9 +382,8 @@
     "description": "Системный блок Dell Optiplex предназначен для использования в офисных и промышленных условиях. Обеспечивает высокую производительность и надежность благодаря современным компонентам и возможностям расширения.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Системный блок",
-    "seed_name": "Системный блок Dell Optiplex",
-    "description_long_ru": "Actual mfr: Dell. Generic product line. Dell refurb from ~$150"
+    "product_type": "System block",
+    "seed_name": "Системный блок Dell Optiplex"
   },
   "trace": {
     "pn_match_location": "",
@@ -635,7 +638,27 @@
       "raw": "—",
       "aliases": [
         "—"
-      ]
+      ],
+      "Type": "Business desktop PC series",
+      "Form factors": "Tower, SFF, Micro, All-in-One",
+      "Processors": "Intel Core (varies by model/generation)",
+      "RAM": "DDR4/DDR5, up to 64 GB",
+      "Storage": "SSD, HDD or dual storage",
+      "Management": "Intel vPro (select models), Dell Client Command Suite",
+      "Security": "TPM 2.0, optional smart card reader",
+      "Expansion": "PCIe slots (Tower/SFF models)",
+      "OS": "Windows 10/11 Pro",
+      "Brand": "Dell",
+      "Product family": "OptiPlex",
+      "Category": "Business desktop PC",
+      "Positioning": "Commercial / office",
+      "Configuration": "Varies by generation",
+      "form_factors": "Micro, SFF, Tower, All-in-One",
+      "processor": "Intel Celeron to Core i9",
+      "memory": "Up to 128GB DDR4/DDR5",
+      "storage": "M.2 NVMe SSD and 2.5/3.5 inch HDD",
+      "sustainability": "Up to 56.7% recycled plastic",
+      "certifications": "EPEAT Gold, Energy Star, TCO Gen 9"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -643,23 +666,121 @@
       "Встречается как линейка ПК (Dell) в контексте инфраструктуры/замены, но без PN-закупки «Honeywell OPTIPLEX». citeturn64search12turn64search4",
       "Aliases: —"
     ],
-    "merge_ts": "2026-04-10T11:05:35.482521+00:00",
+    "merge_ts": "2026-04-09T12:01:24.969531+00:00",
     "merge_source": "result_OPTIPLEX.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Actual mfr: Dell. Generic product line. Dell refurb from ~$150",
-    "sources": [
-      {
-        "url": "https://www.ebay.com/b/Dell-Optiplex-Desktops/179/bn_7114050175",
-        "type": "surplus",
-        "domain": "www.ebay.com",
-        "supports": [
-          "identity",
-          "price"
-        ]
+    "descriptions_all": {
+      "claude": "Dell OptiPlex — это серия настольных компьютеров (системных блоков) корпоративного класса от Dell Technologies, предназначенная для офисного и промышленного применения. Линейка OptiPlex включает различные форм-факторы: Tower (башня), Small Form Factor (SFF), Micro (ультракомпактный), а также моноблоки All-in-One. Компьютеры серии OptiPlex отличаются высокой надёжностью, стабильностью работы и расширенными возможностями управления и безопасности. Они оснащаются процессорами Intel Core различных поколений, оперативной памятью DDR4/DDR5, SSD и HDD накопителями. Поддерживаются технологии Intel vPro для удалённого управления, модули TPM 2.0 для безопасности данных. Серия OptiPlex широко применяется в корпоративных офисах, государственных учреждениях, образовательных организациях, а также в промышленных системах автоматизации и диспетчерских пунктах. Стандартизированный дизайн обеспечивает простоту обслуживания и длительный жизненный цикл.",
+      "gpt": "Dell OptiPlex — это не один конкретный SKU, а товарная линейка настольных корпоративных ПК Dell. В каталогах производителя такие семейства обычно охватывают несколько поколений и конфигураций, поэтому при загрузке в e-commerce важно не смешивать семейство и конкретную модель. Линейка ориентирована на офисную инфраструктуру, рабочие места сотрудников и долгосрочные корпоративные развёртывания. Официальные материалы Dell описывают OptiPlex как бизнес-ориентированные desktop и all-in-one системы с акцентом на надежность, управляемость и жизненный цикл. Для B2B-заказчиков ценность таких устройств обычно определяется не только процессором или диагональю экрана, но и стабильностью платформы, удобством обслуживания и длительностью жизненного цикла. При публикации карточки без точного model code лучше описывать товар как семейство и обязательно выносить в notes требование уточнения конфигурации по сервис-тегу или полному артикулу. Это особенно важно для тендеров и сервисных поставок, потому что внутри одной линейки могут различаться поколения CPU, типы портов, емкость накопителей и набор опций безопасности. Если задача каталога — подбор аналога или идентификация товара из старой переписки, семейственная карточка полезна как временная заглушка до появления точного model code. Линейка включает tower, small form factor, micro и другие форматы, поэтому без точного номера модели спецификацию следует считать переменной. С точки зрения SEO и карточки товара семейство можно использовать как базовую сущность, но для коммерческого предложения, счета и сервисной совместимости желательно переходить на конкретный PN или Service Tag.",
+      "gemini": "Настольные компьютеры Dell OptiPlex на протяжении более чем 25 лет остаются эталоном надежности для корпоративных рабочих мест, образовательных и государственных учреждений. Линейка предлагает широчайший выбор форм-факторов: от традиционных башен Tower до миниатюрных Micro, которые можно закрепить за монитором для экономии места. Одной из ключевых особенностей OptiPlex является продуманная конструкция шасси, позволяющая заменять компоненты и проводить апгрейд без использования инструментов. Системы поддерживают новейшие процессоры Intel и оперативную память DDR5, обеспечивая высокую скорость работы в многозадачном режиме. Встроенные функции защиты BIOS и возможность интеграции с Dell Trusted Device обеспечивают безопасность на аппаратном уровне. Модели серии All-in-One объединяют мощный ПК и качественный дисплей в одном корпусе, предлагая лаконичное и функциональное решение для фронт-офисов. Продукция OptiPlex изготавливается с использованием переработанного пластика, что подчеркивает приверженность Dell принципам устойчивого развития. Высокая энергоэффективность блоков питания подтверждена сертификатами 80 PLUS Platinum и Gold. Это масштабируемое решение, способное удовлетворить потребности как малого бизнеса, так и глобальных корпораций.",
+      "synthesis": "Dell OptiPlex — это товарная линейка настольных компьютеров корпоративного класса, охватывающая несколько поколений и конфигураций, не являющаяся одним конкретным SKU. Серия включает различные форм-факторы: Tower (башня), Small Form Factor (SFF), Micro (ультракомпактный), а также моноблоки All-in-One, ориентированные на офисную инфраструктуру и долгосрочные корпоративные развёртывания. Компьютеры отличаются высокой надёжностью, стабильностью работы, расширенными возможностями управления и безопасности (Intel vPro, TPM 2.0), продуманной конструкцией шасси, позволяющей заменять компоненты без инструментов. Они оснащаются процессорами Intel Core последних поколений, оперативной памятью DDR4/DDR5, SSD и HDD накопителями, поддерживают новейшие интерфейсы. Модели серии All-in-One объединяют мощный ПК и качественный дисплей в одном корпусе, предлагая лаконичное решение для фронт-офисов. Продукция изготавливается с использованием переработанного пластика и отличается высокой энергоэффективностью (сертификаты 80 PLUS Platinum/Gold), что подчёркивает приверженность Dell принципам устойчивого развития. Широко применяется в корпоративных офисах, государственных учреждениях, образовательных организациях и промышленных системах. При публикации без точного модель-кода рекомендуется описывать товар как семейство и требовать уточнения конфигурации по сервис-тегу, поскольку внутри линейки различаются поколения CPU и наборы опций."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Business desktop PC series",
+        "Form factors": "Tower, SFF, Micro, All-in-One",
+        "Processors": "Intel Core (varies by model/generation)",
+        "RAM": "DDR4/DDR5, up to 64 GB",
+        "Storage": "SSD, HDD or dual storage",
+        "Management": "Intel vPro (select models), Dell Client Command Suite",
+        "Security": "TPM 2.0, optional smart card reader",
+        "Expansion": "PCIe slots (Tower/SFF models)",
+        "OS": "Windows 10/11 Pro"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product family": "OptiPlex",
+        "Category": "Business desktop PC",
+        "Positioning": "Commercial / office",
+        "Form factors": "Tower / SFF / Micro / All-in-One",
+        "Configuration": "Varies by generation"
+      },
+      "gemini": {
+        "form_factors": "Micro, SFF, Tower, All-in-One",
+        "processor": "Intel Celeron to Core i9",
+        "memory": "Up to 128GB DDR4/DDR5",
+        "storage": "M.2 NVMe SSD and 2.5/3.5 inch HDD",
+        "sustainability": "Up to 56.7% recycled plastic",
+        "certifications": "EPEAT Gold, Energy Star, TCO Gen 9"
       }
-    ]
+    },
+    "notes_all": {
+      "claude": "Generic series name, not a specific model.",
+      "gpt": "Family-level entry. Exact OptiPlex model required for CPU, RAM, drive and port specification."
+    }
   },
-  "product_category": "workstation"
+  "training_urls": [
+    "https://discountcomputerdepot.com/categories/refurbished-computers/desktop-computers/computer-brands/dell-desktops/dell-optiplex-desktops.html",
+    "https://www.dell.com/en-us/dfb/lp/refurbished-optiplex",
+    "https://www.ebay.com/b/Dell-Optiplex-Desktops/179/bn_7114050175",
+    "https://www.ebay.com/sch/i.html?_nkw=honeywell+optiplex",
+    "https://www.dell.com/en-us/shop/desktops-all-in-one-pcs/sc/desktops/optiplex",
+    "https://www.dell.com/en-us/shop/desktop-computers/scr/desktops/appref%3Doptiplex-product-line",
+    "https://www.dell.com/support/kbdoc/en-sb/000131722/introduction-to-the-new-features-in-2020-s-dell-optiplex-and-precision-desktops"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2100.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/Honeywell-Experion-Optiplex-DCS",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2100.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Системный блок Dell Optiplex предназначен для использования в офисных и промышленных условиях. Обеспечивает высокую производительность и надежность благодаря современным компонентам и возможностям расширения.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/DELL_OPTIPLEX.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\OPTIPLEX.pdf",
+    "datasheet_size_kb": 6720,
+    "product_photos": [
+      "downloads\\datasheet_photos\\OPTIPLEX_p1_0.jpg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6720KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -4,7 +4,7 @@
   "pn": "775511",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Датчик D 95.6511.26",
   "assembled_title": "Розетка PEHA DIALOG, 775511",
   "our_price_raw": "918,40",
@@ -339,7 +339,13 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 95.6511.26",
+    "series": "DIALOG",
+    "identity_notes_p1": "DIALOG SCHUKO socket, .26 variant",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -392,9 +398,8 @@
     "description": "Датчик D 95.6511.26 предназначен для использования в системах автоматизации. Обеспечивает высокую точность измерений и надежность в эксплуатации. Подходит для различных промышленных применений.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Датчик",
-    "seed_name": "Датчик D 95.6511.26",
-    "description_long_ru": "PEHA DIALOG series. .26 suffix = discontinued brown variant"
+    "product_type": "Socket outlet",
+    "seed_name": "Датчик D 95.6511.26"
   },
   "trace": {
     "pn_match_location": "",
@@ -697,7 +702,34 @@
       "raw": "—",
       "aliases": [
         "HTR-775511 (site item ref)"
-      ]
+      ],
+      "Type": "Socket outlet with earthing contact (Schuko)",
+      "Series": "PEHA DIALOG",
+      "Rated Voltage": "250 V~",
+      "Rated Current": "16 A",
+      "Color": "White",
+      "Child Protection": "Yes (shuttered)",
+      "Mounting": "Flush mount, standard box",
+      "Brand": "PEHA (Honeywell)",
+      "Rating": "250V / 16A",
+      "Standard": "Schuko (CEE 7/4)",
+      "Protection": "Child-proof shutters",
+      "Certifications": "VDE",
+      "Product type": "SCHUKO socket STANDARD",
+      "Rated current": "16 A",
+      "Rated voltage": "250 V",
+      "Frequency": "50-60 Hz",
+      "Child protection": "No",
+      "Connection type": "Plug clamp",
+      "Ingress protection": "IP20",
+      "series": "Socketline Flex",
+      "voltage": "250 V",
+      "current": "16 A",
+      "connector": "Wieland gesis GST 18",
+      "mounting": "Flush mounted",
+      "dimensions": "81 mm x 81 mm x 53 mm",
+      "ip_rating": "IP20",
+      "ean": "4010105075519"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -716,12 +748,157 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.199750+00:00",
+    "merge_ts": "2026-04-09T12:01:24.847633+00:00",
     "merge_source": "result_775511.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "PEHA DIALOG series. .26 suffix = discontinued brown variant"
+    "descriptions_all": {
+      "claude": "PEHA 775511 — электрическая розетка (силовая розетка) серии DIALOG с защитными шторками белого цвета. Розетка оснащена заземляющим контактом по стандарту Schuko (CEE 7/4) для подключения бытовых и офисных электроприборов. Защитные шторки (Kindersicherung) предотвращают случайное введение посторонних предметов, обеспечивая безопасность детей. Розетка рассчитана на номинальное напряжение 250 В и ток 16 А. Механизм изготовлен из высококачественных материалов с серебряными контактами для надёжного электрического соединения. Устанавливается в стандартные монтажные коробки Ø 60 мм и совместима с рамками серии DIALOG. Соответствует стандартам VDE и европейским нормативам электробезопасности.",
+      "gpt": "PEHA 775511 — это силовая розетка стандарта SCHUKO серии DIALOG STANDARD, причём официальная карточка указывает красное исполнение, а не белое. Для exact PN подтверждены номиналы 250 V и 16 A, что соответствует типовой бытовой и коммерческой нагрузке европейского стандарта. Datasheet также прямо указывает отсутствие child protection, поэтому описание «with shutters» для этого артикула неверно. Подключение выполнено через plug clamp, что упрощает монтаж и ускоряет сборку типовых электроустановок. Изделие предназначено для скрытого монтажа и относится к внутренним установкам с уровнем защиты IP20. Для серийных проектов это стандартный электроустановочный механизм, который ставится в офисах, жилых помещениях и другой внутренней инфраструктуре. При подборе важно учитывать именно STANDARD red variant, потому что у PEHA есть много визуально похожих розеток в других цветах и сериях. Для B2B-каталога корректное описание — SCHUKO socket STANDARD, red, 16 A, 250 V, without child protection. Это хороший пример позиции, где цвет и наличие шторок нельзя угадывать по названию серии — их нужно брать только из exact datasheet. Исходное описание из задания для этого PN следует исправить.",
+      "gemini": "Электрическая розетка PEHA 775511 является частью инновационной серии Socketline Flex и предназначена для профессионального использования. Она представляет собой комбинацию механизма розетки стандарта Schuko и специализированного разъема Wieland gesis GST 18. Такая конструкция позволяет быстро и безопасно подключать силовые линии в системах фальшполов и офисных перегородок. Изделие выполнено из высококачественного поликарбоната чисто-белого цвета с глянцевой поверхностью. Розетка рассчитана на номинальный ток 16 А и напряжение 250 В, что соответствует стандартным требованиям электросетей. В комплект входит галогенобезопасная монтажная коробка, обеспечивающая высокий уровень пожарной безопасности. Механизм розетки отличается надежностью контактов и простотой фиксации проводников. Степень защиты IP20 делает это устройство идеальным выбором для современных офисных и административных помещений. Тщательная проработка конструкции PEHA гарантирует длительный срок службы даже при частом использовании. Код EAN 4010105075519 обеспечивает легкую идентификацию продукта при заказе.",
+      "synthesis": "PEHA 775511 — силовая розетка стандарта SCHUKO серии DIALOG STANDARD красного цвета, рассчитанная на номинальное напряжение 250 В и ток 16 А для подключения бытовых и офисных электроприборов. Розетка предназначена для скрытого монтажа в стандартные монтажные коробки Ø 60 мм и совместима с рамками и центральными накладками серии DIALOG, обеспечивая единообразный внешний вид электроустановки. Механизм изготовлен из высококачественных материалов с серебряными контактами для надёжного электрического соединения, обеспечивающими долгий срок службы даже при частом использовании. Подключение выполнено через plug clamp систему, что упрощает монтаж и ускоряет сборку типовых электроустановок без использования инструментов. Розетка относится к внутренним установкам с уровнем защиты IP20, предназначена для использования в офисах, жилых помещениях и другой внутренней инфраструктуре. Соответствие стандартам VDE и европейским нормативам электробезопасности гарантирует её безопасность и надежность в типовых бытовых и коммерческих приложениях систем электроснабжения."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Power socket with child protection",
+        "Series": "PEHA DIALOG",
+        "Color": "White",
+        "Rating": "250V / 16A",
+        "Standard": "Schuko (CEE 7/4)",
+        "Protection": "Child-proof shutters",
+        "Brand": "PEHA (Honeywell)",
+        "Certifications": "VDE"
+      },
+      "gpt": {
+        "Product type": "SCHUKO socket STANDARD",
+        "Rated current": "16 A",
+        "Rated voltage": "250 V",
+        "Frequency": "50-60 Hz",
+        "Child protection": "No",
+        "Connection type": "Plug clamp",
+        "Color": "Red",
+        "Mounting": "Flush mounted",
+        "Ingress protection": "IP20"
+      },
+      "gemini": {
+        "series": "Socketline Flex",
+        "voltage": "250 V",
+        "current": "16 A",
+        "connector": "Wieland gesis GST 18",
+        "mounting": "Flush mounted",
+        "dimensions": "81 mm x 81 mm x 53 mm",
+        "ip_rating": "IP20",
+        "ean": "4010105075519"
+      }
+    },
+    "notes_all": {
+      "claude": "PEHA DIALOG series Schuko socket outlet.",
+      "gpt": "Исходное описание «white, with shutters» не подтверждено. Официальный datasheet указывает red version и child-protection = No."
+    }
   },
-  "product_category": "PEHA electrical accessory"
+  "training_urls": [
+    "https://geizhals.de/peha-dialog-steckdose-schuko-d-95-6511-02-wi-a2400950.html",
+    "https://geizhals.de/peha-dialog-steckdose-schuko-d-95-6511-03-si-a2401699.html",
+    "https://www.conrad.de/de/o/peha-steckdosen-0809062.html",
+    "https://www.ebay.com/itm/273983837971",
+    "https://www.ebay.com/itm/326795875518",
+    "https://www.ebay.com/p/1985336847",
+    "https://www.elektrotresen.de/Schalterprogramme/Peha/DIALOG-Programm/Schuko-Steckdose/reinwei-/Peha-Steckdose-reinwei-D-95-6511-02-SI-NA.html",
+    "https://www.voltus.de/schalterprogramme/peha/dialog/steckdosen/",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-en/hbt-ep-00795511-en-datasheet.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 723.45,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/273983837971",
+    "our_price_raw": "918,40",
+    "our_price_parsed": 918.4,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 723.45,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик D 95.6511.26 предназначен для использования в системах автоматизации. Обеспечивает высокую точность измерений и надежность в эксплуатации. Подходит для различных промышленных применений.",
+    "best_description_source": "content",
+    "best_photo_url": "https://i.ebayimg.com/images/g/vGAAAOSwD~FdS1yV/s-l1600.jpg",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "SCHUKO socket STANDARD red",
+    "description": "SCHUKO socket STANDARD with clamp terminals and red socket, particularly suitable for use in computer system applications double pole, 16 A 250 V, with connecting terminals in compliance with VDE 0620, with red central plate for combinations, with labelling field 7 x 44 mm.",
+    "specs": {
+      "with_child_protection": "No",
+      "frequency": "50-60 Hertz",
+      "nominal_voltage": "250 Volt",
+      "halogen_free": "Yes",
+      "nominal_current": "16 Ampere",
+      "model": "Protective contact (SCHUKO)",
+      "connection_type": "Plug clamp",
+      "colour": "Red",
+      "mounting_method": "Flush mounted (plaster)",
+      "type_of_fastening": "Mounting with claw and screw",
+      "material": "Plastic",
+      "material_quality": "Duroplast",
+      "surface_protection": "Untreated",
+      "ip_rating": "IP20",
+      "poles": "double pole",
+      "labelling_field_mm": "7 x 44"
+    },
+    "specs_count": 16,
+    "series": "STANDARD",
+    "category": "SCHUKO socket",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "VDE 0620"
+    ],
+    "article_no": "D 80.6511 NA ROT",
+    "ean": "4010105795516",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\775511.pdf",
+    "datasheet_size_kb": 499,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'SCHUKO socket STANDARD red' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105775518",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

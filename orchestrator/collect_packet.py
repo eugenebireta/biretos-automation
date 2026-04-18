@@ -66,15 +66,15 @@ def run_git_diff_stat(base_commit: str | None) -> list[str]:
     ref = base_commit or _resolve_base_commit()
     result = subprocess.run(
         ["git", "diff", "--name-only", ref, "HEAD"],
-        capture_output=True, text=True, cwd=ROOT
+        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=ROOT
     )
     if result.returncode != 0:
         # Fallback: uncommitted changes vs index
         result = subprocess.run(
             ["git", "diff", "--name-only", "HEAD"],
-            capture_output=True, text=True, cwd=ROOT
+            capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=ROOT
         )
-    lines = [l.strip() for l in result.stdout.splitlines() if l.strip()]
+    lines = [ln.strip() for ln in result.stdout.splitlines() if ln.strip()]
     return lines
 
 
@@ -83,13 +83,13 @@ def run_git_diff(base_commit: str | None) -> tuple[str, int, bool]:
     ref = base_commit or _resolve_base_commit()
     result = subprocess.run(
         ["git", "diff", "--stat", ref, "HEAD"],
-        capture_output=True, text=True, cwd=ROOT
+        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=ROOT
     )
     stat = result.stdout.strip()
 
     result2 = subprocess.run(
         ["git", "diff", ref, "HEAD", "--", "*.py", "*.json", "*.yaml", "*.md"],
-        capture_output=True, text=True, cwd=ROOT
+        capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=ROOT
     )
     full_diff = result2.stdout
 
@@ -105,7 +105,7 @@ def _resolve_base_commit() -> str:
     for branch in ("origin/master", "origin/main", "master", "main"):
         result = subprocess.run(
             ["git", "merge-base", "HEAD", branch],
-            capture_output=True, text=True, cwd=ROOT
+            capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=ROOT
         )
         if result.returncode == 0:
             return result.stdout.strip()
@@ -117,7 +117,7 @@ def run_pytest(timeout: int = 300) -> dict | None:
     try:
         result = subprocess.run(
             [sys.executable, "-m", "pytest", "--tb=no"],
-            capture_output=True, text=True, cwd=ROOT, timeout=timeout
+            capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=ROOT, timeout=timeout
         )
         return _parse_pytest_output(result.stdout + result.stderr)
     except subprocess.TimeoutExpired:

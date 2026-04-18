@@ -7,7 +7,7 @@
     "ATTRAY4"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Кронштейн для монтажа Allied Telesis AT-TRAY4",
   "assembled_title": "Кронштейн Honeywell AT-TRAY4",
   "our_price_raw": "7242,50",
@@ -177,7 +177,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqL8CJXzXZ8y3J6VF7xE'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -195,10 +195,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://sistegratama.com/wp-content/uploads/2021/03/mc100_group_reduced.png"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -309,7 +306,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Networking",
+    "confirmed_manufacturer": "Allied Telesis",
+    "identity_notes_p1": "Rackmount tray for Allied Telesis equipment; not Honeywell product",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -327,9 +328,8 @@
     "description": "Кронштейн для монтажа Allied Telesis AT-TRAY4 используется для установки до четырех медиаконвертеров в стойку. Обеспечивает удобство и надежность монтажа.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Кронштейн",
-    "seed_name": "Кронштейн для монтажа Allied Telesis AT-TRAY4",
-    "description_long_ru": "Actual mfr: Allied Telesis. Also $326-$353 new. UPC 767035133447. Lifetime warranty. Compatible with MC10/MC100/MC1000 converters"
+    "product_type": "Mounting tray",
+    "seed_name": "Кронштейн для монтажа Allied Telesis AT-TRAY4"
   },
   "trace": {
     "pn_match_location": "",
@@ -610,12 +610,166 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.283812+00:00",
+    "merge_ts": "2026-04-09T12:01:24.879163+00:00",
     "merge_source": "result_AT-TRAY4.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md",
-    "description_ru": "Actual mfr: Allied Telesis. Also $326-$353 new. UPC 767035133447. Lifetime warranty. Compatible with MC10/MC100/MC1000 converters"
+    "source_file": "deep-research-report (2).md"
   },
-  "product_category": "rack mounting tray"
+  "training_urls": [
+    "https://harddiskdirect.com/allied-telesis-at-tray4-19-inch-rack-mount-chassis-for-up-to-four-media-converters.html",
+    "https://www.alliedtelesis.com/us/en/content/tray4",
+    "https://www.amazon.com/Allied-Telesis-AT-TRAY4-CONVERTER-RACKMOUNT/dp/B00209YXXO",
+    "https://www.bechtle.com/ch-en/shop/allied-telesis-at-tray4-media-converter--154194--p",
+    "https://www.govgroup.com/Allied-Telesis-AT-TRAY4-Media-converter-tray",
+    "https://www.redcorp.com/en/product/rack-accessories/allied-telesis/at-tray4-4-slot-media-converter-rack-wall-mounting-brackets-at-tray4/13523063",
+    "https://www.softexpress.de/Details/4253580/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 74.99,
+    "dr_currency": "CHF",
+    "dr_source_url": "https://www.bechtle.com/ch-en/shop/allied-telesis-at-tray4-media-converter--154194--p",
+    "our_price_raw": "7242,50",
+    "our_price_parsed": 7242.5,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 74.99,
+    "best_price_currency": "CHF",
+    "best_price_source": "price_contract",
+    "best_description": "Кронштейн для монтажа Allied Telesis AT-TRAY4 используется для установки до четырех медиаконвертеров в стойку. Обеспечивает удобство и надежность монтажа.",
+    "best_description_source": "content",
+    "best_photo_url": "https://sistegratama.com/wp-content/uploads/2021/03/mc100_group_reduced.png",
+    "best_photo_source": "photo_verdict"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Allied Telesis",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Sky Connect™ Tracking System",
+    "description": "",
+    "specs": {
+      "series": "Sky Connect Tracker III",
+      "basic_transceiver_dual_channel": "Voice, Tracking, and Messaging",
+      "regulatory_compliance": "DO-160F (Including +55000 Alt, +85/-55 Temp)",
+      "weight_max_lbs": "4.4",
+      "weight_max_kg": "2.0",
+      "length_inches": "10.25",
+      "width_inches": "2.9",
+      "height_inches": "4.8",
+      "power_requirements_vdc": "12-32",
+      "power_current_28vdc_amp": "2.5",
+      "power_current_14vdc_amp": "3.5",
+      "transmit_power_average_watts": "1.5",
+      "transmit_power_per_lbt": "1.5 watts",
+      "mounting": "Quick release tray, 4-#8 holes, any configuration",
+      "transmission_rate_kbps_voice_data": "2.4",
+      "transmission_rate_kbps_with_compression": "10",
+      "operating_frequency_ghz": "1.616-1.6265",
+      "inputs_outputs_rs232_ports": "5 ea. (Msgr, GPS/Aux, PC, Sim1/2)",
+      "inputs_outputs_arinc429_inputs": "2 ea.",
+      "inputs_outputs_arinc429_outputs": "1 ea.",
+      "discrete_inputs": "8 ea. 0-36VDC, Sink 200ma Max.",
+      "discrete_outputs": "4 ea., Max Voltage 36VDC, sink 200ma",
+      "usb_pc_data_connection": "1 ea.",
+      "ethernet_port_configuration": "1 ea.",
+      "gps_tracking_source_redundancy": "3 separate GPS sources simultaneous",
+      "gps_external_arinc429_baud": "Hi/Lo Speed",
+      "gps_external_arinc429_parameters": "Altitude, Lat/Lon, Track, Ground Speed, Cross track error, Desired Track, Distance to waypoint, Bearing to waypoint, magnetic variation, Flight Plan data",
+      "gps_external_rs232_baud_9600": "Garmin, Honeywell, Trimble and other standard ADF formats",
+      "gps_external_rs232_baud_4800": "NMEA",
+      "gps_internal_nmea_messages": "GSV, RMC, GSA, GGA, GLL, VTG, TXT",
+      "flight_data_monitoring_sd_storage_gb": "4",
+      "flight_data_monitoring_recording_time_minimum_hrs": "~350",
+      "temperature_monitors": "4 with user selectable Over the air alert thresholds",
+      "capacitive_keep_alive_circuit": "Provides an additional minute of operation post power loss",
+      "recorded_autonomous_events": "Discrete Input activity, Call Logs, Signal Strength",
+      "dual_arinc429_inputs_recordable_labels": "64",
+      "additional_gps_labels_recorded": "23",
+      "user_selectable_sampling_rates": "100ms-60s",
+      "ota_alert_labels_and_sampling_groups": "4",
+      "accelerometer_axis": "3 Axis",
+      "accelerometer_recording_rate": "User configurable",
+      "accelerometer_ota_alert": "User configurable thresholds",
+      "mmu_ii_display": "Dimmable 2-line, 32-character alphanumeric",
+      "mmu_ii_keypad": "Backlit elastomeric keys",
+      "mmu_ii_controller": "Push/turn multifunction mode controller",
+      "mmu_ii_memory": "High capacity directory with name and number",
+      "mmu_ii_mount": "DZUS-rail",
+      "mmu_ii_physical_inches": "5.7 x 1.9 x 5.0",
+      "mmu_ii_weight_lb": "0.8",
+      "mmu_ii_weight_kg": "0.3",
+      "mmu_ii_depth_behind_panel_inches": "6.5",
+      "mmu_ii_depth_behind_panel_cm": "16.5",
+      "mmu_ii_backlight_keypad": "Standard dialing with in-call DTMF and text input",
+      "mmu_ii_programmed_dialing": "500 16-digit phone numbers with 16-char name",
+      "mmu_ii_programmable_text_modes": "200 customized and grouped messages",
+      "mmu_ii_power_vdc": "10-32",
+      "mmu_ii_power_current_ma": "100",
+      "mmu_ii_connectors": "DB-25 male (2)",
+      "tactical_dialer_display": "Dimmable LEDs and backlighting",
+      "tactical_dialer_toggles": "Pull-to-throw",
+      "tactical_dialer_physical_inches": "5.75 x 1.4 x 1.75",
+      "tactical_dialer_weight_lb": "0.3",
+      "aviation_transceiver_compliance": "DO-160D; STC (various)",
+      "aviation_transceiver_power_vdc": "12-32",
+      "aviation_transceiver_physical_inches": "10.25 x 4.8 x 2.9",
+      "aviation_transceiver_weight_lb": "4.32",
+      "aviation_transceiver_tray_inches": "10.75 x 2.9 x 0.75",
+      "single_iridium_antenna_compliance": "TSO C-144, DO-160D",
+      "single_iridium_antenna_physical_inches": "5.0 x 2.2 x 0.75",
+      "single_iridium_antenna_weight_lb": "0.6",
+      "dual_iridium_antenna_compliance": "TSO C-144, DO-160D",
+      "dual_iridium_antenna_physical_inches": "5.0 x 2.2 x 0.75",
+      "dual_iridium_antenna_weight_lb": "0.6",
+      "operating_temperature_min_celsius": "-55",
+      "operating_temperature_max_celsius": "+85",
+      "operating_altitude_max_feet": "+55000"
+    },
+    "specs_count": 76,
+    "series": "Sky Connect Tracker III",
+    "category": "",
+    "weight_g": "1996",
+    "dimensions_mm": "260x74x122",
+    "certifications": [
+      "DO-160F",
+      "DO-160D",
+      "TSO C-144",
+      "STC"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\AT-TRAY4.pdf",
+    "datasheet_size_kb": 2853,
+    "product_photos": [
+      "downloads\\datasheet_photos\\AT-TRAY4_p1_0.jpeg",
+      "downloads\\datasheet_photos\\AT-TRAY4_p1_1.jpeg",
+      "downloads\\datasheet_photos\\AT-TRAY4_p1_3.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Sky Connect™ Tracking System' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

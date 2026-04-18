@@ -7,7 +7,7 @@
     "58024911"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Усилитель Honeywell 580249.11, 4XD500, Версия 1.1",
   "assembled_title": "Усилитель Honeywell 580249.11",
   "our_price_raw": "376592,44",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Усилитель 4XD500 в rack-корпусе чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.hunters-wholesalers.co.uk/product/honeywell-58024911-digital-power-a"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -313,7 +310,16 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Amplifier module",
+    "identity_notes_p1": "Referenced as 4XD500 amplifier version 1.1; unable to confirm manufacturer",
+    "phase1_recon_done": true,
+    "real_model": "4XD500 (VARIODYN D1)",
+    "search_hint": "4XD500 power amplifier voice alarm",
+    "model_confidence": "high",
+    "model_notes": "4-channel 4x500W amplifier, Part No. 580249.11 version 1.1",
+    "phase1b_done": true,
+    "confirmed_manufacturer": "Honeywell/ESSER"
   },
   "negative_evidence": {
     "photo": [],
@@ -533,7 +539,24 @@
       "raw": "230VAC; 4×500W; Class D; 100V direct outputs; galvanic isolation; VARIODYN D1",
       "aliases": [
         "4XD500"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Series": "VARIODYN D1",
+      "Model": "4XD500",
+      "Product type": "4-channel power amplifier",
+      "Amplifier class": "Class D",
+      "Channels": "4",
+      "Output power": "4 x 500 W",
+      "Line output": "100 V",
+      "Cooling": "4 temperature-controlled fans",
+      "Features": "Soft start / inrush current limitation / galvanically isolated outputs",
+      "Output Power": "4 x 500 W (100 V)",
+      "Technology": "Class D",
+      "Compliance": "EN 54-16",
+      "Input Voltage": "230 V AC / 24 V DC Backup",
+      "Dimensions": "484 x 88 x 400 mm",
+      "Efficiency": "> 80%",
+      "Weight": "14 kg"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -557,9 +580,110 @@
     "merge_source": "result_580249.11.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 580249.11 — это четырёхканальный усилитель мощности 4XD500 для системы голосового оповещения VARIODYN D1. Устройство выполнено по классу D и рассчитано на четыре независимых канала, что удобно для распределённой зональной системы оповещения. Производитель указывает прямые гальванически развязанные 100‑вольтовые выходы, что типично для профессиональных систем трансляции и пожарного оповещения в зданиях. Такая архитектура подходит для подключения линий громкоговорителей на объектах с большой протяжённостью кабельных трасс. Усилитель применяется в составе систем общественного оповещения, эвакуации и фоновой трансляции на промышленных, коммерческих и инфраструктурных объектах. Наличие soft start, ограничения пускового тока и управляемого охлаждения важно для надёжной круглосуточной эксплуатации в стойке. Позиция относится к профессиональному equipment layer и требует грамотного проектирования по нагрузке линий, резервированию и соответствию нормам системы в целом. При подборе необходимо учитывать совместимость именно с архитектурой VARIODYN D1 и параметрами подключаемых линий 100 V. Для B2B-каталога это специализированный аудиоусилитель для интеграторов систем безопасности, а не бытовой усилитель.",
+      "gemini": "Четырехканальный усилитель мощности Honeywell 4XD500 разработан специально для систем голосового оповещения Variodyn D1. Устройство использует высокоэффективную технологию усиления класса D, обеспечивая мощность 4 x 500 Вт. Усилитель оснащен гальванически изолированными выходами 100 В для подключения длинных линий громкоговорителей. Модель полностью соответствует стандарту EN 54-16, что обязательно для систем пожарной безопасности. Встроенные вентиляторы с температурным контролем гарантируют стабильную работу под высокой нагрузкой. Устройство поддерживает питание от резервного источника 24 В постоянного тока в случае сбоя сети. Усилитель интегрируется с модулями DOM для постоянного мониторинга целостности аудиоканала. Электронная защита предохраняет схему от перегрева, короткого замыкания и перегрузки. Компактный корпус высотой 2U позволяет эффективно использовать пространство в серверной стойке. Это профессиональное решение для крупных объектов с повышенными требованиями к надежности оповещения."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Series": "VARIODYN D1",
+        "Model": "4XD500",
+        "Product type": "4-channel power amplifier",
+        "Amplifier class": "Class D",
+        "Channels": "4",
+        "Output power": "4 x 500 W",
+        "Line output": "100 V",
+        "Cooling": "4 temperature-controlled fans",
+        "Features": "Soft start / inrush current limitation / galvanically isolated outputs"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "4XD500",
+        "Output Power": "4 x 500 W (100 V)",
+        "Technology": "Class D",
+        "Compliance": "EN 54-16",
+        "Input Voltage": "230 V AC / 24 V DC Backup",
+        "Dimensions": "484 x 88 x 400 mm",
+        "Efficiency": "> 80%",
+        "Weight": "14 kg"
+      }
+    },
+    "notes_all": {
+      "gpt": "Профессиональный усилитель для VARIODYN D1; интеграционная позиция."
+    }
   },
   "dr_category": "PA power amplifier",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-580249-11-d1-power-amplifier-4-channel-4xd500-230v-ac-50-60h-primaryimage",
-  "product_category": "PA power amplifier"
+  "training_urls": [
+    "https://www.acornfiresecurity.com/notifier-honeywell-power-amplifier-4-x-500w-100v-class-d-580249.11",
+    "https://www.ebay.com/itm/125733345896",
+    "https://www.esser-systems.com/en/products/details/variodyn-d1/amplifiers/58024911-four-channel-amplifier-4xd500/",
+    "https://honeywelllifesafety.com/wp-content/uploads/2016/11/VARIODYN-D1-Product-Catalog.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/550000-574999/554293-da-01-en-Essr_Variodyn_580249_11.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "376592,44",
+    "our_price_parsed": 376592.44,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2596.75,
+    "best_price_currency": "EUR",
+    "best_price_source": "phase3a",
+    "best_description": "Усилитель Honeywell 580249.11, 4XD500, Версия 1.1 используется в аудиосистемах для усиления звукового сигнала. Обеспечивает высокое качество звука и надежность работы.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.hunters-wholesalers.co.uk/product/honeywell-58024911-digital-power-a",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Усилитель Honeywell 580249.11, 4XD500, Версия 1.1 используется в аудиосистемах для усиления звукового сигнала. Обеспечивает высокое качество звука и надежность работы.",
+    "best_description_ru": "<p>Представляем вашему вниманию высококачественный усилитель мощности Honeywell 580249.11, незаменимый компонент для построения профессиональных аудиосистем. Этот усилитель, разработанный всемирно известным брендом Honeywell, гарантирует безупречное качество звука и исключительную надежность в эксплуатации. Модель 4XD500, Версия 1.1, создана для эффективного усиления звукового сигнала, обеспечивая чистое и мощное звучание в самых требовательных условиях. Он станет основой вашей аудиосистемы, гарантируя стабильную и качественную работу.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Модель:</b> Honeywell 580249.11, 4XD500, Версия 1.1, что подтверждает актуальность и оптимизацию устройства.</li>\n<li><b>Тип устройства:</b> Усилитель мощности (PA power amplifier), предназначенный для профессионального использования.</li>\n<li><b>Высокое качество звука:</b> Обеспечивает чистое, мощное и детализированное звучание без искажений.</li>\n<li><b>Надежность:</b> Продукция Honeywell известна своей долговечностью и стабильностью работы в различных условиях.</li>\n<li><b>Простота интеграции:</b> Легко интегрируется в существующие аудиосистемы благодаря стандартным интерфейсам.</li>\n<li><b>Эффективность:</b> Оптимизирован для максимальной производительности при минимальном энергопотреблении.</li>\n<li><b>Универсальность:</b> Подходит для широкого спектра аудиоинсталляций, от небольших до масштабных проектов.</li>\n<li><b>Профессиональное применение:</b> Разработан с учетом требований профессиональных звукорежиссеров и инсталляторов.</li>\n</ul>\n\n<p>Данный усилитель мощности Honeywell 580249.11 находит широкое применение в различных аудиосистемах, где требуется надежное и качественное усиление звукового сигнала. Он идеально подходит для использования в концертных залах, конференц-центрах, образовательных учреждениях, торговых комплексах, спортивных аренах и других общественных местах. Благодаря своей мощности и стабильности, он способен обеспечить равномерное и четкое звучание в больших помещениях, делая его незаменимым элементом для систем оповещения, фонового озвучивания и трансляции речи.</p>\n\n<p>Выбирая усилитель Honeywell 580249.11, вы инвестируете в безупречное качество звука и долговечность. Преимущества этой модели заключаются в ее исключительной надежности, подтвержденной репутацией бренда Honeywell, высоком качестве усиления, которое обеспечивает чистое и мощное звучание, а также в универсальности применения. Этот усилитель гарантирует стабильную работу вашей аудиосистемы на протяжении многих лет, минимизируя необходимость в обслуживании и ремонте, что делает его экономически выгодным и практичным решением для любых проектов.</p>",
+    "best_description_ru_word_count": 279,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "phase3a_price": {
+    "price": 2596.75,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/125733345896",
+    "confidence": "medium",
+    "notes": "Used power amplifier listing.",
+    "search_used": "4XD500 VARIODYN D1 580249.11"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire safety",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Esser, record says Honeywell",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "Honeywell does not manufacture audio amplifiers. The PN format '580249.11' and model '4XD500' do not match Honeywell's industrial product naming conventions. The Russian description clearly indicates an audio power amplifier (усилитель мощности) for professional audio systems. This is a misattributed product - likely belongs to a professional audio equipment manufacturer. Without additional data sources, cannot determine correct brand, but confident this is NOT Honeywell."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию высококачественный усилитель мощности Honeywell 580249.11, незаменимый компонент для построения профессиональных аудиосистем. Этот усилитель, разработанный всемирно известным брендом Honeywell, гарантирует безупречное качество звука и исключительную надежность в эксплуатации. Модель 4XD500, Версия 1.1, создана для эффективного усиления звукового сигнала, обеспечивая чистое и мощное звучание в самых требовательных условиях. Он станет основой вашей аудиосистемы, гарантируя стабильную и качественную работу.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Модель:</b> Honeywell 580249.11, 4XD500, Версия 1.1, что подтверждает актуальность и оптимизацию устройства.</li>\n<li><b>Тип устройства:</b> Усилитель мощности (PA power amplifier), предназначенный для профессионального использования.</li>\n<li><b>Высокое качество звука:</b> Обеспечивает чистое, мощное и детализированное звучание без искажений.</li>\n<li><b>Надежность:</b> Продукция Honeywell известна своей долговечностью и стабильностью работы в различных условиях.</li>\n<li><b>Простота интеграции:</b> Легко интегрируется в существующие аудиосистемы благодаря стандартным интерфейсам.</li>\n<li><b>Эффективность:</b> Оптимизирован для максимальной производительности при минимальном энергопотреблении.</li>\n<li><b>Универсальность:</b> Подходит для широкого спектра аудиоинсталляций, от небольших до масштабных проектов.</li>\n<li><b>Профессиональное применение:</b> Разработан с учетом требований профессиональных звукорежиссеров и инсталляторов.</li>\n</ul>\n\n<p>Данный усилитель мощности Honeywell 580249.11 находит широкое применение в различных аудиосистемах, где требуется надежное и качественное усиление звукового сигнала. Он идеально подходит для использования в концертных залах, конференц-центрах, образовательных учреждениях, торговых комплексах, спортивных аренах и других общественных местах. Благодаря своей мощности и стабильности, он способен обеспечить равномерное и четкое звучание в больших помещениях, делая его незаменимым элементом для систем оповещения, фонового озвучивания и трансляции речи.</p>\n\n<p>Выбирая усилитель Honeywell 580249.11, вы инвестируете в безупречное качество звука и долговечность. Преимущества этой модели заключаются в ее исключительной надежности, подтвержденной репутацией бренда Honeywell, высоком качестве усиления, которое обеспечивает чистое и мощное звучание, а также в универсальности применения. Этот усилитель гарантирует стабильную работу вашей аудиосистемы на протяжении многих лет, минимизируя необходимость в обслуживании и ремонте, что делает его экономически выгодным и практичным решением для любых проектов.</p>",
+    "description_seo_word_count": 279,
+    "description_seo_model": ""
+  }
 }

@@ -7,7 +7,7 @@
     "FUSE2A5X20RU"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Предохранитель плавкий Honeywell FUSE-2A-5X20",
   "assembled_title": "Предохранитель Honeywell FUSE-2A-5X20-RU",
   "our_price_raw": "151,90",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Плавкие предохранители 5x20 с маркировкой FUSE 2A 5x20 250V на этикетке",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,10 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://barnspb.ru/fuse-2a-5x20-250v/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -358,7 +355,13 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Protection",
+    "discontinued": false,
+    "identity_notes_p1": "2A 5x20mm fuse; Russian market variant",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -376,9 +379,8 @@
     "description": "Предохранитель плавкий Honeywell FUSE-2A-5X20 предназначен для защиты электрических цепей от перегрузок. Он обеспечивает надежную защиту и предотвращает повреждение оборудования.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Предохранитель",
-    "seed_name": "Предохранитель плавкий Honeywell FUSE-2A-5X20",
-    "description_long_ru": "Standard commodity fuse. Generic equivalents ~$0.50-$1.00/ea in bulk. -RU = Russian market suffix"
+    "product_type": "Fuse",
+    "seed_name": "Предохранитель плавкий Honeywell FUSE-2A-5X20"
   },
   "trace": {
     "pn_match_location": "",
@@ -634,7 +636,20 @@
       "raw": "2A; 5×20 mm citeturn7search1",
       "aliases": [
         "FUSE-2A-5X20 (без -RU)"
-      ]
+      ],
+      "Type": "Glass tube fuse",
+      "Rating": "2 A",
+      "Size": "5 x 20 mm",
+      "Market": "RU (Russia)",
+      "Application": "Fire alarm panels, PSU modules",
+      "Current Rating": "2 A",
+      "Voltage Rating": "250 VAC",
+      "Body Material": "Glass",
+      "Brand": "Honeywell",
+      "Fuse type": "Glass fuse",
+      "Current rating": "2 A",
+      "End cap diameter": "5 mm",
+      "End cap length": "20 mm"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -653,12 +668,160 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.412834+00:00",
+    "merge_ts": "2026-04-09T12:01:24.919753+00:00",
     "merge_source": "result_FUSE-2A-5X20-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Standard commodity fuse. Generic equivalents ~$0.50-$1.00/ea in bulk. -RU = Russian market suffix"
+    "descriptions_all": {
+      "claude": "Honeywell FUSE-2A-5X20-RU — стеклянный плавкий предохранитель с номинальным током 2 А и размерами 5 × 20 мм, предназначенный для использования в оборудовании Honeywell. Данный предохранитель является фабричным аксессуаром для источников питания и другого оборудования Honeywell, обеспечивая удобную установку и обслуживание. Суффикс '-RU' указывает на версию для российского рынка. Предохранители серии 5×20 мм широко применяются в электронном оборудовании для защиты от перегрузок по току. Стеклянный корпус позволяет визуально определить состояние предохранителя (перегоревший или исправный). Предохранитель рассчитан на номинальное напряжение 250 В переменного тока. Установка осуществляется в стандартные держатели предохранителей формата 5×20 мм. Поставляется в упаковке по 10 штук (артикул HP2A/20MM-10 у Honeywell).",
+      "gpt": "Honeywell FUSE-2A-5X20-RU — это стеклянный плавкий предохранитель форм-фактора 5 x 20 мм с номиналом 2 А. По своей функции это типовой сервисный расходник для защиты внутренних цепей оборудования от перегрузки и короткого замыкания. Honeywell публикует для этой позиции базовые механические параметры: длина 20 мм и диаметр торцевых колпачков 5 мм. Такие предохранители часто используются в контрольных панелях, периферийных блоках, источниках питания и низковольтной автоматики. Преимущество форм-фактора 5x20 мм в том, что он широко распространён, легко обслуживается и устанавливается в стандартные держатели. Для сервисных инженеров важно подбирать не только ток, но и времятоковую характеристику, а также допустимое напряжение — эти параметры должны подтверждаться по конкретному оборудованию. В открытой карточке Honeywell позиция помечена как discontinued, поэтому её обычно ищут как replacement/service spare для существующей базы установленного оборудования. В B2B-каталоге такую позицию лучше размещать как glass fuse, spare part, with exact size and current clearly stated. При замене нужно соблюдать оригинальный номинал и подтверждать совместимость по сервисной документации оборудования. Суффикс -RU в исходном списке, вероятно, связан с региональной номенклатурой, но ключевые подтверждённые характеристики относятся к базовой позиции 2A Glass Fuse.",
+      "synthesis": "Honeywell FUSE-2A-5X20-RU — стеклянный плавкий предохранитель форм-фактора 5 x 20 мм с номиналом 2 А, являющийся типовым сервисным расходником для защиты внутренних цепей оборудования от перегрузки и короткого замыкания. Суффикс '-RU' указывает на версию для российского рынка. Предохранитель рассчитан на номинальное напряжение 250 В переменного тока. Стеклянный корпус позволяет визуально определить состояние предохранителя (перегоревший или исправный). Установка осуществляется в стандартные держатели предохранителей формата 5×20 мм. Такие предохранители часто используются в контрольных панелях, периферийных блоках, источниках питания и низковольтной автоматики систем Honeywell. Для сервисных инженеров важно подбирать не только ток, но и времятоковую характеристику, а также допустимое напряжение — эти параметры должны подтверждаться по конкретному оборудованию. Поставляется в упаковке по 10 штук. В открытом каталоге позиция помечена как discontinued, поэтому её обычно ищут как replacement/service spare для существующей базы установленного оборудования."
+    },
+    "specs_all": {
+      "claude": {
+        "Current Rating": "2 A",
+        "Voltage Rating": "250 VAC",
+        "Size": "5 × 20 mm",
+        "Body Material": "Glass",
+        "Type": "Cartridge fuse",
+        "Brand": "Honeywell",
+        "Market": "RU (Russia)"
+      },
+      "gpt": {
+        "Fuse type": "Glass fuse",
+        "Current rating": "2 A",
+        "Size": "5 x 20 mm",
+        "End cap diameter": "5 mm",
+        "End cap length": "20 mm"
+      }
+    },
+    "notes_all": {
+      "claude": "Standard 5x20mm glass fuse, Honeywell branded for use with their power supplies.",
+      "gpt": "Официальная страница помечает изделие как discontinued. Суффикс -RU отдельно не расшифрован в просмотренных источниках."
+    }
   },
-  "product_category": "fuse"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/fuses/2a-glass-fuse",
+    "https://tormach.com/fuse-2a-glass-5x20-31123.html",
+    "https://vseinstrumenti.ru/category/predohraniteli-10257/",
+    "https://www.amazon.com/2A-250V-5x20mm-fuse-volts/dp/B00UO08IOQ",
+    "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+    "https://www.phoenixcontact.com/en-us/products/replacement-fuse-adt-fuse-5x20-2a-t-250v-1457326",
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/parts-and-accessories/parts-and-hardware/2a-glass-fuse"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 0.85,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.graybar.com/gma-series-fast-acting-fuse-glass-tube-low-breaking-capacity-2a-250v-5-x-20mm-rohs-compliant/p/25141956",
+    "our_price_raw": "151,90",
+    "our_price_parsed": 151.9,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": null,
+    "judge_reason": "fuse 2A, '5X20' is physical size 5mm×20mm, not pack quantity"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 0.85,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Предохранитель плавкий Honeywell FUSE-2A-5X20 предназначен для защиты электрических цепей от перегрузок. Он обеспечивает надежную защиту и предотвращает повреждение оборудования.",
+    "best_description_source": "content",
+    "best_photo_url": "https://barnspb.ru/fuse-2a-5x20-250v/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Предохранитель плавкий Honeywell FUSE-2A-5X20 предназначен для защиты электрических цепей от перегрузок. Он обеспечивает надежную защиту и предотвращает повреждение оборудования.",
+    "best_description_ru": "<p>Предохранитель плавкий Honeywell FUSE-2A-5X20-RU — это надежный защитный элемент, разработанный компанией Honeywell для защиты электрических цепей от перегрузок и коротких замыканий. Данный предохранитель предназначен для использования в различных электротехнических устройствах и системах, где требуется надежная защита оборудования от повреждений, вызванных избыточным электрическим током. Благодаря высокому качеству изготовления и проверенной надежности бренда Honeywell, этот предохранитель обеспечивает стабильную работу электрических цепей и продлевает срок службы подключенного оборудования.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальный ток: 2 ампера</li>\n<li>Размер корпуса: 5х20 мм (стандартный формат)</li>\n<li>Производитель: Honeywell — мировой лидер в области электротехники</li>\n<li>Быстрое срабатывание при превышении номинального тока</li>\n<li>Компактный размер для удобной установки в различные устройства</li>\n<li>Высокая надежность и долговечность</li>\n<li>Соответствие международным стандартам качества</li>\n</ul>\n\n<p><b>Применение:</b> Предохранитель FUSE-2A-5X20-RU широко используется в промышленном оборудовании, бытовых приборах, системах автоматизации и управления, а также в различных электронных устройствах. Он устанавливается в электрические цепи для защиты от перегрузок и предотвращения возгорания проводки. Этот предохранитель идеально подходит для применения в местах, где требуется надежная защита электрических систем от аварийных ситуаций.</p>\n\n<p><b>Преимущества:</b> Выбирая предохранитель Honeywell FUSE-2A-5X20-RU, вы получаете гарантию качества от известного мирового производителя. Надежная защита электрических цепей предотвращает дорогостоящий ремонт оборудования и обеспечивает безопасность использования электрических устройств. Стандартный размер 5х20 мм позволяет легко заменить предохранитель в любом совместимом устройстве.</p>",
+    "best_description_ru_word_count": 198,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "GASTER N 119 ÷ 289 AW",
+    "description": "",
+    "specs": {
+      "product_name": "GASTER N 119 ÷ 289 AW",
+      "type": "High-efficiency central heating boiler",
+      "fuel": "Natural gas or liquefied gas (configurable at installation)",
+      "combustion_type": "Atmospheric burner with electronic ignition and flame ionization control",
+      "heat_exchanger_material": "Cast iron elements",
+      "control_system": "Advanced electronic control system",
+      "water_temperature_range_min": "30°C",
+      "water_temperature_range_max": "90°C",
+      "recommended_operating_temperature_min": "45°C",
+      "thermal_jump_recommended_max": "20°C",
+      "hydraulic_pressure_cold_system": "1.0 bar",
+      "burner_type": "Atmospheric with electronic ignition",
+      "flame_control": "Ionization-based flame control",
+      "safety_devices": "Automatic air bleed valve, 2-stage regulation thermostat, safety thermostat, flue gas thermostat",
+      "installation_type": "Floor-mounted (basamento)",
+      "chamber_type": "Open chamber",
+      "ventilation_requirement": "Permanently ventilated room required",
+      "control_panel_features": [
+        "Thermostat regulation knob (7) - 2-stage",
+        "Boiler thermomanometer (2)",
+        "Manual reset safety thermostat cap (3)",
+        "Flame control unit reset button with lock indicator (6)",
+        "ON/OFF switch (8)",
+        "TEST switch (9)",
+        "Alarm lamp for safety/flue thermostat (10)"
+      ],
+      "maintenance_requirements": "Annual maintenance mandatory by qualified personnel; biennial combustion verification",
+      "ignition_system": "Electronic ignition",
+      "automatic_features": "Automatic operation with electronic ignition and flame control; automatic restart on power restoration",
+      "reset_procedure": "Press reset button after ~15 seconds if burner fails to ignite",
+      "power_supply_behavior": "Burners shut off during power loss; automatic restart on power restoration"
+    },
+    "specs_count": 23,
+    "series": "GASTER N",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "CE",
+      "2009/142 Gas Appliances Directive",
+      "92/42 Efficiency Directive",
+      "2006/95 Low Voltage Directive",
+      "2004/108 Electromagnetic Compatibility Directive",
+      "ISO 9001"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FUSE-2A-5X20-RU.pdf",
+    "datasheet_size_kb": 9266,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FUSE-2A-5X20-RU_p1_0.png",
+      "downloads\\datasheet_photos\\FUSE-2A-5X20-RU_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Предохранитель плавкий Honeywell FUSE-2A-5X20-RU — это надежный защитный элемент, разработанный компанией Honeywell для защиты электрических цепей от перегрузок и коротких замыканий. Данный предохранитель предназначен для использования в различных электротехнических устройствах и системах, где требуется надежная защита оборудования от повреждений, вызванных избыточным электрическим током. Благодаря высокому качеству изготовления и проверенной надежности бренда Honeywell, этот предохранитель обеспечивает стабильную работу электрических цепей и продлевает срок службы подключенного оборудования.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальный ток: 2 ампера</li>\n<li>Размер корпуса: 5х20 мм (стандартный формат)</li>\n<li>Производитель: Honeywell — мировой лидер в области электротехники</li>\n<li>Быстрое срабатывание при превышении номинального тока</li>\n<li>Компактный размер для удобной установки в различные устройства</li>\n<li>Высокая надежность и долговечность</li>\n<li>Соответствие международным стандартам качества</li>\n</ul>\n\n<p><b>Применение:</b> Предохранитель FUSE-2A-5X20-RU широко используется в промышленном оборудовании, бытовых приборах, системах автоматизации и управления, а также в различных электронных устройствах. Он устанавливается в электрические цепи для защиты от перегрузок и предотвращения возгорания проводки. Этот предохранитель идеально подходит для применения в местах, где требуется надежная защита электрических систем от аварийных ситуаций.</p>\n\n<p><b>Преимущества:</b> Выбирая предохранитель Honeywell FUSE-2A-5X20-RU, вы получаете гарантию качества от известного мирового производителя. Надежная защита электрических цепей предотвращает дорогостоящий ремонт оборудования и обеспечивает безопасность использования электрических устройств. Стандартный размер 5х20 мм позволяет легко заменить предохранитель в любом совместимом устройстве.</p>",
+    "description_seo_word_count": 198,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 9266KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'GASTER N 119 ÷ 289 AW' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

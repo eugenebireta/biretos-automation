@@ -4,7 +4,7 @@
   "pn": "N05010",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод заслонки Honeywell N05010",
   "assembled_title": "Привод Honeywell N05010",
   "our_price_raw": "14984,10",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "привод заслонки угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://avitek-i.ru/catalog/ventilyatsiya/servoprivody_i_zaslonki/privody_dlya_v"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -343,7 +340,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -622,5 +620,118 @@
   "dr_price": 209.33,
   "dr_currency": "USD",
   "dr_price_source": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
-  "product_category": "actuator"
+  "training_urls": [
+    "https://bolasystems.com/actuator-smartact-honeywell-n05010",
+    "https://buildings.honeywell.com/.../n05-rotary-damper-actuator",
+    "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+    "https://manualslib.com/manual/1600863/Honeywell-N05010.html",
+    "https://oumanshop.com/product/n05010/",
+    "https://radwell.com/Buy/HONEYWELL/HONEYWELL/N05010",
+    "https://www.radwell.com/Buy/HONEYWELL/HONEYWELL/N05010"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 209.33,
+    "dr_currency": "USD",
+    "dr_source_url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+    "our_price_raw": "14984,10",
+    "our_price_parsed": 14984.1,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 209.33,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Привод заслонки Honeywell N05010 с крутящим моментом 5 Нм предназначен для управления воздушными заслонками в системах вентиляции. Работает от напряжения 24 В и поддерживает управление сигналом 0-10 В, обеспечивая точное регулирование потока воздуха.",
+    "best_description_source": "content",
+    "best_photo_url": "https://avitek-i.ru/catalog/ventilyatsiya/servoprivody_i_zaslonki/privody_dlya_v",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Привод заслонки Honeywell N05010 с крутящим моментом 5 Нм предназначен для управления воздушными заслонками в системах вентиляции. Работает от напряжения 24 В и поддерживает управление сигналом 0-10 В, обеспечивая точное регулирование потока воздуха.",
+    "best_description_ru": "<p>Привод заслонки Honeywell N05010 — это надежное устройство низовой автоматики, разработанное компанией Honeywell, мировым лидером в области систем управления и автоматизации. Этот электрический привод предназначен для управления воздушными заслонками в системах вентиляции и кондиционирования воздуха. Устройство обеспечивает точное и плавное регулирование потока воздуха, что делает его идеальным решением для жилых, коммерческих и промышленных объектов, где требуется эффективный климат-контроль.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Крутящий момент: 5 Нм — достаточный для управления заслонками среднего размера</li>\n<li>Напряжение питания: 24 В переменного тока — стандартное напряжение для систем автоматизации</li>\n<li>Сигнал управления: 0-10 В — позволяет интегрировать привод в системы автоматического управления</li>\n<li>Точное регулирование — обеспечивает плавное изменение положения заслонки</li>\n<li>Надежная конструкция — долговечность и стабильная работа в различных условиях</li>\n<li>Простота монтажа — удобное подключение к существующим системам вентиляции</li>\n</ul>\n\n<p><b>Применение:</b> Привод Honeywell N05010 широко используется в системах вентиляции и кондиционирования воздуха для автоматического управления воздушными потоками. Устройство применяется в офисных зданиях, торговых центрах, больницах, школах и жилых комплексах. Благодаря поддержке сигнала 0-10 В, привод легко интегрируется в системы диспетчеризации и умного дома, обеспечивая автоматическое регулирование микроклимата в помещениях.</p>\n\n<p><b>Преимущества:</b> Выбирая привод Honeywell N05010, вы получаете продукцию от проверенного производителя с мировой репутацией. Устройство отличается высокой надежностью, точностью управления и совместимостью с современными системами автоматизации. Оптимальный крутящий момент в 5 Нм обеспечивает эффективное управление заслонками без избыточной мощности, что способствует экономии электроэнергии и продлевает срок службы оборудования.</p>",
+    "best_description_ru_word_count": 221,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Низовая автоматика",
+    "description": "Каталог продукции. Всё для систем отопления, централизованного теплоснабжения и вентиляции.",
+    "specs": {
+      "valve_type": "2-way small linear valve",
+      "nominal_pressure_PN": "16 bar (Ру 16)",
+      "nominal_diameter_DN": "15-25 mm",
+      "stroke_mm": "6.5, 2.5",
+      "operating_temperature": "2...120°C",
+      "working_medium": "Water with max 50% glycol",
+      "regulation_range": "50:1",
+      "leakage_intensity": "0.02% kVS",
+      "direction_of_action": "Stem spring-loaded, stem down opens valve",
+      "housing_material": "Brass",
+      "stem_material": "Stainless steel",
+      "plunger_material": "Brass",
+      "sealing_material": "EPDM",
+      "connection_types": "G 1/2A, G 3/4A, G 1 1/4",
+      "DN_15_length_mm": "56",
+      "DN_20_length_mm": "66",
+      "DN_25_length_mm": "76",
+      "DN_15_connector_diameter_mm": "32",
+      "DN_20_connector_diameter_mm": "34",
+      "DN_25_connector_diameter_mm": "48",
+      "DN_15_mass_kg": "0.13",
+      "DN_20_mass_kg": "0.21",
+      "DN_25_mass_kg": "0.54"
+    },
+    "specs_count": 23,
+    "series": "VSxF-2",
+    "category": "Автоматика для систем отопления, централизованного теплоснабжения и вентиляции",
+    "weight_g": "130, 210, 540",
+    "dimensions_mm": "56x32 (DN15), 66x34 (DN20), 76x48 (DN25)",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\N05010.pdf",
+    "datasheet_size_kb": 10335,
+    "product_photos": [
+      "downloads\\datasheet_photos\\N05010_p1_0.jpeg",
+      "downloads\\datasheet_photos\\N05010_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/N05010_p1_0.jpeg",
+      "downloads/datasheet_photos/N05010_p1_1.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN appear correct - N05010 is a valid Honeywell part number format. Seed name clearly indicates 'Привод заслонки' (damper actuator) which is a legitimate Honeywell product category. However, the datasheet title 'Низовая автоматика' (low-level automation) is far too generic and doesn't match the specific product type. The datasheet appears to be wrong or too general - needs replacement with actual N05010 damper actuator specifications."
+    },
+    "description_seo_ru": "<p>Привод заслонки Honeywell N05010 — это надежное устройство низовой автоматики, разработанное компанией Honeywell, мировым лидером в области систем управления и автоматизации. Этот электрический привод предназначен для управления воздушными заслонками в системах вентиляции и кондиционирования воздуха. Устройство обеспечивает точное и плавное регулирование потока воздуха, что делает его идеальным решением для жилых, коммерческих и промышленных объектов, где требуется эффективный климат-контроль.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Крутящий момент: 5 Нм — достаточный для управления заслонками среднего размера</li>\n<li>Напряжение питания: 24 В переменного тока — стандартное напряжение для систем автоматизации</li>\n<li>Сигнал управления: 0-10 В — позволяет интегрировать привод в системы автоматического управления</li>\n<li>Точное регулирование — обеспечивает плавное изменение положения заслонки</li>\n<li>Надежная конструкция — долговечность и стабильная работа в различных условиях</li>\n<li>Простота монтажа — удобное подключение к существующим системам вентиляции</li>\n</ul>\n\n<p><b>Применение:</b> Привод Honeywell N05010 широко используется в системах вентиляции и кондиционирования воздуха для автоматического управления воздушными потоками. Устройство применяется в офисных зданиях, торговых центрах, больницах, школах и жилых комплексах. Благодаря поддержке сигнала 0-10 В, привод легко интегрируется в системы диспетчеризации и умного дома, обеспечивая автоматическое регулирование микроклимата в помещениях.</p>\n\n<p><b>Преимущества:</b> Выбирая привод Honeywell N05010, вы получаете продукцию от проверенного производителя с мировой репутацией. Устройство отличается высокой надежностью, точностью управления и совместимостью с современными системами автоматизации. Оптимальный крутящий момент в 5 Нм обеспечивает эффективное управление заслонками без избыточной мощности, что способствует экономии электроэнергии и продлевает срок службы оборудования.</p>",
+    "description_seo_word_count": 221,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 10335KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Низовая автоматика' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

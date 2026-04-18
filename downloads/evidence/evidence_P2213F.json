@@ -4,7 +4,7 @@
   "pn": "P2213F",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Системный блок Honeywell P2213F",
   "assembled_title": "Системный блок Honeywell P2213F",
   "our_price_raw": "1782,17",
@@ -188,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqQneW9xYgun43FNfUFE'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -206,10 +206,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.marktplaats.nl/v/computers-en-software/monitoren/m2352612988-dell-be"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -328,7 +325,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "P2213 Series",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "Dell Professional 22\" LCD monitor; not Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -351,7 +353,7 @@
     "description": "Системный блок Honeywell P2213F предназначен для использования в офисных и промышленных условиях. Обеспечивает высокую производительность и надежность благодаря современным компонентам и возможностям расширения.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Системный блок",
+    "product_type": "Monitor",
     "seed_name": "Системный блок Honeywell P2213F",
     "description_long_ru": "Без зацепок по алиасам/серии/региональным суффиксам цену не зафиксировал."
   },
@@ -622,5 +624,60 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md"
   },
-  "product_category": "â"
+  "training_urls": [],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "1782,17",
+    "our_price_parsed": 1782.17,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 35.0,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Системный блок Honeywell P2213F предназначен для использования в офисных и промышленных условиях. Обеспечивает высокую производительность и надежность благодаря современным компонентам и возможностям расширения.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.marktplaats.nl/v/computers-en-software/monitoren/m2352612988-dell-be",
+    "best_photo_source": "photo_verdict"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell",
+  "phase3a_price": {
+    "price": 35.0,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.ebay.com/itm/353930163395",
+    "confidence": "medium",
+    "notes": "Used condition",
+    "search_used": "P2213F Dell"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Dell",
+      "candidates": [
+        "Dell"
+      ],
+      "product_hint": "monitor",
+      "needs_disambiguation": false,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests Dell, record says Honeywell",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

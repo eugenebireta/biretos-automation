@@ -10,7 +10,10 @@ from ..hard_shell.contracts import (
     AuditIssue,
     AuditVerdict,
     AuditVerdictValue,
+    DefectRegister,
     IssueSeverity,
+    L2Report,
+    RepairEntry,
     TaskPack,
 )
 from .base import AuditorProvider
@@ -62,6 +65,42 @@ class MockAuditor(AuditorProvider):
             auditor_id=self.auditor_id,
             verdict=self._verdict,
             summary=self._summary + " (final)",
+            issues=self._issues,
+        )
+
+    async def debate(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        peer_verdict: AuditVerdict,
+    ) -> AuditVerdict:
+        return AuditVerdict(
+            auditor_id=self.auditor_id,
+            verdict=self._verdict,
+            summary=self._summary + " (debate)",
+            issues=self._issues,
+        )
+
+    async def re_review(
+        self,
+        proposal: str,
+        task: TaskPack,
+        context: dict[str, Any],
+        defect_register: DefectRegister,
+        repair_manifest: list[RepairEntry],
+        l2_report: L2Report,
+        original_diff: str = "",
+    ) -> AuditVerdict:
+        """
+        Mock re-review: returns the same verdict as critique by default.
+        This models a critic that doesn't change its mind unless given reason to.
+        Override with a separate MockAuditor instance configured differently for tests.
+        """
+        return AuditVerdict(
+            auditor_id=self.auditor_id,
+            verdict=self._verdict,
+            summary=self._summary + " (re-review)",
             issues=self._issues,
         )
 

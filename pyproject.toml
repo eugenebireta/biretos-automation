@@ -15,3 +15,6 @@ line-length = 120
 "tests/enrichment/test_cloud_uploader.py" = ["E402"]
 "tests/enrichment/test_exporter_insales.py" = ["E402"]
 "tests/enrichment/test_photo_upscale_orchestrator.py" = ["E402"]
+# Pipeline v2 — batch processing scripts with prompt strings, sys.path, star imports
+"scripts/pipeline_v2/*.py" = ["E402", "E501", "E701", "E702", "F403", "F405", "F841"]
+"downloads/staging/_*.py" = ["E402", "E501", "E701", "E702"]

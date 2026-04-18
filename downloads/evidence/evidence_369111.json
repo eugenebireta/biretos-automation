@@ -4,7 +4,7 @@
   "pn": "369111",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Устройство Honeywell D 95.571.78",
   "assembled_title": "Рамка 1-постовая PEHA DIALOG, 369111",
   "our_price_raw": "517,70",
@@ -341,7 +341,13 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 95.571.78",
+    "series": "DIALOG",
+    "identity_notes_p1": "DIALOG device mounting frame, 1-gang equivalent",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -381,7 +387,7 @@
     "description": "Устройство Honeywell D 95.571.78 применяется в системах автоматизации для выполнения специфических функций. Обладает высокой надежностью и долговечностью.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Устройство",
+    "product_type": "Device mount/frame 1-gang",
     "seed_name": "Устройство Honeywell D 95.571.78",
     "description_long_ru": "На странице указана скидка -5% и статус «нет в наличии»"
   },
@@ -675,5 +681,124 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "switch frame"
+  "training_urls": [
+    "https://www.sec.gov/Archives/edgar/data/70858/0000070858-04-000523.txt",
+    "https://liveinlight.ru/ramki/ramki-1-post/ramka-1-post-peha-by-honeywell-dialog-bronzovyy-2"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 493.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://liveinlight.ru/ramki/ramki-1-post/ramka-1-post-peha-by-honeywell-dialog-bronzovyy-2",
+    "our_price_raw": "517,70",
+    "our_price_parsed": 517.7,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 493.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Устройство Honeywell D 95.571.78 применяется в системах автоматизации для выполнения специфических функций. Обладает высокой надежностью и долговечностью.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PEHA_369111.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "SERVICE MANUAL (DOMESTIC)",
+    "description": "",
+    "specs": {
+      "voltage_models_1000_1001_1004_1005_1200_1201_1204_1205": "120/230 VAC",
+      "frequency_models_1000_1001_1004_1005_1200_1201_1204_1205": "60 Hz",
+      "fuel_model_1000": "Natural Gas",
+      "fuel_model_1001": "L.P. Gas",
+      "fuel_model_1004": "Natural Gas",
+      "fuel_model_1005": "L.P. Gas",
+      "fuel_model_1200": "Natural Gas/Dual Belt",
+      "fuel_model_1201": "L.P. Gas/Dual Belt",
+      "fuel_model_1204": "Natural Gas/Dual Belt",
+      "fuel_model_1205": "L.P. Gas/Dual Belt",
+      "voltage_models_1022_1023_1202_1203": "120/208 VAC or 120/240 VAC",
+      "phase_models_1022_1023_1202_1203": "3 Phase",
+      "frequency_models_1022_1023_1202_1203": "60 Hz",
+      "power_supply_conductors_models_1000_1200": "4 conductor service",
+      "power_supply_conductors_models_1022_1202": "5 conductor service",
+      "control_box_cooling_fan_activation_temperature": "120°F ± 3°F",
+      "control_box_cooling_fan_deactivation_temperature": "100°F ± 3°F",
+      "cool_down_thermostat_close_temperature": "160°F",
+      "cool_down_thermostat_open_temperature": "140°F",
+      "main_fan_motor_fuses_models_1000_1200": "2x 10A",
+      "transformer_secondary_voltage": "12.6 VAC (normally 13-14 VAC)",
+      "burner_circuit_supply_voltage": "120 VAC",
+      "burner_motor_relay_closure_time": "30 seconds",
+      "burner_blower_motor_centrifugal_switch_rpm": "approximately 1600 R.P.M.",
+      "step_down_transformer_secondary_voltage": "24 VAC",
+      "step_down_transformer_fuse_models_1004_1005": "1A",
+      "conveyor_drive_fuse_sn_100_to_4389": "3A",
+      "motor_control_board_speed_control_potentiometer_sn_100_to_4389": "500 ohm, 10 turn",
+      "motor_control_board_speed_control_potentiometer_sn_4390_and_above": "5,000 ohm, 10 turn",
+      "mercury_contactors_fuses_models_1022_1202": "6x 50A",
+      "main_fan_relay_fuses_models_1022_1202": "2x 15A"
+    },
+    "specs_count": 31,
+    "series": "Impinger I - 1000 & 1200 Series",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\369111.pdf",
+    "datasheet_size_kb": 2035,
+    "product_photos": [
+      "downloads\\datasheet_photos\\369111_p1_0.jpeg",
+      "downloads\\datasheet_photos\\369111_p1_1.jpeg"
+    ],
+    "photo_count": 2,
+    "ean": "4010105369113",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 369111 matches PEHA's 6-digit numeric format. Current brand is correctly PEHA, but the datasheet is wrong - it contains a Honeywell service manual (D 95.571.78) instead of PEHA product data. The seed_name incorrectly references Honeywell due to bad datasheet. Need correct PEHA datasheet for PN 369111 to determine actual product type and details."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'SERVICE MANUAL (DOMESTIC)' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105369113",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

@@ -1,0 +1,311 @@
+{
+  "pn": "CF274A",
+  "model": "gemini-2.5-flash",
+  "prompt": "You are parsing a product datasheet PDF. Extract technical specifications THOROUGHLY.\n\nReturn ONLY valid JSON:\n{\n  \"specs\": {\"<param>\": \"<value>\"},\n  \"weight_g\": \"<number only, e.g. 250>\",\n  \"dimensions_mm\": \"<LxWxH e.g. 120x80x45>\",\n  \"ean\": \"<13 digits or empty>\",\n  \"series\": \"<product family>\",\n  \"certifications\": [\"CE\", \"EN54-18\", ...]\n}\n\nSPECS FIELD — include EVERY concrete technical parameter you can find:\n- Electrical: voltage (V), current (A, mA), power (W), frequency (Hz)\n- Physical: dimensions LxWxH, weight, housing/enclosure material, color\n- Environmental: operating temperature, IP rating, humidity range\n- Performance: detection range, sensitivity, response time, output type\n- Interface: connector type, cable, mounting type, communication protocol\n- Compliance: EN/IEC/UL standards, certifications\n- Any numeric values in tables (do not skip tables!)\n\nIf datasheet has a \"Technical Data\" / \"Specifications\" / \"Specifications tabulaire\" / \"Technische Daten\" section — extract EVERY row.\n\nDo NOT skip specs because they seem obvious. Extract literally.\n\nIf a value is truly absent, omit the key. Do NOT write \"N/A\" or \"not specified\".\n\nReturn empty specs {} ONLY if the PDF genuinely has no technical specifications (rare for datasheets).\n",
+  "pdf_text": "HP LaserJet Pro 400 Printer M401 series\nWithout touchscreen: M401a, M401d, M401dne\nFeature-packed and easy to use, this fast and reliable HP LaserJet\nhelps you meet all your professional printing needs – including\nprinting from mobile devices plus optional touchscreen access to\nbusiness apps – while reducing environmental impact.\nWithout touchscreen: M401a, M401d, M401dne\n(with optional 500-sheet tray)\nWith touchscreen: M401dn, M401dw\nTouchscreen on M401dn, M401dw\n1 Available on M401dw model only. 2 Wireless performance is dependent upon physical environment and distance from access point, and may be limited during active VPN connections. 3 Available on M401dn, M401dw and M401dne models only. 4 Available on M401dn and\nM401dw models only. 5 Requires a wireless access point and an Internet connection to the printer. Services may require registration. Availability varies by country, language, and agreements, and requires a firmware upgrade. For details, www.hp.com/go/eprintcenter. 6 HP Auto\nWireless Connect may not be available for all system configurations. Wireless performance is dependent upon physical environment and distance from access point. For information on compatibility, visit www.hp.com/go/autowirelessconnect. 7 Requires an Internet connection\nto the printer. Feature works with any connected Internet- and email-capable device. Requires HP Web Services Account Registration. Print times may vary. For a list of supported documents, and image types, see www.hp.com/go/eprintcenter. And for additional solutions, see\nwww.hp.com/go/mobile-printing-solutions. 8 Supports iOS 4.2 devices (iPad, iPhone 4, iPhone 3GS, and 3rd and 4th generation iPod touch) that support multitasking. iOS 4.2 devices require an 802.11 wireless network connection, AirPrint-capable printer can be connected\nwireless or via Ethernet. AirPrint and the AirPrint Logo are trademarks of Apple Inc. iPad, iPhone, and iPod touch are trademarks of Apple Inc., registered in the U.S. and other countries. 9 Not available on all mobile devices. Must be wireless-enabled and may require driver or\napps, available for download at www.hp.com/go/eprintcenter. Printer must be HP ePrint-enabled. 10 Available on M401d, M401dn, M401dw and M401dne models only. 11 Measured using ISO/IEC 24734, excludes first set of test documents. For more information see\nwww.hp.com/go/printerclaims. Exact speed varies depending on the system configuration, software application, driver, and document complexity. 12 Smart Install works with Windows® only – for USB and network-connections. Not available with M401dne model. 13 HP 80X\nLaserJet Black Toner Cartridge not included; must be purchased separately. 14 HP Auto-On/Auto-Off Technology capabilities subject to printer and settings. 15 Programme availability varies. HP cartridge return and recycling is currently available in more than 50 countries and\nterritories around the world through the HP Planet Partners programme. For more information, or to request return envelopes and bulk collection boxes, visit www.hp.com/recycle\nStay productive and boost business with\nwireless networking and impressive\nmobility.\n●Set up and share anywhere in the office with wireless\nconnectivity2,3. Configure networking fast1,6.\n●Print from virtually anywhere with HP ePrint3,7. Print\nwirelessly from your iPad®, iPhone®, and iPod touch® with\nAirPrint™8.\n●Send files from a mobile device directly to your printer using\nHP wireless direct printing1,9.\n●Save paper with automatic two-sided printing10. Get fast\nprint speeds up to 33 ppm A4 and a first page out in less\nthan 8 seconds11.\nExperience web-connected ease of use.\n●Use business apps and the 8.89 cm (3.5-inch) colour\ntouchscreen to access and print from the web4,5.\n●Install your printer fast – there's no CD required with HP\nSmart Install12.\n●Manage workflow with intuitive features right on the printer.\nA convenient USB port enables printing directly from a flash\ndrive4.\n●Easily control your print environment and save IT time and\ncosts – HP Web Jetadmin helps you monitor equipment and\nincrease uptime.\nEnjoy professional-quality output for a\ngreat value.\n●Produce professional-quality business documents with bold,\ncrisp text and sharp images.\n●Get peace of mind with trusted HP LaserJet reliability and\nconsistent print quality from the first to the last page.\n●Save time with easy-to-install Original HP cartridges, and\nsave money with optional high-capacity cartridges designed\nfor frequent printing13.\n●Do more with a 300-sheet paper capacity (800-sheets total\nwith optional 500-sheet tray).\nReduce your environmental impact.\n●Save energy with HP Auto-On/Auto-Off Technology which\nturns your printer on when you need it and off when you\ndon’t14.\n●Reduce paper use by up to 50% with automatic two-sided\nprinting.\n●Easily recycle Original HP LaserJet toner cartridges through\nHP Planet Partners15.\n●Reduce packaging waste: Original HP toner cartridge HP 80A\nships in the printer.\n\n\nOrdering information\nTechnical specifications\nPrint technology\nLaser\nPrint speed\nA4 black: Up to 33 ppm\nFirst page out (black, A4): As fast as 8 sec\nMeasured using ISO/IEC 24734, excludes first set of test documents. For more information see http://www.hp.com/go/printerclaims. Exact speed varies\ndepending on the system configuration, software application, driver, and document complexity.\nProcessor\n800 MHz\nMemory\nM401a: 128 MB; M401d: 128 MB; M401dn: 256 MB; M401dne: 256 MB; M401dw: 256 MB;\nMemory upgrade\nNot expandable\nPrint resolution\nUp to 1200 x 1200 dpi\nPrint quality\nHP FastRes 1200, HP ProRes 1200, 600 dpi\nPrinter languages\nHP PCL 5e, HP PCL 6, HP Postscript Level 3 emulation, direct PDF (v 1.7) printing\nTypefaces/fonts\n84 scalable TrueType fonts\nDuty cycle (monthly, A4)\nUp to 50,000 pages\nRecommended Monthly Page Volume\n750 to 3000 pages\nPrint margins\ntop: 5 mm, left: 4 mm, right: 4 mm, bottom: 5 mm\nMedia handling\nInput\nCapacity\nWeight\nSize\nTray 1\nsheets: 50; envelopes: 10\n60 to 163 g/m² (straight through paper path\nfor special media)\nA4; A5; A6; B5 (JIS); envelopes; 76 x 127 to\n216 x 356 mm A4\nTray 2\nsheets: 250\n60 to 120 g/m²\nA4; A5; A6; B5 (JIS); 105 x 148 to 216 x 356\nmm\nTray 3\n(optional)\nsheets: 500 (optional 500-sheet tray)\n60 to 120 g/m² (optional 500-sheet tray) 60\nto 120 g/m²\nA4; A5; A6; B5 (JIS); 105 x 148 to 216 x 356\nmm (optional 500-sheet tray) A4\nDuplex printing:\nM401a: Manual (driver support provided);\nM401d: Automatic (standard); M401dn:\nAutomatic (standard); M401dne:\nAutomatic (standard); M401dw: Automatic\n(standard);\n60 to 120 g/m²\nA4\nOutput:\nSheets: Up to 150 sheets\nEnvelopes: Up to 10 envelopes. Transparencies: Up to 75 sheets; 150-sheet output bin\nMedia types\nPaper (plain, Green mode, light, heavy, bond, colour, letterhead, preprinted, prepunched, recycled, rough); envelopes; labels; transparencies, cardstock\nDisplay\nM401a: 2-line LCD display (text and graphics); M401d: 2-line LCD display (text and graphics); M401dn: 8.89 cm touchscreen control panel, CGD (Colour\nGraphic Display); M401dne: 2-line LCD (text and graphics); M401dw: 8.89 cm touchscreen control panel, CGD (Colour Graphic Display);\nInterface and connectivity\nM401a: 1 Hi-Speed USB 2.0; M401d: 1 Hi-Speed USB 2.0; M401dn: 1 Hi-Speed USB 2.0; 1 Host USB; 1 Ethernet 10/100/1000T network; 1 Walk-up USB;\nM401dne: 1 Hi-Speed USB 2.0; 1 Ethernet 10/100/1000T network; M401dw: 1 Hi-Speed USB 2.0; 1 Host USB; 1 Ethernet 10/100/1000T network; 1 Walk-up\nUSB; 1 Wireless 802.11b/g/n;\nNetwork Capabilities\nM401a: None; M401d: None; M401dn: Via built-in 10/100/1000T Ethernet network port; M401dne: Via built-in 10/100/1000T Ethernet network port;\nM401dw: Via built-in 10/100/1000T Ethernet network port or Wireless 802.11 b/g/n;\nMobile printing capability\nM401a: No; M401d: No; M401dn: HP ePrint, Apple AirPrint™, business apps; M401dne: HP ePrint, Apple AirPrint™; M401dw: HP ePrint via email, Apple\nAirPrint™, Wireless direct printing, business apps;\nSupported Network Protocols\nM401a: None; M401d: None; M401dn: Via built-in networking solution: TCP/IP, IPv4, IPv6; print: TCP-IP port 9100 Direct Mode, LPD (raw queue support only),\nWeb Services Printing, IPP 2.0, Apple AirPrint™, HP ePrint, FTP Print; DISCOVERY: SLP, Bonjour, Web Services Discovery; IP CONFIG: IPv4 (BootP, DHCP, AutoIP,\nManual, TFTP Config, ARP-Ping), IPv6 (Stateless Link-Local and via Router, Statefull via DHCPv6); Management: SNMPv2/v3, HTTP/HTTPs, Telnet, TFTP Config, FTP\nFW Download, Syslog; Security: SNMPv3, SSL Cert Management, Firewall, ACL, 802.1x; M401dne: Via built-in networking solution: TCP/IP, IPv4, IPv6; print:\nTCP-IP port 9100 Direct Mode, LPD (raw queue support only), Web Services Printing, IPP 2.0, Apple AirPrint™, HP ePrint, FTP Print; DISCOVERY: SLP, Bonjour, Web\nServices Discovery; IP CONFIG: IPv4 (BootP, DHCP, AutoIP, Manual, TFTP Config, ARP-Ping), IPv6 (Stateless Link-Local and via Router, Statefull via DHCPv6);\nManagement: SNMPv2/v3, HTTP/HTTPs, Telnet, TFTP Config, FTP FW Download, Syslog; Security: SNMPv3, SSL Cert Management, Firewall, ACL, 802.1x;\nM401dw: as M401dn model plus WPA1/2 Personal and Enterprise;\nOperating systems compatibility\nFull software installs supported on: Microsoft® Windows®7 32-bit/64-bit, Windows Vista® 32-bit/64-bit, Windows® XP 32-bit (SP2 or higher); Driver only installs\nsupported on: Microsoft® Windows® Server 2008 32-bit/64-bit, Windows® Server 2003 32-bit (SP3 or higher); Mac OS X v10.5, v10.6, v10.7; Linpus Linux: 9.4,\n9.5; RED HAT Enterprise Linux: 5.0, 6.0; OpenSuSE: 11.3, 11.4; Fedora™: 14, 15; Ubuntu®: 10.04, 10.10, 11.04; Debian: 5.0, 6.0 and HPUX11i\nOptional: Latest supported operating systems and print drivers available at http://www.hp.com/support/ljm401series\nMinimum system requirements\nMicrosoft® Windows® 7 (32-bit/64-bit), Windows Vista® (32-bit/64-bit): 1 GHz 32-bit (x86) or 64-bit (x64) processor, 1 GB RAM (32-bit) or 2 GB RAM (64-bit), 400\nMB hard disk space, CD-ROM/DVD-ROM or Internet, USB or Network port; Windows® XP32 SP2 (32-bit): Pentium® 233 MHz processor, 512 MB RAM, 400 MB hard\ndisk space, CD-ROM/DVD-ROM or Internet, USB or Network port, Mac OS X v10.5, v10.6, v10.7; PowerPC G4, G5, or Intel® Core™Processor; 500 MB hard disk;\nCD-ROM/DVD-ROM or Internet; USB or Network\nSoftware\nWindows®: HP Installer/Uninstaller, HP PCL 6 print driver, Status Alerts, HP Update, DXP; Mac: HP Installer/Uninstaller, HP Postscript driver, HP Setup Assistant, HP\nUtility, HP Alerts, HP Firmware Updater\nPrinter management\nWindows®: HP Device Toolbox (default install), SNP Alerts (minimum network install), HP Web Jetadmin (download); Mac: HP Utility\nPower\nRequirements: Input voltage: 220 to 240 VAC (+/- 10%), 50/60 Hz (+/- 2 Hz). Consumption: 570 watts (printing), 7.3 watts (ready), 6.2 watts (sleep), 0.1 watts\n(off). Typical Electricity Consumption (TEC): 2.08 kWh/Week\nDimensions (w x d x h)\nOut of package: M401a: 364.6 x 368 x 267.5 mm; M401d: 364.6 x 368 x 267.5 mm; M401dn: 364.6 x 368 x 271 mm, touchscreen down (364.6 x 368 x\n383.6 mm, touchscreen upraised at 90°); M401dne: 364.6 x 368 x 267.5 mm; M401dw: 364.6 x 368 x 271 mm, touchscreen down (364.6 x 368 x 383.6 mm,\ntouchscreen upraised at 90°); *Optional HP LaserJet 500-sheet Feeder/Tray CF284A increases height of printer by 140 mm\nPackaged: 430 x 330 x 480 mm\nWeight\nOut of package: M401a: 10.1 kg; M401d: 10.7 kg; M401dn: 11 kg; M401dne: 10.7 kg; M401dw: 11 kg;\nPackaged: M401a: 13.3 kg; M401d: 13.9 kg; M401dn: 14.2 kg; M401dne: 13.9 kg; M401dw: 14.2 kg;\nOperating environment\nOperating temperature: 15 to 32.5ºC; Recommended operating temperature: 17.5 to 25ºC; Operating humidity: 10 to 80% RH; Recommended operating\nhumidity: 30 to 70% RH; Storage temperature: -20 to 40ºC; Storage humidity: 10 to 90% RH; Noise level per ISO 9296: Sound power : LwAd 6.4 B(A); Sound\npressure: LpAm 51 dB(A);\nProduct certifications\nSafety certifications: IEC 60950-1:2005/EN 60950-1:2006+A11; IEC 60825-1:2007/EN 60825-1:2007 (Class 1 Laser/LED Product); IEC 62479:2010/EN\n62479:2010; GB4943-2001; ENERGY STAR: Yes (except M401a model)\nWarranty\nOne-year warranty. Warranty and support options vary by product, country and local legal requirements.\nSeries at a glance\nM401a: HP LaserJet Pro 400 M401a: print speed of up to 33 ppm black; up to 1200 x 1200 dpi (HP FastRes 1200, HP ProRes 1200); 128 MB RAM; 800 MHz\nprocessor; 1 Hi-Speed USB 2.0 port; HP Auto-On/Auto-Off, HP Smart Install; 2-line LCD backlit control panel; 50-sheet multipurpose tray, 250-sheet input tray ;\nM401d: HP LaserJet Pro 400 M401d: as HP LaserJet Pro 400 M401a plus automatic two-sided printing; M401dn: HP LaserJet Pro 400 M401dn: as HP LaserJet\nPro 400 M401a plus 256 MB RAM as standard memory; 1 Hi-Speed USB, 1 Host USB, 1 Walk-up USB, 1 Ethernet 10/100/1000 Base-TX network; HP ePrint, Apple\nAirPrint™; 8.89 cm (3.5 inch) colour touch screen; automatic two-sided printing; Business Apps; M401dne: HP LaserJet Pro 400 M401dne: as HP LaserJet Pro\n400 M401a plus automatic two-sided printing; HP ePrint; Gigabit Ethernet 10/100/1000 Base-TX network; HP Universal Print Driver; HP Smart Install not\nincluded; M401dw: HP LaserJet Pro 400 M401dw: as HP LaserJet Pro 400 M401dn plus 1 Wireless 802.11b/g/n; Wireless direct printing;\nCF270A\nHP LaserJet Pro 400 M401a printer; HP 80A\nBlack LaserJet Toner Cartridge (~2700 pages);\nInstallation guide, Getting Started guide,\nSupport flyer, Warranty guide; Printer\ndocumentation and software on CD-ROM;\npower cord\nCF274A\nHP LaserJet Pro 400 M401d printer; built-in\nautomatic two-sided printing; HP 80A Black\nLaserJet Toner Cartridge (~2700 pages);\nInstallation guide, Getting Started guide,\nSupport flyer, Warranty guide; Printer\ndocumentation and software on CD-ROM;\npower cord\nCF278A\nHP LaserJet Pro 400 M401dn printer; built-in\nautomatic two-sided printing; Ethernet\n10/100/1000 Base-TX network; HP 80A Black\nLaserJet Toner Cartridge (~2700 pages);\nInstallation guide, Getting Started guide,\nSupport flyer, Warranty guide; Printer\ndocumentation and software on CD-ROM;\npower cord\nCF399A\nHP LaserJet Pro 400 M401dne; built-in\nautomatic two-sided printing; Ethernet\n10/100/1000 Base-TX network; HP 80A Black\nLaserJet Toner Cartridge (~2700 pages);\nInstallation guide, Support flyer, Warranty guide;\npower cord; Documentation CD\nCF285A\nHP LaserJet Pro 400 M401dw printer; built-in\nautomatic two-sided printing; Wireless\n802.11b/g/n; HP 80A Black LaserJet Toner\nCartridge (~2700 pages); Installation guide,\nGetting Started guide, Support flyer, Warranty\nguide; Printer documentation and software on\nCD-ROM; power cord; USB cable\nAccessories\nCF284A\nHP LaserJet 500-sheet Feeder/Tray\nSupplies\nCF280A\nHP 80A Black LaserJet Toner Cartridge\nAverage cartridge yields 2700 standard pages.\nDeclared yield based on ISO/IEC 19752 and\ncontinuous printing. Actual yields vary\nconsiderably based on images printed and other\nfactors. For details see\nhttp://www.hp.com/go/learnaboutsupplies.\nCF280X\nHP 80X Black LaserJet Toner Cartridge\nAverage cartridge yields 6900 standard pages.\nDe",
+  "pdf_bytes": 552302,
+  "output": {
+    "specs": {
+      "print_technology": "Laser",
+      "print_speed_a4_black_ppm": 33,
+      "first_page_out_black_a4_sec": 8,
+      "processor_speed_mhz": 800,
+      "memory_mb": {
+        "M401a": 128,
+        "M401d": 128,
+        "M401dn": 256,
+        "M401dne": 256,
+        "M401dw": 256
+      },
+      "memory_expandable": "No",
+      "print_resolution_max_dpi": "1200 x 1200",
+      "print_quality_modes": [
+        "HP FastRes 1200",
+        "HP ProRes 1200",
+        "600 dpi"
+      ],
+      "printer_languages": [
+        "HP PCL 5e",
+        "HP PCL 6",
+        "HP Postscript Level 3 emulation",
+        "direct PDF (v 1.7) printing"
+      ],
+      "typefaces_fonts": "84 scalable TrueType fonts",
+      "duty_cycle_monthly_a4_max_pages": 50000,
+      "recommended_monthly_page_volume_pages": "750 to 3000",
+      "print_margins_top_mm": 5,
+      "print_margins_left_mm": 4,
+      "print_margins_right_mm": 4,
+      "print_margins_bottom_mm": 5,
+      "media_handling_input_tray1_capacity_sheets": 50,
+      "media_handling_input_tray1_capacity_envelopes": 10,
+      "media_handling_input_tray1_weight_gsm": "60 to 163",
+      "media_handling_input_tray1_special_media_path_weight_gsm": "60 to 163",
+      "media_handling_input_tray1_sizes": [
+        "A4",
+        "A5",
+        "A6",
+        "B5 (JIS)",
+        "envelopes",
+        "76 x 127 to 216 x 356 mm"
+      ],
+      "media_handling_input_tray2_capacity_sheets": 250,
+      "media_handling_input_tray2_weight_gsm": "60 to 120",
+      "media_handling_input_tray2_sizes": [
+        "A4",
+        "A5",
+        "A6",
+        "B5 (JIS)",
+        "105 x 148 to 216 x 356 mm"
+      ],
+      "media_handling_input_tray3_optional_capacity_sheets": 500,
+      "media_handling_input_tray3_optional_weight_gsm": "60 to 120",
+      "media_handling_input_tray3_optional_sizes": [
+        "A4",
+        "A5",
+        "A6",
+        "B5 (JIS)",
+        "105 x 148 to 216 x 356 mm"
+      ],
+      "duplex_printing_capability": {
+        "M401a": "Manual (driver support provided)",
+        "M401d": "Automatic (standard)",
+        "M401dn": "Automatic (standard)",
+        "M401dne": "Automatic (standard)",
+        "M401dw": "Automatic (standard)"
+      },
+      "duplex_printing_media_weight_gsm": "60 to 120",
+      "duplex_printing_media_size": "A4",
+      "media_handling_output_max_sheets": 150,
+      "media_handling_output_max_envelopes": 10,
+      "media_handling_output_max_transparencies": 75,
+      "media_handling_output_bin_capacity_sheets": 150,
+      "media_types": [
+        "Paper (plain, Green mode, light, heavy, bond, colour, letterhead, preprinted, prepunched, recycled, rough)",
+        "envelopes",
+        "labels",
+        "transparencies",
+        "cardstock"
+      ],
+      "display": {
+        "M401a": "2-line LCD display (text and graphics)",
+        "M401d": "2-line LCD display (text and graphics)",
+        "M401dn": "8.89 cm (3.5-inch) touchscreen control panel, CGD (Colour Graphic Display)",
+        "M401dne": "2-line LCD (text and graphics)",
+        "M401dw": "8.89 cm (3.5-inch) touchscreen control panel, CGD (Colour Graphic Display)"
+      },
+      "interface_connectivity": {
+        "M401a": [
+          "1 Hi-Speed USB 2.0"
+        ],
+        "M401d": [
+          "1 Hi-Speed USB 2.0"
+        ],
+        "M401dn": [
+          "1 Hi-Speed USB 2.0",
+          "1 Host USB",
+          "1 Ethernet 10/100/1000T network",
+          "1 Walk-up USB"
+        ],
+        "M401dne": [
+          "1 Hi-Speed USB 2.0",
+          "1 Ethernet 10/100/1000T network"
+        ],
+        "M401dw": [
+          "1 Hi-Speed USB 2.0",
+          "1 Host USB",
+          "1 Ethernet 10/100/1000T network",
+          "1 Walk-up USB",
+          "1 Wireless 802.11b/g/n"
+        ]
+      },
+      "network_capabilities": {
+        "M401a": "None",
+        "M401d": "None",
+        "M401dn": "Via built-in 10/100/1000T Ethernet network port",
+        "M401dne": "Via built-in 10/100/1000T Ethernet network port",
+        "M401dw": "Via built-in 10/100/1000T Ethernet network port or Wireless 802.11 b/g/n"
+      },
+      "mobile_printing_capability": {
+        "M401a": "No",
+        "M401d": "No",
+        "M401dn": [
+          "HP ePrint",
+          "Apple AirPrint™",
+          "business apps"
+        ],
+        "M401dne": [
+          "HP ePrint",
+          "Apple AirPrint™"
+        ],
+        "M401dw": [
+          "HP ePrint via email",
+          "Apple AirPrint™",
+          "Wireless direct printing",
+          "business apps"
+        ]
+      },
+      "supported_network_protocols": {
+        "M401a": "None",
+        "M401d": "None",
+        "M401dn_dne_print": [
+          "TCP-IP port 9100 Direct Mode",
+          "LPD (raw queue support only)",
+          "Web Services Printing",
+          "IPP 2.0",
+          "Apple AirPrint™",
+          "HP ePrint",
+          "FTP Print"
+        ],
+        "M401dn_dne_discovery": [
+          "SLP",
+          "Bonjour",
+          "Web Services Discovery"
+        ],
+        "M401dn_dne_ip_config": [
+          "IPv4 (BootP, DHCP, AutoIP, Manual, TFTP Config, ARP-Ping)",
+          "IPv6 (Stateless Link-Local and via Router, Statefull via DHCPv6)"
+        ],
+        "M401dn_dne_management": [
+          "SNMPv2/v3",
+          "HTTP/HTTPs",
+          "Telnet",
+          "TFTP Config",
+          "FTP FW Download",
+          "Syslog"
+        ],
+        "M401dn_dne_security": [
+          "SNMPv3",
+          "SSL Cert Management",
+          "Firewall",
+          "ACL",
+          "802.1x"
+        ],
+        "M401dw_security_additions": [
+          "WPA1/2 Personal",
+          "WPA1/2 Enterprise"
+        ]
+      },
+      "operating_systems_compatibility_full_software_installs": [
+        "Microsoft Windows 7 32-bit/64-bit",
+        "Windows Vista 32-bit/64-bit",
+        "Windows XP 32-bit (SP2 or higher)"
+      ],
+      "operating_systems_compatibility_driver_only_installs": [
+        "Microsoft Windows Server 2008 32-bit/64-bit",
+        "Windows Server 2003 32-bit (SP3 or higher)"
+      ],
+      "operating_systems_compatibility_mac_os_x": [
+        "v10.5",
+        "v10.6",
+        "v10.7"
+      ],
+      "operating_systems_compatibility_linux": [
+        "Linpus Linux: 9.4",
+        "Linpus Linux: 9.5",
+        "RED HAT Enterprise Linux: 5.0",
+        "RED HAT Enterprise Linux: 6.0",
+        "OpenSuSE: 11.3",
+        "OpenSuSE: 11.4",
+        "Fedora: 14",
+        "Fedora: 15",
+        "Ubuntu: 10.04",
+        "Ubuntu: 10.10",
+        "Ubuntu: 11.04",
+        "Debian: 5.0",
+        "Debian: 6.0",
+        "HPUX11i"
+      ],
+      "minimum_system_requirements_windows_7_vista_processor": "1 GHz 32-bit (x86) or 64-bit (x64)",
+      "minimum_system_requirements_windows_7_vista_ram_gb": "1 (32-bit) or 2 (64-bit)",
+      "minimum_system_requirements_windows_7_vista_hard_disk_space_mb": 400,
+      "minimum_system_requirements_windows_7_vista_connectivity": "CD-ROM/DVD-ROM or Internet, USB or Network port",
+      "minimum_system_requirements_windows_xp_processor": "Pentium 233 MHz",
+      "minimum_system_requirements_windows_xp_ram_mb": 512,
+      "minimum_system_requirements_windows_xp_hard_disk_space_mb": 400,
+      "minimum_system_requirements_windows_xp_connectivity": "CD-ROM/DVD-ROM or Internet, USB or Network port",
+      "minimum_system_requirements_mac_processor": "PowerPC G4, G5, or Intel Core Processor",
+      "minimum_system_requirements_mac_hard_disk_space_mb": 500,
+      "minimum_system_requirements_mac_connectivity": "CD-ROM/DVD-ROM or Internet, USB or Network",
+      "software_included_windows": [
+        "HP Installer/Uninstaller",
+        "HP PCL 6 print driver",
+        "Status Alerts",
+        "HP Update",
+        "DXP"
+      ],
+      "software_included_mac": [
+        "HP Installer/Uninstaller",
+        "HP Postscript driver",
+        "HP Setup Assistant",
+        "HP Utility",
+        "HP Alerts",
+        "HP Firmware Updater"
+      ],
+      "printer_management_windows": [
+        "HP Device Toolbox (default install)",
+        "SNP Alerts (minimum network install)",
+        "HP Web Jetadmin (download)"
+      ],
+      "printer_management_mac": "HP Utility",
+      "power_input_voltage_vac": "220 to 240 (+/- 10%)",
+      "power_input_frequency_hz": "50/60 (+/- 2)",
+      "power_consumption_printing_watts": 570,
+      "power_consumption_ready_watts": 7.3,
+      "power_consumption_sleep_watts": 6.2,
+      "power_consumption_off_watts": 0.1,
+      "typical_electricity_consumption_kwh_week": 2.08,
+      "dimensions_out_of_package_mm": {
+        "M401a": "364.6 x 368 x 267.5",
+        "M401d": "364.6 x 368 x 267.5",
+        "M401dn_touchscreen_down": "364.6 x 368 x 271",
+        "M401dn_touchscreen_upraised_90deg": "364.6 x 368 x 383.6",
+        "M401dne": "364.6 x 368 x 267.5",
+        "M401dw_touchscreen_down": "364.6 x 368 x 271",
+        "M401dw_touchscreen_upraised_90deg": "364.6 x 368 x 383.6"
+      },
+      "optional_hp_laserjet_500_sheet_feeder_tray_cf284a_height_increase_mm": 140,
+      "dimensions_packaged_mm": "430 x 330 x 480",
+      "weight_out_of_package_g": {
+        "M401a": 10100,
+        "M401d": 10700,
+        "M401dn": 11000,
+        "M401dne": 10700,
+        "M401dw": 11000
+      },
+      "weight_packaged_g": {
+        "M401a": 13300,
+        "M401d": 13900,
+        "M401dn": 14200,
+        "M401dne": 13900,
+        "M401dw": 14200
+      },
+      "operating_temperature_c": "15 to 32.5",
+      "recommended_operating_temperature_c": "17.5 to 25",
+      "operating_humidity_rh": "10 to 80%",
+      "recommended_operating_humidity_rh": "30 to 70%",
+      "storage_temperature_c": "-20 to 40",
+      "storage_humidity_rh": "10 to 90%",
+      "noise_level_sound_power_lwad_ba": 6.4,
+      "noise_level_sound_pressure_lpam_dba": 51,
+      "warranty_period": "One-year"
+    },
+    "ean": "",
+    "series": "HP LaserJet Pro 400 M401",
+    "certifications": [
+      "IEC 60950-1:2005",
+      "EN 60950-1:2006+A11",
+      "IEC 60825-1:2007",
+      "EN 60825-1:2007 (Class 1 Laser/LED Product)",
+      "IEC 62479:2010",
+      "EN 62479:2010",
+      "GB4943-2001",
+      "ENERGY STAR (except M401a model)"
+    ]
+  },
+  "usage": {
+    "input_tokens": 5507,
+    "output_tokens": 3793,
+    "cost_usd": 0.01113
+  }
+}

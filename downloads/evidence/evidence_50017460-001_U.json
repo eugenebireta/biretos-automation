@@ -7,7 +7,7 @@
     "50017460001/U"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Трансформатор Honeywell 50017460-001/U, 230-120-24/24V",
   "assembled_title": "Трансформатор Honeywell 50017460-001/U",
   "our_price_raw": "14960,00",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Трансформатор с обмотками и проводами чётко виден",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.gazrk.ru/shop/zapchasti-dlia-gorelok/prochee/17220_transformator_pon"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -316,7 +313,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -538,7 +536,20 @@
         "50004263-001",
         "Grainger 278Y98",
         "Zoro G4841127"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Product type": "Transformer",
+      "Primary voltage": "24 / 120 / 230 VAC",
+      "Secondary voltage": "24 VAC",
+      "Frequency": "50/60 Hz",
+      "Connection": "Lead wires",
+      "Application": "HVAC / Modutrol related control systems",
+      "UPC": "085267273060",
+      "Input Voltages": "24 / 120 / 230 V AC",
+      "Output Voltage": "24 V AC",
+      "Terminals": "Screw (up to 4 mm²)",
+      "Weight": "0.576 kg",
+      "EAN": "085267273060"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -572,12 +583,167 @@
     "merge_source": "result_50017460-001_U.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (9).md"
+    "source_file": "deep-research-report (9).md",
+    "descriptions_all": {
+      "gpt": "Honeywell 50017460-001/U — это трансформаторный модуль, используемый в системах управления Honeywell, в том числе рядом с приводами и модулями семейства Modutrol. По открытым каталогам это multi-primary transformer с возможностью подключения к сетям 24/120/230 В AC и выдачей вторичного напряжения 24 В AC. Такая универсальность упрощает использование запасной части в разных странах и проектах, где доступно различное сетевое питание. Компонент предназначен для интеграции в контуры автоматики HVAC, заслонок, клапанов и смежного оборудования управления. Для монтажника важно правильно выбрать первичную обмотку и соблюдать схему подключения, указанную производителем, так как ошибка по вводу напряжения приведёт к выходу из строя. В описаниях также фигурирует частота 50/60 Гц и проводное подключение lead wires. Деталь относится скорее к сервисным или внутренним электротехническим компонентам, чем к конечному пользовательскому устройству. При подборе замены нужно сверять не только номер детали, но и совместимость по конкретной сборке или приводу, куда трансформатор устанавливается. Для B2B-каталога логично относить позицию к spare parts и transformer assemblies для систем автоматизации Honeywell.",
+      "gemini": "Внутренний трансформатор Honeywell 50017460-001/U предназначен для установки в электроприводы серии Modutrol. Устройство позволяет адаптировать питание исполнительных механизмов к различным сетям переменного тока: 24, 120 или 230 В. На выходе трансформатор обеспечивает стабильное напряжение 24 В, необходимое для работы электроники мотора. Компактное исполнение позволяет разместить компонент внутри стандартного корпуса привода. Трансформатор отличается высоким КПД и низким уровнем тепловыделения. Винтовые клеммы обеспечивают надежное крепление проводов сечением до 4 мм². Это изделие является критически важным для систем управления вентиляцией и отоплением (HVAC). Трансформатор обладает защитой от скачков напряжения и длительным ресурсом работы. Вес прибора составляет 0.576 кг. Продукт сертифицирован для использования в коммерческих и промышленных системах автоматизации."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Product type": "Transformer",
+        "Primary voltage": "24 / 120 / 230 VAC",
+        "Secondary voltage": "24 VAC",
+        "Frequency": "50/60 Hz",
+        "Connection": "Lead wires",
+        "Application": "HVAC / Modutrol related control systems",
+        "UPC": "085267273060"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Fema",
+        "Application": "Modutrol motor internal transformer",
+        "Input Voltages": "24 / 120 / 230 V AC",
+        "Output Voltage": "24 V AC",
+        "Frequency": "50/60 Hz",
+        "Terminals": "Screw (up to 4 mm²)",
+        "Weight": "0.576 kg",
+        "EAN": "085267273060"
+      }
+    },
+    "notes_all": {
+      "gpt": "Сервисная или запасная электротехническая деталь; совместимость нужно сверять по конкретной сборке."
+    }
   },
   "dr_category": "Internal transformer kit",
   "dr_image_url": "(available on Zoro and eBay product pages)",
   "dr_price": 114.99,
   "dr_currency": "USD",
   "dr_price_source": "https://www.zoro.com/honeywell-transformer-kit-input-v-24120240-50017460-001/i/G4841127/",
-  "product_category": "Internal transformer kit"
+  "training_urls": [
+    "https://blackhawksupply.com/products/honeywell-50017460-001-u-transformer-series-2-220v-50-60-hz-honeywell-50017460-001-modutrol-iv-motor",
+    "https://www.amazon.com/Honeywell-Internal-Transformers-Motors-50017460-001-1/dp/B06X9S9KK1",
+    "https://www.building-controls.com/ccs/article/50017460-001/U",
+    "https://www.cochranesupply.com/products/transformers/50017460-001-U",
+    "https://www.ebay.com/itm/135335898294",
+    "https://www.ebay.com/itm/358012621771",
+    "https://www.gearypacific.com/2632365/Product/Honeywell-50017460-001/U",
+    "https://www.kempstoncontrols.com/50017460-001-U/Honeywell-Fema/sku/738764",
+    "https://www.lesman.com/50017460-001",
+    "https://www.nexinstrument.com/50017460-001U",
+    "https://www.walmart.com/ip/Honeywell-Internal-Transformer-Kit-24V-AC-50-60Hz-50017460-001/1922151245",
+    "https://www.zoro.com/honeywell-transformer-kit-input-v-24120240-50017460-001/i/G4841127/",
+    "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/50017460-001U/",
+    "https://www.surplustraders.net/ItemDetail.aspx?ItemNo=1044979",
+    "https://gb.wiautomation.com/honeywell/general-automation/general-automation/50017460001"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 114.99,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.zoro.com/honeywell-transformer-kit-input-v-24120240-50017460-001/i/G4841127/",
+    "our_price_raw": "14960,00",
+    "our_price_parsed": 14960.0,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_en",
+    "pack_qty": null,
+    "judge_reason": "Modutrol IV transformer, individual unit"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 114.99,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Трансформатор Honeywell 50017460-001/U предназначен для преобразования напряжения в промышленных системах. Обеспечивает надежную работу оборудования при различных условиях эксплуатации.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.gazrk.ru/shop/zapchasti-dlia-gorelok/prochee/17220_transformator_pon",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "voltage": "24 VAC",
+      "alternative_voltages": "120 VAC, 230 VAC with internal transformer",
+      "frequency": "50/60 Hz",
+      "power_consumption_M6184A": "15 VA",
+      "power_consumption_M6184B": "10 VA",
+      "power_consumption_M6184D": "15 VA",
+      "power_consumption_M6184F": "15 VA",
+      "auxiliary_switch_full_load_120V": "7.2 A",
+      "auxiliary_switch_full_load_240V": "3.6 A",
+      "auxiliary_switch_locked_rotor_120V": "43.2 A",
+      "auxiliary_switch_locked_rotor_240V": "21.6 A",
+      "auxiliary_switch_rating": "40 VA pilot duty, 120/240 Vac",
+      "motor_type": "Three-wire spring return and non-spring return floating control motors",
+      "series_61_torque_60lb_in_spring_return": "60 lb-in",
+      "series_61_torque_150lb_in_non_spring_return": "150 lb-in",
+      "series_61_torque_300lb_in_non_spring_return": "300 lb-in",
+      "series_62_with_feedback_potentiometer": "Yes",
+      "stroke_adjustment": "90° to 160° field-adjustable",
+      "nominal_timing_90_degree": "30 seconds",
+      "nominal_timing_160_degree": "60 seconds",
+      "nominal_timing_300lb_in": "2 or 4 minutes",
+      "torque_90_degree_spring_return_30sec": "60 lb-in (6.8 N·m) normal running, 120 lb-in (13.6 N·m) breakaway",
+      "torque_90_degree_spring_return_60sec": "150 lb-in (17.0 N·m) normal running, 300 lb-in (34.0 N·m) breakaway",
+      "torque_90_degree_non_spring_return_15sec": "75 lb-in (8.5 N·m) normal running, 150 lb-in (17.0 N·m) breakaway",
+      "torque_90_degree_non_spring_return_30sec": "35 lb-in (4.0 N·m) normal running, 70 lb-in (7.9 N·m) breakaway",
+      "torque_160_degree_spring_return_60sec": "300 lb-in (34.0 N·m) normal running, 600 lb-in (68.0 N·m) breakaway",
+      "torque_160_degree_non_spring_return_120sec": "300 lb-in (34.0 N·m) normal running, 600 lb-in (68.0 N·m) breakaway",
+      "torque_160_degree_non_spring_return_240sec": "150 lb-in (17.0 N·m) normal running, 300 lb-in (34.0 N·m) breakaway",
+      "dead_weight_load_power_end": "200 lb (90.8 kg) maximum",
+      "dead_weight_load_auxiliary_end": "200 lb (90.8 kg) maximum",
+      "maximum_combined_load": "300 lb (136 kg)",
+      "crankshaft_size": "3/8 in. (9.5 mm) square",
+      "operating_temperature_maximum": "150°F (66°C) at 25% duty cycle",
+      "operating_temperature_minimum": "-40°F (-40°C)",
+      "housing_material": "Die-cast aluminum",
+      "junction_box_protection": "NEMA 3 weather protection",
+      "control_input_type": "Floating three-wire (drive open, hold, drive closed)",
+      "shaft_type": "Dual shafts (slotted and tapped on both ends)",
+      "lifetime_full_stroke_cycles": "60,000",
+      "lifetime_repositions": "1.5 million",
+      "feedback_potentiometer_series_62": "Electrically isolated, provides shaft position indication",
+      "feedback_resistance_linear_0_10k": "TG = 0-10K ohm (linear), TY = 10-0K ohm (linear), YG = 10K ohms constant",
+      "feedback_resistance_non_linear_variants": "Multiple non-linear options per Table 2",
+      "series_90_slaving_shunt_resistor": "187 Ohm, 274 Ohm, or not necessary depending on model",
+      "terminals": "Quick-connect terminals standard; screw terminal adapter available",
+      "auxiliary_switches_available": "0, 1, or 2 switches, factory mounted or field-installed",
+      "mounting_flanges": "Drilled for 1/4 inch (6.4 mm) machine screws or bolts",
+      "ul_listed": "File No. E4436, Guide No. XAPX (USA and Canada)"
+    },
+    "specs_count": 48,
+    "series": "Series 61 and Series 62 Modutrol IV",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "124x141x148 (motor body approximate based on Fig. 2: 124mm width, 141mm height, 148mm depth)",
+    "certifications": [
+      "UL Listed (File No. E4436, Guide No. XAPX)",
+      "NEMA 3"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\50017460-001_U.pdf",
+    "datasheet_size_kb": 1767,
+    "product_photos": [
+      "downloads\\datasheet_photos\\50017460-001_U_p1_0.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/50017460-001_U_p1_0.png"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

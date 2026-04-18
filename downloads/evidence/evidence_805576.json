@@ -4,7 +4,7 @@
   "pn": "805576",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Табличка для базы извещателя (набор из 10) 805576",
   "assembled_title": "Табличка Honeywell 805576",
   "our_price_raw": "2057,96",
@@ -178,7 +178,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "пластиковая табличка для базы извещателя угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -196,10 +196,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://germes-security.ru/ohranno-pojarnie-signalizatsii/izvescateli/dopolnitel"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -311,7 +308,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "IQ8Quad accessories",
+    "confirmed_manufacturer": "Esser",
+    "discontinued": false,
+    "identity_notes_p1": "Label plate for detector base IQ8Quad series, set of 10",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -334,9 +336,8 @@
     "description": "Табличка для базы извещателя используется для маркировки и идентификации устройств в системе пожарной сигнализации. Поставляется в наборе из 10 штук. Изготовлена из прочного материала, устойчивого к внешним воздействиям.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Табличка",
-    "seed_name": "Табличка для базы извещателя (набор из 10) 805576",
-    "description_long_ru": "Multiple UK distributors list but none show public pricing"
+    "product_type": "Label plate",
+    "seed_name": "Табличка для базы извещателя (набор из 10) 805576"
   },
   "trace": {
     "pn_match_location": "",
@@ -582,7 +583,26 @@
       "raw": "pack 10; для маркировки/нумерации детекторов",
       "aliases": [
         "805576"
-      ]
+      ],
+      "Part number": "805576",
+      "Type": "Label plate / slot-in identification plate",
+      "For": "IQ8Quad detector base",
+      "Label size": "58 x 18 mm (compatible with SIGEL LP725)",
+      "Compatible bases": "805590/91 with 805570; 805593.10; 805594.10",
+      "Not compatible with": "805590/91 + 805571, 805572.50, 805573, 805574",
+      "Packing unit": "10 pcs",
+      "Manufacturer": "Esser by Honeywell",
+      "Brand": "ESSER by Honeywell",
+      "Part Number": "805576",
+      "Device Type": "Label plate / detector-base accessory",
+      "Compatibility": "IQ8Quad detector base",
+      "product_name": "Label plate for detector base",
+      "compatibility": "Esser IQ8Quad series bases",
+      "installation": "Side slot of base 805590/91/93/94",
+      "label_size": "58 x 18 mm recommended",
+      "packing_unit": "10 pcs",
+      "material": "ABS Plastic",
+      "color": "White/Light Grey"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -602,12 +622,210 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.222752+00:00",
+    "merge_ts": "2026-04-09T12:01:24.859144+00:00",
     "merge_source": "result_805576.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "Multiple UK distributors list but none show public pricing"
+    "descriptions_all": {
+      "claude": "Табличка Esser 805576 — это вставная маркировочная табличка (Label Plate) для цоколя пожарного извещателя серии IQ8Quad от Esser by Honeywell. Табличка может быть установлена до или после монтажа извещателя путём вставки в боковой паз цоколя IQ8Quad. Предназначена для идентификации извещателя: на табличку наносится адрес извещателя и номер зоны для потолков высотой до 3 метров. Надписи на табличку могут быть нанесены с помощью ПК — например, с использованием этикеток SIGEL Art. LP725-white (58 × 18 мм). Табличка совместима с цоколями 805590/91 в комбинации с элементом 805570, а также с цоколями 805593.10 и 805594.10. Не используется совместно с цоколями 805590/91 в комбинации с элементами 805571, 805572.50, 805573, 805574. Поставляется в упаковке по 10 штук.",
+      "gpt": "ESSER 805576 — это маркировочная табличка или вставка для базы извещателя серии IQ8Quad. Изделие относится к аксессуарам пожарной сигнализации и используется для обозначения, идентификации или адаптации монтажного основания в составе системы. Такой аксессуар упрощает сервисное обслуживание, пусконаладку и визуальную идентификацию элементов на объекте. В крупных пожарных системах корректная маркировка и аксессуары для баз извещателей важны для быстрого поиска нужного устройства и соблюдения проектной структуры. Позиция не является самостоятельным извещателем и применяется совместно с совместимой базой или соответствующим монтажным узлом. При заказе необходимо сверять точную серию оборудования, поскольку аксессуары для разных поколений ESSER/IQ8 могут быть несовместимы. Для монтажных организаций подобные детали особенно актуальны при модернизации, частичной замене и обслуживании существующей инфраструктуры пожарной сигнализации. Установка обычно несложная, но должна выполняться в логике той системы, для которой аксессуар предназначен, чтобы не нарушить читаемость маркировки и доступ к обслуживанию. По ряду региональных карточек Honeywell этот аксессуар отмечался как discontinued, поэтому наличие может быть ограничено складскими остатками. Для B2B-каталога разумно вести его как ESSER detector-base accessory или label plate с пометкой о необходимости проверки наличия.",
+      "gemini": "Маркировочная табличка Esser 805576 представляет собой незаменимый аксессуар для адресных систем пожарной сигнализации на базе детекторов IQ8Quad. Она предназначена для четкой идентификации адреса извещателя и номера его зоны, что значительно упрощает работу обслуживающего персонала и пожарных расчетов. Табличка вставляется в специальный боковой паз базы извещателя, причем монтаж возможен как до, так и после окончательной установки устройства. Конструкция изделия обеспечивает надежную фиксацию и устойчивость к вибрациям, предотвращая выпадение таблички в процессе эксплуатации. Для нанесения надписей рекомендуется использовать стандартные этикетки размером 58 x 18 мм, которые могут быть напечатаны на обычном принтере. Использование таких табличек особенно актуально в помещениях с высотой потолков до 3 метров, где маркировка остается легко читаемой снизу. Изделие выполнено из прочного пластика, цвет которого гармонирует с корпусом детектора, не нарушая эстетику интерьера. В одной упаковке содержится 10 табличек, что позволяет быстро оснастить целый этаж или офисный блок. Это профессиональное решение, способствующее упорядочиванию кабельной сети и повышению прозрачности структуры системы безопасности.",
+      "synthesis": "ESSER 805576 — маркировочная табличка (label plate) для вставки в цоколь пожарного извещателя серии IQ8Quad, предназначенная для идентификации адреса извещателя и номера защищаемой зоны на объекте. Табличка может быть установлена до или после монтажа извещателя путём вставки в боковой паз цоколя IQ8Quad, позволяя организованно помечать каждый элемент системы пожарной сигнализации без нарушения базовой функциональности. Надписи на табличку могут быть нанесены с помощью ПК, используя стандартные этикетки SIGEL размером 58 × 18 мм, что упрощает процесс маркировки целых этажей или офисных блоков за один раз. Табличка совместима с цоколями 805590/91 в комбинации с элементом 805570, а также с цоколями 805593.10 и 805594.10, обеспечивая четкую идентификацию и упрощая работу обслуживающего персонала и пожарных расчетов. Конструкция изделия из прочного пластика обеспечивает надежную фиксацию и устойчивость к вибрациям, предотвращая выпадение таблички в процессе эксплуатации при наличии механических нагрузок. Использование таких табличек особенно актуально в помещениях с высотой потолков до 3 метров, где маркировка остается легко читаемой снизу и способствует упорядочиванию кабельной сети пожарной системы безопасности. Поставляется в упаковке по 10 штук для оснащения крупных объектов."
+    },
+    "specs_all": {
+      "claude": {
+        "Part number": "805576",
+        "Type": "Label plate / slot-in identification plate",
+        "For": "IQ8Quad detector base",
+        "Label size": "58 x 18 mm (compatible with SIGEL LP725)",
+        "Compatible bases": "805590/91 with 805570; 805593.10; 805594.10",
+        "Not compatible with": "805590/91 + 805571, 805572.50, 805573, 805574",
+        "Packing unit": "10 pcs",
+        "Manufacturer": "Esser by Honeywell"
+      },
+      "gpt": {
+        "Brand": "ESSER by Honeywell",
+        "Part Number": "805576",
+        "Device Type": "Label plate / detector-base accessory",
+        "Compatibility": "IQ8Quad detector base"
+      },
+      "gemini": {
+        "product_name": "Label plate for detector base",
+        "compatibility": "Esser IQ8Quad series bases",
+        "installation": "Side slot of base 805590/91/93/94",
+        "label_size": "58 x 18 mm recommended",
+        "packing_unit": "10 pcs",
+        "material": "ABS Plastic",
+        "color": "White/Light Grey"
+      }
+    },
+    "notes_all": {
+      "gpt": "Accessory item. Honeywell regional pages indicate discontinued status in some markets."
+    }
   },
-  "product_category": "1 In / 1 Out; Loop powered; Fire loop peripheral"
+  "training_urls": [
+    "https://firealarm.online/product/esser-805576-base-label-plate-pack-of-10/",
+    "https://stockonfire.com/product/esser-805576-label-plate/",
+    "https://www.acornfiresecurity.com/gent-805576-s-quad-base-label-plate-pack-of-10",
+    "https://www.esser-systems.com/en/products/details/automatic-detectors/accessories/805576-label-plate-for-detector-base-iq8quad/",
+    "https://www.firetradesupplies.com/en-us/products/805576-s-quad-base-label-plate-pack-of-10",
+    "https://www.gilautomation.com/products/honeywell-805576-label-plate-for-detector-base-iq8quad",
+    "https://www.isssafety.com/collections/honeywell-fire-field-devices-from-esser-honeywell?page=2",
+    "https://www.thesafetycentre.co.uk/esser-805576-base-label-plate-pack-of-10",
+    "https://manuals.plus/esser/805576-iq8quad-label-plate-for-detector-manual",
+    "https://www.honeywellbuildings.in/en/products/by-category/fire-life-safety/control-panels/systems-and-peripherals/iq8quad-detector-base-labelling-plate",
+    "https://www.boydens.co.uk/esser-805576-labelling-plate-for-iq8quad-detector-base",
+    "https://www.manualslib.de/manual/53568/Esser-Iq8quad.html?page=82",
+    "https://device.report/esser/805576"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 9.7,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://www.acornfiresecurity.com/gent-805576-s-quad-base-label-plate-pack-of-10",
+    "our_price_raw": "2057,96",
+    "our_price_parsed": 2057.96,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_en",
+    "pack_qty": null,
+    "judge_reason": "label/sign plate, £9.70 — 'box' triggered from unrelated text"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 9.7,
+    "best_price_currency": "GBP",
+    "best_price_source": "price_contract",
+    "best_description": "Табличка для базы извещателя используется для маркировки и идентификации устройств в системе пожарной сигнализации. Поставляется в наборе из 10 штук. Изготовлена из прочного материала, устойчивого к внешним воздействиям.",
+    "best_description_source": "content",
+    "best_photo_url": "https://germes-security.ru/ohranno-pojarnie-signalizatsii/izvescateli/dopolnitel",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Табличка для базы извещателя используется для маркировки и идентификации устройств в системе пожарной сигнализации. Поставляется в наборе из 10 штук. Изготовлена из прочного материала, устойчивого к внешним воздействиям.",
+    "best_description_ru": "<p>Представляем незаменимый элемент для эффективной организации и обслуживания систем пожарной сигнализации – таблички для базы извещателя Honeywell IQ8Quad-ST. Этот продукт, артикул 805576, разработан ведущим мировым брендом Honeywell, известным своими инновационными решениями в области безопасности. Таблички предназначены для точной маркировки и идентификации извещателей серии IQ8Quad-ST Self-Test, обеспечивая порядок и ясность в сложных системах, что критически важно для оперативного реагирования и обслуживания. Поставляемые в удобном наборе из 10 штук, они станут надежным помощником для любого специалиста.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Бренд: Honeywell – гарантия качества и надежности от мирового лидера в сфере безопасности.</li>\n<li>Артикул: 805576 – уникальный идентификатор для легкого заказа и учета.</li>\n<li>Название: IQ8Quad-ST – Self-Test series of detectors – специально разработаны для извещателей данной серии.</li>\n<li>Назначение: Маркировка и идентификация баз извещателей в системах пожарной сигнализации.</li>\n<li>Комплектация: Набор из 10 штук – оптимальное количество для монтажа и обслуживания нескольких устройств.</li>\n<li>Материал: Изготовлены из прочного и долговечного материала, устойчивого к внешним воздействиям.</li>\n<li>Устойчивость: Высокая стойкость к истиранию и выцветанию, что гарантирует долгий срок службы маркировки.</li>\n<li>Совместимость: Идеально подходят для баз извещателей серии IQ8Quad-ST, обеспечивая точное соответствие.</li>\n<li>Удобство использования: Легко крепятся к базе извещателя, не требуя специальных инструментов.</li>\n</ul>\n\n<p>Таблички для базы извещателя Honeywell IQ8Quad-ST находят свое применение в самых разнообразных объектах, где требуется установка и обслуживание систем пожарной сигнализации. Они незаменимы в коммерческих зданиях, промышленных комплексах, офисных центрах, образовательных учреждениях, медицинских учреждениях и жилых комплексах. Использование этих табличек позволяет быстро и безошибочно идентифицировать каждый извещатель, что значительно упрощает процесс монтажа, пусконаладки, регулярного технического обслуживания и, что особенно важно, оперативного устранения неисправностей. Четкая маркировка способствует повышению общей эффективности и надежности всей системы пожарной безопасности.</p>\n\n<p>Выбор табличек Honeywell IQ8Quad-ST – это инвестиция в надежность и эффективность вашей системы пожарной сигнализации. Их использование значительно сокращает время на поиск и идентификацию конкретного извещателя, минимизируя риск ошибок при обслуживании. Прочный материал гарантирует долговечность маркировки, сохраняя ее читаемость на протяжении многих лет. Приобретая данный набор, вы получаете не просто таблички, а инструмент для повышения безопасности и оптимизации рабочих процессов, подтвержденный авторитетом бренда Honeywell.</p>",
+    "best_description_ru_word_count": 324,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "IQ8Quad-ST - Self-Test series of detectors",
+    "description": "",
+    "specs": {
+      "operating_voltage_v_dc": "9.2 … 42.4 V DC; 14 ... 42.4 V DC (EN 54-17); 34 V DC ... 42.4 V (Self-Test)",
+      "quiescent_current_td_19v_dc": "50 μA",
+      "quiescent_current_o_19v_dc": "70 μA",
+      "quiescent_current_ot_19v_dc": "75 μA",
+      "quiescent_current_o2t_19v_dc": "80 μA",
+      "quiescent_current_otblue_19v_dc": "75 μA",
+      "quiescent_current_td_facp_accu_27_5v": "0.09 mA",
+      "quiescent_current_td_facp_accu_42v": "0.11 mA",
+      "quiescent_current_o_facp_accu_27_5v": "0.11 mA",
+      "quiescent_current_o_facp_accu_42v": "0.13 mA",
+      "quiescent_current_ot_facp_accu_27_5v": "0.11 mA",
+      "quiescent_current_ot_facp_accu_42v": "0.13 mA",
+      "quiescent_current_o2t_facp_accu_27_5v": "0.23 mA",
+      "quiescent_current_o2t_facp_accu_42v": "0.33 mA",
+      "quiescent_current_otblue_facp_accu_27_5v": "0.11 mA",
+      "quiescent_current_otblue_facp_accu_42v": "0.13 mA",
+      "ambient_temperature_td": "-20 °C … 50 °C",
+      "ambient_temperature_o": "-20 °C … 72 °C",
+      "ambient_temperature_ot": "-20 °C … 50 °C",
+      "ambient_temperature_o2t": "-20 °C … 65 °C",
+      "ambient_temperature_otblue": "-20 °C … 50 °C",
+      "min_ambient_temperature_self_test_smoke": "0 °C",
+      "storage_temperature": "-25 °C … 65 °C",
+      "air_humidity": "≤ 95% (non-condensing)",
+      "weight_td_g": "86",
+      "weight_o_g": "121",
+      "weight_ot_g": "122",
+      "weight_o2t_g": "122",
+      "weight_otblue_g": "122",
+      "vds_no_td": "G225003",
+      "vds_no_o": "G225002",
+      "vds_no_ot": "G225004",
+      "vds_no_o2t": "G225006",
+      "vds_no_otblue": "G225005",
+      "part_no_td": "802271-ST",
+      "part_no_o": "802371-ST",
+      "part_no_ot": "802373-ST",
+      "part_no_o2t": "802374-ST",
+      "part_no_otblue": "802375-ST",
+      "ip_rating_without_base": "IP 21",
+      "ip_rating_with_base": "IP 21",
+      "ip_rating_with_base_option_805570": "IP 42",
+      "ip_rating_with_base_option_805572_50_805573": "IP 43",
+      "material": "ABS",
+      "color": "white, similar RAL 9010",
+      "dimension_diameter_without_base_mm": "Ø 117",
+      "dimension_height_without_base_mm": "63",
+      "dimension_diameter_with_base_mm": "Ø 117",
+      "dimension_height_with_base_mm": "70",
+      "integrated_loop_isolator": "yes",
+      "loop_length_max_km": "3.5",
+      "detector_type_td": "thermal detector for intelligent detection of fixed or rate-of-rise heat alarms",
+      "detector_type_o": "optical detector for intelligent, reliable smoke detection",
+      "detector_type_ot": "optical-thermal multisensor detector for intelligent, reliable smoke and heat detection",
+      "detector_type_o2t": "dual optical-thermal detector for reliable early fire detection with highest immunity to false alarms using proven two-angle smoke detection",
+      "detector_type_otblue": "optical-thermal detector with UV sensor for earliest detection of high-energy fires offering highest sensitivity for detection of smallest smoke particles"
+    },
+    "specs_count": 56,
+    "series": "IQ8Quad-ST",
+    "category": "",
+    "weight_g": "86",
+    "dimensions_mm": "117x117x70",
+    "certifications": [
+      "EN 54-5 A1R",
+      "EN 54-7",
+      "EN 54-17",
+      "EN 54-5 A2",
+      "EN 54-29",
+      "EN 54-5 B",
+      "CEN/TS 54-14",
+      "DIN 14675",
+      "DIN 0833-2"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\805576.pdf",
+    "datasheet_size_kb": 320,
+    "product_photos": [
+      "downloads\\datasheet_photos\\805576_p1_5.jpeg",
+      "downloads\\datasheet_photos\\805576_p2_0.png",
+      "downloads\\datasheet_photos\\805576_p2_1.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/805576_p1_5.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "description_seo_ru": "<p>Представляем незаменимый элемент для эффективной организации и обслуживания систем пожарной сигнализации – таблички для базы извещателя Honeywell IQ8Quad-ST. Этот продукт, артикул 805576, разработан ведущим мировым брендом Honeywell, известным своими инновационными решениями в области безопасности. Таблички предназначены для точной маркировки и идентификации извещателей серии IQ8Quad-ST Self-Test, обеспечивая порядок и ясность в сложных системах, что критически важно для оперативного реагирования и обслуживания. Поставляемые в удобном наборе из 10 штук, они станут надежным помощником для любого специалиста.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Бренд: Honeywell – гарантия качества и надежности от мирового лидера в сфере безопасности.</li>\n<li>Артикул: 805576 – уникальный идентификатор для легкого заказа и учета.</li>\n<li>Название: IQ8Quad-ST – Self-Test series of detectors – специально разработаны для извещателей данной серии.</li>\n<li>Назначение: Маркировка и идентификация баз извещателей в системах пожарной сигнализации.</li>\n<li>Комплектация: Набор из 10 штук – оптимальное количество для монтажа и обслуживания нескольких устройств.</li>\n<li>Материал: Изготовлены из прочного и долговечного материала, устойчивого к внешним воздействиям.</li>\n<li>Устойчивость: Высокая стойкость к истиранию и выцветанию, что гарантирует долгий срок службы маркировки.</li>\n<li>Совместимость: Идеально подходят для баз извещателей серии IQ8Quad-ST, обеспечивая точное соответствие.</li>\n<li>Удобство использования: Легко крепятся к базе извещателя, не требуя специальных инструментов.</li>\n</ul>\n\n<p>Таблички для базы извещателя Honeywell IQ8Quad-ST находят свое применение в самых разнообразных объектах, где требуется установка и обслуживание систем пожарной сигнализации. Они незаменимы в коммерческих зданиях, промышленных комплексах, офисных центрах, образовательных учреждениях, медицинских учреждениях и жилых комплексах. Использование этих табличек позволяет быстро и безошибочно идентифицировать каждый извещатель, что значительно упрощает процесс монтажа, пусконаладки, регулярного технического обслуживания и, что особенно важно, оперативного устранения неисправностей. Четкая маркировка способствует повышению общей эффективности и надежности всей системы пожарной безопасности.</p>\n\n<p>Выбор табличек Honeywell IQ8Quad-ST – это инвестиция в надежность и эффективность вашей системы пожарной сигнализации. Их использование значительно сокращает время на поиск и идентификацию конкретного извещателя, минимизируя риск ошибок при обслуживании. Прочный материал гарантирует долговечность маркировки, сохраняя ее читаемость на протяжении многих лет. Приобретая данный набор, вы получаете не просто таблички, а инструмент для повышения безопасности и оптимизации рабочих процессов, подтвержденный авторитетом бренда Honeywell.</p>",
+    "description_seo_word_count": 324,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'IQ8Quad-ST - Self-Test series of detectors' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -4,7 +4,7 @@
   "pn": "162211",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Термостатический вентиль Honeywell D 20.572.150.21",
   "assembled_title": "Рамка 2-постовая PEHA AURA, 162211",
   "our_price_raw": "3654,40",
@@ -341,7 +341,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -679,7 +681,232 @@
     "provider": "unknown",
     "model": "unknown",
     "source_file": "deep-research-report-prompt-v3.md",
-    "description_ru": "Трехходовой седельный клапан для качественного регулирования в системах отопления. Используется для смешивания потоков прямой и обратной воды для достижения заданной температуры. Оснащен латунным корпусом и штоком из нержавеющей стали для защиты от коррозии. Поддерживает широкий диапазон приводов с ходом штока 20 мм."
+    "description_ru": "Трехходовой седельный клапан для качественного регулирования в системах отопления. Используется для смешивания потоков прямой и обратной воды для достижения заданной температуры. Оснащен латунным корпусом и штоком из нержавеющей стали для защиты от коррозии. Поддерживает широкий диапазон приводов с ходом штока 20 мм.",
+    "descriptions_all": {
+      "legacy": "Трехходовой седельный клапан для качественного регулирования в системах отопления. Используется для смешивания потоков прямой и обратной воды для достижения заданной температуры. Оснащен латунным корпусом и штоком из нержавеющей стали для защиты от коррозии. Поддерживает широкий диапазон приводов с ходом штока 20 мм."
+    }
   },
-  "product_category": "switch frame"
+  "training_urls": [
+    "https://www.indiamart.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 63.95,
+    "dr_currency": "CHF",
+    "dr_source_url": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-162211-1-st-2856628.html",
+    "our_price_raw": "3654,40",
+    "our_price_parsed": 3654.4,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 63.95,
+    "best_price_currency": "CHF",
+    "best_price_source": "price_contract",
+    "best_description": "Трехходовой седельный клапан для качественного регулирования в системах отопления. Используется для смешивания потоков прямой и обратной воды для достижения заданной температуры. Оснащен латунным корпусом и штоком из нержавеющей стали для защиты от коррозии. Поддерживает широкий диапазон приводов с ходом штока 20 мм.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://asset.conrad.com/media10/isa/160267/c1/-/de/002856628PI01/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Remote I/O IS1 CPU und Power Modul für Zone 1",
+    "description": "",
+    "specs": {
+      "max_output_voltage": "26.2 V for I/O module power supply",
+      "explosion_protection_zones": "1, 2",
+      "explosion_protection_interface_zones": "0, 1, 2, 21, 22",
+      "iecex_gas_explosion_protection": "Ex d [ia] [ib] IIC T4 Gb",
+      "atex_gas_explosion_protection": "E II 2 G Ex d [ia] [ib] IIC T4 Gb",
+      "cfmus_marking": "XP, Class I, Div. 1, Groups A,B,C,D; Class I, Zone 1, Group IIC AIS Class I,II,III, Div. 1, Groups A,B,C,D,E,F,G; Class I, Zone 1, [AEx ib]/[Ex ib] IIC T4 at Ta = 65 °C",
+      "ccsa_marking": "Class I, Zone 1, Ex e d ib [ia/ib] IIC T4 Class I,II,II, Div. 1, Groups A,B,C,D,E,F,G; T4 at Ta = 65 °C",
+      "installation_zone": "Zone 1 / Division 1",
+      "suitable_for": "Ex i Profibus DP V0/V1 HART",
+      "system_redundancy_support": "Yes",
+      "optical_ring_support": "Yes",
+      "hot_swap_capability": "CPM in Zone 1 is hot-swappable",
+      "plant_asset_management_integration_via": "ServiceBus and FDT/DTM",
+      "integrated_ex_i_power_supply_for": "Up to 8 I/O Modules",
+      "communication_with_automation_system": "Intrinsically safe RS485-IS with PROFIBUS DP or Modbus RTU",
+      "asset_management_integration_method": "DTM and process bus or ServiceBus",
+      "busrail_voltage_range": "22.5 ... 26.2 V DC",
+      "busrail_max_current": "2 A",
+      "busrail_undervoltage_monitoring": "Yes",
+      "protocols": [
+        "Profibus DP V0",
+        "Profibus DP V1",
+        "Profibus DP V1 HART",
+        "Modbus RTU"
+      ],
+      "redundancy_type": "Full redundancy",
+      "fieldbus_rs485_connector": "Sub-D 9-pin female",
+      "servicebus_rs485_connector": "Sub-D 9-pin female",
+      "rs485_interface_specification": "Profibus specification RS 485-IS",
+      "rs485_transmission_speed": "9.6 kbit/s ... 1.5 Mbit/s",
+      "rs485_address_setting": "0 – 127",
+      "rs485_copper_transmission_length_rate_9_6_93_75_kbit_s": "1200 m",
+      "rs485_copper_transmission_length_rate_187_5_kbit_s": "1000 m",
+      "rs485_copper_transmission_length_rate_500_kbit_s": "400 m",
+      "rs485_copper_transmission_length_rate_1_5_mbit_s": "200 m",
+      "rs485_fiber_optic_transmission_length_rate_1_5_mbit_s": "approx. 2000 m",
+      "servicebus_rs485_transmission_length_rate_9_6_kbit_s": "1200 m",
+      "line_termination": "Powered resistor (termination resistor in Sub-D plug)",
+      "rs485_data_transfer": "approx. 40 16-bit words/ms (cyclic, net at 1.5 Mbit/s)",
+      "max_internal_signal_delay_8_io_modules_digital": "7 ms",
+      "max_internal_signal_delay_8_io_modules_analog": "10 ms",
+      "nominal_auxiliary_power_voltage": "120 V / 230 V AC",
+      "auxiliary_power_voltage_range": "90 ... 253 V AC",
+      "auxiliary_power_frequency": "45 – 66 Hz",
+      "mains_frequency": "50/60 Hz",
+      "reverse_polarity_protection": "Not applicable",
+      "auxiliary_power_undervoltage_monitoring": "Yes",
+      "current_consumption_without_io_modules_230vac": "approx. 25 mA",
+      "current_consumption_without_io_modules_120vac": "approx. 48 mA",
+      "current_consumption_8_io_modules_230vac": "approx. 0.4 A",
+      "current_consumption_8_io_modules_120vac": "approx. 0.8 A",
+      "power_loss_without_io_modules": "8.4 W",
+      "power_loss_per_io_module": "1 W",
+      "galvanic_isolation_auxiliary_power_system_components": "1500 V AC",
+      "galvanic_isolation_bus_interface_bus_interface": "500 V AC",
+      "galvanic_isolation_bus_interface_system_components": "500 V AC",
+      "rs485_is_fieldbus_global_iecex_approval": "PTB 11.0027 Ex ib IIC T4",
+      "rs485_is_fieldbus_europe_atex_approval": "PTB 04 ATEX 2089 E II 2 G Ex ib IIC T4",
+      "max_voltage_uo_rs485_is": "3.7 V",
+      "max_voltage_ui_rs485_is": "+/- 4.2 V",
+      "max_current_io_rs485_is": "134 mA",
+      "max_power_po_rs485_is": "124 mW",
+      "max_capacitance_co_for_iic": "1000 μF",
+      "max_inductance_lo_for_iic": "1.9 mH",
+      "software": [
+        "IS1 Geräte DTM",
+        "IS Wizard"
+      ],
+      "diagnostic_parameterization_functions": [
+        "Load or read back configuration data and parameters in IS1 field stations",
+        "Read inputs",
+        "Read and write outputs",
+        "Transmit diagnostic data (e.g., configuration errors, hardware errors, signal errors)",
+        "Transmit HART commands from/to HART field devices"
+      ],
+      "diagnostic_parameterization_connectable_software_packages": [
+        "IS Wizard (via R. STAHL ServiceBus)",
+        "R. STAHL DTM",
+        "AMS from Emerson Process Management",
+        "PDM from Siemens",
+        "PRM and Fieldmate from Yokogawa",
+        "FieldCare from Endress + Hauser",
+        "FDM from Honeywell"
+      ],
+      "led_operating_status": "LED \"RUN\", green",
+      "lcd_display_format": "2 x 16 characters",
+      "lcd_settings": "Bus address",
+      "lcd_displays_content": [
+        "Bus address",
+        "Alarms / Errors",
+        "Information (Type, Revision etc.) for field station, modules and signals",
+        "Values of inputs and outputs"
+      ],
+      "ambient_temperature": "-20°C ... +65°C (-4°F ... +149°F)",
+      "storage_temperature": "-40°C ... +70°C (-40°F ... +158°F)",
+      "max_operating_altitude": "< 2000 m",
+      "max_relative_humidity": "95% (non-condensing)",
+      "shock_iec_en_60068_2_27": "15 g (3 shocks per axis and direction)",
+      "vibration_iec_en_60068_2_6_frequency_2_13_2_hz": "Amplitude 1 mm (peak value)",
+      "vibration_iec_en_60068_2_6_frequency_13_2_100_hz": "Acceleration amplitude 0.7 g",
+      "emc_standards": "EN 61326-1 (1998) IEC 1000-4-1...6, NAMUR NE 21",
+      "aux_power_connection_socket_9490_11_12": "Ex e terminals 4 mm2",
+      "aux_power_connection_socket_9490_13_12": "Cable tail, 5 m, 1 mm2 per core",
+      "aux_power_connection_socket_9490_12_12": "Conduit",
+      "diagnostic_led_collective_fault": "LED \"ERR\", red",
+      "ip_rating_connections": "IP20",
+      "ip_rating_modules": "IP30",
+      "module_housing_material": "Polyamid 6GF",
+      "flammability_rating_ul_94": "HB",
+      "pollutant_class": "Corresponds to G3",
+      "mounting_type": "On DIN rail NS 35/15 (DIN EN 60715)",
+      "mounting_position": [
+        "Horizontal",
+        "Vertical"
+      ]
+    },
+    "specs_count": 85,
+    "series": "Remote I/O IS1 CPU and Power Module",
+    "category": "",
+    "weight_g": 2960,
+    "dimensions_mm": "253x96.5x170",
+    "certifications": [
+      "IECEx KEM 08.0038X",
+      "KEMA 02 ATEX 1333 X",
+      "FM17US0332X",
+      "FM16CA0134X",
+      "cCSA 1519624",
+      "ATEX (DEK)",
+      "Brasilien (ULB)",
+      "IECEx (DEK)",
+      "Kanada (FM)",
+      "Korea (KTL)",
+      "USA (FM)",
+      "Volksrepublik China (NEPSI)",
+      "ABS (Marine)",
+      "BVIS (Marine)",
+      "EU RO MR (DNV) (Marine)",
+      "KR (Marine)",
+      "LR (Marine)",
+      "PTB 11.0027 Ex ib IIC T4 (Global IECEx for RS485-IS fieldbus)",
+      "PTB 04 ATEX 2089 E II 2 G Ex ib IIC T4 (Europa ATEX for RS485-IS fieldbus)"
+    ],
+    "article_no": "",
+    "ean": "4010105162219",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\162211.pdf",
+    "datasheet_size_kb": 961,
+    "product_photos": [
+      "downloads\\datasheet_photos\\162211_p1_0.jpeg",
+      "downloads\\datasheet_photos\\162211_p5_1.jpeg",
+      "downloads\\datasheet_photos\\162211_p5_3.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/162211_p1_0.jpeg",
+      "downloads/datasheet_photos/162211_p5_1.jpeg",
+      "downloads/datasheet_photos/162211_p5_3.jpeg"
+    ],
+    "verified_photo_count": 3
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Remote I/O IS1 CPU und Power Modul für Zone 1' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105162219",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

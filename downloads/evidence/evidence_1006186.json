@@ -3,10 +3,10 @@
   "generated_at": "2026-04-07T11:19:55.107152Z",
   "pn": "1006186",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Howard Leight",
+  "subbrand": null,
   "name": "Беруши 303L FOAMPLUG",
-  "assembled_title": "Беруши Honeywell 1006186",
+  "assembled_title": "Беруши Howard Leight 1006186",
   "our_price_raw": "1920,61",
   "expected_category": "Беруши",
   "card_status": "AUTO_PUBLISH",
@@ -99,7 +99,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "На изображении видны беруши, товар соответствует описанию.",
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\1006186.jpg",
     "sha1": "c8aff4f091abfb2160158df9c12cd367505b60d8",
@@ -115,9 +115,7 @@
     "photo_status": "exact_evidence",
     "photo_evidence_role": "exact",
     "photo_is_temporary": false,
-    "replacement_required": false,
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "replacement_required": false
   },
   "price": {
     "price_status": "public_price",
@@ -168,7 +166,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Howard Leight",
+    "brand_source": "dr_claude_110_2026-04-12"
   },
   "content": {
     "specs": {},
@@ -351,7 +351,27 @@
         "Bilsom 303L",
         "Howard Leight 303L",
         "RS 104-0922"
-      ]
+      ],
+      "Brand": "Howard Leight",
+      "Product type": "Foam earplug refill",
+      "Series": "303L",
+      "Material": "Polyurethane foam",
+      "Shape": "Bullet",
+      "Corded": "No",
+      "Pairs per refill": "200",
+      "SNR": "33 dB",
+      "HML": "H=32 dB / M=29 dB / L=29 dB",
+      "Standard": "EN 352-2:2002",
+      "Model": "Bilsom 303L",
+      "Type": "Disposable Earplugs",
+      "H": "32 dB",
+      "M": "29 dB",
+      "L": "29 dB",
+      "Size": "Large",
+      "Surface": "Soil-Resistant Skin",
+      "Weight": "0.48 g",
+      "Quantity": "200 Pairs",
+      "EAN": "7312550061862"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -385,13 +405,184 @@
     "merge_source": "result_1006186.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "gpt": "Howard Leight 1006186 — это сменный блок одноразовых противошумных берушей для диспенсера серии 303L. Изделие выполнено из мягкого полиуретанового вспененного материала, который постепенно расширяется после введения в слуховой канал и помогает получить стабильную посадку. Пулевидная форма рассчитана на быстрое и гигиеничное использование в производственной среде, где СИЗ органов слуха выдаются многим сотрудникам подряд. По данным производителя, модель обеспечивает SNR 33 дБ, поэтому она подходит для зон с выраженным постоянным промышленным шумом. Беруши не имеют шнурка, что упрощает массовую раздачу через настенный или настольный диспенсер и снижает риск запутывания. Такой формат особенно удобен для цехов, складов, участков металлообработки, деревообработки и логистических терминалов. Модель рассчитана на одноразовое применение, поэтому после смены или загрязнения вкладыши заменяются новой парой. При выборе важно учитывать совместимость именно с диспенсерами серии 303L, потому что это refill-позиция, а не индивидуальная карманная упаковка. Изделие соответствует европейскому стандарту EN 352-2 для средств защиты слуха.",
+      "gemini": "Противошумные вставки Howard Leight Bilsom 303L — это одноразовые беруши большого размера (Large), изготовленные из высококачественного полиуретанового пеноматериала с замедленным временем восстановления. Специальная вспененная структура обеспечивает точное соответствие форме ушного канала и создает надежную акустическую преграду. Показатель SNR составляет 33 дБ, что обеспечивает защиту слуха в условиях интенсивного промышленного шума. Гладкая грязеотталкивающая поверхность беруш препятствует накоплению загрязнений с рук при установке, снижая риск инфекций ушного канала. Размер L специально разработан для лиц с более широким ушным каналом, устраняя дискомфорт и повышая готовность работников к длительному использованию. Модель соответствует стандарту EN 352-2:2002 и прошла сертификацию для применения на промышленных предприятиях Европы. Вес одной пары составляет 0.48 г, что обеспечивает минимальную нагрузку при длительном использовании. Беруши поставляются в экономичных упаковках по 200 пар и являются стандартным СИЗ для металлургических, строительных и производственных объектов."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Howard Leight",
+        "Product type": "Foam earplug refill",
+        "Series": "303L",
+        "Material": "Polyurethane foam",
+        "Shape": "Bullet",
+        "Corded": "No",
+        "Pairs per refill": "200",
+        "SNR": "33 dB",
+        "HML": "H=32 dB / M=29 dB / L=29 dB",
+        "Standard": "EN 352-2:2002"
+      },
+      "gemini": {
+        "Brand": "Howard Leight by Honeywell",
+        "Model": "Bilsom 303L",
+        "Type": "Disposable Earplugs",
+        "Material": "Polyurethane Foam",
+        "SNR": "33 dB",
+        "H": "32 dB",
+        "M": "29 dB",
+        "L": "29 dB",
+        "Size": "Large",
+        "Surface": "Soil-Resistant Skin",
+        "Standard": "EN 352-2:2002",
+        "Weight": "0.48 g",
+        "Quantity": "200 Pairs",
+        "EAN": "7312550061862"
+      }
+    },
+    "notes_all": {
+      "gpt": "Сменный refill-блок для диспенсера 303L; не индивидуальная розничная упаковка."
+    }
   },
   "dr_category": "earplugs",
   "dr_image_url": "https://media.rs-online.com/image/upload/F1040922-01",
-  "dr_price": null,
-  "dr_currency": null,
-  "dr_price_source": null,
-  "dr_price_type": null,
-  "product_category": "earplugs (PPE)"
+  "dr_price": 1794.0,
+  "dr_currency": "TWD",
+  "dr_price_source": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+  "training_urls": [
+    "https://ppestore.co.uk/product/honeywell-howard-leight-1006186-303l-large-foam-ear-plugs-refill-x400/",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/sps/his/en-gb/products/hearing-protection/documents/sps-ppe-bilsom-303-single-use-earplug-datasheet.pdf",
+    "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+    "https://docs.rs-online.com/85f9/0900766b8164d5c1.pdf",
+    "https://uk.rs-online.com/web/p/hearing-protection/7875851",
+    "https://www.bunzlpd.com.au/howard-leight-laser-lite-earplug-refill-200-pairs-pk-4/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1794.0,
+    "dr_currency": "TWD",
+    "dr_source_url": "https://twen.rs-online.com/web/p/ear-plugs/1040922",
+    "our_price_raw": "1920,61",
+    "our_price_parsed": 1920.61,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": 200,
+    "judge_reason": "kf: 'Bag of 200 pairs' — earplug refill pack"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1794.0,
+    "best_price_currency": "TWD",
+    "best_price_source": "price_contract",
+    "best_description": "Беруши 303L из пеноматериала обеспечивают надежную защиту слуха. Они мягкие и удобные, что позволяет использовать их в течение длительного времени без дискомфорта.",
+    "best_description_source": "content",
+    "best_photo_url": "https://media.rs-online.com/image/upload/F1040922-01",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Беруши 303L из пеноматериала обеспечивают надежную защиту слуха. Они мягкие и удобные, что позволяет использовать их в течение длительного времени без дискомфорта.",
+    "best_description_ru": "<p>Представляем диспенсер для берушей Howard Leight HL400™-AM ANTIMICROBIAL-PROTECTED DISPENSER из серии HL400-AM, артикул 1006186. Это инновационное решение для обеспечения надежной защиты слуха на рабочем месте, разработанное для удобного и гигиеничного доступа к берушам. Диспенсер предназначен для использования с популярными моделями берушей из пеноматериала, такими как 303L, которые известны своей мягкостью и комфортом, позволяя носить их в течение длительного времени без дискомфорта. Этот продукт является незаменимым элементом для поддержания безопасности и здоровья сотрудников в условиях повышенного шума.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Антимикробная защита:</b> Ручка-поворотник и лоток для сбора обработаны антимикробной добавкой с ионами серебра, обеспечивая гигиеничность использования.</li>\n    <li><b>Универсальные варианты монтажа:</b> Диспенсер может быть установлен на стене или использоваться как настольный вариант, что обеспечивает гибкость размещения.</li>\n    <li><b>Широкая совместимость:</b> Подходит для различных типов берушей, включая MAX®, MAXLite®, Laser Lite®, FirmFit® и Bilsom 303S/L, предоставляя выбор для разных потребностей.</li>\n    <li><b>Высокая вместимость:</b> Вмещает до 400 пар берушей, минимизируя необходимость частой дозаправки и обеспечивая непрерывный доступ.</li>\n    <li><b>Гибкие варианты пополнения:</b> Доступны предварительно заполненные перерабатываемые канистры и пакеты с берушами навалом, что упрощает процесс пополнения.</li>\n    <li><b>Экономичная упаковка:</b> Поставляется в комплекте с 1 диспенсером и 1 канистрой, а также опциями пополнения: 2 канистры по 400 пар или 10 пакетов по 200 пар.</li>\n    <li><b>Снижение затрат:</b> Помогает сократить расходы на уборку и уменьшить количество отходов на рабочем месте, способствуя экономии.</li>\n    <li><b>Быстрый доступ:</b> Работники могут быстро получить доступ к берушам, что повышает эффективность и соблюдение правил безопасности.</li>\n</ul>\n\n<p>Диспенсер HL400™-AM идеально подходит для широкого спектра промышленных и производственных сред, где требуется постоянная защита слуха. Он может быть установлен в цехах, на строительных площадках, в аэропортах, на складах и в любых других местах с высоким уровнем шума. Благодаря возможности настенного или настольного монтажа, диспенсер легко интегрируется в существующую инфраструктуру. Работники могут легко получить беруши, просто повернув ручку, что обеспечивает быстрый и гигиеничный доступ к средствам индивидуальной защиты. Это решение значительно упрощает процесс выдачи берушей и способствует соблюдению стандартов безопасности труда.</p>\n\n<p>Выбирая диспенсер Howard Leight HL400™-AM, вы получаете не только надежное, но и экономически выгодное решение. Антимикробная защита гарантирует гигиеничность использования, что особенно важно в условиях коллективного доступа. Совместимость с различными типами берушей позволяет подобрать оптимальную защиту для каждого сотрудника, учитывая индивидуальные предпочтения и уровень шума. Это способствует повышению удовлетворенности персонала и снижению затрат на обслуживание, делая его идеальным выбором для любого предприятия, заботящегося о здоровье и безопасности своих сотрудников.</p>",
+    "best_description_ru_word_count": 375,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "phase3a_price": {
+    "price": 22.88,
+    "currency": "GBP",
+    "unit_basis": "unit",
+    "source_url": "https://www.workwearexpress.com/honeywell-1006186-303l-foam-earplug-refill-pack-200-pairs-lrg-snr33?srsltid=AfmBOorfAgRAleS1FoBw-Ndq0GQEjj2584cNtTQjK88xZbIK-vgLj0S7",
+    "confidence": "high",
+    "notes": "200-pair refill pack",
+    "search_used": "1006186"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "HL400™-AM ANTIMICROBIAL-PROTECTED DISPENSER",
+    "description": "The Honeywell HL400-AM earplug dispenser features built-in antimicrobial properties to protect the dispenser against stains, discoloration and odors caused by mold, mildew and bacteria. This product does not protect users or others against disease-causing organisms. It is designed to maintain clean workspaces and offers enhanced cleanliness.",
+    "specs": {
+      "antimicrobial_protection": "Turn knob and catch tray treated with a silver ion antimicrobial additive",
+      "mounting_options": [
+        "Wall-mounted",
+        "Tabletop"
+      ],
+      "compatible_earplugs": [
+        "MAX®",
+        "MAXLite®",
+        "Laser Lite®",
+        "FirmFit®",
+        "Bilsom 303S/L"
+      ],
+      "dispenser_capacity_pairs": 400,
+      "refill_options": [
+        "Prefilled recyclable canister",
+        "Bulk earplug bags"
+      ],
+      "refill_canister_capacity_pairs": 400,
+      "refill_bag_capacity_pairs": 200,
+      "dispenser_case_quantity": "1 dispenser and 1 canister per case",
+      "refill_canister_case_quantity": "2 canisters of 400 pairs per case (Total 800 pairs)",
+      "refill_bag_case_quantity": "10 zip top bags per case (Total 2000 pairs)",
+      "benefits": [
+        "Reduces cleaning costs in the workplace",
+        "Reduces waste and drives cost savings",
+        "Fits on existing wall mounts of other dispensers",
+        "Workers can access earplugs quickly",
+        "Provides the right earplugs for every user in every environment",
+        "Earplugs available in different sizes, shapes, materials and attenuation levels"
+      ]
+    },
+    "specs_count": 11,
+    "series": "HL400-AM",
+    "category": "Hearing Protection Dispenser",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "7312550061862",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "docs.rs-online.com",
+    "ean_source_url": "https://docs.rs-online.com/0de3/0900766b814f9756.pdf",
+    "datasheet_pdf": "downloads\\datasheets_v2\\1006186.pdf",
+    "datasheet_size_kb": 186,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Howard Leight is a Honeywell brand (hearing protection division). The PN 1006186 correctly refers to the HL400-AM dispenser unit, not the 303L earplugs. The seed_name is wrong - it describes earplugs when the actual product is a dispenser. The datasheet is correct for PN 1006186 (dispenser), but the seed_name '303L FOAMPLUG' refers to earplug refills that GO INTO this dispenser. Need new product description focusing on the dispenser itself, not the earplugs it holds."
+    },
+    "description_seo_ru": "<p>Представляем диспенсер для берушей Howard Leight HL400™-AM ANTIMICROBIAL-PROTECTED DISPENSER из серии HL400-AM, артикул 1006186. Это инновационное решение для обеспечения надежной защиты слуха на рабочем месте, разработанное для удобного и гигиеничного доступа к берушам. Диспенсер предназначен для использования с популярными моделями берушей из пеноматериала, такими как 303L, которые известны своей мягкостью и комфортом, позволяя носить их в течение длительного времени без дискомфорта. Этот продукт является незаменимым элементом для поддержания безопасности и здоровья сотрудников в условиях повышенного шума.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Антимикробная защита:</b> Ручка-поворотник и лоток для сбора обработаны антимикробной добавкой с ионами серебра, обеспечивая гигиеничность использования.</li>\n    <li><b>Универсальные варианты монтажа:</b> Диспенсер может быть установлен на стене или использоваться как настольный вариант, что обеспечивает гибкость размещения.</li>\n    <li><b>Широкая совместимость:</b> Подходит для различных типов берушей, включая MAX®, MAXLite®, Laser Lite®, FirmFit® и Bilsom 303S/L, предоставляя выбор для разных потребностей.</li>\n    <li><b>Высокая вместимость:</b> Вмещает до 400 пар берушей, минимизируя необходимость частой дозаправки и обеспечивая непрерывный доступ.</li>\n    <li><b>Гибкие варианты пополнения:</b> Доступны предварительно заполненные перерабатываемые канистры и пакеты с берушами навалом, что упрощает процесс пополнения.</li>\n    <li><b>Экономичная упаковка:</b> Поставляется в комплекте с 1 диспенсером и 1 канистрой, а также опциями пополнения: 2 канистры по 400 пар или 10 пакетов по 200 пар.</li>\n    <li><b>Снижение затрат:</b> Помогает сократить расходы на уборку и уменьшить количество отходов на рабочем месте, способствуя экономии.</li>\n    <li><b>Быстрый доступ:</b> Работники могут быстро получить доступ к берушам, что повышает эффективность и соблюдение правил безопасности.</li>\n</ul>\n\n<p>Диспенсер HL400™-AM идеально подходит для широкого спектра промышленных и производственных сред, где требуется постоянная защита слуха. Он может быть установлен в цехах, на строительных площадках, в аэропортах, на складах и в любых других местах с высоким уровнем шума. Благодаря возможности настенного или настольного монтажа, диспенсер легко интегрируется в существующую инфраструктуру. Работники могут легко получить беруши, просто повернув ручку, что обеспечивает быстрый и гигиеничный доступ к средствам индивидуальной защиты. Это решение значительно упрощает процесс выдачи берушей и способствует соблюдению стандартов безопасности труда.</p>\n\n<p>Выбирая диспенсер Howard Leight HL400™-AM, вы получаете не только надежное, но и экономически выгодное решение. Антимикробная защита гарантирует гигиеничность использования, что особенно важно в условиях коллективного доступа. Совместимость с различными типами берушей позволяет подобрать оптимальную защиту для каждого сотрудника, учитывая индивидуальные предпочтения и уровень шума. Это способствует повышению удовлетворенности персонала и снижению затрат на обслуживание, делая его идеальным выбором для любого предприятия, заботящегося о здоровье и безопасности своих сотрудников.</p>",
+    "description_seo_word_count": 375,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Howard Leight",
+      "candidates": [],
+      "product_hint": "PPE",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'HL400™-AM ANTIMICROBIAL-PROTECTED DISPENSER' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean_candidates": [
+        "7312550061862",
+        "7312553061869"
+      ],
+      "source": "hl_rule_candidates",
+      "confidence": "medium",
+      "note": "verify against actual datasheet"
+    }
+  }
 }

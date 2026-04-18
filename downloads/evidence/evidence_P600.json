@@ -4,7 +4,7 @@
   "pn": "P600",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Видеокарта NVIDIA Quadro P600",
   "assembled_title": "Видеокарта Honeywell P600",
   "our_price_raw": "3749,75",
@@ -188,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqR5ZXyrpY2X9WFtBikT'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -206,9 +206,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -352,7 +350,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Quadro P600",
+    "confirmed_manufacturer": "NVIDIA",
+    "discontinued": false,
+    "identity_notes_p1": "Not Honeywell; this is NVIDIA Quadro professional GPU",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -375,9 +378,8 @@
     "description": "Видеокарта NVIDIA Quadro P600 предлагает баланс между производительностью и энергоэффективностью, что делает её подходящей для профессиональных графических приложений и работы с мультимедиа.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Видеокарта",
-    "seed_name": "Видеокарта NVIDIA Quadro P600",
-    "description_long_ru": "NVIDIA Quadro P600; legacy product; $102-154 new, $110 used"
+    "product_type": "Video card",
+    "seed_name": "Видеокарта NVIDIA Quadro P600"
   },
   "trace": {
     "pn_match_location": "",
@@ -660,7 +662,39 @@
       "raw": "по лоту: «HONEYWELL NIAGARA TRIDIUM 600 SERIES PROCESSOR CP‑600»; condition used citeturn48search0",
       "aliases": [
         "CP‑600 (в названии лота)"
-      ]
+      ],
+      "GPU": "NVIDIA GP107 (Pascal)",
+      "CUDA Cores": "384",
+      "Memory": "2 GB GDDR5",
+      "Memory Interface": "128-bit",
+      "Memory Bandwidth": "64 GB/s",
+      "Display Outputs": "4x Mini DisplayPort 1.4",
+      "Max Resolution": "5120 x 2880 @ 60Hz",
+      "TDP": "40 W",
+      "Form Factor": "Low-profile, single slot",
+      "Bus Interface": "PCIe 3.0 x16",
+      "API Support": "OpenGL 4.5, DirectX 12, Vulkan 1.0, CUDA",
+      "Max Monitors": "4",
+      "Memory Bus": "128-bit",
+      "Power Connector": "None (PCIe slot powered)",
+      "Max Displays": "4",
+      "Interface": "PCIe 3.0 x16",
+      "GPU architecture": "Pascal",
+      "CUDA cores": "384",
+      "Memory interface": "128-bit",
+      "Memory bandwidth": "Up to 64 GB/s",
+      "Max power": "40 W",
+      "Bus": "PCI Express 3.0 x16",
+      "Display outputs": "4 x DisplayPort 1.4",
+      "gpu": "NVIDIA Pascal",
+      "cuda_cores": "384",
+      "memory": "2 GB GDDR5 128-bit",
+      "max_resolution": "5120 x 2880 @ 60Hz",
+      "connectors": "4 x Mini DisplayPort 1.4",
+      "power": "40 W",
+      "form_factor": "Single Slot, Low Profile",
+      "apis": "DirectX 12, OpenGL 4.5, Vulkan",
+      "ean": "6720422745811"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -679,12 +713,187 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.521559+00:00",
+    "merge_ts": "2026-04-09T12:01:24.977044+00:00",
     "merge_source": "result_P600.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "NVIDIA Quadro P600; legacy product; $102-154 new, $110 used"
+    "descriptions_all": {
+      "claude": "NVIDIA Quadro P600 — профессиональная видеокарта начального уровня на базе архитектуры Pascal (GP107), предназначенная для рабочих станций. Оснащена 384 ядрами CUDA, 2 ГБ видеопамяти GDDR5 с шиной 128 бит и пропускной способностью 64 ГБ/с. Видеокарта потребляет всего 40 Вт и не требует дополнительного питания, получая энергию через слот PCIe. Имеет 4 выхода mini-DisplayPort 1.4 с возможностью подключения до 4 мониторов с разрешением до 5120×2880 при 60 Гц. Поддерживает API OpenGL 4.5, DirectX 12, Vulkan и OpenCL, а также технологии NVIDIA CUDA и профессиональные драйверы Quadro с сертификацией ISV для приложений САПР, 3D-моделирования и визуализации. Видеокарта выполнена в низкопрофильном форм-факторе, что позволяет устанавливать её в компактные рабочие станции. Идеальное решение для инженеров, дизайнеров и архитекторов, работающих с AutoCAD, Revit, SolidWorks, 3ds Max и другими профессиональными приложениями.",
+      "gpt": "NVIDIA Quadro P600 — это профессиональная видеокарта начального уровня семейства Pascal, ориентированная на CAD, DCC, визуализацию и многомониторные рабочие станции. Карта использует профессиональную линейку Quadro, где акцент сделан не на игровую производительность, а на стабильные драйверы, сертификации приложений и поддержку профессиональных рабочих нагрузок. Для этой модели подтверждены 384 CUDA cores, 2 GB памяти GDDR5 и пропускная способность памяти до 64 GB/s. Низкое энергопотребление делает карту удобной для компактных workstation-систем и офисных инженерных машин. Вендор также заявляет поддержку четырёх цифровых дисплеев через DisplayPort 1.4, что полезно для диспетчерских, трейдинговых, CAD- и GIS-рабочих мест. Quadro P600 подходит для 2D/3D-проектирования, лёгкой визуализации, многомониторной работы и видеостен умеренной сложности. Для B2B-поставок важны single-slot/low-profile особенности конкретной платы от OEM-производителя, так как они влияют на совместимость с корпусом. Карта подключается по PCI Express и не требует экстремального питания, что облегчает замену в типовых рабочих станциях. Для публикации в каталоге корректно описывать её как professional GPU for multi-display and entry-level CAD workflows. Это хороший вариант для офисной инженерной инфраструктуры, но не для тяжёлого GPU rendering или современных AI-задач.",
+      "gemini": "Графический адаптер NVIDIA Quadro P600 является профессиональным решением для рабочих станций, используемых в проектировании и 3D-моделировании. Построенная на современной архитектуре Pascal, эта видеокарта оснащена 384 ядрами CUDA для ускорения вычислений. Объем видеопамяти составляет 2 ГБ типа GDDR5 с 128-битной шиной, что обеспечивает высокую пропускную способность данных. Компактный низкопрофильный дизайн позволяет устанавливать карту в малогабаритные системные блоки. Устройство поддерживает одновременное подключение до четырех мониторов с разрешением 4K или 5K через интерфейсы Mini DisplayPort 1.4. Максимальное энергопотребление составляет всего 40 Вт, что исключает необходимость использования дополнительных разъемов питания. Карта сертифицирована для работы с ведущими приложениями CAD, такими как AutoCAD и SolidWorks. Активная система охлаждения гарантирует стабильную работу под высокой нагрузкой в течение длительного времени. Quadro P600 поддерживает современные API, включая DirectX 12, OpenGL 4.5 и Vulkan. Это идеальный выбор для инженеров и дизайнеров, которым требуется надежность и производительность в компактном исполнении.",
+      "synthesis": "NVIDIA Quadro P600 — это профессиональная видеокарта начального уровня на базе архитектуры Pascal (GP107), предназначенная для рабочих станций и ориентированная на CAD, DCC, визуализацию и многомониторные системы управления. Карта оснащена 384 ядрами CUDA, 2 ГБ видеопамяти GDDR5 с 128-битной шиной и пропускной способностью 64 ГБ/с; максимальное энергопотребление составляет всего 40 Вт, что исключает необходимость дополнительного питания. Видеокарта выполнена в низкопрофильном компактном форм-факторе, что позволяет устанавливать её в малогабаритные рабочие станции и офисные инженерные машины. Имеет 4 выхода mini-DisplayPort 1.4 с возможностью подключения до четырёх мониторов с разрешением до 5120×2880 при 60 Гц, что полезно для диспетчерских, трейдинговых, CAD и GIS-рабочих мест. Поддерживаются API OpenGL 4.5, DirectX 12, Vulkan и OpenCL, а также технологии NVIDIA CUDA и профессиональные драйверы Quadro с сертификацией ISV для приложений САПР, 3D-моделирования и визуализации. Активная система охлаждения гарантирует стабильную работу под нагрузкой в течение длительного времени. Это идеальное решение для инженеров, дизайнеров и архитекторов, работающих с AutoCAD, Revit, SolidWorks и другими профессиональными приложениями в составе офисной инженерной инфраструктуры."
+    },
+    "specs_all": {
+      "claude": {
+        "GPU": "NVIDIA GP107 (Pascal)",
+        "CUDA Cores": "384",
+        "Memory": "2 GB GDDR5",
+        "Memory Bus": "128-bit",
+        "Memory Bandwidth": "64 GB/s",
+        "TDP": "40 W",
+        "Power Connector": "None (PCIe slot powered)",
+        "Display Outputs": "4 × mini DisplayPort 1.4",
+        "Max Resolution": "5120 × 2880 @ 60 Hz",
+        "Max Displays": "4",
+        "API Support": "OpenGL 4.5, DirectX 12, Vulkan 1.0, OpenCL 1.2",
+        "Form Factor": "Low profile, single slot",
+        "Interface": "PCIe 3.0 x16"
+      },
+      "gpt": {
+        "GPU architecture": "Pascal",
+        "CUDA cores": "384",
+        "Memory": "2 GB GDDR5",
+        "Memory interface": "128-bit",
+        "Memory bandwidth": "Up to 64 GB/s",
+        "Max power": "40 W",
+        "Bus": "PCI Express 3.0 x16",
+        "Display outputs": "4 x DisplayPort 1.4"
+      },
+      "gemini": {
+        "gpu": "NVIDIA Pascal",
+        "cuda_cores": "384",
+        "memory": "2 GB GDDR5 128-bit",
+        "max_resolution": "5120 x 2880 @ 60Hz",
+        "connectors": "4 x Mini DisplayPort 1.4",
+        "power": "40 W",
+        "form_factor": "Single Slot, Low Profile",
+        "apis": "DirectX 12, OpenGL 4.5, Vulkan",
+        "ean": "6720422745811"
+      }
+    },
+    "notes_all": {
+      "claude": "NVIDIA product (not Honeywell). Previously listed as Quadro P600. Successor: NVIDIA T600.",
+      "gpt": "Для части OEM-версий может отличаться комплект адаптеров/брекетов, но базовые GPU-спеки одинаковы."
+    }
   },
-  "product_category": "Carbon Filter"
+  "training_urls": [
+    "https://www.achooallergy.com/airpura-replacement-hepa-filter-r600-p600-uv600.html",
+    "https://www.ebay.com/itm/155621356059",
+    "https://www.ebay.com/itm/156159853718",
+    "https://www.ebay.com/shop/quadro-p600?_nkw=quadro+p600",
+    "https://www.natlallergy.com/airpura-r600-p600-uv600-replacement-carbon-filter.html",
+    "https://www.newegg.com/pny-technologies-inc-vcqp600-pb-quadro-p600-2gb-graphics-card/p/N82E16814133646",
+    "https://www.pny.com/nvidia-quadro-p600",
+    "https://www.videocardbenchmark.net/gpu.php?gpu=Quadro+P600&id=3729",
+    "https://www.walmart.com/ip/652383464",
+    "https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/documents/189212-DS-NV-Quadro-P600-US-03Feb17-NV-fnl-WEB.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 249.98,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.natlallergy.com/airpura-r600-p600-uv600-replacement-carbon-filter.html",
+    "our_price_raw": "3749,75",
+    "our_price_parsed": 3749.75,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 249.98,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Видеокарта NVIDIA Quadro P600 предлагает баланс между производительностью и энергоэффективностью, что делает её подходящей для профессиональных графических приложений и работы с мультимедиа.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/NVIDIA_P600.jpg",
+    "best_photo_source": "vps_static",
+    "best_description_ru_short": "Видеокарта NVIDIA Quadro P600 предлагает баланс между производительностью и энергоэффективностью, что делает её подходящей для профессиональных графических приложений и работы с мультимедиа.",
+    "best_description_ru": "<p>Система управления умным домом Street Smart Home Control от компании Honeywell (модель P600) — это инновационное решение для автоматизации и контроля вашего жилища. Honeywell, известный мировой лидер в области систем безопасности и автоматизации, предлагает надёжное устройство, которое обеспечивает полный контроль над различными аспектами домашней инфраструктуры. Данный продукт разработан для современных пользователей, которые ценят удобство, безопасность и технологичность в управлении своим домом.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Интеллектуальное управление климатом и отоплением</li>\n<li>Интеграция с системами видеонаблюдения и контроля доступа</li>\n<li>Поддержка беспроводных протоколов связи</li>\n<li>Удалённое управление через мобильное приложение</li>\n<li>Совместимость с популярными платформами умного дома</li>\n<li>Надёжная защита данных и шифрование</li>\n<li>Простая установка и настройка</li>\n<li>Энергоэффективная работа с минимальным потреблением электроэнергии</li>\n</ul>\n\n<p><b>Применение:</b> Street Smart Home Control P600 идеально подходит для использования в жилых домах, квартирах и небольших коммерческих помещениях. Система позволяет автоматизировать управление освещением, температурой, системами безопасности и другими инженерными сетями. Устройство может работать как самостоятельно, так и в составе комплексной системы умного дома, обеспечивая централизованный контроль всех подключённых устройств из одного интерфейса.</p>\n\n<p><b>Преимущества:</b> Выбирая Street Smart Home Control P600, вы получаете надёжное решение от проверенного производителя с многолетней историей. Система обеспечивает значительную экономию энергии, повышает уровень безопасности и комфорта в доме. Удалённое управление позволяет контролировать все системы даже находясь вне дома, а интуитивный интерфейс делает использование простым для всех членов семьи.</p>",
+    "best_description_ru_word_count": 208,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=NVIDIA",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Street Smart Home Control",
+    "description": "",
+    "specs": {
+      "RF_Lamp_Module_Part_Number": "LT400",
+      "RF_Lamp_Module_Outlet_Voltage": "110V",
+      "RF_Lamp_Module_Remote_Control_Devices": "3",
+      "RF_Lamp_Module_Max_Remotes": "7",
+      "Wall_Transmitter_Part_Number": "WT400",
+      "Wall_Transmitter_Buttons": "6",
+      "Wall_Transmitter_Battery": "3V CR2032 lithium",
+      "Wall_Transmitter_LED_Indicator": "Red LED blinks on transmission",
+      "Wall_Transmitter_RF_Frequency": "433 MHz",
+      "Wall_Transmitter_Max_Devices": "6",
+      "Code_Encryptor_LX2_Part_Number_Y": "CE2Y-LX2",
+      "Code_Encryptor_LX2_Part_Number_R": "CE2R-LX2",
+      "Code_Encryptor_LX2_Encryption": "64-bit",
+      "Code_Encryptor_LX2_Hopping_Codes": "4 billion",
+      "Code_Encryptor_LX2_RF_Frequency": "433 MHz",
+      "Code_Encryptor_LX2_Buttons": "4",
+      "Code_Encryptor_LX2_Max_Remotes": "7",
+      "Code_Encryptor_LX2_Features": "On-board relay for garage door, LED output for visual alarm status",
+      "Code_Encryptor_II_Part_Number_Y": "CE2Y-2",
+      "Code_Encryptor_II_Part_Number_R": "CE2R-2",
+      "Code_Encryptor_II_Part_Number_P": "CE2P-2",
+      "Code_Encryptor_II_Encryption": "64-bit",
+      "Code_Encryptor_II_Hopping_Codes": "4 billion",
+      "Code_Encryptor_II_Buttons": "3",
+      "Code_Encryptor_II_Max_Remotes": "7",
+      "Code_Encryptor_II_Features": "On-board relay for garage door, LED status light",
+      "Wireless_Emergency_Line_Part_Number_Y": "WEL-Y",
+      "Wireless_Emergency_Line_Part_Number_R": "WEL-R",
+      "Wireless_Emergency_Line_Connection": "4-wire",
+      "Wireless_Emergency_Line_Hopping_Codes": "4 billion",
+      "Wireless_Emergency_Line_Features": "Instant or 3-second delay relay activation",
+      "Wireless_Automator_Part_Number": "WA6R",
+      "Wireless_Automator_Power_Supply": "12V transformer",
+      "Wireless_Automator_Relays": "6 form-C",
+      "Wireless_Automator_Relay_Options": "Momentary, Latching, Validity, 30-second timed, 1-minute timed, 5-minute timed, 20-minute timed, Strobe (0.5s on, 0.5s off)",
+      "Wireless_Automator_Max_Remotes": "7",
+      "Wireless_Automator_Hopping_Codes": "4 billion",
+      "Remote_Three_Button_Part_Number": "CEREM",
+      "Remote_Three_Button_Frequency": "303 MHz",
+      "Remote_One_Button_Part_Number": "CEREM1",
+      "Remote_One_Button_Frequency": "303 MHz",
+      "Remote_One_Button_LT_Part_Number": "CEREM1-LT",
+      "Remote_One_Button_LT_Frequency": "433 MHz",
+      "Remote_Four_Button_H_Part_Number": "CEREMLXH",
+      "Remote_Four_Button_H_Frequency": "433 MHz",
+      "Remote_Four_Button_Part_Number": "CEREMLX",
+      "Remote_Four_Button_Frequency": "433 MHz",
+      "Remote_Four_Button_WA_Part_Number": "CEREMWA",
+      "Remote_Four_Button_WA_Frequency": "433 MHz",
+      "Encryption_Standard": "Code hopping with 4 billion codes"
+    },
+    "specs_count": 50,
+    "series": "Street Smart Home Control",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\P600.pdf",
+    "datasheet_size_kb": 285,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Система управления умным домом Street Smart Home Control от компании Honeywell (модель P600) — это инновационное решение для автоматизации и контроля вашего жилища. Honeywell, известный мировой лидер в области систем безопасности и автоматизации, предлагает надёжное устройство, которое обеспечивает полный контроль над различными аспектами домашней инфраструктуры. Данный продукт разработан для современных пользователей, которые ценят удобство, безопасность и технологичность в управлении своим домом.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Интеллектуальное управление климатом и отоплением</li>\n<li>Интеграция с системами видеонаблюдения и контроля доступа</li>\n<li>Поддержка беспроводных протоколов связи</li>\n<li>Удалённое управление через мобильное приложение</li>\n<li>Совместимость с популярными платформами умного дома</li>\n<li>Надёжная защита данных и шифрование</li>\n<li>Простая установка и настройка</li>\n<li>Энергоэффективная работа с минимальным потреблением электроэнергии</li>\n</ul>\n\n<p><b>Применение:</b> Street Smart Home Control P600 идеально подходит для использования в жилых домах, квартирах и небольших коммерческих помещениях. Система позволяет автоматизировать управление освещением, температурой, системами безопасности и другими инженерными сетями. Устройство может работать как самостоятельно, так и в составе комплексной системы умного дома, обеспечивая централизованный контроль всех подключённых устройств из одного интерфейса.</p>\n\n<p><b>Преимущества:</b> Выбирая Street Smart Home Control P600, вы получаете надёжное решение от проверенного производителя с многолетней историей. Система обеспечивает значительную экономию энергии, повышает уровень безопасности и комфорта в доме. Удалённое управление позволяет контролировать все системы даже находясь вне дома, а интуитивный интерфейс делает использование простым для всех членов семьи.</p>",
+    "description_seo_word_count": 208,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Street Smart Home Control' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

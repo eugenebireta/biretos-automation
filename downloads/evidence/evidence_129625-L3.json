@@ -7,7 +7,7 @@
     "129625L3"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3",
   "assembled_title": "Набор Honeywell 129625-L3",
   "our_price_raw": "55352,00",
@@ -140,7 +140,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "На фото виден аксессуар Honeywell IR Link, товар угадывается",
     "path": "D:\\BIRETOS\\projects\\biretos-automation\\downloads\\photos\\129625-L3.jpg",
     "sha1": "8f0394a32fc5f87f30487127ff7cd47f5031e10e",
@@ -156,9 +156,7 @@
     "photo_status": "exact_evidence",
     "photo_evidence_role": "exact",
     "photo_is_temporary": false,
-    "replacement_required": false,
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "replacement_required": false
   },
   "price": {
     "price_status": "no_price_found",
@@ -201,14 +199,18 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "GasAlert Series",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "IR multi-gas detector kit with charging/docking accessories; -L3 suffix indicates kit configuration",
+    "phase1_recon_done": true
   },
   "content": {
     "specs": {},
     "description": "Набор для подключения используется с газоанализаторами серии GasAlert для передачи данных и управления устройством. Обеспечивает надежное соединение и простоту в использовании.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Набор",
+    "product_type": "Gas detector kit",
     "seed_name": "Набор для подключения Honeywell GasAlert Series IR 129625-L3",
     "description_long_ru": "No matches on Radwell, eBay, IndiaMART, or any distributor. May be internal/custom/obsolete. Similar Honeywell -L3 parts exist (131635-L3, 135636-L3) but not 129625."
   },
@@ -433,11 +435,74 @@
     "merge_source": "result_129625-L3.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report-prompt-v2.md"
+    "source_file": "deep-research-report-prompt-v2.md",
+    "descriptions_all": {
+      "legacy": "Комплект сменных фильтров для портативных газоанализаторов Honeywell BW. Предотвращают попадание воды, грязи и масел во внутренний тракт прибора. Рекомендуются к замене при каждом цикле калибровки или после работы в сильно загрязненной среде. Обеспечивают стабильную работу аспирационного насоса."
+    }
   },
   "dr_category": "Kit (unidentified)",
   "dr_price": 188.0,
   "dr_currency": "USD",
   "dr_price_source": null,
-  "product_category": "Kit (unidentified)"
+  "training_urls": [
+    "https://www.radwell.com/en-US/Search/Advanced?PartNumber=129625"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 188.0,
+    "dr_currency": "USD",
+    "dr_source_url": null,
+    "our_price_raw": "55352,00",
+    "our_price_parsed": 55352.0,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_ru",
+    "pack_qty": null,
+    "judge_reason": "kit product (title 'Набор'), not multi-pack. No distributor matches."
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 188.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Комплект сменных фильтров для портативных газоанализаторов Honeywell BW. Предотвращают попадание воды, грязи и масел во внутренний тракт прибора. Рекомендуются к замене при каждом цикле калибровки или после работы в сильно загрязненной среде. Обеспечивают стабильную работу аспирационного насоса.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_129625-L3.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\129625-L3.pdf",
+    "datasheet_size_kb": 15462,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 15462KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

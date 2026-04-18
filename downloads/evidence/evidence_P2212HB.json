@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "P2212HB",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Dell",
+  "subbrand": null,
   "name": "Монитор Honeywell P2212HB",
   "assembled_title": "Монитор Honeywell P2212HB",
   "our_price_raw": "3267,40",
@@ -317,7 +317,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "P2212H Series",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "Dell Professional 21.5\" LCD monitor; not Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -340,9 +345,8 @@
     "description": "Монитор Honeywell P2212HB предназначен для использования в офисных и промышленных условиях. Обеспечивает высокое качество изображения и надежность благодаря современным технологиям.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Монитор",
-    "seed_name": "Монитор Honeywell P2212HB",
-    "description_long_ru": "[MOJIBAKE]"
+    "product_type": "Monitor",
+    "seed_name": "Монитор Honeywell P2212HB"
   },
   "trace": {
     "pn_match_location": "",
@@ -604,7 +608,22 @@
       "raw": "Grade AB; working; refurbished; цена на странице 61.31 € citeturn22search7",
       "aliases": [
         "—"
-      ]
+      ],
+      "Screen size": "21.5 inches",
+      "Resolution": "1920x1080 (Full HD)",
+      "Panel type": "TN with LED backlight",
+      "Response time": "5 ms",
+      "Inputs": "VGA, DVI-D",
+      "VESA mount": "100x100 mm",
+      "Stand adjustments": "Height, tilt, swivel",
+      "Certifications": "Energy Star, EPEAT",
+      "Brand": "Dell",
+      "Product family": "P2212H",
+      "Model variant": "P2212Hb",
+      "Native resolution": "1920 x 1080",
+      "Backlight": "LED",
+      "Category": "Business monitor",
+      "Mounting": "VESA compatible"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -623,12 +642,114 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.496538+00:00",
+    "merge_ts": "2026-04-09T12:01:24.972042+00:00",
     "merge_source": "result_P2212HB.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "NOT Honeywell — Dell Professional monitor c.2011. Also $35.95 at PCLiquidations Grade A refurb"
+    "descriptions_all": {
+      "claude": "Монитор Dell P2212HB — это профессиональный монитор с диагональю 21.5 дюйма и разрешением Full HD 1920×1080 пикселей. Данная модель предназначена для использования в офисных и корпоративных средах, где требуется надёжный монитор с хорошей цветопередачей и эргономичной подставкой. Монитор построен на основе TN-матрицы с LED-подсветкой, что обеспечивает низкое энергопотребление и равномерную яркость по всей площади экрана. Время отклика составляет 5 мс. Подставка поддерживает регулировку по высоте, наклону и повороту, предусмотрена возможность монтажа по стандарту VESA 100×100 мм. Разъёмы подключения включают VGA (D-Sub) и DVI-D. Монитор соответствует стандартам энергоэффективности Energy Star и экологическим стандартам EPEAT. Модель снята с производства, но продолжает активно эксплуатироваться в существующих инфраструктурах.",
+      "gpt": "Dell P2212HB — это вариант обозначения монитора Dell P2212H; в официальном руководстве пользователя фигурирует модель P2212Hb. Серия относится к деловым LED-мониторам Dell и ориентирована на стандартные офисные задачи, документооборот, браузерные системы и корпоративные рабочие места. По руководству Dell максимальное разрешение для P2212H составляет 1920 x 1080, что делает модель типичным Full HD офисным дисплеем. Монитор рассчитан на длительное использование и поддерживает эргономические регулировки, что важно для рабочих мест с высокой ежедневной нагрузкой. Такая модель обычно используется в call-центрах, административных зонах, учебных аудиториях, на постах охраны и в небольших инженерных отделах. С точки зрения интеграции в инфраструктуру это удобный монитор для старых и новых ПК, поскольку в линейке Dell тех лет применялись стандартные офисные интерфейсы и VESA-крепление. При создании карточки товара важно использовать одно нормализованное название — например, 'Dell P2212H / P2212Hb' — чтобы не разводить дубликаты по разным написаниям. Также нужно учитывать, что на рынке refurb встречаются поставки без оригинальной стойки или с потертостями корпуса, хотя сама матрица остается рабочей. Если карточка создается для B2B-магазина, стоит сделать акцент на деловом назначении, Full HD-разрешении и совместимости с типовыми офисными ПК. Это хороший пример legacy-монитора, который все еще актуален для недорогих рабочих мест, но уже не должен продаваться как современная дизайнерская или графическая модель.",
+      "synthesis": "Dell P2212HB (иначе P2212H) — это вариант обозначения 21.5-дюймового профессионального монитора серии Dell Professional, ориентированного на стандартные офисные задачи, документооборот, браузерные системы и корпоративные рабочие места. Монитор оснащён TN-матрицей с LED-подсветкой и максимальным разрешением Full HD 1920×1080, что делает модель типичным дисплеем для administrative-зон, call-центров, учебных аудиторий и постов охраны. Время отклика составляет 5 мс; подставка поддерживает регулировку по высоте, наклону и повороту с возможностью VESA 100×100 мм монтажа. Разъёмы подключения включают VGA (D-Sub) и DVI-D, что удобно для интеграции со старыми и новыми ПК благодаря стандартным офисным интерфейсам. Монитор рассчитан на длительное использование в условиях высокой ежедневной нагрузки и соответствует стандартам энергоэффективности Energy Star и экологическим стандартам EPEAT. Модель снята с производства, но по-прежнему активно эксплуатируется в существующих инфраструктурах благодаря надёжности и понятной сервисной базе. При размещении товара в каталоге важно использовать нормализованное название для предотвращения дубликатов и отмечать состояние оригинальной стойки, так как на рынке refurb встречаются поставки без подставки или с потертостями корпуса."
+    },
+    "specs_all": {
+      "claude": {
+        "Screen size": "21.5 inches",
+        "Resolution": "1920x1080 (Full HD)",
+        "Panel type": "TN with LED backlight",
+        "Response time": "5 ms",
+        "Inputs": "VGA, DVI-D",
+        "VESA mount": "100x100 mm",
+        "Stand adjustments": "Height, tilt, swivel",
+        "Certifications": "Energy Star, EPEAT"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product family": "P2212H",
+        "Model variant": "P2212Hb",
+        "Screen size": "21.5 in class",
+        "Native resolution": "1920 x 1080",
+        "Backlight": "LED",
+        "Category": "Business monitor",
+        "Mounting": "VESA compatible"
+      }
+    },
+    "notes_all": {
+      "claude": "Discontinued model. 'B' suffix may indicate a specific revision or bundle variant.",
+      "gpt": "Normalized from user entry P2212HB to Dell's documented P2212Hb/P2212H naming."
+    }
   },
-  "product_category": "monitor"
+  "training_urls": [
+    "https://ae.technivision.tech/203mondep2212hb.html",
+    "https://dl.dell.com/manuals/all-products/esuprt_electronics/esuprt_display/dell-p2212h_user%27s%20guide_en-us.pdf",
+    "https://www.ebay.com/p/2252695853",
+    "https://www.galador.eu/0-product/21426429-del-dell-p2212hb-22-fhd-grade-ab-working-unboxed-refurbished",
+    "https://www.newegg.com/dell-p2212hb-21-5-full-hd/p/0JC-0004-004R2",
+    "https://www.pcliquidations.com/p105507-dell-p2212hb-22-widescreen",
+    "https://www.dell.com/support/product-details/en-us/product/dell-p2212h/overview"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 61.31,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.galador.eu/0-product/21426429-del-dell-p2212hb-22-fhd-grade-ab-working-unboxed-refurbished",
+    "our_price_raw": "3267,40",
+    "our_price_parsed": 3267.4,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 61.31,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Монитор Honeywell P2212HB предназначен для использования в офисных и промышленных условиях. Обеспечивает высокое качество изображения и надежность благодаря современным технологиям.",
+    "best_description_source": "content",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Монитор Honeywell P2212HB предназначен для использования в офисных и промышленных условиях. Обеспечивает высокое качество изображения и надежность благодаря современным технологиям.",
+    "best_description_ru": "<p>Монитор Honeywell P2212HB — это профессиональное устройство отображения информации от известного мирового производителя Honeywell, специализирующегося на решениях для автоматизации и управления. Данный монитор разработан специально для использования в офисных и промышленных условиях, где требуется надежное и качественное отображение данных. Благодаря применению современных технологий, устройство обеспечивает стабильную работу в течение длительного времени и соответствует высоким стандартам качества, установленным производителем.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — лидер в области промышленной автоматизации</li>\n<li>Модель: P2212HB с уникальным артикулом для точной идентификации</li>\n<li>Назначение: использование в офисных и промышленных условиях</li>\n<li>Высокое качество изображения благодаря современным технологиям отображения</li>\n<li>Надежная конструкция, обеспечивающая долгий срок службы</li>\n<li>Совместимость с различными системами управления и контроля</li>\n<li>Профессиональный уровень производительности для критичных приложений</li>\n<li>Сертифицированное оборудование, соответствующее международным стандартам</li>\n</ul>\n\n<p><b>Применение:</b> Монитор Honeywell P2212HB идеально подходит для использования в различных промышленных объектах, центрах управления, диспетчерских пультах и офисных помещениях. Устройство может быть интегрировано в системы мониторинга, управления производством, контроля технологических процессов и другие критичные приложения. Благодаря своей надежности и качеству изображения, монитор обеспечивает комфортную работу операторов и специалистов в течение всего рабочего дня.</p>\n\n<p><b>Преимущества:</b> Выбирая монитор Honeywell P2212HB, вы получаете гарантию качества от проверенного временем производителя. Устройство отличается надежностью, долговечностью и стабильной работой в сложных условиях. Инвестиция в профессиональное оборудование Honeywell обеспечит эффективность вашего бизнеса и минимизирует риск простоев оборудования.</p>",
+    "best_description_ru_word_count": 206,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell",
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Dell",
+      "candidates": [
+        "Dell"
+      ],
+      "product_hint": "monitor",
+      "needs_disambiguation": false,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "P2212H is a well-known Dell monitor model (21.5-inch display). Honeywell manufactures industrial automation and building controls, not computer monitors. The 'B' suffix in P2212HB may be a variant code or error, but the base model P2212H is definitively Dell. The seed name incorrectly attributes this Dell monitor to Honeywell.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Монитор Honeywell P2212HB — это профессиональное устройство отображения информации от известного мирового производителя Honeywell, специализирующегося на решениях для автоматизации и управления. Данный монитор разработан специально для использования в офисных и промышленных условиях, где требуется надежное и качественное отображение данных. Благодаря применению современных технологий, устройство обеспечивает стабильную работу в течение длительного времени и соответствует высоким стандартам качества, установленным производителем.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — лидер в области промышленной автоматизации</li>\n<li>Модель: P2212HB с уникальным артикулом для точной идентификации</li>\n<li>Назначение: использование в офисных и промышленных условиях</li>\n<li>Высокое качество изображения благодаря современным технологиям отображения</li>\n<li>Надежная конструкция, обеспечивающая долгий срок службы</li>\n<li>Совместимость с различными системами управления и контроля</li>\n<li>Профессиональный уровень производительности для критичных приложений</li>\n<li>Сертифицированное оборудование, соответствующее международным стандартам</li>\n</ul>\n\n<p><b>Применение:</b> Монитор Honeywell P2212HB идеально подходит для использования в различных промышленных объектах, центрах управления, диспетчерских пультах и офисных помещениях. Устройство может быть интегрировано в системы мониторинга, управления производством, контроля технологических процессов и другие критичные приложения. Благодаря своей надежности и качеству изображения, монитор обеспечивает комфортную работу операторов и специалистов в течение всего рабочего дня.</p>\n\n<p><b>Преимущества:</b> Выбирая монитор Honeywell P2212HB, вы получаете гарантию качества от проверенного временем производителя. Устройство отличается надежностью, долговечностью и стабильной работой в сложных условиях. Инвестиция в профессиональное оборудование Honeywell обеспечит эффективность вашего бизнеса и минимизирует риск простоев оборудования.</p>",
+    "description_seo_word_count": 206,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "Dell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Dell"
+  }
 }

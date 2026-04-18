@@ -4,7 +4,7 @@
   "pn": "35211",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Датчик давления D 20.672.192 T",
   "assembled_title": "Рамка 2-постовая PEHA NOVA, 35211",
   "our_price_raw": "1226,33",
@@ -293,7 +293,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -543,12 +545,150 @@
     "merge_source": "result_35211.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "legacy": "Nova Basis 2-fold frame; €12.75 incl VAT / €8.56 ex VAT; 8-day lead time at Omnical"
+    }
   },
   "dr_category": "PEHA frame",
   "dr_image_url": "https://images.omnical.co/thumb/8169758a-b6a6-40ca-a333-b5f63844c661/7129?mw=300&mh=300",
   "dr_price": 12.75,
   "dr_currency": "EUR",
   "dr_price_source": "https://www.omnical.co/products/peha/00035211/1107237",
-  "product_category": "PEHA frame"
+  "training_urls": [
+    "https://www.omnical.co/products/peha/00035211/1107237"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 12.75,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.omnical.co/products/peha/00035211/1107237",
+    "our_price_raw": "1226,33",
+    "our_price_parsed": 1226.33,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 12.75,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик давления D 20.672.192 T используется для контроля давления в промышленных системах. Обеспечивает точность и долговечность.",
+    "best_description_source": "content",
+    "best_photo_url": "https://images.omnical.co/thumb/8169758a-b6a6-40ca-a333-b5f63844c661/7129?mw=300&mh=300",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Frequency Counter",
+    "description": "",
+    "specs": {
+      "Oscilloscope max frequency": "50MHz",
+      "Oscilloscope trace capability": "Single trace, Dual trace",
+      "Oscilloscope sweep capability": "Dual sweep",
+      "Oscilloscope power source": "Battery/mains operated",
+      "Opto 8000.1A TCXO time base stability": "0.1 PPM",
+      "Opto 8000.1A sensitivity (HI-Z)": "<10mV to 50 MHz",
+      "Opto 8000.1A sensitivity (@ 150 MHz)": "25mV",
+      "Opto 8000.1A sensitivity (@ 600 MHz)": "<50mV",
+      "Opto 8000.1A display features": "Auto decimal point",
+      "Opto 8000.1A enclosure material": "Aluminium",
+      "Opto 8000.1A IC mounting": "Socketed",
+      "Opto 8000.1A attenuator": "Three position (X1, X10, X100)",
+      "Opto 7000 TCXO time base temperature stability": "0.08 PPM/°C",
+      "Opto 7000 enclosure material": "Aluminium",
+      "Opto 7000 input impedance": "HI-Z & 50 ohm",
+      "Opto 7000 gate times": "1 sec, 1/10 sec",
+      "Opto 7000 display features": "Auto decimal point",
+      "Opto 7000 built-in features": "Preamps & prescater",
+      "Code-a-phone 1500 storage medium": "No tapes",
+      "Code-a-phone 1500 technology": "Microprocessor",
+      "Code-a-phone 1500 remote control": "Pocket-sized pager",
+      "Code-a-phone 1500 components": "100% solid state",
+      "Code-a-phone 1500 features": "Monitoring facility",
+      "Elenco DMM 12008 display type": "3.5 digits jumbo LED",
+      "Elenco DMM 12008 basic accuracy": "0.05%",
+      "Elenco DMM 12008 voltage measurement range": "100 µV to 1000 V (AC/DC)",
+      "Elenco DMM 12008 current measurement range": "1 µA to 2 A (AC/DC)",
+      "Elenco DMM 12008 resistance measurement range": "0.01 Ω to 20 MΩ",
+      "Elenco DMM 12008 overload protection": "1000 V",
+      "Elenco DMM 12008 input impedance": "10 MΩ",
+      "Elenco DMM 12008 internal components": "1% precision resistors",
+      "Elenco DMM 12008 resistance measurement mode": "High-low power ohms (hi for diodes, lo for resistors in circuit)",
+      "Elenco XP 600 output voltage range": "0-40 V",
+      "Elenco XP 600 output current range": "0-3 A",
+      "Elenco XP 600 features": "Dual metered, regulated, variable",
+      "Elenco XP 90 output voltage": "13.8 V",
+      "Elenco XP 90 output current": "8 A",
+      "Elenco XP 90 features": "Regulated",
+      "Function generator sweep type": "Linear, logarithmic",
+      "Function generator power source": "Mains (with adaptor), Battery (disposable and Nicads)",
+      "Function generator attenuator": "Six position calibrated",
+      "Function generator output connector": "BNC jack (front panel)",
+      "Function generator waveforms": "Sine, square, triangle",
+      "Function generator frequency range": "0.2 Hz to 200 kHz",
+      "Function generator features": "Variable DC offset control",
+      "Function generator sweep ratio": "1000:1",
+      "Function generator output voltage (peak to peak)": "10 Vpp (into 50 Ω)",
+      "1979 IC Master pages": "2500",
+      "1979 IC Master content": "Integrated circuit data selector, Master guide to latest ICs (microprocessors, consumer circuits)",
+      "Fairchild FLV5057 type": "LED Lamp",
+      "Fairchild FLV5057 size": "Medium",
+      "Fairchild FLV5057 case": "Clear",
+      "Fairchild FLV5057 emitting color": "Red",
+      "Fairchild Super Jumbo LED Readout character height": "0.80 inch",
+      "Fairchild Super Jumbo LED Readout display type": "Super Jumbo LED Readout"
+    },
+    "specs_count": 55,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105035216",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\35211.pdf",
+    "datasheet_size_kb": 36098,
+    "product_photos": [
+      "downloads\\datasheet_photos\\35211_p1_0.jpg",
+      "downloads\\datasheet_photos\\35211_p2_0.jpg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/35211_p2_0.jpg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 36098KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Frequency Counter' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105035216",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

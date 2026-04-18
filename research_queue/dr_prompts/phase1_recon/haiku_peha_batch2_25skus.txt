@@ -1,0 +1,57 @@
+# Phase 1 — Identity Recon: PEHA electrical accessories (batch 2/3)
+
+## Your task
+Identify each PEHA product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## PEHA rules
+- PEHA is a Honeywell sub-brand for electrical accessories (switches, frames, sockets)
+- Products have type designations like **D 20.xxx.xxx** — find the correct one
+- Series: NOVA, AURA, DIALOG, COMPACTA, NOVA MEDIA
+- Search as "PEHA {PN}" — NEVER "Honeywell {PN}"
+- Sites: peha.de, pehastore.de, voltking.de, elektroversand.de
+
+## What I need per SKU
+1. **product_type** — e.g. "frame 1-gang", "socket", "switch insert"
+2. **series** — NOVA / AURA / DIALOG / COMPACTA
+3. **type_designation** — the D 20.xxx.xxx code (most important!)
+4. **color_material** — if variants exist
+5. **pn_aliases** — alternative PNs on distributor sites
+6. **identity_notes** — discontinued, replaced by, kit contents
+
+## Products (25 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | 190991 | Рамка 4-постовая PEHA NOVA, 190991 | Детектор пламени Honeywell D 20.674.220.702 | - | no_dr |
+| 2 | 191091 | Рамка 4-постовая PEHA NOVA, 191091 | Детектор пламени Honeywell D 20.674.221.192 | - | no_dr, no_price |
+| 3 | 191191 | Рамка 4-постовая PEHA NOVA, 191191 | Детектор пламени Honeywell D 20.674.222.022 | - | no_price, no_desc |
+| 4 | 191591 | Рамка 4-постовая PEHA NOVA, 191591 | Детектор пламени Honeywell D 20.674.240.192 | - | no_dr, no_photo |
+| 5 | 191791 | Рамка 4-постовая PEHA NOVA, 191791 | Детектор пламени Honeywell D 20.674.242.702 | - | no_dr |
+| 6 | 20511 | Рамка 5-постовая PEHA NOVA, 20511 | Датчик Honeywell D 20.675.022 T | - | no_price |
+| 7 | 210213 | Диммер PEHA, 210213 | Датчик Honeywell D 433 HAB O.A | - | no_desc |
+| 8 | 23511 | Клавиша PEHA NOVA, 23511 | Датчик Honeywell D 20.540.022 GLK | - | no_dr, no_photo |
+| 9 | 239053 | Вставка PEHA DIALOG, 239053 | USB адаптер Honeywell D 95.610.03 USB SPV | - | no_dr, no_photo |
+| 10 | 27711 | Вставка PEHA NOVA, 27711 | Датчик Honeywell D 20.610.022 AT | - | no_price |
+| 11 | 29011 | Вставка PEHA NOVA, 29011 | Датчик Honeywell D 20.610.022 UAE/2 NA | - | no_price |
+| 12 | 29313 | Центральная накладка PEHA NOVA, 29313 | Датчик Honeywell D 20.410.022 BM | - | no_dr, no_price, no_photo |
+| 13 | 309811 | Клавиша PEHA DIALOG, 309811 | Датчик температуры D 95.540.70 | - | no_dr, no_photo |
+| 14 | 311513 | Центральная накладка PEHA DIALOG, 311513 | Датчик температуры D 95.810.70 HR | - | no_desc |
+| 15 | 336011 | Вставка PEHA DIALOG, 336011 | Ключевой датчик D 95.610/2.70 KEY | - | no_price |
+| 16 | 35111 | Рамка 1-постовая PEHA NOVA, 35111 | Датчик давления D 20.671.192 T | - | no_photo |
+| 17 | 369111 | Рамка 1-постовая PEHA DIALOG, 369111 | Устройство Honeywell D 95.571.78 | - | no_photo |
+| 18 | 369211 | Рамка 2-постовая PEHA DIALOG, 369211 | Устройство Honeywell D 95.572.78 | - | no_price |
+| 19 | 37011 | Клавиша PEHA NOVA, 37011 | Устройство Honeywell D 20.530.192 | - | no_photo |
+| 20 | 38511 | Клавиша PEHA NOVA, 38511 | Устройство Honeywell D 20.540.192 GLK | - | no_price |
+| 21 | 604411 | Монтажная коробка PEHA COMPACTA, 604411 | Датчик D 701 DO F | - | no_photo |
+| 22 | 773111 | Рамка 1-постовая PEHA DIALOG, 773111 | Датчик D 95.571.70.60 | - | no_desc |
+| 23 | 773211 | Рамка 2-постовая PEHA DIALOG, 773211 | Датчик D 95.572.70.60 | - | no_desc |
+| 24 | 775511 | Розетка PEHA DIALOG, 775511 | Датчик D 95.6511.26 | - | no_desc |
+| 25 | 778311 | Вставка PEHA DIALOG, 778311 | Датчик D 95.610.26 UAE/2-N | - | no_desc |
+
+## Required output — markdown table only
+
+| PN | product_type | series | type_designation | color_material | pn_aliases | identity_notes |
+|----|-------------|--------|-----------------|----------------|-----------|----------------|
+
+- Cannot confirm → write "unconfirmed" in type_designation
+- Return ONLY the table, no preamble

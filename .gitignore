@@ -27,6 +27,7 @@ venv*/
 # =========================
 *.log
 *.tmp
+/logs/
 
 # =========================
 # Security sanitize (Phase P0)
@@ -113,3 +114,15 @@ dist/
 
 # Legacy scripts — files with exposed credentials
 legacy_scripts/СДЭК api/test_py.py
+
+# =========================
+# Graphify outputs (generated, not versioned)
+# =========================
+graph.html
+graph.json
+GRAPH_REPORT.md
+
+# =========================
+# Obsidian (personal vault settings)
+# =========================
+.obsidian/

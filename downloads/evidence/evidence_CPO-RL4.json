@@ -7,7 +7,7 @@
     "CPORL4"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Контроллер BACnet MS/TP Honeywell CPO-RL4",
   "assembled_title": "Контроллер Honeywell CPO-RL4",
   "our_price_raw": "49970,55",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Контроллер Honeywell с логотипом и индикаторами — промышленное устройство управления",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,9 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -358,7 +356,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Building automation",
+    "identity_notes_p1": "BACnet MS/TP controller",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell",
+    "brand_source": "dr_gpt_think_grammar_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -381,9 +384,8 @@
     "description": "Контроллер Honeywell CPO-RL4 предназначен для управления системами HVAC через протокол BACnet MS/TP. Он обеспечивает интеграцию и управление различными устройствами в системах автоматизации зданий.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Контроллер",
-    "seed_name": "Контроллер BACnet MS/TP Honeywell CPO-RL4",
-    "description_long_ru": "Discontinued; eBay surplus $180-550; WiAutomation $854 new; ComfortPoint Open series"
+    "product_type": "BACnet controller",
+    "seed_name": "Контроллер BACnet MS/TP Honeywell CPO-RL4"
   },
   "trace": {
     "pn_match_location": "",
@@ -650,7 +652,37 @@
     "specs": {
       "aliases": [
         "ControlPoint Room Controller"
-      ]
+      ],
+      "Supply Voltage": "230 VAC +10%/-15%, 50/60 Hz",
+      "Analog Outputs": "6",
+      "Relay Outputs": "4",
+      "Triac Outputs": "4",
+      "Universal Inputs": "10",
+      "Communication": "BACnet MS/TP",
+      "Housing": "Large",
+      "RTC": "Yes, 72hr data logging",
+      "Protection": "IP20",
+      "SYLK Bus": "Yes",
+      "Certifications": "BTL Listed B-AAC rev 1.12, UL916, CSA C22.2 No. 205, CE, FCC part 15B",
+      "Ambient Temperature": "-10 to 60°C",
+      "Weight": "4.41 lbs (approx. 2 kg)",
+      "Protocol": "BACnet MS/TP",
+      "Real-Time Clock": "Yes, 72h data storage",
+      "Programming": "CPO Studio (free programming) or configurable application",
+      "Status": "Discontinued",
+      "Controller family": "ComfortPoint Open",
+      "Form factor": "Large housing",
+      "Applications": "2-pipe/4-pipe fan coil, chilled ceiling, hydronic, underfloor heating",
+      "Fan control": "1 to 3 stages",
+      "Data retention": "Super capacitor backup up to 72 h (family information)",
+      "power_supply": "230 VAC, 50/60 Hz",
+      "inputs": "10 Universal Inputs (UI)",
+      "outputs": "6 AO, 4 Relay, 4 Triac",
+      "communication": "BACnet MS/TP, Sylk Bus, RJ45 WiFi",
+      "protocol": "BACnet B-AAC rev 1.12",
+      "mounting": "DIN-rail or wall mounting",
+      "dimensions": "3.2 cm x 12.7 cm x 12.7 cm",
+      "ean": "4070552318272"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -669,12 +701,208 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.334875+00:00",
+    "merge_ts": "2026-04-09T12:01:24.892178+00:00",
     "merge_source": "result_CPO-RL4.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "Discontinued; eBay surplus $180-550; WiAutomation $854 new; ComfortPoint Open series"
+    "descriptions_all": {
+      "claude": "Honeywell CPO-RL4 — комнатный контроллер серии ComfortPoint Open (CPO) в большом корпусе для управления системами отопления, вентиляции и кондиционирования воздуха (HVAC). Контроллер поддерживает протокол BACnet MS/TP и предназначен для гибкого, конфигурируемого управления микроклиматом, обеспечивая ощутимую экономию энергии и повышенную функциональность в современных зданиях. Модель CPO-RL4 оснащена 6 аналоговыми выходами (AO), 10 универсальными входами (UI), 4 релейными выходами и 4 симисторными выходами (Triac), что обеспечивает широкий спектр возможностей подключения. Контроллер работает от напряжения 230 В переменного тока и оснащён часами реального времени (RTC) с функцией хранения данных до 72 часов. Поддерживает двухконтурное управление для двухзонного применения, управление 1-3 ступенчатыми вентиляторами, частотными преобразователями, термическими, плавающими и пропорциональными приводами. Контроллер может использоваться в 2- и 4-трубных системах, фанкойлах, системах охлаждения потолков, водяного и напольного отопления, контроля качества воздуха. Программирование осуществляется с помощью CPO Studio, а технология SYLK позволяет подключать настенные модули серии TR40x/42x. Контроллер имеет степень защиты IP20, сертифицирован UL916 и соответствует FCC Part 15B. Обратите внимание: данная модель снята с производства компанией Honeywell.",
+      "gpt": "Honeywell CPO-RL4 — это комнатный контроллер семейства ComfortPoint Open для систем автоматизации зданий, рассчитанный на работу в открытой BACnet-инфраструктуре. Устройство относится к линейке freely programmable room controller и применяется для управления терминальными HVAC-нагрузками в коммерческих зданиях. Производитель указывает, что контроллер ориентирован на 2- и 4-трубные фанкойлы, охлаждающие потолки, гидравлические зоны и системы тёплого пола. В семействе CPO он относится к Large Open Room Controller, то есть к исполнению с увеличенным корпусом и расширенным набором I/O. Для этой серии заявлена поддержка BACnet и интеграция в инженерную систему здания без привязки к закрытому протоколу. В материалах Honeywell отдельно отмечены функции управления вентиляторами на 1–3 скорости, приводами клапанов и сценариями dual-loop control. Контроллер подходит для модернизации и новых проектов там, где нужен локальный room-level control с централизованным диспетчерским управлением. Для монтажа важно проверять конкретную схему питания и набор входов/выходов именно по заказной документации проекта, потому что семейство CPO включает несколько близких вариантов. Honeywell также указывает наличие энергонезависимого удержания данных в части моделей через super capacitor, что полезно при кратковременных сбоях питания. Для публикации в каталоге эту позицию лучше описывать как BACnet room controller в большом корпусе, а точную комплектацию I/O и питающее напряжение подтверждать по проектной спецификации заказа.",
+      "gemini": "Контроллер Honeywell CPO-RL4 представляет собой высокотехнологичное решение для автоматизации помещений, обеспечивающее точное управление климатом в коммерческих зданиях. Устройство полностью поддерживает протокол BACnet MS/TP, что позволяет легко интегрировать его в открытые системы управления зданием. Данный контроллер работает от напряжения 230 В переменного тока, что значительно упрощает монтаж в стандартных электрических сетях. Архитектура ComfortPoint Open обеспечивает гибкость в программировании как стандартных, так и специфических алгоритмов управления. Наличие десяти универсальных входов позволяет подключать широкий спектр датчиков температуры, влажности и качества воздуха. Шесть аналоговых выходов, четыре релейных выхода и четыре симисторных выхода обеспечивают комплексное управление приводами и вентиляторами. Интегрированная технология Sylk Bus позволяет подключать современные настенные модули по двухпроводной линии без необходимости соблюдения полярности. Прочный корпус и возможность монтажа на DIN-рейку гарантируют надежную работу и простоту обслуживания в распределительных щитах. Устройство сертифицировано BTL как расширенный контроллер приложений (B-AAC), что подтверждает его полное соответствие международным стандартам связи.",
+      "synthesis": "Honeywell CPO-RL4 — комнатный контроллер серии ComfortPoint Open (CPO) в большом корпусе для управления системами отопления, вентиляции и кондиционирования воздуха (HVAC), поддерживающий протокол BACnet MS/TP. Архитектура ComfortPoint Open обеспечивает гибкость в программировании как стандартных, так и специфических алгоритмов управления микроклиматом, обеспечивая ощутимую экономию энергии и повышенную функциональность в современных зданиях. Контроллер оснащён 6 аналоговыми выходами (AO), 10 универсальными входами (UI) для подключения датчиков температуры, влажности и качества воздуха, 4 релейными выходами и 4 симисторными выходами (Triac). Работает от напряжения 230 В переменного тока и оснащён часами реального времени (RTC) с функцией хранения данных до 72 часов благодаря super capacitor. Поддерживает двухконтурное управление для двухзонного применения, управление 1-3 ступенчатыми вентиляторами, частотными преобразователями, термическими, плавающими и пропорциональными приводами. Интегрированная технология Sylk Bus позволяет подключать современные настенные модули серии TR40x/42x по двухпроводной линии без необходимости соблюдения полярности. Контроллер подходит для применения в 2- и 4-трубных системах, фанкойлах, системах охлаждения потолков, водяного и напольного отопления, контроля качества воздуха. Программирование осуществляется с помощью CPO Studio. Контроллер имеет степень защиты IP20, сертифицирован UL916 и соответствует FCC Part 15B."
+    },
+    "specs_all": {
+      "claude": {
+        "Supply Voltage": "230 VAC +10% / -15%, 50/60 Hz",
+        "Protocol": "BACnet MS/TP",
+        "Analog Outputs": "6",
+        "Universal Inputs": "10",
+        "Relay Outputs": "4",
+        "Triac Outputs": "4",
+        "Housing": "Large",
+        "Real-Time Clock": "Yes, 72h data storage",
+        "Protection": "IP20",
+        "Certifications": "UL916, CSA C22.2 No. 205, FCC Part 15B, CE",
+        "Programming": "CPO Studio (free programming) or configurable application",
+        "Communication": "BACnet MS/TP, SYLK Bus, RJ45 for WiFi Adapter",
+        "Weight": "approx. 4.41 lbs (2 kg)",
+        "Status": "Discontinued"
+      },
+      "gpt": {
+        "Protocol": "BACnet",
+        "Controller family": "ComfortPoint Open",
+        "Form factor": "Large housing",
+        "Applications": "2-pipe/4-pipe fan coil, chilled ceiling, hydronic, underfloor heating",
+        "Programming": "Freely programmable",
+        "Fan control": "1 to 3 stages",
+        "Data retention": "Super capacitor backup up to 72 h (family information)"
+      },
+      "gemini": {
+        "power_supply": "230 VAC, 50/60 Hz",
+        "inputs": "10 Universal Inputs (UI)",
+        "outputs": "6 AO, 4 Relay, 4 Triac",
+        "communication": "BACnet MS/TP, Sylk Bus, RJ45 WiFi",
+        "protocol": "BACnet B-AAC rev 1.12",
+        "mounting": "DIN-rail or wall mounting",
+        "dimensions": "3.2 cm x 12.7 cm x 12.7 cm",
+        "ean": "4070552318272"
+      }
+    },
+    "notes_all": {
+      "claude": "Discontinued by manufacturer. Part of CPO-Rxx family of room controllers.",
+      "gpt": "Официальная линейка помечена как discontinued. В исходном запросе указано 230 VAC, но в просмотренных источниках это значение для CPO-RL4 напрямую не подтвердилось, поэтому напряжение лучше перепроверить по заказному листу или маркировке."
+    }
   },
-  "product_category": "Building Automation"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/control-panels/building-controls/zone-and-unitary-controllers/cpo-room-controller",
+    "https://us.wiautomation.com/honeywell/plc-systems/plc-systems/cporl4",
+    "https://www.cci-co.com/wp-content/uploads/ComfortPoint-Open-CPO-Rxx-ROOM-CONTROLLERS-Honeywell.pdf",
+    "https://www.dcsmodule.com/cpo-rl4-honeywell-cpo-room-controller_p19808.html",
+    "https://www.ebay.com/itm/153831384394",
+    "https://www.electrical.com/Products/Automation-Honeywell/CPO-RL4",
+    "https://www.wi-automation.com/",
+    "https://buildings.honeywell.com/au/en/products/by-category/control-panels/building-controls/zone-and-unitary-controllers/comfortpoint-large-open-room-controller",
+    "https://www.radwell.com/en-US/Buy/HONEYWELL/HONEYWELL/CPO-RL4/",
+    "https://buildings.honeywell.com/us/en/products/by-category/building-management/controllers/open-and-programmable/bacnet-open-controllers/cpo-room-controller",
+    "https://buildings.honeywell.com/us/en/products/by-category/building-management/controllers/open-and-programmable/bacnet-open-controllers/comfortpoint-large-open-room-controller"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 450.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.wi-automation.com/",
+    "our_price_raw": "49970,55",
+    "our_price_parsed": 49970.55,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 450.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Контроллер Honeywell CPO-RL4 предназначен для управления системами HVAC через протокол BACnet MS/TP. Он обеспечивает интеграцию и управление различными устройствами в системах автоматизации зданий.",
+    "best_description_source": "content",
+    "best_photo_url": "wi-automation.com",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Контроллер Honeywell CPO-RL4 предназначен для управления системами HVAC через протокол BACnet MS/TP. Он обеспечивает интеграцию и управление различными устройствами в системах автоматизации зданий.",
+    "best_description_ru": "<p>Контроллер Honeywell CPO-RL4 — это профессиональное устройство управления климатическими системами, разработанное компанией Honeywell, мировым лидером в области автоматизации зданий. Данный контроллер входит в серию ComfortPoint Open и предназначен для управления системами HVAC (отопление, вентиляция и кондиционирование воздуха) через протокол BACnet MS/TP. Устройство обеспечивает надежную интеграцию и координацию различных компонентов в системах автоматизации зданий, позволяя оптимизировать работу инженерных систем и повысить энергоэффективность объекта.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Поддержка протокола BACnet MS/TP для надежной коммуникации</li>\n<li>Управление системами HVAC различной сложности</li>\n<li>Интеграция с устройствами автоматизации зданий</li>\n<li>Надежная архитектура от компании Honeywell</li>\n<li>Гибкая конфигурация под различные типы объектов</li>\n<li>Поддержка распределенного управления климатом</li>\n<li>Совместимость с системами управления зданием</li>\n</ul>\n\n<p><b>Применение:</b> Контроллер CPO-RL4 используется в системах управления климатом офисных зданий, торговых центров, больниц, гостиниц и промышленных объектов. Устройство позволяет автоматизировать управление температурой, влажностью и качеством воздуха в отдельных помещениях или зонах здания. Благодаря поддержке протокола BACnet, контроллер легко интегрируется в существующие системы автоматизации, обеспечивая централизованное управление и мониторинг климатических параметров.</p>\n\n<p><b>Преимущества:</b> Выбор контроллера Honeywell CPO-RL4 гарантирует высокую надежность и долговечность оборудования. Устройство позволяет значительно снизить энергопотребление благодаря оптимизации работы систем HVAC. Простота интеграции с существующими системами и поддержка открытых стандартов делают это решение экономически выгодным выбором для любого объекта.</p>",
+    "best_description_ru_word_count": 192,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "ComfortPoint Open CPO-Rxx ROOM CONTROLLERS",
+    "description": "",
+    "specs": {
+      "CPU": "32-bit MK24FN Freescale Kinetis Cortex M4",
+      "Power_supply_options": "24 VAC and 230 VAC versions",
+      "Auxiliary_output_voltage": "24 VAC ±20%, 50/60 Hz",
+      "Housing_material": "IP20 rated enclosure",
+      "IP_rating": "IP20 (IP30 with optional terminal protection covers)",
+      "Communication_interfaces": "BACnet MS/TP, Sylk Bus (two-wire polarity-insensitive), BACnet WiFi Adapter (RJ45)",
+      "Real_time_clock": "All models",
+      "Data_retention": "72 hours (RL4, RL5, RL6, RL7U with super capacitor)",
+      "Relay_type_1_min_load": "5 VAC, 100 mA",
+      "Relay_type_1_switching_voltage_range": "15–253 VAC",
+      "Relay_type_1_max_continuous_load_250VAC": "4 A (cos φ = 1 and cos φ = 0.6)",
+      "Relay_type_2_min_load": "24 VAC, 40 mA",
+      "Relay_type_2_switching_voltage_range": "15–253 VAC",
+      "Relay_type_2_max_continuous_load_250VAC": "10 A (cos φ = 1 and cos φ = 0.6)",
+      "Relay_type_2_in_rush_current_20ms": "80 A",
+      "Relay_type_3_min_load": "5 VAC, 100 mA",
+      "Relay_type_3_switching_voltage_range": "15–253 VAC",
+      "Relay_type_3_max_continuous_load_250VAC": "1 A (cos φ = 1 and cos φ = 0.6)",
+      "Relay_type_3_contact": "N.C. (normally closed)",
+      "Max_sum_relay_currents": "14 A simultaneous",
+      "Universal_input_type_1_dry_contact_resistance_closed": "<10 kΩ",
+      "Universal_input_type_1_dry_contact_resistance_open": ">20 kΩ",
+      "Universal_input_type_1_max_frequency": "0.2 Hz",
+      "Universal_input_type_1_pull_up_voltage": "10 V",
+      "Universal_input_type_1_voltage_input_range": "0(2)–10 V",
+      "Universal_input_type_1_NTC20kΩ": "Supported",
+      "Universal_input_type_1_PT1000_Ni1000TK5000": "Not supported",
+      "Universal_input_type_2_dry_contact_resistance_closed": "<10 kΩ",
+      "Universal_input_type_2_dry_contact_resistance_open": ">20 kΩ",
+      "Universal_input_type_2_max_frequency": "0.2 Hz",
+      "Universal_input_type_2_pull_up_voltage": "10 V",
+      "Universal_input_type_2_voltage_input_range": "0(2)–10 V",
+      "Universal_input_type_2_PT1000_Ni1000TK5000": "Supported",
+      "Universal_input_type_3_dry_contact_resistance_closed": "<10 kΩ",
+      "Universal_input_type_3_dry_contact_resistance_open": ">20 kΩ",
+      "Universal_input_type_3_max_frequency": "0.2 Hz",
+      "Universal_input_type_3_pull_up_voltage": "24 V",
+      "Fast_binary_input_max_frequency": "30 Hz",
+      "Fast_binary_input_pulse_ON_min": "16 ms",
+      "Fast_binary_input_pulse_OFF_min": "16 ms",
+      "Fast_binary_input_closed_voltage": "<1 V",
+      "Fast_binary_input_open_voltage": ">5 V",
+      "Analog_output_type_1_voltage": "0–11 V",
+      "Analog_output_type_1_min_accuracy": "±150 mV",
+      "Analog_output_type_1_max_ripple": "±100 mV",
+      "Analog_output_type_1_accuracy_at_zero_point": "0–200 mV",
+      "Analog_output_type_2_current": "0–1 mA",
+      "Analog_output_type_2_min_accuracy": "±150 mV",
+      "Analog_output_type_2_max_ripple": "±100 mV",
+      "Analog_output_type_2_accuracy_at_zero_point": "0–200 mV",
+      "Analog_output_type_3_current": "0–5 mA",
+      "Analog_output_type_3_min_accuracy": "±150 mV",
+      "Analog_output_type_3_max_ripple": "±100 mV",
+      "Analog_output_type_3_accuracy_at_zero_point": "0–200 mV",
+      "Analog_output_type_4_current": "0–10 mA",
+      "Analog_output_type_4_min_accuracy": "±150 mV",
+      "Analog_output_type_4_max_ripple": "±100 mV",
+      "Analog_output_type_4_accuracy_at_zero_point": "0–200 mV",
+      "Analog_output_type_5_current": "-1–+1 mA",
+      "Analog_output_type_5_min_accuracy": "±150 mV",
+      "Analog_output_type_5_max_ripple": "±100 mV",
+      "Analog_output_type_5_accuracy_at_zero_point": "0–200 mV",
+      "BACnet_certification": "BTL-Listed as Advanced Application Controllers (B-AAC) rev 1.12",
+      "Terminal_blocks_RL5": "Removable",
+      "Mounting_options": "Standard rail, wall, wiring cabinet, fuse box",
+      "Color_coded_terminals": "Yes"
+    },
+    "specs_count": 66,
+    "series": "ComfortPoint Open CPO-Rxx Room Controllers",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "RLxx: 198x110x59; RSxx: 162x110x59",
+    "certifications": [
+      "IP20",
+      "BACnet BTL Advanced Application Controllers (B-AAC) rev 1.12"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CPO-RL4.pdf",
+    "datasheet_size_kb": 725,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - CPO-RL4 is a genuine Honeywell ComfortPoint Open room controller. The datasheet title confirms this. However, the missing EAN, truncated description, and zero technical specifications indicate the datasheet was poorly parsed or is incomplete. Need to re-extract data from the PDF or obtain better source documentation to populate missing fields (weight, dimensions, full specs, EAN)."
+    },
+    "description_seo_ru": "<p>Контроллер Honeywell CPO-RL4 — это профессиональное устройство управления климатическими системами, разработанное компанией Honeywell, мировым лидером в области автоматизации зданий. Данный контроллер входит в серию ComfortPoint Open и предназначен для управления системами HVAC (отопление, вентиляция и кондиционирование воздуха) через протокол BACnet MS/TP. Устройство обеспечивает надежную интеграцию и координацию различных компонентов в системах автоматизации зданий, позволяя оптимизировать работу инженерных систем и повысить энергоэффективность объекта.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Поддержка протокола BACnet MS/TP для надежной коммуникации</li>\n<li>Управление системами HVAC различной сложности</li>\n<li>Интеграция с устройствами автоматизации зданий</li>\n<li>Надежная архитектура от компании Honeywell</li>\n<li>Гибкая конфигурация под различные типы объектов</li>\n<li>Поддержка распределенного управления климатом</li>\n<li>Совместимость с системами управления зданием</li>\n</ul>\n\n<p><b>Применение:</b> Контроллер CPO-RL4 используется в системах управления климатом офисных зданий, торговых центров, больниц, гостиниц и промышленных объектов. Устройство позволяет автоматизировать управление температурой, влажностью и качеством воздуха в отдельных помещениях или зонах здания. Благодаря поддержке протокола BACnet, контроллер легко интегрируется в существующие системы автоматизации, обеспечивая централизованное управление и мониторинг климатических параметров.</p>\n\n<p><b>Преимущества:</b> Выбор контроллера Honeywell CPO-RL4 гарантирует высокую надежность и долговечность оборудования. Устройство позволяет значительно снизить энергопотребление благодаря оптимизации работы систем HVAC. Простота интеграции с существующими системами и поддержка открытых стандартов делают это решение экономически выгодным выбором для любого объекта.</p>",
+    "description_seo_word_count": 192,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'ComfortPoint Open CPO-Rxx ROOM CONTROLLERS' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

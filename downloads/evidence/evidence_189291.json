@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "189291",
-  "pn_variants": [],
+  "pn_variants": [
+    "00189291"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Детектор пламени Honeywell D 20.673.223.192",
   "assembled_title": "Рамка 3-постовая PEHA NOVA, 189291",
   "our_price_raw": "9291,30",
@@ -340,7 +342,14 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.673.223.192",
+    "series": "NOVA",
+    "color_material": "piano black",
+    "identity_notes_p1": "NOVA Elements, 225x83mm",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -391,7 +400,7 @@
     "description": "Детектор пламени Honeywell D 20.673.223.192 предназначен для использования в системах пожарной сигнализации. Обеспечивает надежное обнаружение пламени.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Детектор",
+    "product_type": "frame 3-gang",
     "seed_name": "Детектор пламени Honeywell D 20.673.223.192",
     "description_long_ru": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки."
   },
@@ -649,7 +658,146 @@
     "notes": ""
   },
   "deep_research": {
-    "description_ru": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки."
+    "description_ru": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки.",
+    "specs": {
+      "series": "NOVA elements",
+      "type": "Frame",
+      "gang": "3",
+      "material": "Elements mix",
+      "dimensions": "86x228mm",
+      "protection": "IP20",
+      "standard": "VDE CE"
+    },
+    "descriptions_all": {
+      "legacy": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки."
+    }
   },
-  "product_category": "switch frame"
+  "training_urls": [
+    "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189291-5-st-2856763.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 443.95,
+    "dr_currency": "CHF",
+    "dr_source_url": "https://www.conrad.ch/de/p/peha-by-honeywell-rahmen-rahmen-schwarz-189291-5-st-2856763.html",
+    "our_price_raw": "9291,30",
+    "our_price_parsed": 9291.3,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_ru",
+    "pack_qty": null,
+    "judge_reason": "PEHA NOVA 3-gang frame, CHF 443.95 — known pack trap, unit price should be ~€40-60 range"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 443.95,
+    "best_price_currency": "CHF",
+    "best_price_source": "price_contract",
+    "best_description": "Рамка для монтажа выключателей и розеток серии PEHA by Honeywell. Предназначена для установки электроустановочных изделий в стандартные монтажные коробки.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://asset.conrad.com/media10/isa/160267/c1/-/de/002856763PI01/image.jpg?align=center&ex=400&ey=400&format=jpg&x=400&y=400",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Prestige 3D Dado Main Carrier",
+    "description": "",
+    "specs": {
+      "profile_type": "3 compartment trunking",
+      "profile_dimensions": "170 x 57 mm",
+      "profile_length": "3 metres",
+      "material": "PVCu with up to 90% recycled content",
+      "cat_compliance": "Cat 5e, 6, 7 compliant",
+      "installation_time_advantage": "40% faster than Prestige Plus",
+      "antibac_kill_rate_mrsa": ">99.9% over 24 hours",
+      "antibac_kill_rate_klebsiella_pneumoniae": ">99.9% over 24 hours",
+      "antibac_additive_type": "silver based bactericide",
+      "back_box_depths_available": "35mm, 40mm, 45mm",
+      "back_box_gang_options": "1, 2, 3 gang",
+      "divider_knockout_dimensions": "50 x 21 mm",
+      "divider_knockout_spacing": "100 mm intervals",
+      "pre_punched_hole_spacing": "100 mm intervals",
+      "pre_punched_hole_type": "oval",
+      "internal_corner_flexibility": "+/- 5 degrees",
+      "external_corner_flexibility": "+/- 5 degrees",
+      "socket_spacer_visible_width_25mm": "9 mm after installation",
+      "socket_spacer_visible_width_standard": "25 mm after installation",
+      "screening_divider_length": "1.5 m",
+      "mcu_rcd_housing_capacity": "up to 2 x one module products",
+      "color_options": "white, charcoal, RAL colours available",
+      "guarantee_period": "10 years",
+      "data_sweep": "patented, maintains minimum trunking depth",
+      "hinged_lid": "two stage location with support function",
+      "biocide_registration": "EPA registered, BPD compliant",
+      "mounting_frames_depth": "40 mm",
+      "mounting_frames_gangs": "1, 2 gang",
+      "cable_retainer": "available as accessory"
+    },
+    "specs_count": 29,
+    "series": "Prestige 3D",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "170x57",
+    "certifications": [
+      "Cat 5e compliant",
+      "Cat 6 compliant",
+      "Cat 7 compliant",
+      "EPA registered",
+      "European Biocidal Products Directive (BPD) compliant",
+      "Part M building regulations compliance achievable"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\189291.pdf",
+    "datasheet_size_kb": 5158,
+    "product_photos": [
+      "downloads\\datasheet_photos\\189291_p1_0.jpeg",
+      "downloads\\datasheet_photos\\189291_p1_2.jpeg"
+    ],
+    "photo_count": 2,
+    "ean": "4010105189292",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/189291_p1_2.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 5158KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Prestige 3D Dado Main Carrier' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105189292",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

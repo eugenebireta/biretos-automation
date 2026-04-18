@@ -3,10 +3,10 @@
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "2208WFPT",
   "pn_variants": [],
-  "brand": "Honeywell",
+  "brand": "Dell",
   "subbrand": "",
   "name": "Системный блок Honeywell 2208WFPT",
-  "assembled_title": "Системный блок Honeywell 2208WFPT",
+  "assembled_title": "Системный блок Dell 2208WFPT",
   "our_price_raw": "1129,00",
   "expected_category": "Системный блок",
   "card_status": "DRAFT_ONLY",
@@ -314,7 +314,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "Cannot confirm identity; limited search results",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Dell",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -332,7 +336,7 @@
     "description": "Системный блок Honeywell 2208WFPT предназначен для использования в промышленных и коммерческих системах автоматизации. Обладает высокой производительностью и надежностью.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Системный блок",
+    "product_type": "System block",
     "seed_name": "Системный блок Honeywell 2208WFPT",
     "description_long_ru": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell."
   },
@@ -575,7 +579,66 @@
     "notes": ""
   },
   "deep_research": {
-    "description_ru": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell."
+    "description_ru": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell.",
+    "descriptions_all": {
+      "legacy": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell."
+    }
   },
-  "product_category": "monitor"
+  "training_urls": [
+    "https://www.remarkt.pl/catalog/product/view/id/177688"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 107.07,
+    "dr_currency": "PLN",
+    "dr_source_url": "https://www.remarkt.pl/catalog/product/view/id/177688",
+    "our_price_raw": "1129,00",
+    "our_price_parsed": 1129.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 107.07,
+    "best_price_currency": "PLN",
+    "best_price_source": "price_contract",
+    "best_description": "Продукт Honeywell с артикулом 2208WFPT не обнаружен ни у производителя, ни у авторизованных дистрибьюторов. Данный артикул однозначно идентифицируется как монитор Dell UltraSharp 22\" (серия 2208WFPt), не связанный с брендом Honeywell.",
+    "best_description_source": "dr",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "0712951330180",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Dell",
+      "brand_correction_reason": "Multiple indicators point to Honeywell: (1) seed_name explicitly shows 'Honeywell 2208WFPT', (2) EAN prefix 0712951 is associated with Honeywell products, not Dell, (3) PN format 2208WFPT is consistent with Honeywell industrial/POS product naming. The current brand 'Dell' is clearly incorrect and should be changed to Honeywell.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Dell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell"
+  }
 }

@@ -4,7 +4,7 @@
   "pn": "280870645",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Кабель соединительный Honeywell ATR1-CONNECTING CABLE-2POL",
   "assembled_title": "Кабель Honeywell 280870645",
   "our_price_raw": "11,33",
@@ -316,7 +316,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "ATR1 series",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "2-pole connector cable for ATR1 temperature sensor; limited details",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [
@@ -340,9 +344,8 @@
     "description": "Соединительный кабель Honeywell ATR1-CONNECTING CABLE-2POL предназначен для подключения различных устройств в системах автоматизации. Обеспечивает надежное соединение и устойчивость к внешним воздействиям.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Кабель",
-    "seed_name": "Кабель соединительный Honeywell ATR1-CONNECTING CABLE-2POL",
-    "description_long_ru": "Honeywell product page returns 404; likely discontinued"
+    "product_type": "Connecting cable",
+    "seed_name": "Кабель соединительный Honeywell ATR1-CONNECTING CABLE-2POL"
   },
   "trace": {
     "pn_match_location": "",
@@ -606,7 +609,15 @@
       "raw": "—",
       "aliases": [
         "—"
-      ]
+      ],
+      "Part number": "280870645",
+      "Brand": "Honeywell",
+      "Type": "Cable / connecting cable",
+      "Application": "Building automation / HVAC systems",
+      "Part Number": "280870645",
+      "Verification Required": "Yes",
+      "Confidence": "Low",
+      "Possible Type": "Cable / assembly (unconfirmed)"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -614,12 +625,73 @@
       "В выдаче встречались несвязанные лоты/товары с тем же числом, без промышленной идентификации. citeturn21search2turn21search3",
       "Aliases: —"
     ],
-    "merge_ts": "2026-04-10T11:05:35.045968+00:00",
+    "merge_ts": "2026-04-09T12:01:24.809075+00:00",
     "merge_source": "result_280870645.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Honeywell product page returns 404; likely discontinued"
+    "descriptions_all": {
+      "claude": "Кабель Honeywell 280870645 представляет собой соединительный кабель с внутренним каталожным номером Honeywell. Номера серии 280xxxxxxx относятся к компонентам и аксессуарам систем автоматизации зданий и инженерных систем Honeywell. Данный кабель, вероятно, предназначен для подключения датчиков, контроллеров, исполнительных механизмов или других элементов систем BMS/HVAC Honeywell. Кабель может быть экранированным или неэкранированным, с определённым количеством жил и сечением, подобранным для конкретного применения в системах автоматизации. Точные технические характеристики (количество жил, сечение, длина, тип разъёмов) определяются спецификацией Honeywell и могут быть уточнены через авторизованных дистрибьюторов или каталог запасных частей Honeywell.",
+      "gpt": "Honeywell 280870645 в открытых источниках также не дал надёжного exact match, поэтому трактовать его как точно подтверждённый кабель можно лишь условно. Подобные номера нередко относятся к внутренним сервисным наборам, специфическим кабельным сборкам или заказным комплектующим, которые не имеют полноценной публичной карточки производителя. Для качественного B2B-каталога здесь важно сохранить номер детали и бренд, но не придумывать подтверждённые технические характеристики без первичного источника. Если в вашей исходной номенклатуре позиция уже подписана как cable, это можно использовать только как предварительный working label, а не как окончательную классификацию. Следующий шаг для идентификации — поиск по фото упаковки, внутренним прайс-листам, сервисным мануалам Honeywell или документам поставщика. До получения такого подтверждения позицию разумно вести как unverified cable/assembly placeholder. Это защитит каталог от ошибочного попадания в неправильную категорию и от публикации вымышленных характеристик. Для автоматизации полезно пометить запись как candidate for future enrichment, чтобы повторная разведка запускалась при появлении новых источников. Если товар нужен для закупки или отгрузки прямо сейчас, рекомендуется требовать у поставщика datasheet, photo proof или cross-reference. В текущем виде этот PN корректнее считать low-confidence записью с ручной верификацией перед использованием.",
+      "synthesis": "Кабель Honeywell 280870645 представляет собой соединительный кабель с внутренним каталожным номером Honeywell для систем автоматизации зданий и инженерных систем. Номера серии 280xxxxxxx относятся к компонентам и аксессуарам систем BMS/HVAC Honeywell и предназначены для подключения датчиков, контроллеров, исполнительных механизмов и других элементов. Кабель может быть экранированным или неэкранированным с определённым количеством жил и сечением, подобранным для конкретного применения в системах автоматизации. Точные технические характеристики, включая количество жил, сечение, длину и тип разъёмов, определяются спецификацией Honeywell и могут быть уточнены через авторизованных дистрибьюторов. Позиция относится к внутренним сервисным компонентам или специфическим кабельным сборкам, которые плохо индексируются в публичных источниках. При использовании в каталоге рекомендуется требовать от поставщика подтверждения через datasheet, фото упаковки или cross-reference для верификации назначения. Артикул целесообразно вести с пометкой для ручной проверки до получения полного доказательства его функционального назначения."
+    },
+    "specs_all": {
+      "claude": {
+        "Part number": "280870645",
+        "Brand": "Honeywell",
+        "Type": "Cable / connecting cable",
+        "Application": "Building automation / HVAC systems"
+      },
+      "gpt": {
+        "Brand": "Honeywell",
+        "Part Number": "280870645",
+        "Verification Required": "Yes",
+        "Confidence": "Low",
+        "Possible Type": "Cable / assembly (unconfirmed)"
+      }
+    },
+    "notes_all": {
+      "claude": "Internal Honeywell PN. Exact specs not found publicly.",
+      "gpt": "No reliable public exact-PN confirmation found in open web during this pass. Keep as manual-review item."
+    }
   },
-  "product_category": "cable"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/access-control/accessories/cables/connecting-cable",
+    "https://www.ebay.com/itm/325112182471",
+    "https://www.radwell.com/Search?q=280870645"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 149.99,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/325112182471",
+    "our_price_raw": "11,33",
+    "our_price_parsed": 11.33,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 149.99,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Соединительный кабель Honeywell ATR1-CONNECTING CABLE-2POL предназначен для подключения различных устройств в системах автоматизации. Обеспечивает надежное соединение и устойчивость к внешним воздействиям.",
+    "best_description_source": "content",
+    "best_photo_url": "https://i.ebayimg.com/images/g/Y8IAAOSwX6FiM06u/s-l1600.jpg",
+    "best_photo_source": "dr_image"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

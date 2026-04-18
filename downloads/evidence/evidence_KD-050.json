@@ -6,10 +6,10 @@
     "KD.050",
     "KD050"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Kale Kilit",
+  "subbrand": null,
   "name": "Лампа KD-050",
-  "assembled_title": "Лампа Honeywell KD-050",
+  "assembled_title": "Лампа Kale Kilit KD-050",
   "our_price_raw": "0,00",
   "expected_category": "Лампа",
   "card_status": "DRAFT_ONLY",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqPETbop8FS4KJDeofgg'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,9 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -363,7 +361,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "No specific product match found; insufficient information for identification",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Kale Kilit",
+    "brand_source": "dr_claude_dr3_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -381,9 +383,8 @@
     "description": "Лампа KD-050 используется в различных осветительных приборах. Она обеспечивает яркое и равномерное освещение, подходит для использования в промышленных и бытовых условиях.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Лампа",
-    "seed_name": "Лампа KD-050",
-    "description_long_ru": "Actual mfr: Camelion. Consumer desk lamp, not industrial. Silver color"
+    "product_type": "Lamp",
+    "seed_name": "Лампа KD-050"
   },
   "trace": {
     "pn_match_location": "",
@@ -628,7 +629,14 @@
       "raw": "50L; closed type (по наименованию в списке) citeturn66view0",
       "aliases": [
         "KD-050"
-      ]
+      ],
+      "Type": "Door lock / cylinder lock",
+      "Material": "Steel",
+      "Brand": "Kale Kilit",
+      "Country of Origin": "Turkey",
+      "Application": "Residential, commercial doors",
+      "Product family": "KD-050 electronic cabinet lock",
+      "Mounting": "Furniture / cabinet door application"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -647,12 +655,92 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.436014+00:00",
+    "merge_ts": "2026-04-09T12:01:24.940499+00:00",
     "merge_source": "result_KD-050.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Actual mfr: Camelion. Consumer desk lamp, not industrial. Silver color"
+    "descriptions_all": {
+      "claude": "Kale Kilit KD-050 — электромеханический дверной замок или запирающее устройство производства турецкой компании Kale Kilit, одного из крупнейших производителей замков и дверной фурнитуры. В оригинальном каталоге данное изделие отмечено как 'лампа', что может указывать на осветительный элемент или индикатор, интегрированный в систему контроля доступа. Kale Kilit производит широкий спектр продукции для безопасности и контроля доступа, включая электромеханические замки, цилиндры, дверные доводчики и фурнитуру. Продукция Kale Kilit отличается высоким качеством и надёжностью, соответствует европейским стандартам безопасности.",
+      "gpt": "Kale Kilit KD-050 — это электронный шкафной/мебельный замок серии KD-050, а не обычный механический цилиндр. По найденным документам линейка KD-050 предназначена для электронного запирания шкафчиков, мебели, камер хранения и подобных объектов доступа. Такие замки применяются в фитнес-клубах, раздевалках, офисной мебели, гостиничной инфраструктуре и системах индивидуального хранения. Для семейства доступны разные исполнения по длине цилиндрической части и по монтажной геометрии, поэтому точный суффикс после KD-050 важен для совместимости. В описаниях и инструкциях прямо говорится о cabinet lock, что хорошо отличает изделие от дверных цилиндров общего назначения. Электронный формат делает его удобным для интеграции с картами, кодами или внутренней системой доступа в зависимости от версии комплекта. При подборе нужно обязательно сверять backset, тип двери/фасада, толщину материала и используемую управляющую электронику. Для сервисной замены важно также понимать, нужен ли только lock body или полный комплект с электронным управлением. В B2B-каталоге эту позицию безопаснее описывать как electronic cabinet lock / locker lock series. Если публиковать товар как «door lock/cylinder», высок риск ввести покупателя в заблуждение относительно назначения изделия.",
+      "synthesis": "Kale Kilit KD-050 — электронный шкафной/мебельный замок серии KD-050 производства турецкой компании Kale Kilit, одного из крупнейших производителей замков и дверной фурнитуры. Линейка KD-050 предназначена для электронного запирания шкафчиков, мебели, камер хранения и подобных объектов доступа, а не для обычных дверных цилиндров общего назначения. Такие замки применяются в фитнес-клубах, раздевалках, офисной мебели, гостиничной инфраструктуре и системах индивидуального хранения. Электронный формат делает его удобным для интеграции с картами, кодами или внутренней системой доступа в зависимости от версии комплекта. Для семейства доступны разные исполнения по длине цилиндрической части и по монтажной геометрии, поэтому точный суффикс после KD-050 важен для совместимости. При подборе нужно обязательно сверять backset, тип двери/фасада, толщину материала и используемую управляющую электронику. Продукция Kale Kilit отличается высоким качеством и надёжностью, соответствует европейским стандартам безопасности."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Door lock / Lock component",
+        "Brand": "Kale Kilit",
+        "Country of Origin": "Turkey"
+      },
+      "gpt": {
+        "Product family": "KD-050 electronic cabinet lock",
+        "Application": "Cabinet / locker locking",
+        "Mounting": "Furniture / cabinet door application"
+      }
+    },
+    "notes_all": {
+      "claude": "Listed as 'Лампа' (lamp) in source catalog, but Kale Kilit is a lock/hardware manufacturer. May be an indicator lamp for access control system or a different product entirely.",
+      "gpt": "Исходное описание «door lock/cylinder» неточно. Семейство KD-050 относится к electronic cabinet/locker locks."
+    }
   },
-  "product_category": "Stainless drum"
+  "training_urls": [
+    "https://camelion.ru/katalog/svetotekhnika/kd-050",
+    "https://www.denzaido.com/page/590769/",
+    "https://www.komus.ru/katalog/tekhnika/ofisnaya-tekhnika/svetilniki-i-nastolnye-lampy/nastolnye-lampy-i-torshery/nastolnye-lampy/svetilnik-nastolnyj-camelion-kd-050-serebristyj/p/217265/",
+    "https://www.kalekilit.com.tr/en/products/electronic-cabinet-lock-systems",
+    "https://www.manualslib.com/manual/2595785/Kale-Kilit-Kd050-46-101.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 50207.0,
+    "dr_currency": "JPY",
+    "dr_source_url": "https://www.denzaido.com/page/590769/",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": null,
+    "judge_reason": "UV lamp, JPY (Japanese Yen) — exotic currency, not pack"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 50207.0,
+    "best_price_currency": "JPY",
+    "best_price_source": "price_contract",
+    "best_description": "Лампа KD-050 используется в различных осветительных приборах. Она обеспечивает яркое и равномерное освещение, подходит для использования в промышленных и бытовых условиях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/KALE_KILIT_KD-050.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\KD-050.pdf",
+    "datasheet_size_kb": 51837,
+    "product_photos": [
+      "downloads\\datasheet_photos\\KD-050_p1_0.jpeg",
+      "downloads\\datasheet_photos\\KD-050_p2_0.jpeg",
+      "downloads\\datasheet_photos\\KD-050_p3_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 51837KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

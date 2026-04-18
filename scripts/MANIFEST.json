@@ -1,6 +1,107 @@
 {
-  "_description": "Script registry — Claude MUST check this before doing any enrichment/catalog work manually",
-  "_updated": "2026-04-09",
+  "_description": "Script registry and pipeline documentation. Claude MUST check this before doing any enrichment/catalog work manually. Humans: this is the single source of truth for all automation pipelines.",
+  "_updated": "2026-04-12",
+  "full_enrichment_pipeline": {
+    "_doc": "Complete product enrichment flow from raw Excel to InSales-ready export. Follow stages in order. NEVER skip to AI (Stage 2) without exhausting local (Stage 1).",
+    "stages": [
+      {
+        "stage": 0,
+        "name": "Source Import",
+        "type": "local",
+        "scripts": ["catalog_import.py"],
+        "input": "Excel/CSV (e.g. downloads/honeywell new.xlsx)",
+        "output": "downloads/evidence/evidence_{PN}.json",
+        "extracts": "PN, name, our_price_raw, quantity, brand, expected_category → content.seed_name"
+      },
+      {
+        "stage": 1,
+        "name": "Local Enrichment (no AI, no external API)",
+        "type": "local",
+        "scripts": [
+          "evidence_contract_hardening_v1.py — subbrand detection, training_urls, price_contract",
+          "identity_checker.py boost — verify/upgrade identity_level from existing data",
+          "confidence_recalculator.py --apply — recalculate confidence from all signals"
+        ],
+        "note": "pn_variants.py, category_resolver.py, spec_extractor.py are libraries called from photo_pipeline, not standalone batch scripts"
+      },
+      {
+        "stage": "1b",
+        "name": "Local Enrichment (needs SerpAPI key)",
+        "type": "api_local",
+        "scripts": [
+          "photo_pipeline.py — SerpAPI photo search + JSON-LD price extraction + specs",
+          "datasheet_pipeline.py — SerpAPI PDF search + extraction"
+        ],
+        "requires": "SERPAPI_KEY in downloads/.env",
+        "extracts": "photo, price (pipeline1), specs, pn_variants, category"
+      },
+      {
+        "stage": 2,
+        "name": "AI Deep Research",
+        "type": "ai_expensive",
+        "scripts": [
+          "dr_prompt_generator.py — generate prompts for SKUs with gaps",
+          "(owner runs Gemini/Claude DR manually) — produces .md files",
+          "dr_results_import.py — parse .md → result_*.json + training JSONL",
+          "merge_research_to_evidence.py — merge DR results into evidence"
+        ],
+        "note": "DR is heavy/slow/expensive. Verify ALL local sources exhausted first."
+      },
+      {
+        "stage": 3,
+        "name": "Document & Asset Collection",
+        "type": "mixed",
+        "scripts": [
+          "download_documents.py — download PDFs/datasheets from DR results",
+          "photo_matcher.py --apply — quality gate: promote KEEP → ACCEPT",
+          "(cloud upload — needs owner setup) — photos + datasheets to cloud storage"
+        ],
+        "output": "downloads/documents/{PN}/, photo URLs, datasheet URLs"
+      },
+      {
+        "stage": 4,
+        "name": "Price & Quality",
+        "type": "mixed",
+        "scripts": [
+          "price_unit_judge_full_run.py — per_unit vs per_pack disambiguation",
+          "gemini_price_scout.py — AI price lookup for missing prices (Gemini API)"
+        ]
+      },
+      {
+        "stage": 5,
+        "name": "Normalization & Export",
+        "type": "local",
+        "scripts": [
+          "evidence_normalize.py — unify all data into normalized{} block",
+          "export_ready.py — calculate readiness: EXPORT_READY / DRAFT / BLOCKED",
+          "evidence_coverage_report.py — audit field completeness",
+          "export_pipeline.py — final export to CSV/Excel for InSales"
+        ],
+        "insales_fields": {
+          "required": ["Наименование (title_ru)", "Цена", "Количество", "Описание", "Категория InSales", "URL фото (облако)", "URL datasheet (облако)"],
+          "source": "normalized{} block → export"
+        }
+      },
+      {
+        "stage": 6,
+        "name": "Batch Lifecycle",
+        "type": "local",
+        "scripts": [
+          "evidence_lifecycle.py status — pre-archive check",
+          "evidence_lifecycle.py archive --tag TAG — archive + clean",
+          "evidence_lifecycle.py restore BATCH_ID — restore if needed"
+        ],
+        "note": "After archive → back to Stage 0 with next Excel"
+      }
+    ],
+    "training_data_collected": [
+      "training_urls[] — distributor/seller URLs per product (in evidence)",
+      "dr_sources[] — source metadata: type, has_price, has_specs, has_photo",
+      "key_findings[] — text insights from DR",
+      "specs.aliases[] — EAN codes, alternative PNs",
+      "training_data/*.jsonl — URL training, identity examples, price extraction examples"
+    ]
+  },
   "import_pipeline": {
     "order": [
       "catalog_import"
@@ -81,6 +182,46 @@
       }
     }
   },
+  "telegram_pipeline": {
+    "order": ["telegram_gateway", "telegram_bot", "telegram_notifier"],
+    "scripts": {
+      "telegram_bot": {
+        "file": "orchestrator/telegram_bot.py",
+        "purpose": "Core Telegram bot — receives commands, routes to handlers",
+        "triggers": ["телеграм бот", "telegram bot", "команды бота"],
+        "usage": "python orchestrator/start_telegram.py",
+        "inputs": ["TELEGRAM_BOT_TOKEN (env)", "orchestrator/config.yaml"],
+        "outputs": ["Telegram messages to owner chat"],
+        "docs": ["KNOW_HOW_telegram.md"]
+      },
+      "telegram_gateway": {
+        "file": "orchestrator/telegram_gateway.py",
+        "purpose": "Webhook gateway — receives Telegram updates via HTTP",
+        "triggers": ["вебхук", "webhook", "входящие обновления"],
+        "usage": "python orchestrator/telegram_gateway.py",
+        "docs": ["KNOW_HOW_telegram.md", "docs/howto/COMMANDS.md"]
+      },
+      "telegram_notifier": {
+        "file": "orchestrator/telegram_notifier.py",
+        "purpose": "Send alerts and status updates to owner via Telegram",
+        "triggers": ["уведомление", "алерт", "notify owner"],
+        "usage": "python tools/tg_send.py --message 'text'",
+        "docs": ["KNOW_HOW_telegram.md"]
+      },
+      "export_command": {
+        "file": "routers/telegram/export_command.py",
+        "purpose": "/export command handler — trigger catalog export via Telegram",
+        "triggers": ["/export", "экспорт через бота"],
+        "docs": ["KNOW_HOW_telegram.md", "docs/howto/COMMANDS.md"]
+      },
+      "supervisor_telegram": {
+        "file": "scripts/supervisor/telegram_reader.py",
+        "purpose": "Supervisor reads Telegram for owner commands during autopilot runs",
+        "triggers": ["супервизор", "supervisor", "автопилот команды"],
+        "docs": ["KNOW_HOW_telegram.md"]
+      }
+    }
+  },
   "other_key_scripts": {
     "confidence_recalculator": {
       "file": "confidence_recalculator.py",
@@ -117,6 +258,18 @@
     "identity_checker": {
       "file": "identity_checker.py",
       "purpose": "Verify product identity against evidence"
+    },
+    "evidence_lifecycle": {
+      "file": "evidence_lifecycle.py",
+      "purpose": "Batch lifecycle: status / archive / list / restore. Manages accumulate → normalize → archive → next batch cycle.",
+      "triggers": ["архивируй", "archive batch", "следующий батч", "next batch", "restore batch", "статус батча", "batch status"],
+      "usage": "python scripts/evidence_lifecycle.py status | archive --tag TAG | list | restore BATCH_ID"
+    },
+    "evidence_normalize": {
+      "file": "evidence_normalize.py",
+      "purpose": "Normalization layer: unify 3-pipeline data into canonical normalized{} block. Auto-called by merge_research, photo_matcher, confidence_recalculator, price_unit_judge after evidence writes.",
+      "triggers": ["нормализуй", "normalize evidence", "обнови normalized"],
+      "usage": "python scripts/evidence_normalize.py [--dry-run]"
     }
   }
 }

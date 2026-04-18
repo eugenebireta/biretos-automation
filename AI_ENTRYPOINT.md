@@ -1,7 +1,8 @@
 # AI Entrypoint
 
-## Always read (every cycle):
+## Layer 0 — Always read (every cycle):
 
+0. `SESSION_PRIMER.md` — quick context: project status, pipelines, key KNOW_HOW
 1. `docs/PROJECT_DNA.md` — invariants, frozen files, absolute rules
 2. `docs/autopilot/STATE.md` — current execution state
 3. Task Brief текущей задачи — сейчас: `config/TASK_BRIEF_R1_ENRICHMENT.md`
@@ -21,6 +22,13 @@
 
 9. `docs/autopilot/HANDOFF_STATE.json`
 10. `docs/handoffs/SWITCH_RUNBOOK_v1.md`
+
+## Layer 2 — Experience Memory (read when task requires deep domain knowledge)
+
+- `docs/memory/EXPERIENCE_BOOTSTRAP_v1.jsonl` — 24 operating principles (PEHA naming, source trust, family rules)
+- `docs/memory/engineering/ENGINEERING_EXPERIENCE_v1.jsonl` — 17 engineering lessons
+- `docs/memory/enrichment/ENRICHMENT_EXPERIENCE_v1.jsonl` — 41 enrichment rules
+- `docs/memory/PHASE_A_DEVELOPMENT_MEMORY_v1.json` — Phase A proof artifacts
 
 Execution-state rules:
 

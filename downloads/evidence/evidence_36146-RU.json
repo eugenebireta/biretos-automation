@@ -6,10 +6,10 @@
     "36146.RU",
     "36146RU"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "DKC",
+  "subbrand": null,
   "name": "Т-образный соединитель 400x80мм 36146-RU",
-  "assembled_title": "Соединитель Honeywell 36146-RU",
+  "assembled_title": "Соединитель DKC 36146-RU",
   "our_price_raw": "3951,25",
   "expected_category": "Соединитель",
   "card_status": "DRAFT_ONLY",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqGbapAAihxKeEeayndT'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,10 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://tr-inz.ru/collection/opory-trubchatye-ost-36-146-88-tip-tr"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -320,7 +317,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "T-shaped connector 400x80mm; Russian market variant; cable duct fitting",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -338,9 +339,8 @@
     "description": "Т-образный соединитель 400x80мм предназначен для разветвления кабельных трасс в промышленных системах. Обеспечивает надежное соединение и защиту.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Соединитель",
-    "seed_name": "Т-образный соединитель 400x80мм 36146-RU",
-    "description_long_ru": "Not found on any platform. Proprietary Russian-market code"
+    "product_type": "T-connector",
+    "seed_name": "Т-образный соединитель 400x80мм 36146-RU"
   },
   "trace": {
     "pn_match_location": "",
@@ -602,7 +602,14 @@
       "raw": "модель: F76S‑1 1/4 AAM; цена 42 000 ₽ citeturn9view0",
       "aliases": [
         "36146 (без -RU)"
-      ]
+      ],
+      "Brand": "DKC",
+      "Series": "S5 Combitech",
+      "Model": "DPT",
+      "Product type": "T-coupler / horizontal T tapper",
+      "Tray width": "400 mm",
+      "Tray height": "80 mm",
+      "Material": "Galvanized steel"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -622,12 +629,93 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.117099+00:00",
+    "merge_ts": "2026-04-09T12:01:24.824101+00:00",
     "merge_source": "result_36146-RU.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "Not found on any platform. Proprietary Russian-market code"
+    "descriptions_all": {
+      "gpt": "DKC 36146-RU DPT — это элемент металлической кабельной трассы для системы листовых лотков, используемой в промышленном и коммерческом электромонтаже. Позиция предназначена для организации Т-образного горизонтального ответвления в трассе с размером 400x80 мм. Такие детали применяют в энергетике, на заводах, в торговых и офисных зданиях, а также на инфраструктурных объектах, где кабельные линии прокладываются по лоткам. Исполнение из оцинкованной стали обеспечивает базовую коррозионную стойкость для внутреннего монтажа и типовых условий эксплуатации. Перфорированные стенки и основание облегчают крепление и могут улучшать вентиляцию кабельной системы. При проектировании важно учитывать не только размер лотка, но и радиус поворота, тип нагрузки и необходимость крышек или повышенного IP в составе всей системы. Такие элементы подбирают строго под серию и геометрию трассы, чтобы исключить перекосы, разрывы покрытия и неудобство при укладке кабеля. Монтаж выполняют в составе трассы с совместимыми прямыми секциями и соединительными аксессуарами DKC. Модель предназначена для широких магистральных лотков и позволяет выполнить ответвление без использования самодельных переходов на объекте. Если объект требует сохранения работоспособности кабельной линии при пожаре, следует отдельно проверять соответствие всей трассы, а не только одного фитинга."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "DKC",
+        "Series": "S5 Combitech",
+        "Model": "DPT",
+        "Product type": "T-coupler / horizontal T tapper",
+        "Tray width": "400 mm",
+        "Tray height": "80 mm",
+        "Material": "Galvanized steel"
+      }
+    },
+    "notes_all": {
+      "gpt": "В открытых источниках чаще видна variant K; размеры и назначение базовой позиции соответствуют 400x80."
+    }
   },
-  "product_category": "RU Localized; Pressure regulation"
+  "training_urls": [
+    "https://100kwatt.ru/products/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam",
+    "https://buildings.honeywell.com/us/en/products/by-category/electrical-and-wiring/cable-management/trunking-fittings",
+    "https://santehmoskva.ru/tovar/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam-f76s-1-1-4-aam/",
+    "https://www.dkc.com/ru/ru/products/36146k",
+    "https://www.tme.eu/ru/details/36146/aksessuary-dlya-kabelnyh-trass/dkc/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 42000.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://santehmoskva.ru/tovar/filtr-setchatyy-honeywell-braukmann-f76s-1-1-4-aam-f76s-1-1-4-aam/",
+    "our_price_raw": "3951,25",
+    "our_price_parsed": 3951.25,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 42000.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Т-образный соединитель 400x80мм предназначен для разветвления кабельных трасс в промышленных системах. Обеспечивает надежное соединение и защиту.",
+    "best_description_source": "content",
+    "best_photo_url": "https://tr-inz.ru/collection/opory-trubchatye-ost-36-146-88-tip-tr",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Т-образный соединитель 400x80мм предназначен для разветвления кабельных трасс в промышленных системах. Обеспечивает надежное соединение и защиту.",
+    "best_description_ru": "<p>\n    Представляем вашему вниманию высококачественный Т-образный соединитель DKC артикул 36146-RU, разработанный специально для эффективного разветвления кабельных трасс в самых требовательных промышленных системах. Этот элемент является незаменимым компонентом для создания сложных и надежных кабельных сетей, обеспечивая не только функциональное соединение, но и долговечную защиту проложенных коммуникаций. Продукция DKC известна своим безупречным качеством и соответствием высоким стандартам безопасности, что делает данный соединитель оптимальным выбором для профессионалов.\n</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Тип изделия: Т-образный соединитель, предназначенный для разветвления кабельных трасс.</li>\n    <li>Бренд: DKC – признанный лидер в производстве кабеленесущих систем и электротехнического оборудования.</li>\n    <li>Артикул: 36146-RU – уникальный идентификатор продукта для удобства заказа и учета.</li>\n    <li>Размеры: 400x80 мм – оптимальные габариты для большинства стандартных промышленных кабельных систем.</li>\n    <li>Назначение: Обеспечивает надежное и безопасное разветвление кабельных трасс, минимизируя риски повреждений.</li>\n    <li>Материал: Изготовлен из высококачественных материалов, гарантирующих долговечность и устойчивость к внешним воздействиям.</li>\n    <li>Защита: Предоставляет дополнительную защиту кабелям от механических повреждений и воздействия окружающей среды.</li>\n    <li>Совместимость: Идеально подходит для интеграции с другими элементами кабеленесущих систем DKC.</li>\n</ul>\n<p>\n    Данный Т-образный соединитель находит широкое применение в различных промышленных секторах, где требуется организация сложных и разветвленных кабельных систем. Он идеально подходит для использования на производственных предприятиях, в складских комплексах, энергетических объектах, а также в инфраструктурных проектах. Его конструкция позволяет эффективно распределять кабельные потоки, обеспечивая аккуратность и порядок в прокладке коммуникаций, что значительно облегчает последующее обслуживание и модернизацию систем.\n</p>\n<p>\n    Выбирая Т-образный соединитель DKC 36146-RU, вы инвестируете в надежность и долговечность вашей кабельной инфраструктуры. Продукция DKC славится своей прочностью и устойчивостью к агрессивным условиям эксплуатации, что гарантирует бесперебойную работу ваших систем на протяжении многих лет. Легкость монтажа и высокая степень защиты делают этот соединитель предпочтительным решением для профессионалов, стремящихся к оптимальному соотношению цены и качества.\n</p>",
+    "best_description_ru_word_count": 276,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "ean": "4690309508831",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "DKC is a legitimate Russian manufacturer of cable management systems. The PN format '36146-RU' with RU suffix is consistent with DKC's product numbering for Russian market. The product name 'Т-образный соединитель 400x80мм' (T-shaped connector 400x80mm) matches DKC's cable tray accessory catalog. Brand and PN are correct, but product lacks technical specifications and proper datasheet."
+    },
+    "description_seo_ru": "<p>\n    Представляем вашему вниманию высококачественный Т-образный соединитель DKC артикул 36146-RU, разработанный специально для эффективного разветвления кабельных трасс в самых требовательных промышленных системах. Этот элемент является незаменимым компонентом для создания сложных и надежных кабельных сетей, обеспечивая не только функциональное соединение, но и долговечную защиту проложенных коммуникаций. Продукция DKC известна своим безупречным качеством и соответствием высоким стандартам безопасности, что делает данный соединитель оптимальным выбором для профессионалов.\n</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li>Тип изделия: Т-образный соединитель, предназначенный для разветвления кабельных трасс.</li>\n    <li>Бренд: DKC – признанный лидер в производстве кабеленесущих систем и электротехнического оборудования.</li>\n    <li>Артикул: 36146-RU – уникальный идентификатор продукта для удобства заказа и учета.</li>\n    <li>Размеры: 400x80 мм – оптимальные габариты для большинства стандартных промышленных кабельных систем.</li>\n    <li>Назначение: Обеспечивает надежное и безопасное разветвление кабельных трасс, минимизируя риски повреждений.</li>\n    <li>Материал: Изготовлен из высококачественных материалов, гарантирующих долговечность и устойчивость к внешним воздействиям.</li>\n    <li>Защита: Предоставляет дополнительную защиту кабелям от механических повреждений и воздействия окружающей среды.</li>\n    <li>Совместимость: Идеально подходит для интеграции с другими элементами кабеленесущих систем DKC.</li>\n</ul>\n<p>\n    Данный Т-образный соединитель находит широкое применение в различных промышленных секторах, где требуется организация сложных и разветвленных кабельных систем. Он идеально подходит для использования на производственных предприятиях, в складских комплексах, энергетических объектах, а также в инфраструктурных проектах. Его конструкция позволяет эффективно распределять кабельные потоки, обеспечивая аккуратность и порядок в прокладке коммуникаций, что значительно облегчает последующее обслуживание и модернизацию систем.\n</p>\n<p>\n    Выбирая Т-образный соединитель DKC 36146-RU, вы инвестируете в надежность и долговечность вашей кабельной инфраструктуры. Продукция DKC славится своей прочностью и устойчивостью к агрессивным условиям эксплуатации, что гарантирует бесперебойную работу ваших систем на протяжении многих лет. Легкость монтажа и высокая степень защиты делают этот соединитель предпочтительным решением для профессионалов, стремящихся к оптимальному соотношению цены и качества.\n</p>",
+    "description_seo_word_count": 276,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "cable management",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

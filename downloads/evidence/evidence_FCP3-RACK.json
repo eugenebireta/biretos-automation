@@ -6,10 +6,10 @@
     "FCP3.RACK",
     "FCP3RACK"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Siemon",
+  "subbrand": null,
   "name": "Оптический шкаф Honeywell FCP3-RACK",
-  "assembled_title": "Шкаф Honeywell FCP3-RACK",
+  "assembled_title": "Шкаф Siemon FCP3-RACK",
   "our_price_raw": "11265,29",
   "expected_category": "Шкаф",
   "card_status": "REVIEW_REQUIRED",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqMqPr5VThSP6fkBcyQj'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://bsai.com.mx/products/panel-de-conexion-de-fibra-para-rack-de-19in-bandej"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -322,7 +319,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Siemon",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -567,12 +566,132 @@
     "merge_source": "result_FCP3-RACK.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "**NOT a Honeywell fire panel rack.** Siemon product. Also $84.73 at Energy Avenue. Discontinued per Anixter"
+    }
   },
   "dr_category": "Fiber optic patch panel",
   "dr_image_url": "—",
   "dr_price": 83.15,
   "dr_currency": "USD",
   "dr_price_source": "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions",
-  "product_category": "fiber patch panel"
+  "training_urls": [
+    "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions",
+    "https://products.networkscentre.com/i/q/SM-FCP3-R-01/siemon-fcp3-rack-with-12-blanks-black",
+    "https://www.anixter.com/en_us/products/FCP3-RACK/SIEMON-COMPANY/Fiber-Optic-Enclosures/p/230637",
+    "https://www.energyavenue.com/product/detail/3444482/siemon-fcp3-rack"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 83.15,
+    "dr_currency": "USD",
+    "dr_source_url": "http://www.eaccu-tech.com/siemon/fcp3-rack-siemon-solutions",
+    "our_price_raw": "11265,29",
+    "our_price_parsed": 11265.29,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 83.15,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Оптический шкаф Honeywell FCP3-RACK предназначен для размещения оптического оборудования. Он обеспечивает защиту и удобный доступ к компонентам в телекоммуникационных и сетевых системах.",
+    "best_description_source": "content",
+    "best_photo_url": "https://bsai.com.mx/products/panel-de-conexion-de-fibra-para-rack-de-19in-bandej",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Fiber Connect Panel (FCP3)",
+    "description": "",
+    "specs": {
+      "product_name": "Fiber Connect Panel (FCP3)",
+      "models": "FCP3-DWR, FCP3-RACK",
+      "fiber_capacity_standard": "72 fibers",
+      "fiber_capacity_with_mtp": "288 fibers",
+      "form_factor": "1U",
+      "height_mm": "43.2",
+      "height_in": "1.7",
+      "width_mm": "482.6",
+      "width_in": "19.0",
+      "depth_dwr_mm": "355.6",
+      "depth_dwr_in": "14.0",
+      "depth_rack_mm": "241.3",
+      "depth_rack_in": "9.5",
+      "quick_pack_adapter_plates": "3",
+      "color": "black",
+      "housing_material": "aluminum (splice trays), polycarbonate (covers)",
+      "quick_pack_options_6_fiber": "ST, SC",
+      "quick_pack_options_8_fiber": "ST, SC",
+      "quick_pack_options_12_fiber": "ST, SC, LC",
+      "quick_pack_options_16_fiber": "LC",
+      "quick_pack_options_24_fiber": "LC",
+      "quick_pack_options_96_fiber": "MTP",
+      "front_fiber_clips_capacity": "36 duplex or 24 x 12-fiber MTP trunks",
+      "maximum_fusion_splices": "72",
+      "splice_tray_capacity_standard": "24 splices",
+      "splice_tray_capacity_mini": "12 splices",
+      "splice_tray_standard_height_mm": "103",
+      "splice_tray_standard_width_mm": "298",
+      "splice_tray_standard_depth_mm": "8.13",
+      "splice_tray_mini_height_mm": "103",
+      "splice_tray_mini_width_mm": "179",
+      "splice_tray_mini_depth_mm": "8.13",
+      "heat_shrink_sleeve_options": "40mm, 60mm",
+      "compression_fitting_range_40": "5.8 - 13.9mm fiber diameter",
+      "compression_fitting_range_51": "11.4 - 18.0mm fiber diameter",
+      "compression_fitting_range_60": "15.0 - 25.4mm fiber diameter",
+      "adapter_types_sc": "duplex, universal (multimode/singlemode)",
+      "adapter_types_st": "duplex, universal (multimode/singlemode)",
+      "adapter_types_lc": "quad, available in standard and shuttered versions",
+      "adapter_colors_available": "beige, blue, aqua, erika violet",
+      "mounting": "rack mount with mounting brackets",
+      "cable_management": "lanced tabs, fiber clips (front and rear), label holders",
+      "tray_type_dwr": "sliding tray (front or rear access, removable)",
+      "tray_type_rack": "fixed tray"
+    },
+    "specs_count": 44,
+    "series": "Fiber Connect Panel (FCP3)",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "482.6x355.6x43.2 (FCP3-DWR); 482.6x241.3x43.2 (FCP3-RACK)",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FCP3-RACK.pdf",
+    "datasheet_size_kb": 1105,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FCP3-RACK_p1_0.jpeg",
+      "downloads\\datasheet_photos\\FCP3-RACK_p1_1.jpeg",
+      "downloads\\datasheet_photos\\FCP3-RACK_p1_2.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/FCP3-RACK_p1_0.jpeg",
+      "downloads/datasheet_photos/FCP3-RACK_p1_1.jpeg",
+      "downloads/datasheet_photos/FCP3-RACK_p1_2.jpeg"
+    ],
+    "verified_photo_count": 3
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Fiber Connect Panel (FCP3)' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

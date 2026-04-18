@@ -4,7 +4,7 @@
   "pn": "V5421B1090",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Центрический дисковый клапан Honeywell V5421B1090",
   "assembled_title": "Клапан Honeywell V5421B1090",
   "our_price_raw": "66907,33",
@@ -179,7 +179,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CZqr7ismkKh8tsoih86cZ'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +197,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeywell.nt-rt.ru/price/product/351834"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -332,7 +329,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -596,12 +594,228 @@
     "merge_source": "result_V5421B1090.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (6).md"
+    "source_file": "deep-research-report (6).md",
+    "descriptions_all": {
+      "legacy": "Also $1,951.30 eBay (Dubai); €1,428.61 odilonplus.com; for heating/cooling cascade"
+    }
   },
   "dr_category": "valve",
   "dr_image_url": "https://i.ebayimg.com/images/g/zZ8AAOSwmZFn4RHv/s-l1600.jpg",
   "dr_price": 1038.16,
   "dr_currency": "EUR",
   "dr_price_source": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/",
-  "product_category": "valve"
+  "training_urls": [
+    "https://buildings.honeywell.com/in/en/.../v5421-series-butterfly-valves-pn16",
+    "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090...",
+    "https://odilonplus.com/en/products/honeywell-v5421b1090/",
+    "https://www.ebay.com/itm/226662421193"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1038.16,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://emoteek.net/en/product/corps-de-vanne-honeywell-v5421b1090/",
+    "our_price_raw": "66907,33",
+    "our_price_parsed": 66907.33,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1038.16,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Центрический дисковый клапан Honeywell V5421B1090 предназначен для управления потоками в системах водоснабжения и отопления. Имеет диаметр DN200, что делает его подходящим для крупных промышленных систем.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell.nt-rt.ru/price/product/351834",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Центрический дисковый клапан Honeywell V5421B1090 предназначен для управления потоками в системах водоснабжения и отопления. Имеет диаметр DN200, что делает его подходящим для крупных промышленных систем.",
+    "best_description_ru": "<p>Клапан Honeywell V5421B1090 — это надежное решение для управления потоками жидкости в системах водоснабжения и отопления. Производитель Honeywell, известный своим качеством и инновационными подходами, предлагает центрический дисковый клапан, который идеально подходит для крупных промышленных и коммунальных систем. С диаметром DN200 этот клапан способен обеспечить эффективное управление потоками в высокопроизводительных установках, гарантируя надежность и долговечность в самых требовательных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Тип: центрический дисковый клапан</li>\n<li>Диаметр: DN200 для крупных систем</li>\n<li>Производитель: Honeywell — мировой лидер в автоматизации</li>\n<li>Назначение: управление потоками в системах водоснабжения и отопления</li>\n<li>Конструкция: центрическая дисковая система обеспечивает точное управление</li>\n<li>Применение: промышленные и коммунальные системы</li>\n<li>Артикул: V5421B1090 для удобства заказа и идентификации</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5421B1090 находит широкое применение в крупных системах водоснабжения, отопления и теплоснабжения. Он используется в промышленных объектах, многоэтажных жилых комплексах, коммунальных сетях и других инженерных системах, где требуется надежное управление потоками жидкости большого объема. Центрическая конструкция дискового клапана обеспечивает плавное и точное регулирование, минимизируя потери давления и гарантируя эффективную работу всей системы.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5421B1090, вы получаете продукт от проверенного производителя с мировой репутацией. Центрическая дисковая конструкция обеспечивает надежность и долговечность, а диаметр DN200 позволяет работать с большими объемами жидкости. Клапан отличается простотой монтажа, надежностью в эксплуатации и минимальными требованиями к обслуживанию, что делает его экономически выгодным решением для любых масштабных инженерных систем.</p>",
+    "best_description_ru_word_count": 212,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "product_type": "Butterfly valve (Поворотные заслонки)",
+      "series": "V5421B",
+      "working_medium": "Water with max 50% glycol",
+      "nominal_pressure_pu": "16 bar",
+      "water_temperature_range": "-10...+130 °C",
+      "connection_type": "Flange connection (Межфланцевое)",
+      "valve_body_material": "Ductile iron GGG40",
+      "seal_material": "EPDM-HT",
+      "disk_material": "Ductile iron GGG40",
+      "shaft_material": "Stainless steel 1.4028",
+      "models": {
+        "V5421B1009": {
+          "dn_mm": 25,
+          "kvs_m3_h": 52,
+          "pmax_kpa": 1600,
+          "nominal_torque_nm": 5,
+          "weight_kg": 2.5,
+          "h_mm": 125,
+          "h1_mm": 52,
+          "c_mm": 30,
+          "g_mm": 150
+        },
+        "V5421B1017": {
+          "dn_mm": 32,
+          "kvs_m3_h": 52,
+          "pmax_kpa": 1600,
+          "nominal_torque_nm": 5,
+          "weight_kg": 2.5,
+          "h_mm": 125,
+          "h1_mm": 52,
+          "c_mm": 30,
+          "g_mm": 150
+        },
+        "V5421B1025": {
+          "dn_mm": 40,
+          "kvs_m3_h": 120,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 7,
+          "weight_kg": 2.5,
+          "h_mm": 130,
+          "h1_mm": 60,
+          "c_mm": 33,
+          "g_mm": 155
+        },
+        "V5421B1033": {
+          "dn_mm": 50,
+          "kvs_m3_h": 189,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 12,
+          "weight_kg": 3.5,
+          "h_mm": 135,
+          "h1_mm": 72,
+          "c_mm": 43,
+          "g_mm": 160
+        },
+        "V5421B1041": {
+          "dn_mm": 65,
+          "kvs_m3_h": 311,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 15,
+          "weight_kg": 4.1,
+          "h_mm": 150,
+          "h1_mm": 82,
+          "c_mm": 46,
+          "g_mm": 175
+        },
+        "V5421B1058": {
+          "dn_mm": 80,
+          "kvs_m3_h": 433,
+          "pmax_kpa": 1000,
+          "nominal_torque_nm": 25,
+          "weight_kg": 4.5,
+          "h_mm": 160,
+          "h1_mm": 92,
+          "c_mm": 46,
+          "g_mm": 185
+        },
+        "V5421B1066": {
+          "dn_mm": 100,
+          "kvs_m3_h": 745,
+          "pmax_kpa": 800,
+          "nominal_torque_nm": 40,
+          "weight_kg": 6.0,
+          "h_mm": 180,
+          "h1_mm": 102,
+          "c_mm": 52,
+          "g_mm": 205
+        },
+        "V5421B1074": {
+          "dn_mm": 125,
+          "kvs_m3_h": 1219,
+          "pmax_kpa": 600,
+          "nominal_torque_nm": 40,
+          "weight_kg": 8.0,
+          "h_mm": 195,
+          "h1_mm": 120,
+          "c_mm": 56,
+          "g_mm": 220
+        },
+        "V5421B1082": {
+          "dn_mm": 150,
+          "kvs_m3_h": 1805,
+          "pmax_kpa": 400,
+          "nominal_torque_nm": 40,
+          "weight_kg": 9.1,
+          "h_mm": 210,
+          "h1_mm": 133,
+          "c_mm": 56,
+          "g_mm": 235
+        },
+        "V5421B1090": {
+          "dn_mm": 200,
+          "kvs_m3_h": 3093,
+          "pmax_kpa": 300,
+          "nominal_torque_nm": 40,
+          "weight_kg": 12.7,
+          "h_mm": 240,
+          "h1_mm": 163,
+          "c_mm": 60,
+          "g_mm": 265
+        }
+      },
+      "compatible_actuators": [
+        "M6061 for DN 25-150 mm",
+        "M7061 for DN 25-65 mm",
+        "M6422L1003 for DN 200 mm"
+      ],
+      "actuator_options": {
+        "20_nm": [
+          "M6061A1021: 3-pos, 24V/3.5A, duty 1.6 min",
+          "M6061A1039: 3-pos, 230V/3.5A, duty 2.3 min",
+          "M6061A1047: 0/2-10V, 24V/2.4A, duty 3.5 min"
+        ],
+        "30_nm": [
+          "M6061L1027: 3-pos, 24V/3.5A, duty 1.6 min",
+          "M6061L1035: 3-pos, 230V/3.5A, duty 2.3 min"
+        ],
+        "40_nm": [
+          "M6061L1043: 3-pos, 24V/3.5A, duty 3.5 min",
+          "M7061E1020: 3-pos, 230V/7A, duty 2.5 min",
+          "M6422L1003: 3-pos, 230V/7A, duty 2.5 min (for DN200)"
+        ]
+      }
+    },
+    "specs_count": 13,
+    "series": "V5421B",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\V5421B1090.pdf",
+    "datasheet_size_kb": 134,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Клапан Honeywell V5421B1090 — это надежное решение для управления потоками жидкости в системах водоснабжения и отопления. Производитель Honeywell, известный своим качеством и инновационными подходами, предлагает центрический дисковый клапан, который идеально подходит для крупных промышленных и коммунальных систем. С диаметром DN200 этот клапан способен обеспечить эффективное управление потоками в высокопроизводительных установках, гарантируя надежность и долговечность в самых требовательных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Тип: центрический дисковый клапан</li>\n<li>Диаметр: DN200 для крупных систем</li>\n<li>Производитель: Honeywell — мировой лидер в автоматизации</li>\n<li>Назначение: управление потоками в системах водоснабжения и отопления</li>\n<li>Конструкция: центрическая дисковая система обеспечивает точное управление</li>\n<li>Применение: промышленные и коммунальные системы</li>\n<li>Артикул: V5421B1090 для удобства заказа и идентификации</li>\n</ul>\n\n<p><b>Применение:</b> Клапан V5421B1090 находит широкое применение в крупных системах водоснабжения, отопления и теплоснабжения. Он используется в промышленных объектах, многоэтажных жилых комплексах, коммунальных сетях и других инженерных системах, где требуется надежное управление потоками жидкости большого объема. Центрическая конструкция дискового клапана обеспечивает плавное и точное регулирование, минимизируя потери давления и гарантируя эффективную работу всей системы.</p>\n\n<p><b>Преимущества:</b> Выбирая клапан Honeywell V5421B1090, вы получаете продукт от проверенного производителя с мировой репутацией. Центрическая дисковая конструкция обеспечивает надежность и долговечность, а диаметр DN200 позволяет работать с большими объемами жидкости. Клапан отличается простотой монтажа, надежностью в эксплуатации и минимальными требованиями к обслуживанию, что делает его экономически выгодным решением для любых масштабных инженерных систем.</p>",
+    "description_seo_word_count": 212,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "HVAC valve",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

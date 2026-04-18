@@ -4,7 +4,7 @@
   "pn": "VQ450MB1006",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Комбинированный клапан Honeywell VQ450MB1006",
   "assembled_title": "Клапан Honeywell VQ450MB1006",
   "our_price_raw": "64861,87",
@@ -177,7 +177,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, 'request_id': 'req_011CZqrbjAuePh5sTewwvCTk'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -195,10 +195,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeyvell.energy/honeywell-vq450mb1006/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -310,7 +307,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "VQ450 series",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "Combination control valve for heating/cooling systems",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -335,9 +337,8 @@
     "description": "Комбинированный клапан Honeywell VQ450MB1006 используется для управления газовыми потоками в промышленных системах. Имеет диаметр DN50 и класс защиты IP54, что делает его надежным в различных условиях эксплуатации.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Клапан",
-    "seed_name": "Комбинированный клапан Honeywell VQ450MB1006",
-    "description_long_ru": "Active product; specialist combustion distributors only"
+    "product_type": "Combined valve",
+    "seed_name": "Комбинированный клапан Honeywell VQ450MB1006"
   },
   "trace": {
     "pn_match_location": "",
@@ -592,7 +593,32 @@
     "specs": {
       "aliases": [
         "534.322.210"
-      ]
+      ],
+      "Type": "Gas valve / solenoid valve",
+      "Series": "VQ450",
+      "Application": "Industrial/commercial gas burners",
+      "Standards": "EN 161",
+      "Brand": "Honeywell",
+      "Operation": "Normally closed, solenoid-operated",
+      "Body Material": "Die-cast aluminum",
+      "Valve type": "Gas solenoid valve",
+      "Supply voltage": "230 VAC",
+      "Nominal size": "2 in / DN50",
+      "Opening time": "1 s max",
+      "Electrical connection": "PG11",
+      "Ingress protection": "IP54",
+      "Power consumption": "61 W",
+      "Max pressure": "360 mbar (seller information)",
+      "pipe_size": "DN50 Flange",
+      "max_pressure": "360 mbar",
+      "voltage": "230 VAC",
+      "closing_time": "< 1 second",
+      "ip_rating": "IP54",
+      "cycles": "300,000",
+      "spring_material": "Stainless steel AISI 302",
+      "min_temp": "-15 °C",
+      "standard": "EN 161",
+      "ean": "4046911041011"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -611,12 +637,215 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.664114+00:00",
+    "merge_ts": "2026-04-09T12:01:25.032609+00:00",
     "merge_source": "result_VQ450MB1006.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "Active product; specialist combustion distributors only"
+    "descriptions_all": {
+      "claude": "Honeywell VQ450MB1006 — газовый клапан серии VQ450 для систем сжигания газа, аналогичный модели VQ450MA1015, но с другой конфигурацией или типоразмером. Клапаны серии VQ450 являются электромагнитными предохранительными газовыми клапанами, обеспечивающими автоматическое открытие и закрытие подачи газа. Данная модификация (MB) может отличаться размером присоединения, напряжением питания катушки или пропускной способностью. Клапан предназначен для использования в промышленных и коммерческих системах отопления и горелочных установках. Обеспечивает класс герметичности в соответствии с EN 161 для газовых предохранительных клапанов. Установка осуществляется непосредственно в газовую магистраль.",
+      "gpt": "Honeywell VQ450MB1006 — это ещё один вариант газового электромагнитного клапана серии VQ450, предназначенный для работы в промышленных системах с газообразным топливом. По имеющимся данным изделие относится к Class A combination valves и рассчитано на типовой промышленный burner train. Для артикула подтверждены размер 2 дюйма / DN50, питание 230 VAC и максимальное время открытия 1 секунда. Вариант MB отличается от MA конструктивным исполнением и, по карточке продавца, включает настройку/регулировку расхода потока. Также в найденных источниках для этого исполнения указано кабельное подключение через PG11 и степень защиты IP54. Серия VQ450 применяется там, где требуется безопасное включение/отключение газовой линии и совместимость с автоматикой горелки. Такие клапаны ставят в теплогенераторах, печах, промышленных горелках и других установках с контролем пламени и последовательностью пуска. Для монтажа важно соблюдать требования к чистоте газа, ориентации корпуса и наличию upstream/downstream арматуры. При выборе замены нужно проверять не только DN и напряжение, но и буквенный суффикс модели, потому что именно он определяет конструктивный вариант. Для B2B-каталога позицию безопасно описывать как fast-opening gas solenoid valve, DN50, 230 VAC, PG11 connection, flow-adjustable variant.",
+      "gemini": "Комбинированный газовый клапан Honeywell VQ450MB1006 также входит в серию VQ450 и применяется для управления газовыми потоками в промышленных установках. Основным отличием данной модификации является наличие порта для подключения манометра или реле давления непосредственно к корпусу. Клапан обеспечивает плавное регулирование и надежное перекрытие магистрали в соответствии со стандартом EN 161. Максимальное давление в 360 мбар и использование фланцев DN50 позволяют применять его на крупных промышленных объектах. Конструкция включает в себя возвратную пружину из нержавеющей стали AISI 302 для гарантированного закрытия. Степень защиты корпуса IP54 обеспечивает достаточный уровень безопасности при установке в помещениях котельных. Плунжер клапана имеет хромированное покрытие, что снижает трение и увеличивает срок службы механизма. Устройство способно работать при отрицательных температурах до -15 градусов Цельсия. Кодировка EAN 4046911041011 однозначно идентифицирует данную модель в логистических системах.",
+      "synthesis": "Honeywell VQ450MB1006 — комбинированный газовый электромагнитный клапан серии VQ450 класса A с интегрированными функциями запорного и регулирующего клапана для управления газовыми потоками в промышленных установках и котельных. Типоразмер соединения DN50 с фланцевым исполнением рассчитан на максимальное рабочее давление 360 мбар, обеспечивая применение на крупных промышленных объектах отопления, печах и горелочных установках. Питание от сети 230 VAC с кабельным подключением через разъем PG11 и быстрое время открытия не более 1 секунды обеспечивают надежный контроль газовой линии согласно стандарту EN 161. Отличительной особенностью модификации MB является наличие порта для подключения манометра или реле давления непосредственно к корпусу клапана, что позволяет осуществлять гибкое управление и мониторинг газового потока. Плунжер с хромированным покрытием и возвратная пружина из нержавеющей стали AISI 302 обеспечивают низкое трение, надежное закрытие и значительный срок службы механизма. Степень защиты IP54 обеспечивает достаточный уровень безопасности при установке в условиях котельных и промышленных помещений с повышенной влажностью. Клапан способен эксплуатироваться при отрицательных температурах до -15°C, что расширяет область его применения в суровых климатических условиях. Испытанная надежность конструкции с плавным регулированием расходов и гарантированным перекрытием магистрали подтверждает соответствие изделия высоким требованиям промышленной безопасности и автоматики горелки."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Gas safety shutoff valve",
+        "Series": "VQ450",
+        "Brand": "Honeywell",
+        "Operation": "Normally closed, solenoid-operated",
+        "Body Material": "Die-cast aluminum",
+        "Application": "Industrial/commercial gas burner systems"
+      },
+      "gpt": {
+        "Valve type": "Gas solenoid valve",
+        "Series": "VQ450",
+        "Supply voltage": "230 VAC",
+        "Nominal size": "2 in / DN50",
+        "Opening time": "1 s max",
+        "Electrical connection": "PG11",
+        "Ingress protection": "IP54",
+        "Power consumption": "61 W",
+        "Max pressure": "360 mbar (seller information)"
+      },
+      "gemini": {
+        "pipe_size": "DN50 Flange",
+        "max_pressure": "360 mbar",
+        "voltage": "230 VAC",
+        "closing_time": "< 1 second",
+        "ip_rating": "IP54",
+        "cycles": "300,000",
+        "spring_material": "Stainless steel AISI 302",
+        "min_temp": "-15 °C",
+        "standard": "EN 161",
+        "ean": "4046911041011"
+      }
+    },
+    "notes_all": {
+      "claude": "Specific datasheet for VQ450MB1006 not found in search results. Part of Honeywell VQ450 gas valve family.",
+      "gpt": "В карточках продавцов вариант MB описывается как version with flow-rate adjustment; при замене обязательно сверять буквенный суффикс.",
+      "gemini": "Has pressure gauge port. Spring return for guaranteed closure."
+    }
   },
-  "product_category": "valve"
+  "training_urls": [
+    "https://images.kempstoncontrols.com/page_assets/manu_landing/honeywell/Honeywell%20Thermal%20solutions%20catalogue.pdf",
+    "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450",
+    "https://thermalsolutions.honeywell.com/us/en/products/by-category/gas-and-air-controls/industrial-combustion-controls/gas-solenoid-valves-and-proving-systems/class-a-combination-valves-vq400m-vq500m",
+    "https://www.combustion24.com/en/honeywell-kromschroeder-vq450mb1006-gas-solenoid-valve-dn50-rp2-230vac-pg11-360mbar-ip54-fast-opening.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1275.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/sch/i.html?_nkw=Honeywell+VQ450",
+    "our_price_raw": "64861,87",
+    "our_price_parsed": 64861.87,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1275.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Комбинированный клапан Honeywell VQ450MB1006 используется для управления газовыми потоками в промышленных системах. Имеет диаметр DN50 и класс защиты IP54, что делает его надежным в различных условиях эксплуатации.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeyvell.energy/honeywell-vq450mb1006/",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "SLATE(TM) Combustion Management System - Base Module",
+    "description": "",
+    "specs": {
+      "SLATE_system_supply_voltage": "24 Vdc / 24..264 Vac",
+      "SLATE_system_protection_class": "IP00 / NEMA 1",
+      "SLATE_system_ambient_temperature": "-10 ... 60 °C",
+      "SLATE_system_maximum_humidity": "90 %rh",
+      "SLATE_system_operation": "Automatic",
+      "SLATE_system_valve_proofing": "Integrated",
+      "SLATE_system_certifications": "CE (EN298, EN12067-2, EN1854), SIL 3 capable, CSA/UL/FM approved",
+      "SLATE_system_mounting": "DIN-rail modular platform",
+      "SLATE_system_communications": "Ethernet, Modbus, BACnet",
+      "VE400AA_gas_valve_type": "AC powered non regulated ON/OFF normally closed fast opening",
+      "VE400AA_media": "natural gas, propane, air",
+      "VE400AA_materials": "brass body (1/4\"), aluminium body (others)",
+      "VE400AA_approvals": "CE (EN161), AGA",
+      "VE400AA_pipe_connection": "Internal thread ISO 7/1 (Rp) BSP",
+      "VE400AA_maximum_opening_time": "1 s",
+      "VE400AA_maximum_closing_time": "1 s",
+      "VE400AA_ambient_temperature": "-15 ... 60 °C",
+      "VE400AA_protection_class": "IP65",
+      "VE400AA_electrical_connection": "DIN plug",
+      "VE400AA_Rp1/4_max_pressure": "500 mbar",
+      "VE400AA_Rp3/8_max_pressure": "200 mbar",
+      "VE400AA_Rp1/2_max_pressure": "200 mbar",
+      "VE400AA_Rp3/4_max_pressure": "200 mbar",
+      "VE4000A_gas_valve_type": "non regulated ON/OFF normally closed fast opening",
+      "VE4000A_media": "natural gas, propane, air",
+      "VE4000A_materials": "aluminium die cast body",
+      "VE4000A_approvals": "CE (EN161), AGA",
+      "VE4000A_pipe_connection": "Internal thread ISO 7/1 (Rp) BSP",
+      "VE4000A_maximum_opening_time": "1 s",
+      "VE4000A_maximum_closing_time": "1 s",
+      "VE4000A_ambient_temperature": "-15 ... 60 °C",
+      "VE4000A3_gas_valve_type": "non regulated ON/OFF normally closed fast opening",
+      "VE4000A3_media": "natural gas, propane, air",
+      "VE4000A3_materials": "aluminium die cast body",
+      "VE4000A3_approvals": "CE (EN161), AGA",
+      "VE4000A3_pipe_connection": "PN16 Flanges EN 1092-1",
+      "VE4000A3_maximum_opening_time": "1 s",
+      "VE4000A3_maximum_closing_time": "1 s",
+      "VE4000A3_ambient_temperature": "-15 ... 60 °C",
+      "VE4000A3_DN65_max_pressure": "360 mbar",
+      "VE4000A3_DN80_max_pressure": "360 mbar",
+      "VE4000A3_DN100_max_pressure": "200 mbar / 360 mbar",
+      "VE4000B1_gas_valve_type": "non regulated ON/OFF normally closed fast opening with maximum flow rate adjustment",
+      "VE4000B1_media": "natural gas, propane, air",
+      "VE4000B1_materials": "aluminium die cast body",
+      "VE4000B1_approvals": "CE (EN161), AGA",
+      "VE4000B1_pipe_connection": "Internal thread ISO 7/1 (Rp) BSP",
+      "VE4000B1_maximum_opening_time": "1 s",
+      "VE4000B1_maximum_closing_time": "1 s",
+      "VE4000B1_ambient_temperature": "-15 ... 60 °C",
+      "VE4000B1_flow_adjustment": "maximum flow rate adjustable on top of valve",
+      "R8001A1001_supply_voltage": "24 Vdc / 24..264 Vac",
+      "R8001A1001_protection_class": "IP00 / NEMA 1",
+      "R8001A1001_ambient_temperature": "-10 ... 60 °C",
+      "R8001A1001_humidity": "90 %rh",
+      "R8001A1001_mounting": "DIN-rail",
+      "R8001M1050_actuator_steps": "450",
+      "R8001M1050_actuator_runtime": "30 s",
+      "R8001M1050_actuator_torque": "5.5 Nm",
+      "R8001M1050_actuator_IP": "IP40",
+      "R8001M1150_actuator_steps": "450",
+      "R8001M1150_actuator_runtime": "30 s",
+      "R8001M1150_actuator_torque": "17 Nm",
+      "R8001M1150_actuator_IP": "IP40",
+      "R8001M4050_actuator_steps": "900",
+      "R8001M4050_actuator_runtime": "15 s",
+      "R8001M4050_actuator_torque": "5.5 Nm",
+      "R8001M4050_actuator_IP": "IP66",
+      "R8001M4150_actuator_steps": "900",
+      "R8001M4150_actuator_runtime": "15 s",
+      "R8001M4150_actuator_torque": "17 Nm",
+      "R8001M4150_actuator_IP": "IP66"
+    },
+    "specs_count": 72,
+    "series": "SLATE system, VE series gas valves, R8001 modules",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "CE",
+      "EN161",
+      "EN298",
+      "EN12067-2",
+      "EN1854",
+      "EN 1092-1",
+      "AGA",
+      "SIL 3 capable",
+      "CSA",
+      "UL",
+      "FM"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\VQ450MB1006.pdf",
+    "datasheet_size_kb": 6884,
+    "product_photos": [
+      "downloads\\datasheet_photos\\VQ450MB1006_p1_0.jpeg",
+      "downloads\\datasheet_photos\\VQ450MB1006_p1_1.jpeg",
+      "downloads\\datasheet_photos\\VQ450MB1006_p5_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/VQ450MB1006_p5_0.jpeg"
+    ],
+    "verified_photo_count": 1
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6884KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'SLATE(TM) Combustion Management System - Base Module' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

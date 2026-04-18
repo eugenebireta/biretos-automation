@@ -6,8 +6,8 @@
     "P400.RU",
     "P400RU"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "NVIDIA",
+  "subbrand": null,
   "name": "Видеокарта NVIDIA Quadro P400-RU",
   "assembled_title": "Видеокарта Honeywell P400-RU",
   "our_price_raw": "12231,00",
@@ -177,7 +177,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqR3CCHEiF8aysiGivab'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -195,10 +195,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://timesofindia.indiatimes.com/technology/reviews/honeywell-suono-p400-revi"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -350,7 +347,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title_suffix_variant"
+    "structured_pn_match_location": "title_suffix_variant",
+    "product_line": "Quadro P400",
+    "confirmed_manufacturer": "NVIDIA",
+    "discontinued": false,
+    "identity_notes_p1": "Not Honeywell; this is NVIDIA Quadro GPU (Russian variant)",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -368,7 +370,7 @@
     "description": "Видеокарта NVIDIA Quadro P400-RU предназначена для профессиональных графических задач. Она обеспечивает высокую производительность и надежность, что делает её идеальной для работы с 3D-графикой и CAD-приложениями.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Видеокарта",
+    "product_type": "Video card",
     "seed_name": "Видеокарта NVIDIA Quadro P400-RU",
     "description_long_ru": "NVIDIA Quadro P400. -RU = Russian SKU, identical HW. Discontinued → replaced by T400. eBay used $30–93; new $99–169 at B&H."
   },
@@ -592,9 +594,123 @@
     "merge_source": "result_P400-RU.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "NVIDIA Quadro P400. -RU = Russian SKU, identical HW. Discontinued → replaced by T400. eBay used $30–93; new $99–169 at B&H."
+    }
   },
   "dr_category": "Professional graphics card",
   "dr_image_url": "https://i.ebayimg.com/images/g/HTQAAOSwbuFfbYqp/s-l1600.jpg",
-  "product_category": "Professional graphics card"
+  "training_urls": [
+    "https://www.bhphotovideo.com/c/product/1326549-REG/pny_technologies_vcqp400_pb_nvidia_quadro_p400.html",
+    "https://www.ebay.com/itm/164400798862",
+    "https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/productspage/quadro/quadro-desktop/quadro-pascal-p400-data-sheet-us-nv-704503-r1.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "12231,00",
+    "our_price_parsed": 12231.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 129.99,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Видеокарта NVIDIA Quadro P400-RU предназначена для профессиональных графических задач. Она обеспечивает высокую производительность и надежность, что делает её идеальной для работы с 3D-графикой и CAD-приложениями.",
+    "best_description_source": "content",
+    "best_photo_url": "https://timesofindia.indiatimes.com/technology/reviews/honeywell-suono-p400-revi",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Видеокарта NVIDIA Quadro P400-RU предназначена для профессиональных графических задач. Она обеспечивает высокую производительность и надежность, что делает её идеальной для работы с 3D-графикой и CAD-приложениями.",
+    "best_description_ru": "<p>NVIDIA Quadro P400 Professional Graphics Card от компании Honeywell серии Quadro — это профессиональная видеокарта, разработанная специально для выполнения сложных графических задач. Устройство обеспечивает исключительную производительность и надежность, что делает её идеальным решением для специалистов, работающих с трёхмерной графикой, CAD-приложениями и другими требовательными к ресурсам программами. Компактный форм-фактор и низкое энергопотребление позволяют интегрировать видеокарту в различные рабочие станции.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Память: 2 GB GDDR5 с пропускной способностью до 32 GB/s</li>\n<li>Ядра CUDA: 256 ядер для параллельных вычислений</li>\n<li>Интерфейс: PCI Express 3.0 x16 для максимальной совместимости</li>\n<li>Энергопотребление: всего 30 Вт, что обеспечивает экономичность</li>\n<li>Разъёмы: три мини DisplayPort 1.4 с поддержкой аудио</li>\n<li>Разрешение: поддержка до 3x 4096x2160 @ 60Hz или 1x 5120x2880 @ 60Hz</li>\n<li>Форм-фактор: компактный Single Slot, Low Profile (68.91 x 144.78 мм)</li>\n<li>API: поддержка OpenGL 4.5, DirectX 12.0, Vulkan 1.0 и CUDA</li>\n</ul>\n\n<p><b>Применение:</b> Видеокарта Quadro P400 идеально подходит для архитекторов, инженеров и дизайнеров, работающих с профессиональным ПО. Она обеспечивает стабильную работу при использовании AutoCAD, SolidWorks, 3ds Max и других CAD/CAM приложений. Благодаря поддержке множественных дисплеев, устройство позволяет организовать многомониторные рабочие станции для повышения производительности и удобства работы.</p>\n\n<p><b>Преимущества:</b> Выбирая NVIDIA Quadro P400, вы получаете надежное оборудование с сертификацией для профессиональных приложений. Низкое энергопотребление снижает затраты на электричество, а компактный размер экономит место в корпусе. Поддержка современных графических API гарантирует совместимость с актуальным программным обеспечением на долгие годы.</p>",
+    "best_description_ru_word_count": 219,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=NVIDIA",
+  "phase3a_price": {
+    "price": 129.99,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.monitors.com/products/nvidia-quadro-p400",
+    "confidence": "low",
+    "notes": "Matched generic NVIDIA Quadro P400 retail page; RU suffix not confirmed",
+    "search_used": "P400-RU NVIDIA"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "NVIDIA Quadro P400 Professional Graphics Card",
+    "description": "The NVIDIA Quadro P400 combines a 256 CUDA core Pascal GPU, 2 GB of ultra-fast GDDR5 memory, and advanced display technologies to deliver great performance for a range of professional applications. Its single-slot, low-profile form factor makes it compatible with even the most space and power-constrained chassis. It supports up to three 4K displays (4096x2160 @ 60Hz) with HDR color, providing a wide visual workspace for high-resolution viewing. Quadro cards are certified with a broad range of sophisticated professional applications, tested by leading workstation manufacturers, and backed by a global team of support specialists.",
+    "specs": {
+      "gpu_memory": "2 GB GDDR5",
+      "memory_interface": "64-bit",
+      "memory_bandwidth": "Up to 32 GB/s",
+      "nvidia_cuda_cores": "256",
+      "system_interface": "PCI Express 3.0 x16",
+      "max_power_consumption": "30 W",
+      "thermal_solution": "Active",
+      "form_factor": "2.713\" H x 5.7\" L, Single Slot, Low Profile",
+      "display_connectors": "3x mDP 1.4",
+      "max_simultaneous_displays": "3 direct, 3 DP 1.4 Multi-Stream",
+      "display_resolution": "3x 4096x2160 @ 60Hz, 1x 5120x2880 @ 60Hz",
+      "graphics_apis": "Shader Model 5.1, OpenGL 4.5, DirectX 12.0, Vulkan 1.0",
+      "compute_apis": "CUDA, DirectCompute, OpenCL™",
+      "features": [
+        "Three mini DisplayPort 1.4 Connectors",
+        "DisplayPort with Audio",
+        "NVIDIA nView® Desktop Management Software",
+        "HDCP 2.2 Support",
+        "NVIDIA Mosaic²",
+        "Dedicated hardware video encode and decode engines³"
+      ]
+    },
+    "specs_count": 14,
+    "series": "Quadro",
+    "category": "Professional Graphics Card",
+    "weight_g": "",
+    "dimensions_mm": "68.91 H x 144.78 L",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\P400-RU.pdf",
+    "datasheet_size_kb": 238,
+    "product_photos": [
+      "downloads\\datasheet_photos\\P400-RU_p1_0.jpeg",
+      "downloads\\datasheet_photos\\P400-RU_p1_2.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/P400-RU_p1_0.jpeg",
+      "downloads/datasheet_photos/P400-RU_p1_2.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "NVIDIA Quadro P400 is a professional graphics card manufactured by NVIDIA. The PN 'P400-RU' matches NVIDIA's naming convention for Quadro cards (RU likely indicates Russian market). Honeywell does not manufacture GPUs - they are an industrial automation/building controls company. The datasheet title confirms 'NVIDIA Quadro P400 Professional Graphics Card'. This is a clear brand attribution error.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>NVIDIA Quadro P400 Professional Graphics Card от компании Honeywell серии Quadro — это профессиональная видеокарта, разработанная специально для выполнения сложных графических задач. Устройство обеспечивает исключительную производительность и надежность, что делает её идеальным решением для специалистов, работающих с трёхмерной графикой, CAD-приложениями и другими требовательными к ресурсам программами. Компактный форм-фактор и низкое энергопотребление позволяют интегрировать видеокарту в различные рабочие станции.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Память: 2 GB GDDR5 с пропускной способностью до 32 GB/s</li>\n<li>Ядра CUDA: 256 ядер для параллельных вычислений</li>\n<li>Интерфейс: PCI Express 3.0 x16 для максимальной совместимости</li>\n<li>Энергопотребление: всего 30 Вт, что обеспечивает экономичность</li>\n<li>Разъёмы: три мини DisplayPort 1.4 с поддержкой аудио</li>\n<li>Разрешение: поддержка до 3x 4096x2160 @ 60Hz или 1x 5120x2880 @ 60Hz</li>\n<li>Форм-фактор: компактный Single Slot, Low Profile (68.91 x 144.78 мм)</li>\n<li>API: поддержка OpenGL 4.5, DirectX 12.0, Vulkan 1.0 и CUDA</li>\n</ul>\n\n<p><b>Применение:</b> Видеокарта Quadro P400 идеально подходит для архитекторов, инженеров и дизайнеров, работающих с профессиональным ПО. Она обеспечивает стабильную работу при использовании AutoCAD, SolidWorks, 3ds Max и других CAD/CAM приложений. Благодаря поддержке множественных дисплеев, устройство позволяет организовать многомониторные рабочие станции для повышения производительности и удобства работы.</p>\n\n<p><b>Преимущества:</b> Выбирая NVIDIA Quadro P400, вы получаете надежное оборудование с сертификацией для профессиональных приложений. Низкое энергопотребление снижает затраты на электричество, а компактный размер экономит место в корпусе. Поддержка современных графических API гарантирует совместимость с актуальным программным обеспечением на долгие годы.</p>",
+    "description_seo_word_count": 219,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "NVIDIA",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "NVIDIA"
+  }
 }

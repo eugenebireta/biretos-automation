@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "185191",
-  "pn_variants": [],
+  "pn_variants": [
+    "00185191"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Детектор пламени Honeywell D 20.671.240.192",
   "assembled_title": "Рамка 1-постовая PEHA NOVA, 185191",
   "our_price_raw": "1917,12",
@@ -341,7 +343,14 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.671.240.192",
+    "series": "NOVA",
+    "color_material": "piano black metal",
+    "identity_notes_p1": "NOVA Elements metal, 83x83mm",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -402,9 +411,8 @@
     "description": "Детектор пламени Honeywell D 20.671.240.192 обеспечивает быстрое и точное обнаружение пламени. Используется в системах пожарной сигнализации для защиты промышленных объектов.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Детектор",
-    "seed_name": "Детектор пламени Honeywell D 20.671.240.192",
-    "description_long_ru": "NOVA Elements Glass series. Related white variant €21.05 at pehastore.nl. ~€20 reference plausible."
+    "product_type": "frame 1-gang",
+    "seed_name": "Детектор пламени Honeywell D 20.671.240.192"
   },
   "trace": {
     "pn_match_location": "",
@@ -661,7 +669,7 @@
   },
   "deep_research": {
     "confidence": "low",
-    "merge_ts": "2026-04-10T11:47:36.444101+00:00",
+    "merge_ts": "2026-04-09T12:01:24.792568+00:00",
     "merge_source": "result_185191.json",
     "title_ru": "switch frame",
     "sources": [
@@ -678,8 +686,125 @@
     ],
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (3).md",
-    "description_ru": "NOVA Elements Glass series. Related white variant €21.05 at pehastore.nl. ~€20 reference plausible."
+    "source_file": "deep-research-report (3).md"
   },
-  "product_category": "switch frame"
+  "training_urls": [
+    "https://www.eibabo.us/peha/frame-1-way-glass-effect-black-psw-frame-1-gang-black-d-20.671.240.192-eb10866212",
+    "https://www.heiz24.de/PEHA-D-20673240192-Rahmen-3fach-Nova-elements-Glaseffekt-Schwarz-Piano-schwarz-00189391-NEU",
+    "https://www.pehastore.nl/20-671-241-022.html",
+    "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-cerna-185191-10-ks-1641488.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 6006.0,
+    "dr_currency": "CZK",
+    "dr_source_url": "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-cerna-185191-10-ks-1641488.html",
+    "our_price_raw": "1917,12",
+    "our_price_parsed": 1917.12,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 6006.0,
+    "best_price_currency": "CZK",
+    "best_price_source": "price_contract",
+    "best_description": "Детектор пламени Honeywell D 20.671.240.192 обеспечивает быстрое и точное обнаружение пламени. Используется в системах пожарной сигнализации для защиты промышленных объектов.",
+    "best_description_source": "content",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Lead(IV) acetate",
+    "description": "",
+    "specs": {
+      "Product Name": "Lead(IV) acetate",
+      "Product Number": "185191",
+      "Brand": "Honeywell",
+      "Index-No": "082-001-00-6",
+      "REACH Registration Status": "A registration number is not available for this substance as the substance or its uses are exempted from registration, the annual tonnage does not require a registration or the registration is envisaged for a later registration deadline.",
+      "CAS-No": "546-67-8",
+      "Identified uses": "Laboratory chemicals, Manufacture of substances",
+      "Synonyms": "Pb(acac)4",
+      "Chemical Formula": "C8H12O8Pb",
+      "Molecular weight": "443.38 g/mol",
+      "EC-No": "208-908-0",
+      "Main Component": "lead tetraacetate",
+      "Main Component CAS-No": "546-67-8",
+      "Main Component EC-No": "208-908-0",
+      "Main Component Index-No": "082-001-00-6",
+      "Main Component Concentration": "<= 100 %",
+      "Appearance Form": "crystalline",
+      "Appearance Color": "off-white",
+      "Melting point/range": "180 - 190 °C",
+      "Recommended storage temperature": "2 - 8 °C",
+      "Storage conditions": "cool place, container tightly closed in a dry and well-ventilated place, under inert gas, air and moisture sensitive",
+      "Eye/face protection standard": "EN166, NIOSH (US), EN 166 (EU)",
+      "Skin protection standard": "Regulation (EU) 2016/425, EN 374",
+      "Respiratory protection standard": "N100 (US), P3 (EN 143), NIOSH (US), CEN (EU)",
+      "LC50 Inhalation (4h)": "1.5 mg/l",
+      "RTECS number": "AI5300000",
+      "UN number": "1616",
+      "UN proper shipping name (ADR/RID)": "LEAD ACETATE",
+      "UN proper shipping name (IMDG)": "LEAD ACETATE",
+      "UN proper shipping name (IATA)": "Lead acetate",
+      "Transport hazard class": "6.1",
+      "Packaging group": "III",
+      "Environmental hazards (ADR/RID)": "yes",
+      "Environmental hazards (IMDG Marine pollutant)": "yes",
+      "Environmental hazards (IATA)": "no",
+      "SDS Compliance": "Regulation (EC) No. 1907/2006",
+      "Seveso III Directive": "2012/18/EU",
+      "Seveso III Category": "ENVIRONMENTAL HAZARDS"
+    },
+    "specs_count": 38,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4010105185195",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\185191.pdf",
+    "datasheet_size_kb": 151,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Lead(IV) acetate' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105185195",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

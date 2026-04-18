@@ -7,7 +7,7 @@
     "CN80HBCNV0"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "База для зарядки Honeywell CN80-HB-CNV-0",
   "assembled_title": "База Honeywell CN80-HB-CNV-0",
   "our_price_raw": "26030,40",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqLdvfXX6ZRHSkhNZ3CQ'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://scanberry.ru/catalog/kupit/baza-honeywell-dlya-cn80-cn80-hb-cnv-0/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -316,7 +313,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "jsonld"
+    "structured_pn_match_location": "jsonld",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -565,12 +563,133 @@
     "merge_source": "result_CN80-HB-CNV-0.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Honeywell Dolphin CN80 accessory. MSRP $500.92; $350.18 at Logiscenter. Field-convertible for future 80 Series."
+    }
   },
   "dr_category": "Barcode scanner charging base",
   "dr_image_url": "(available on Logiscenter / Zones pages)",
   "dr_price": 222.99,
   "dr_currency": "USD",
   "dr_price_source": "http://www.zones.com/site/product/index.html?id=105872390",
-  "product_category": "Barcode scanner charging base"
+  "training_urls": [
+    "http://www.zones.com/site/product/index.html?id=105872390",
+    "https://www.barcodegiant.com/honeywell/part-cn80-hb-cnv-0.htm",
+    "https://www.connection.com/product/honeywell-cn80-home-base/cn80-hb-cnv-0/35963085",
+    "https://www.logiscenter.us/cn80-hb-cnv-0-honeywell-dolphin-cn80"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 222.99,
+    "dr_currency": "USD",
+    "dr_source_url": "http://www.zones.com/site/product/index.html?id=105872390",
+    "our_price_raw": "26030,40",
+    "our_price_parsed": 26030.4,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 222.99,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "База для зарядки Honeywell CN80-HB-CNV-0 предназначена для зарядки и синхронизации мобильных устройств серии CN80. Она обеспечивает надежное соединение и быструю зарядку, что делает её идеальной для использования в логистике и складских операциях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://scanberry.ru/catalog/kupit/baza-honeywell-dlya-cn80-cn80-hb-cnv-0/",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "CN80 Handheld Computer",
+    "description": "",
+    "specs": {
+      "product_name": "CN80 Handheld Computer",
+      "application": "Distribution, Field Service, Transportation & Logistics",
+      "housing_grade": "Standard",
+      "features": "Future-Proof, Rugged",
+      "environment": "Standard",
+      "durability": "Ultra-Rugged 2.4 m (8 ft)",
+      "connectivity": "Wi-Fi",
+      "camera_position": "Rear only",
+      "platform": "Mobility Edge",
+      "operating_system_type": "Android",
+      "operating_system": "Android 8",
+      "memory_options": "32 GB Flash/3 GB RAM, 32 GB Flash/4 GB RAM",
+      "scan_range": "Long Range, Standard Range",
+      "scan_distance_long_range": "0-20 m",
+      "scan_distance_standard_range": "0-1 m",
+      "processor": "2.2 GHz Qualcomm Snapdragon 660 octa-core",
+      "network": "WLAN, WLAN/WWAN",
+      "keypad_options": "Numeric, QWERTY",
+      "keyboard_options": "Numeric, QWERTY",
+      "display_size_cm": "10.67 cm",
+      "display_size_in": "4.2 in",
+      "display_resolution": "854 x 480",
+      "storage_temperature_range_celsius": "-30 to 70 °C",
+      "storage_temperature_range_fahrenheit": "-22 to 158 °F",
+      "operating_temperature_celsius": "-20 to 50 °C",
+      "operating_temperature_fahrenheit": "-4 to 122 °F",
+      "operating_humidity": "0 to 95 %",
+      "ip_rating": "IP65/IP67",
+      "drop_specification_1": "3 m (10 ft) to concrete at room temp",
+      "drop_specification_2": "1.8 m (6 ft) to concrete across temperature range",
+      "drop_specification_3": "1.6 m (5 ft) to concrete down to -30 °C (-22 °F)",
+      "tumble_specification": "Exceeds 2000 1.0 m (3.3 ft) tumbles",
+      "scan_range_typical": "0.15 m to 15.2 m (6 in to 50 ft)",
+      "warranty_duration": "1 yr",
+      "brand": "Honeywell",
+      "industry": "Aerospace, Logistics & Warehouses",
+      "charging_base_power_supply": "102W"
+    },
+    "specs_count": 37,
+    "series": "Dolphin CN80",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "Android Enterprise Recommended",
+      "DISA STIG",
+      "IP65",
+      "IP67"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CN80-HB-CNV-0.pdf",
+    "datasheet_size_kb": 1622,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CN80-HB-CNV-0_p1_0.png",
+      "downloads\\datasheet_photos\\CN80-HB-CNV-0_p7_0.jpeg",
+      "downloads\\datasheet_photos\\CN80-HB-CNV-0_p7_1.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/CN80-HB-CNV-0_p1_0.png",
+      "downloads/datasheet_photos/CN80-HB-CNV-0_p7_0.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The PN is correct (HB = Home Base), and the Russian seed name correctly identifies it as a charging base. However, the datasheet is for the CN80 handheld computer itself, not the charging accessory. Need datasheet specifically for the CN80-HB-CNV-0 charging base accessory."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'CN80 Handheld Computer' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -6,9 +6,9 @@
     "CR.M024DC2",
     "CRM024DC2"
   ],
-  "brand": "Honeywell",
+  "brand": "ABB",
   "subbrand": "",
-  "name": "Реле Honeywell CR-M024DC2",
+  "name": "Реле интерфейсное ABB CR-M024DC2, 24V DC, 2CO, 250V/12A",
   "assembled_title": "Реле Honeywell CR-M024DC2",
   "our_price_raw": "676,50",
   "expected_category": "Реле",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqLnDxK3624jv2GRuR6n'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,9 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -343,7 +341,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Relays/electrical",
+    "identity_notes_p1": "Honeywell relay",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "ABB"
   },
   "negative_evidence": {
     "photo": [],
@@ -366,7 +368,7 @@
     "description": "Реле Honeywell CR-M024DC2 используется для коммутации электрических цепей в промышленных системах. Оно обеспечивает надежное переключение и длительный срок службы, что делает его идеальным для использования в автоматизации.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Реле",
+    "product_type": "Relay",
     "seed_name": "Реле Honeywell CR-M024DC2",
     "description_long_ru": "На странице указаны ступенчатые цены и упаковка 10 pcs"
   },
@@ -649,5 +651,104 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "Relay"
+  "training_urls": [
+    "https://www.kempstoncontrols.com/1SVR405611R1000/ABB/sku/224470"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 8.88,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/383040790448",
+    "our_price_raw": "676,50",
+    "our_price_parsed": 676.5,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_pack",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": 10,
+    "judge_reason": "kf: 'упаковка 10 pcs' — relay pack of 10"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 8.88,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Реле Honeywell CR-M024DC2 используется для коммутации электрических цепей в промышленных системах. Оно обеспечивает надежное переключение и длительный срок службы, что делает его идеальным для использования в автоматизации.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/ABB_CR-M024DC2.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "ESB 24 Installation Contactor (2 N.O., 24V)",
+    "description": "",
+    "specs": {
+      "Contact Configuration": "2 N.O., 4 N.O., 4 N.C., 2 N.O. 2 N.C., 3 N.O. 1 N.C., 4 N.O. 3 N.C.",
+      "Number of modules": "2",
+      "Control coil voltage AC (40-50 Hz)": "12 V, 24 V, 110-120 V, 230-240 V",
+      "Control coil voltage DC": "12 V, 24 V, 110-120 V, 230-240 V"
+    },
+    "specs_count": 4,
+    "series": "ABB Electrification Products Contractor Handbook",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\CR-M024DC2.pdf",
+    "datasheet_size_kb": 33645,
+    "product_photos": [
+      "downloads\\datasheet_photos\\CR-M024DC2_p1_0.jpeg",
+      "downloads\\datasheet_photos\\CR-M024DC2_p2_0.png",
+      "downloads\\datasheet_photos\\CR-M024DC2_p2_1.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The datasheet title clearly states 'ESB 24 Installation Contactor', indicating ESB is the actual brand. The CR-M series contactors are ESB products, not Honeywell. The PN format and product specifications match ESB's contactor lineup. Honeywell brand assignment appears to be incorrect.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "ABB",
+      "candidates": [],
+      "product_hint": "relay",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "brand_mismatch",
+        "detail": "PN pattern suggests ABB, record says ESB",
+        "severity": "high"
+      },
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 33645KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'ESB 24 Installation Contactor (2 N.O., 24V)' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "different_brand",
+    "final_brand": "ABB",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "ESB"
+  }
 }

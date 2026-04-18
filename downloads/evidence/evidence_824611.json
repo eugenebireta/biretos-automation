@@ -4,7 +4,7 @@
   "pn": "824611",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Тепловой извещатель Esser D 95.610.03 TAE NA",
   "assembled_title": "Вставка PEHA DIALOG, 824611",
   "our_price_raw": "907,90",
@@ -343,7 +343,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [
@@ -394,8 +396,7 @@
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
     "product_type": "Извещатель",
-    "seed_name": "Тепловой извещатель Esser D 95.610.03 TAE NA",
-    "description_long_ru": "Creme color variant of 815511. May be discontinued. Similar EUR 5-7 at German distributors"
+    "seed_name": "Тепловой извещатель Esser D 95.610.03 TAE NA"
   },
   "trace": {
     "pn_match_location": "",
@@ -656,7 +657,19 @@
       "raw": "ex moms 97.60; EAN 4010105824612",
       "aliases": [
         "824611"
-      ]
+      ],
+      "Type": "Insert/mechanism",
+      "Series": "PEHA DIALOG",
+      "Color": "White",
+      "Mounting": "Flush mount",
+      "Standards": "VDE, CE",
+      "Brand": "PEHA (Honeywell)",
+      "Rating": "250V / 10A (typical)",
+      "Product type": "Central plate for TAE and UAE/TAE junction boxes",
+      "Connections": "Up to 3",
+      "Labeling field": "7 x 64 mm",
+      "Material": "Plastic / thermoplastic",
+      "Ingress protection": "IP20"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -676,12 +689,145 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.249785+00:00",
+    "merge_ts": "2026-04-09T12:01:24.869654+00:00",
     "merge_source": "result_824611.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "Creme color variant of 815511. May be discontinued. Similar EUR 5-7 at German distributors"
+    "descriptions_all": {
+      "claude": "PEHA 824611 — вставка (механизм) серии DIALOG белого цвета. Артикулы 8246xx в серии PEHA DIALOG обычно относятся к механизмам выключателей или переключателей. Данная вставка может быть одноклавишным или двухклавишным выключателем, проходным переключателем или кнопкой с контактным механизмом. Механизм устанавливается в стандартные подрозетники и закрывается клавишей и рамкой серии DIALOG. Контакты рассчитаны на номинальное напряжение 250 В и ток 10 А.",
+      "gpt": "PEHA 824611 — это центральная накладка для TAE и UAE/TAE junction boxes, рассчитанная на до трёх подключений. Официальный datasheet указывает для exact PN серию DIALOG, flush-mounted исполнение, plastic/thermoplastic и степень защиты IP20. Цвет в карточке описан как cream white (electro white), поэтому исходная формулировка про white insert/mechanism также неточна. Подобные центральные части применяются в телефонных и информационных розетках, где требуется единое оформление с остальной электроустановочной серией. Это не активный механизм и не полноценная розетка без базового элемента; функция изделия — закрывать и оформлять соответствующую junction box. Для сервисной замены важны exact color family, тип базового элемента и совместимость с существующей серией DIALOG. Такие позиции часто используются при реконструкции офисных и жилых слаботочных точек, когда нужно заменить только лицевую часть без переделки базы. В B2B-каталоге безопасно описывать товар как central plate for TAE and UAE/TAE junction boxes, electro white. Наличие маркировочного поля в datasheet дополнительно указывает на телекоммуникационное назначение позиции. Исходное описание как обычного белого insert/mechanism следует заменить на communication central plate.",
+      "synthesis": "PEHA 824611 — центральная накладка для подключения коммуникационных систем серии DIALOG цвета electro white (кремово-белый), предназначенная для оформления TAE и UAE/TAE junction boxes на до трёх подключений. Накладка применяется в телефонных и информационных розетках, где требуется единое оформление с остальной электроустановочной серией DIALOG при разных типах коммуникационных подключений. Конструкция включает маркировочное поле, что указывает на её телекоммуникационное назначение и позволяет идентифицировать линии или порты в условиях плотной телефонной/ЛВС инфраструктуры офисов и гостиниц. Изделие выполнено из качественного термопласта с flush-mounted исполнением и степенью защиты IP20, пригодным для использования во внутренних помещениях с типовыми условиями эксплуатации. Центральная часть совместима с базовыми монтажными элементами и используется как закрывающая накладка, которая не является полноценным механизмом без базового элемента и должна работать в составе системы. При реконструкции офисных слаботочных точек такая накладка часто используется для замены только лицевой части без переделки базовой инфраструктуры, упрощая обновление внешнего вида и функциональности в едином архитектурном стиле электроустановки."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Switch insert / Mechanism",
+        "Series": "PEHA DIALOG",
+        "Color": "White",
+        "Brand": "PEHA (Honeywell)",
+        "Rating": "250V / 10A (typical)"
+      },
+      "gpt": {
+        "Product type": "Central plate for TAE and UAE/TAE junction boxes",
+        "Connections": "Up to 3",
+        "Labeling field": "7 x 64 mm",
+        "Series": "PEHA DIALOG",
+        "Color": "Cream white / electro white",
+        "Material": "Plastic / thermoplastic",
+        "Mounting": "Flush mounted",
+        "Ingress protection": "IP20"
+      }
+    },
+    "notes_all": {
+      "claude": "Likely a switch mechanism from PEHA DIALOG series. Exact function not confirmed.",
+      "gpt": "Исходное описание как white insert/mechanism неверно. Exact PN подтверждён как central plate для TAE/UAE-TAE."
+    }
   },
-  "product_category": "cover plate"
+  "training_urls": [
+    "https://www.computersalg.dk/i/10462587/peha-by-honeywell-afd%C3%A6kning-afd%C3%A6kning-824611-1-stk",
+    "https://www.elektronetshop.de/alle-produkte/peha-dialog-schalterprogramm/",
+    "https://www.pehastore.de/95-610-03-tv-na.html",
+    "https://www.schaltertresen.de/Peha/DIALOG-Programm/Kommunikationstechnik/weiss/",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/peha-en/hbt-ep-00824611-en-datasheet.pdf",
+    "https://www.conrad.fr/fr/p/peha-by-honeywell-cache-cache-824611-1-pc-s-2856174.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 122.0,
+    "dr_currency": "DKK",
+    "dr_source_url": "https://www.computersalg.dk/i/10462587/peha-by-honeywell-afd%C3%A6kning-afd%C3%A6kning-824611-1-stk",
+    "our_price_raw": "907,90",
+    "our_price_parsed": 907.9,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 122.0,
+    "best_price_currency": "DKK",
+    "best_price_source": "price_contract",
+    "best_description": "Тепловой извещатель Esser D 95.610.03 TAE NA предназначен для обнаружения повышения температуры в помещении. Используется в системах пожарной сигнализации для своевременного обнаружения возгораний.",
+    "best_description_source": "content",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Тепловой извещатель Esser D 95.610.03 TAE NA предназначен для обнаружения повышения температуры в помещении. Используется в системах пожарной сигнализации для своевременного обнаружения возгораний.",
+    "best_description_ru": "<p>Представляем центральную накладку PEHA 824611, известную как \"Central plate for TAE and UAE white\". Этот продукт является неотъемлемой частью современной электроустановочной фурнитуры, разработанной для обеспечения эстетичного и функционального завершения монтажа телекоммуникационных и сетевых розеток. Бренд PEHA зарекомендовал себя как производитель надежных и качественных решений для электромонтажа, и данная накладка не является исключением, предлагая безупречное сочетание стиля и практичности для любого интерьера.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Метод монтажа:</b> Скрытый монтаж (Flush mounted), идеально подходит для установки в штукатурку, обеспечивая аккуратный и незаметный вид.</li>\n<li><b>Материал:</b> Высококачественный пластик, гарантирующий долговечность и устойчивость к повседневному износу.</li>\n<li><b>Качество материала:</b> Термопластик (Thermoplastic), обладающий отличными эксплуатационными характеристиками, включая стойкость к царапинам и выцветанию.</li>\n<li><b>Поверхность:</b> Глянцевая (Glossy) отделка, придающая изделию элегантный и современный вид, легко очищается от загрязнений.</li>\n<li><b>Цвет:</b> Кремово-белый (Cream white), также известный как электробелый, универсальный оттенок, который гармонично вписывается в большинство дизайнерских решений.</li>\n<li><b>Степень защиты IP:</b> IP20, обеспечивающая защиту от твердых частиц размером более 12,5 мм, что является стандартом для внутренних помещений.</li>\n<li><b>Размеры поля для маркировки:</b> 7 x 64 мм, достаточное пространство для четкой и разборчивой идентификации подключений.</li>\n<li><b>EAN:</b> 4010105824612, уникальный идентификатор продукта для удобства учета и заказа.</li>\n</ul>\n<p>Эта центральная накладка находит широкое применение в жилых, офисных и коммерческих помещениях, где требуется аккуратное и функциональное оформление точек подключения телефонных (TAE) и универсальных абонентских (UAE) розеток. Она предназначена для скрытого монтажа, что позволяет интегрировать ее в стену, создавая ровную поверхность без выступающих элементов. Идеально подходит для установки в новостройках, при капитальном ремонте или модернизации существующих электрических систем, обеспечивая завершенный и эстетичный вид коммуникационных узлов.</p>\n<p>Выбор центральной накладки PEHA 824611 обусловлен ее превосходным качеством, долговечностью и универсальным дизайном. Использование термопластика и глянцевой поверхности обеспечивает не только привлекательный внешний вид, но и легкость в уходе. Кремово-белый цвет гармонично сочетается с большинством интерьеров, а удобное поле для маркировки значительно упрощает идентификацию подключений. Это надежное и практичное решение для тех, кто ценит качество и эстетику в каждой детали.</p>",
+    "best_description_ru_word_count": 307,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Central plate for TAE and UAE white",
+    "description": "Central plate for TAE and UAE/TAE junction boxes for up to 3 connections, with labelling field 7 x 64 mm.",
+    "specs": {
+      "mounting_method": "Flush mounted (plaster)",
+      "material": "Plastic",
+      "material_quality": "Thermoplastic",
+      "surface_finishing": "Glossy",
+      "color": "Cream white (electro white)",
+      "ip_rating": "IP20",
+      "labelling_field_dimensions_mm": "7 x 64"
+    },
+    "specs_count": 7,
+    "series": "",
+    "category": "Electrical accessory",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "D 95.610.03 TAE NA",
+    "ean": "4010105824612",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\824611.pdf",
+    "datasheet_size_kb": 425,
+    "product_photos": [
+      "downloads\\datasheet_photos\\824611_p1_1.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/824611_p1_1.png"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 824611 is 6-digit numeric matching PEHA format. Datasheet confirms PEHA 824611 central plate for TAE/UAE telecom sockets (white). seed_name is completely wrong - describes Esser thermal detector (fire safety) instead of PEHA telecom cover plate. Current brand 'Honeywell' is incorrect. Product needs correct PEHA datasheet and complete rewrite."
+    },
+    "description_seo_ru": "<p>Представляем центральную накладку PEHA 824611, известную как \"Central plate for TAE and UAE white\". Этот продукт является неотъемлемой частью современной электроустановочной фурнитуры, разработанной для обеспечения эстетичного и функционального завершения монтажа телекоммуникационных и сетевых розеток. Бренд PEHA зарекомендовал себя как производитель надежных и качественных решений для электромонтажа, и данная накладка не является исключением, предлагая безупречное сочетание стиля и практичности для любого интерьера.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Метод монтажа:</b> Скрытый монтаж (Flush mounted), идеально подходит для установки в штукатурку, обеспечивая аккуратный и незаметный вид.</li>\n<li><b>Материал:</b> Высококачественный пластик, гарантирующий долговечность и устойчивость к повседневному износу.</li>\n<li><b>Качество материала:</b> Термопластик (Thermoplastic), обладающий отличными эксплуатационными характеристиками, включая стойкость к царапинам и выцветанию.</li>\n<li><b>Поверхность:</b> Глянцевая (Glossy) отделка, придающая изделию элегантный и современный вид, легко очищается от загрязнений.</li>\n<li><b>Цвет:</b> Кремово-белый (Cream white), также известный как электробелый, универсальный оттенок, который гармонично вписывается в большинство дизайнерских решений.</li>\n<li><b>Степень защиты IP:</b> IP20, обеспечивающая защиту от твердых частиц размером более 12,5 мм, что является стандартом для внутренних помещений.</li>\n<li><b>Размеры поля для маркировки:</b> 7 x 64 мм, достаточное пространство для четкой и разборчивой идентификации подключений.</li>\n<li><b>EAN:</b> 4010105824612, уникальный идентификатор продукта для удобства учета и заказа.</li>\n</ul>\n<p>Эта центральная накладка находит широкое применение в жилых, офисных и коммерческих помещениях, где требуется аккуратное и функциональное оформление точек подключения телефонных (TAE) и универсальных абонентских (UAE) розеток. Она предназначена для скрытого монтажа, что позволяет интегрировать ее в стену, создавая ровную поверхность без выступающих элементов. Идеально подходит для установки в новостройках, при капитальном ремонте или модернизации существующих электрических систем, обеспечивая завершенный и эстетичный вид коммуникационных узлов.</p>\n<p>Выбор центральной накладки PEHA 824611 обусловлен ее превосходным качеством, долговечностью и универсальным дизайном. Использование термопластика и глянцевой поверхности обеспечивает не только привлекательный внешний вид, но и легкость в уходе. Кремово-белый цвет гармонично сочетается с большинством интерьеров, а удобное поле для маркировки значительно упрощает идентификацию подключений. Это надежное и практичное решение для тех, кто ценит качество и эстетику в каждой детали.</p>",
+    "description_seo_word_count": 307,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Central plate for TAE and UAE white' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105824612",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

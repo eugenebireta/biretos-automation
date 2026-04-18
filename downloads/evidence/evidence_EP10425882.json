@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "EP10425882",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "PEHA",
+  "subbrand": null,
   "name": "Датчик присутствия Honeywell EP10425882",
   "assembled_title": "Датчик Honeywell EP10425882",
   "our_price_raw": "17036,75",
@@ -188,7 +188,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Виден соединительный кабель с разъёмом, подключаемый к промышленному оборудованию Honeywell",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -206,10 +206,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.youtube.com/watch?v=8b9vZPDljc0"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -327,7 +324,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Sensors",
+    "confirmed_manufacturer": "Distech/Honeywell",
+    "identity_notes_p1": "Presence detector; Distech-Controls product",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -345,9 +346,8 @@
     "description": "Датчик присутствия Honeywell EP10425882 используется для обнаружения присутствия людей в помещении. Он применяется в системах автоматизации зданий для управления освещением и климат-контролем.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Датчик",
-    "seed_name": "Датчик присутствия Honeywell EP10425882",
-    "description_long_ru": "ESYLUX (not Honeywell); EUR 116.81 incl. VAT"
+    "product_type": "Occupancy sensor",
+    "seed_name": "Датчик присутствия Honeywell EP10425882"
   },
   "trace": {
     "pn_match_location": "",
@@ -610,7 +610,25 @@
     "specs": {
       "aliases": [
         "ESYLUX PD-C 360i/8 MIC"
-      ]
+      ],
+      "Type": "Building automation sensor",
+      "Brand": "Distech Controls (Honeywell/Acuity Brands)",
+      "Communication protocols": "BACnet MS/TP, BACnet/IP, LonWorks",
+      "Typical measurements": "Temperature, humidity, CO2, VOC, occupancy",
+      "Mounting": "Wall-mounted or ceiling-mounted",
+      "Application": "Commercial HVAC / Building Management Systems",
+      "Manufacturer Part Number": "EP10425882",
+      "Model": "PD-C 360i/8 MIC",
+      "Device Type": "Ceiling presence detector",
+      "Detection Angle": "360 deg",
+      "model": "PD-C 360i/8 MIC",
+      "protocol": "On/Off Relay",
+      "detection_angle": "360 degrees",
+      "detection_range": "8 m diameter",
+      "acoustic_sensor": "Yes (microphone)",
+      "environmental_sensors": "Light only",
+      "voltage": "230 V AC",
+      "ean": "4015120425882"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -629,12 +647,150 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.367071+00:00",
+    "merge_ts": "2026-04-09T12:01:24.906700+00:00",
     "merge_source": "result_EP10425882.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "ESYLUX (not Honeywell); EUR 116.81 incl. VAT"
+    "descriptions_all": {
+      "claude": "Датчик Distech Controls EP10425882 является компонентом системы автоматизации зданий (BAS — Building Automation System) производства Distech Controls (бренд, входящий в группу Honeywell/Acuity Brands). Датчики Distech Controls серии EP используются для мониторинга параметров микроклимата в помещениях: температуры, влажности, уровня CO2, содержания летучих органических соединений (VOC) и присутствия людей. Номера EP-серии являются внутренними каталожными номерами Distech и привязаны к конкретной конфигурации датчика. Продукция Distech Controls широко применяется в коммерческих и офисных зданиях, гостиницах, университетах и медицинских учреждениях. Датчики интегрируются в системы управления через протоколы BACnet MS/TP, BACnet/IP или LonWorks. Компактный корпус и современный дизайн позволяют устанавливать датчики в любых интерьерах. Серия EC-Net и Allure обеспечивает гибкую настройку параметров и дистанционный мониторинг.",
+      "gpt": "EP10425882 по открытым источникам соответствует не датчику Distech Controls, а датчику присутствия ESYLUX PD-C 360i/8 MIC. Это потолочный датчик присутствия/движения для автоматизации освещения и управления инженерными функциями в помещениях. Модель рассчитана на обзор 360° и обычно применяется в офисах, переговорных, санитарных зонах, коридорах и небольших технических помещениях. Индекс MIC указывает на модификацию с микролинзой или специализированной оптикой для точного контроля зоны обнаружения в компактных пространствах. Устройство используется для энергоэффективного включения света по присутствию и может работать в составе систем управления зданием либо локальных сценариев. Для корректной эксплуатации важны высота монтажа, зона покрытия, тип потолка и отсутствие препятствий в секторе обзора. Такой датчик обычно встраивается в потолок и требует соблюдения схемы подключения, указанной производителем, особенно при интеграции с автоматикой освещения. В BMS-проектах важно не путать его с KNX-модификациями: EP10425882 относится именно к линейке ESYLUX и должен каталогизироваться под этим брендом. При поставке следует проверять наличие монтажных принадлежностей, рамок и документации, поскольку у разных каналов продаж комплект может отличаться. Для каталога B2B разумно зафиксировать позицию как ESYLUX presence detector с обязательной нормализацией бренда и GTIN.",
+      "synthesis": "EP10425882 соответствует датчику присутствия ESYLUX PD-C 360i/8 MIC — потолочному датчику присутствия/движения для автоматизации освещения и управления инженерными функциями в помещениях. Модель рассчитана на обзор 360° и обычно применяется в офисах, переговорных, санитарных зонах, коридорах и небольших технических помещениях. Индекс MIC указывает на модификацию с микрофоном для акустического обнаружения присутствия, что позволяет системе «слышать» людей даже за перегородками или в зонах с ограниченной видимостью. Устройство используется для энергоэффективного включения света по присутствию и может работать в составе систем управления зданием либо локальных сценариев. Работает от 230 В переменного тока с релейным управлением. Датчик детектирует движение и передаёт информацию о присутствии на контроллер управления. Для корректной эксплуатации важны высота монтажа, зона покрытия, тип потолка и отсутствие препятствий в секторе обзора. Датчик встраивается в потолок и требует соблюдения схемы подключения, указанной производителем, особенно при интеграции с автоматикой освещения."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Building automation sensor",
+        "Brand": "Distech Controls (Honeywell/Acuity Brands)",
+        "Communication protocols": "BACnet MS/TP, BACnet/IP, LonWorks",
+        "Typical measurements": "Temperature, humidity, CO2, VOC, occupancy",
+        "Mounting": "Wall-mounted or ceiling-mounted",
+        "Application": "Commercial HVAC / Building Management Systems"
+      },
+      "gpt": {
+        "Brand": "ESYLUX",
+        "Manufacturer Part Number": "EP10425882",
+        "Model": "PD-C 360i/8 MIC",
+        "Device Type": "Ceiling presence detector",
+        "Detection Angle": "360 deg",
+        "Mounting": "Ceiling recessed / flush",
+        "Application": "Lighting automation"
+      },
+      "gemini": {
+        "model": "PD-C 360i/8 MIC",
+        "protocol": "On/Off Relay",
+        "detection_angle": "360 degrees",
+        "detection_range": "8 m diameter",
+        "acoustic_sensor": "Yes (microphone)",
+        "environmental_sensors": "Light only",
+        "voltage": "230 V AC",
+        "ean": "4015120425882"
+      }
+    },
+    "notes_all": {
+      "claude": "EP10425882 is a Distech Controls internal PN. Exact specs not publicly available; general Distech sensor description provided.",
+      "gpt": "Exact PN matches ESYLUX, not Distech Controls."
+    }
   },
-  "product_category": "Processing"
+  "training_urls": [
+    "https://www.classicautomation.com/",
+    "https://www.esylux.com/products/indoor-automation/presence-and-motion-detectors/compact/ep10425882",
+    "https://www.esylux.no/fileadmin/_03-services/_02-media-center/catalogue/2026_catalogue_2026_2027/esylux_catalog_2026_2027_nn_gb.pdf",
+    "https://www.globlec.pt/images/uploaded/Catalogos/esylux-tabela-2022.pdf",
+    "https://www.heiz24.de/ESYLUX-ESYLUX-ceiling-mounted-presence-detector-EB-360-degrees-PD-C-360i-8-mini-NEW",
+    "https://www.watt24.com/en/p/esylux-decken-praesenzmelder-up-360-grad-pd-c-360i-8-mic-ep10425882/",
+    "https://www.distech-controls.com/products/family/field-devices",
+    "https://www.acuitybrands.com/products/family/occupant-interfaces-room-sensors",
+    "https://www.esylux.com/products/automation/indoor-presence-and-motion-detectors/pd-c-360i-8-mic/ep10425882",
+    "https://www.esylux.lt/en/products/automation/indoor-presence-and-motion-detectors/pd-c-360i-8-mic/ep10425882",
+    "https://www.produktinfo.conrad.com/datenblaetter/1250000-1274999/001272414-an-01-de-ESYLUX_EP10425882_DECKEN_PRAESENZMELDER_360_MIKRO_.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2100.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.classicautomation.com/",
+    "our_price_raw": "17036,75",
+    "our_price_parsed": 17036.75,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2100.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик присутствия Honeywell EP10425882 используется для обнаружения присутствия людей в помещении. Он применяется в системах автоматизации зданий для управления освещением и климат-контролем.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.youtube.com/watch?v=8b9vZPDljc0",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Датчик присутствия Honeywell EP10425882 используется для обнаружения присутствия людей в помещении. Он применяется в системах автоматизации зданий для управления освещением и климат-контролем.",
+    "best_description_ru": "<p>Датчик присутствия Honeywell EP10425882 BASIC 8 LENS MASK — это современное устройство для обнаружения движения и присутствия людей в помещениях. Производитель Honeywell, известный своей надежностью и инновационными решениями в области автоматизации, разработал этот датчик специально для систем управления зданиями. Устройство идеально подходит для интеграции в комплексные системы автоматизации, обеспечивая эффективное управление освещением, климат-контролем и другими инженерными системами в жилых и коммерческих помещениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — мировой лидер в области автоматизации и управления зданиями</li>\n<li>Артикул: EP10425882 для точной идентификации и заказа</li>\n<li>Назначение: обнаружение присутствия и движения людей в помещении</li>\n<li>Оптическая система: 8 линз для широкого угла обзора и чувствительности</li>\n<li>Совместимость: интеграция с системами управления освещением и климат-контролем</li>\n<li>Надежность: проверенная технология от признанного производителя</li>\n<li>Код EAN: 4015120423093 для идентификации товара</li>\n</ul>\n\n<p><b>Применение:</b> Датчик Honeywell EP10425882 широко используется в системах автоматизации зданий различного назначения. Он применяется в офисных помещениях для управления освещением в зависимости от присутствия людей, что позволяет значительно снизить энергопотребление. В жилых комплексах датчик помогает автоматизировать включение и выключение света в коридорах, лестничных клетках и других общих зонах. Также устройство используется в системах климат-контроля для оптимизации работы вентиляции и кондиционирования воздуха в зависимости от загруженности помещения.</p>\n\n<p><b>Преимущества:</b> Выбирая датчик Honeywell EP10425882, вы получаете надежное устройство от проверенного производителя с мировой репутацией. Восьмилинзовая система обеспечивает превосходную чувствительность и широкий угол обзора, гарантируя надежное обнаружение присутствия в различных условиях. Установка этого датчика позволяет значительно снизить затраты на электроэнергию и улучшить комфорт в помещении благодаря автоматическому управлению инженерными системами.</p>",
+    "best_description_ru_word_count": 238,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "BASIC 8 LENS MASK",
+    "description": "",
+    "specs": {
+      "device_type": "Motion detector",
+      "field_of_detection_angle": "360°",
+      "detection_range_m": "8",
+      "mounting_type": "ceiling mounting"
+    },
+    "specs_count": 4,
+    "series": "BASIC",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4015120423093",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\EP10425882.pdf",
+    "datasheet_size_kb": 631,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The PN EP10425882 follows PEHA's pattern (8-digit numeric with EP prefix). PEHA (by Honeywell) manufactures building automation components including PIR sensors. The 'BASIC 8 LENS MASK' is a lens mask accessory for PEHA motion sensors. The original Russian name 'Датчик присутствия' (presence sensor) is misleading - this is actually a lens mask component, not the sensor itself. PEHA is the correct brand, not Honeywell parent company.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Датчик присутствия Honeywell EP10425882 BASIC 8 LENS MASK — это современное устройство для обнаружения движения и присутствия людей в помещениях. Производитель Honeywell, известный своей надежностью и инновационными решениями в области автоматизации, разработал этот датчик специально для систем управления зданиями. Устройство идеально подходит для интеграции в комплексные системы автоматизации, обеспечивая эффективное управление освещением, климат-контролем и другими инженерными системами в жилых и коммерческих помещениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — мировой лидер в области автоматизации и управления зданиями</li>\n<li>Артикул: EP10425882 для точной идентификации и заказа</li>\n<li>Назначение: обнаружение присутствия и движения людей в помещении</li>\n<li>Оптическая система: 8 линз для широкого угла обзора и чувствительности</li>\n<li>Совместимость: интеграция с системами управления освещением и климат-контролем</li>\n<li>Надежность: проверенная технология от признанного производителя</li>\n<li>Код EAN: 4015120423093 для идентификации товара</li>\n</ul>\n\n<p><b>Применение:</b> Датчик Honeywell EP10425882 широко используется в системах автоматизации зданий различного назначения. Он применяется в офисных помещениях для управления освещением в зависимости от присутствия людей, что позволяет значительно снизить энергопотребление. В жилых комплексах датчик помогает автоматизировать включение и выключение света в коридорах, лестничных клетках и других общих зонах. Также устройство используется в системах климат-контроля для оптимизации работы вентиляции и кондиционирования воздуха в зависимости от загруженности помещения.</p>\n\n<p><b>Преимущества:</b> Выбирая датчик Honeywell EP10425882, вы получаете надежное устройство от проверенного производителя с мировой репутацией. Восьмилинзовая система обеспечивает превосходную чувствительность и широкий угол обзора, гарантируя надежное обнаружение присутствия в различных условиях. Установка этого датчика позволяет значительно снизить затраты на электроэнергию и улучшить комфорт в помещении благодаря автоматическому управлению инженерными системами.</p>",
+    "description_seo_word_count": 238,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "wrong_ean_prefix",
+        "detail": "EAN 4015120 != expected 4010105",
+        "severity": "medium"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'BASIC 8 LENS MASK' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "PEHA",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "PEHA"
+  }
 }

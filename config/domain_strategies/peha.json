@@ -1,0 +1,94 @@
+{
+  "brand": "PEHA",
+  "pn_naming_conventions": [
+    "6-digit numeric format (e.g., 020211, 101411, 106511)",
+    "PN often appears with leading zeros - store as 8 digits: 00020211",
+    "Inconsistent zero-padding: seen both '00020211' and '106511' formats",
+    "Some PNs may be mismatched - titles like 'CT40 Mobile Computer', 'Boiler Manual', 'Butterfly Valve' suggest cross-contamination from other brands"
+  ],
+  "ean_locations": {
+    "primary": "gemini_grounding most common, datasheet_parse reliable for NOVA series",
+    "format": "13-digit EAN starting with 4010105 (PEHA prefix) + 6-digit PN + check digit (e.g., 4010105020212 for PN 00020211)",
+    "construction_rule": "EAN = 4010105 + [6-digit PN without leading zeros] + [check digit]",
+    "construction_rule_VERIFIED": "EAN = 4010105 + first_5_digits_of_PN(zero-padded) + check_digit. Verified on 7/8 known EANs (87.5% match).",
+    "python_formula": "def predict_ean(pn): pn_5=pn.lstrip(\"0\").zfill(6)[:5]; first_12=\"4010105\"+pn_5; return first_12 + calc_ean13_check(first_12)"
+  },
+  "trusted_sources": {
+    "price": [
+      "price_contract (most reliable)",
+      "phase3a",
+      "elecena.pl",
+      "watt24.com"
+    ],
+    "ean": [
+      "peha.de (official)",
+      "gemini_grounding",
+      "datasheet_parse for NOVA series"
+    ],
+    "photo": [
+      "peha.de",
+      "pehastore.de",
+      "elektroversand-schmidt.de"
+    ],
+    "specs": [
+      "peha.de (official datasheets)",
+      "datasheet_parse when available"
+    ]
+  },
+  "common_pitfalls": [
+    "CRITICAL: Data contamination - PNs 104011 (CT40 Mobile Computer/Honeywell), 127411 (V51E Butterfly Valve), 155111 (Boiler Manual), 157413 (OWNER'S MANUAL) are clearly NOT PEHA products",
+    "Price range suspicious: 4.77 to 150.75 EUR suggests mixed product categories or pack pricing",
+    "Empty titles and zero specs (5 out of 8 records) indicate poor data quality",
+    "Large datasheet sizes (15891 KB, 26499 KB) for items with no specs suggests PDF parsing failures or wrong document matches",
+    "eBay.co.uk as source is unreliable for specs/official data",
+    "electrica-online.ru appears twice but may not be authoritative for German brand PEHA"
+  ],
+  "validation_rules": [
+    {
+      "field": "ean",
+      "rule": "Must start with 4010105, be exactly 13 digits, and match PN pattern",
+      "reason": "PEHA has consistent GS1 prefix, can construct EAN from PN for validation"
+    },
+    {
+      "field": "pn",
+      "rule": "Should be 6-8 digit numeric only, reject if title contains unrelated product types",
+      "reason": "Seen contamination with Honeywell scanners, valves, boilers - validate title matches electrical installation products"
+    },
+    {
+      "field": "title",
+      "rule": "If empty or contains 'Manual', 'Butterfly Valve', 'Mobile Computer', 'Boiler' - flag for review",
+      "reason": "PEHA manufactures switches, sockets, frames - these titles indicate wrong product match"
+    },
+    {
+      "field": "price",
+      "rule": "If >100 EUR for basic PN (without 'set' in title), verify not bulk pack",
+      "reason": "PN 104011 at 150.75 EUR likely wrong product or pack price"
+    },
+    {
+      "field": "datasheet_size_kb",
+      "rule": "If >5000 KB but specs_count=0, PDF parsing failed or wrong document",
+      "reason": "PNs 155111, 157413 have huge PDFs but zero specs extracted"
+    },
+    {
+      "field": "series",
+      "rule": "PEHA products typically have series (NOVA, Standard, etc.) - if empty, data may be incomplete",
+      "reason": "Only 1 of 8 has series populated, suggests missing enrichment"
+    }
+  ],
+  "search_query_templates": [
+    "PEHA {pn} site:peha.de",
+    "PEHA {pn} datenblatt site:peha.de",
+    "{pn} site:pehastore.de",
+    "{pn} site:elektroversand-schmidt.de",
+    "PEHA {pn} EAN",
+    "4010105{pn_6digit} (direct EAN search if PN is 6 digits)"
+  ],
+  "notes_for_cheap_ai": "PEHA is a German manufacturer of electrical installation equipment (switches, sockets, frames). CRITICAL DATA QUALITY ISSUE: This dataset contains significant contamination - at least 50% of samples are NOT PEHA products (Honeywell scanners, industrial valves, boilers). Before enriching: 1) Validate title matches PEHA product categories (Schalter/switches, Steckdosen/sockets, Rahmen/frames, Dimmer, Taster/buttons). 2) Official source is peha.de - prioritize this for all data. 3) EAN follows strict pattern: 4010105 + 6-digit PN + check digit. 4) PN is typically 6 digits, sometimes zero-padded to 8. 5) Ignore data from eBay, electrica-online.ru for specs. 6) If title is empty or unrelated to electrical installation, mark record as 'needs_validation' rather than enriching with wrong data. 7) Price range for individual items typically 5-70 EUR; outliers likely indicate wrong matches. 8) Always cross-check: does the title make sense for an electrical components manufacturer?",
+  "_meta": {
+    "examples_analyzed": 8,
+    "model": "claude-sonnet-4-5",
+    "tokens_in": 1681,
+    "tokens_out": 1453,
+    "cost_usd": 0.0268
+  }
+}

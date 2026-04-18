@@ -7,7 +7,7 @@
     "M200ESMB"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "Esser",
   "name": "Корпус настенной установки M200E-SMB",
   "assembled_title": "Корпус Honeywell M200E-SMB",
   "our_price_raw": "792,68",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqPbRuwo4tpa2g4dmieo'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://smarthof.ru/catalog/product/honeywell-m200e-smb/33298/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -321,7 +318,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser"
   },
   "negative_evidence": {
     "photo": [],
@@ -560,12 +558,89 @@
     "merge_source": "result_M200E-SMB.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md"
+    "source_file": "compass_artifact_wf-baf4057e-ac96-4702-8f99-0fd0a58c2479_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "System Sensor / Honeywell. Also £9.92 at Acorn Fire; €9.90 at Endevoronline. LPCB, VdS, BOSEC approved."
+    }
   },
   "dr_category": "Fire alarm surface mount box",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/hbt-fire-m200e-smb-surface-mounting-box-base-primaryimage",
   "dr_price": 8.82,
   "dr_currency": "GBP",
   "dr_price_source": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944",
-  "product_category": "Fire alarm surface mount box"
+  "training_urls": [
+    "https://endevoronline.com/gb/fire-fighting-electricity/3113-surface-mount-box-addressable-fire-alarm-honeywell-m200e-smb.html",
+    "https://www.acornfiresecurity.com/notifier-m200e-smb",
+    "https://www.detectionsupplies.co.uk/.../system-sensor-surface-mounting-box-for-m2xx-series-modules",
+    "https://www.systemsensoreurope.com/products/m200-addressable-modules-mounting-box/",
+    "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 8.82,
+    "dr_currency": "GBP",
+    "dr_source_url": "https://www.thefirealarmstore.co.uk/index.php?main_page=product_info&products_id=6944",
+    "our_price_raw": "792,68",
+    "our_price_parsed": 792.68,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 8.82,
+    "best_price_currency": "GBP",
+    "best_price_source": "price_contract",
+    "best_description": "Корпус настенной установки M200E-SMB предназначен для монтажа модулей интерфейса детекторов. Он обеспечивает защиту и удобство установки в системах безопасности.",
+    "best_description_source": "content",
+    "best_photo_url": "https://smarthof.ru/catalog/product/honeywell-m200e-smb/33298/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Корпус настенной установки M200E-SMB предназначен для монтажа модулей интерфейса детекторов. Он обеспечивает защиту и удобство установки в системах безопасности.",
+    "best_description_ru": "<p>Корпус настенной установки M200E-SMB от компании Esser — это надежное решение для профессиональных систем безопасности. Данный компонент предназначен для монтажа модулей интерфейса детекторов и обеспечивает полную защиту электронного оборудования от внешних воздействий. Бренд Esser известен своим качеством и инновационными подходами к разработке систем безопасности. Артикул M200E-SMB отличается долговечностью и надежностью в эксплуатации, что делает его идеальным выбором для установки в различных помещениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Срок службы продукта: 15 лет</li>\n<li>Тип хладагента: отсутствует</li>\n<li>Категория сложности продукта: Категория 2</li>\n<li>Подтверждение разбивки материалов: Да</li>\n<li>Вес изделия: 1850 г</li>\n<li>Дата оценки: 21 января 2025 года</li>\n<li>Организация-оценщик: Honeywell (самооценка)</li>\n<li>Экологичность: нулевой углеродный след от хладагента</li>\n</ul>\n\n<p><b>Применение:</b> Корпус M200E-SMB активно используется в системах охранной сигнализации, пожарной безопасности и контроля доступа. Он предназначен для установки на стену и служит защитным кожухом для модулей интерфейса детекторов различных типов. Данное устройство находит применение как в жилых помещениях, так и в коммерческих зданиях, офисах, складах и производственных объектах. Монтаж осуществляется быстро и удобно благодаря продуманной конструкции.</p>\n\n<p><b>Преимущества:</b> Выбирая M200E-SMB, вы получаете проверенное временем решение от известного производителя. Изделие обладает длительным сроком службы в 15 лет, что гарантирует надежную работу на протяжении многих лет. Экологичная конструкция без использования хладагента соответствует современным стандартам устойчивого развития. Простота монтажа и компактные размеры позволяют легко интегрировать корпус в существующие системы безопасности.</p>",
+    "best_description_ru_word_count": 208,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Embodied Carbon Calculator: Basic Report for M200E-SMB",
+    "description": "This report provides an embodied carbon calculation for the Notifier M200E-SMB Control Panel, utilizing the CIBSE TM65 Digital Tool. It details material extraction, product service life, and embodied carbon results, showing a total embodied carbon of 17 kgCO2e.",
+    "specs": {
+      "Product service life": "15 Years",
+      "Refrigerant type": "No refrigerant",
+      "Refrigerant GWP": "0 kgCO2e",
+      "Refrigerant charge": "0.00 kg",
+      "Product complexity category": "Category 2",
+      "Material breakdown confirmed": "Yes",
+      "Capacity unit": "m³",
+      "Date of assessment": "21/1/2025",
+      "Assessor organisation": "Self Assessment, Honeywell"
+    },
+    "specs_count": 9,
+    "series": "",
+    "category": "Control Panels",
+    "weight_g": 1850,
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "M200E-SMB",
+    "datasheet_pdf": "downloads\\datasheets_v2\\M200E-SMB.pdf",
+    "datasheet_size_kb": 101,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Корпус настенной установки M200E-SMB от компании Esser — это надежное решение для профессиональных систем безопасности. Данный компонент предназначен для монтажа модулей интерфейса детекторов и обеспечивает полную защиту электронного оборудования от внешних воздействий. Бренд Esser известен своим качеством и инновационными подходами к разработке систем безопасности. Артикул M200E-SMB отличается долговечностью и надежностью в эксплуатации, что делает его идеальным выбором для установки в различных помещениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Срок службы продукта: 15 лет</li>\n<li>Тип хладагента: отсутствует</li>\n<li>Категория сложности продукта: Категория 2</li>\n<li>Подтверждение разбивки материалов: Да</li>\n<li>Вес изделия: 1850 г</li>\n<li>Дата оценки: 21 января 2025 года</li>\n<li>Организация-оценщик: Honeywell (самооценка)</li>\n<li>Экологичность: нулевой углеродный след от хладагента</li>\n</ul>\n\n<p><b>Применение:</b> Корпус M200E-SMB активно используется в системах охранной сигнализации, пожарной безопасности и контроля доступа. Он предназначен для установки на стену и служит защитным кожухом для модулей интерфейса детекторов различных типов. Данное устройство находит применение как в жилых помещениях, так и в коммерческих зданиях, офисах, складах и производственных объектах. Монтаж осуществляется быстро и удобно благодаря продуманной конструкции.</p>\n\n<p><b>Преимущества:</b> Выбирая M200E-SMB, вы получаете проверенное временем решение от известного производителя. Изделие обладает длительным сроком службы в 15 лет, что гарантирует надежную работу на протяжении многих лет. Экологичная конструкция без использования хладагента соответствует современным стандартам устойчивого развития. Простота монтажа и компактные размеры позволяют легко интегрировать корпус в существующие системы безопасности.</p>",
+    "description_seo_word_count": 208,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

@@ -478,19 +478,23 @@ class TestQueryTaskSplit:
         assert outbox[-1]["event_type"] == "bridge_status"
 
     def test_chat_query_skips_lock(self, tmp_path, monkeypatch):
-        """QUERY stream uses fast path — no lock, subprocess for Claude."""
+        """QUERY stream uses fast path — no lock, VPS claude --print for Q&A."""
         _patch_paths(tmp_path, monkeypatch)
         _write_manifest(tmp_path, {"fsm_state": "idle"})
-        # Mock subprocess to avoid real Claude call
+        import chat_session
+        monkeypatch.setattr(chat_session, "load_history", lambda: [])
+        monkeypatch.setattr(chat_session, "save_turn", lambda u, a: None)
+
+        # Mock subprocess.run to simulate VPS SSH response
         import subprocess
-        monkeypatch.setattr(
-            subprocess, "run",
-            lambda *a, **kw: type("R", (), {
-                "stdout": "Ответ от Claude",
-                "stderr": "",
-                "returncode": 0,
-            })(),
+        import types as _types
+        fake_result = _types.SimpleNamespace(
+            stdout="Ответ через подписку Claude",
+            stderr="",
+            returncode=0,
         )
+        monkeypatch.setattr(subprocess, "run", lambda *a, **kw: fake_result)
+
         entry = {"update_id": 501, "text": "как работает gateway?"}
         state = {"last_processed_update_id": 0, "processed_count": 0}
 
@@ -498,7 +502,7 @@ class TestQueryTaskSplit:
 
         assert ok is True
         outbox = _read_outbox(tmp_path)
-        assert any("Claude" in o["text"] for o in outbox)
+        assert any("подписку" in o["text"] for o in outbox)
         assert outbox[-1]["event_type"] == "bridge_chat"
         # Manifest untouched
         m = _read_manifest(tmp_path)

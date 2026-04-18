@@ -1,0 +1,57 @@
+# Phase 1 — Identity Recon: PEHA electrical accessories (batch 1/3)
+
+## Your task
+Identify each PEHA product and confirm/correct its identity. RECON ONLY — do NOT search for prices or photos.
+
+## PEHA rules
+- PEHA is a Honeywell sub-brand for electrical accessories (switches, frames, sockets)
+- Products have type designations like **D 20.xxx.xxx** — find the correct one
+- Series: NOVA, AURA, DIALOG, COMPACTA, NOVA MEDIA
+- Search as "PEHA {PN}" — NEVER "Honeywell {PN}"
+- Sites: peha.de, pehastore.de, voltking.de, elektroversand.de
+
+## What I need per SKU
+1. **product_type** — e.g. "frame 1-gang", "socket", "switch insert"
+2. **series** — NOVA / AURA / DIALOG / COMPACTA
+3. **type_designation** — the D 20.xxx.xxx code (most important!)
+4. **color_material** — if variants exist
+5. **pn_aliases** — alternative PNs on distributor sites
+6. **identity_notes** — discontinued, replaced by, kit contents
+
+## Products (25 SKUs)
+
+| # | PN | Our title | Seed name | Known variants | Gaps |
+|---|----|-----------|-----------|----------------|------|
+| 1 | 106511 | Розетка PEHA AURA, 106511 | Датчик температуры D 20.6511.02 OKS | - | no_photo |
+| 2 | 125711 | Вставка PEHA AURA, 125711 | Термостатический вентиль Honeywell D 20.610.21 TV | - | no_price |
+| 3 | 155111 | Розетка PEHA AURA, 155111 | Термостатический вентиль Honeywell D 20.6511.70 | - | no_dr |
+| 4 | 158811 | Клавиша PEHA AURA, 158811 | Термостатический вентиль Honeywell D 20.244.02 JR | - | no_dr |
+| 5 | 171111 | Рамка 1-постовая PEHA AURA, 171111 | Термостатический вентиль Honeywell D 20.571.02 T | - | no_dr, no_price |
+| 6 | 171411 | Рамка 4-постовая PEHA AURA, 171411 | Термостатический вентиль Honeywell D 20.574.02 T | - | no_desc |
+| 7 | 174111 | Рамка 1-постовая PEHA AURA, 174111 | Термостатический вентиль Honeywell D 20.571.64 T | - | no_price |
+| 8 | 174411 | Рамка 4-постовая PEHA AURA, 174411 | Термостатический вентиль Honeywell D 20.574.64 T | - | no_dr, no_price, no_photo, no_desc |
+| 9 | 179433 | Рамка 3-постовая PEHA NOVA, 179433 | Модуль MP3 Honeywell D 20.673.022 W | - | no_dr, no_price, no_desc |
+| 10 | 179951 | Вставка PEHA NOVA, 179951 | Линейный сканер Honeywell D 20.486.702 LS | - | no_dr |
+| 11 | 183791 | Рамка 1-постовая PEHA NOVA, 183791 | Модуль управления Honeywell D 20.671.201.022 | - | no_dr, no_photo |
+| 12 | 184791 | Рамка 1-постовая PEHA NOVA, 184791 | Детектор пламени Honeywell D 20.671.222.022 | - | no_photo, no_desc |
+| 13 | 185091 | Рамка 1-постовая PEHA NOVA, 185091 | Детектор пламени Honeywell D 20.671.223.192 | - | no_photo, no_desc |
+| 14 | 185191 | Рамка 1-постовая PEHA NOVA, 185191 | Детектор пламени Honeywell D 20.671.240.192 | - | no_desc |
+| 15 | 185491 | Рамка 1-постовая PEHA NOVA, 185491 | Детектор пламени Honeywell D 20.671.243.022 | - | no_desc |
+| 16 | 185891 | Рамка 2-постовая PEHA NOVA, 185891 | Детектор пламени Honeywell D 20.672.201.022 | - | no_desc |
+| 17 | 187091 | Рамка 2-постовая PEHA NOVA, 187091 | Детектор пламени Honeywell D 20.672.222.702 | - | no_desc |
+| 18 | 187591 | Рамка 2-постовая PEHA NOVA, 187591 | Детектор пламени Honeywell D 20.672.243.022 | - | no_dr, no_price, no_photo |
+| 19 | 188091 | Рамка 3-постовая PEHA NOVA, 188091 | Детектор пламени Honeywell D 20.673.201.702 | - | no_dr, no_desc |
+| 20 | 189091 | Рамка 3-постовая PEHA NOVA, 189091 | Детектор пламени Honeywell D 20.673.222.192 | - | no_dr |
+| 21 | 189291 | Рамка 3-постовая PEHA NOVA, 189291 | Детектор пламени Honeywell D 20.673.223.192 | - | no_dr |
+| 22 | 189791 | Рамка 3-постовая PEHA NOVA, 189791 | Детектор пламени Honeywell D 20.673.244.192 | - | no_dr |
+| 23 | 190191 | Рамка 4-постовая PEHA NOVA, 190191 | Детектор пламени Honeywell D 20.674.201.702 | - | no_desc |
+| 24 | 190511 | Выключатель PEHA, 190511 | Детектор пламени Honeywell D 515 | - | no_desc |
+| 25 | 190891 | Рамка 4-постовая PEHA NOVA, 190891 | Детектор пламени Honeywell D 20.674.220.192 | - | no_price, no_desc |
+
+## Required output — markdown table only
+
+| PN | product_type | series | type_designation | color_material | pn_aliases | identity_notes |
+|----|-------------|--------|-----------------|----------------|-----------|----------------|
+
+- Cannot confirm → write "unconfirmed" in type_designation
+- Return ONLY the table, no preamble

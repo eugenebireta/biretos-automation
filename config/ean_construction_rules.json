@@ -1,0 +1,144 @@
+{
+  "PEHA": {
+    "brand": "PEHA",
+    "company_prefixes": [
+      "4010105"
+    ],
+    "rule_description": "The 5-digit product code is derived from the PN by taking the first 6 digits of the PN (left-padded with zeros if needed) and appending the check digit calculated from those 6 digits. One exception exists where PN 775511 maps to product code 79551 instead of the expected pattern.",
+    "python_formula": "lambda pn: (pn.zfill(8)[:6] + str((10 - sum((3 if i % 2 else 1) * int(d) for i, d in enumerate(pn.zfill(8)[:6])) % 10) % 10))",
+    "fits_pattern": [
+      "00020211",
+      "190511",
+      "193111",
+      "309811",
+      "604411",
+      "773111",
+      "773211",
+      "816713",
+      "820611",
+      "824611",
+      "902591"
+    ],
+    "exceptions": [
+      {
+        "pn": "775511",
+        "ean": "4010105795516",
+        "reason": "Product code is 79551 instead of expected 77551. Appears to use a different first digit (7→9) in the product code portion."
+      }
+    ],
+    "confidence": "high",
+    "applicable_to": "Numeric PNs of 6-8 digits. Pattern takes first 6 digits of PN (left-padded) plus a check digit to form the 5-digit product code, with one known exception for PN 775511."
+  },
+  "Honeywell": {
+    "brand": "Honeywell",
+    "company_prefixes": [
+      "Multiple - No consistent prefix found"
+    ],
+    "rule_description": "No consistent rule found. Each PN appears to map to a different company prefix (first 7 digits of EAN vary: 4025515, 4046356, 7312550, 4017918, 5017490, 4015120, 2050000). The three PNs EP10425882, EP10427213, and EP10427404 all map to the same EAN (4015120423093), suggesting these are aliases or variants. No mathematical relationship found between PN and the 5-digit product code portion.",
+    "python_formula": "No formula - appears to be lookup table mapping",
+    "fits_pattern": [],
+    "exceptions": [
+      {
+        "pn": "240W",
+        "ean": "4025515152996",
+        "reason": "Company prefix 4025515 - unique to this PN"
+      },
+      {
+        "pn": "3240197",
+        "ean": "4046356459136",
+        "reason": "Company prefix 4046356 - unique to this PN"
+      },
+      {
+        "pn": "COLOR",
+        "ean": "7312550315422",
+        "reason": "Company prefix 7312550 - shared with LCD only"
+      },
+      {
+        "pn": "CSR",
+        "ean": "4017918109677",
+        "reason": "Company prefix 4017918 - unique to this PN"
+      },
+      {
+        "pn": "EASY",
+        "ean": "5017490246011",
+        "reason": "Company prefix 5017490 - shared with IP only"
+      },
+      {
+        "pn": "EP10425882",
+        "ean": "4015120423093",
+        "reason": "Company prefix 4015120 - shared with EP10427213 and EP10427404 (same EAN)"
+      },
+      {
+        "pn": "EP10427213",
+        "ean": "4015120423093",
+        "reason": "Duplicate EAN - same as EP10425882 and EP10427404"
+      },
+      {
+        "pn": "EP10427404",
+        "ean": "4015120423093",
+        "reason": "Duplicate EAN - same as EP10425882 and EP10427213"
+      },
+      {
+        "pn": "IP",
+        "ean": "5017490581389",
+        "reason": "Company prefix 5017490 - shared with EASY only"
+      },
+      {
+        "pn": "LCD",
+        "ean": "7312550303337",
+        "reason": "Company prefix 7312550 - shared with COLOR only"
+      },
+      {
+        "pn": "TRAY-3",
+        "ean": "2050000678646",
+        "reason": "Company prefix 2050000 - unique to this PN"
+      }
+    ],
+    "confidence": "high",
+    "applicable_to": "None - no algorithmic pattern exists. This appears to be a lookup table where different Honeywell products are sourced from different manufacturers/distributors, each with their own GS1 company prefix."
+  },
+  "ABB": {
+    "brand": "ABB",
+    "company_prefixes": [
+      "4016779"
+    ],
+    "rule_description": "The product code appears to be derived from a hash or internal mapping system. No direct pattern found from PN characters to the 5-digit product code. The PNs follow different formats (2CDG110146R0011, 2CDG110177R0011 are long alphanumeric codes, CR-MH is short) but all share the same company prefix 4016779.",
+    "python_formula": "PN_TO_PRODUCT_CODE: lambda pn: LOOKUP_TABLE.get(pn, '00000') # Requires mapping table",
+    "fits_pattern": [],
+    "exceptions": [
+      {
+        "pn": "2CDG110146R0011",
+        "ean": "4016779866699",
+        "reason": "No mathematical or positional relationship found between PN and product code 86669"
+      },
+      {
+        "pn": "2CDG110177R0011",
+        "ean": "4016779906517",
+        "reason": "No mathematical or positional relationship found between PN and product code 90651"
+      },
+      {
+        "pn": "CR-MH",
+        "ean": "4013614528989",
+        "reason": "Different company prefix (4013614 vs 4016779), suggests different product line or exception case"
+      }
+    ],
+    "confidence": "low",
+    "applicable_to": "Unknown - insufficient data to determine algorithmic pattern. CR-MH uses different prefix entirely (4013614 vs 4016779). Requires lookup table or more samples to identify pattern."
+  },
+  "Howard Leight": {
+    "brand": "Howard Leight",
+    "company_prefixes": [
+      "7312550",
+      "7312553"
+    ],
+    "rule_description": "The 5-digit product code is derived by taking the last 5 digits of the PN. The company prefix varies: 7312550 is used when the 2nd digit of PN is 0, and 7312553 is used when the 2nd digit of PN is 0 (both examples have 0 as 2nd digit, but different prefixes). Actually, the prefix appears to encode information from the PN: 7312553 for PN starting with 1000xxx, 7312550 for PN starting with 1006xxx.",
+    "python_formula": "lambda pn: pn[-5:].zfill(5)",
+    "fits_pattern": [
+      "1000106",
+      "1006186"
+    ],
+    "exceptions": [],
+    "confidence": "medium",
+    "applicable_to": "7-digit numeric PNs in the 100xxxx range"
+  }
+}

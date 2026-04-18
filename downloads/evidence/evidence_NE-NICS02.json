@@ -6,7 +6,7 @@
     "NE.NICS02",
     "NENICS02"
   ],
-  "brand": "Honeywell",
+  "brand": "NEC",
   "subbrand": "",
   "name": "Сетевая карта Honeywell NE-NICS02",
   "assembled_title": "Сетевая карта Honeywell NE-NICS02",
@@ -182,7 +182,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/png image'}, 'request_id': 'req_011CZqQXpjdvuYWAVrRH8qYB'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -200,10 +200,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.radward.co.uk/honeywell/ne-nics02"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -321,7 +318,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -570,12 +568,127 @@
     "merge_source": "result_NE-NICS02.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (7).md"
+    "source_file": "deep-research-report (7).md",
+    "descriptions_all": {
+      "legacy": "Honeywell Experion PKS DCS part. Quote-only via gray-market resellers. ~3 kg shipping weight"
+    }
   },
   "dr_category": "Network interface card",
   "dr_image_url": "—",
   "dr_price": 789.0,
   "dr_currency": "USD",
   "dr_price_source": null,
-  "product_category": "Network interface card"
+  "training_urls": [
+    "https://process.honeywell.com/us/en/products/control-and-supervisory-systems/distributed-control-systems-dcs/experion-pks/infrastructure/fault-tolerant-ethernet",
+    "https://www.eceurope.com/electrical-systems-and-lighting-and-components/electrical-equipment-and-components/honeywell-ne-nics02-tp-fpd214-100-new-in-stock-i39210.html",
+    "https://www.onrion.com/NE_NICS02-USA_Sales_Price-Honeywell-0-2464",
+    "https://www.quicktimeonline.my/products/ne-nics02",
+    "https://www.radward.co.uk/honeywell/ne-nics02",
+    "https://www.teknihaus.com/ne-nics02"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 789.0,
+    "dr_currency": "USD",
+    "dr_source_url": null,
+    "our_price_raw": "87612,50",
+    "our_price_parsed": 87612.5,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 789.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Сетевая карта Honeywell NE-NICS02 с двумя портами PCIe предназначена для обеспечения надежного и быстрого соединения в промышленных и коммерческих сетях. Поддерживает высокоскоростную передачу данных и совместимость с различными сетевыми стандартами.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.radward.co.uk/honeywell/ne-nics02",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Сетевая карта Honeywell NE-NICS02 с двумя портами PCIe предназначена для обеспечения надежного и быстрого соединения в промышленных и коммерческих сетях. Поддерживает высокоскоростную передачу данных и совместимость с различными сетевыми стандартами.",
+    "best_description_ru": "<p>Сетевая карта NEC NE-NICS02 — это профессиональное сетевое оборудование, разработанное компанией Honeywell для обеспечения надежной и высокоскоростной передачи данных в промышленных и коммерческих сетях. Данный сетевой адаптер оснащен двумя портами PCIe и предназначен для интеграции в системы, требующие стабильного сетевого соединения и поддержки современных сетевых стандартов. Благодаря своей конструкции и техническим характеристикам, карта обеспечивает совместимость с различными платформами и сетевыми архитектурами.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Два порта PCIe для гибкого подключения и масштабирования сетевых соединений</li>\n<li>Поддержка высокоскоростной передачи данных для обеспечения максимальной пропускной способности</li>\n<li>Совместимость с различными сетевыми стандартами и протоколами</li>\n<li>Надежная конструкция, рассчитанная на работу в промышленной среде</li>\n<li>Простая интеграция в существующие системы и инфраструктуру</li>\n<li>Поддержка профессиональных приложений и критичных по времени операций</li>\n<li>Оптимизированная производительность для коммерческих решений</li>\n</ul>\n\n<p><b>Применение:</b> Сетевая карта NE-NICS02 используется в промышленных системах управления, коммерческих сетях, центрах обработки данных и других критичных приложениях, где требуется надежное и быстрое сетевое соединение. Карта идеально подходит для установки в серверы, рабочие станции и специализированное оборудование, нуждающееся в расширенных сетевых возможностях и поддержке высокопроизводительных сетевых операций.</p>\n\n<p><b>Преимущества:</b> Выбор NEC NE-NICS02 гарантирует надежность и долговечность в условиях интенсивной эксплуатации. Карта обеспечивает оптимальное соотношение производительности и стоимости, позволяя значительно улучшить сетевую инфраструктуру без необходимости полной замены оборудования. Профессиональное качество Honeywell и поддержка современных стандартов делают эту карту идеальным решением для требовательных приложений.</p>",
+    "best_description_ru_word_count": 210,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "Fiber Optic Cable Type": "armored for external plant",
+      "Fiber Optic Cable Number of fibers": "12",
+      "Fiber Optic Cable Outer diameter": "10.5 mm",
+      "Fiber Optic Cable Weight": "105 kg/km",
+      "Fiber Optic Cable Minimum bend radius (installation)": "20x outer diameter",
+      "Fiber Optic Cable Minimum bend radius (operation)": "10x outer diameter",
+      "Fiber Optic Cable Operating temperature range": "-40°C to +70°C",
+      "Fiber Optic Cable Storage temperature range": "-40°C to +70°C",
+      "Fiber Optic Cable Tensile strength (installation)": "2700 N",
+      "Fiber Optic Cable Tensile strength (operation)": "800 N",
+      "Fiber Optic Cable Crushing resistance": "1000 N/10cm",
+      "Fiber Optic Cable Number of tube elements": "6",
+      "Fiber Optic Cable Outer jacket material": "Polietileno (PE) negro",
+      "Copper Cable Type": "shielded multipair (UTP)",
+      "Copper Cable Number of pairs": "4",
+      "Copper Cable Conductor gauge": "24 AWG",
+      "Copper Cable Outer diameter": "6.2 mm",
+      "Copper Cable Weight": "42 kg/km",
+      "Copper Cable Characteristic impedance": "100 Ohm",
+      "Copper Cable Transmission speed": "10/100 Mbps (Ethernet)",
+      "Copper Cable Operating temperature range": "-20°C to +60°C",
+      "Copper Cable Outer jacket material": "PVC",
+      "Communication Protocols (System)": "TCP/IP, Modbus TCP/IP, Ethernet/IP, Profibus, Foundation Fieldbus, HART, OPC, Serial (RS-232, RS-485)"
+    },
+    "specs_count": 23,
+    "series": "Honeywell TPS",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\NE-NICS02.pdf",
+    "datasheet_size_kb": 5812,
+    "product_photos": [
+      "downloads\\datasheet_photos\\NE-NICS02_p1_0.jpeg",
+      "downloads\\datasheet_photos\\NE-NICS02_p2_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "original_brand": "NEC",
+      "brand_correction_reason": "Part number NE-NICS02 is a Honeywell network card for their security/automation systems. The 'NE-' prefix is consistent with Honeywell's networking equipment line. Seed name correctly identifies it as Honeywell. Current brand field 'NEC' is wrong - likely a data entry error confusing NEC with NE- prefix. The description mentioning 'разработанное компанией Honeywell' confirms Honeywell as manufacturer.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Сетевая карта NEC NE-NICS02 — это профессиональное сетевое оборудование, разработанное компанией Honeywell для обеспечения надежной и высокоскоростной передачи данных в промышленных и коммерческих сетях. Данный сетевой адаптер оснащен двумя портами PCIe и предназначен для интеграции в системы, требующие стабильного сетевого соединения и поддержки современных сетевых стандартов. Благодаря своей конструкции и техническим характеристикам, карта обеспечивает совместимость с различными платформами и сетевыми архитектурами.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Два порта PCIe для гибкого подключения и масштабирования сетевых соединений</li>\n<li>Поддержка высокоскоростной передачи данных для обеспечения максимальной пропускной способности</li>\n<li>Совместимость с различными сетевыми стандартами и протоколами</li>\n<li>Надежная конструкция, рассчитанная на работу в промышленной среде</li>\n<li>Простая интеграция в существующие системы и инфраструктуру</li>\n<li>Поддержка профессиональных приложений и критичных по времени операций</li>\n<li>Оптимизированная производительность для коммерческих решений</li>\n</ul>\n\n<p><b>Применение:</b> Сетевая карта NE-NICS02 используется в промышленных системах управления, коммерческих сетях, центрах обработки данных и других критичных приложениях, где требуется надежное и быстрое сетевое соединение. Карта идеально подходит для установки в серверы, рабочие станции и специализированное оборудование, нуждающееся в расширенных сетевых возможностях и поддержке высокопроизводительных сетевых операций.</p>\n\n<p><b>Преимущества:</b> Выбор NEC NE-NICS02 гарантирует надежность и долговечность в условиях интенсивной эксплуатации. Карта обеспечивает оптимальное соотношение производительности и стоимости, позволяя значительно улучшить сетевую инфраструктуру без необходимости полной замены оборудования. Профессиональное качество Honeywell и поддержка современных стандартов делают эту карту идеальным решением для требовательных приложений.</p>",
+    "description_seo_word_count": 210,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 5812KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "NEC",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Honeywell"
+  }
 }

@@ -7,7 +7,7 @@
     "RMK400APIV"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Комплект для встраиваемого монтажа RMK400AP-IV",
   "assembled_title": "Комплект Honeywell RMK400AP-IV",
   "our_price_raw": "349,20",
@@ -190,7 +190,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Комплект для встраиваемого монтажа — круглая рамка и металлический кронштейн — соответствует описанию товара",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -208,10 +208,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -337,7 +334,11 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "RMK400",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "Embedded mounting kit; application unclear",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -378,7 +379,7 @@
     "description": "Комплект для встраиваемого монтажа детекторов, цвет слоновой кости. Предназначен для скрытой установки детекторов в потолках и стенах, обеспечивая эстетичный вид и надежную фиксацию.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Комплект",
+    "product_type": "Installation kit",
     "seed_name": "Комплект для встраиваемого монтажа RMK400AP-IV",
     "description_long_ru": "В том же прайсе есть RMK400AP (белый) 415р"
   },
@@ -661,5 +662,82 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "Mount Kit"
+  "training_urls": [
+    "https://www.credexalarmsystems.eu/en/alarm-systems/honeywell/notifier-analog-fire-alarm/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 14.88,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.credexalarmsystems.eu/en/alarm-systems/honeywell/notifier-analog-fire-alarm/",
+    "our_price_raw": "349,20",
+    "our_price_parsed": 349.2,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_ru",
+    "pack_qty": null,
+    "judge_reason": "mounting kit, 'Комплект' in title is product type not multi-pack"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 14.88,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Комплект для встраиваемого монтажа детекторов, цвет слоновой кости. Предназначен для скрытой установки детекторов в потолках и стенах, обеспечивая эстетичный вид и надежную фиксацию.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.alpro.ru/catalog/okhrannaya-i-pozharnaya-signalizatsiya/oborudovanie",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Извещатель пожарный дымовой оптико-электронный ЕСО1003М",
+    "description": "",
+    "specs": {
+      "product_type": "Fire Control Panel",
+      "addressable_detector_capacity": "up to 99 Leonardo series",
+      "non_addressable_zones": "16 (security/fire/technical)",
+      "relay_outputs_pcn": "3",
+      "notifier_outputs_with_line_control": "3",
+      "control_interface": "buttons, TM keys, VERS-BMK command",
+      "power_supply_type": "redundant",
+      "battery_type": "АКБ",
+      "battery_capacity_Ah": "7",
+      "built_in_rs_module": "yes",
+      "battery_included_in_delivery": "no",
+      "display_type": "LCD",
+      "external_block_support": "ВЭРС-БК, ВЭРС-БРУ, ВЭРС-БМК",
+      "recommended_application": "small and medium objects (schools, kindergartens, offices)"
+    },
+    "specs_count": 14,
+    "series": "LEONARDO",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "ГОСТ Р 53325-2012"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\RMK400AP-IV.pdf",
+    "datasheet_size_kb": 359,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Извещатель пожарный дымовой оптико-электронный ЕСО1003М' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

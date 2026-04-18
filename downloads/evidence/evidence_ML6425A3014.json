@@ -4,7 +4,7 @@
   "pn": "ML6425A3014",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод с возвратной пружиной Honeywell ML6425A3014",
   "assembled_title": "Привод Honeywell ML6425A3014",
   "our_price_raw": "50917,25",
@@ -174,7 +174,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Привод Honeywell ML6425A3014 с возвратной пружиной чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -192,9 +192,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -319,7 +317,10 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "identity_notes_p1": "Possible return spring actuator; no specific Honeywell match confirmed",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -337,7 +338,7 @@
     "description": "Привод Honeywell ML6425A3014 с прямым действием и возвратной пружиной предназначен для управления клапанами в системах HVAC. Работает от напряжения 230 В, обеспечивая надежное управление и возврат в исходное положение при отключении питания.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Привод",
+    "product_type": "Actuator",
     "seed_name": "Привод с возвратной пружиной Honeywell ML6425A3014",
     "description_long_ru": "Also €1,127.62 at heiz24.de; fail-safe spring return"
   },
@@ -563,5 +564,99 @@
   "dr_price": 721.17,
   "dr_currency": "EUR",
   "dr_price_source": "https://lafipa.lv/en/produkti/siltumapgade-en/automation-control-systems/valve-actuators/ml6425a3014-2/",
-  "product_category": "valve actuator"
+  "training_urls": [
+    "https://buildings.honeywell.com/us/en/products/by-category/building-management/field-devices/actuators/linear-actuators/ml6420-ml6425-series-600n-linear-valve-actuators",
+    "https://lafipa.lv/en/produkti/siltumapgade-en/automation-control-systems/valve-actuators/ml6425a3014-2/",
+    "https://www.bolasystems.com/honeywell-ml6425a3014-control-valve-actuator-600n-230vac-nc-stem-extended",
+    "https://www.heiz24.de/Honeywell-ML6425A3014-Valve-actuator-230-V-NEW",
+    "https://www.kele.com/Catalog/04%20Control%20Valves/PDFs/ML6425%20ML7425%20Product%20Data.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 721.17,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://lafipa.lv/en/produkti/siltumapgade-en/automation-control-systems/valve-actuators/ml6425a3014-2/",
+    "our_price_raw": "50917,25",
+    "our_price_parsed": 50917.25,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 721.17,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Привод Honeywell ML6425A3014 с прямым действием и возвратной пружиной предназначен для управления клапанами в системах HVAC. Работает от напряжения 230 В, обеспечивая надежное управление и возврат в исходное положение при отключении питания.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_ML6425A3014.jpg",
+    "best_photo_source": "vps_static",
+    "best_description_ru_short": "Привод Honeywell ML6425A3014 с прямым действием и возвратной пружиной предназначен для управления клапанами в системах HVAC. Работает от напряжения 230 В, обеспечивая надежное управление и возврат в исходное положение при отключении питания.",
+    "best_description_ru": "<p>Дисковые поворотные затворы с ручным управлением Honeywell ML6425A3014 — это надежный электрический привод прямого действия, разработанный специально для управления клапанами в системах вентиляции, отопления и кондиционирования воздуха (HVAC). Бренд Honeywell известен во всем мире своей репутацией производителя высокотехнологичного оборудования для автоматизации и управления климатом. Этот привод работает от напряжения 230 В и обеспечивает точное управление потоком теплоносителя или воздуха в системах климатизации различного масштаба — от жилых помещений до промышленных объектов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Напряжение питания: 230 В переменного тока</li>\n<li>Тип привода: прямого действия с возвратной пружиной</li>\n<li>Автоматический возврат в исходное положение при отключении питания</li>\n<li>Надежное и долговечное исполнение</li>\n<li>Совместимость с системами HVAC различных производителей</li>\n<li>Простота монтажа и интеграции в существующие системы</li>\n<li>Стабильная работа в широком диапазоне температур</li>\n</ul>\n\n<p><b>Применение:</b> Привод ML6425A3014 используется в системах отопления, вентиляции и кондиционирования воздуха для управления дисковыми поворотными затворами и регулирующими клапанами. Он идеально подходит для установки в жилых домах, офисных зданиях, торговых центрах, промышленных предприятиях и других объектах, где требуется точное управление климатом. Привод обеспечивает автоматическое открытие и закрытие клапанов в соответствии с сигналами системы управления, позволяя эффективно регулировать температуру и влажность в помещениях.</p>\n\n<p><b>Преимущества:</b> Выбирая этот привод Honeywell, вы получаете гарантированное качество и надежность от мирового лидера в области автоматизации. Функция возвратной пружины обеспечивает безопасность системы при отключении электроэнергии. Простая конструкция гарантирует долгий срок службы и минимальные затраты на обслуживание. Привод легко интегрируется в существующие системы управления, обеспечивая экономию энергии и комфортные условия в помещении.</p>",
+    "best_description_ru_word_count": 233,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Дисковые поворотные затворы с ручным управлением",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\ML6425A3014.pdf",
+    "datasheet_size_kb": 6283,
+    "product_photos": [
+      "downloads\\datasheet_photos\\ML6425A3014_p1_0.jpeg",
+      "downloads\\datasheet_photos\\ML6425A3014_p1_3.jpeg",
+      "downloads\\datasheet_photos\\ML6425A3014_p1_4.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/ML6425A3014_p1_0.jpeg",
+      "downloads/datasheet_photos/ML6425A3014_p1_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format ML6425A3014 is consistent with Honeywell actuator series (ML64xx). Seed name correctly identifies it as spring return actuator. The datasheet appears wrong - it's for manual butterfly valves instead of the actuator. The PN should match an electric/pneumatic actuator, not manual valves. Need correct datasheet for ML6425A3014 actuator."
+    },
+    "description_seo_ru": "<p>Дисковые поворотные затворы с ручным управлением Honeywell ML6425A3014 — это надежный электрический привод прямого действия, разработанный специально для управления клапанами в системах вентиляции, отопления и кондиционирования воздуха (HVAC). Бренд Honeywell известен во всем мире своей репутацией производителя высокотехнологичного оборудования для автоматизации и управления климатом. Этот привод работает от напряжения 230 В и обеспечивает точное управление потоком теплоносителя или воздуха в системах климатизации различного масштаба — от жилых помещений до промышленных объектов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Напряжение питания: 230 В переменного тока</li>\n<li>Тип привода: прямого действия с возвратной пружиной</li>\n<li>Автоматический возврат в исходное положение при отключении питания</li>\n<li>Надежное и долговечное исполнение</li>\n<li>Совместимость с системами HVAC различных производителей</li>\n<li>Простота монтажа и интеграции в существующие системы</li>\n<li>Стабильная работа в широком диапазоне температур</li>\n</ul>\n\n<p><b>Применение:</b> Привод ML6425A3014 используется в системах отопления, вентиляции и кондиционирования воздуха для управления дисковыми поворотными затворами и регулирующими клапанами. Он идеально подходит для установки в жилых домах, офисных зданиях, торговых центрах, промышленных предприятиях и других объектах, где требуется точное управление климатом. Привод обеспечивает автоматическое открытие и закрытие клапанов в соответствии с сигналами системы управления, позволяя эффективно регулировать температуру и влажность в помещениях.</p>\n\n<p><b>Преимущества:</b> Выбирая этот привод Honeywell, вы получаете гарантированное качество и надежность от мирового лидера в области автоматизации. Функция возвратной пружины обеспечивает безопасность системы при отключении электроэнергии. Простая конструкция гарантирует долгий срок службы и минимальные затраты на обслуживание. Привод легко интегрируется в существующие системы управления, обеспечивая экономию энергии и комфортные условия в помещении.</p>",
+    "description_seo_word_count": 233,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Honeywell",
+      "candidates": [],
+      "product_hint": "actuator",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6283KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Дисковые поворотные затворы с ручным управлением' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

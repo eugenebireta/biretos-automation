@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "581263",
-  "pn_variants": [],
+  "pn_variants": [
+    "581263-6W"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Потолочный громкоговоритель Honeywell 581263, 6 Вт",
   "assembled_title": "Громкоговоритель Honeywell 581263",
   "our_price_raw": "1324,29",
@@ -179,7 +181,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqHLVZMLDncpaKABHJBF'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -197,10 +199,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://market.yandex.ru/card/l-pcm06a-honeywell-potolochnyy-gromkogovoritel-581"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -310,7 +309,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "h1"
+    "structured_pn_match_location": "h1",
+    "product_line": "Esserbus audio",
+    "confirmed_manufacturer": "Honeywell/ESSER",
+    "discontinued": false,
+    "identity_notes_p1": "6W 5\" ceiling loudspeaker with 100V transformer, metal housing",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -333,7 +337,7 @@
     "description": "Потолочный громкоговоритель Honeywell 581263 мощностью 6 Вт предназначен для использования в системах оповещения и звукового сопровождения. Обеспечивает качественное воспроизведение звука.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Громкоговоритель",
+    "product_type": "Ceiling loudspeaker",
     "seed_name": "Потолочный громкоговоритель Honeywell 581263, 6 Вт",
     "description_long_ru": "B2B pricing not publicly listed"
   },
@@ -530,7 +534,26 @@
       "raw": "6W; metal; Ø180mm; cutout Ø155mm; 120Hz–20kHz; 0.71kg; white RAL9003",
       "aliases": [
         "—"
-      ]
+      ],
+      "Brand": "Honeywell",
+      "Model": "L-PCM06A",
+      "Product type": "Ceiling loudspeaker",
+      "Rated power": "6 W",
+      "Max power": "9 W",
+      "Power taps": "6 / 3 / 1.5 W",
+      "Line voltage": "100 V",
+      "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+      "Frequency response": "120 Hz - 20 kHz",
+      "Dispersion": "160°",
+      "Material": "Metal",
+      "Compliance": "CE / RoHS",
+      "Rated Power": "6 W",
+      "Input Voltage": "100 V",
+      "Transformer Taps": "6 / 3 / 1.5 W",
+      "Frequency Response": "120 Hz - 20 kHz",
+      "Cut-out diameter": "155 mm",
+      "Color": "White (RAL 9003)",
+      "Weight": "0.71 kg"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -553,9 +576,109 @@
     "merge_source": "result_581263.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
+    "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "Honeywell 581263 — это потолочный громкоговоритель L‑PCM06A мощностью 6 Вт для 100‑вольтовых трансляционных линий. Конструкция рассчитана на встраиваемый монтаж в потолок и подходит для речевого оповещения и фоновой трансляции внутри помещений. По карточке производителя модель имеет номинальную мощность 6 Вт и максимальную 9 Вт, а также несколько отводов мощности 6/3/1,5 Вт. Это позволяет гибко настраивать громкость по зонам и подбирать нагрузку линии в зависимости от акустики помещения. Металлическое исполнение повышает жёсткость конструкции и делает изделие подходящим для коммерческих объектов, учебных заведений, офисов и общественных пространств. Частотный диапазон и паспортная чувствительность ориентированы прежде всего на разборчивую передачу речи, что важно для систем оповещения. Громкоговоритель интегрируется в 100 V PA/VA-системы и требует корректного расчёта суммарной нагрузки линии. При установке нужно учитывать диаметр выреза, глубину потолочного пространства и требования к кабельной разводке системы оповещения. Для B2B-каталога это типовая инсталляционная акустика для Honeywell/Esser public address решений.",
+      "gemini": "Потолочный громкоговоритель Honeywell L-PCM06A мощностью 6 Вт выполнен в прочном металлическом корпусе белого цвета. Он предназначен для скрытого монтажа в подвесные потолки торговых центров и офисных зданий. Модель оснащена широкополосным динамиком с двойным диффузором для чистого воспроизведения речи. Встроенный трансформатор 100 В позволяет выбирать мощность подключения: 6, 3 или 1.5 Вт. Широкий частотный диапазон от 120 Гц до 20 кГц обеспечивает высокое качество звука. Громкоговоритель сертифицирован согласно директивам CE и RoHS, гарантируя безопасность эксплуатации. Для установки требуется монтажное отверстие диаметром 155 мм, крепление осуществляется пружинными зажимами. Металлическая защитная решетка окрашена порошковым методом для предотвращения коррозии. Низкопрофильный дизайн позволяет устройству оставаться практически незаметным в современном интерьере. Это надежный и долговечный компонент для масштабных систем фонового озвучивания."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "Honeywell",
+        "Model": "L-PCM06A",
+        "Product type": "Ceiling loudspeaker",
+        "Rated power": "6 W",
+        "Max power": "9 W",
+        "Power taps": "6 / 3 / 1.5 W",
+        "Line voltage": "100 V",
+        "SPL": "96 dB @ 6W/1m; 90 dB @ 1W/1m",
+        "Frequency response": "120 Hz - 20 kHz",
+        "Dispersion": "160°",
+        "Material": "Metal",
+        "Compliance": "CE / RoHS"
+      },
+      "gemini": {
+        "Brand": "Honeywell / Esser",
+        "Model": "L-PCM06A",
+        "Rated Power": "6 W",
+        "Input Voltage": "100 V",
+        "Transformer Taps": "6 / 3 / 1.5 W",
+        "Frequency Response": "120 Hz - 20 kHz",
+        "Material": "Steel / Metal",
+        "Cut-out diameter": "155 mm",
+        "Color": "White (RAL 9003)",
+        "Weight": "0.71 kg"
+      }
+    },
+    "notes_all": {
+      "gpt": "Потолочный 100V-громкоговоритель для речевых и PA/VA систем."
+    }
   },
   "dr_category": "PA ceiling speaker",
   "dr_image_url": "https://www.esser-systems.com/productimages/loud-speaker/ceilining-speakers//581263-6-w-5-ceiling-loudspeaker-metal_Inherited_product_pic_300_300_581263_xxxxx_GEPE_SF3C.jpg",
-  "product_category": "PA speaker"
+  "training_urls": [
+    "https://www.108bit.ru/catalog/104/esser_by_honeywell_581263/",
+    "https://www.esser-systems.com/en/products/details/loud-speaker/ceilining-speakers/581263-6-w-5-ceiling-loudspeaker-metal/",
+    "https://buildings.honeywell.com/content/dam/hbtbt/en/documents/downloads/VARIODYN-D1-PA-VA/L-PCM06A.pdf",
+    "https://www.produktinfo.conrad.com/datenblaetter/525000-549999/529969-da-01-en-Honeywell_581263_Deckenlautsprecher_6_W_1_St.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "1324,29",
+    "our_price_parsed": 1324.29,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 104.16,
+    "best_price_currency": "EUR",
+    "best_price_source": "phase3a",
+    "best_description": "Потолочный громкоговоритель Honeywell 581263 мощностью 6 Вт предназначен для использования в системах оповещения и звукового сопровождения. Обеспечивает качественное воспроизведение звука.",
+    "best_description_source": "content",
+    "best_photo_url": "https://market.yandex.ru/card/l-pcm06a-honeywell-potolochnyy-gromkogovoritel-581",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Потолочный громкоговоритель Honeywell 581263 мощностью 6 Вт предназначен для использования в системах оповещения и звукового сопровождения. Обеспечивает качественное воспроизведение звука.",
+    "best_description_ru": "<p>Представляем вашему вниманию потолочный громкоговоритель Honeywell 581263 – надежное и эффективное решение для создания систем оповещения и качественного звукового сопровождения. Этот универсальный компонент от всемирно известного бренда Honeywell разработан для обеспечения чистого и разборчивого звука в различных помещениях. Модель 581263 является оптимальным выбором для тех, кто ищет баланс между производительностью, долговечностью и простотой установки, что делает её незаменимой в широком спектре профессиональных аудиоинсталляций.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Бренд:</b> Honeywell – гарантия качества и надежности от ведущего мирового производителя.</li>\n    <li><b>Модель:</b> 581263 – уникальный артикул для легкой идентификации и заказа.</li>\n    <li><b>Тип устройства:</b> Потолочный громкоговоритель – идеален для скрытой установки и равномерного распределения звука.</li>\n    <li><b>Назначение:</b> Системы оповещения и звукового сопровождения – универсальное применение для различных задач.</li>\n    <li><b>Мощность:</b> 6 Вт – оптимальная мощность для четкого и разборчивого воспроизведения звука в помещениях среднего размера.</li>\n    <li><b>Качество звука:</b> Обеспечивает высококачественное воспроизведение, что критически важно для систем оповещения.</li>\n    <li><b>Конструкция:</b> Предназначен для монтажа в потолок, что позволяет сохранить эстетику интерьера.</li>\n    <li><b>Долговечность:</b> Разработан с учетом длительного срока службы и надежной работы.</li>\n</ul>\n\n<p>Потолочный громкоговоритель Honeywell 581263 находит широкое применение в самых разнообразных сферах. Он идеально подходит для установки в офисных зданиях, торговых центрах, образовательных учреждениях, медицинских учреждениях, гостиницах и ресторанах, где требуется четкое и равномерное распределение звука. Благодаря своей конструкции, громкоговоритель легко интегрируется в любой интерьер, оставаясь практически незаметным. Он незаменим для систем голосового оповещения о чрезвычайных ситуациях, фоновой музыки или объявлений, обеспечивая превосходную слышимость в каждом уголке помещения.</p>\n\n<p>Выбор потолочного громкоговорителя Honeywell 581263 обусловлен рядом неоспоримых преимуществ. Во-первых, это проверенное качество от бренда Honeywell, известного своими инновационными и надежными решениями. Во-вторых, его мощность в 6 Вт оптимальна для большинства помещений, обеспечивая чистое и разборчивое звучание без искажений. В-третьих, скрытый монтаж в потолок позволяет сохранить эстетику интерьера, что особенно важно для коммерческих и общественных пространств. Простота установки и долговечность делают эту модель экономически выгодным и практичным решением для любой аудиосистемы.</p>",
+    "best_description_ru_word_count": 299,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "phase3a_price": {
+    "price": 104.16,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://www.shop-security.ro/difuzor-cu-palnie-dk-10t-en54-24.html",
+    "confidence": "low",
+    "notes": "Search snippet indicates ESSER 581263 ceiling speaker at 104.16; page slug mismatch in search result.",
+    "search_used": "581263 ESSER"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN 581263 matches Honeywell's format and seed_name clearly identifies this as a Honeywell ceiling speaker (Потолочный громкоговоритель) with 6W power rating. Brand and PN appear correct, but product lacks complete data - missing EAN, specifications, proper description, and datasheet PDF. Requires complete data collection from official sources."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию потолочный громкоговоритель Honeywell 581263 – надежное и эффективное решение для создания систем оповещения и качественного звукового сопровождения. Этот универсальный компонент от всемирно известного бренда Honeywell разработан для обеспечения чистого и разборчивого звука в различных помещениях. Модель 581263 является оптимальным выбором для тех, кто ищет баланс между производительностью, долговечностью и простотой установки, что делает её незаменимой в широком спектре профессиональных аудиоинсталляций.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Бренд:</b> Honeywell – гарантия качества и надежности от ведущего мирового производителя.</li>\n    <li><b>Модель:</b> 581263 – уникальный артикул для легкой идентификации и заказа.</li>\n    <li><b>Тип устройства:</b> Потолочный громкоговоритель – идеален для скрытой установки и равномерного распределения звука.</li>\n    <li><b>Назначение:</b> Системы оповещения и звукового сопровождения – универсальное применение для различных задач.</li>\n    <li><b>Мощность:</b> 6 Вт – оптимальная мощность для четкого и разборчивого воспроизведения звука в помещениях среднего размера.</li>\n    <li><b>Качество звука:</b> Обеспечивает высококачественное воспроизведение, что критически важно для систем оповещения.</li>\n    <li><b>Конструкция:</b> Предназначен для монтажа в потолок, что позволяет сохранить эстетику интерьера.</li>\n    <li><b>Долговечность:</b> Разработан с учетом длительного срока службы и надежной работы.</li>\n</ul>\n\n<p>Потолочный громкоговоритель Honeywell 581263 находит широкое применение в самых разнообразных сферах. Он идеально подходит для установки в офисных зданиях, торговых центрах, образовательных учреждениях, медицинских учреждениях, гостиницах и ресторанах, где требуется четкое и равномерное распределение звука. Благодаря своей конструкции, громкоговоритель легко интегрируется в любой интерьер, оставаясь практически незаметным. Он незаменим для систем голосового оповещения о чрезвычайных ситуациях, фоновой музыки или объявлений, обеспечивая превосходную слышимость в каждом уголке помещения.</p>\n\n<p>Выбор потолочного громкоговорителя Honeywell 581263 обусловлен рядом неоспоримых преимуществ. Во-первых, это проверенное качество от бренда Honeywell, известного своими инновационными и надежными решениями. Во-вторых, его мощность в 6 Вт оптимальна для большинства помещений, обеспечивая чистое и разборчивое звучание без искажений. В-третьих, скрытый монтаж в потолок позволяет сохранить эстетику интерьера, что особенно важно для коммерческих и общественных пространств. Простота установки и долговечность делают эту модель экономически выгодным и практичным решением для любой аудиосистемы.</p>",
+    "description_seo_word_count": 299,
+    "description_seo_model": ""
+  }
 }

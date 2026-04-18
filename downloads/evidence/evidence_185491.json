@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "185491",
-  "pn_variants": [],
+  "pn_variants": [
+    "00185491"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Детектор пламени Honeywell D 20.671.243.022",
   "assembled_title": "Рамка 1-постовая PEHA NOVA, 185491",
   "our_price_raw": "1917,14",
@@ -339,7 +341,14 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.671.243.022",
+    "series": "NOVA",
+    "color_material": "pure white",
+    "identity_notes_p1": "NOVA Elements, 83x83mm",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -390,9 +399,8 @@
     "description": "Детектор пламени Honeywell D 20.671.243.022 предназначен для использования в системах пожарной сигнализации. Обеспечивает надежное обнаружение пламени с высокой скоростью реакции.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Пожарная сигнализация",
-    "product_type": "Детектор",
-    "seed_name": "Детектор пламени Honeywell D 20.671.243.022",
-    "description_long_ru": "€18.12 incl. VAT vs. UVP €21.99. NOVA Elements Glass. 10–21 day delivery."
+    "product_type": "frame 1-gang",
+    "seed_name": "Детектор пламени Honeywell D 20.671.243.022"
   },
   "trace": {
     "pn_match_location": "",
@@ -649,7 +657,7 @@
   },
   "deep_research": {
     "confidence": "low",
-    "merge_ts": "2026-04-10T11:47:36.449610+00:00",
+    "merge_ts": "2026-04-09T12:01:24.793567+00:00",
     "merge_source": "result_185491.json",
     "title_ru": "switch frame",
     "sources": [
@@ -666,8 +674,117 @@
     ],
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "deep-research-report (3).md",
-    "description_ru": "€18.12 incl. VAT vs. UVP €21.99. NOVA Elements Glass. 10–21 day delivery."
+    "source_file": "deep-research-report (3).md"
   },
-  "product_category": "switch frame"
+  "training_urls": [
+    "https://www.alles-mit-stecker.de/Installationsmaterial/Schalterprogramme/Abdeckrahmen/Peha-Rahmen-1-fach-Glaseffekt-jade-rws-D-20-671-243-022::329090.html",
+    "https://www.elektronetshop.de/peha-rahmen-00189691-typ-d-20-673-243-022/",
+    "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-bila-185491-10-ks-1641452.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 6006.0,
+    "dr_currency": "CZK",
+    "dr_source_url": "https://www.puhy.cz/peha-by-honeywell-ramecek-ram-bila-185491-10-ks-1641452.html",
+    "our_price_raw": "1917,14",
+    "our_price_parsed": 1917.14,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 6006.0,
+    "best_price_currency": "CZK",
+    "best_price_source": "price_contract",
+    "best_description": "Детектор пламени Honeywell D 20.671.243.022 предназначен для использования в системах пожарной сигнализации. Обеспечивает надежное обнаружение пламени с высокой скоростью реакции.",
+    "best_description_source": "content",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "Control Stick Grip P/N": "BE-45-10283",
+      "Pratt & Whitney Engine Connecting Parts P/N 1": "221-0262-501",
+      "Pratt & Whitney Engine Connecting Parts P/N 2": "221-0262-503",
+      "Pratt & Whitney Engine Connecting Parts S/N Range 1": "WPC 0001 bis 1063",
+      "Pratt & Whitney Engine Connecting Parts S/N Range 2": "MO 164 bis M1255",
+      "TESCOM Reducing Valve P/N": "44-2261-241-143",
+      "Autopilot FCC Computer Model 1": "B470ABM2",
+      "Autopilot FCC Computer Model 2": "B470AAM2",
+      "Piper Nose Landing Gear Modification Kit No. 1": "764-377",
+      "Piper Nose Landing Gear Modification Kit No. 2": "764-378",
+      "Alpla-Werke Motor Model": "Limbach SL 1700 E",
+      "Alpla-Werke Variable Pitch Propeller Model": "Hoffmann HO V 62 R",
+      "Beech Component P/N (AN7-35)": "400 274",
+      "Beech Component P/N (AN960-716L)": "407 591",
+      "Beech Component P/N (AN960-716)": "407 568",
+      "Beech Component P/N (AN320-7)": "404 396",
+      "Beech Component P/N": "424 085",
+      "Horizontal Stabilizer Max. Damage Area": "400 cm²"
+    },
+    "specs_count": 18,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "CAA-AD 010-05-90",
+      "FAA-AD 94-14-14, Amdt. 39-8962",
+      "FAA-AD 93-17-13, Amdt. 39-8684",
+      "FAA-AD 93-24-14, Adt. 39-8762",
+      "FAA-AD 94-20-05, Amdt. 39"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\185491.pdf",
+    "datasheet_size_kb": 61759,
+    "product_photos": [
+      "downloads\\datasheet_photos\\185491_p1_0.png",
+      "downloads\\datasheet_photos\\185491_p2_0.png",
+      "downloads\\datasheet_photos\\185491_p3_0.png"
+    ],
+    "photo_count": 3,
+    "ean": "4010105185492",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 61759KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105185492",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }

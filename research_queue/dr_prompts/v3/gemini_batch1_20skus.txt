@@ -1,0 +1,50 @@
+Research 20 industrial part numbers. Fill the table below with real data from the internet.
+
+| # | PN | Product Hint |
+|---|-----|-------------|
+| 1 | PCD2.A200 | Saia-Burgess PLC module |
+| 2 | PCD3.M3360 | Saia-Burgess PLC module |
+| 3 | LEONARDO-OT | fire detector |
+| 4 | PROFI-O | fire detector |
+| 5 | 580249.11 | Esser PA amplifier |
+| 6 | 808610.10 | Esser transponder |
+| 7 | 581263 | PA speaker/horn |
+| 8 | 581276 | PA speaker/horn |
+| 9 | L-VOM40A/EN | PA speaker/horn |
+| 10 | CSR | detector base |
+| 11 | CWR | detector base |
+| 12 | BS-420G2 | fire detector |
+| 13 | VR420VA1004-0000 | valve |
+| 14 | VSOF-320-4.0 | valve |
+| 15 | HVAC31C5 | HVAC inverter |
+| 16 | S10010-SW2 | actuator |
+| 17 | C7355A1050 | multisensor |
+| 18 | FT6960-60 | thermostat |
+| 19 | V5328A1047 | valve |
+| 20 | V5832A1046 | valve |
+
+## Search instructions
+
+- **Esser by Honeywell** -- Fire detection (detectors, transponders, PA speakers). Codes 80xxxx, 58xxxx. Search: brandmelde-shop.de, tinko.ru, fireshield.co.uk
+- **Honeywell Building Tech** -- HVAC valves (V5xxx), actuators (ML6xxx, N05xxx), thermostats (T7xxx). Search: carrier.com, radwell.com, indiamart.com, prolinkpro.ru
+- **Trend / Saia-Burgess** -- BMS controllers (FX808xxx), PLCs (PCD2/3/7). Search: trendcontrols.com, saia-burgess.com, distrelec.com
+
+- Google each PN in quotes: `"PN"`
+- Then try: `"PN" datasheet`, `"PN" price`
+- If nothing found: try without suffix (.10, -RU) or add brand prefix
+- Check eBay (ebay.de, ebay.com) for photos and pricing
+- Check Russian sources: vseinstrumenti.ru, lemanapro.ru, etm.ru, tinko.ru
+
+## Output: ONE table with ALL 20 rows
+
+| Part Number | Brand | Product Name (Russian) | Description (Russian, 3-5 sentences) | Category | Price | Currency | Price Source URL | Photo URL | Datasheet PDF URL | Key Specs (param: value; param: value) | Certifications | EAN/GTIN |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+
+Rules:
+- Every PN MUST have a row, even if price = "Not found"
+- NEVER invent prices. "Not found" is better than a guess
+- Description: 3-5 sentences in Russian about what this product is, how it works, where it's used
+- Product Name must be in Russian
+- Any currency accepted (EUR, USD, RUB, GBP, CHF)
+- Surplus/eBay photos are acceptable
+- Key Specs SHOULD include: dimensions (mm), weight (kg), IP rating where available

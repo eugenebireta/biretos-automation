@@ -6,8 +6,8 @@
     "PCD3-M3360",
     "PCD3M3360"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Saia-Burgess Controls",
+  "subbrand": null,
   "name": "Процессорный блок PCD3.M3360",
   "assembled_title": "Процессорный блок Honeywell PCD3.M3360",
   "our_price_raw": "140268,00",
@@ -151,7 +151,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Процессорный блок Saia PCD3.M3360 чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -169,10 +169,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://shop.contact-evolution.ch/fr/accueil/1322-pcd3m3360.html"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "public_price",
@@ -280,7 +277,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": true,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "PCD3",
+    "confirmed_manufacturer": "SAIA/Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "SAIA PCD3 CPU controller with Ethernet; distributed by Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -292,7 +294,7 @@
     "description": "Процессорный блок PCD3.M3360 предназначен для использования в системах автоматизации. Он обеспечивает высокую производительность и гибкость в управлении различными процессами.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Процессорный блок",
+    "product_type": "Processor module",
     "seed_name": "Процессорный блок PCD3.M3360",
     "description_long_ru": "Quote-only at all4sps.com and marvo.com"
   },
@@ -501,5 +503,108 @@
     "source_file": "compass_artifact_wf-1fd77abf-2e46-41da-91ef-ce3f71bea8f3_text_markdown.md"
   },
   "dr_category": "PLC CPU module",
-  "product_category": "PLC CPU module"
+  "training_urls": [
+    "https://sbc-support.com/uploads/tx_srcproducts/31-661_ENG_DS_PCD3M3360.pdf",
+    "https://www.all4sps.com/SAIA-PCD3-PROCESSOR-UNIT-PCD3M3360_1",
+    "https://www.indiamart.com/proddetail/pcd3-m3360-saia-burgess-plc-20366329088.html",
+    "https://www.marvo.com/en-us/saia/product/pcd3m3360",
+    "https://www.telltechusa.com/product-p/pcd3.m3360.htm"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "140268,00",
+    "our_price_parsed": 140268.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2589.4,
+    "best_price_currency": "EUR",
+    "best_price_source": "pipeline1",
+    "best_description": "Процессорный блок PCD3.M3360 предназначен для использования в системах автоматизации. Он обеспечивает высокую производительность и гибкость в управлении различными процессами.",
+    "best_description_source": "content",
+    "best_photo_url": "https://shop.contact-evolution.ch/fr/accueil/1322-pcd3m3360.html",
+    "best_photo_source": "photo_verdict"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=SAIA/Honeywell",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "PCD3.M3360 CPU basic power module with Ethernet TCP/IP, 1023 I/Os, 512 kByte of program memory",
+    "description": "",
+    "specs": {
+      "model": "PCD3.M3360",
+      "description": "CPU basic power module with Ethernet TCP/IP, 1023 I/Os, 512 kByte program memory",
+      "number_of_inputs_outputs": "1023",
+      "io_module_slots": "64",
+      "io_expansion_connection": "Yes",
+      "bit_operation_processing_time_us": "0.1…0.8 µs",
+      "word_operation_processing_time_us": "0.3 µs",
+      "real_time_clock_rtc": "Yes",
+      "program_memory_flash_kbyte": "512",
+      "working_memory_ram_kbyte": "128",
+      "flash_memory_s_rio_configuration_backup_mbyte": "128",
+      "user_flash_file_system_intflash_mbyte": "128",
+      "data_backup_duration": "4 hours with SuperCap",
+      "usb_interface": "USB 1.1",
+      "ethernet_interface": "10/100 Mbits, full-duplex, auto-sensing/auto-crossing",
+      "rs485_port2_speed_kbits": "up to 115.2",
+      "profibus_dp_slave_profi_s_net_speed_kbits": "up to 187.5",
+      "supply_voltage_vdc": "24 VDC, –20/+25% max. incl. 5% ripple",
+      "supply_voltage_vac": "19 VAC ±15% two-way rectified (18 VDC)",
+      "power_consumption_w": "typically 15 W for 64 I/Os",
+      "capacity_5v_internal_ma": "600",
+      "capacity_24v_internal_ma": "100",
+      "terminal_block_pin_count": "8",
+      "terminal_block_wire_gauge_max_mm2": "2.5",
+      "rs485_terminator_switch_options": "without termination resistors or with termination resistors",
+      "standard_compliance": "EN/IEC 61131-2"
+    },
+    "specs_count": 26,
+    "series": "PCD3.M3",
+    "category": "",
+    "weight_g": "640",
+    "dimensions_mm": "130x125.8x63.8",
+    "certifications": [
+      "EAC Mark of Conformity for Machinery Exports to Russia, Kazakhstan or Belarus"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PCD3.M3360.pdf",
+    "datasheet_size_kb": 375,
+    "product_photos": [
+      "downloads\\datasheet_photos\\PCD3.M3360_p1_0.jpeg",
+      "downloads\\datasheet_photos\\PCD3.M3360_p2_0.jpeg"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/PCD3.M3360_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "PCD3.M prefix is distinctive to Saia-Burgess Controls (SBC) PLC product line. The datasheet title explicitly confirms this is a PCD3 series CPU module with Ethernet, which is a well-known SBC automation controller family. Honeywell does not manufacture products with this PN format. The PN is correct, only brand assignment needs correction.",
+      "brand_correction_confidence": "high"
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "Saia-Burgess Controls",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Saia-Burgess Controls"
+  }
 }

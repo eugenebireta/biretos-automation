@@ -14,23 +14,20 @@ from __future__ import annotations
 
 import asyncio
 import json
-import tempfile
 from pathlib import Path
 
 import pytest
 
 from ..hard_shell.contracts import (
     ApprovalRoute,
-    AuditIssue,
-    IssueSeverity,
+    AuditVerdict,
+    AuditVerdictValue,
     ModelName,
-    ProtocolRun,
     RiskLevel,
     TaskPack,
 )
 from ..providers.mock_auditor import (
     make_approve_auditor,
-    make_concerns_auditor,
     make_reject_auditor,
 )
 from ..providers.mock_builder import MockBuilder
@@ -159,54 +156,41 @@ def test_quality_gate_critical_reject(tmp_path):
 # Тест 5: Escalation — Sonnet fails → Opus escalation
 # ---------------------------------------------------------------------------
 
-def test_escalation_sonnet_to_opus(tmp_path):
-    """Sonnet + reject → escalation to Opus → если Opus approve → route решается."""
+def test_debate_and_arbiter_resolves_disagreement(tmp_path):
+    """Disagreement in R1 → debate R2 → still disagree → arbiter R3 resolves."""
     task = TaskPack(
-        title="SEMI task needing escalation",
+        title="SEMI task needing debate",
         roadmap_stage="R1",
-        why_now="Test escalation",
+        why_now="Test debate + arbiter",
         risk=RiskLevel.SEMI,
     )
 
-    # Первый аудитор всегда reject (для Sonnet раунда)
-    # Второй approve — но reject с critical всё равно проваливает gate
-    # После escalation оба approve
-    call_count = {"n": 0}
+    class MockArbiter:
+        auditor_id = "mock_arbiter"
 
-    class ToggleAuditor:
-        auditor_id = "toggle"
-
-        async def critique(self, proposal, task, context):
-            from ..hard_shell.contracts import AuditVerdict, AuditVerdictValue
-            call_count["n"] += 1
-            # Первые 4 вызова (critique+final, Sonnet) → reject; следующие (Opus) → approve
-            if call_count["n"] <= 4:
-                return AuditVerdict(
-                    auditor_id=self.auditor_id,
-                    verdict=AuditVerdictValue.REJECT,
-                    summary="reject round 1",
-                    issues=[AuditIssue(severity=IssueSeverity.CRITICAL, area="test", description="critical")],
-                )
+        async def arbitrate(self, task, context, arbiter_pack):
             return AuditVerdict(
                 auditor_id=self.auditor_id,
                 verdict=AuditVerdictValue.APPROVE,
-                summary="approve round 2",
+                summary="Arbiter resolves: approve",
                 issues=[],
             )
 
-        async def final_audit(self, revised, task, context):
-            return await self.critique(revised, task, context)
-
     runner = ReviewRunner(
         builder=MockBuilder(),
-        auditors=[ToggleAuditor(), ToggleAuditor()],
+        auditors=[
+            make_reject_auditor("mock_openai", critical=True),
+            make_approve_auditor("mock_anthropic"),
+        ],
         runs_dir=tmp_path / "runs",
         experience_dir=tmp_path,
+        arbiter=MockArbiter(),
     )
     run = run_sync(runner.execute(task))
 
-    assert run.escalated
-    assert run.model_used == ModelName.OPUS
+    assert run.debate_triggered
+    assert run.arbiter_used
+    assert run.final_verdicts[0].auditor_id == "mock_arbiter"
 
 
 # ---------------------------------------------------------------------------

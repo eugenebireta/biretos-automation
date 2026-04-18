@@ -6,8 +6,8 @@
     "F750E.S0",
     "F750ES0"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Dell",
+  "subbrand": null,
   "name": "Блок питания Honeywell F750E-S0",
   "assembled_title": "Блок питания Honeywell F750E-S0",
   "our_price_raw": "12432,50",
@@ -181,7 +181,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqMoXmGjKU5xoDUEhWND'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -199,10 +199,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://bouz.ru/catalog/blok_pitaniya/blok_pitaniya_dell_750w_s_0750adu00_101_f7"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -314,7 +311,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Power supplies",
+    "identity_notes_p1": "Power supply unit",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Dell",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -341,9 +343,8 @@
     "description": "Блок питания Honeywell F750E-S0 предназначен для обеспечения стабильного питания оборудования. Он используется в различных промышленных и коммерческих приложениях для надежной работы систем.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Блок питания",
-    "seed_name": "Блок питания Honeywell F750E-S0",
-    "description_long_ru": "NOT Honeywell — Dell PowerEdge server PSU. Refurbished Grade A. eBay used from $18.95"
+    "product_type": "Power supply",
+    "seed_name": "Блок питания Honeywell F750E-S0"
   },
   "trace": {
     "pn_match_location": "",
@@ -606,7 +607,25 @@
     "specs": {
       "aliases": [
         "E750E-S0 / 0W0CTF и др."
-      ]
+      ],
+      "Model": "F750E-S0",
+      "Manufacturer": "Flextronics",
+      "Max output power": "750W",
+      "Efficiency": "80 Plus Platinum",
+      "Input voltage": "100-240V AC, 50/60Hz",
+      "Input current": "10A-5.0A",
+      "Output": "+12V / 62.5A; +12Vsb / 3.0A",
+      "Form factor": "Hot-swappable server PSU",
+      "Dimensions": "86mm x 38mm x 196mm (approx.)",
+      "Weight": "~0.9 kg (2.0 lbs)",
+      "Dell PNs": "6W2PW, D5MW8, 5NF18",
+      "Compatible systems": "PowerEdge R520, R620, R720, R720XD, R820, T320, T420, T620; PowerVault NX3200, NX3300, DL4000, DR4100, DX6112; Compellent SC8000",
+      "Brand": "Dell",
+      "Product type": "Server power supply module",
+      "Output power": "750 W",
+      "Redundant": "Yes",
+      "Hot-swap": "Typical for supported servers",
+      "Use case": "Server maintenance / replacement"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -625,12 +644,178 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.398324+00:00",
+    "merge_ts": "2026-04-09T12:01:24.911757+00:00",
     "merge_source": "result_F750E-S0.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "NOT Honeywell — Dell PowerEdge server PSU. Refurbished Grade A. eBay used from $18.95"
+    "descriptions_all": {
+      "claude": "Блок питания Dell F750E-S0 — это серверный источник питания мощностью 750 Вт с сертификацией энергоэффективности 80 Plus Platinum. Блок питания выполнен в формате hot-swap (горячая замена), что позволяет заменять его без остановки сервера, обеспечивая непрерывность работы критически важных систем. Произведён компанией Flextronics. Входное напряжение составляет 100–240 В переменного тока (50/60 Гц), ток потребления — от 5.0 до 10 А. Выходные параметры: +12 В / 62.5 А и +12Vsb / 3.0 А. Блок питания совместим с широким спектром серверов Dell PowerEdge, включая R520, R620, R720, R720XD, R820, T320, T420, T620, а также с системами хранения PowerVault NX3200, NX3300, DL4000, DR4100, DX6112 и Compellent SC8000. Габаритные размеры составляют примерно 86 × 38 × 196 мм при весе около 0.9 кг. Конструкция оснащена встроенным активным вентилятором охлаждения. Резервная конфигурация с двумя блоками питания обеспечивает отказоустойчивость серверной системы.",
+      "gpt": "Dell F750E-S0 — это серверный блок питания мощностью 750 W для ряда платформ Dell PowerEdge. По найденным специализированным поставщикам запчастей этот артикул используется как redundant power supply для PowerEdge R520, R620, R720, R720xd, R820 и T420. Это не настольный ATX-блок, а модуль питания для стоечных и башенных серверов с поддержкой резервирования. Главное назначение такой позиции — замена штатного PSU при выходе из строя, а также поддержание склада сервисных частей для серверной инфраструктуры. В серверных системах блоки питания такого типа обычно устанавливаются парами, чтобы обеспечить отказоустойчивость и возможность горячей замены. Для карточки товара критично указать совместимые шасси, так как механика, разъемы и airflow у серверных PSU жестко завязаны на конкретное семейство серверов. Также желательно отмечать, идет ли речь о новом, восстановленном или pull-изделии, потому что на вторичном рынке этот артикул встречается именно в сервисном канале. Если заказчик закупает PSU под продление срока службы сервера, следует дополнительно сверять ревизию, мощность и поколение корзины питания. С точки зрения B2B-описания товар корректно относить к серверным hot-swap power supply modules. Для публикации на сайте имеет смысл сразу указать, что позиция подходит для enterprise server maintenance и не совместима с обычными ПК.",
+      "synthesis": "Dell F750E-S0 — серверный источник питания мощностью 750 Вт с сертификацией энергоэффективности 80 Plus Platinum, предназначенный для серверов Dell PowerEdge серий R520, R620, R720, R720xd, R820, T320, T420, T620, а также систем хранения PowerVault NX3200, NX3300, DL4000, DR4100, DX6112 и Compellent SC8000. Блок питания выполнен в формате hot-swap (горячая замена), что позволяет заменять его без остановки сервера, обеспечивая непрерывность работы критически важных систем. Входное напряжение составляет 100–240 В переменного тока (50/60 Гц), ток потребления — от 5.0 до 10 А. Выходные параметры: +12 В / 62.5 А и +12Vsb / 3.0 А. Габаритные размеры составляют примерно 86 × 38 × 196 мм при весе около 0.9 кг. Конструкция оснащена встроенным активным вентилятором охлаждения. В серверных системах блоки питания обычно устанавливаются парами для обеспечения отказоустойчивости. Произведён компанией Flextronics. Главное назначение — замена штатного PSU при выходе из строя, а также поддержание склада сервисных частей для серверной инфраструктуры. При подборе PSU для продления срока службы сервера следует дополнительно сверять ревизию, мощность и поколение корзины питания."
+    },
+    "specs_all": {
+      "claude": {
+        "Model": "F750E-S0",
+        "Manufacturer": "Flextronics",
+        "Max output power": "750W",
+        "Efficiency": "80 Plus Platinum",
+        "Input voltage": "100-240V AC, 50/60Hz",
+        "Input current": "10A-5.0A",
+        "Output": "+12V / 62.5A; +12Vsb / 3.0A",
+        "Form factor": "Hot-swappable server PSU",
+        "Dimensions": "86mm x 38mm x 196mm (approx.)",
+        "Weight": "~0.9 kg (2.0 lbs)",
+        "Dell PNs": "6W2PW, D5MW8, 5NF18",
+        "Compatible systems": "PowerEdge R520, R620, R720, R720XD, R820, T320, T420, T620; PowerVault NX3200, NX3300, DL4000, DR4100, DX6112; Compellent SC8000"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product type": "Server power supply module",
+        "Output power": "750 W",
+        "Redundant": "Yes",
+        "Hot-swap": "Typical for supported servers",
+        "Compatible systems": "PowerEdge R520/R620/R720/R720xd/R820/T420",
+        "Use case": "Server maintenance / replacement"
+      }
+    },
+    "notes_all": {
+      "claude": "Listed as Honeywell in Excel — this is a Dell server power supply.",
+      "gpt": "Compatibility sourced from enterprise spare-parts distributor; no current official Dell storefront page found for this legacy spare."
+    }
   },
-  "product_category": "Server PSU Dell 750W"
+  "training_urls": [
+    "https://www.amazon.com/750W-Power-Supply-Unit-F750E-S0/dp/B0BJNMKYRL",
+    "https://www.burnerparts.nl/",
+    "https://www.cpumedics.com/dell-f750e-s0-750w-power-supply-80-plus-platinum-for-poweredge-r520-r620-r720-r820-t320-t420-t620-powervault-nx3200-nx3300/",
+    "https://www.ebay.com/itm/336015468620",
+    "https://www.impactcomputers.com/products/dell-f750e-s0",
+    "https://www.newegg.com/p/1A0-002Y-01C43",
+    "https://www.newegg.com/dell-poweredge-r620-r720-r720xd-f750e-s0-750w/p/1HU-005J-00EZ1",
+    "https://pcserverandparts.com/dell-dell-f750e-s0-poweredge-r620-r720-750w-80-plus-platinum-power-supply-used-6w2pw/",
+    "https://www.serversupply.com/POWER%20SUPPLY/SERVER%20POWER%20SUPPLY/750WATT%20REDUNDANT/DELL/F750E-S0-DELL_239041.htm?srsltid=AfmBOoojLpe_VXS194TkZBXk2gCOhzy8MnreYetHHYPjqqu3M1_Z7c0S"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 25.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://www.intexys.fr/dell-750w-80-plus-platinum-f750e-s0.html",
+    "our_price_raw": "12432,50",
+    "our_price_parsed": 12432.5,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 25.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Блок питания Honeywell F750E-S0 предназначен для обеспечения стабильного питания оборудования. Он используется в различных промышленных и коммерческих приложениях для надежной работы систем.",
+    "best_description_source": "content",
+    "best_photo_url": "https://bouz.ru/catalog/blok_pitaniya/blok_pitaniya_dell_750w_s_0750adu00_101_f7",
+    "best_photo_source": "photo_verdict"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "80 PLUS Verification and Testing Report - Dell F750E-S0 750W Power Supply",
+    "description": "This is an 80 PLUS Verification and Testing Report for the Dell F750E-S0 750W power supply, confirming its compliance with 80 PLUS standards. The report details input/output specifications, efficiency measurements at various load levels, power factor, and total harmonic distortion.",
+    "specs": {
+      "Ecos_ID": "SO-296",
+      "Serial_Number": "S-0750ADU00-101",
+      "Year_of_Manufacture": "2011",
+      "Form_Factor": "1U",
+      "Test_Date": "2011-07-15",
+      "Input_Voltage_Range": "100-240 Volts",
+      "Input_Current_Range": "10.0-5.0 Amps",
+      "Input_Frequency": "50/60 Hz",
+      "Rated_Output_Power": "750 Watts",
+      "Typical_Efficiency_50_Load": "94.24%",
+      "Average_Efficiency": "93.37%",
+      "Performance_at_10_Load": {
+        "Input_Current_RMS": "0.52 A",
+        "Power_Factor": "0.71",
+        "ITHD": "10.72 %",
+        "Output_Watts": "75 W",
+        "DC_Terminal_Voltage_12V": "12 V",
+        "DC_Terminal_Voltage_12Vsb": "12.25 V",
+        "DC_Load_Current_12V": "5.97 A",
+        "DC_Load_Current_12Vsb": "0.29 A",
+        "Efficiency": "88.18 %",
+        "External_Fan_Power": "0.36 W"
+      },
+      "Performance_at_20_Load": {
+        "Input_Current_RMS": "0.83 A",
+        "Power_Factor": "0.86",
+        "ITHD": "12.48 %",
+        "Output_Watts": "150 W",
+        "DC_Terminal_Voltage_12V": "12 V",
+        "DC_Terminal_Voltage_12Vsb": "12.25 V",
+        "DC_Load_Current_12V": "11.93 A",
+        "DC_Load_Current_12Vsb": "0.57 A",
+        "Efficiency": "92.18 %",
+        "External_Fan_Power": "0.36 W"
+      },
+      "Performance_at_50_Load": {
+        "Input_Current_RMS": "1.81 A",
+        "Power_Factor": "0.96",
+        "ITHD": "7.88 %",
+        "Output_Watts": "375 W",
+        "DC_Terminal_Voltage_12V": "11.99 V",
+        "DC_Terminal_Voltage_12Vsb": "12.22 V",
+        "DC_Load_Current_12V": "29.81 A",
+        "DC_Load_Current_12Vsb": "1.43 A",
+        "Efficiency": "94.24 %",
+        "External_Fan_Power": "0.36 W"
+      },
+      "Performance_at_100_Load": {
+        "Input_Current_RMS": "3.50 A",
+        "Power_Factor": "0.99",
+        "ITHD": "3.73 %",
+        "Output_Watts": "750 W",
+        "DC_Terminal_Voltage_12V": "11.99 V",
+        "DC_Terminal_Voltage_12Vsb": "12.16 V",
+        "DC_Load_Current_12V": "59.63 A",
+        "DC_Load_Current_12Vsb": "2.86 A",
+        "Efficiency": "93.69 %",
+        "External_Fan_Power": "0.48 W"
+      }
+    },
+    "specs_count": 15,
+    "series": "F750E",
+    "category": "Power Supply Unit (PSU)",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "80 PLUS"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\F750E-S0.pdf",
+    "datasheet_size_kb": 124,
+    "product_photos": [
+      "downloads\\datasheet_photos\\F750E-S0_p1_1.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/F750E-S0_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Title explicitly states 'Dell F750E-S0 750W Power Supply' from 80 PLUS certification report. Dell manufactures server/workstation PSUs with this naming pattern. Honeywell in seed_name is clearly wrong - they don't make PC power supplies. Current datasheet is just a certification document, not a product datasheet. Brand should remain Dell, but proper product datasheet needed."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

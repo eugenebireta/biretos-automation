@@ -4,7 +4,7 @@
   "pn": "N10010",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод заслонки Honeywell N10010",
   "assembled_title": "Привод Honeywell N10010",
   "our_price_raw": "59961,14",
@@ -164,7 +164,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Привод заслонки Honeywell N10010 чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -182,10 +182,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://ankas.ru/servoprivody-i-zaslonki/honeywell-n10010-sw2-26021"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -310,7 +307,8 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -574,5 +572,144 @@
   "dr_price": 255.16,
   "dr_currency": "USD",
   "dr_price_source": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
-  "product_category": "actuator"
+  "training_urls": [
+    "https://buildings.honeywell.com/.../n10-series-10nm-non-fail-safe-damper-actuator",
+    "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+    "https://us.wiautomation.com/honeywell/.../n10010sw2",
+    "https://www.resideo.com/DocumentLibrary/Products/0158/Literature/RES013411.pdf",
+    "https://www.spartansystems.co.uk/products/honeywell-sauter-smartact-push-button-motor-n10010"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 255.16,
+    "dr_currency": "USD",
+    "dr_source_url": "https://cappusa.com/p/267786-honeywell-mn7505a2001/v/267786",
+    "our_price_raw": "59961,14",
+    "our_price_parsed": 59961.14,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 255.16,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Привод заслонки Honeywell N10010 с крутящим моментом 10 Нм предназначен для управления воздушными заслонками в системах вентиляции. Работает от напряжения 24 В и поддерживает управление сигналом 0-10 В, обеспечивая точное регулирование потока воздуха.",
+    "best_description_source": "content",
+    "best_photo_url": "https://ankas.ru/servoprivody-i-zaslonki/honeywell-n10010-sw2-26021",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Привод заслонки Honeywell N10010 с крутящим моментом 10 Нм предназначен для управления воздушными заслонками в системах вентиляции. Работает от напряжения 24 В и поддерживает управление сигналом 0-10 В, обеспечивая точное регулирование потока воздуха.",
+    "best_description_ru": "<p>Привод заслонки Honeywell N10010 — это надежное устройство для управления воздушными заслонками в системах вентиляции и кондиционирования воздуха. Производитель Honeywell, известный своим качеством и инновационными решениями в области климатического оборудования, предлагает этот компактный и эффективный привод для профессионального использования. Устройство предназначено для точного регулирования потока воздуха в различных климатических системах, обеспечивая оптимальное распределение воздушных масс в помещениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Крутящий момент: 10 Нм для надежного управления заслонками</li>\n<li>Напряжение питания: 24 В переменного или постоянного тока</li>\n<li>Управление сигналом: 0-10 В для плавной регулировки</li>\n<li>Ручное управление через рукоятку или редуктор</li>\n<li>Дисковая конструкция поворотного затвора</li>\n<li>Компактный дизайн для интеграции в различные системы</li>\n<li>Высокая точность позиционирования</li>\n<li>Долговечность и надежность в эксплуатации</li>\n</ul>\n\n<p><b>Применение:</b> Привод Honeywell N10010 широко используется в системах вентиляции жилых и коммерческих зданий, центральных кондиционерах, промышленных климатических установках и системах управления воздухообменом. Устройство идеально подходит для автоматизации управления воздушными потоками, позволяя поддерживать необходимую температуру и влажность в помещениях. Применяется как в новых проектах, так и при модернизации существующих систем вентиляции.</p>\n\n<p><b>Преимущества:</b> Выбор привода Honeywell N10010 гарантирует высокое качество управления климатическими системами. Устройство отличается надежностью, точностью регулировки и простотой монтажа. Благодаря поддержке управления сигналом 0-10 В, привод легко интегрируется в автоматические системы управления. Продукция Honeywell известна своей долговечностью и минимальными требованиями к обслуживанию, что делает её экономически выгодным решением для любых вентиляционных систем.</p>",
+    "best_description_ru_word_count": 211,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Дисковые поворотные затворы, с ручным управлением через рукоятку или редуктор",
+    "description": "",
+    "specs": {
+      "product_type": "Manually operated butterfly valves",
+      "application_area": "HVAC systems (hot and cold water)",
+      "mounting_type": "Wafer (inter-flange)",
+      "operation_type": "Manual (handle or gearbox)",
+      "opening_closing_angle": "90°",
+      "number_of_operation_positions": "9",
+      "nominal_size_DN_range": "50-900",
+      "nominal_pressure_PN": "16",
+      "medium_temperature_range_C": "-10 to +110",
+      "leakage": "No visible leakage",
+      "medium_type": "Hot and cold water",
+      "flange_installation_recommendation": "Between collar flanges (GOST 12821-80)",
+      "housing_material_DN50_150": "GG25 (cast iron)",
+      "housing_material_DN200_900": "GGG40 (ductile cast iron)",
+      "stem_material": "SS416",
+      "disc_material": "Nickel-plated cast iron GGG40",
+      "seat_seal_material": "EPDM",
+      "gearbox_material": "Cast iron",
+      "handle_material": "Cast iron",
+      "stopper_material": "Nylon",
+      "gasket_material": "EPDM",
+      "bushing_material": "PTFE",
+      "o-ring_material": "EPDM",
+      "split_washer_material": "ASTM 1020 (for models up to DN350)",
+      "washer_material": "SS304 (for models up to DN350)",
+      "spring_ring_material": "SS304 (for models up to DN350)",
+      "pin_material_DN400_600": "SS304",
+      "pin_material_DN700_900": "SS416",
+      "Kvs_max_range": "109 to 81923",
+      "operator_weight_kg_range_handle_operated": "0.7 to 3.2",
+      "operator_weight_kg_range_gearbox_operated": "5.2 to 124",
+      "total_weight_kg_range_handle_operated": "3.2 to 30",
+      "total_weight_kg_range_gearbox_operated": "7.7 to 830.8",
+      "valve_body_width_A_mm_range": "130.5 (DN50) to 720 (DN900)",
+      "valve_body_thickness_C_mm_range": "43 (DN50) to 203 (DN900)",
+      "handle_operator_height_H_mm_range": "42 (DN50-DN150) to 80 (DN250-DN300)",
+      "handle_operator_length_L_mm_range": "190 (DN50-DN150) to 505 (DN250-DN300)",
+      "valve_body_K_mm_range": "118 (DN50) to 591 (DN500)",
+      "gearbox_operator_height_H_mm_range": "54 (DN50-DN150) to 81 (DN300-DN350)",
+      "gearbox_operator_dimension_F_mm_range": "147 (DN50-DN150) to 250 (DN250)",
+      "gearbox_operator_dimension_J_mm_range": "45 (DN50-DN150) to 80 (DN300-DN350)",
+      "gearbox_operator_dimension_G_mm_range": "68 (DN50-DN150) to 86 (DN250)",
+      "gearbox_operator_diameter_N_mm_range": "150 (DN50-DN150) to 300 (DN200)",
+      "gearbox_operator_dimension_E_mm_range": "81 (DN350) to 102 (DN250-DN300)",
+      "gearbox_operator_ØD_mm_range": "389.6 (DN400) to 865 (DN900)",
+      "gearbox_operator_ØD1_mm_range": "840 (DN700) to 1050 (DN900)",
+      "gearbox_operator_N_M_lug_range": "24-M33 (DN700-DN800) to 28-M36 (DN900)",
+      "gearbox_operator_A1_mm_range": "165 (DN700-DN800) to 215 (DN900)",
+      "gearbox_operator_A2_mm_range": "162 (DN700-DN800) to 196 (DN900)",
+      "gearbox_operator_A3_mm_range": "189 (DN700-DN800) to 220 (DN900)",
+      "gearbox_operator_A4_mm_range": "244 (DN700-DN800) to 270 (DN900)",
+      "gearbox_operator_A5_mm_range": "183 (DN700-DN800) to 215 (DN900)",
+      "gearbox_operator_A6_mm_range": "157 (DN700-DN800) to 235 (DN900)",
+      "gearbox_operator_ØF_mm_range": "400 (DN700-DN800) to 450 (DN900)"
+    },
+    "specs_count": 54,
+    "series": "BF-HWC4, BF-MWC5 SERIES",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\N10010.pdf",
+    "datasheet_size_kb": 6283,
+    "product_photos": [
+      "downloads\\datasheet_photos\\N10010_p1_0.jpeg",
+      "downloads\\datasheet_photos\\N10010_p1_3.jpeg",
+      "downloads\\datasheet_photos\\N10010_p1_4.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/N10010_p1_0.jpeg",
+      "downloads/datasheet_photos/N10010_p1_3.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "description_seo_ru": "<p>Привод заслонки Honeywell N10010 — это надежное устройство для управления воздушными заслонками в системах вентиляции и кондиционирования воздуха. Производитель Honeywell, известный своим качеством и инновационными решениями в области климатического оборудования, предлагает этот компактный и эффективный привод для профессионального использования. Устройство предназначено для точного регулирования потока воздуха в различных климатических системах, обеспечивая оптимальное распределение воздушных масс в помещениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Крутящий момент: 10 Нм для надежного управления заслонками</li>\n<li>Напряжение питания: 24 В переменного или постоянного тока</li>\n<li>Управление сигналом: 0-10 В для плавной регулировки</li>\n<li>Ручное управление через рукоятку или редуктор</li>\n<li>Дисковая конструкция поворотного затвора</li>\n<li>Компактный дизайн для интеграции в различные системы</li>\n<li>Высокая точность позиционирования</li>\n<li>Долговечность и надежность в эксплуатации</li>\n</ul>\n\n<p><b>Применение:</b> Привод Honeywell N10010 широко используется в системах вентиляции жилых и коммерческих зданий, центральных кондиционерах, промышленных климатических установках и системах управления воздухообменом. Устройство идеально подходит для автоматизации управления воздушными потоками, позволяя поддерживать необходимую температуру и влажность в помещениях. Применяется как в новых проектах, так и при модернизации существующих систем вентиляции.</p>\n\n<p><b>Преимущества:</b> Выбор привода Honeywell N10010 гарантирует высокое качество управления климатическими системами. Устройство отличается надежностью, точностью регулировки и простотой монтажа. Благодаря поддержке управления сигналом 0-10 В, привод легко интегрируется в автоматические системы управления. Продукция Honeywell известна своей долговечностью и минимальными требованиями к обслуживанию, что делает её экономически выгодным решением для любых вентиляционных систем.</p>",
+    "description_seo_word_count": 211,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6283KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Дисковые поворотные затворы, с ручным управлением через руко' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

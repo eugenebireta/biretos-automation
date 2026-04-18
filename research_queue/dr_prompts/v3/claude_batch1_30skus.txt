@@ -1,0 +1,108 @@
+I need you to research market prices for 30 industrial part numbers from the Honeywell ecosystem. These are components used in building automation, fire safety, HVAC, and electrical installations.
+
+## Who I am and why this matters
+
+I'm building a product catalog for an industrial parts reseller. I need real-world prices from any source — official distributors, eBay surplus, gray market dealers, anything. Even a "refurbished for $50" finding is valuable. I also need photos, technical specs, and alternative part numbers (aliases) to build our database.
+
+## About these specific parts
+
+- Items with brand **Процессорный**: search as "Процессорный {PN}" (e.g. "Процессорный PCD3.M3360"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Процессорный, not Honeywell.**
+- Items with brand **Извещатель**: search as "Извещатель {PN}" (e.g. "Извещатель LEONARDO-OT"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Извещатель, not Honeywell.**
+- Items with brand **Усилитель**: search as "Усилитель {PN}" (e.g. "Усилитель 580249.11"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Усилитель, not Honeywell.**
+- Items with brand **Транспондер**: search as "Транспондер {PN}" (e.g. "Транспондер 808610.10"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Транспондер, not Honeywell.**
+- Items with brand **Громкоговоритель**: search as "Громкоговоритель {PN}" (e.g. "Громкоговоритель 581263"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Громкоговоритель, not Honeywell.**
+- Items with brand **Основание**: search as "Основание {PN}" (e.g. "Основание CSR"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Основание, not Honeywell.**
+- Items with brand **Инвертор**: search as "Инвертор {PN}" (e.g. "Инвертор HVAC31C5"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Инвертор, not Honeywell.**
+- Items with brand **Мультисенсор**: search as "Мультисенсор {PN}" (e.g. "Мультисенсор C7355A1050"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Мультисенсор, not Honeywell.**
+- Items with brand **Термостат**: search as "Термостат {PN}" (e.g. "Термостат FT6960-60"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Термостат, not Honeywell.**
+- Items with brand **Комплект**: search as "Комплект {PN}" (e.g. "Комплект 280869341"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Комплект, not Honeywell.**
+- Items with brand **Крепления**: search as "Крепления {PN}" (e.g. "Крепления LA5496411314"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Крепления, not Honeywell.**
+- Items with brand **Муфта**: search as "Муфта {PN}" (e.g. "Муфта 36206-RU"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Муфта, not Honeywell.**
+- Items with brand **Патч-корд**: search as "Патч-корд {PN}" (e.g. "Патч-корд SC-SC"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Патч-корд, not Honeywell.**
+- Items with brand **Переходник**: search as "Переходник {PN}" (e.g. "Переходник FH973A"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Переходник, not Honeywell.**
+- Items with brand **Разъем**: search as "Разъем {PN}" (e.g. "Разъем 272369098"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Разъем, not Honeywell.**
+- Items with brand **Рейка**: search as "Рейка {PN}" (e.g. "Рейка 806602"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Рейка, not Honeywell.**
+- Items with brand **Системный**: search as "Системный {PN}" (e.g. "Системный P2213F"). **Do NOT search "Honeywell {PN}" for these — they are indexed under Системный, not Honeywell.**
+- **Esser** search sites: brandmelde-shop.de, tinko.ru, fireshield.co.uk, walde.ee.
+- **Honeywell HVAC** valves/actuators: emoteek.net, automa.net, radwell.com, indiamart.com.
+
+## Key search tricks
+
+- Codes ending in .10/.20 are color variants — search without the suffix too
+- Suffix -RU means Russian market version — try without it
+- Suffix -L3 means kit/set — try without it
+- Many codes have aliases under different sub-brand names
+- Try: "{PN}" in quotes, sub-brand + PN, PN without leading zeros
+
+## 30 Part Numbers (with reference data from our database)
+
+| # | PN | Expected Type | Excel Description | Ref Price (RUB) |
+|---|-----|--------------|-------------------|-----------------|
+| 1 | PCD2.A200 [also: PCD2-A200, PCD2A200] | Saia-Burgess PLC module | Модуль цифрового вывода PCD2.A200 | 127600.00 |
+| 2 | PCD3.M3360 [also: PCD3-M3360, PCD3M3360] | Saia-Burgess PLC module | Процессорный блок PCD3.M3360 | 140268.00 |
+| 3 | LEONARDO-OT [also: LEONARDO.OT, LEONARDOOT] | fire detector | Дымо-тепловой извещатель Leonardo-OT | 1056.00 |
+| 4 | PROFI-O [also: PROFI.O, PROFIO] | fire detector | Дымовой извещатель PROFI-O | 2187.68 |
+| 5 | 580249.11 [also: 580249-11, 58024911] | Esser PA amplifier | Усилитель Honeywell 580249.11, 4XD500, Версия 1.1 | 376592.44 |
+| 6 | 808610.10 [also: 808610-10, 80861010] | Esser transponder | Транспондер Esserbus 12 реле 808610.10 | 23371.04 |
+| 7 | 581263 | PA speaker/horn | Потолочный громкоговоритель Honeywell 581263, 6 Вт | 1324.29 |
+| 8 | 581276 | PA speaker/horn | Настенный громкоговоритель Honeywell 581276, 10 Вт | 12745.04 |
+| 9 | L-VOM40A/EN [also: L.VOM40A/EN, LVOM40A/EN] | PA speaker/horn | Громкоговоритель L-VOM40A/EN | 0.00 |
+| 10 | CSR | detector base | Основание неглубокое красное Honeywell CSR | 1353.15 |
+| 11 | CWR | detector base | Основание глубокое IP65 красное Honeywell CWR | 2034.09 |
+| 12 | BS-420G2 [also: BS.420G2, BS420G2] | fire detector | Пожарный извещатель Autronica BS 420G2 | 117501.00 |
+| 13 | VR420VA1004-0000 [also: VR420VA1004.0000, VR420VA10040000] | valve | Комбинированный газовый клапан Honeywell VR420VA1004-0000 | 115744.61 |
+| 14 | VSOF-320-4.0 [also: VSOF-320-4-0, VSOF.320.4.0, VSOF32040] | valve | Трехходовой клапан Honeywell VSOF-320-4.0 | 24588.00 |
+| 15 | HVAC31C5 | HVAC inverter | Инвертор HVAC NXL 15KW/400V/31A/IP54 HVAC31C5 | 330186.67 |
+| 16 | S10010-SW2 [also: S10010.SW2, S10010SW2] | actuator | Привод заслонки 10NM 24V с двумя переключателями S10010-SW2 | 17428.50 |
+| 17 | C7355A1050 | multisensor | Мультисенсор настенный Honeywell C7355A1050 | 182410.00 |
+| 18 | FT6960-60 [also: FT6960.60, FT696060] | thermostat | Термостат защиты от замерзания Honeywell FT6960-60 | 27186.57 |
+| 19 | V5328A1047 | valve | Двухходовой клапан Honeywell V5328A1047 | 77177.00 |
+| 20 | V5832A1046 | valve | Двухходовой клапан Honeywell V5832A1046 | 8239.95 |
+| 21 | VR420AB1002-0000 [also: VR420AB1002.0000, VR420AB10020000] | valve | Комбинированный газовый клапан Honeywell VR420AB1002-0000 | 109988.00 |
+| 22 | 280869341 | Honeywell Комплект | Комплект Honeywell ASD1/V2-COMPLETE | 25664.60 |
+| 23 | LA5496411314 | Honeywell Крепления | Металлические крепления LA5496411314 | 1215.00 |
+| 24 | 36206-RU [also: 36206.RU, 36206RU] | Honeywell Муфта | Соединительный муфта Honeywell 36206-RU, 400x80мм | 4746.00 |
+| 25 | SC-SC [also: SC.SC, SCSC] | Honeywell Патч-корд | Волоконно-оптический патч-корд SC-SC Hyperline FC-D2-50-SC/PR-SC/PR-H-20M-LSZ | 2226.17 |
+| 26 | FH973A | Honeywell Переходник | Переходник DisplayPort-DVI Honeywell FH973A | 832.50 |
+| 27 | 272369098 | Honeywell Разъем | Кабельный разъем Honeywell 6pol Socket H07RN | 609.33 |
+| 28 | 806602 | Honeywell Рейка | NS 35/15 WH PERF 2000MM 806602 | 4188.30 |
+| 29 | P2213F | Honeywell Системный | Системный блок Honeywell P2213F | 1782.17 |
+| 30 | PRECITHION | Honeywell Системный | Системный блок Компьютер PRECITHION | 0.00 |
+
+"Excel Description" is our internal product name — use it to identify the product correctly.
+"Ref Price (RUB)" is our reference purchase price — use it to validate prices you find.
+
+## What I need back
+
+Two markdown tables:
+
+### Table 1 — Product data (ALL 30 rows)
+
+| # | PN | Price | Currency | Price_Type | Source URL | Category | Image URL | Alias | Specs | Notes |
+|---|-----|-------|----------|-----------|-----------|----------|-----------|-------|-------|-------|
+
+- Price: the actual number you found, or "not found"
+- Price_Type: distributor / surplus / gray_market / list_price
+- Source URL: the actual page where you saw the price (not a search results page)
+- Category: short English name like "smoke detector", "PA amplifier", "PEHA frame"
+- Image URL: direct link to a product photo if you found one
+- Alias: if the product is listed under a different part number on any site
+- Specs: voltage, dimensions, protocol, anything technical — semicolon separated
+- Notes: condition, unit of measure, series name, anything useful
+
+### Table 2 — Every URL you visited (for training our local AI)
+
+| # | PN | URL | Page_Type | Has_Price | Has_Specs | Has_Photo | Domain |
+|---|-----|-----|-----------|-----------|-----------|-----------|--------|
+
+Even for "not found" PNs, list the 1-3 URLs you actually checked. This helps us train our automated search crawler.
+
+Page_Type values: distributor, manufacturer, datasheet_pdf, marketplace, catalog, forum
+
+## Important
+
+- Never invent or guess prices
+- Surplus/gray market prices are welcome — just label them
+- Any currency is fine (EUR, USD, GBP, RUB, CHF, etc.)
+- Photos are high priority
+- Every PN must appear in both tables

@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "PRECISION",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Dell",
+  "subbrand": null,
   "name": "Системный блок Компьютер PRECISION",
   "assembled_title": "Системный блок Honeywell PRECISION",
   "our_price_raw": "0,00",
@@ -358,7 +358,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "PRECISION",
+    "identity_notes_p1": "Cannot confirm; no Honeywell match found",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Dell"
   },
   "negative_evidence": {
     "photo": [],
@@ -376,9 +380,8 @@
     "description": "Системный блок Компьютер PRECISION предназначен для профессионального использования. Он обеспечивает высокую производительность и надежность для работы с ресурсоемкими приложениями.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Системный блок",
-    "seed_name": "Системный блок Компьютер PRECISION",
-    "description_long_ru": "Actual mfr: Dell. Generic workstation line. Clearance from $89 (older) to $2245 (high-end)"
+    "product_type": "System block",
+    "seed_name": "Системный блок Компьютер PRECISION"
   },
   "trace": {
     "pn_match_location": "",
@@ -633,7 +636,21 @@
       "raw": "Пример позиции: SA1CB1A103; цена 83.91€ при 250 шт citeturn65search9",
       "aliases": [
         "SA1CB1A103 citeturn65search9"
-      ]
+      ],
+      "Type": "Professional workstation series",
+      "Form factors": "Tower, SFF, Rack, Mobile",
+      "Processors": "Intel Xeon / Intel Core (varies by model)",
+      "GPU": "NVIDIA Quadro RTX / AMD Radeon Pro (ISV-certified)",
+      "RAM": "DDR4/DDR5 ECC, up to 512 GB",
+      "Storage": "NVMe SSD, SATA SSD/HDD",
+      "ISV Certification": "Autodesk, Dassault, Siemens, Adobe, etc.",
+      "OS": "Windows 10/11 Pro for Workstations, Ubuntu Linux",
+      "Brand": "Dell",
+      "Product family": "Precision",
+      "Category": "Workstation",
+      "Positioning": "Professional / ISV-oriented",
+      "Typical features": "Professional GPU, high RAM capacity, certified workflows",
+      "Configuration": "Varies by generation"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -652,12 +669,157 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.554265+00:00",
+    "merge_ts": "2026-04-09T12:01:24.985550+00:00",
     "merge_source": "result_PRECISION.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Actual mfr: Dell. Generic workstation line. Clearance from $89 (older) to $2245 (high-end)"
+    "descriptions_all": {
+      "claude": "Dell Precision — это линейка профессиональных рабочих станций от Dell Technologies, предназначенная для выполнения ресурсоёмких задач: 3D-моделирование, САПР (CAD/CAM), видеомонтаж, научные вычисления, разработка ПО и машинное обучение. Серия включает настольные рабочие станции (Tower, SFF, Rack) и мобильные рабочие станции (ноутбуки). Настольные модели (Precision 3xxx, 5xxx, 7xxx) оснащаются процессорами Intel Xeon или Intel Core, профессиональными видеокартами NVIDIA Quadro (RTX) или AMD Radeon Pro, оперативной памятью DDR4/DDR5 ECC до 512 ГБ и высокоскоростными NVMe SSD. Мобильные рабочие станции сочетают мощность настольных систем с портативностью ноутбука. Все модели Precision сертифицированы для работы с ведущими профессиональными приложениями (ISV-сертификация): Autodesk, Dassault Systèmes, Siemens NX, Adobe и других. Рабочие станции Dell Precision обеспечивают высочайшую надёжность и стабильность работы благодаря тщательному тестированию и использованию компонентов серверного класса.",
+      "gpt": "Dell Precision — это не один конкретный SKU, а товарная линейка профессиональных рабочих станций Dell. В каталогах производителя такие семейства обычно охватывают несколько поколений и конфигураций, поэтому при загрузке в e-commerce важно не смешивать семейство и конкретную модель. Линейка ориентирована на CAD/CAM, 3D-моделирование, инженерные расчеты, медиапроизводство и другие ресурсоемкие задачи. Официальные материалы Dell подчеркивают использование профессиональных CPU и GPU, повышенную масштабируемость памяти и хранения, а также ориентацию на demanding software. Для B2B-заказчиков ценность таких устройств обычно определяется не только процессором или диагональю экрана, но и стабильностью платформы, удобством обслуживания и длительностью жизненного цикла. При публикации карточки без точного model code лучше описывать товар как семейство и обязательно выносить в notes требование уточнения конфигурации по сервис-тегу или полному артикулу. Это особенно важно для тендеров и сервисных поставок, потому что внутри одной линейки могут различаться поколения CPU, типы портов, емкость накопителей и набор опций безопасности. Если задача каталога — подбор аналога или идентификация товара из старой переписки, семейственная карточка полезна как временная заглушка до появления точного model code. Линейка включает как tower/rack workstations, так и mobile workstations, поэтому точная конфигурация без полного model code не фиксируется. С точки зрения SEO и карточки товара семейство можно использовать как базовую сущность, но для коммерческого предложения, счета и сервисной совместимости желательно переходить на конкретный PN или Service Tag.",
+      "synthesis": "Dell Precision — это товарная линейка профессиональных рабочих станций, охватывающая несколько поколений и конфигураций, а не один конкретный SKU. Серия предназначена для выполнения ресурсоёмких задач: 3D-моделирование, САПР (CAD/CAM), видеомонтаж, научные вычисления и машинное обучение. Линейка включает настольные рабочие станции (Tower, SFF, Rack) и мобильные рабочие станции (ноутбуки). Настольные модели оснащаются процессорами Intel Xeon или Intel Core, профессиональными видеокартами NVIDIA Quadro (RTX) или AMD Radeon Pro, оперативной памятью DDR4/DDR5 ECC до 512 ГБ и высокоскоростными NVMe SSD. Все модели Precision сертифицированы для работы с ведущими профессиональными приложениями (ISV-сертификация) от Autodesk, Dassault Systèmes, Siemens NX, Adobe и других. Рабочие станции обеспечивают высочайшую надёжность и стабильность благодаря тщательному тестированию и использованию компонентов серверного класса. Для B2B-заказчиков ценность таких устройств определяется стабильностью платформы, удобством обслуживания и длительностью жизненного цикла. При публикации без точного модель-кода рекомендуется описывать товар как семейство и требовать уточнения конфигурации по сервис-тегу, потому что внутри линейки различаются поколения CPU, типы портов и наборы опций."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Professional workstation series",
+        "Form factors": "Tower, SFF, Rack, Mobile",
+        "Processors": "Intel Xeon / Intel Core (varies by model)",
+        "GPU": "NVIDIA Quadro RTX / AMD Radeon Pro (ISV-certified)",
+        "RAM": "DDR4/DDR5 ECC, up to 512 GB",
+        "Storage": "NVMe SSD, SATA SSD/HDD",
+        "ISV Certification": "Autodesk, Dassault, Siemens, Adobe, etc.",
+        "OS": "Windows 10/11 Pro for Workstations, Ubuntu Linux"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product family": "Precision",
+        "Category": "Workstation",
+        "Positioning": "Professional / ISV-oriented",
+        "Form factors": "Tower / Rack / Mobile",
+        "Typical features": "Professional GPU, high RAM capacity, certified workflows",
+        "Configuration": "Varies by generation"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic series name, not a specific model.",
+      "gpt": "Family-level entry. Exact workstation model required for precise specs and compatibility."
+    }
   },
-  "product_category": "workstation"
+  "training_urls": [
+    "https://discountelectronics.com/clearance-dell-precision-workstation-i5-16gb-4tb-nvidia-pc-88-off/",
+    "https://www.classicautomation.com/Product/Precision",
+    "https://www.dellrefurbished.com/computer-workstation",
+    "https://www.ebay.com/b/dell-precision/bn_7006317183",
+    "https://www.dell.com/en-us/shop/workstations/sc/workstations",
+    "https://www.dell.com/en-us/shop/desktops-all-in-one-pcs/sf/precision-desktops",
+    "https://www.dell.com/en-us/shop/dell-laptops-and-notebooks/sf/precision-laptops",
+    "https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/uk/Dell_Precision_Workstation_Family_Brochure.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 3400.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.ebay.com/itm/Honeywell-Precision-Workstation",
+    "our_price_raw": "0,00",
+    "our_price_parsed": null,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 3400.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Системный блок Компьютер PRECISION предназначен для профессионального использования. Он обеспечивает высокую производительность и надежность для работы с ресурсоемкими приложениями.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/DELL_PRECISION.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Honeywell Precision Barometer HPB",
+    "description": "",
+    "specs": {
+      "application_type_HPB": "Barometer Application, 500 to 1200 hPa",
+      "application_type_HPA": "Altimeter Application, 0 to 17.6 psia",
+      "accuracy_HPB200": "±0.4 hPa maximum from -40 to 85°C",
+      "accuracy_HPB100": "±0.8 hPa maximum from -40 to 85°C",
+      "accuracy_HPA200": "±0.03% FS maximum from -40 to 85°C",
+      "accuracy_HPA100": "±0.06% FS maximum from -40 to 85°C",
+      "temperature_accuracy": "±1°C at sensing element",
+      "operating_temperature": "-40 to 85°C",
+      "storage_temperature": "-55 to 90°C",
+      "sample_rate": "8.33 ms to 51.2 min",
+      "resolution": "0.0011% FS",
+      "response_delay": "(1000/update rate) +1 ms, minimum 17 ms",
+      "long_term_stability_HPB": "0.25 hPa max per year",
+      "long_term_stability_HPA": "0.02% FS max per year",
+      "pressure_range_HPB": "500 to 1200 hPa",
+      "pressure_range_HPA": "0 to 17.6 psia",
+      "pressure_units_supported": "atm, bar, cmwc, ftwc, hPa, inHg, inwc, kg/cm², KPa, mBar, mmHg, MPa, mwc, psi, user, Icom, pfs",
+      "media_compatibility": "Suitable for non-condensing, non-corrosive, and non-combustible gases",
+      "output_types": "TTL, RS-232, RS-485",
+      "TTL_supply_voltage": "6 to 26 VDC",
+      "RS232_RS485_supply_voltage": "5.5 to 30 VDC",
+      "operating_current_RS232_RS485": "17-30 mA",
+      "operating_current_TTL": "6-9 mA",
+      "TTL_power_consumption": "33 milliwatts",
+      "baud_rate_options": "1200, 2400, 4800, 9600, 14400, 19200, 28800",
+      "bus_addressing": "up to 89 units on RS-485",
+      "humidity_sensitivity": "Negligible",
+      "acceleration_sensitivity": "Negligible",
+      "mechanical_shock": "1500 g, 0.5 ms half sine",
+      "temperature_shock": "24 1-hour cycles, -40 to 85°C",
+      "vibration": "0.5 in or 20 G's, 20 Hz – 2 kHz",
+      "pressure_connection_options": "W (Brass barbed 1/8 inch ID tubing), X (Brass Swagelok 1/8 inch female), R (Brass barbed right angle 1/8 inch ID tubing), F (Filter)",
+      "electrical_connector": "6-pin plastic connector",
+      "TTL_interface_pins": "Pin 1 (TTL XMIT), Pin 2 (TTL RCV), Pin 3 (Case Ground), Pin 4 (Common Ground GND), Pin 5 (DC Power In +), Pin 6 (Power Control)",
+      "RS232_RS485_interface_pins": "Pin 1 (RS-232 TD/RS-485 B), Pin 2 (RS-232 TD/RS-485 A), Pin 3 (Case Ground), Pin 4 (Common Ground GND), Pin 5 (DC Power In +), Pin 6 (N/C)"
+    },
+    "specs_count": 35,
+    "series": "Honeywell Precision Barometer",
+    "category": "",
+    "weight_g": "142",
+    "dimensions_mm": "",
+    "certifications": [
+      "ISO-9001",
+      "ISO-14001"
+    ],
+    "article_no": "",
+    "ean": "4057657557179",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "conrad.de",
+    "ean_source_url": "https://www.conrad.de/de/p/dell-notebook-akku-h5h20-11-4-v-4900-mah-dell-2384564.html",
+    "datasheet_pdf": "downloads\\datasheets_v2\\PRECISION.pdf",
+    "datasheet_size_kb": 203,
+    "product_photos": [
+      "downloads\\datasheet_photos\\PRECISION_p1_0.jpeg",
+      "downloads\\datasheet_photos\\PRECISION_p2_1.jpeg",
+      "downloads\\datasheet_photos\\PRECISION_p2_6.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/PRECISION_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "Critical data conflicts: seed name indicates Dell computer system block (Russian: 'Системный блок Компьютер'), but datasheet shows Honeywell barometer sensor. PN 'PRECISION' is too generic to identify manufacturer. EAN prefix doesn't match Dell. No reliable way to determine which data source is correct - could be computer, sensor, or completely different product. Requires manual verification with original source documentation."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

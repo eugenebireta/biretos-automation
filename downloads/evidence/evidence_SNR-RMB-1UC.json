@@ -7,7 +7,7 @@
     "SNRRMB1UC"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Крепление для Cisco Honeywell SNR-RMB-1UC",
   "assembled_title": "Крепление Honeywell SNR-RMB-1UC",
   "our_price_raw": "378,00",
@@ -313,7 +313,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Cisco accessories",
+    "confirmed_manufacturer": "Honeywell (licensed)",
+    "identity_notes_p1": "Bracket for Cisco equipment on Honeywell racks",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -336,7 +340,7 @@
     "description": "Крепление Honeywell SNR-RMB-1UC используется для установки оборудования Cisco. Оно обеспечивает надежную фиксацию и простоту монтажа, что делает его идеальным для использования в серверных и телекоммуникационных шкафах.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Крепление",
+    "product_type": "Rack mounting bracket",
     "seed_name": "Крепление для Cisco Honeywell SNR-RMB-1UC",
     "description_long_ru": "В исходном запросе бренд «Honeywell», но найденный PN относится к сетевым аксессуарам SNR"
   },
@@ -617,7 +621,77 @@
     "merge_source": "result_SNR-RMB-1UC.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (5).md"
+    "source_file": "deep-research-report (5).md",
+    "descriptions_all": {
+      "legacy": "В исходном запросе бренд «Honeywell», но найденный PN относится к сетевым аксессуарам SNR"
+    }
   },
-  "product_category": "1U; Signal Controller"
+  "training_urls": [
+    "https://www.bhphotovideo.com/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1306.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://shop.nag.ru/catalog/33888.aksessuary-dlya-kommutatorov/33892.kreplenie-krepezh-kommutatorov/05010.snr-rmb-1uc",
+    "our_price_raw": "378,00",
+    "our_price_parsed": 378.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1306.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Крепление Honeywell SNR-RMB-1UC используется для установки оборудования Cisco. Оно обеспечивает надежную фиксацию и простоту монтажа, что делает его идеальным для использования в серверных и телекоммуникационных шкафах.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/HONEYWELL_(LICENSED)_SNR-RMB-1UC.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Proceedings of the 15th International Workshop on Laser Ranging",
+    "description": "",
+    "specs": {
+      "precision": "10 ps",
+      "frequency": "10 KHz"
+    },
+    "specs_count": 2,
+    "series": "Event Timers",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\SNR-RMB-1UC.pdf",
+    "datasheet_size_kb": 22956,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 22956KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Proceedings of the 15th International Workshop on Laser Rang' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -24,7 +24,7 @@ from __future__ import annotations
 import logging
 import os
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Optional
 
 log = logging.getLogger(__name__)
@@ -42,7 +42,7 @@ _PACK_MARKERS_EN = re.compile(
 _QUANTITY_PATTERNS = re.compile(
     r"(?:"
     r"\d+\s*(?:шт|pcs|pieces|pc|units?|ea|each)"  # "10 шт", "5 pcs"
-    r"|x\s*\d+"  # "x10", "x 5"
+    r"|(?<![A-Za-z])x\s*\d{1,3}(?!\d)"  # "x10", "x 5" but NOT "FX808313"
     r"|pack\s+of\s+\d+"  # "pack of 12"
     r"|цена\s+за\s+(?:\d+|упак|коробк)"  # "цена за 10", "цена за упаковку"
     r"|per\s+\d+"  # "per 10"
@@ -78,7 +78,12 @@ def _has_exotic_currency_trigger(price: float, currency: str) -> tuple[bool, str
         return True, "exotic_rub_very_high"
     if currency == "USD" and price > 5_000:
         return True, "exotic_usd_high"
-    if currency not in ("RUB", "USD", "EUR", "GBP", "", "RU"):
+    # Standard currencies for B2B European distribution — not exotic
+    _STANDARD_CURRENCIES = {
+        "RUB", "USD", "EUR", "GBP", "CHF", "PLN", "CZK", "DKK",
+        "SEK", "NOK", "HUF", "RON", "", "RU",
+    }
+    if currency not in _STANDARD_CURRENCIES:
         return True, "exotic_currency"
     return False, ""
 
@@ -172,7 +177,8 @@ def judge_price_unit_basis(
             f"Price: {price} {currency}\n"
             f"Context: {text[:800]}\n\n"
             f"Is this price per individual unit or per pack/set/lot?\n"
-            f'Reply ONLY JSON: {{"unit_basis": "per_unit"|"per_pack"|"unknown", "confidence": "high"|"medium"|"low", "pack_qty": null|<number>}}'
+            f'Reply ONLY JSON: {{"unit_basis": "per_unit"|"per_pack"|"unknown", '
+            f'"confidence": "high"|"medium"|"low", "pack_qty": null|<number>}}'
         )
         response = client.messages.create(
             model="claude-haiku-4-5-20251001",

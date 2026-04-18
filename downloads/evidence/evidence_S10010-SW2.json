@@ -7,7 +7,7 @@
     "S10010SW2"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Привод заслонки 10NM 24V с двумя переключателями S10010-SW2",
   "assembled_title": "Привод Honeywell S10010-SW2",
   "our_price_raw": "17428,50",
@@ -163,7 +163,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Привод заслонки Honeywell чётко виден на изображении",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -181,9 +181,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -337,7 +335,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "S10010",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "10NM 24V dual-switch actuator; HVAC/damper control",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -355,7 +357,7 @@
     "description": "Модулирующий привод заслонки с усилием 10 Нм, питанием 24 В и двумя переключателями. Обеспечивает расширенные возможности управления в системах вентиляции.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Привод",
+    "product_type": "Actuator",
     "seed_name": "Привод заслонки 10NM 24V с двумя переключателями S10010-SW2",
     "description_long_ru": "SmartAct S10 spring-return; eBay listing new condition, Mesa AZ"
   },
@@ -593,5 +595,130 @@
   },
   "dr_category": "actuator",
   "dr_image_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-S10010-SW2-left",
-  "product_category": "actuator"
+  "training_urls": [
+    "https://blackhawksupply.com/products/honeywell-ms7510a2206...",
+    "https://buildings.honeywell.com/gb/en/.../s10-series-10nm-spring-return-damper-actuator",
+    "https://www.bolasystems.com/damper-actuator-honeywell-s10010-sw2",
+    "https://www.ebay.com/itm/390572113023",
+    "https://www.ebay.com/itm/401281135417",
+    "https://www.resideo.com/emea/en/.../s10010-sw2..."
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "17428,50",
+    "our_price_parsed": 17428.5,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 354.11,
+    "best_price_currency": "EUR",
+    "best_price_source": "phase3a",
+    "best_description": "Модулирующий привод заслонки с усилием 10 Нм, питанием 24 В и двумя переключателями. Обеспечивает расширенные возможности управления в системах вентиляции.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell.scene7.com/is/image/Honeywell65/ba-bms-S10010-SW2-left",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Модулирующий привод заслонки с усилием 10 Нм, питанием 24 В и двумя переключателями. Обеспечивает расширенные возможности управления в системах вентиляции.",
+    "best_description_ru": "<p>Модулирующий привод заслонки S10010-SW2 от компании Honeywell — это надежное решение для автоматизации систем вентиляции и кондиционирования воздуха. Устройство предназначено для пропорционального и плавающего управления воздушными потоками в жилых, коммерческих и промышленных объектах. Привод обеспечивает точное позиционирование заслонок с усилием 10 Нм, что позволяет эффективно регулировать климат в помещениях различного назначения. Благодаря качественной инженерии Honeywell, этот компонент гарантирует долгосрочную надежность и стабильную работу систем управления.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальное усилие: 10 Нм (88 дюйм-фунтов)</li>\n<li>Напряжение питания: 24 В переменного тока</li>\n<li>Два встроенных переключателя для расширенного управления</li>\n<li>Поддержка пропорционального управления</li>\n<li>Поддержка плавающего управления</li>\n<li>Компактная конструкция для удобного монтажа</li>\n<li>Высокая надежность и долговечность</li>\n<li>Совместимость с системами автоматизации Honeywell</li>\n</ul>\n\n<p><b>Применение:</b> Привод S10010-SW2 активно используется в системах управления вентиляцией, отопления и кондиционирования воздуха. Он идеально подходит для регулирования воздушных потоков в офисных зданиях, торговых центрах, больницах, школах и жилых комплексах. Устройство обеспечивает точное управление положением заслонок в воздуховодах, позволяя оптимизировать распределение воздуха и поддерживать комфортный микроклимат. Применяется как в новых установках, так и при модернизации существующих систем климатизации.</p>\n\n<p><b>Преимущества:</b> Выбирая S10010-SW2, вы получаете проверенное решение от мирового лидера в области автоматизации. Привод обеспечивает энергоэффективное управление климатическими системами, снижая расходы на электроэнергию. Два встроенных переключателя расширяют функциональность и упрощают интеграцию в существующие системы управления. Надежность и долговечность компонентов Honeywell гарантируют минимальные затраты на обслуживание и ремонт.</p>",
+    "best_description_ru_word_count": 212,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "phase3a_price": {
+    "price": 354.11,
+    "currency": "EUR",
+    "unit_basis": "unit",
+    "source_url": "https://www.bolasystems.com/honeywell-smartact-spring-return-damper-actuator-s10010-sw2-10nm-24-vac-0-10v-2-end-switches",
+    "confidence": "high",
+    "notes": "Price excl. VAT",
+    "search_used": "S10010-SW2"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "S10010 / S20010 Damper Actuators 10/20 N-m (88/177 inch-pound) for Proportional and Floating Control",
+    "description": "",
+    "specs": {
+      "supply_voltage": "24 V AC ±20%, 50/60 Hz",
+      "rated_voltage": "24 V AC, 50/60 Hz",
+      "power_consumption_S10010_holding": "6 VA / 6 W",
+      "power_consumption_S10010_drive": "14 VA",
+      "power_consumption_S20010_holding": "9 VA / 9 W",
+      "power_consumption_S20010_drive": "16 VA",
+      "operating_temperature": "-40...+60 °C",
+      "storage_temperature": "-40...+70 °C",
+      "relative_humidity": "5...95% without condensation",
+      "IP_rating": "IP54",
+      "protection_class": "II per EN 60730-1",
+      "overvoltage_category": "III",
+      "duty_cycles": "60000",
+      "strokes": "1.5 million",
+      "spring_return_cycles": "60000",
+      "round_shaft_diameter": "10...27 mm",
+      "square_shaft_diameter": "13...19 mm",
+      "shaft_length": "25 mm",
+      "contact_current_resistive": "3 A",
+      "contact_current_inductive": "1.5 A",
+      "switching_points": "7° / 85°",
+      "torque_S10010": "10 N·m (88 lbf·in)",
+      "torque_S20010": "20 N·m (177 lbf·in)",
+      "full_travel_time": "90 sec (50 Hz)",
+      "spring_return_duration": "20 sec (50 Hz)",
+      "operating_rotation_travel": "95° ± 3°",
+      "noise_level_drive": "45 dB(A)",
+      "noise_level_holding": "20 dB(A)",
+      "noise_level_spring_return": "60 dB(A)",
+      "control_voltage_proportional": "0...10 V DC or 2...10 V DC or 10...0 V DC or 10...2 V DC",
+      "damper_area_S10010": "up to 1.5 m² / 16 square feet",
+      "damper_area_S20010": "up to 4.6 m² / 50 square feet",
+      "mounting_type": "direct shaft mount",
+      "mechanical_end_stops": "non-adjustable"
+    },
+    "specs_count": 34,
+    "series": "SmartAct S10010 / S20010",
+    "category": "",
+    "weight_g": "3200",
+    "dimensions_mm": "247x156x100",
+    "certifications": [
+      "EN 60730-1",
+      "DIN VDE 0106 part 101"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\S10010-SW2.pdf",
+    "datasheet_size_kb": 326,
+    "product_photos": [
+      "downloads\\datasheet_photos\\S10010-SW2_p1_0.jpeg",
+      "downloads\\datasheet_photos\\S10010-SW2_p2_0.png"
+    ],
+    "photo_count": 2,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/S10010-SW2_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - S10010-SW2 is a genuine Honeywell damper actuator model with 10 N-m torque, 24V, and two auxiliary switches. The datasheet title confirms this is a Honeywell S10010/S20010 series actuator. Issues are data extraction problems (missing EAN, specs, dimensions, description) not product identification errors. New datasheet processing needed to extract complete technical specifications."
+    },
+    "description_seo_ru": "<p>Модулирующий привод заслонки S10010-SW2 от компании Honeywell — это надежное решение для автоматизации систем вентиляции и кондиционирования воздуха. Устройство предназначено для пропорционального и плавающего управления воздушными потоками в жилых, коммерческих и промышленных объектах. Привод обеспечивает точное позиционирование заслонок с усилием 10 Нм, что позволяет эффективно регулировать климат в помещениях различного назначения. Благодаря качественной инженерии Honeywell, этот компонент гарантирует долгосрочную надежность и стабильную работу систем управления.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальное усилие: 10 Нм (88 дюйм-фунтов)</li>\n<li>Напряжение питания: 24 В переменного тока</li>\n<li>Два встроенных переключателя для расширенного управления</li>\n<li>Поддержка пропорционального управления</li>\n<li>Поддержка плавающего управления</li>\n<li>Компактная конструкция для удобного монтажа</li>\n<li>Высокая надежность и долговечность</li>\n<li>Совместимость с системами автоматизации Honeywell</li>\n</ul>\n\n<p><b>Применение:</b> Привод S10010-SW2 активно используется в системах управления вентиляцией, отопления и кондиционирования воздуха. Он идеально подходит для регулирования воздушных потоков в офисных зданиях, торговых центрах, больницах, школах и жилых комплексах. Устройство обеспечивает точное управление положением заслонок в воздуховодах, позволяя оптимизировать распределение воздуха и поддерживать комфортный микроклимат. Применяется как в новых установках, так и при модернизации существующих систем климатизации.</p>\n\n<p><b>Преимущества:</b> Выбирая S10010-SW2, вы получаете проверенное решение от мирового лидера в области автоматизации. Привод обеспечивает энергоэффективное управление климатическими системами, снижая расходы на электроэнергию. Два встроенных переключателя расширяют функциональность и упрощают интеграцию в существующие системы управления. Надежность и долговечность компонентов Honeywell гарантируют минимальные затраты на обслуживание и ремонт.</p>",
+    "description_seo_word_count": 212,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'S10010 / S20010 Damper Actuators 10/20 N-m (88/177 inch-poun' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

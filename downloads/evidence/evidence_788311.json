@@ -295,7 +295,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -565,12 +567,146 @@
     "merge_source": "result_788311.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "legacy": "Dialog Exclusiv 3-gang frame; gold variants are made-to-order; \"auf Anfrage\" in 2013 Bildpreisliste"
+    }
   },
   "dr_category": "PEHA frame",
   "dr_image_url": "https://kirishi.aelektro.ru/content/photo/full/P788311_img1.jpg",
   "dr_price": 1217.0,
   "dr_currency": "RUB",
   "dr_price_source": "https://kirishi.aelektro.ru/catalog/ramki/3-postovye/ramka-3-posta-honeywell-dialog-exclusiv-bezhevyi-788311",
-  "product_category": "PEHA frame"
+  "training_urls": [
+    "https://www.pehastore.de/schalterprogramme/dialog/",
+    "https://www.pehastore.de/schalterprogramme/dialog/dialog-exclusiv-weiss-gold/abdeckrahmen/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1217.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://kirishi.aelektro.ru/catalog/ramki/3-postovye/ramka-3-posta-honeywell-dialog-exclusiv-bezhevyi-788311",
+    "our_price_raw": "2492,50",
+    "our_price_parsed": 2492.5,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1217.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик D 95.573.03.61 используется в системах автоматизации для контроля различных параметров. Обладает высокой точностью и надежностью, подходит для использования в промышленных условиях.",
+    "best_description_source": "content",
+    "best_photo_url": "https://kirishi.aelektro.ru/content/photo/full/P788311_img1.jpg",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Датчик D 95.573.03.61 используется в системах автоматизации для контроля различных параметров. Обладает высокой точностью и надежностью, подходит для использования в промышленных условиях.",
+    "best_description_ru": "<p>Представляем вашему вниманию инновационный медицинский мини-компьютер PEHA e-medic Silence ST-M i3, артикул 788311. Это высокотехнологичное решение, разработанное специально для использования в чувствительных к шуму медицинских учреждениях. Данный безвентиляторный компьютер сочетает в себе компактность, мощность и абсолютную бесшумность, что делает его идеальным выбором для операционных, палат интенсивной терапии, диагностических кабинетов и других мест, где требуется максимальная концентрация и отсутствие отвлекающих факторов. Он обеспечивает стабильную работу критически важных систем, гарантируя надежность и точность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> PEHA – синоним надежности и качества в медицинской электронике.</li>\n<li><b>Модель:</b> e-medic Silence ST-M i3 – специализированный медицинский мини-компьютер.</li>\n<li><b>Артикул:</b> 788311 – уникальный идентификатор продукта для удобства заказа.</li>\n<li><b>Тип охлаждения:</b> Безвентиляторный – обеспечивает абсолютно бесшумную работу, критически важную для медицинских учреждений.</li>\n<li><b>Процессор:</b> Intel Core i3 – гарантирует достаточную производительность для большинства медицинских приложений.</li>\n<li><b>Назначение:</b> Медицинский – соответствует строгим стандартам безопасности и гигиены.</li>\n<li><b>Компактный дизайн:</b> Минимальные габариты позволяют легко интегрировать его в любое рабочее пространство.</li>\n<li><b>Надежность:</b> Разработан для непрерывной работы в условиях повышенной нагрузки.</li>\n</ul>\n\n<p>Данный медицинский мини-компьютер PEHA e-medic Silence ST-M i3 находит широкое применение в различных областях здравоохранения. Он идеально подходит для использования в качестве рабочей станции для врачей, терминала для отображения медицинских изображений, контроллера для диагностического оборудования или системы мониторинга состояния пациентов. Его безвентиляторная конструкция исключает циркуляцию пыли и микроорганизмов, что крайне важно для поддержания стерильности в операционных и чистых помещениях. Кроме того, отсутствие шума способствует созданию более комфортной и спокойной атмосферы как для медицинского персонала, так и для пациентов.</p>\n\n<p>Выбор PEHA e-medic Silence ST-M i3 – это инвестиция в надежность, эффективность и комфорт. Его безвентиляторная конструкция не только гарантирует бесшумную работу, но и значительно снижает риск поломок, связанных с пылью и перегревом. Высокая производительность процессора Intel Core i3 обеспечивает быструю обработку данных, а компактный размер позволяет легко интегрировать его в любую медицинскую среду. Этот компьютер разработан с учетом специфических требований медицинских учреждений, предлагая долговечное и безопасное решение для самых ответственных задач.</p>",
+    "best_description_ru_word_count": 308,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "e-medic Silence ST-M i3 lüfterloser Medical Mini Computer",
+    "description": "",
+    "specs": {
+      "product_type": "Medical Mini Computer",
+      "cooling_type": "fanless",
+      "processor_model": "Intel Core i3-4150T",
+      "chipset_model": "Q87",
+      "rear_interface_usb_3_0_ports": "2",
+      "rear_interface_usb_2_0_ports": "6",
+      "rear_interface_ps_2_ports": "2",
+      "rear_interface_lan_ports": "2",
+      "rear_interface_audio_ports": "1",
+      "rear_interface_video_dvi_i_ports": "1",
+      "rear_interface_video_displayport_ports": "2",
+      "rear_interface_serial_ports": "2",
+      "rear_interface_power_input": "DC-in",
+      "lan_speed": "10/100/1000 MBit/s",
+      "audio_controller": "Realtek ALC 671",
+      "audio_channels": "5.1",
+      "audio_definition": "High-Definition",
+      "power_supply_wattage": "100",
+      "power_supply_type": "external",
+      "power_supply_unit_certification": "medical",
+      "revision": "C"
+    },
+    "specs_count": 21,
+    "series": "e-medic Silence ST-M",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [
+      "medical"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\788311.pdf",
+    "datasheet_size_kb": 4128,
+    "product_photos": [
+      "downloads\\datasheet_photos\\788311_p1_2.jpeg",
+      "downloads\\datasheet_photos\\788311_p2_2.jpeg",
+      "downloads\\datasheet_photos\\788311_p3_2.jpeg"
+    ],
+    "photo_count": 3,
+    "ean": "4010105788310",
+    "ean_source": "peha_rule_predicted",
+    "ean_tier": 1,
+    "ean_confidence": "high (87.5% rule accuracy)",
+    "product_photos_verified": [
+      "downloads/datasheet_photos/788311_p1_2.jpeg",
+      "downloads/datasheet_photos/788311_p2_2.jpeg",
+      "downloads/datasheet_photos/788311_p3_2.jpeg"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "The datasheet title clearly identifies 'e-medic Silence ST-M i3' as the product brand and model. The seed_name in Russian ('Датчик' = sensor) appears to be completely incorrect data from a different product. The datasheet PDF corresponds to PN 788311 showing an e-medic medical computer, not a Honeywell sensor. Honeywell does not manufacture products under the 'e-medic' brand name. The correct brand should be 'e-medic' and product type is a fanless medical mini computer.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию инновационный медицинский мини-компьютер PEHA e-medic Silence ST-M i3, артикул 788311. Это высокотехнологичное решение, разработанное специально для использования в чувствительных к шуму медицинских учреждениях. Данный безвентиляторный компьютер сочетает в себе компактность, мощность и абсолютную бесшумность, что делает его идеальным выбором для операционных, палат интенсивной терапии, диагностических кабинетов и других мест, где требуется максимальная концентрация и отсутствие отвлекающих факторов. Он обеспечивает стабильную работу критически важных систем, гарантируя надежность и точность.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> PEHA – синоним надежности и качества в медицинской электронике.</li>\n<li><b>Модель:</b> e-medic Silence ST-M i3 – специализированный медицинский мини-компьютер.</li>\n<li><b>Артикул:</b> 788311 – уникальный идентификатор продукта для удобства заказа.</li>\n<li><b>Тип охлаждения:</b> Безвентиляторный – обеспечивает абсолютно бесшумную работу, критически важную для медицинских учреждений.</li>\n<li><b>Процессор:</b> Intel Core i3 – гарантирует достаточную производительность для большинства медицинских приложений.</li>\n<li><b>Назначение:</b> Медицинский – соответствует строгим стандартам безопасности и гигиены.</li>\n<li><b>Компактный дизайн:</b> Минимальные габариты позволяют легко интегрировать его в любое рабочее пространство.</li>\n<li><b>Надежность:</b> Разработан для непрерывной работы в условиях повышенной нагрузки.</li>\n</ul>\n\n<p>Данный медицинский мини-компьютер PEHA e-medic Silence ST-M i3 находит широкое применение в различных областях здравоохранения. Он идеально подходит для использования в качестве рабочей станции для врачей, терминала для отображения медицинских изображений, контроллера для диагностического оборудования или системы мониторинга состояния пациентов. Его безвентиляторная конструкция исключает циркуляцию пыли и микроорганизмов, что крайне важно для поддержания стерильности в операционных и чистых помещениях. Кроме того, отсутствие шума способствует созданию более комфортной и спокойной атмосферы как для медицинского персонала, так и для пациентов.</p>\n\n<p>Выбор PEHA e-medic Silence ST-M i3 – это инвестиция в надежность, эффективность и комфорт. Его безвентиляторная конструкция не только гарантирует бесшумную работу, но и значительно снижает риск поломок, связанных с пылью и перегревом. Высокая производительность процессора Intel Core i3 обеспечивает быструю обработку данных, а компактный размер позволяет легко интегрировать его в любую медицинскую среду. Этот компьютер разработан с учетом специфических требований медицинских учреждений, предлагая долговечное и безопасное решение для самых ответственных задач.</p>",
+    "description_seo_word_count": 308,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'e-medic Silence ST-M i3 lüfterloser Medical Mini Computer' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105788310",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "e-medic"
+  }
 }

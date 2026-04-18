@@ -4,7 +4,7 @@
   "pn": "304L",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS",
   "assembled_title": "Беруши Honeywell 304L",
   "our_price_raw": "0,00",
@@ -148,7 +148,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Беруши на шнурке clearly visible",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -166,10 +166,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://tezro.ru/shop/berushi-honeywell-bilsom-304l/"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "public_price",
@@ -277,7 +274,11 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Corded earplug",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "Protective hearing protection; 500 pairs per bulk shipment",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -291,7 +292,7 @@
     "description": "Беруши Honeywell CORDED EARPLUG предназначены для защиты слуха в промышленных условиях. Обеспечивают комфортное ношение и эффективную защиту от шума.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Средства индивидуальной защиты",
-    "product_type": "Беруши",
+    "product_type": "Earplugs",
     "seed_name": "Беруши Honeywell CORDED EARPLUG 1CS=500PAIRS",
     "description_long_ru": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар."
   },
@@ -573,9 +574,120 @@
     "merge_source": "result_304L.json",
     "provider": "claude_web_search",
     "model": "claude-sonnet-4-6",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "legacy": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар."
+    }
   },
   "dr_category": "Средства индивидуальной защиты (СИЗ) — Защита слуха / Беруши одноразовые",
   "dr_image_url": "https://www.modern-eastern.com/content/product_images/8808176105869.jpg",
-  "product_category": "earplugs (PPE)"
+  "training_urls": [
+    "https://www.amazon.co.uk/Honeywell-1000106-Howard-Leight-Individually/dp/B006GCNBYI",
+    "https://www.arco.co.uk/Honeywell-Howard-Leight-Bilsom-304L-Corded-Disposable-Earplugs"
+  ],
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 68.25,
+    "best_price_currency": "AED",
+    "best_price_source": "pipeline1",
+    "best_description": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар.",
+    "best_description_source": "dr",
+    "best_photo_url": "https://tezro.ru/shop/berushi-honeywell-bilsom-304l/",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Одноразовые беруши Bilsom 304L из мягкого полиуретанового пенопласта с коническим профилем и шнурком, размер Large. Обеспечивают защиту органов слуха в шумных производственных условиях с показателем SNR 33 дБ; поставляются в коробке по 100 пар.",
+    "best_description_ru": "<p>Представляем вашему вниманию высокоэффективные одноразовые беруши Honeywell Bilsom 304L Foamplug (Corded) – незаменимое средство индивидуальной защиты органов слуха в условиях повышенного шума. Разработанные ведущим мировым производителем средств безопасности, компанией Honeywell, эти беруши обеспечивают надежную и комфортную защиту, позволяя сосредоточиться на выполнении задач без вреда для слуха. Модель 304L, представленная в размере Large, идеально подходит для большинства пользователей, гарантируя плотное и безопасное прилегание.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Высокая степень шумоподавления:</b> Показатель SNR (Single Number Rating) 33 дБ обеспечивает превосходную защиту от широкого спектра промышленных шумов, значительно снижая риск повреждения слуха.</li>\n    <li><b>Материал премиум-класса:</b> Изготовлены из мягкого полиуретанового пенопласта, который обеспечивает комфортное ношение в течение длительного времени, не вызывая раздражения.</li>\n    <li><b>Конический профиль:</b> Эргономичный дизайн позволяет легко вставлять беруши в ушной канал и обеспечивает надежную фиксацию, адаптируясь к индивидуальной форме уха.</li>\n    <li><b>Интегрированный шнурок:</b> Наличие шнурка предотвращает потерю берушей, когда они не используются, и позволяет удобно носить их на шее, обеспечивая быстрый доступ.</li>\n    <li><b>Одноразовое использование:</b> Гигиеничное решение для ежедневного применения, исключающее необходимость очистки и дезинфекции, что особенно важно в условиях производства.</li>\n    <li><b>Экономичная упаковка:</b> Поставляются в удобной коробке по 100 пар, что является практичным и выгодным решением для предприятий и организаций, требующих регулярного использования СИЗ.</li>\n    <li><b>Размер Large:</b> Оптимальный размер для большинства взрослых пользователей, гарантирующий эффективную защиту и комфорт.</li>\n    <li><b>Бренд Honeywell:</b> Гарантия качества и соответствия международным стандартам безопасности от мирового лидера в производстве СИЗ.</li>\n</ul>\n\n<p>Беруши Honeywell Bilsom 304L Foamplug (Corded) находят широкое применение в самых разнообразных отраслях промышленности и сферах деятельности, где уровень шума превышает допустимые нормы. Они идеально подходят для использования на производственных предприятиях, строительных площадках, в цехах, на аэродромах, а также при работе с шумным оборудованием и инструментами. Благодаря своей конструкции со шнурком, они особенно удобны для работников, которым необходимо периодически снимать и надевать беруши, не опасаясь их потерять.</p>\n\n<p>Выбор берушей Honeywell Bilsom 304L обусловлен их исключительной эффективностью и комфортом. Высокий уровень шумоподавления в 33 дБ гарантирует надежную защиту слуха, предотвращая профессиональные заболевания. Мягкий полиуретановый материал обеспечивает удобство даже при длительном ношении, а коническая форма упрощает введение. Наличие шнурка добавляет практичности, а экономичная упаковка делает их выгодным решением для любого предприятия, заботящегося о безопасности своих сотрудников.</p>",
+    "best_description_ru_word_count": 341,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Bilsom 304L Foamplug (Corded)",
+    "description": "",
+    "specs": {
+      "product_type": "Hearing Protection - Single-Use Earplug, Corded",
+      "product_line": "Disposable Earplugs",
+      "series": "Bilsom 300 Series",
+      "brand": "Howard Leight by Honeywell",
+      "product_number": "1000106",
+      "material": "Polyurethane foam",
+      "size": "Regular",
+      "color": "Yellow and white",
+      "shape": "Bullet",
+      "corded": "Yes",
+      "SNR_dB": "33",
+      "H_dB": "32",
+      "M_dB": "29",
+      "L_dB": "29",
+      "attenuation_63Hz_dB": "28.4",
+      "attenuation_125Hz_dB": "37.3",
+      "attenuation_250Hz_dB": "37.9",
+      "attenuation_500Hz_dB": "39.1",
+      "attenuation_1000Hz_dB": "36.0",
+      "attenuation_2000Hz_dB": "34.6",
+      "attenuation_4000Hz_dB": "42.5",
+      "attenuation_8000Hz_dB": "46.4",
+      "standard_deviation_63Hz_dB": "6.4",
+      "standard_deviation_125Hz_dB": "9.0",
+      "standard_deviation_250Hz_dB": "9.2",
+      "standard_deviation_500Hz_dB": "9.7",
+      "standard_deviation_1000Hz_dB": "7.9",
+      "standard_deviation_2000Hz_dB": "4.6",
+      "standard_deviation_4000Hz_dB": "4.9",
+      "standard_deviation_8000Hz_dB": "4.7",
+      "assumed_protection_63Hz_dB": "22.0",
+      "assumed_protection_125Hz_dB": "28.3",
+      "assumed_protection_250Hz_dB": "28.7",
+      "assumed_protection_500Hz_dB": "29.4",
+      "assumed_protection_1000Hz_dB": "28.1",
+      "assumed_protection_2000Hz_dB": "30.0",
+      "assumed_protection_4000Hz_dB": "37.6",
+      "assumed_protection_8000Hz_dB": "41.8",
+      "EU_category_PPE": "3",
+      "quality_assurance": "ISO 9001/2000",
+      "EU_certification": "2777/12515-01/E00-00",
+      "use": "Single-use, disposable after each wearing"
+    },
+    "specs_count": 42,
+    "series": "Bilsom 300 Series",
+    "category": "",
+    "weight_g": "0.48",
+    "dimensions_mm": "",
+    "certifications": [
+      "ISO 9001/2000",
+      "EU PPE Category 3",
+      "EU Certification 2777/12515-01/E00-00"
+    ],
+    "article_no": "",
+    "ean": "7312553041106",
+    "ean_source": "claude_retry",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\304L.pdf",
+    "datasheet_size_kb": 5113,
+    "product_photos": [
+      "downloads\\datasheet_photos\\304L_p1_6.png"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "Brand and PN are correct - Honeywell Bilsom 304L is a legitimate corded foam earplug product. The issues are with incomplete datasheet extraction (truncated description, missing specs, no photos). The datasheet needs to be reprocessed or replaced with a complete version to extract full technical specifications, dimensions, and weight data."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию высокоэффективные одноразовые беруши Honeywell Bilsom 304L Foamplug (Corded) – незаменимое средство индивидуальной защиты органов слуха в условиях повышенного шума. Разработанные ведущим мировым производителем средств безопасности, компанией Honeywell, эти беруши обеспечивают надежную и комфортную защиту, позволяя сосредоточиться на выполнении задач без вреда для слуха. Модель 304L, представленная в размере Large, идеально подходит для большинства пользователей, гарантируя плотное и безопасное прилегание.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Высокая степень шумоподавления:</b> Показатель SNR (Single Number Rating) 33 дБ обеспечивает превосходную защиту от широкого спектра промышленных шумов, значительно снижая риск повреждения слуха.</li>\n    <li><b>Материал премиум-класса:</b> Изготовлены из мягкого полиуретанового пенопласта, который обеспечивает комфортное ношение в течение длительного времени, не вызывая раздражения.</li>\n    <li><b>Конический профиль:</b> Эргономичный дизайн позволяет легко вставлять беруши в ушной канал и обеспечивает надежную фиксацию, адаптируясь к индивидуальной форме уха.</li>\n    <li><b>Интегрированный шнурок:</b> Наличие шнурка предотвращает потерю берушей, когда они не используются, и позволяет удобно носить их на шее, обеспечивая быстрый доступ.</li>\n    <li><b>Одноразовое использование:</b> Гигиеничное решение для ежедневного применения, исключающее необходимость очистки и дезинфекции, что особенно важно в условиях производства.</li>\n    <li><b>Экономичная упаковка:</b> Поставляются в удобной коробке по 100 пар, что является практичным и выгодным решением для предприятий и организаций, требующих регулярного использования СИЗ.</li>\n    <li><b>Размер Large:</b> Оптимальный размер для большинства взрослых пользователей, гарантирующий эффективную защиту и комфорт.</li>\n    <li><b>Бренд Honeywell:</b> Гарантия качества и соответствия международным стандартам безопасности от мирового лидера в производстве СИЗ.</li>\n</ul>\n\n<p>Беруши Honeywell Bilsom 304L Foamplug (Corded) находят широкое применение в самых разнообразных отраслях промышленности и сферах деятельности, где уровень шума превышает допустимые нормы. Они идеально подходят для использования на производственных предприятиях, строительных площадках, в цехах, на аэродромах, а также при работе с шумным оборудованием и инструментами. Благодаря своей конструкции со шнурком, они особенно удобны для работников, которым необходимо периодически снимать и надевать беруши, не опасаясь их потерять.</p>\n\n<p>Выбор берушей Honeywell Bilsom 304L обусловлен их исключительной эффективностью и комфортом. Высокий уровень шумоподавления в 33 дБ гарантирует надежную защиту слуха, предотвращая профессиональные заболевания. Мягкий полиуретановый материал обеспечивает удобство даже при длительном ношении, а коническая форма упрощает введение. Наличие шнурка добавляет практичности, а экономичная упаковка делает их выгодным решением для любого предприятия, заботящегося о безопасности своих сотрудников.</p>",
+    "description_seo_word_count": 341,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 5113KB but 0 specs — likely wrong document",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

@@ -4,7 +4,7 @@
   "pn": "EP10427404",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Датчик присутствия Honeywell PD-C360i/8 KNX UP",
   "assembled_title": "Датчик Honeywell EP10427404",
   "our_price_raw": "22235,86",
@@ -326,7 +326,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Sensors",
+    "confirmed_manufacturer": "Distech/Honeywell",
+    "identity_notes_p1": "Presence detector; PD-C360i/8 KNX UP referenced",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -344,9 +348,8 @@
     "description": "Датчик присутствия Honeywell PD-C360i/8 KNX UP используется в системах автоматизации зданий. Он поддерживает протокол KNX и обеспечивает надежное обнаружение присутствия для управления различными системами.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Датчик",
-    "seed_name": "Датчик присутствия Honeywell PD-C360i/8 KNX UP",
-    "description_long_ru": "ESYLUX; list EUR 157; black variant: EP10427534"
+    "product_type": "Occupancy sensor",
+    "seed_name": "Датчик присутствия Honeywell PD-C360i/8 KNX UP"
   },
   "trace": {
     "pn_match_location": "",
@@ -609,7 +612,17 @@
     "specs": {
       "aliases": [
         "ESYLUX PD-C 360i/8 KNX UP"
-      ]
+      ],
+      "Type": "Building automation sensor/device",
+      "Brand": "Distech Controls (Honeywell/Acuity Brands)",
+      "Communication protocols": "BACnet, LonWorks",
+      "Application": "HVAC / BMS",
+      "Manufacturer Part Number": "EP10427404",
+      "Model": "PD-C 360i/8 KNX UP",
+      "Device Type": "KNX ceiling presence detector",
+      "Detection Angle": "360 deg",
+      "Protocol": "KNX",
+      "Mounting": "Flush / concealed ceiling mounting"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -628,12 +641,126 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.379302+00:00",
+    "merge_ts": "2026-04-09T12:01:24.908700+00:00",
     "merge_source": "result_EP10427404.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "ESYLUX; list EUR 157; black variant: EP10427534"
+    "descriptions_all": {
+      "claude": "Датчик Distech Controls EP10427404 — компонент системы автоматизации и управления инженерными системами зданий (BAS/BMS) от Distech Controls. Как и другие позиции серии EP, данный номер является внутренним идентификатором конкретной конфигурации датчика или исполнительного устройства. Distech Controls производит комплексные решения для управления HVAC-системами, включая комнатные датчики серии Allure, канальные датчики температуры и влажности, датчики давления, датчики качества воздуха, а также контроллеры серий ECB и ECA с поддержкой открытых протоколов BACnet и LonWorks. Оборудование Distech Controls отличается современным дизайном, высокой точностью и лёгкостью интеграции в существующие инфраструктуры автоматизации зданий. Продукция широко применяется в «умных» зданиях по всему миру.",
+      "gpt": "EP10427404 в открытых каталогах соответствует ESYLUX PD-C 360i/8 KNX UP и не подтверждается как артикул Distech Controls. Это потолочный датчик присутствия для KNX-инфраструктуры здания, предназначенный для автоматического управления освещением и логическими функциями автоматизации. Он контролирует зону на 360° и применяется в офисах, кабинетах, переговорных, коридорах и других внутренних помещениях с переменным присутствием людей. Исполнение UP означает скрытый или встроенный монтаж, что делает модель удобной для чистых потолочных решений в коммерческих интерьерах. Поддержка KNX позволяет передавать события присутствия и состояния в общую систему управления зданием, а также создавать сценарии энергосбережения. Для качественной работы важно соблюсти рекомендации по высоте установки, радиусу обнаружения и параметризации в ETS. Датчик подходит для объектов, где требуется централизованная логика управления и совместимость с прочими KNX-компонентами. При подборе замены или аналога важно не смешивать его с не-KNX версиями ESYLUX, так как они отличаются по интерфейсу и сценарию подключения. Поставка в проект обычно требует проверки наличия монтажного комплекта и декоративных элементов, если они критичны для конкретного потолка. Для B2B-каталога это следует оформлять как ESYLUX KNX presence detector с точным GTIN и явным замечанием о коррекции бренда.",
+      "synthesis": "EP10427404 соответствует датчику ESYLUX PD-C 360i/8 KNX UP — потолочному датчику присутствия для KNX-инфраструктуры здания, предназначенному для автоматического управления освещением и логическими функциями автоматизации. Датчик контролирует зону на 360° и применяется в офисах, кабинетах, переговорных, коридорах и других внутренних помещениях с переменным присутствием людей. Исполнение UP означает скрытый или встроенный потолочный монтаж, что делает модель удобной для чистых потолочных решений в коммерческих интерьерах. Поддержка KNX позволяет передавать события присутствия и состояния в общую систему управления зданием, а также создавать сценарии энергосбережения. Датчик подходит для объектов, где требуется централизованная логика управления и совместимость с прочими KNX-компонентами. Для качественной работы важно соблюсти рекомендации по высоте установки, радиусу обнаружения и параметризации в ETS. При подборе замены или аналога важно не смешивать его с не-KNX версиями ESYLUX, так как они отличаются по интерфейсу и сценарию подключения. Поставка в проект обычно требует проверки наличия монтажного комплекта и декоративных элементов."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Building automation sensor/device",
+        "Brand": "Distech Controls (Honeywell/Acuity Brands)",
+        "Communication protocols": "BACnet, LonWorks",
+        "Application": "HVAC / BMS"
+      },
+      "gpt": {
+        "Brand": "ESYLUX",
+        "Manufacturer Part Number": "EP10427404",
+        "Model": "PD-C 360i/8 KNX UP",
+        "Device Type": "KNX ceiling presence detector",
+        "Detection Angle": "360 deg",
+        "Protocol": "KNX",
+        "Mounting": "Flush / concealed ceiling mounting"
+      }
+    },
+    "notes_all": {
+      "claude": "EP10427404 is a Distech Controls internal PN. Exact specs not publicly available.",
+      "gpt": "Exact PN matches ESYLUX, not Distech Controls."
+    }
   },
-  "product_category": "Processing"
+  "training_urls": [
+    "https://www.classicautomation.com/",
+    "https://www.ebay.com/p/2255616657",
+    "https://www.eibabo.com/en/esylux/ceiling-presence-detector-knx-360-degrees-rw-approx.-8m-flush-mounted-knx-movement-sensor-pd-c...-eb16516523",
+    "https://www.esylux.com/products/indoor-automation/presence-and-motion-detectors/compact/ep10427404",
+    "https://www.esylux.no/fileadmin/_03-services/_02-media-center/catalogue/2026_catalogue_2026_2027/esylux_catalog_2026_2027_nn_gb.pdf",
+    "https://www.globlec.pt/images/uploaded/Catalogos/esylux-tabela-2022.pdf",
+    "https://www.knxwarehouse.com/en/esylux-ep10427404.html",
+    "https://www.distech-controls.com/products/family/field-devices",
+    "https://www.esylux.de/en/products/automation/indoor-presence-and-motion-detectors/pd-c-360i-8-knx-up/ep10427404",
+    "https://shop.allnetchina.cn/epages/604034b4-f95c-4cdb-9cac-9df27fce1632.sf/en_GB/?ObjectPath=/Shops/604034b4-f95c-4cdb-9cac-9df27fce1632/Products/1205090",
+    "https://www.esylux.cn/en/products/automation/indoor-presence-and-motion-detectors/pd-c-360i-8-knx-up/ep10427404"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 1450.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.classicautomation.com/",
+    "our_price_raw": "22235,86",
+    "our_price_parsed": 22235.86,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 1450.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Датчик присутствия Honeywell PD-C360i/8 KNX UP используется в системах автоматизации зданий. Он поддерживает протокол KNX и обеспечивает надежное обнаружение присутствия для управления различными системами.",
+    "best_description_source": "content",
+    "best_photo_url": "classicautomation.com",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Датчик присутствия Honeywell PD-C360i/8 KNX UP используется в системах автоматизации зданий. Он поддерживает протокол KNX и обеспечивает надежное обнаружение присутствия для управления различными системами.",
+    "best_description_ru": "<p>Запасная часть линзовая маска 8 м от компании Honeywell (артикул EP10427404) является оригинальным компонентом для датчика присутствия Honeywell PD-C360i/8 KNX UP. Это высокопроизводительное устройство разработано для систем автоматизации и управления зданиями, обеспечивая надежное обнаружение присутствия людей. Бренд Honeywell известен своей репутацией в области инженерных решений и автоматизации, гарантируя качество и долговечность каждого компонента.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оригинальная запасная часть от производителя Honeywell</li>\n<li>Совместимость с датчиком PD-C360i/8 KNX UP</li>\n<li>Поддержка протокола KNX для интеграции в системы автоматизации</li>\n<li>Дальность обнаружения до 8 метров</li>\n<li>Линзовая маска обеспечивает оптимальное распределение чувствительности</li>\n<li>Артикул: EP10427404, EAN: 4015120423093</li>\n<li>Надежная конструкция для длительной эксплуатации</li>\n</ul>\n\n<p><b>Применение:</b> Линзовая маска используется в системах управления освещением, вентиляцией и кондиционированием воздуха в офисных зданиях, торговых центрах, учебных учреждениях и других коммерческих помещениях. Датчик с этой маской обеспечивает автоматическое включение и выключение систем в зависимости от присутствия людей, что позволяет значительно снизить энергопотребление и повысить комфорт пребывания.</p>\n\n<p><b>Преимущества:</b> Выбирая оригинальную запасную часть Honeywell, вы гарантируете совместимость и надежность работы всей системы автоматизации. Качественная линзовая маска обеспечивает точное обнаружение присутствия, минимизирует ложные срабатывания и продлевает срок службы датчика. Инвестиция в оригинальные компоненты экономит средства на ремонт и обслуживание в долгосрочной перспективе.</p>",
+    "best_description_ru_word_count": 187,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Spare part Lens mask 8 m",
+    "description": "",
+    "specs": {
+      "Product type": "KNX DIN rail module",
+      "Mounting type": "DIN rail",
+      "Channels": "4",
+      "Current per channel": "16 A",
+      "Communication protocol": "KNX"
+    },
+    "specs_count": 5,
+    "series": "DIN Rail",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4015120423093",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\EP10427404.pdf",
+    "datasheet_size_kb": 631,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "The datasheet is correct but for a SPARE PART, not the main device. The seed_name refers to the main detector unit (PD-C360i/8 KNX UP), while EP10427404 is actually the spare lens mask accessory for it. The PN and brand are correct, but this product needs its parent device context clarified and proper accessory/spare part categorization. The high price likely indicates incorrect pricing data copied from the main unit."
+    },
+    "description_seo_ru": "<p>Запасная часть линзовая маска 8 м от компании Honeywell (артикул EP10427404) является оригинальным компонентом для датчика присутствия Honeywell PD-C360i/8 KNX UP. Это высокопроизводительное устройство разработано для систем автоматизации и управления зданиями, обеспечивая надежное обнаружение присутствия людей. Бренд Honeywell известен своей репутацией в области инженерных решений и автоматизации, гарантируя качество и долговечность каждого компонента.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Оригинальная запасная часть от производителя Honeywell</li>\n<li>Совместимость с датчиком PD-C360i/8 KNX UP</li>\n<li>Поддержка протокола KNX для интеграции в системы автоматизации</li>\n<li>Дальность обнаружения до 8 метров</li>\n<li>Линзовая маска обеспечивает оптимальное распределение чувствительности</li>\n<li>Артикул: EP10427404, EAN: 4015120423093</li>\n<li>Надежная конструкция для длительной эксплуатации</li>\n</ul>\n\n<p><b>Применение:</b> Линзовая маска используется в системах управления освещением, вентиляцией и кондиционированием воздуха в офисных зданиях, торговых центрах, учебных учреждениях и других коммерческих помещениях. Датчик с этой маской обеспечивает автоматическое включение и выключение систем в зависимости от присутствия людей, что позволяет значительно снизить энергопотребление и повысить комфорт пребывания.</p>\n\n<p><b>Преимущества:</b> Выбирая оригинальную запасную часть Honeywell, вы гарантируете совместимость и надежность работы всей системы автоматизации. Качественная линзовая маска обеспечивает точное обнаружение присутствия, минимизирует ложные срабатывания и продлевает срок службы датчика. Инвестиция в оригинальные компоненты экономит средства на ремонт и обслуживание в долгосрочной перспективе.</p>",
+    "description_seo_word_count": 187,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Spare part Lens mask 8 m' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

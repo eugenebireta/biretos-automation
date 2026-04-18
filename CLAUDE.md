@@ -12,23 +12,60 @@ If the user message is a short liveness check or tiny conversational prompt
 
 This override applies only to that single liveness/conversational turn.
 
-## SCRIPT AWARENESS (mandatory pre-flight)
+## SESSION START (for substantive tasks)
 
-Before doing ANY of these tasks manually, FIRST check `scripts/MANIFEST.json`
-and run the existing script:
+For any non-liveness task, read `SESSION_PRIMER.md` FIRST — it contains:
+- Current project status (sync with `docs/autopilot/STATE.md`)
+- Active pipelines table (enrichment / export / identity / price / telegram)
+- Top-5 critical KNOW_HOW rules
+- Links to domain-specific `KNOW_HOW_*.md` files
 
-- Generating DR prompts → `scripts/dr_prompt_generator.py`
-- Importing DR results → `scripts/dr_results_import.py`
-- Merging to evidence → `scripts/merge_research_to_evidence.py`
-- Downloading documents → `scripts/download_documents.py`
-- Exporting to CSV/Excel → `scripts/export_pipeline.py`
-- Any enrichment/catalog task → `ls scripts/` and grep for keywords FIRST
+Read it once per session. Skip for liveness messages per CHAT LIVENESS OVERRIDE above.
+
+## ENRICHMENT DATA RULES (mandatory, never forget)
+
+### Rule 1 — Read from normalized{}, not raw fields
+Evidence data is in `normalized{}` block. NEVER check raw `dr_price`/`dr_image_url` to assess coverage.
+- Price → `normalized.best_price`
+- Photo → `normalized.best_photo_url`
+- Description → `normalized.best_description`
+- To assess gaps: run `python scripts/evidence_coverage_report.py` FIRST.
+
+### Rule 2 — Phased pipeline, NEVER one mega-prompt
+DR enrichment uses a phased architecture (see `scripts/MANIFEST.json` → `full_enrichment_pipeline`):
+1. Phase 1: Identity Recon (Haiku) — product_type, series, designation only
+2. Phase 2: Market Recon (Haiku) — unit vs pack, dangerous distributors
+3. Gate A: identity must be resolved before proceeding
+4. Phase 3A: Price (GPT Think) + Phase 3B: Content (Opus ext) — parallel
+5. NEVER combine all into one "find everything" prompt
+
+### Rule 3 — Filename ≠ brand
+Source Excel "honeywell new.xlsx" contains mixed brands: Dell, NVIDIA, Phoenix Contact, SAIA, Weidmüller, Moxa, Xerox, Sony, etc. NEVER assume brand from filename. Brand comes from `structured_identity.confirmed_manufacturer` (set by Phase 1 recon), not from the Excel filename.
+
+### Rule 4 — Model assignments
+- Haiku: cheap recon (phases 1-2)
+- GPT Think: price scouting (phase 3A)
+- Opus ext: content/specs/photos (phase 3B)
+- Gemini: NEVER (fabricates prices and product identities)
+
+## SCRIPT AWARENESS (enrichment tasks only)
+
+When working on enrichment/catalog/DR/export tasks, check `scripts/MANIFEST.json`
+FIRST before writing any code. Key scripts:
+
+- DR prompts → `scripts/dr_prompt_generator.py`
+- DR results → `scripts/dr_results_import.py`
+- Merge to evidence → `scripts/merge_research_to_evidence.py`
+- Documents → `scripts/download_documents.py`
+- Export → `scripts/export_pipeline.py`
+- Photos → `scripts/deploy_photos_vps.py`
+- Any other → `ls scripts/` and grep for keywords
 
 **NEVER write ad-hoc Python for tasks that existing scripts already handle.**
 **NEVER invent product data — always pull from evidence files.**
 All scripts support `--dry-run` — use it first.
 
-See `memory/reference_operations_map.md` for the full task→script mapping.
+DR batch log: `downloads/DR_BATCH_LOG.json` — read before creating/importing DR batches.
 
 ## Управление неявными знаниями (KNOW_HOW.md)
 
@@ -79,12 +116,14 @@ If no automated checks exist, state the validation gap explicitly.
 Post-Core Freeze. Corrective execution track active:
 Phase 0 loss prevention -> Phase 1 governance codification.
 
-Read these files before ANY code change:
+Read these files ONLY before CORE/SEMI code changes (NOT for enrichment/DR/export tasks):
 1. `docs/PROJECT_DNA.md`
 2. `docs/MASTER_PLAN_v1_9_2.md`
 3. `docs/EXECUTION_ROADMAP_v2_3.md`
 4. `docs/claude/MIGRATION_POLICY_v1_0.md`
 5. `docs/autopilot/STATE.md`
+
+Skip these for enrichment pipeline tasks (evidence, DR, prompts, export, photos).
 
 Source of truth priority:
 `docs/PROJECT_DNA.md` → `docs/MASTER_PLAN_v1_9_2.md` → `docs/EXECUTION_ROADMAP_v2_3.md` → `docs/claude/MIGRATION_POLICY_v1_0.md` → `docs/autopilot/STATE.md`

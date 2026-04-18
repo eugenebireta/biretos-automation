@@ -7,7 +7,7 @@
     "ROL15276104"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Комплект роликового вала ROL15-2761-04",
   "assembled_title": "Комплект Honeywell ROL15-2761-04",
   "our_price_raw": "5257,21",
@@ -176,7 +176,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqS2haT1RnoFh8UNzNax'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -194,9 +194,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -309,7 +307,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "ROL15",
+    "confirmed_manufacturer": "Honeywell",
+    "identity_notes_p1": "Roller valve assembly; limited specifications",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -327,9 +329,8 @@
     "description": "Комплект роликового вала для принтеров серии KA10. Обеспечивает плавное и надежное перемещение бумаги, улучшая качество печати и долговечность оборудования.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленные сканеры",
-    "product_type": "Комплект",
-    "seed_name": "Комплект роликового вала ROL15-2761-04",
-    "description_long_ru": "[MOJIBAKE]"
+    "product_type": "Roller valve kit",
+    "seed_name": "Комплект роликового вала ROL15-2761-04"
   },
   "trace": {
     "pn_match_location": "",
@@ -633,7 +634,12 @@
       "raw": "MPN ROL15-2761-04; condition new; совместимость: I‑Class printers (по лоту) citeturn20view1",
       "aliases": [
         "Delfi: 64.00 € excl. VAT citeturn20view3"
-      ]
+      ],
+      "Type": "Accessory/spare parts kit",
+      "Brand": "Honeywell",
+      "Part type": "Platen roller assembly",
+      "Compatible printers": "Datamax I-Class / I-Class Mark I / II",
+      "Included elements": "Roller assembly with gear and bearings (seller information)"
     },
     "identity_confirmed": true,
     "confidence": "low",
@@ -652,12 +658,176 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.588538+00:00",
+    "merge_ts": "2026-04-09T12:01:24.995060+00:00",
     "merge_source": "result_ROL15-2761-04.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "NOT a valve kit — it is a label printer platen roller. MSRP $114.46. Also GBP 48.99 ex-VAT at thebarcodewarehouse.co.uk"
+    "descriptions_all": {
+      "claude": "Honeywell ROL15-2761-04 — комплект роликов или механических компонентов для промышленного оборудования Honeywell. Артикул ROL обычно указывает на роликовые механизмы, применяемые в принтерах, конвейерных системах или другом оборудовании Honeywell. Данный комплект может включать ролики, направляющие и крепёжные элементы для обеспечения перемещения носителей (этикеток, бумаги) в промышленных принтерах Honeywell. Точные характеристики зависят от конкретной модели оборудования, для которого предназначен данный комплект.",
+      "gpt": "ROL15-2761-04 — это не универсальный аксессуар Honeywell в широком смысле, а сервисный ролик/roller kit для промышленных принтеров Datamax-O’Neil I-Class. По найденным карточкам это platen roller assembly, то есть узел прижимного ролика, который обеспечивает протяжку носителя через печатающий механизм. Такая деталь относится к расходным или сервисным запчастям и заменяется при износе поверхности, ухудшении подачи этикетки или нестабильной печати. Несколько продавцов прямо указывают совместимость с Datamax I-Class и I-Class Mark I/II. В некоторых карточках отдельно отмечается наличие чёрной пластиковой приводной шестерни и подшипников в составе узла. Это типовая сервисная позиция для производственных, складских и маркировочных участков, где принтеры работают в непрерывном режиме. При подборе важно сверять не только семейство принтера, но и поколение механики, потому что у I-Class существуют варианты по ширине, разрешению и ревизии. Для B2B-каталога товар лучше описывать как platen roller assembly kit for Datamax I-Class label printers. Если позиция публикуется в разделе Honeywell, полезно указать, что бренд Datamax-O’Neil входит в индустриальный портфель Honeywell/legacy AIDC environment, чтобы не вызывать путаницу. Исходное описание «accessory kit» слишком общее и не раскрывает реальную функцию изделия.",
+      "synthesis": "ROL15-2761-04 — это platen roller assembly (узел прижимного ролика) для промышленных принтеров Datamax-O'Neil I-Class, а не универсальный аксессуар Honeywell в широком смысле. Компонент обеспечивает протяжку носителя через печатающий механизм и относится к расходным или сервисным запчастям, заменяемым при износе поверхности, ухудшении подачи этикетки или нестабильной печати. Несколько продавцов прямо указывают совместимость с Datamax I-Class и I-Class Mark I/II. В составе узла находятся чёрная пластиковая приводная шестерня и подшипники, обеспечивающие надёжное вращение. Это типовая сервисная позиция для производственных, складских и маркировочных участков, где принтеры работают в непрерывном режиме и ролик подвергается интенсивному износу. При подборе важно сверять не только семейство принтера, но и поколение механики, потому что у I-Class существуют варианты по ширине, разрешению и ревизии, влияющие на совместимость. Для B2B-каталога товар лучше описывать как platen roller assembly kit for Datamax I-Class label printers; если позиция публикуется в разделе Honeywell, полезно указать, что бренд Datamax-O'Neil входит в индустриальный портфель Honeywell. Исходное описание «accessory kit» слишком общее и не раскрывает реальную функцию изделия."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Roller kit / Mechanical component set",
+        "Brand": "Honeywell"
+      },
+      "gpt": {
+        "Part type": "Platen roller assembly",
+        "Compatible printers": "Datamax I-Class / I-Class Mark I / II",
+        "Included elements": "Roller assembly with gear and bearings (seller information)"
+      }
+    },
+    "notes_all": {
+      "claude": "Limited product data available. Likely a replacement roller/mechanical component kit for Honeywell industrial printers or similar equipment.",
+      "gpt": "Важно: это сервисная механическая запчасть для label printer, а не абстрактный accessory kit."
+    }
   },
-  "product_category": "Platen Roller"
+  "training_urls": [
+    "https://industry-electronics.com/honeywell/rol15-2761-04-datamax-kit-platen-roller-lieske_369203.htm",
+    "https://www.barcodefactory.com/datamax-honeywell/rol15-2761-04",
+    "https://www.barcodesinc.com/datamax-o-neil/platen-rollers-and-assemblies.htm",
+    "https://www.barcodesinc.com/honeywell/part-rol15-2761-04.htm",
+    "https://www.logiscenter.us/rol15-2761-04-honeywell-platen-roller",
+    "https://www.midwestbarcodingsolutions.com/rol15-2761-04-dkn/",
+    "https://www.radwell.com/Buy/HONEYWELL/DATAMAX%20ONEIL/ROL15-2761-04",
+    "https://www.thebarcodewarehouse.co.uk/shop/honeywell/accessories/platen-rollers/ROL15-2761-04/",
+    "https://www.thermalprintersupplies.com/printheads/rol15-2761-04/",
+    "https://www.barcodefactory.com/parts/datamax-o-neil/rol15-2761-04",
+    "https://www.bluestarinc.com/en-us/products/printers/parts-accessories/rol15-2761-04"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 80.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.radwell.com/Buy/HONEYWELL/DATAMAX%20ONEIL/ROL15-2761-04",
+    "our_price_raw": "5257,21",
+    "our_price_parsed": 5257.21,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "medium",
+    "judge_triggered": true,
+    "judge_trigger_reason": "pack_marker_ru",
+    "pack_qty": null,
+    "judge_reason": "mounting kit, 'Комплект' in title is product type not multi-pack"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 80.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Комплект роликового вала для принтеров серии KA10. Обеспечивает плавное и надежное перемещение бумаги, улучшая качество печати и долговечность оборудования.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.radwell.com/Image/Item/6523179",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Комплект роликового вала для принтеров серии KA10. Обеспечивает плавное и надежное перемещение бумаги, улучшая качество печати и долговечность оборудования.",
+    "best_description_ru": "<p>Каталог запасных частей I-Class™ Mark II от компании Honeywell (артикул ROL15-2761-04) — это комплект роликового вала, специально разработанный для принтеров серии KA10. Этот компонент является критически важной частью механизма подачи бумаги, обеспечивая стабильное и плавное движение материала через печатающее устройство. Honeywell, как признанный лидер в производстве промышленного оборудования, гарантирует высочайшее качество и надежность всех своих запасных частей, включая данный комплект.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Совместимость с принтерами серии KA10</li>\n<li>Оригинальная запасная часть от производителя Honeywell</li>\n<li>Обеспечивает плавное перемещение бумаги</li>\n<li>Улучшает качество печати и точность подачи материала</li>\n<li>Повышает долговечность печатающего оборудования</li>\n<li>Надежная конструкция из качественных материалов</li>\n<li>Простая установка и замена</li>\n<li>Соответствует всем техническим стандартам производителя</li>\n</ul>\n\n<p><b>Применение:</b> Роликовый вал используется в промышленных принтерах серии KA10 для обеспечения правильной подачи бумаги и других печатных материалов. Компонент применяется в различных отраслях, включая логистику, производство, торговлю и административное управление. Замена изношенного вала необходима для поддержания оптимальной производительности оборудования и предотвращения сбоев в работе системы печати.</p>\n\n<p><b>Преимущества:</b> Выбирая оригинальный комплект от Honeywell, вы получаете гарантию совместимости и долговечности. Использование подлинных запасных частей предотвращает преждевременный износ принтера и обеспечивает стабильное качество печати. Инвестиция в качественные компоненты экономит средства на ремонте и обслуживании оборудования в долгосрочной перспективе.</p>",
+    "best_description_ru_word_count": 189,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "I-Class™ Mark II Replacement Parts Catalog",
+    "description": "A comprehensive catalog detailing replacement parts for the Honeywell Datamax-O'Neil I-Class Mark II industrial label printer series. This manual covers models I-4212e, I-4310e, and I-4606e, providing part numbers and descriptions for various printer assemblies, options, and hardware components.",
+    "specs": {
+      "Printhead Resolution (I-4212e)": "203 DPI",
+      "Printhead Resolution (I-4310e)": "300 DPI",
+      "Printhead Resolution (I-4606e)": "600 DPI",
+      "Media Supply Hub Size (primary)": "3 inches / 1.5 inches",
+      "Media Supply Hub Size (secondary)": "40 mm",
+      "Hub Adapter Size": "3 inches",
+      "Power Cord Voltage (European Plug)": "220V",
+      "Power Cord Voltage (British Plug)": "220V",
+      "Power Cord Voltage (Brazil Plug)": "250V",
+      "Power Cord Voltage (Japanese Plug)": "100V",
+      "Power Cord Voltage (U.S. Plug)": "110V",
+      "Power Cord Voltage (South Africa Plug)": "220V",
+      "Power Cord Voltage (Swiss Plug)": "220V",
+      "Power Cord Voltage (Australian Plug)": "220V",
+      "Power Cord Voltage (Italian Plug)": "220V",
+      "Power Cord Voltage (Israel Plug)": "220V",
+      "Power Cord Voltage (Argentinean Plug)": "220V",
+      "Power Cord Voltage (Chinese Plug)": "220V",
+      "Coaxial Cable Connector Type": "SMA/U.FL",
+      "Gear, Spur teeth count": "24t",
+      "Screw, M3X.5 (DPO130939) quantity": "25",
+      "Screw, M4x6, PHD (DPO10-2903-01) quantity": "50",
+      "Screw, M4x8, PHD (DPO10-2903-02) quantity": "50",
+      "Screw, M4x10, PHD (DPO10-2903-03) quantity": "50",
+      "Screw, M4x12, PHD (DPO10-2903-04) quantity": "50",
+      "Screw, M4x25, PHD (DPO10-2903-06) quantity": "25",
+      "Screw, M4X16 PHD (DPO10-3030-02) quantity": "50",
+      "Set Screw, M3x8 (DPO10-2976-01) quantity": "50",
+      "Screw, M4x12, FHD (DPO10-2998-01) quantity": "25",
+      "Screw, M4x8, PHD (DPO10-3030-01) quantity": "50",
+      "WASHER, FLAT, NYLON (DPO17-2869-01) quantity": "50",
+      "WASHER, FLAT (DPO10-2113-13) quantity": "50",
+      "WASHER, FLAT NYLON, .50 X .281 (DPO10-2904-01) quantity": "50",
+      "Washer, .175 IDX.626 OD X.062T (DPO10-3152-01) quantity": "5",
+      "WASHER, FLAT (DPO10-2975-01) quantity": "25",
+      "WASHER, #8, Split-Lock (DPO10-0526-01) quantity": "50",
+      "RING, RETAINING, .125D (DPO10-0307-01) quantity": "50",
+      "E-Ring, 3/8 (DPO10-0563-01) quantity": "50",
+      "Nut, Self Locking (DPO10-2905-01) quantity": "50",
+      "Nut M3 X .5 (DPO130944) quantity": "50",
+      "Nut M4 (DPO10-2114-01) quantity": "50",
+      "Screw, Oval Pt, M4x8, PHD (DPO10-3148-01) quantity": "25",
+      "Nut, Lock, Nylon Insert, M4 (DPO10-2828-01) quantity": "50",
+      "Screw, Hex Washer, M3x6 (DPO10-2669-01) quantity": "50",
+      "Fastener, Twin Push-On (DPO17-3015-01) quantity": "10",
+      "Post, Idler (DPR12-2905-01) quantity": "25",
+      "Foot, Stick-On (DPO10-2913-01) quantity": "48",
+      "Bearing, Flanged (DPO17-3028-01) quantity": "2",
+      "Clutch Assembly, Ribbon Rewind (DPR15-2776-21) quantity": "2",
+      "Spring, Torsion - Supply Hub (DPO17-3221-01) quantity": "4",
+      "Retainer, Media (DPO11-5339-01) quantity": "2",
+      "Assy, Take Up Hub (DPR15-2764-01) quantity": "2",
+      "Gear, Spur (24t) (DPR17-2860-01) quantity": "10",
+      "Clutch Assembly, Media Hub (DPR15-2802-41) quantity": "2",
+      "Peel and Present Latch (DPR16-2970-01) quantity": "2",
+      "Standoff, M/M, M3 X 0.5, 6mm Hex (DPO10-3198-01) quantity": "10",
+      "Screw, PHD, TRILOBAL, M4X6 (DPO10-2903-01 - Page 16) quantity": "50"
+    },
+    "specs_count": 57,
+    "series": "I-Class Mark II",
+    "category": "Replacement Parts Catalog",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\ROL15-2761-04.pdf",
+    "datasheet_size_kb": 1829,
+    "product_photos": [
+      "downloads\\datasheet_photos\\ROL15-2761-04_p1_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/ROL15-2761-04_p1_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format ROL15-2761-04 matches Honeywell replacement parts numbering. Brand Honeywell is correct. Seed name clearly identifies product as 'Комплект роликового вала' (Roller shaft kit) for I-Class Mark II printers. Current datasheet is just a parts catalog index, not actual product documentation. PN is correct but needs proper product-specific datasheet with specifications and detailed description."
+    },
+    "description_seo_ru": "<p>Каталог запасных частей I-Class™ Mark II от компании Honeywell (артикул ROL15-2761-04) — это комплект роликового вала, специально разработанный для принтеров серии KA10. Этот компонент является критически важной частью механизма подачи бумаги, обеспечивая стабильное и плавное движение материала через печатающее устройство. Honeywell, как признанный лидер в производстве промышленного оборудования, гарантирует высочайшее качество и надежность всех своих запасных частей, включая данный комплект.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Совместимость с принтерами серии KA10</li>\n<li>Оригинальная запасная часть от производителя Honeywell</li>\n<li>Обеспечивает плавное перемещение бумаги</li>\n<li>Улучшает качество печати и точность подачи материала</li>\n<li>Повышает долговечность печатающего оборудования</li>\n<li>Надежная конструкция из качественных материалов</li>\n<li>Простая установка и замена</li>\n<li>Соответствует всем техническим стандартам производителя</li>\n</ul>\n\n<p><b>Применение:</b> Роликовый вал используется в промышленных принтерах серии KA10 для обеспечения правильной подачи бумаги и других печатных материалов. Компонент применяется в различных отраслях, включая логистику, производство, торговлю и административное управление. Замена изношенного вала необходима для поддержания оптимальной производительности оборудования и предотвращения сбоев в работе системы печати.</p>\n\n<p><b>Преимущества:</b> Выбирая оригинальный комплект от Honeywell, вы получаете гарантию совместимости и долговечности. Использование подлинных запасных частей предотвращает преждевременный износ принтера и обеспечивает стабильное качество печати. Инвестиция в качественные компоненты экономит средства на ремонте и обслуживании оборудования в долгосрочной перспективе.</p>",
+    "description_seo_word_count": 189,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'I-Class™ Mark II Replacement Parts Catalog' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

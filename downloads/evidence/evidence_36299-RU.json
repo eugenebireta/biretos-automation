@@ -6,10 +6,10 @@
     "36299.RU",
     "36299RU"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "DKC",
+  "subbrand": null,
   "name": "Адаптер RRC Honeywell 36299-RU, 400x200мм",
-  "assembled_title": "Адаптер Honeywell 36299-RU",
+  "assembled_title": "Адаптер DKC 36299-RU",
   "our_price_raw": "4161,50",
   "expected_category": "Адаптер",
   "card_status": "REVIEW_REQUIRED",
@@ -177,7 +177,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Виден адаптер/переходник — сантехнический фитинг, соответствует категории товара",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -195,10 +195,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://osa.revitech.ru/catalog/dlya_kanalizatsionnykh_trub/zaglushka-50-rtp-tru"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -306,7 +303,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title_suffix_variant"
+    "structured_pn_match_location": "title_suffix_variant",
+    "product_line": "RRC",
+    "identity_notes_p1": "RRC adapter 400x200mm; Russian market variant; cable duct reducer/adapter",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "DKC",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -324,7 +326,7 @@
     "description": "Адаптер RRC Honeywell 36299-RU предназначен для использования в промышленных системах автоматизации. Он обеспечивает надежное соединение и адаптацию различных компонентов. Размеры адаптера составляют 400x200 мм.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Адаптер",
+    "product_type": "Adapter",
     "seed_name": "Адаптер RRC Honeywell 36299-RU, 400x200мм",
     "description_long_ru": "No Honeywell/Resideo product matches; -RU suffix = Russian market; may be regional-only catalog"
   },
@@ -536,8 +538,200 @@
     "merge_source": "result_36299-RU.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md"
+    "source_file": "compass_artifact_wf-08903d26-1ac2-4f09-bfa5-470628858f8f_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "DKC 36299-RU RRC — это элемент металлической кабельной трассы для системы листовых лотков, используемой в промышленном и коммерческом электромонтаже. Позиция предназначена для организации симметричного перехода по ширине в трассе с размером 400/200x80 мм. Такие детали применяют в энергетике, на заводах, в торговых и офисных зданиях, а также на инфраструктурных объектах, где кабельные линии прокладываются по лоткам. Исполнение из оцинкованной стали обеспечивает базовую коррозионную стойкость для внутреннего монтажа и типовых условий эксплуатации. Перфорированные стенки и основание облегчают крепление и могут улучшать вентиляцию кабельной системы. При проектировании важно учитывать не только размер лотка, но и радиус поворота, тип нагрузки и необходимость крышек или повышенного IP в составе всей системы. Такие элементы подбирают строго под серию и геометрию трассы, чтобы исключить перекосы, разрывы покрытия и неудобство при укладке кабеля. Монтаж выполняют в составе трассы с совместимыми прямыми секциями и соединительными аксессуарами DKC. Элемент позволяет расширить или сузить трассу между лотками различной ширины при сохранении одной высоты борта. Если объект требует сохранения работоспособности кабельной линии при пожаре, следует отдельно проверять соответствие всей трассы, а не только одного фитинга."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "DKC",
+        "Series": "S5 Combitech",
+        "Model": "RRC",
+        "Product type": "Symmetrical reducer",
+        "Input width": "400 mm",
+        "Output width": "200 mm",
+        "Height": "80 mm",
+        "Material": "Sendzimir galvanized steel",
+        "Application": "Width reduction/expansion"
+      }
+    },
+    "specs": {
+      "Brand": "DKC",
+      "Series": "S5 Combitech",
+      "Model": "RRC",
+      "Product type": "Symmetrical reducer",
+      "Input width": "400 mm",
+      "Output width": "200 mm",
+      "Height": "80 mm",
+      "Material": "Sendzimir galvanized steel",
+      "Application": "Width reduction/expansion"
+    },
+    "notes_all": {
+      "gpt": "Используется как симметричный переход между ширинами 400 и 200 мм."
+    }
   },
   "dr_category": "adapter",
-  "product_category": "adapter"
+  "training_urls": [
+    "https://buildings.honeywell.com (security products search)",
+    "https://honeywellhome.com (security accessories)",
+    "https://resideo.com (adapter search)",
+    "https://www.dkc.com/ru/ru/products/36299",
+    "https://www.dkc.com/cee/products/36299"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "4161,50",
+    "our_price_parsed": 4161.5,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 4161.5,
+    "best_price_currency": "RUB",
+    "best_price_source": "our_estimate",
+    "best_description": "Адаптер RRC Honeywell 36299-RU предназначен для использования в промышленных системах автоматизации. Он обеспечивает надежное соединение и адаптацию различных компонентов. Размеры адаптера составляют 400x200 мм.",
+    "best_description_source": "content",
+    "best_photo_url": "https://osa.revitech.ru/catalog/dlya_kanalizatsionnykh_trub/zaglushka-50-rtp-tru",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Адаптер RRC Honeywell 36299-RU предназначен для использования в промышленных системах автоматизации. Он обеспечивает надежное соединение и адаптацию различных компонентов. Размеры адаптера составляют 400x200 мм.",
+    "best_description_ru": "<p>Представляем адаптер RRC Honeywell 36299-RU от известного бренда DKC, который является ключевым элементом для построения эффективных и надежных промышленных систем автоматизации. Этот компонент, несмотря на свое название DIXI 1101 Centre Drill, фактически является высококачественным адаптером, разработанным для обеспечения бесперебойного взаимодействия между различными устройствами и системами. Он идеально подходит для интеграции в сложные производственные процессы, где требуется стабильность и точность передачи данных и сигналов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> DKC – гарантия качества и надежности в сфере промышленного оборудования.</li>\n<li><b>Артикул:</b> 36299-RU – уникальный идентификатор для легкого поиска и заказа.</li>\n<li><b>Назначение:</b> Адаптер RRC Honeywell – разработан для адаптации и надежного соединения компонентов в промышленных системах.</li>\n<li><b>Размеры:</b> 400x200 мм – оптимальные габариты для удобной интеграции в большинство промышленных шкафов и панелей.</li>\n<li><b>Материал:</b> Высококачественные компоненты, обеспечивающие долговечность и устойчивость к агрессивным условиям эксплуатации.</li>\n<li><b>Совместимость:</b> Разработан для работы с широким спектром промышленного оборудования, обеспечивая универсальность применения.</li>\n<li><b>Надежность:</b> Протестирован на соответствие высоким стандартам качества, гарантируя стабильную работу в течение длительного времени.</li>\n<li><b>Простота установки:</b> Интуитивно понятный дизайн для быстрой и легкой интеграции в существующие системы.</li>\n</ul>\n\n<p>Адаптер RRC Honeywell 36299-RU находит широкое применение в различных отраслях промышленности, включая автоматизацию производственных линий, системы управления зданиями, энергетические комплексы и телекоммуникационные сети. Он служит для обеспечения стабильного и безопасного соединения между разнообразными датчиками, исполнительными механизмами, контроллерами и другими элементами автоматизированных систем. Его универсальность позволяет использовать его как в новых проектах, так и для модернизации существующих инфраструктур, значительно повышая их эффективность и отказоустойчивость.</p>\n\n<p>Выбор адаптера DKC 36299-RU обусловлен его исключительной надежностью и долговечностью, что критически важно для бесперебойной работы промышленных систем. Продукт от DKC обеспечивает безупречную совместимость и простоту интеграции, минимизируя время на установку и настройку. Инвестиции в этот адаптер гарантируют стабильность работы вашего оборудования, сокращение эксплуатационных расходов и повышение общей производительности, делая его идеальным решением для современных промышленных задач.</p>",
+    "best_description_ru_word_count": 288,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "DIXI 1101 Centre Drill",
+    "description": "",
+    "specs": {
+      "manufacturer": "Dixipolytool",
+      "product_category": "Precision Tools",
+      "tool_material": "Carbide",
+      "swiss_precision": "Yes",
+      "tool_types_listed": [
+        "Centre Drills",
+        "Spotting Drills",
+        "Helical Gun Drills",
+        "Twist Drills",
+        "Twist Drills - Reinforced Shank",
+        "Self Centering Twist Drills",
+        "Self Centering Twist Drills with Through Coolant",
+        "Twist Drills for Hardened Steel > 45 HRC",
+        "Twist Drills Z = 3",
+        "Twist Drills for Composites / Kevlar®",
+        "Spade Drills",
+        "Half-Moon Bits",
+        "Straight Flute Slot Drills",
+        "Drills for Composite Materials / Kevlar®",
+        "Stepped Twist Drills"
+      ],
+      "number_of_flutes_Z_range": "1 - 3",
+      "drill_point_angle_range": "60° - 120°",
+      "coating_types": [
+        "333 A",
+        "338",
+        "6539",
+        "DICUT",
+        "TiAlN",
+        "XIDUR",
+        "6537L"
+      ],
+      "cutting_diameter_D1_range_mm": "0.08 - 20.00",
+      "cutting_length_L1_range_mm": "1.0 - 52.0",
+      "shank_diameter_Dh5_range_mm": "1.5 - 52.0",
+      "total_length_L_range_mm": "30.0 - 104.0",
+      "length_to_diameter_ratio_LC_range": "1 - 16 x Ø",
+      "min_material_hardness_HRC": "> 45 HRC (for specific drills)",
+      "D1_tolerance_DIXI_1101_range": "+0.14/0 to +0.18/0",
+      "L1_tolerance_DIXI_1101_range": "±0.1 to ±0.4",
+      "L_tolerance_DIXI_1101_range": "±2 to ±3",
+      "D1_tolerance_DIXI_1108": "h6",
+      "Dh5_tolerance_DIXI_1108": "h5",
+      "D1_tolerance_DIXI_1109": "0/-0.004",
+      "suitable_for_materials": [
+        "Low alloyed steel",
+        "DUPLEX stainless steel",
+        "Steel",
+        "Hardened cast iron > 45 HRC",
+        "Cast iron",
+        "Refractory alloy",
+        "Titanium, titanium alloy",
+        "Cu alloy",
+        "Silver",
+        "Gold",
+        "Cu alloy difficult to machine",
+        "Al",
+        "Graphite",
+        "Plastic",
+        "Steel + Pb",
+        "High alloyed steel",
+        "Kevlar®"
+      ],
+      "DIXI_1101_drill_point_angle": "60°",
+      "DIXI_1101_flutes": "Z = 2",
+      "DIXI_1106_drill_point_angle": "90°",
+      "DIXI_1106_flutes": "Z = 2",
+      "DIXI_1106_logarithmic_relief": "Yes (for selected items)",
+      "DIXI_1106_L_drill_point_angle": "90°",
+      "DIXI_1106_L_flutes": "Z = 2",
+      "DIXI_1107_drill_point_angle": "120°",
+      "DIXI_1107_flutes": "Z = 2",
+      "DIXI_1107_logarithmic_relief": "Yes (for selected items)",
+      "DIXI_1108_drill_point_angle": "90°",
+      "DIXI_1108_flutes": "Z = 2",
+      "DIXI_1108_reinforced_shank": "Yes",
+      "DIXI_1109_drill_point_angle": "120°",
+      "DIXI_1109_flutes": "Z = 2"
+    },
+    "specs_count": 36,
+    "series": "DIXI",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\36299-RU.pdf",
+    "datasheet_size_kb": 14371,
+    "product_photos": [
+      "downloads\\datasheet_photos\\36299-RU_p3_0.jpeg",
+      "downloads\\datasheet_photos\\36299-RU_p3_4.jpeg",
+      "downloads\\datasheet_photos\\36299-RU_p7_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Представляем адаптер RRC Honeywell 36299-RU от известного бренда DKC, который является ключевым элементом для построения эффективных и надежных промышленных систем автоматизации. Этот компонент, несмотря на свое название DIXI 1101 Centre Drill, фактически является высококачественным адаптером, разработанным для обеспечения бесперебойного взаимодействия между различными устройствами и системами. Он идеально подходит для интеграции в сложные производственные процессы, где требуется стабильность и точность передачи данных и сигналов.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li><b>Бренд:</b> DKC – гарантия качества и надежности в сфере промышленного оборудования.</li>\n<li><b>Артикул:</b> 36299-RU – уникальный идентификатор для легкого поиска и заказа.</li>\n<li><b>Назначение:</b> Адаптер RRC Honeywell – разработан для адаптации и надежного соединения компонентов в промышленных системах.</li>\n<li><b>Размеры:</b> 400x200 мм – оптимальные габариты для удобной интеграции в большинство промышленных шкафов и панелей.</li>\n<li><b>Материал:</b> Высококачественные компоненты, обеспечивающие долговечность и устойчивость к агрессивным условиям эксплуатации.</li>\n<li><b>Совместимость:</b> Разработан для работы с широким спектром промышленного оборудования, обеспечивая универсальность применения.</li>\n<li><b>Надежность:</b> Протестирован на соответствие высоким стандартам качества, гарантируя стабильную работу в течение длительного времени.</li>\n<li><b>Простота установки:</b> Интуитивно понятный дизайн для быстрой и легкой интеграции в существующие системы.</li>\n</ul>\n\n<p>Адаптер RRC Honeywell 36299-RU находит широкое применение в различных отраслях промышленности, включая автоматизацию производственных линий, системы управления зданиями, энергетические комплексы и телекоммуникационные сети. Он служит для обеспечения стабильного и безопасного соединения между разнообразными датчиками, исполнительными механизмами, контроллерами и другими элементами автоматизированных систем. Его универсальность позволяет использовать его как в новых проектах, так и для модернизации существующих инфраструктур, значительно повышая их эффективность и отказоустойчивость.</p>\n\n<p>Выбор адаптера DKC 36299-RU обусловлен его исключительной надежностью и долговечностью, что критически важно для бесперебойной работы промышленных систем. Продукт от DKC обеспечивает безупречную совместимость и простоту интеграции, минимизируя время на установку и настройку. Инвестиции в этот адаптер гарантируют стабильность работы вашего оборудования, сокращение эксплуатационных расходов и повышение общей производительности, делая его идеальным решением для современных промышленных задач.</p>",
+    "description_seo_word_count": 288,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "DKC",
+      "candidates": [],
+      "product_hint": "cable management",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 14371KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'DIXI 1101 Centre Drill' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

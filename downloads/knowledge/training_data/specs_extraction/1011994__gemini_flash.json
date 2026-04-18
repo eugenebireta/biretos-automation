@@ -1,0 +1,191 @@
+{
+  "pn": "1011994",
+  "model": "gemini-2.5-flash",
+  "prompt": "You are parsing a product datasheet PDF. Extract technical specifications THOROUGHLY.\n\nReturn ONLY valid JSON:\n{\n  \"specs\": {\"<param>\": \"<value>\"},\n  \"weight_g\": \"<number only, e.g. 250>\",\n  \"dimensions_mm\": \"<LxWxH e.g. 120x80x45>\",\n  \"ean\": \"<13 digits or empty>\",\n  \"series\": \"<product family>\",\n  \"certifications\": [\"CE\", \"EN54-18\", ...]\n}\n\nSPECS FIELD — include EVERY concrete technical parameter you can find:\n- Electrical: voltage (V), current (A, mA), power (W), frequency (Hz)\n- Physical: dimensions LxWxH, weight, housing/enclosure material, color\n- Environmental: operating temperature, IP rating, humidity range\n- Performance: detection range, sensitivity, response time, output type\n- Interface: connector type, cable, mounting type, communication protocol\n- Compliance: EN/IEC/UL standards, certifications\n- Any numeric values in tables (do not skip tables!)\n\nIf datasheet has a \"Technical Data\" / \"Specifications\" / \"Specifications tabulaire\" / \"Technische Daten\" section — extract EVERY row.\n\nDo NOT skip specs because they seem obvious. Extract literally.\n\nIf a value is truly absent, omit the key. Do NOT write \"N/A\" or \"not specified\".\n\nReturn empty specs {} ONLY if the PDF genuinely has no technical specifications (rare for datasheets).\n",
+  "pdf_text": "KDO Honeywell - Eye and Face Catalogue\n  2\nKDO Honeywell - Dual Layer Face Cover\n  46\nKDO Honeywell - H910 Plus KN95 TDS\n  54\nKDO Honeywell - H910P N95 TDS\n  57\nKDO Honeywell Hearing Protection\n  61\nKDO Honeywell - Hand Protection Gloves Full Catalog\n  77\nKDO Honeywell - DEXPURE 803-88 Exam Nitrile Glove\n  129\nKDO MILLER - Fall Protection Catalog\n  130\nKDO MILLER - Turbo Edge Brochure by Honeywell\n  233\nKDO MILLER TITAN - Body Harness and Lanyard Brochure by\nHoneywell\n  241\nKDO TITAN - Body Harness Brochure by Honeywell\n  245\nKDO Salisbury - Industrial Catalog by Honeywell\n  249\nKDO Cheetah PPE Brochure\n  357\nKDO KINGS - Safety Footwear by Honeywell\n  364\nKDO Krushers Safety Footwear\n  366\nKDO Cheetah Safety Shoes\n  370\n\n\nProduct Catalogue\nEye & Face Protection\nMANUFACTURERS OF HIGH PERFORMACE EYE & FACE \nPROTECTION PRODUCTS FOR TODAY’S DEMANDING \nWORK ENVIRONMENTS.\nKDO Honeywell - Eye and Face Catalogue\n2\n\n\nDisclaimer: Not all items that appear in this catalogue are available ex stock. Some items may need to be manufactured to your specifications \nupon placement of order. Please refer to your Honeywell price list for pricing and availability. Products are subject to change without notice.\nKDO Honeywell - Eye and Face Catalogue\n3\n\n\nEyewear \nPage 14\nGoggles/\nVisors\nPage 26\nLaser/ \nIPL/ \nPatient Care\nPage 32\nVision \nScreeners\nPage 42\nEyewash \nPage 40\nProtecting people at work\nHoneywell are a leading manufacturer of eye \nprotection products providing the very best \nsolutions for a wide range of hazards and \nindustry applications.\nContents\nKDO Honeywell - Eye and Face Catalogue\n4\n\n\n4\nStandards and safety\nAll Honeywell eyewear is approved under the standard  \nAS/NZS 1337.1:2010 so you can be confident of the best protection. \n\u0007The Australian and New Zealand \nstandards are a constant source of \ninformation, outlining appropriate \neyewear test methods, markings and \npackaging requirements.\nAS/NZS 1337.1 2010\nSAI Global\nLic SMK 0562\nLic SMK 02209\nLic SMK 02209/1\nLic SMK 02209/2\nLic SMK 02209/3\nLic SMK 02742\nLic SMKH 21726\nLic SMKH 21727\nLic SMK 25539\nLic SMK 40047\nLic SMK 40226\nTM\nKDO Honeywell - Eye and Face Catalogue\n5\n\n\n5\nMarking of \nAssembled  \nEye Protectors \n& Packaging\n2010  \nStandard\n(AS/NZS \n1337.1:2010)\nMedium Impact\nI or F\nHigh Impact\nV or B\nExtra High Impact\nA\nMolten Metal Hot Solids\nM or 9\nSplash Resistance\nC or 3\nDustproof\nD or 4\nGas Tight\nG or 5\nOutdoor Use untinted\nO\nHigh Temperature\nH\nList of relevant eyewear \nstandards for reference. \nConsult your local \ngovernment regulatory \nauthority for details on \ncodes of practices and \nrequirements for the use  \nof safety eyewear in  \nyour facility.\nAS/NZS 1336:2014 Eye & face  \nprotection guidelines\nAS/NZS 1337.1:2010 Eye Protectors  \nfor Industrial applications\nAS/NZS 1337.4:2004 Personal Eye \nprotection, filters and eye-protectors \nagainst laser radiation (laser eye protectors)\nAS/NZS 1337.5:2004 Eye protectors for \nadjustment work on lasers and laser  \nsystems (laser adjustment eye protectors)\nAS/NZS IEC 60825 Safe use of laser \nequipment\nAS/NZS 1338.1:1992 Filters for eye \nprotectors – Protection against radiation \ngenerated in welding and allied operations\nAS/NZS 1338.2:1992 Filters for eye \nprotectors – Protection against  \nultraviolet radiation\nAS/NZS 1338.3:1992 Filters for eye \nprotectors – Protection against  \ninfra-red radiation\nImportant Safety Considerations\nA workplace eye and face safety program \nshould be introduced into your workplace, \nwhere workers are exposed to recognised \nrisks of injury to the eyes and or face.\nAreas of risk may include the following \napplications: Using grinding machines, \nwood working, hammering, wire and brick \ncutting, chemical processing, welding, \ncutting, metal casting, road work, coal \nhandling timber sanding and outdoor work \nto name a few. These hazards can come  \nin the form of flying particles, liquid \nsplashes, airborne dusts, molten metal, \nsunglare, glare from visible radiation, and \nnon-ionising radiation. Forms of protection \ninclude engineering controls, for example, \nscreens (fixed or mobile) or PPE including \nimpact resistant protective eyewear, \ngoggles, face shields and welding lenses. \nEye protectors should be an individual \nissue (wherever practical) to ensure the \ncorrect fit, and protection for the workers \nenvironment. Correct storage and cleaning \nof the protector prolongs life and ensures \nthe continued performance of the eyewear. \nReplacement should be when usage, \naccidental damage or age has resulted in \ndeterioration of the properties of the eye \nprotectors. Using the correct protective \neyewear or face protection could save your \nsight, or your life!\nKDO Honeywell - Eye and Face Catalogue\n6\n\n\nGoggles\nAvailable in a variety of lens \noptions and coatings\nSuitable for a variety of \nlighting situations including \nindoor and outdoor\nTypes of Light\nWhen at work, the eye can be exposed to \nmany different types of light depending on \nthe task at hand. Types of light include \nUltra Violet Light, Visible Light and Infra \nRed Light. Each type of light varies in \nwavelength and visibility. \nThe human eye can only see wavelengths  \nbetween 380nm – 780nm, so harmful rays \nare not always visible. \nLenses should be carefully selected to \nensure they provide appropriate protection  \nto suit the application.\nVisible light >380nm \nVisible Light has a wavelength between 380 and 780nm \nThe visible part of the spectrum represents all the colours \nof the rainbow, from blue (towards 380 nm), to red \n(towards 780 nm). The eye is much more sensitive in the \ngreen and yellow regions\nEnvironment: Outside Work (sun)\nRisks: Glare & Eye fatigue\nProtection: Outdoor Lens\nUltra Violet Radiation <380nm\nUltra Violet Light (UV) is not visible to the naked eye \nbelow a wavelength of 380nm\nEnvironment: Outside work (sun), welding arc, short-\ncircuit electric flash, work under UV\nRisks: Partial blindness, cataract, photo-ophthalmia., \nacute conjunctivitis, retinal burn, cornea or crystalline \nlens lesions, loss of vision, reduction of the visual field.\nProtection: Indoor, Outdoor or Indoor/Outdoor \nLens depending on the application  - Polycarbonate \nprovides 99.9% UV protection up to 385nm\nKDO Honeywell - Eye and Face Catalogue\n7\n\n\nEyewear\nAvailable in a variety of lens \noptions and coatings\nSuitable for a variety of \nlighting situations including \nindoor and outdoor\nVisors & specialty eyewear\nAvailable in a variety of lens \noptions and coatings\nSuitable for specialty \nlighting situations where \nheat or lasers are involved\nInfra Red Radiation >780nm\nInfra red (IR) light is not visible to the naked eye and \nhas a wavelength greater than 780nm\nEnvironment: Major heat sources, metallurgy, foundry, \nglasswork, sun (eclipse), blowtorch welding (brazing, \noxy-cutting)\nRisks: Retinal lesions, macular degeneration (ageing), \nretinal burn, cornea or crystalline lens lesions, glass-\nworker cataract (occupational disease), visual disorders\nProtection: Specialty Lens – green Welding Lens or \nCobalt Blue Lens\nKDO Honeywell - Eye and Face Catalogue\n8\n\n\n8\nINDOOR LENSES\nCLEAR ¡\nFor indoor work environments where \nnormal to low light conditions exist.\nVLT: \t 92% (Blocks 8% of visible light) \nUV:\t\nAbsorbs > 99.9% of UV \n\t\nradiation up to 385nm \n• Provides True Colour Recognition  \n• \u0007Meets Traffic Signal Recognition \nRequirements of ANSI Z80.3\nOUTDOOR LENSES\nGREY POLARISED \nEliminates glare and visual distortion \nmagnified by flat surfaces such as water, \ngravel and steel surfaces. By reducing the \noriented light causing glare, fine details \nand deep colours are seen without strain.\nVLT: \t 14% (Blocks 86% of visible light) \nUV:\t\n\u0007Absorbs > 99.9% of UV radiation \nup to 385nm\n \n \n \nESPRESSO BROWN POLARISED  \nEliminates glare and visual distortion \nmagnified by flat surfaces such as water, \ngravel and steel surfaces. By reducing the \norientated light causing glare, fine details \nand deep colours are seen without strain.\nVLT:\t 14% (Blocks 86% of visible light) \nUV:\t\n\u0007Absorbs > 99.9% of UV radiation\n \n \nTSR GREY l\nFor outdoor use when sunlight and glare \ncan cause eyestrain and fatigue. Also \nprotects against most common hazards.\nVLT: \t 22% (Blocks 78% of visible light) \nUV:\t\nAbsorbs > 99.9% of UV \n\t\nradiation up to 385nm \n• \u0007Meets Traffic Signal Recognition \nRequirements of ANSI Z80.3\nSILVER & BLUE MIRROR l\nl \nFor outdoor use when bright sunlight and \nglare can cause eye fatigue. The mirror \ncoating reflects glare for better protection. \nVLT:\t 14% (Blocks 86% of visible light) \nUV:\t\n\u0007Absorbs > 99.9% of UV radiation \nup to 385nm\nESPRESSO BROWN l \nMinimisess strong outdoor sunlight and \nglare, reducing eye fatigue. \nVLT:\t 17% (Blocks 83% of visible light) \nUV:\t\n\u0007Absorbs > 99.9% UV radiation up \nto 385nm\nLens Variations\nAll lenses have a visual light transmission rating (VLT).  \nVLT is the amount of visible light that can pass through a lens.\nKDO Honeywell - Eye and Face Catalogue\n9\n\n\n9\nINDOOR/OUTDOOR LENSES\nAMBER l\nProvides high visibility and good contrast \nin low light conditions. Also protects \nagainst most commonly encountered \nhazards. Filters blue light while allowing \ngreen and red light to pass which \nimproves contrast.\nVLT:\t 87% (Blocks 13% of visible light) \nUV:\t\n\u0007Absorbs > 99.9% of UV radiation \nup to 400nm\nLIGHT MIRROR l\nFor indoor/outdoor use to reduce  \nartificial and sunlight glare. The flash \nmirror coating, reflects light instead of \nabsorbing, ensuring good visibility.\nVLT: \t 45% (Blocks 55% of visible light) \nUV:\t\n\u0007Absorbs > 99.9% of UV radiation \nup to 385nm\nLIGHT BROWN MIRROR l\nSuitable for indoor or outdoor use.  \nFilters blue light which can cause eye \nfatigue and a haze effect.\nVLT:\t 48% (Blocks 52% of visisble light)\nUV:\t\n\u0007Absorbs > 99.9% of UV radiation \nup to 385nm\nSPECIALTY LENSES\nIR SHADE 3 l\nFor welding applications such as Light \nBraze Welding, Glass Manufacturing, \nFoundry Work.\nVLT: \t 17% (Blocks: 83% of visible light)  \nUV:\t\nAbsorbs > 99.9% of UV \n\t\nradiation up to 385nm \nIR:\t\nAbsorbs 88% IR to 1400 nm\nIR SHADE 5 l\nFor welding applications such as Oxy- \ncutting, Gas Welding, Arc Welding, Glass \nManufacturing, Foundry Work, Braze \nWelding, micro-plasma Arc Welding.\nVLT: \t 2% (Blocks 98% of visible light) \nUV:\t\nAbsorbs > 99.9% of UV \n\t\nradiation up to 385nm \nIR:\t\nAbsorbs 97% IR to 1400 nm\nCOBALT BLUE l\nReduces the glare from metal or glass \nblowing. Protects from Infrared Radiation \nin applications such as high heat furnace, \nmetal work, glass blowing and foundries. \nVLT: \t 1.5% (Blocks: 98.5% of visible light)  \nUV:\t\nAbsorbs > 99.9% of UV \n\t\nradiation up to 400nm  \nIR:\t\n\u0007Absorbs > 75% of incidental IR \nheat radiation\nKDO Honeywell - Eye and Face Catalogue\n10\n\n\n10\nDurastreme®\nThe combination Honeywell Anti-Fog \ncoating on the interior and Honeywell \nHardcoat anti-scratch coating on the \nexterior, provides up to 3x* more lens life \nthan standard anti-fog coated lenses.\nIdeal where heat, humidity, mist, sand, \ndust, and chemicals are environmental \nfactors.\nDurastreme® coatings are available on \nthe Honeywell SP1000 Sealed Eyewear \nand Duramaxx Goggle.\n* \u0007Comparative lens life test performed using \nthe Bayer Abrasion test method and may vary \nbetween environment and application\n4A+Lens Coating\n(only on Adaptec eyewear)\nThe 4A+ lens coating is a high \nperformance coating that provides the \nultimate protection.\n4A+ coatings are permanently bonded \nto both sides of the lens ensuring \nexcellent anti-fog, anti scratch,  \nanti-static and UV protection properties.\nAnti-Fog – Prevents lens fogging in \nhumid conditions.  \nAnti Scratch – Extends life of the lens by \npreventing scratches\nAnti Static – Eliminates build up of static \nelectricity\nAnti UV – Provides 99.9% UV protection\nHardcoat \nOne of the toughest coatings in the \nworld. Permanently bonded to the lens, \nit won’t rub or wear off, and is highly \nscratch-resistant. It is also ultra-resistant \nto many chemicals.\nUncoated polycarbonate lenses are \nsoft and prone to scratching. Coating \nthe lens with a Hardcoat makes it more \ndurable and scratch resistant prolonging \nthe life of the eyewear.\nHardcoat is available as an option on all \nHoneywell eyewear and goggle models.\nHardcoat is resistant to these \nchemicals:\nAcetone\t\nAmmonia 10%\t\nBenzene\t\nButanol \t\nButyl Acetate\nCarbonTetrachloride\nCyclohexanol\t\nDiethylether\t\nEthanol\t\nEthulene Glycol\t\nFormic Acid 30%\nPetrol (normal)\nPetrol (super)\nHydrofluoric Acid (limited resistance)\nHydrochloric Acid 20%\nIsopropyl Alcohol\nMethanol\t\nMethyene Chloride \t\nPotassium Carbonate 30% \t\nSodium Carbonate 30%\t\nSulfuric Acid 50% \t\nToluene \t\nTrichloroethylene \t\nXylene \t\nLens Coatings\nHoneywell have developed superior lens coating technologies to \nperform in the harshest working environments. \nKDO Honeywell - Eye and Face Catalogue\n11\n\n\n11\nAnti-Fog\nHoneywell anti-fog coating combines \nthe best properties of both hydrophilic \nand hydrophobic coatings.\nHydrophobic - Repels moisture \ncausing it to spread over the lens in a \nthin layer. The advantage is: as the thin \nlayer of water develops, it drips off the \nlens and generally doesn’t interrupt \nvision or cause the wearer to remove \nthe protective eyewear. \nHydrophillic – Constantly absorbs and \nthen releases moisture. This type of \ncoating works very well in most work \nenvironments.\nDual action anti-fog coating is available \nas an option on all Honeywell eyewear \nand goggles.\nAnti-fog is resistant to these chemicals:\nAmmonia 10%\t\nButanol \t\nCarbonTetrachloride\t\nDiethylether\t\nEthanol\t\nEthulene Glycol\t\nFormic Acid 30%\t\nPetrol (normal)\t\nHydrofluoric Acid\t\nHydrochloric Acid 20%\t\nIsopropyl Alcohol (limited resistance)\nMethanol\t\nPotassium Carbonate 30% \t\nSodium Carbonate 30%\t\nSulfuric Acid 50% \n Lens Coating Key\nl \u0007Anti-Scratch lens coating\nPrevents scratches and harsh \nelements providing longer lens life.\nl Anti-Fog Lens coating\nPrevents fog build-up and \nprovides clear vision.\nl Lens-Polycarbonate\nl Anti-Static\nKDO Honeywell - Eye and Face Catalogue\n12\n\n\nInnovation\nHoneywell Eye and Face \nproducts include innovative \ndesigns and features that stand \nout from the competition.\nWith a great product range \nincluding Sleek stylish eyewear \nwith Bluetooth communication \ntechnology, polarised lenses, and \ncomfortable adaptable designs to \nsuit your entire work force, not to \nmention great value comfortable \nfaceshields with a simple lens \nreplacement system.\nThe Honeywell Eye & Face range \nhas an innovative solution to meet \nthe needs of your work force.\nSealed  \nOptions\nProvide protection in \nhigh particulate work \nenvironments\nPolarised  \nLens Options\nEliminates glare and \nvisual distortion magnified \nby flat surfaces such as \nwater, the road and steel.\nModern  \nDesigns\nAttractive modern \ndesigns appeal to a  \nwide range of workers.\nLens \nCoatings\nCoatings provide \nunsurpassed \nperformance for \npreventing  fogging and \nscratching of the lens. \nLenses with coatings on \nboth sides provide the \nhighest level of protection \nfor the harshest work \nenvironments.\nKDO Honeywell - Eye and Face Catalogue\n13\n\n\nTemple Ten",
+  "pdf_bytes": 28408204,
+  "output": {
+    "specs": {
+      "Lens Material": "Polycarbonate",
+      "Lens Properties by Type": {
+        "Clear Indoor Lens": {
+          "VLT": "92%",
+          "Visible Light Blocked": "8%",
+          "UV Absorption": "> 99.9% up to 385nm",
+          "Traffic Signal Recognition": "Meets ANSI Z80.3 Requirements"
+        },
+        "Grey Polarised Outdoor Lens": {
+          "VLT": "14%",
+          "Visible Light Blocked": "86%",
+          "UV Absorption": "> 99.9% up to 385nm"
+        },
+        "Espresso Brown Polarised Outdoor Lens": {
+          "VLT": "14%",
+          "Visible Light Blocked": "86%",
+          "UV Absorption": "> 99.9%"
+        },
+        "TSR Grey Outdoor Lens": {
+          "VLT": "22%",
+          "Visible Light Blocked": "78%",
+          "UV Absorption": "> 99.9% up to 385nm",
+          "Traffic Signal Recognition": "Meets ANSI Z80.3 Requirements"
+        },
+        "Silver & Blue Mirror Outdoor Lens": {
+          "VLT": "14%",
+          "Visible Light Blocked": "86%",
+          "UV Absorption": "> 99.9% up to 385nm"
+        },
+        "Espresso Brown Outdoor Lens": {
+          "VLT": "17%",
+          "Visible Light Blocked": "83%",
+          "UV Absorption": "> 99.9% up to 385nm"
+        },
+        "Amber Indoor/Outdoor Lens": {
+          "VLT": "87%",
+          "Visible Light Blocked": "13%",
+          "UV Absorption": "> 99.9% up to 400nm"
+        },
+        "Light Mirror Indoor/Outdoor Lens": {
+          "VLT": "45%",
+          "Visible Light Blocked": "55%",
+          "UV Absorption": "> 99.9% up to 385nm"
+        },
+        "Light Brown Mirror Indoor/Outdoor Lens": {
+          "VLT": "48%",
+          "Visible Light Blocked": "52%",
+          "UV Absorption": "> 99.9% up to 385nm"
+        },
+        "IR Shade 3 Specialty Lens": {
+          "VLT": "17%",
+          "Visible Light Blocked": "83%",
+          "UV Absorption": "> 99.9% up to 385nm",
+          "IR Absorption": "88% to 1400 nm"
+        },
+        "IR Shade 5 Specialty Lens": {
+          "VLT": "2%",
+          "Visible Light Blocked": "98%",
+          "UV Absorption": "> 99.9% up to 385nm",
+          "IR Absorption": "97% to 1400 nm"
+        },
+        "Cobalt Blue Specialty Lens": {
+          "VLT": "1.5%",
+          "Visible Light Blocked": "98.5%",
+          "UV Absorption": "> 99.9% up to 400nm",
+          "IR Absorption": "> 75% of incidental IR heat radiation"
+        }
+      },
+      "Coating Properties by Type": {
+        "Durastreme Coating": {
+          "Description": "Combination of Anti-Fog (interior) and Hardcoat Anti-Scratch (exterior)",
+          "Lens Life Improvement": "Up to 3x more than standard anti-fog coated lenses",
+          "Availability": "Honeywell SP1000 Sealed Eyewear and Duramaxx Goggle"
+        },
+        "4A+ Lens Coating (on Adaptec eyewear)": {
+          "Properties": [
+            "Anti-Fog",
+            "Anti-Scratch",
+            "Anti-Static",
+            "UV Protection"
+          ],
+          "UV Protection Level": "99.9%"
+        },
+        "Hardcoat Coating": {
+          "Description": "Permanently bonded, highly scratch-resistant, ultra-resistant to many chemicals",
+          "Chemical Resistance": [
+            "Acetone",
+            "Ammonia 10%",
+            "Benzene",
+            "Butanol",
+            "Butyl Acetate",
+            "CarbonTetrachloride",
+            "Cyclohexanol",
+            "Diethylether",
+            "Ethanol",
+            "Ethulene Glycol",
+            "Formic Acid 30%",
+            "Petrol (normal)",
+            "Petrol (super)",
+            "Hydrofluoric Acid (limited resistance)",
+            "Hydrochloric Acid 20%",
+            "Isopropyl Alcohol",
+            "Methanol",
+            "Methyene Chloride",
+            "Potassium Carbonate 30%",
+            "Sodium Carbonate 30%",
+            "Sulfuric Acid 50%",
+            "Toluene",
+            "Trichloroethylene",
+            "Xylene"
+          ]
+        },
+        "Anti-Fog Coating": {
+          "Description": "Dual action (hydrophobic and hydrophilic) coating",
+          "Chemical Resistance": [
+            "Ammonia 10%",
+            "Butanol",
+            "CarbonTetrachloride",
+            "Diethylether",
+            "Ethanol",
+            "Ethulene Glycol",
+            "Formic Acid 30%",
+            "Petrol (normal)",
+            "Hydrofluoric Acid",
+            "Hydrochloric Acid 20%",
+            "Isopropyl Alcohol (limited resistance)",
+            "Methanol",
+            "Potassium Carbonate 30%",
+            "Sodium Carbonate 30%",
+            "Sulfuric Acid 50%"
+          ]
+        }
+      },
+      "General Compliance Standards": [
+        "AS/NZS 1336:2014 Eye & face protection guidelines",
+        "AS/NZS 1337.1:2010 Eye Protectors for Industrial applications",
+        "AS/NZS 1337.4:2004 Personal Eye protection, filters and eye-protectors against laser radiation (laser eye protectors)",
+        "AS/NZS 1337.5:2004 Eye protectors for adjustment work on lasers and laser systems (laser adjustment eye protectors)",
+        "AS/NZS IEC 60825 Safe use of laser equipment",
+        "AS/NZS 1338.1:1992 Filters for eye protectors – Protection against radiation generated in welding and allied operations",
+        "AS/NZS 1338.2:1992 Filters for eye protectors – Protection against ultraviolet radiation",
+        "AS/NZS 1338.3:1992 Filters for eye protectors – Protection against infra-red radiation"
+      ],
+      "Eyewear Impact Levels (AS/NZS 1337.1:2010 Markings)": {
+        "Medium Impact": "I or F",
+        "High Impact": "V or B",
+        "Extra High Impact": "A"
+      },
+      "Eyewear Resistance Markings (AS/NZS 1337.1:2010 Markings)": {
+        "Molten Metal Hot Solids": "M or 9",
+        "Splash Resistance": "C or 3",
+        "Dustproof": "D or 4",
+        "Gas Tight": "G or 5"
+      },
+      "Eyewear Other Markings (AS/NZS 1337.1:2010 Markings)": {
+        "Outdoor Use untinted": "O",
+        "High Temperature": "H"
+      },
+      "SAI Global Licenses": [
+        "SMK 0562",
+        "SMK 02209",
+        "SMK 02209/1",
+        "SMK 02209/2",
+        "SMK 02209/3",
+        "SMK 02742",
+        "SMKH 21726",
+        "SMKH 21727",
+        "SMK 25539",
+        "SMK 40047",
+        "SMK 40226"
+      ]
+    },
+    "series": "Eye & Face Protection",
+    "certifications": [
+      "AS/NZS 1337.1:2010"
+    ]
+  },
+  "usage": {
+    "input_tokens": 4800,
+    "output_tokens": 1925,
+    "cost_usd": 0.00625
+  }
+}

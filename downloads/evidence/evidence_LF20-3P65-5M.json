@@ -7,7 +7,7 @@
     "LF203P655M"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Канальный датчик LF20-3P65-5M",
   "assembled_title": "Датчик Honeywell LF20-3P65-5M",
   "our_price_raw": "19670,12",
@@ -181,7 +181,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqPXcqAC7j3mvTdCTaH4'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -199,10 +199,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.vimoza.com/ru/obyavlenie/lf20-3p65-5m-datcik-kanala-ntc20k-ip65-300m"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -314,7 +311,10 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "identity_notes_p1": "Possible airflow/proximity sensor; no confirmed Honeywell product",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -342,9 +342,8 @@
     "description": "Канальный датчик LF20-3P65-5M используется для измерения температуры в системах вентиляции и кондиционирования. Он оснащен сенсором NTC20K и имеет длину 300 мм и кабель 5 метров.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Датчик",
-    "seed_name": "Канальный датчик LF20-3P65-5M",
-    "description_long_ru": "Also €67.27 at emoteek.net, €55.20 at automa.net. Reference ~$200 is high vs. actual market."
+    "product_type": "Channel sensor",
+    "seed_name": "Канальный датчик LF20-3P65-5M"
   },
   "trace": {
     "pn_match_location": "",
@@ -543,44 +542,114 @@
     "specs": null,
     "notes": ""
   },
-  "deep_research": {
-    "title_ru": "Duct temperature sensor",
-    "description_ru": "Also €67.27 at emoteek.net, €55.20 at automa.net. Reference ~$200 is high vs. actual market.",
+  "training_urls": [
+    "https://astra-automatyka.pl/en/product/kanalowe-czujniki-temperatury-lf20-i-pf20-honeywell/",
+    "https://automa.net/product/honeywell/lf20-3p65-5m-6688ce8850995b451964828c",
+    "https://buildings.honeywell.com/gb/en/products/by-category/sensors/temperature-and-humidity-transmitters/lf00-lf10-lf20-duct-temperature-sensor",
+    "https://emoteek.net/en/product/sonde-lf20-3p65-5m-honeywell-sonde-temperature-de-gaine-ntc20k-307mm-ip65-cable-5m/",
+    "https://energycontrolsonline.co.uk/products/air-duct-temperature-sensor-ntc20k-30-80c-307mm-immersion-depth-5m-cable-ip65",
+    "https://prod-edam.honeywell.com/content/dam/honeywell-edam/hbt/en-us/documents/literature-and-specs/datasheets/bms-from-hco-030923/hbt-bms-en0b0723-ge51r1219.pdf",
+    "https://products.centraline.com/en/docs/pg_gr-lf20-ntc.html?OSNO=LF20-3P65-5M",
+    "https://products.ecc.emea.honeywell.com/europe/docs/pg_gr-lf20-ntc.html?OSNO=LF20-3P65-5M",
+    "https://www.kempstoncontrols.co.uk/LF20-3P65-5M/Honeywell-Fema/sku/1810019",
+    "https://www.kempstoncontrols.com/LF20-3P65-5M/Honeywell-Fema/sku/1810019"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "19670,12",
+    "our_price_parsed": 19670.12,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 197.86,
+    "best_price_currency": "SAR",
+    "best_price_source": "pipeline1",
+    "best_description": "Канальный датчик LF20-3P65-5M используется для измерения температуры в системах вентиляции и кондиционирования. Он оснащен сенсором NTC20K и имеет длину 300 мм и кабель 5 метров.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.vimoza.com/ru/obyavlenie/lf20-3p65-5m-datcik-kanala-ntc20k-ip65-300m",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Канальный датчик LF20-3P65-5M используется для измерения температуры в системах вентиляции и кондиционирования. Он оснащен сенсором NTC20K и имеет длину 300 мм и кабель 5 метров.",
+    "best_description_ru": "<p>Канальный датчик температуры LF20-3P65-5M от компании Honeywell — это надежное устройство для измерения температуры в системах вентиляции и кондиционирования воздуха. Датчик разработан на основе проверенных технологий и предназначен для профессионального использования в жилых, коммерческих и промышленных объектах. Благодаря высокой точности измерений и долговечности, этот датчик является идеальным выбором для контроля микроклимата в помещениях любого размера.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Сенсор NTC20K для точного измерения температуры</li>\n<li>Длина зонда 300 мм для оптимального размещения в воздуховодах</li>\n<li>Кабель длиной 5 метров для удобного подключения на расстоянии</li>\n<li>Компактный дизайн, не препятствующий потоку воздуха</li>\n<li>Высокая надежность и стабильность показаний</li>\n<li>Совместимость с системами управления климатом</li>\n<li>Долговечность и устойчивость к влаге</li>\n</ul>\n\n<p><b>Применение:</b> Датчик LF20-3P65-5M используется в системах вентиляции и кондиционирования для мониторинга температуры воздуха в воздуховодах. Он позволяет автоматически регулировать работу климатического оборудования, обеспечивая комфортные условия в помещении и оптимизируя энергопотребление. Датчик идеален для установки в офисных зданиях, торговых центрах, больницах, школах и жилых комплексах.</p>\n\n<p><b>Преимущества:</b> Выбирая датчик Honeywell LF20-3P65-5M, вы получаете продукт от мирового лидера в области автоматизации и контроля климата. Устройство обеспечивает точные и стабильные измерения, что гарантирует эффективную работу вашей системы кондиционирования. Простота монтажа, надежность в эксплуатации и долгий срок службы делают этот датчик экономичным решением для любого объекта.</p>",
+    "best_description_ru_word_count": 195,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "product_category": "sensor",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "LF20, PF20 DUCT TEMPERATURE SENSORS",
+    "description": "",
     "specs": {
-      "raw": "NTC 20K; -30 to +80°C; 307 mm probe; 5 m cable; IP65; SS 1.4571 sleeve; ±0.2°C accuracy",
-      "aliases": [
-        "Honeywell Fema LF20",
-        "CentraLine LF20"
-      ]
+      "sensor_type": "NTC 20k temperature sensing element",
+      "nominal_resistance": "20 kΩ at 25°C (77°F)",
+      "accuracy": "±0.2°C at 25°C (77°F)",
+      "sensitivity": "-934.5 Ω/K at 25°C (non-linear)",
+      "time_constant": "<30 s",
+      "sensing_range_LF20-1P65-5M": "-30…+80°C (-22…+176°F)",
+      "sensing_range_LF20-3P65-5M": "-30…+80°C (-22…+176°F)",
+      "sensing_range_PF20-65-2M": "-30…+70°C (-22…+158°F)",
+      "sensing_range_PF20-65-5M": "-30…+70°C (-22…+158°F)",
+      "probe_length_LF20-1P65-5M": "157 mm (6.18 in.)",
+      "probe_length_LF20-3P65-5M": "307 mm (12.07 in.)",
+      "cable_length_PF20-65-2M": "2 m",
+      "cable_length_PF20-65-5M": "5 m",
+      "sensor_sleeve_material": "stainless steel (1.4571)",
+      "cable_sheath_material": "PVC",
+      "electrical_connection": "2-m or 5-m cable, 2x0.22 mm²",
+      "IP_rating": "IP54 / IP65 per EN 60529",
+      "storage_temperature": "-30…+70°C (-22…+158°F)",
+      "humidity": "5…95% rh, non-condensing",
+      "max_wiring_run_length": "200 m (660 ft)",
+      "min_distance_from_power_lines": "15 cm (5.9 in.)"
     },
-    "identity_confirmed": true,
-    "confidence": "medium",
-    "key_findings": [
-      "Also €67.27 at emoteek.net, €55.20 at automa.net. Reference ~$200 is high vs. actual market.",
-      "Aliases: Honeywell Fema LF20; CentraLine LF20"
+    "specs_count": 21,
+    "series": "LF20, PF20 Duct Temperature Sensors",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "Ø6 x varied lengths (LF20-1P65-5M: 161 total; LF20-3P65-5M: 311 total; PF20: 130 sensor body)",
+    "certifications": [
+      "EN 60529"
     ],
-    "sources": [
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\LF20-3P65-5M.pdf",
+    "datasheet_size_kb": 400,
+    "product_photos": [
+      "downloads\\datasheet_photos\\LF20-3P65-5M_p1_0.png",
+      "downloads\\datasheet_photos\\LF20-3P65-5M_p1_1.jpeg",
+      "downloads\\datasheet_photos\\LF20-3P65-5M_p2_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/LF20-3P65-5M_p1_0.png",
+      "downloads/datasheet_photos/LF20-3P65-5M_p1_1.jpeg"
+    ],
+    "verified_photo_count": 2,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format LF20-3P65-5M matches Honeywell's building automation sensor nomenclature. The datasheet confirms it's a Honeywell LF20 series duct temperature sensor, but the datasheet is too generic (covers both LF20 and PF20 series). A model-specific datasheet is needed to extract precise specifications, EAN, dimensions, and proper technical details for this exact variant (3P65-5M suffix likely indicates specific temperature range and cable length)."
+    },
+    "description_seo_ru": "<p>Канальный датчик температуры LF20-3P65-5M от компании Honeywell — это надежное устройство для измерения температуры в системах вентиляции и кондиционирования воздуха. Датчик разработан на основе проверенных технологий и предназначен для профессионального использования в жилых, коммерческих и промышленных объектах. Благодаря высокой точности измерений и долговечности, этот датчик является идеальным выбором для контроля микроклимата в помещениях любого размера.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Сенсор NTC20K для точного измерения температуры</li>\n<li>Длина зонда 300 мм для оптимального размещения в воздуховодах</li>\n<li>Кабель длиной 5 метров для удобного подключения на расстоянии</li>\n<li>Компактный дизайн, не препятствующий потоку воздуха</li>\n<li>Высокая надежность и стабильность показаний</li>\n<li>Совместимость с системами управления климатом</li>\n<li>Долговечность и устойчивость к влаге</li>\n</ul>\n\n<p><b>Применение:</b> Датчик LF20-3P65-5M используется в системах вентиляции и кондиционирования для мониторинга температуры воздуха в воздуховодах. Он позволяет автоматически регулировать работу климатического оборудования, обеспечивая комфортные условия в помещении и оптимизируя энергопотребление. Датчик идеален для установки в офисных зданиях, торговых центрах, больницах, школах и жилых комплексах.</p>\n\n<p><b>Преимущества:</b> Выбирая датчик Honeywell LF20-3P65-5M, вы получаете продукт от мирового лидера в области автоматизации и контроля климата. Устройство обеспечивает точные и стабильные измерения, что гарантирует эффективную работу вашей системы кондиционирования. Простота монтажа, надежность в эксплуатации и долгий срок службы делают этот датчик экономичным решением для любого объекта.</p>",
+    "description_seo_word_count": 195,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
       {
-        "url": "https://energycontrolsonline.co.uk/products/air-duct-temperature-sensor-ntc20k-30-80c-307mm-immersion-depth-5m-cable-ip65",
-        "type": "distributor",
-        "domain": "energycontrolsonline.co.uk",
-        "supports": [
-          "identity",
-          "price",
-          "photo"
-        ]
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'LF20, PF20 DUCT TEMPERATURE SENSORS' doesn't match PN/seed",
+        "severity": "high"
       }
     ],
-    "provider": "dr_claude",
-    "model": "claude-opus-4",
-    "source_file": "claude_compass_batch5_variantA.md",
-    "merge_ts": "2026-04-10T11:47:36.545458+00:00",
-    "merge_source": "result_LF20-3P65-5M.json"
-  },
-  "dr_category": "Duct temperature sensor",
-  "dr_image_url": "https://energycontrolsonline.co.uk/cdn/shop/products/lf20-p-ge51bwhres_ebedecbd-3ec6-42c7-b886-7c7092ede708_354x592.jpg",
-  "dr_price": 32.42,
-  "dr_currency": "GBP",
-  "dr_price_source": "https://energycontrolsonline.co.uk/products/air-duct-temperature-sensor-ntc20k-30-80c-307mm-immersion-depth-5m-cable-ip65",
-  "product_category": "Duct temperature sensor"
+    "predicted_ean": null
+  }
 }

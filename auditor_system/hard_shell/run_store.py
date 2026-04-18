@@ -13,7 +13,10 @@ import re
 from pathlib import Path
 from typing import Any
 
-from .contracts import AuditVerdict, ProtocolRun, QualityGateResult, ApprovalRoute
+from .contracts import (
+    AuditVerdict, DefectRegister, L2Report, ProtocolRun,
+    QualityGateResult, ApprovalRoute, RepairEntry,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +30,7 @@ _REDACT_PATTERNS = [
     (re.compile(r'(password["\s:=]+)[^\s,"\'}{]+', re.IGNORECASE), r'\1[REDACTED]'),
     (re.compile(r'(api[_-]?key["\s:=]+)[^\s,"\'}{]+', re.IGNORECASE), r'\1[REDACTED_KEY]'),
 ]
-_MAX_PAYLOAD_BYTES = 10 * 1024  # 10KB
+_MAX_PAYLOAD_BYTES = 150 * 1024  # 150KB — large enough for real code proposals
 
 
 def _redact(text: str) -> str:
@@ -175,6 +178,53 @@ class RunStore:
         }
         self._write_json(run.run_id, "run_manifest.json", manifest)
 
+    # ------------------------------------------------------------------
+    # Consensus Pipeline Protocol v1 — Repair loop artifacts
+    # ------------------------------------------------------------------
+
+    def save_defect_register(
+        self,
+        run: ProtocolRun,
+        register: DefectRegister,
+        iteration: int = 0,
+    ) -> None:
+        """Saves defect_register_<iteration>.json. Written after each L1 round."""
+        filename = f"defect_register_{iteration:02d}.json"
+        self._write_json(run.run_id, filename, register.model_dump())
+        # Always keep latest as defect_register.json for easy access
+        self._write_json(run.run_id, "defect_register.json", register.model_dump())
+
+    def save_l2_report(
+        self,
+        run: ProtocolRun,
+        report: L2Report,
+        attempt: int = 0,
+    ) -> None:
+        """Saves l2_report_<attempt>.json. Written after each L2 gate run."""
+        filename = f"l2_report_{attempt:02d}.json"
+        self._write_json(run.run_id, filename, report.model_dump())
+
+    def save_repair_manifest(
+        self,
+        run: ProtocolRun,
+        manifest: list[RepairEntry],
+        iteration: int = 0,
+    ) -> None:
+        """Saves repair_manifest_<iteration>.json. Written after each builder repair pass."""
+        filename = f"repair_manifest_{iteration:02d}.json"
+        data = [r.model_dump() for r in manifest]
+        self._write_json(run.run_id, filename, data)
+
+    def save_repair_proposal(
+        self,
+        run: ProtocolRun,
+        proposal: str,
+        iteration: int = 0,
+    ) -> None:
+        """Saves repaired proposal text per iteration."""
+        filename = f"repair_proposal_{iteration:02d}.md"
+        self._write_text(run.run_id, filename, proposal)
+
     def list_runs(self) -> list[str]:
         return sorted(p.name for p in self.base_dir.iterdir() if p.is_dir())
 
@@ -191,12 +241,11 @@ class RunStore:
         Loads: manifest, task_pack, critiques, final_verdicts, surface, quality_gate.
         Does NOT load proposal text (not needed for ExperienceSink).
         """
-        from datetime import datetime, timezone
+        from datetime import datetime
         from .contracts import (
             AuditIssue, AuditVerdict, AuditVerdictValue,
-            ApprovalRoute, EffortLevel,
-            IssueSeverity, ModelName, ProtocolRun, QualityGateResult,
-            RiskLevel, SurfaceClassification, TaskPack,
+            EffortLevel,
+            IssueSeverity, ModelName, ProtocolRun, RiskLevel, SurfaceClassification, TaskPack,
         )
 
         run_dir = self.base_dir / run_id

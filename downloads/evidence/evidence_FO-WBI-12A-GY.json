@@ -6,10 +6,10 @@
     "FO.WBI.12A.GY",
     "FOWBI12AGY"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Hyperline",
+  "subbrand": null,
   "name": "Оптический бокс Honeywell FO-WBI-12A-GY",
-  "assembled_title": "Бокс Honeywell FO-WBI-12A-GY",
+  "assembled_title": "Бокс Hyperline FO-WBI-12A-GY",
   "our_price_raw": "3442,00",
   "expected_category": "Бокс",
   "card_status": "DRAFT_ONLY",
@@ -180,7 +180,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Оптический бокс угадывается — белый корпус с разъёмами и кабельными вводами",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -198,10 +198,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://videoglaz.ru/opticheskie-boksy/hyperline/hyperline-fo-wbi-12a-gy"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -313,7 +310,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Fiber optic",
+    "identity_notes_p1": "Optical fiber enclosure/box",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Hyperline",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -340,9 +342,8 @@
     "description": "Оптический бокс Honeywell FO-WBI-12A-GY используется для организации и защиты оптических соединений. Он обеспечивает надежное крепление и защиту волокон в телекоммуникационных системах.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Бокс",
-    "seed_name": "Оптический бокс Honeywell FO-WBI-12A-GY",
-    "description_long_ru": "Actual mfr: Hyperline, NOT Honeywell. Range 1906-5159 RUB. Ref 3442 RUB matches market"
+    "product_type": "Enclosure",
+    "seed_name": "Оптический бокс Honeywell FO-WBI-12A-GY"
   },
   "trace": {
     "pn_match_location": "",
@@ -604,7 +605,30 @@
       "raw": "цена 4 770 ₽; позиционируется как Hyperline FO‑WBI‑12A‑GY citeturn1view1turn0search8",
       "aliases": [
         "—"
-      ]
+      ],
+      "Type": "Wall-mount fiber optic distribution box",
+      "Capacity": "12 adapters",
+      "Material": "Metal",
+      "Color": "Grey (GY)",
+      "Mounting": "Wall mount",
+      "Brand": "Hyperline",
+      "Ports": "12",
+      "Adapter Type": "A (adapter-ready)",
+      "Product type": "Wall-mount fiber optic box",
+      "Port capacity": "12 ports",
+      "Supported adapters": "SC / LC duplex",
+      "Ingress protection": "IP65",
+      "Dimensions": "250 x 190 x 39 mm",
+      "Weight": "1.22 kg",
+      "Included accessories": "Without pigtails and feed-through adapters",
+      "ports": "12",
+      "adapters": "SC, Duplex LC, PLC Splitter",
+      "ip_rating": "IP65",
+      "operating_temp": "-40 °C to +65 °C",
+      "dimensions": "250 mm x 190 mm x 39 mm",
+      "material": "ABS Plastic",
+      "weight": "1.22 kg",
+      "color": "Grey"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -624,12 +648,107 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.404834+00:00",
+    "merge_ts": "2026-04-09T12:01:24.914754+00:00",
     "merge_source": "result_FO-WBI-12A-GY.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "Actual mfr: Hyperline, NOT Honeywell. Range 1906-5159 RUB. Ref 3442 RUB matches market"
+    "descriptions_all": {
+      "claude": "Hyperline FO-WBI-12A-GY — настенный оптический распределительный бокс (кросс) для 12 портов с адаптерами. Корпус серого цвета (GY — Grey), предназначен для настенного монтажа. Бокс используется для организации оптических соединений в зданиях и сооружениях, обеспечивая удобный доступ к оптическим разъёмам и защиту сварных или механических соединений волокон. Конструкция бокса позволяет установить до 12 оптических адаптеров (SC, LC или ST в зависимости от комплектации). Внутри бокса предусмотрена сплайс-кассета для укладки запаса оптического волокна и фиксации сварных соединений. Корпус изготовлен из стали с порошковым покрытием серого цвета, обеспечивающим долговечность и защиту от коррозии. Применяется на объектах с небольшим количеством оптических соединений — в офисах, серверных комнатах, техпомещениях.",
+      "gpt": "Hyperline FO-WBI-12A-GY — это настенный оптический бокс/кросс для организации волоконно-оптических подключений внутри здания. По найденной карточке изделие рассчитано на 12 портов и поддерживает установку SC-адаптеров или duplex LC через соответствующие адаптерные панели. Такой бокс используют для оконцевания абонентских и распределительных линий в FTTH, кампусных сетях, небольших кроссовых узлах и телеком-шкафах. Форм-фактор wall-mount удобен там, где нет полноценной 19-дюймовой стойки, но нужно аккуратно разместить сварки, адаптеры и запас волокна. Для позиции подтверждены серый цвет корпуса, степень защиты IP65 и габариты 250 x 190 x 39 мм. Высокая степень пыле- и влагозащиты делает устройство полезным не только в чистых серверных, но и в более жёстких внутренних условиях эксплуатации. В карточке также отмечено, что изделие поставляется без пигтейлов и проходных адаптеров, то есть укомплектование зависит от проекта. При монтаже важно обеспечить минимальные радиусы изгиба волокна, правильную фиксацию кабеля и маркировку волокон. Для B2B-каталога позицию корректно описывать как 12-port wall-mount fiber optic distribution box, grey, IP65. Это типовой пассивный компонент СКС/FO инфраструктуры, а не активное сетевое оборудование.",
+      "gemini": "Оптический настенный бокс Hyperline FO-WBI-12A-GY предназначен для оконечивания и распределения волоконно-оптических кабелей в суровых условиях. Корпус бокса выполнен из ударопрочного АБС-пластика серого цвета и обладает степенью защиты IP65, что позволяет устанавливать его на открытом воздухе. Устройство рассчитано на 12 портов и совместимо с адаптерами типа SC или дуплексными LC, а также PLC-сплиттерами. Внутреннее пространство бокса продумано для удобной укладки запаса волокон и установки сплайс-кассет. Габаритные размеры 250 x 190 x 39 мм обеспечивают компактность монтажа на любых вертикальных поверхностях. В комплект поставки входят все необходимые крепежные элементы, фуркационные трубки и защитные гильзы для мест сварки. Бокс обеспечивает надежную защиту соединений от попадания пыли, влаги и воздействия ультрафиолетового излучения. Эксплуатационный диапазон температур от -40 до +65 градусов Цельсия позволяет использовать его в различных климатических зонах. Это идеальное решение для построения сетей доступа в жилых кварталах и на промышленных предприятиях. Продукция Hyperline широко известна своей долговечностью и стабильностью характеристик.",
+      "synthesis": "Hyperline FO-WBI-12A-GY — настенный оптический распределительный бокс (кросс) серого цвета для организации волоконно-оптических подключений внутри здания, рассчитанный на 12 портов и поддерживающий установку SC-адаптеров или duplex LC через соответствующие адаптерные панели. Корпус бокса выполнен из ударопрочного АБС-пластика и обладает степенью защиты IP65, позволяющей устанавливать его на открытом воздухе или в суровых условиях эксплуатации. Устройство используется для оконцевания абонентских и распределительных линий в FTTH, кампусных сетях, небольших кроссовых узлах и телеком-шкафах. Форм-фактор wall-mount удобен там, где нет полноценной 19-дюймовой стойки, но нужно аккуратно разместить сварки, адаптеры и запас волокна. Внутреннее пространство бокса продумано для удобной укладки запаса волокон и установки сплайс-кассет. Габаритные размеры 250 x 190 x 39 мм обеспечивают компактность монтажа на любых вертикальных поверхностях. В комплект поставки входят все необходимые крепежные элементы, фуркационные трубки и защитные гильзы для мест сварки. Эксплуатационный диапазон температур от -40 до +65 градусов Цельсия позволяет использовать его в различных климатических зонах. Изделие поставляется без пигтейлов и проходных адаптеров, то есть укомплектование зависит от проекта."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Wall-mounted fiber optic distribution box",
+        "Ports": "12",
+        "Adapter Type": "A (adapter-ready)",
+        "Color": "Grey (GY)",
+        "Brand": "Hyperline",
+        "Mounting": "Wall mount",
+        "Material": "Steel, powder-coated"
+      },
+      "gpt": {
+        "Product type": "Wall-mount fiber optic box",
+        "Port capacity": "12 ports",
+        "Supported adapters": "SC / LC duplex",
+        "Ingress protection": "IP65",
+        "Color": "Grey",
+        "Dimensions": "250 x 190 x 39 mm",
+        "Weight": "1.22 kg",
+        "Included accessories": "Without pigtails and feed-through adapters"
+      },
+      "gemini": {
+        "ports": "12",
+        "adapters": "SC, Duplex LC, PLC Splitter",
+        "ip_rating": "IP65",
+        "operating_temp": "-40 °C to +65 °C",
+        "dimensions": "250 mm x 190 mm x 39 mm",
+        "material": "ABS Plastic",
+        "weight": "1.22 kg",
+        "color": "Grey"
+      }
+    },
+    "notes_all": {
+      "claude": "Hyperline brand wall-mount fiber optic box. Part of Hyperline's structured cabling portfolio.",
+      "gpt": "Подтверждение найдено по дистрибьюторской карточке; официальная страница Hyperline с этим exact PN не нашлась в открытом поиске."
+    }
   },
-  "product_category": "fiber optic wall box / distribution box"
+  "training_urls": [
+    "https://elevel.ru",
+    "https://enex.market/products/FO-WBI-12A-GY?meta=tag%3DFiber%2BOptic%2BDistribution%2BBox",
+    "https://hyperline.ru",
+    "https://hyperline.ru/catalog/optic_sockets/FO-WBI-12A-GY",
+    "https://idistribute.ru/products/boks_opticheskiy_hyperline_fo_wbi_portov_12_sc_duplex_lc_250kh190kh39_shkhgkhv_tsvet_seryy_fo_wbi_12/",
+    "https://enex.uz/en/telecom-equipment/vols/telecommunications-closets-cross-connects-boxes/fo-wbi-12a-gy/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 4770.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://enex.market/products/FO-WBI-12A-GY?meta=tag%3DFiber%2BOptic%2BDistribution%2BBox",
+    "our_price_raw": "3442,00",
+    "our_price_parsed": 3442.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 4770.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Оптический бокс Honeywell FO-WBI-12A-GY используется для организации и защиты оптических соединений. Он обеспечивает надежное крепление и защиту волокон в телекоммуникационных системах.",
+    "best_description_source": "content",
+    "best_photo_url": "https://videoglaz.ru/opticheskie-boksy/hyperline/hyperline-fo-wbi-12a-gy",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Оптический бокс Honeywell FO-WBI-12A-GY используется для организации и защиты оптических соединений. Он обеспечивает надежное крепление и защиту волокон в телекоммуникационных системах.",
+    "best_description_ru": "<p>Оптический распределительный бокс Hyperline FO-WBI-12A-GY (артикул FO-WBI-12A-GY) — это профессиональное решение для организации и защиты оптических волокон в современных телекоммуникационных системах. Изделие производится под брендом Hyperline, известным своей надежностью и качеством в области сетевого оборудования. Настенный распределительный бокс предназначен для крепления, организации и защиты оптических соединений, обеспечивая их безопасность и долговечность в различных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Настенное исполнение для удобного размещения в помещениях</li>\n<li>Предназначен для работы с оптическими волокнами и кабелями</li>\n<li>Обеспечивает надежное крепление и фиксацию соединений</li>\n<li>Защита оптических компонентов от механических повреждений</li>\n<li>Компактный дизайн, экономящий пространство</li>\n<li>Совместимость с различными типами оптических разъемов</li>\n<li>Профессиональное качество исполнения</li>\n<li>Простота монтажа и обслуживания</li>\n</ul>\n\n<p><b>Применение:</b> Оптический бокс FO-WBI-12A-GY используется в телекоммуникационных сетях, центрах обработки данных, серверных комнатах и сетевых шкафах. Он идеально подходит для организации оптических соединений в офисных зданиях, на производственных объектах и в учреждениях, где требуется надежная передача данных на большие расстояния. Бокс обеспечивает аккуратное размещение оптических кабелей и защиту их от внешних воздействий.</p>\n\n<p><b>Преимущества:</b> Выбирая этот распределительный бокс, вы получаете гарантированную надежность и долговечность оптических соединений. Продукт Hyperline отличается высоким качеством материалов и изготовления, обеспечивая защиту дорогостоящего оборудования. Простота установки и обслуживания снижает затраты на монтажные работы, а компактный размер позволяет эффективно использовать пространство в помещении.</p>",
+    "best_description_ru_word_count": 198,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\FO-WBI-12A-GY.pdf",
+    "datasheet_size_kb": 81,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Оптический распределительный бокс Hyperline FO-WBI-12A-GY (артикул FO-WBI-12A-GY) — это профессиональное решение для организации и защиты оптических волокон в современных телекоммуникационных системах. Изделие производится под брендом Hyperline, известным своей надежностью и качеством в области сетевого оборудования. Настенный распределительный бокс предназначен для крепления, организации и защиты оптических соединений, обеспечивая их безопасность и долговечность в различных условиях эксплуатации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Настенное исполнение для удобного размещения в помещениях</li>\n<li>Предназначен для работы с оптическими волокнами и кабелями</li>\n<li>Обеспечивает надежное крепление и фиксацию соединений</li>\n<li>Защита оптических компонентов от механических повреждений</li>\n<li>Компактный дизайн, экономящий пространство</li>\n<li>Совместимость с различными типами оптических разъемов</li>\n<li>Профессиональное качество исполнения</li>\n<li>Простота монтажа и обслуживания</li>\n</ul>\n\n<p><b>Применение:</b> Оптический бокс FO-WBI-12A-GY используется в телекоммуникационных сетях, центрах обработки данных, серверных комнатах и сетевых шкафах. Он идеально подходит для организации оптических соединений в офисных зданиях, на производственных объектах и в учреждениях, где требуется надежная передача данных на большие расстояния. Бокс обеспечивает аккуратное размещение оптических кабелей и защиту их от внешних воздействий.</p>\n\n<p><b>Преимущества:</b> Выбирая этот распределительный бокс, вы получаете гарантированную надежность и долговечность оптических соединений. Продукт Hyperline отличается высоким качеством материалов и изготовления, обеспечивая защиту дорогостоящего оборудования. Простота установки и обслуживания снижает затраты на монтажные работы, а компактный размер позволяет эффективно использовать пространство в помещении.</p>",
+    "description_seo_word_count": 198,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

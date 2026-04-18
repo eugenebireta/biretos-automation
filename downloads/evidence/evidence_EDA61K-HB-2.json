@@ -7,7 +7,7 @@
     "EDA61KHB2"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Зарядное устройство для ТСД Honeywell EDA61K-HB-2",
   "assembled_title": "Зарядное устройство Honeywell EDA61K-HB-2",
   "our_price_raw": "9672,96",
@@ -217,7 +217,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqMWYukvJsc3iASXYgCM'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -235,9 +235,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "category_mismatch_only",
@@ -360,7 +358,11 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Handheld devices",
+    "identity_notes_p1": "Honeywell mobile handheld terminal",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -394,9 +396,8 @@
     "description": "Зарядное устройство Honeywell EDA61K-HB-2 предназначено для зарядки терминалов сбора данных. Оно оснащено европейским сетевым кабелем и обеспечивает надежное питание для бесперебойной работы устройств.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленные сканеры",
-    "product_type": "Зарядное устройство",
-    "seed_name": "Зарядное устройство для ТСД Honeywell EDA61K-HB-2",
-    "description_long_ru": "MSRP EUR 195.22; -0/-1/-2 suffix = no cord / US / EU"
+    "product_type": "Mobile device",
+    "seed_name": "Зарядное устройство для ТСД Honeywell EDA61K-HB-2"
   },
   "trace": {
     "pn_match_location": "",
@@ -674,7 +675,34 @@
     "specs": {
       "aliases": [
         "EAN 5704174212379"
-      ]
+      ],
+      "slots": "1 device bay + 1 battery bay",
+      "power_cord": "EU Type",
+      "input": "5V / 2A",
+      "compatibility": "Honeywell ScanPal EDA61K, CK62",
+      "charging_time": "5.5 hours (7000 mAh battery)",
+      "protection": "IP65 (device)",
+      "Type": "Home Base / Charging Cradle",
+      "Compatibility": "Honeywell ScanPal EDA61K, CK62",
+      "Charging": "1x mobile computer + 1x spare battery",
+      "I/O Connector": "No (charging only)",
+      "Power Cord": "EU (European)",
+      "Kit Includes": "Dock, power adapter, EU power cord",
+      "Mounting": "Desktop",
+      "Compatible Devices": "Honeywell ScanPal EDA61K, CK62",
+      "Function": "Charging only (no I/O connector)",
+      "Slots": "1 device + 1 spare battery",
+      "Also Known As": "HSM-EDA61KHB2",
+      "Accessory type": "Home Base charging cradle",
+      "Compatible device": "Honeywell ScanPal EDA61K",
+      "Region kit": "EU",
+      "Included in kit": "Dock, power adapter, EU power cord",
+      "Use case": "Charging and docking",
+      "kit_contents": "Base, AC adapter, EU power cord",
+      "type": "Indoor Desktop Base",
+      "power": "AC Supply",
+      "warranty": "6 months",
+      "ean": "5704174212379"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -693,12 +721,110 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.360559+00:00",
+    "merge_ts": "2026-04-09T12:01:24.904701+00:00",
     "merge_source": "result_EDA61K-HB-2.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (1).md",
-    "description_ru": "MSRP EUR 195.22; -0/-1/-2 suffix = no cord / US / EU"
+    "descriptions_all": {
+      "claude": "Honeywell EDA61K-HB-2 — зарядная база (Home Base) для мобильного компьютера ScanPal EDA61K и CK62. Данное устройство предназначено для одновременной зарядки мобильного компьютера и запасной аккумуляторной батареи. Зарядная база EDA61K-HB-2 поставляется в комплекте с док-станцией, блоком питания и сетевым шнуром европейского стандарта (EU). Устройство обеспечивает только функцию зарядки без поддержки передачи данных через I/O-разъём. Мобильный компьютер EDA61K — это защищённый терминал сбора данных с клавиатурой на базе Android, разработанный для малого и среднего бизнеса. Он предназначен для выполнения задач на складах, в распределительных центрах и розничных магазинах. Зарядная база устанавливается на рабочий стол и обеспечивает удобную зарядку устройства в конце рабочей смены или во время перерывов. Конструкция базы надёжно фиксирует мобильный компьютер и обеспечивает стабильное электрическое соединение для быстрой зарядки.",
+      "gpt": "Honeywell ScanPal EDA61K-HB-2 — это настольная Home Base для мобильного терминала сбора данных EDA61K. Аксессуар предназначен для зарядки самого терминала, установленной в нём батареи, а также для удобного размещения устройства на рабочем месте. В официальных материалах Honeywell указано, что комплект EDA61K-HB-2 включает саму docking cradle, блок питания и сетевой шнур европейского стандарта. Такая база применяется на складе, в ритейле, в сервисных зонах и на участках приёмки, где терминал должен быстро возвращаться на зарядку между сменами. Home Base также даёт удобную стационарную точку для подключения и обслуживания устройства без использования временных кабелей. В руководстве серии отмечено, что база удерживает компьютер с установленной батареей и может поддерживать заряд основного аккумулятора; для семейства подобных аксессуаров Honeywell также типично наличие USB client/коммуникационного подключения. Для интегратора это полезный аксессуар, когда терминалы используются посменно и нужна предсказуемая организация рабочих мест. Монтаж обычно настольный, поэтому при подборе важно проверить требуемый блок питания и региональную вилку. В B2B-каталоге эту позицию корректно описывать как charging and docking cradle for ScanPal EDA61K, EU kit. Это не самостоятельный терминал, а периферийный аксессуар, полностью зависящий от совместимости с платформой EDA61K.",
+      "gemini": "Зарядная подставка Honeywell EDA61K-HB-2 представляет собой надежное решение для обслуживания мобильных компьютеров серии ScanPal EDA61K. В комплект поставки входит сама база, блок питания и сетевой кабель европейского стандарта для подключения к сети переменного тока. Устройство разработано для интенсивной эксплуатации в условиях складов и производственных площадок. Прочный корпус черного цвета обеспечивает устойчивое положение терминала во время зарядки и защищает контакты от загрязнения. Благодаря отсутствию лишних интерфейсных разъемов, данная модель является экономичным выбором для предприятий, ориентированных на беспроводную передачу данных. Использование оригинальной подставки гарантирует безопасность процесса зарядки и продлевает срок службы аккумулятора емкостью 7000 мАч. Компактные размеры базы позволяют рационально использовать рабочее пространство на столе оператора. Наличие светодиодной индикации на терминале позволяет легко контролировать статус заряда батареи. Honeywell предоставляет гарантию на изделие, что подтверждает его высокое промышленное качество. Этот аксессуар является необходимым дополнением для обеспечения непрерывной работы мобильного персонала в течение нескольких смен.",
+      "synthesis": "Honeywell EDA61K-HB-2 — зарядная база (Home Base/docking cradle) для мобильного компьютера ScanPal EDA61K и CK62, предназначенная для одновременной зарядки терминала и запасной аккумуляторной батареи. Комплект поставки включает саму базу, блок питания и сетевой кабель европейского стандарта (EU). Устройство разработано для интенсивной эксплуатации в условиях складов и производственных площадок и выполнено в прочном чёрном корпусе. Зарядная база обеспечивает только функцию зарядки без поддержки передачи данных через I/O-разъём и удобное размещение устройства на рабочем месте благодаря надёжной фиксации мобильного компьютера. Такая база применяется на складе, в ритейле, в сервисных зонах и на участках приёмки, где терминал должен быстро возвращаться на зарядку между сменами. Использование оригинальной подставки гарантирует безопасность процесса зарядки и продлевает срок службы аккумулятора емкостью 7000 мАч. Наличие светодиодной индикации на терминале позволяет легко контролировать статус заряда батареи. Компактные размеры базы позволяют рационально использовать рабочее пространство на столе оператора. Это не самостоятельный терминал, а периферийный аксессуар, полностью зависящий от совместимости с платформой EDA61K."
+    },
+    "specs_all": {
+      "claude": {
+        "Type": "Home Base / Charging Cradle",
+        "Compatible Devices": "Honeywell ScanPal EDA61K, CK62",
+        "Function": "Charging only (no I/O connector)",
+        "Slots": "1 device + 1 spare battery",
+        "Power Cord": "EU (European) included",
+        "Kit Includes": "Dock, power adapter, EU power cord",
+        "Also Known As": "HSM-EDA61KHB2"
+      },
+      "gpt": {
+        "Accessory type": "Home Base charging cradle",
+        "Compatible device": "Honeywell ScanPal EDA61K",
+        "Region kit": "EU",
+        "Included in kit": "Dock, power adapter, EU power cord",
+        "Use case": "Charging and docking"
+      },
+      "gemini": {
+        "compatibility": "Honeywell ScanPal EDA61K",
+        "kit_contents": "Base, AC adapter, EU power cord",
+        "type": "Indoor Desktop Base",
+        "power": "AC Supply",
+        "warranty": "6 months",
+        "ean": "5704174212379"
+      }
+    },
+    "notes_all": {
+      "claude": "Variants: EDA61K-HB-0 (no power cord), EDA61K-HB-1 (US cord), EDA61K-HB-2 (EU cord), EDA61K-HB-3 (UK cord).",
+      "gpt": "Подтверждён как аксессуар/док-станция, а не как сам терминал."
+    }
   },
-  "product_category": "Mobile Comp."
+  "training_urls": [
+    "https://www.barcodedatasystems.co.uk/",
+    "https://www.comx-computers.co.za/EDA61K-HB-2-Honeywell-Home-charging-base-for-Honeywell-Buy-p-305082.php",
+    "https://www.eetgroup.com/en-eu/eda61k-0nc934pgok-honeywell-eda61k",
+    "https://www.jarltech.com/en/honeywell-scanpal-eda61k",
+    "https://www.logiscenter.eu/eda61k-hb-2-honeywell-charging-base-eda61k-eu-pwr-cord",
+    "https://www.thebarcodewarehouse.co.uk/shop/honeywell/accessories/chargers/EDA61K-HB-2/",
+    "https://automation.honeywell.com/us/en/products/productivity-solutions/mobile-computers/handheld-computers/eda61k-handheld-computer",
+    "https://www.logiscenter.us/eda61k-hb-2-honeywell-charging-base-eda61k-eu-pwr-cord",
+    "https://sps.honeywell.com/content/dam/honeywell-edam/sps/siot/en-us/products/productivity/mobile-computers/scanpal-eda61k/documents/sps-ppr-accessory-guide-1.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 195.0,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.barcodedatasystems.co.uk/",
+    "our_price_raw": "9672,96",
+    "our_price_parsed": 9672.96,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": null,
+    "judge_reason": "Honeywell scanner charger, kf: 'доступность 9 шт' — qty=9 is stock, not pack size"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 195.0,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Зарядное устройство Honeywell EDA61K-HB-2 предназначено для зарядки терминалов сбора данных. Оно оснащено европейским сетевым кабелем и обеспечивает надежное питание для бесперебойной работы устройств.",
+    "best_description_source": "content",
+    "best_photo_url": "barcodedatasystems.co.uk",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Зарядное устройство Honeywell EDA61K-HB-2 предназначено для зарядки терминалов сбора данных. Оно оснащено европейским сетевым кабелем и обеспечивает надежное питание для бесперебойной работы устройств.",
+    "best_description_ru": "<p>Зарядное устройство Honeywell EDA61K-HB-2 — это профессиональное решение для питания мобильных терминалов сбора данных. Устройство разработано компанией Honeywell, мировым лидером в производстве промышленного оборудования и электроники. Зарядная станция предназначена специально для работы с портативными сканерами и терминалами, обеспечивая стабильное и надежное питание. Комплектация включает европейский сетевой кабель, что делает устройство удобным для использования в странах Европы. Это идеальное решение для организаций, работающих с мобильными устройствами сбора данных в розничной торговле, логистике и складском хозяйстве.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — признанный лидер в области мобильных вычислений</li>\n<li>Артикул: EDA61K-HB-2 — оригинальное изделие с гарантией качества</li>\n<li>Назначение: зарядка терминалов сбора данных серии EDA61K</li>\n<li>Комплектация: включает европейский сетевой кабель для удобного подключения</li>\n<li>Надежное питание: обеспечивает стабильную зарядку без перебоев</li>\n<li>Профессиональный уровень: разработано для интенсивного использования в коммерческих целях</li>\n<li>Совместимость: оптимизировано для работы с мобильными устройствами Honeywell</li>\n</ul>\n\n<p><b>Применение:</b> Зарядное устройство EDA61K-HB-2 широко используется в розничных сетях, складских комплексах, логистических центрах и на производственных предприятиях. Оно предназначено для ежедневной зарядки портативных терминалов, которые используются сотрудниками для учета товаров, инвентаризации и управления запасами. Устройство идеально подходит для организаций, которым требуется обеспечить бесперебойную работу мобильных устройств в течение всего рабочего дня.</p>\n\n<p><b>Преимущества:</b> Выбирая зарядное устройство Honeywell EDA61K-HB-2, вы получаете гарантию качества от известного производителя. Устройство обеспечивает надежную и стабильную зарядку, что продлевает срок службы ваших терминалов. Европейский кабель в комплекте упрощает подключение и использование. Это профессиональное решение, которое прошло строгий контроль качества и соответствует всем международным стандартам безопасности.</p>",
+    "best_description_ru_word_count": 232,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\EDA61K-HB-2.pdf",
+    "datasheet_size_kb": 0,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format EDA61K-HB-2 matches Honeywell naming convention for EDA61K accessories. HB suffix indicates HomeBase/charging dock. Brand is correct, but datasheet is incomplete (missing EAN, specs, full description, dimensions). Need proper datasheet extraction or manual data entry."
+    },
+    "description_seo_ru": "<p>Зарядное устройство Honeywell EDA61K-HB-2 — это профессиональное решение для питания мобильных терминалов сбора данных. Устройство разработано компанией Honeywell, мировым лидером в производстве промышленного оборудования и электроники. Зарядная станция предназначена специально для работы с портативными сканерами и терминалами, обеспечивая стабильное и надежное питание. Комплектация включает европейский сетевой кабель, что делает устройство удобным для использования в странах Европы. Это идеальное решение для организаций, работающих с мобильными устройствами сбора данных в розничной торговле, логистике и складском хозяйстве.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Производитель: Honeywell — признанный лидер в области мобильных вычислений</li>\n<li>Артикул: EDA61K-HB-2 — оригинальное изделие с гарантией качества</li>\n<li>Назначение: зарядка терминалов сбора данных серии EDA61K</li>\n<li>Комплектация: включает европейский сетевой кабель для удобного подключения</li>\n<li>Надежное питание: обеспечивает стабильную зарядку без перебоев</li>\n<li>Профессиональный уровень: разработано для интенсивного использования в коммерческих целях</li>\n<li>Совместимость: оптимизировано для работы с мобильными устройствами Honeywell</li>\n</ul>\n\n<p><b>Применение:</b> Зарядное устройство EDA61K-HB-2 широко используется в розничных сетях, складских комплексах, логистических центрах и на производственных предприятиях. Оно предназначено для ежедневной зарядки портативных терминалов, которые используются сотрудниками для учета товаров, инвентаризации и управления запасами. Устройство идеально подходит для организаций, которым требуется обеспечить бесперебойную работу мобильных устройств в течение всего рабочего дня.</p>\n\n<p><b>Преимущества:</b> Выбирая зарядное устройство Honeywell EDA61K-HB-2, вы получаете гарантию качества от известного производителя. Устройство обеспечивает надежную и стабильную зарядку, что продлевает срок службы ваших терминалов. Европейский кабель в комплекте упрощает подключение и использование. Это профессиональное решение, которое прошло строгий контроль качества и соответствует всем международным стандартам безопасности.</p>",
+    "description_seo_word_count": 232,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

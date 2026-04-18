@@ -148,7 +148,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "корпус/бокс для оборудования угадывается",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -166,10 +166,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/kontrolnye_p"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "public_price",
@@ -277,7 +274,9 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "confirmed_manufacturer": "Esser",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -504,5 +503,117 @@
   "dr_price": 463.0,
   "dr_currency": "EUR",
   "dr_price_source": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
-  "product_category": "Fire alarm battery housing"
+  "training_urls": [
+    "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+    "https://www.esser-systems.com/en/products/details/flexes-control/power-supply-extension/fx808313-battery-extension-housing-for-2-x-12-v24-ah/",
+    "https://www.hls-austria.com/en/business/fire-alarm-systems/esser-by-honeywell/products/control-panels/flexes-control-panels/power-supply-extension/fx808313"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 463.0,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://walde.ee/en/fire-alarm-systems/esser-by-honeywell/flexes",
+    "our_price_raw": "14741,80",
+    "our_price_parsed": 14741.8,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 463.0,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Корпус для расширения батареи используется в системах пожарной сигнализации для увеличения емкости батареи. Он обеспечивает надежное размещение дополнительных батарей, что позволяет продлить время автономной работы системы.",
+    "best_description_source": "content",
+    "best_photo_url": "https://www.formagroup.ru/brends/honeywell/pozharnaya_signalizaciya/kontrolnye_p",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Корпус для расширения батареи используется в системах пожарной сигнализации для увеличения емкости батареи. Он обеспечивает надежное размещение дополнительных батарей, что позволяет продлить время автономной работы системы.",
+    "best_description_ru": "<p>Akku-Erweiterungsgehäuse für 2 x 12 V/24 Ah от немецкого бренда Esser (артикул FX808313) — это специализированный корпус для расширения емкости аккумуляторных батарей в системах пожарной сигнализации. Надежное и функциональное решение, разработанное для профессионального применения в системах безопасности. Корпус обеспечивает безопасное размещение дополнительных батарей, позволяя значительно продлить время автономной работы системы при отключении электроснабжения.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Поддерживает конфигурацию: 2 x 12 В / 24 Ач аккумулятора</li>\n<li>Материал корпуса: ABS с 10% армированием стекловолокном</li>\n<li>Степень защиты: IP30 от пыли и влаги</li>\n<li>Класс горючести: UL94 V-0 (негорючий материал)</li>\n<li>Температурный диапазон эксплуатации: от -5°C до +45°C</li>\n<li>Температурный диапазон хранения: от -10°C до +50°C</li>\n<li>Влажность: до 95% (без конденсации)</li>\n<li>Размеры: 450 x 320 x 185 мм (Ш x В x Г)</li>\n<li>Вес: 4,5 кг</li>\n<li>Тип монтажа: настенный с включенным монтажным материалом</li>\n</ul>\n\n<p><b>Применение:</b> Расширительный корпус предназначен для использования в системах пожарной сигнализации и оповещения, где требуется увеличение емкости резервного питания. Устанавливается на стену рядом с основным оборудованием системы безопасности. Идеален для объектов, где необходимо обеспечить длительное автономное функционирование системы при отключении основного электроснабжения, таких как офисные здания, производственные объекты, торговые центры и другие коммерческие помещения.</p>\n\n<p><b>Преимущества:</b> Выбирая этот корпус, вы получаете надежное решение от проверенного немецкого производителя с высокими стандартами качества. Прочный корпус из армированного пластика обеспечивает долговечность и защиту батарей. Простой настенный монтаж и включенный монтажный материал упрощают установку. Высокий класс защиты IP30 и негорючесть материала гарантируют безопасность в любых условиях эксплуатации.</p>",
+    "best_description_ru_word_count": 229,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Akku-Erweiterungsgehäuse für 2 x 12 V/24 Ah",
+    "description": "Komplettes Kunststoffgehäuse zur Aufnahme von zwei Akkumulatoren 12 V / 24 Ah.",
+    "specs": {
+      "operating_temperature_celsius_min": -5,
+      "operating_temperature_celsius_max": 45,
+      "storage_temperature_celsius_min": -10,
+      "storage_temperature_celsius_max": 50,
+      "relative_humidity": "< 95% (non-condensing)",
+      "ip_rating": "IP30",
+      "housing_material": "ABS, 10% glass fiber reinforced",
+      "flammability_rating": "UL94 V-0",
+      "color": "grey (similar to Pantone 538)",
+      "battery_configuration_supported": "2 x 12 V / 24 Ah accumulators",
+      "mounting_type": "Wall-mountable",
+      "included_items": "Mounting material",
+      "excluded_items": "Accumulators (batteries)"
+    },
+    "specs_count": 13,
+    "series": "",
+    "category": "Battery Expansion Housing",
+    "weight_g": 4500,
+    "dimensions_mm": "450 x 320 x 185 mm (W x H x D)",
+    "certifications": [
+      "UL94 V-0"
+    ],
+    "article_no": "FX808313",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FX808313.pdf",
+    "datasheet_size_kb": 2090,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FX808313_p1_0.jpeg",
+      "downloads\\datasheet_photos\\FX808313_p1_1.jpeg",
+      "downloads\\datasheet_photos\\FX808313_p1_3.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/FX808313_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "FX808313 is an OBO Bettermann part number format (FX series for battery/power housings). The expected EAN prefix 4007185 belongs to OBO Bettermann, not Honeywell. The German datasheet title 'Akku-Erweiterungsgehäuse für 2 x 12 V/24 Ah' (Battery extension housing for 2 x 12V/24Ah) confirms this is an OBO product for UPS/battery systems. Honeywell does not use FX-prefix part numbers in this format.",
+      "brand_correction_confidence": "high",
+      "needs_new_datasheet": true,
+      "reason": "Brand OBO Bettermann is correct - they manufacture electrical installation products. PN format FX808313 matches OBO's naming convention. The datasheet title 'Akku-Erweiterungsgehäuse für 2 x 12 V/24 Ah' (Battery expansion housing for 2 x 12V/24Ah) confirms this is a battery enclosure. Issues are due to incomplete/truncated datasheet extraction, not wrong product data. EAN 4007185 prefix is correct for OBO Bettermann. Need complete datasheet re-processing to extract full description, series info, and EAN."
+    },
+    "description_seo_ru": "<p>Akku-Erweiterungsgehäuse für 2 x 12 V/24 Ah от немецкого бренда Esser (артикул FX808313) — это специализированный корпус для расширения емкости аккумуляторных батарей в системах пожарной сигнализации. Надежное и функциональное решение, разработанное для профессионального применения в системах безопасности. Корпус обеспечивает безопасное размещение дополнительных батарей, позволяя значительно продлить время автономной работы системы при отключении электроснабжения.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Поддерживает конфигурацию: 2 x 12 В / 24 Ач аккумулятора</li>\n<li>Материал корпуса: ABS с 10% армированием стекловолокном</li>\n<li>Степень защиты: IP30 от пыли и влаги</li>\n<li>Класс горючести: UL94 V-0 (негорючий материал)</li>\n<li>Температурный диапазон эксплуатации: от -5°C до +45°C</li>\n<li>Температурный диапазон хранения: от -10°C до +50°C</li>\n<li>Влажность: до 95% (без конденсации)</li>\n<li>Размеры: 450 x 320 x 185 мм (Ш x В x Г)</li>\n<li>Вес: 4,5 кг</li>\n<li>Тип монтажа: настенный с включенным монтажным материалом</li>\n</ul>\n\n<p><b>Применение:</b> Расширительный корпус предназначен для использования в системах пожарной сигнализации и оповещения, где требуется увеличение емкости резервного питания. Устанавливается на стену рядом с основным оборудованием системы безопасности. Идеален для объектов, где необходимо обеспечить длительное автономное функционирование системы при отключении основного электроснабжения, таких как офисные здания, производственные объекты, торговые центры и другие коммерческие помещения.</p>\n\n<p><b>Преимущества:</b> Выбирая этот корпус, вы получаете надежное решение от проверенного немецкого производителя с высокими стандартами качества. Прочный корпус из армированного пластика обеспечивает долговечность и защиту батарей. Простой настенный монтаж и включенный монтажный материал упрощают установку. Высокий класс защиты IP30 и негорючесть материала гарантируют безопасность в любых условиях эксплуатации.</p>",
+    "description_seo_word_count": 229,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "Esser",
+      "candidates": [],
+      "product_hint": "fire",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Akku-Erweiterungsgehäuse für 2 x 12 V/24 Ah' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "revert_to_old",
+    "final_brand": "Honeywell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "OBO Bettermann"
+  }
 }

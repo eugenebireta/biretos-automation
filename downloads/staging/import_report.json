@@ -1,0 +1,115 @@
+{
+  "trace_id": "r1-import-20260410-141838",
+  "job_id": "0b11016c-c8dc-4702-bdc5-5b420d92b637",
+  "input_file": "D:\\BIRETOS\\projects\\downloads\\honeywell_aggregated_named_v12.xlsx",
+  "dry_run": true,
+  "timestamp": "2026-04-10T14:18:38.147376+00:00",
+  "total_parsed": 370,
+  "total_after_dedup": 370,
+  "accepted": 16,
+  "review_required": 354,
+  "rejected": 0,
+  "by_reason": {
+    "low_confidence": 7,
+    "medium_confidence": 148,
+    "missing_price": 19,
+    "no_evidence": 11,
+    "no_photo": 125,
+    "none": 16,
+    "title_confidence_low": 44
+  },
+  "by_brand": {
+    "ABB": {
+      "review_required": 6
+    },
+    "ALLIED TELESIS": {
+      "review_required": 3
+    },
+    "APC": {
+      "review_required": 1
+    },
+    "AUTRONICA": {
+      "review_required": 1
+    },
+    "CAMELION": {
+      "review_required": 1
+    },
+    "CISCO": {
+      "review_required": 3
+    },
+    "DELL": {
+      "review_required": 24
+    },
+    "EATON CROUSE-HINDS": {
+      "review_required": 1
+    },
+    "EPSON": {
+      "review_required": 1
+    },
+    "ESSER": {
+      "review_required": 25,
+      "accepted": 7
+    },
+    "ESYLUX": {
+      "review_required": 3
+    },
+    "HONEYWELL": {
+      "review_required": 108,
+      "accepted": 8
+    },
+    "HP": {
+      "review_required": 5
+    },
+    "HYPERLINE": {
+      "review_required": 16
+    },
+    "LG": {
+      "review_required": 2
+    },
+    "MOXA": {
+      "review_required": 2
+    },
+    "MURR ELEKTRONIK": {
+      "review_required": 1
+    },
+    "NVIDIA": {
+      "review_required": 2
+    },
+    "PEHA": {
+      "review_required": 91
+    },
+    "PHOENIX CONTACT": {
+      "review_required": 10
+    },
+    "PRODUAL": {
+      "review_required": 1
+    },
+    "SAIA BURGESS": {
+      "review_required": 3,
+      "accepted": 1
+    },
+    "SIEMON": {
+      "review_required": 1
+    },
+    "SONY": {
+      "review_required": 1
+    },
+    "SYSTEM SENSOR": {
+      "review_required": 6
+    },
+    "WEIDMULLER": {
+      "review_required": 9
+    },
+    "XEROX": {
+      "review_required": 2
+    },
+    "НЕ УКАЗАН": {
+      "review_required": 25
+    }
+  },
+  "confidence_distribution": {
+    "HIGH": 16,
+    "MEDIUM": 155,
+    "LOW": 199
+  }
+}

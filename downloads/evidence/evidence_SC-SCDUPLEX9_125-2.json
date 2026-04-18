@@ -6,10 +6,10 @@
     "SC.SCDUPLEX9/125.2",
     "SCSCDUPLEX9/1252"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Sonlex",
+  "subbrand": null,
   "name": "Оптический кабель SC-SCDuplex9/125 2m",
-  "assembled_title": "Кабель Honeywell SC-SCDUPLEX9/125-2",
+  "assembled_title": "Кабель Sonlex SC-SCDUPLEX9/125-2",
   "our_price_raw": "458,00",
   "expected_category": "Кабель",
   "card_status": "DRAFT_ONLY",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqSL2Zw6yHPbckfGuhyr'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,10 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://necero.en.made-in-china.com/product/WMuQitvGqpDL/China-Sc-Sc-Simplex-Dup"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -328,7 +325,9 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Sonlex",
+    "brand_source": "dr_claude_39_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -640,5 +639,41 @@
     "model": "claude-opus-4",
     "source_file": "deep-research-report (5).md"
   },
-  "product_category": "cable"
+  "training_urls": [
+    "https://www.monoprice.com/product?p_id=6371"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 388.0,
+    "dr_currency": "RUB",
+    "dr_source_url": "https://www.optcom.ru/catalog/OPC/shnury-opticheskie-soedinitelnye-patchkordy.html",
+    "our_price_raw": "458,00",
+    "our_price_parsed": 458.0,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 388.0,
+    "best_price_currency": "RUB",
+    "best_price_source": "price_contract",
+    "best_description": "Оптический кабель SC-SCDuplex9/125 длиной 2 метра. Используется для соединения оптических устройств в сетях передачи данных. Обеспечивает надежное и стабильное соединение.",
+    "best_description_source": "content",
+    "best_photo_url": "https://necero.en.made-in-china.com/product/WMuQitvGqpDL/China-Sc-Sc-Simplex-Dup",
+    "best_photo_source": "photo_verdict"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {}
 }

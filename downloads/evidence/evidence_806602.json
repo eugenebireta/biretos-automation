@@ -4,7 +4,7 @@
   "pn": "806602",
   "pn_variants": [],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "NS 35/15 WH PERF 2000MM 806602",
   "assembled_title": "Рейка Honeywell 806602",
   "our_price_raw": "4188,30",
@@ -318,7 +318,16 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "NS series",
+    "confirmed_manufacturer": "Phoenix Contact",
+    "identity_notes_p1": "NS 35/15 WH PERF 2000MM DIN rail profile; unable to confirm full specifications",
+    "phase1_recon_done": true,
+    "real_model": "NS 35/15 WH PERF 2000MM",
+    "search_hint": "NS 35/15 DIN rail 2000mm perforated Phoenix Contact",
+    "model_confidence": "high",
+    "model_notes": "DIN rail profile 35x15mm white perforated 2000mm; PN 0806602 Phoenix Contact",
+    "phase1b_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -341,7 +350,7 @@
     "description": "NS 35/15 WH PERF 2000MM представляет собой перфорированную монтажную рейку, используемую для установки и крепления электрических компонентов в шкафах управления. Изготовлена из высококачественного материала, обеспечивающего долговечность и надежность.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Рейка",
+    "product_type": "DIN rail mounting",
     "seed_name": "NS 35/15 WH PERF 2000MM 806602",
     "description_long_ru": "Если это внутренний код Honeywell — без контекста срывается в «общие» артикулы других отраслей."
   },
@@ -624,6 +633,85 @@
     "merge_source": "result_806602.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
-    "source_file": "deep-research-report (2).md"
+    "source_file": "deep-research-report (2).md",
+    "descriptions_all": {
+      "legacy": "Если это внутренний код Honeywell — без контекста срывается в «общие» артикулы других отраслей."
+    }
+  },
+  "training_urls": [
+    "https://www.ebay.com/itm/285797205427",
+    "https://www.wbparts.com/rfq/5120-01-631-9214.html",
+    "https://www.digikey.com/en/products/detail/phoenix-contact/0806602/2528612"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "4188,30",
+    "our_price_parsed": 4188.3,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 53.1,
+    "best_price_currency": "USD",
+    "best_price_source": "pipeline1",
+    "best_description": "NS 35/15 WH PERF 2000MM представляет собой перфорированную монтажную рейку, используемую для установки и крепления электрических компонентов в шкафах управления. Изготовлена из высококачественного материала, обеспечивающего долговечность и надежность.",
+    "best_description_source": "content",
+    "best_photo_url": "https://dev.bireta.ru/catalog/photos/PHOENIX_CONTACT_806602.jpg",
+    "best_photo_source": "vps_static"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "2026 Notice of Annual Meeting of Shareholders and Proxy Statement",
+    "description": "",
+    "specs": {},
+    "specs_count": 0,
+    "series": "",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\806602.pdf",
+    "datasheet_size_kb": 15982,
+    "product_photos": [
+      "downloads\\datasheet_photos\\806602_p2_0.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [],
+    "verified_photo_count": 0
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 15982KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title '2026 Notice of Annual Meeting of Shareholders and Proxy Stat' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
   }
 }

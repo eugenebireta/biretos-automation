@@ -3,8 +3,8 @@
   "generated_at": "2026-04-08T00:15:26.831080Z",
   "pn": "U2410F",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Dell",
+  "subbrand": null,
   "name": "Монитор Honeywell U2410F",
   "assembled_title": "Монитор Honeywell U2410F",
   "our_price_raw": "2970,36",
@@ -317,7 +317,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "UltraSharp",
+    "confirmed_manufacturer": "Dell",
+    "discontinued": false,
+    "identity_notes_p1": "24\" professional monitor by Dell, not Honeywell",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -335,9 +340,8 @@
     "description": "Монитор Honeywell U2410F предназначен для использования в офисных и промышленных условиях. Он обеспечивает высокое качество изображения и широкий угол обзора, что делает его идеальным для работы с графикой и данными.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Монитор",
-    "seed_name": "Монитор Honeywell U2410F",
-    "description_long_ru": "Dell UltraSharp; Honeywell NOTIFIER ONYXWorks accessory; ref price 2,970 RUB is below market ($50-200)"
+    "product_type": "LCD monitor",
+    "seed_name": "Монитор Honeywell U2410F"
   },
   "trace": {
     "pn_match_location": "",
@@ -590,7 +594,27 @@
       "raw": "—",
       "aliases": [
         "—"
-      ]
+      ],
+      "Screen size": "24 inches",
+      "Resolution": "1920x1200 (WUXGA, 16:10)",
+      "Panel type": "H-IPS",
+      "Color depth": "10-bit (1.07 billion colors)",
+      "Color gamut": "100% sRGB, 99% Adobe RGB, 111% NTSC",
+      "Brightness": "400 cd/m²",
+      "Contrast": "1000:1 (static), 80000:1 (dynamic)",
+      "Response time": "6 ms (typical)",
+      "Inputs": "DVI-D, VGA, DisplayPort, HDMI, Component, Composite",
+      "USB hub": "Yes (4x USB 2.0)",
+      "Card reader": "Yes",
+      "VESA mount": "100x100 mm",
+      "Stand adjustments": "Height, tilt, swivel, pivot",
+      "Brand": "Dell",
+      "Product family": "UltraSharp U2410",
+      "Model variant": "U2410f",
+      "Native resolution": "1920 x 1200",
+      "Aspect ratio": "16:10",
+      "Positioning": "Professional / color-critical capable",
+      "Factory color calibration": "Yes"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -609,15 +633,213 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.624576+00:00",
+    "merge_ts": "2026-04-09T12:01:25.012077+00:00",
     "merge_source": "result_U2410F.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (3).md",
-    "description_ru": "Dell UltraSharp; Honeywell NOTIFIER ONYXWorks accessory; ref price 2,970 RUB is below market ($50-200)"
+    "descriptions_all": {
+      "claude": "Dell UltraSharp U2410F — это профессиональный IPS-монитор с диагональю 24 дюйма и разрешением WUXGA 1920×1200 пикселей (соотношение сторон 16:10). Монитор серии UltraSharp отличается превосходной цветопередачей с охватом 100% sRGB, 99% Adobe RGB и 111% NTSC, что делает его идеальным для работы с фотографией, графическим дизайном, допечатной подготовкой и видеомонтажом. Матрица H-IPS обеспечивает углы обзора 178°/178° и глубину цвета 10 бит (1.07 млрд цветов). Яркость — 400 кд/м², контрастность — 1000:1 (80000:1 динамическая). Расширенный набор интерфейсов: DVI-D, VGA, DisplayPort, HDMI, Component Video, Composite Video, а также встроенный кардридер. Эргономичная подставка поддерживает полный набор регулировок. Поддерживается аппаратная калибровка цвета. Модель снята с производства, но по-прежнему ценится профессионалами за качество изображения.",
+      "gpt": "Dell U2410F — это 24-дюймовый монитор серии UltraSharp, ориентированный на более высокие требования к качеству изображения и цвету по сравнению с обычными офисными моделями. В документации Dell фигурирует regulatory/model designation U2410f, а коммерческое семейство называется Dell UltraSharp U2410. Официальные материалы описывают модель как 24-inch widescreen monitor с разрешением 1920 x 1200 и заводской калибровкой цвета. Именно поэтому U2410 долгое время ценился в задачах фотографии, графики, web-производства, CAD/CAM и контент-создания. По сравнению с простыми офисными мониторами эта модель предлагает более богатый набор интерфейсов и более широкий профессиональный контекст использования. Формат 16:10 дает дополнительное вертикальное пространство, что удобно как для графических приложений, так и для таблиц и IDE. Сегодня это legacy-монитор, но он по-прежнему востребован на вторичном рынке там, где важнее цвет и эргономика, чем минимальная цена. При публикации товара желательно указывать, что буква F относится к модельной маркировке, а не к отдельной современной линейке. Также нужно честно отмечать возраст изделия и возможные нюансы вторичного рынка: износ подсветки, состояние USB-хаба, картридера и стойки. Для B2B-каталога U2410F корректно описывать как Dell UltraSharp 24-inch 1920x1200 professional monitor.",
+      "synthesis": "Dell U2410F — это 24-дюймовый профессиональный IPS-монитор серии UltraSharp с разрешением WUXGA 1920×1200 (соотношение сторон 16:10), отличающийся превосходной цветопередачей и охватом 100% sRGB, 99% Adobe RGB и 111% NTSC. H-IPS матрица обеспечивает углы обзора 178°/178°, глубину цвета 10 бит (1.07 млрд цветов), яркость 400 кд/м², контрастность 1000:1 (80000:1 динамическая). Монитор поддерживает аппаратную калибровку цвета и оснащён заводской калибровкой, что делает его идеальным для работы с фотографией, графическим дизайном, допечатной подготовкой и видеомонтажом. Расширенный набор интерфейсов включает DVI-D, VGA, DisplayPort, HDMI, Component Video, Composite Video, а также встроенный кардридер для удобства работы с медиа-контентом. Эргономичная подставка поддерживает полный набор регулировок: высота, наклон, поворот, разворот в портретный режим. Форм-фактор 16:10 предоставляет дополнительное вертикальное пространство, удобное для графических приложений, таблиц и IDE. Модель снята с производства, но по-прежнему ценится профессионалами за качество изображения на вторичном рынке в задачах, где важнее цвет и эргономика, чем минимальная цена. При публикации товара необходимо честно отмечать возраст и возможные нюансы: износ подсветки, состояние USB-хаба и картридера."
+    },
+    "specs_all": {
+      "claude": {
+        "Screen size": "24 inches",
+        "Resolution": "1920x1200 (WUXGA, 16:10)",
+        "Panel type": "H-IPS",
+        "Color depth": "10-bit (1.07 billion colors)",
+        "Color gamut": "100% sRGB, 99% Adobe RGB, 111% NTSC",
+        "Brightness": "400 cd/m²",
+        "Contrast": "1000:1 (static), 80000:1 (dynamic)",
+        "Response time": "6 ms (typical)",
+        "Inputs": "DVI-D, VGA, DisplayPort, HDMI, Component, Composite",
+        "USB hub": "Yes (4x USB 2.0)",
+        "Card reader": "Yes",
+        "VESA mount": "100x100 mm",
+        "Stand adjustments": "Height, tilt, swivel, pivot"
+      },
+      "gpt": {
+        "Brand": "Dell",
+        "Product family": "UltraSharp U2410",
+        "Model variant": "U2410f",
+        "Screen size": "24 in",
+        "Native resolution": "1920 x 1200",
+        "Aspect ratio": "16:10",
+        "Positioning": "Professional / color-critical capable",
+        "Factory color calibration": "Yes"
+      }
+    },
+    "notes_all": {
+      "claude": "Discontinued premium monitor. 'F' suffix may denote a specific revision.",
+      "gpt": "Normalized to Dell UltraSharp U2410; official documents use model designation U2410f."
+    }
   },
-  "dr_price": 129.99,
-  "dr_currency": "USD",
-  "dr_price_source": "https://refreshcomputers.net/product/dell-u2410f-24-lcd-monitor",
-  "product_category": "monitor"
+  "training_urls": [
+    "https://i.dell.com/images/emea/products/monitors/dell_monitor_u2410.pdf",
+    "https://www.amazon.com/Dell-UltraSharp-Widescreen-Performance-DisplayPort/dp/B00302DNZ4",
+    "https://www.classicautomation.com/Part/honeywell/u2410f",
+    "https://www.displayspecifications.com/en/model/37694e9",
+    "https://www.ebay.com/p/9034392051",
+    "https://www.newegg.com/dell-u2410f-24/p/1B4-0016-00EJ1",
+    "https://www.pcliquidations.com/p14825-dell-ultrasharp-u2410f-24",
+    "https://www.radwell.com/en-US/Buy/DELL/DELL/U2410F",
+    "https://i.dell.com/sites/csdocuments/Shared-Content_solutions_Documents/en/us/disp_u2410f_us.pdf",
+    "https://qed-productions.com/downloads/dell/dell-u2410_manual.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "2970,36",
+    "our_price_parsed": 2970.36,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 128.0,
+    "best_price_currency": "USD",
+    "best_price_source": "pipeline1",
+    "best_description": "Монитор Honeywell U2410F предназначен для использования в офисных и промышленных условиях. Он обеспечивает высокое качество изображения и широкий угол обзора, что делает его идеальным для работы с графикой и данными.",
+    "best_description_source": "content",
+    "best_photo_url": "â",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Монитор Honeywell U2410F предназначен для использования в офисных и промышленных условиях. Он обеспечивает высокое качество изображения и широкий угол обзора, что делает его идеальным для работы с графикой и данными.",
+    "best_description_ru": "<p>Монитор Dell U2410 от компании Honeywell (артикул U2410F) — это профессиональное устройство отображения, разработанное специально для использования в офисных и промышленных условиях. Бренд Honeywell известен своим высоким качеством и надежностью электронного оборудования. Данный монитор обеспечивает исключительное качество изображения и широкий угол обзора, что делает его идеальным решением для специалистов, работающих с графикой, видеомонтажом, обработкой данных и другими задачами, требующими точной цветопередачи и четкого отображения информации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Плоскопанельная технология (Flat Panel) для компактного размещения</li>\n<li>Высокое качество изображения с отличной четкостью и контрастностью</li>\n<li>Широкий угол обзора для комфортной работы с разных позиций</li>\n<li>Профессиональная калибровка цветов для точной работы с графикой</li>\n<li>Надежная конструкция, рассчитанная на длительную эксплуатацию</li>\n<li>Совместимость с различными источниками сигнала и операционными системами</li>\n<li>Эргономичный дизайн с возможностью регулировки положения экрана</li>\n</ul>\n\n<p><b>Применение:</b> Монитор U2410F идеально подходит для использования в офисных помещениях, дизайн-студиях, медицинских учреждениях, центрах обработки данных и промышленных объектах. Он может применяться для работы с документами, таблицами, графическими приложениями, видеоконтентом и специализированным программным обеспечением. Широкий угол обзора позволяет нескольким пользователям одновременно просматривать содержимое экрана, что делает его отличным выбором для совместной работы и презентаций.</p>\n\n<p><b>Преимущества:</b> Выбирая монитор Dell U2410 от Honeywell, вы получаете надежное устройство от проверенного производителя с репутацией в области качественной электроники. Монитор обеспечивает превосходное качество изображения, удобство использования и долговечность. Его универсальность позволяет применять его в различных сферах деятельности, от офисной работы до профессиональной графики, что делает его отличным инвестированием в качественное оборудование.</p>",
+    "best_description_ru_word_count": 228,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "review_flag": "NON_HONEYWELL",
+  "review_reason": "Phase 1 recon: manufacturer=Dell",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Dell U2410 Flat Panel Monitor",
+    "description": "",
+    "specs": {
+      "screen_type": "Active matrix - TFT LCD",
+      "panel_type": "IPS",
+      "screen_diagonal_inches": "24",
+      "screen_diagonal_mm": "518.4 x 324.0",
+      "horizontal_viewable_area_mm": "518.4",
+      "vertical_viewable_area_mm": "324.0",
+      "pixel_pitch_mm": "0.27 x 0.27",
+      "viewing_angle_vertical_degrees": "178",
+      "viewing_angle_horizontal_degrees": "178",
+      "luminance_output_cd_m2": "400",
+      "contrast_ratio_typical": "1000:1",
+      "contrast_ratio_max_dynamic": "80000:1",
+      "faceplate_coating": "Antiglare with hard-coating 3H",
+      "backlight_type": "7 CCFL U-type system",
+      "response_time_ms": "6",
+      "color_gamut_percent": "110",
+      "maximum_resolution": "1920 x 1200 at 60 Hz",
+      "horizontal_scan_range_kHz": "30 to 81",
+      "vertical_scan_range_Hz": "56 to 76",
+      "video_input_signals": "Analog RGB (0.7V +/-5%, 75 ohm), Digital DVI-D TMDS (600mV, 50 ohm), HDMI (600mV, 100 ohm per differential pair), DisplayPort (600mV, 100 ohm per differential pair), Composite (1V p-p, 75 ohm), Component Y/Pb/Pr (0.5-1V p-p, 75 ohm)",
+      "sync_input_signals": "Separate horizontal and vertical, 3.3V CMOS or 5V TTL level, positive or negative sync, SOG",
+      "ac_input_voltage_VAC": "100 to 240",
+      "ac_input_frequency_Hz": "50 or 60 +/- 3",
+      "ac_input_current_max_A": "2.0",
+      "inrush_current_120V_max_A": "40",
+      "inrush_current_240V_max_A": "80",
+      "power_consumption_normal_max_W": "132",
+      "power_consumption_normal_typical_W": "75",
+      "power_consumption_active_off_mode_W": "less than 1",
+      "power_consumption_switch_off_W": "less than 1",
+      "thermal_dissipation_max_BTU_hour": "375",
+      "thermal_dissipation_typical_BTU_hour": "195",
+      "connector_types": "VGA (Blue), DVI-D (White), DisplayPort (Black), Composite, Component, HDMI",
+      "vga_connector_pins": "15-pin D-sub, detachable, analog, shipped attached",
+      "dvi_connector_pins": "24-pin, detachable, digital, shipped detached",
+      "displayport_connector_pins": "20-pin, detachable, digital, shipped detached",
+      "usb_ports_upstream": "1 rear",
+      "usb_ports_downstream": "4 total (2 rear, 2 left side)",
+      "usb_interface": "High-Speed Certified USB 2.0",
+      "usb_high_speed_Mbps": "480",
+      "usb_high_speed_power_consumption_W": "2.5",
+      "usb_full_speed_Mbps": "12",
+      "usb_low_speed_Mbps": "1.5",
+      "card_reader_slots": "1 (supports xD-Picture Card, Memory Stick, Secure Digital, MultiMedia Card)",
+      "vesa_mounting_holes_mm": "100",
+      "tilt_swivel_rotation_height_adjustment": "Yes",
+      "removable_pedestal": "Yes",
+      "security_lock_slot": "Yes",
+      "operating_temperature_celsius": "0 to 40",
+      "operating_temperature_fahrenheit": "32 to 104",
+      "non_operating_storage_temperature_celsius": "-20 to 60",
+      "non_operating_storage_temperature_fahrenheit": "-4 to 140",
+      "operating_humidity_percent": "10 to 80 noncondensing",
+      "non_operating_storage_humidity_percent": "5 to 90 noncondensing",
+      "operating_altitude_m": "3657.6",
+      "operating_altitude_ft": "12000",
+      "non_operating_altitude_m": "12192",
+      "non_operating_altitude_ft": "40000",
+      "video_display_capabilities_DVI": "480i/480p/576i/576p/720p/1080i/1080p (Supports HDCP)",
+      "video_display_capabilities_composite": "NTSC/PAL",
+      "video_display_capabilities_HDMI": "480i/480p/576i/576p/720p/1080i/1080p",
+      "video_display_capabilities_component": "480i/480p/576i/576p/720p/1080i/1080p",
+      "power_management": "VESA DPMS compliant, TCO 03 compatible",
+      "plug_and_play": "Yes, if supported by system",
+      "on_screen_display": "Yes"
+    },
+    "specs_count": 65,
+    "series": "U2410",
+    "category": "",
+    "weight_g": "6500",
+    "dimensions_mm": "559.7x201.5x365.1",
+    "certifications": [
+      "TCO 03",
+      "VESA DPMS",
+      "USB-IF certified",
+      "HDCP support"
+    ],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\U2410F.pdf",
+    "datasheet_size_kb": 2905,
+    "product_photos": [
+      "downloads\\datasheet_photos\\U2410F_p2_2.jpeg",
+      "downloads\\datasheet_photos\\U2410F_p2_3.jpeg",
+      "downloads\\datasheet_photos\\U2410F_p2_4.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/U2410F_p2_2.jpeg",
+      "downloads/datasheet_photos/U2410F_p2_3.jpeg",
+      "downloads/datasheet_photos/U2410F_p2_4.jpeg"
+    ],
+    "verified_photo_count": 3,
+    "_corrections": {
+      "original_brand": "Honeywell",
+      "brand_correction_reason": "U2410F is a Dell UltraSharp monitor model. Datasheet clearly states 'Dell U2410 Flat Panel Monitor'. Dell manufactures their own monitors - this is not a Honeywell product. The part number format and model designation (U-series UltraSharp) are consistent with Dell's monitor lineup. Brand should be corrected from Honeywell to Dell.",
+      "brand_correction_confidence": "high"
+    },
+    "description_seo_ru": "<p>Монитор Dell U2410 от компании Honeywell (артикул U2410F) — это профессиональное устройство отображения, разработанное специально для использования в офисных и промышленных условиях. Бренд Honeywell известен своим высоким качеством и надежностью электронного оборудования. Данный монитор обеспечивает исключительное качество изображения и широкий угол обзора, что делает его идеальным решением для специалистов, работающих с графикой, видеомонтажом, обработкой данных и другими задачами, требующими точной цветопередачи и четкого отображения информации.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Плоскопанельная технология (Flat Panel) для компактного размещения</li>\n<li>Высокое качество изображения с отличной четкостью и контрастностью</li>\n<li>Широкий угол обзора для комфортной работы с разных позиций</li>\n<li>Профессиональная калибровка цветов для точной работы с графикой</li>\n<li>Надежная конструкция, рассчитанная на длительную эксплуатацию</li>\n<li>Совместимость с различными источниками сигнала и операционными системами</li>\n<li>Эргономичный дизайн с возможностью регулировки положения экрана</li>\n</ul>\n\n<p><b>Применение:</b> Монитор U2410F идеально подходит для использования в офисных помещениях, дизайн-студиях, медицинских учреждениях, центрах обработки данных и промышленных объектах. Он может применяться для работы с документами, таблицами, графическими приложениями, видеоконтентом и специализированным программным обеспечением. Широкий угол обзора позволяет нескольким пользователям одновременно просматривать содержимое экрана, что делает его отличным выбором для совместной работы и презентаций.</p>\n\n<p><b>Преимущества:</b> Выбирая монитор Dell U2410 от Honeywell, вы получаете надежное устройство от проверенного производителя с репутацией в области качественной электроники. Монитор обеспечивает превосходное качество изображения, удобство использования и долговечность. Его универсальность позволяет применять его в различных сферах деятельности, от офисной работы до профессиональной графики, что делает его отличным инвестированием в качественное оборудование.</p>",
+    "description_seo_word_count": 228,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Dell U2410 Flat Panel Monitor' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  },
+  "_brand_validation": {
+    "validator": "sonnet_4_5",
+    "verdict": "keep_new",
+    "final_brand": "Dell",
+    "confidence": "high",
+    "original_auto_fix_new_brand": "Dell"
+  }
 }

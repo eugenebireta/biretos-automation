@@ -7,7 +7,7 @@
     "BFHWC4PN160125"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Задвижка с диском Honeywell DN125 MBV DI Body Disk Matl Epoxy coated",
   "assembled_title": "Задвижка Honeywell BF-HWC4-PN16-0125",
   "our_price_raw": "4131,64",
@@ -181,7 +181,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "Дисковая задвижка (затвор поворотный) с рычажным приводом — соответствует товару",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -199,10 +199,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate",
-    "photo_url": "https://honeywell.nt-rt.ru/price/product/351806"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "ambiguous_offer",
@@ -314,7 +311,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "HVAC/industrial",
+    "confirmed_manufacturer": "Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "Manual butterfly valve DN125 PN16 with epoxy coated disk",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -345,9 +347,8 @@
     "description": "Задвижка с диском Honeywell DN125 используется для управления потоком жидкостей в трубопроводах. Имеет эпоксидное покрытие для защиты от коррозии.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Задвижка",
-    "seed_name": "Задвижка с диском Honeywell DN125 MBV DI Body Disk Matl Epoxy coated",
-    "description_long_ru": "BF = actuated variant; BS = manual hand lever. No online pricing found for DN125 size"
+    "product_type": "Butterfly valve",
+    "seed_name": "Задвижка с диском Honeywell DN125 MBV DI Body Disk Matl Epoxy coated"
   },
   "trace": {
     "pn_match_location": "",
@@ -603,7 +604,33 @@
       "raw": "PN16; DN125; тип: wafer; (из названия/карточки) citeturn13view1",
       "aliases": [
         "—"
-      ]
+      ],
+      "Part number": "BF-HWC4-PN16-0125",
+      "Type": "Butterfly valve (дисковый затвор)",
+      "Series": "HWC4",
+      "Nominal pressure": "PN16 (16 bar)",
+      "Nominal diameter": "DN125 (5\")",
+      "Connection": "Flanged (BF)",
+      "Body material": "Cast iron / ductile iron",
+      "Disc material": "Stainless steel",
+      "Seat material": "EPDM / NBR",
+      "Drive options": "Manual lever, worm gear, electric/pneumatic actuator",
+      "Application": "HVAC, water supply, process piping",
+      "Brand": "Honeywell",
+      "Part Number": "BF-HWC4-PN16-0125",
+      "Valve Type": "Butterfly valve",
+      "Nominal Diameter": "DN125",
+      "Pressure Rating": "PN16",
+      "diameter": "DN125",
+      "pressure": "PN16",
+      "body_material": "Cast Iron FG 220 CI",
+      "disc": "Epoxy Coated Ductile Iron",
+      "stem": "Stainless Steel ASTM A276 GR SS 410",
+      "operation": "Manual Lever",
+      "temperature_range": "-10 to +110 degrees C",
+      "connection": "Wafer Type",
+      "medium": "Water, Potable Water",
+      "sealing_class": "Class A"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -623,12 +650,117 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.289818+00:00",
+    "merge_ts": "2026-04-09T12:01:24.880667+00:00",
     "merge_source": "result_BF-HWC4-PN16-0125.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (2).md",
-    "description_ru": "BF = actuated variant; BS = manual hand lever. No online pricing found for DN125 size"
+    "descriptions_all": {
+      "claude": "Задвижка Honeywell BF-HWC4-PN16-0125 представляет собой поворотную дисковую задвижку (затвор дисковый, butterfly valve) серии HWC4 с номинальным давлением PN16 и условным проходом DN125 (5 дюймов). Задвижки данной серии предназначены для регулирования и отсечения потоков жидких и газообразных сред в системах отопления, вентиляции и кондиционирования (HVAC), а также в системах водоснабжения и технологических трубопроводах. Обозначение BF указывает на фланцевое соединение (butterfly flange). Корпус задвижки выполнен из чугуна или ковкого чугуна, диск — из нержавеющей стали, уплотнение — из EPDM или NBR в зависимости от условий эксплуатации. Рабочее давление PN16 обеспечивает надёжную работу при давлении до 16 бар. Задвижка может комплектоваться ручным рычажным или червячным приводом, а также электрическим или пневматическим приводом для автоматизированного управления.",
+      "gpt": "Honeywell BF-HWC4-PN16-0125 — это дисковый поворотный затвор для систем отопления и охлаждения, рассчитанный на номинальное давление PN16 и диаметр DN125. Изделие относится к арматуре для воды и водно-гликолевых смесей и применяется в инженерных системах зданий, включая чиллерные контуры, отопительные линии и HVAC-узлы. Серия предназначена для функции отсечения или регулировочного перекрытия потока в трубопроводе большого диаметра. Конструкция butterfly valve обеспечивает компактные монтажные размеры по сравнению с некоторыми альтернативными типами запорной арматуры. Для инженерных систем важны такие параметры, как номинальный диаметр, допустимое давление, материал корпуса и диска, а также совместимость с приводом или ручным управлением. По региональным карточкам Honeywell позиция BF-HWC4 связана с серией ручных затворов для chilled/hot water, а обозначение 0125 указывает на DN125. Такая арматура применяется в ИТП, насосных группах, котельных, холодильных машинах и центральных системах кондиционирования. При выборе необходимо проверять не только DN и PN, но и тип присоединения, рабочую температуру, допустимую среду и требования проекта по утечкам и управлению. Монтаж должен выполняться в соответствии с направлением потока, рекомендациями производителя и нормами для трубопроводной арматуры. Для B2B-каталога позицию корректно описывать как Honeywell butterfly valve for HVAC water circuits DN125 PN16 с указанием ручного исполнения либо совместимого привода, если это требуется.",
+      "gemini": "Поворотный дисковый затвор Honeywell BF-HWC4-PN16-0125 представляет собой надежное инженерное решение для регулирования потоков жидкости в крупных системах ОВиК и промышленного водоснабжения. Данный затвор с номинальным диаметром DN125 рассчитан на рабочее давление до 16 бар, обеспечивая стабильную работу в широком диапазоне условий. Корпус изделия выполнен из прочного серого чугуна с порошковым покрытием, надежно защищающим его от внешней коррозии. Диск из высокопрочного чугуна с эпоксидным покрытием гарантирует долговечность и химическую стойкость при контакте с теплоносителем или питьевой водой. Управление затвором осуществляется вручную с помощью рычага, который позволяет фиксировать диск в различных положениях для точной настройки расхода. Вафельный тип присоединения (wafer) обеспечивает компактность узла и простоту монтажа между стандартными фланцами трубопровода. Шток из нержавеющей стали SS410 обладает высокой механической прочностью и устойчивостью к износу. Уплотнение обеспечивает класс герметичности «А», что означает отсутствие видимых протечек в закрытом состоянии. Это долговечный и неприхотливый в обслуживании компонент, идеально подходящий для узлов управления тепловых пунктов и насосных станций.",
+      "synthesis": "Honeywell BF-HWC4-PN16-0125 — поворотная дисковая задвижка (butterfly valve) серии HWC4 с номинальным давлением PN16 и условным проходом DN125 (5 дюймов), предназначенная для регулирования и отсечения потоков жидких и газообразных сред. Применяется в системах отопления, вентиляции и кондиционирования (HVAC), системах водоснабжения, чиллерных контурах и технологических трубопроводах. Корпус выполнен из прочного серого чугуна с порошковым покрытием, диск — из высокопрочного чугуна с эпоксидным покрытием, уплотнение — из EPDM или NBR в зависимости от условий эксплуатации. Шток выполнен из нержавеющей стали SS410 с высокой механической прочностью. Рабочее давление PN16 обеспечивает надёжную работу при давлении до 16 бар. Компактный вафельный тип присоединения (wafer) между стандартными фланцами обеспечивает простоту монтажа и стабильную работу в широком диапазоне условий. Управление осуществляется ручным рычажным приводом с возможностью фиксации диска в различных положениях для точной настройки расхода. Уплотнение обеспечивает класс герметичности «А», исключающий видимые протечки в закрытом состоянии. Задвижка может комплектоваться также электрическим или пневматическим приводом для автоматизированного управления, что требуется в ИТП, насосных группах, котельных и центральных системах кондиционирования."
+    },
+    "specs_all": {
+      "claude": {
+        "Part number": "BF-HWC4-PN16-0125",
+        "Type": "Butterfly valve (дисковый затвор)",
+        "Series": "HWC4",
+        "Nominal pressure": "PN16 (16 bar)",
+        "Nominal diameter": "DN125 (5\")",
+        "Connection": "Flanged (BF)",
+        "Body material": "Cast iron / ductile iron",
+        "Disc material": "Stainless steel",
+        "Seat material": "EPDM / NBR",
+        "Drive options": "Manual lever, worm gear, electric/pneumatic actuator",
+        "Application": "HVAC, water supply, process piping"
+      },
+      "gpt": {
+        "Brand": "Honeywell",
+        "Series": "HWC4",
+        "Part Number": "BF-HWC4-PN16-0125",
+        "Valve Type": "Butterfly valve",
+        "Nominal Diameter": "DN125",
+        "Pressure Rating": "PN16",
+        "Application": "HVAC water systems"
+      },
+      "gemini": {
+        "diameter": "DN125",
+        "pressure": "PN16",
+        "body_material": "Cast Iron FG 220 CI",
+        "disc": "Epoxy Coated Ductile Iron",
+        "stem": "Stainless Steel ASTM A276 GR SS 410",
+        "operation": "Manual Lever",
+        "temperature_range": "-10 to +110 degrees C",
+        "connection": "Wafer Type",
+        "medium": "Water, Potable Water",
+        "sealing_class": "Class A"
+      }
+    },
+    "notes_all": {
+      "claude": "PN decoded: BF=butterfly flanged, HWC4=Honeywell series, PN16=pressure rating, 0125=DN125.",
+      "gpt": "Series confirmed from Honeywell field-device literature; exact BF-HWC4 regional ordering code appears mainly in distributor/regional references."
+    }
   },
-  "product_category": "valve"
+  "training_urls": [
+    "https://buildings.honeywell.com/",
+    "https://buildings.honeywell.com/in/en/products/by-category/building-management/field-devices/valves/butterfly-valves/butterfly-valve-pn16-lug-type-with-hand-lever",
+    "https://buildings.honeywell.com/us/en/products/by-category/building-management/field-devices/valves/butterfly-valves/bs-hwc4-manual-butterfly-valve-series",
+    "https://indusautomation.co/product/honeywell-manual-butterfly-valve-bs-hwc4-pn16-dn125/",
+    "https://www.ebay.com/itm/335562550731",
+    "https://www.indiamart.com/proddetail/honeywell-bs-hwc4-pn16-040-2-butterfly-valve-23115607397.html",
+    "https://www.slideshare.net/slideshow/catalog-hvac-van-cng-nghip-honeywell-beetecocom/64233782",
+    "https://buildings.honeywell.com/au/en/products/by-category/building-management/field-devices/valves/butterfly-valves/bs-hwc4-pn16---manual-butterfly-valves",
+    "https://materialdepot.in/product-category/honeywell-motorized-valve-for-building-management-system/page/3/",
+    "https://www.scribd.com/document/554435172/BF-HWC4-Honeywell-Butterfly-Valves",
+    "https://indusautomation.co/product/bs-hwc4-pn16-0125-honeywell-manual-butterfly-valve/",
+    "https://buildings.honeywell.com/ae/en/products/by-category/building-management/field-devices/valves/butterfly-valves/bs-hwc4-manual-butterfly-valve-series"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 34979.05,
+    "dr_currency": "KZT",
+    "dr_source_url": "https://stms.kz/catalog/zatvory/zatvory-diskovye/zatvor-diskovyy-povorotnyy-vafernyy-c4-pn16-dn125/",
+    "our_price_raw": "4131,64",
+    "our_price_parsed": 4131.64,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "low",
+    "judge_triggered": true,
+    "judge_trigger_reason": "exotic_currency",
+    "pack_qty": null,
+    "judge_reason": "butterfly valve, KZT (Kazakh Tenge) from local supplier"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 34979.05,
+    "best_price_currency": "KZT",
+    "best_price_source": "price_contract",
+    "best_description": "Задвижка с диском Honeywell DN125 используется для управления потоком жидкостей в трубопроводах. Имеет эпоксидное покрытие для защиты от коррозии.",
+    "best_description_source": "content",
+    "best_photo_url": "https://honeywell.nt-rt.ru/price/product/351806",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Задвижка с диском Honeywell DN125 используется для управления потоком жидкостей в трубопроводах. Имеет эпоксидное покрытие для защиты от коррозии.",
+    "best_description_ru": "<p>Представляем вашему вниманию высококачественную дисковую задвижку Honeywell BF-HWC4-PN16-0125, незаменимый элемент для эффективного управления потоками жидкостей в разнообразных трубопроводных системах. Этот продукт от всемирно известного бренда Honeywell, лидера в области промышленных решений, гарантирует надежность и долговечность. Задвижка предназначена для точного регулирования или полного перекрытия потока, обеспечивая бесперебойную работу ваших инженерных коммуникаций. Модель BF-HWC4-PN16-0125 разработана с учетом самых строгих промышленных стандартов, что подтверждает ее превосходные эксплуатационные характеристики.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Тип изделия:</b> Дисковая задвижка (butterfly valve), обеспечивающая быстрое и эффективное управление потоком.</li>\n    <li><b>Производитель:</b> Honeywell – гарантия качества и надежности от мирового лидера в промышленных решениях.</li>\n    <li><b>Артикул:</b> BF-HWC4-PN16-0125, уникальный идентификатор для удобства заказа и обслуживания.</li>\n    <li><b>Номинальный диаметр (DN):</b> 125 мм, идеально подходит для трубопроводов среднего размера.</li>\n    <li><b>Материал корпуса:</b> Высокопрочный материал, обеспечивающий долговечность и устойчивость к механическим нагрузкам.</li>\n    <li><b>Защитное покрытие:</b> Эпоксидное покрытие, нанесенное на корпус, предотвращает коррозию и значительно продлевает срок службы изделия.</li>\n    <li><b>Рабочее давление:</b> PN16 (16 бар), что делает задвижку пригодной для использования в системах с умеренным и высоким давлением.</li>\n    <li><b>Управление:</b> Разработана для простоты установки и эксплуатации, обеспечивая надежное перекрытие или регулирование потока.</li>\n    <li><b>Назначение:</b> Управление потоком различных жидкостей, включая воду, промышленные растворы и другие неагрессивные среды.</li>\n</ul>\n\n<p>Дисковая задвижка Honeywell BF-HWC4-PN16-0125 находит широкое применение в самых разнообразных отраслях промышленности и коммунального хозяйства. Она является незаменимым компонентом в системах водоснабжения и водоотведения, отопления, вентиляции и кондиционирования воздуха. Также эффективно используется в промышленных трубопроводах для транспортировки различных неагрессивных жидкостей, в системах пожаротушения, а также в сельскохозяйственных и ирригационных системах. Благодаря своей конструкции, она идеально подходит для установки в местах, где требуется быстрое и надежное перекрытие или регулирование потока.</p>\n\n<p>Выбор дисковой задвижки Honeywell BF-HWC4-PN16-0125 – это инвестиция в надежность и долговечность вашей трубопроводной системы. Эпоксидное покрытие обеспечивает превосходную защиту от коррозии, что значительно увеличивает срок службы изделия и снижает эксплуатационные расходы. Продукция Honeywell известна своим высоким качеством и соответствием международным стандартам, что гарантирует бесперебойную работу и минимизацию рисков аварийных ситуаций. Простота монтажа и обслуживания делает эту задвижку оптимальным решением для любого проекта.</p>",
+    "best_description_ru_word_count": 316,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  },
+  "from_datasheet": {
+    "_corrections": {
+      "needs_new_datasheet": true,
+      "reason": "PN format 'BF-HWC4-PN16-0125' is consistent with Honeywell industrial valve nomenclature. Seed name clearly describes a Honeywell DN125 gate/butterfly valve with epoxy coated disk (MBV DI Body). The PN structure indicates: BF (butterfly/valve type), HWC4 (series), PN16 (pressure nominal 16 bar), 0125 (DN125 size). Brand and PN appear correct, but datasheet is completely missing causing empty title, no specs, and incomplete description. Requires proper datasheet sourcing."
+    },
+    "description_seo_ru": "<p>Представляем вашему вниманию высококачественную дисковую задвижку Honeywell BF-HWC4-PN16-0125, незаменимый элемент для эффективного управления потоками жидкостей в разнообразных трубопроводных системах. Этот продукт от всемирно известного бренда Honeywell, лидера в области промышленных решений, гарантирует надежность и долговечность. Задвижка предназначена для точного регулирования или полного перекрытия потока, обеспечивая бесперебойную работу ваших инженерных коммуникаций. Модель BF-HWC4-PN16-0125 разработана с учетом самых строгих промышленных стандартов, что подтверждает ее превосходные эксплуатационные характеристики.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n    <li><b>Тип изделия:</b> Дисковая задвижка (butterfly valve), обеспечивающая быстрое и эффективное управление потоком.</li>\n    <li><b>Производитель:</b> Honeywell – гарантия качества и надежности от мирового лидера в промышленных решениях.</li>\n    <li><b>Артикул:</b> BF-HWC4-PN16-0125, уникальный идентификатор для удобства заказа и обслуживания.</li>\n    <li><b>Номинальный диаметр (DN):</b> 125 мм, идеально подходит для трубопроводов среднего размера.</li>\n    <li><b>Материал корпуса:</b> Высокопрочный материал, обеспечивающий долговечность и устойчивость к механическим нагрузкам.</li>\n    <li><b>Защитное покрытие:</b> Эпоксидное покрытие, нанесенное на корпус, предотвращает коррозию и значительно продлевает срок службы изделия.</li>\n    <li><b>Рабочее давление:</b> PN16 (16 бар), что делает задвижку пригодной для использования в системах с умеренным и высоким давлением.</li>\n    <li><b>Управление:</b> Разработана для простоты установки и эксплуатации, обеспечивая надежное перекрытие или регулирование потока.</li>\n    <li><b>Назначение:</b> Управление потоком различных жидкостей, включая воду, промышленные растворы и другие неагрессивные среды.</li>\n</ul>\n\n<p>Дисковая задвижка Honeywell BF-HWC4-PN16-0125 находит широкое применение в самых разнообразных отраслях промышленности и коммунального хозяйства. Она является незаменимым компонентом в системах водоснабжения и водоотведения, отопления, вентиляции и кондиционирования воздуха. Также эффективно используется в промышленных трубопроводах для транспортировки различных неагрессивных жидкостей, в системах пожаротушения, а также в сельскохозяйственных и ирригационных системах. Благодаря своей конструкции, она идеально подходит для установки в местах, где требуется быстрое и надежное перекрытие или регулирование потока.</p>\n\n<p>Выбор дисковой задвижки Honeywell BF-HWC4-PN16-0125 – это инвестиция в надежность и долговечность вашей трубопроводной системы. Эпоксидное покрытие обеспечивает превосходную защиту от коррозии, что значительно увеличивает срок службы изделия и снижает эксплуатационные расходы. Продукция Honeywell известна своим высоким качеством и соответствием международным стандартам, что гарантирует бесперебойную работу и минимизацию рисков аварийных ситуаций. Простота монтажа и обслуживания делает эту задвижку оптимальным решением для любого проекта.</p>",
+    "description_seo_word_count": 316,
+    "description_seo_model": ""
+  }
 }

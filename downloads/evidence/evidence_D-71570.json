@@ -6,8 +6,8 @@
     "D.71570",
     "D71570"
   ],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "Murrelektronik",
+  "subbrand": null,
   "name": "Электронный предохранитель Honeywell D-71570",
   "assembled_title": "Предохранитель Honeywell D-71570",
   "our_price_raw": "11866,00",
@@ -320,7 +320,12 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "product_line": "Power protection",
+    "identity_notes_p1": "Electronic surge protector",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "Murrelektronik",
+    "brand_source": "dr_research_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -343,7 +348,7 @@
     "description": "Электронный предохранитель Honeywell D-71570 используется для защиты электрических цепей от перегрузок и коротких замыканий. Он обеспечивает надежную защиту и быстрое срабатывание, что важно для безопасности оборудования.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Предохранитель",
+    "product_type": "Surge protector",
     "seed_name": "Электронный предохранитель Honeywell D-71570",
     "description_long_ru": "⚠️ D-71570 is Murrelektronik's factory postal code; appears on labels of many products; need specific sub-PN"
   },
@@ -572,9 +577,176 @@
     "merge_source": "result_D-71570.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "deep-research-report (8).md"
+    "source_file": "deep-research-report (8).md",
+    "descriptions_all": {
+      "legacy": "⚠️ D-71570 is Murrelektronik's factory postal code; appears on labels of many products; need specific sub-PN"
+    }
   },
   "dr_category": "not a discrete part",
   "dr_image_url": "https://i.ebayimg.com/images/g/l7sAAOSwW5ZaGlL6/s-l500.jpg",
-  "product_category": "fuse"
+  "training_urls": [
+    "https://www.ebay.com/itm/175606036706",
+    "https://www.ebay.com/itm/303670893900",
+    "https://www.imssupply.com/catalog/murr-elektronik/d-71570.html",
+    "https://www.imssupply.com/catalog/murrelektronik/5557.html",
+    "https://www.plswiss.com/en/8581-murrelektronik-d-71570.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "11866,00",
+    "our_price_parsed": 11866.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 197.5,
+    "best_price_currency": "USD",
+    "best_price_source": "phase3a",
+    "best_description": "Электронный предохранитель Honeywell D-71570 используется для защиты электрических цепей от перегрузок и коротких замыканий. Он обеспечивает надежную защиту и быстрое срабатывание, что важно для безопасности оборудования.",
+    "best_description_source": "content",
+    "best_photo_url": "https://i.ebayimg.com/images/g/l7sAAOSwW5ZaGlL6/s-l500.jpg",
+    "best_photo_source": "dr_image"
+  },
+  "phase3a_price": {
+    "price": 197.5,
+    "currency": "USD",
+    "unit_basis": "unit",
+    "source_url": "https://www.plcplaza.com/collections/all-product/products/murrelektronik-d-71570",
+    "confidence": "medium",
+    "notes": "Found as MurrElektronik D-71570, not Honeywell.",
+    "search_used": "D-71570 Honeywell"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "MTS – Isolation class T 40/B",
+    "description": "",
+    "specs": {
+      "product_category": "General Catalog - Electronics in the Control Cabinet, Interfaces, Connection Technology, I/O Systems",
+      "manufacturer": "Murrelektronik GmbH",
+      "manufacturer_address": "Falkenstraße 3, D-71570 Oppenweiler, Germany",
+      "catalog_edition": "1st edition January 2019",
+      "part_number": "9800012",
+      "production_plants": 5,
+      "branch_offices": 26,
+      "employees": 2700,
+      "products_available": 65000,
+      "products_in_stock": 1000000,
+      "quality_standard": "DIN EN ISO 9001",
+      "rohs_compliant": true,
+      "transformer_mts_nominal_power_rating": "40...250 VA",
+      "transformer_mts_input_voltage": "230, 400 V AC or multi voltage ±15 V AC",
+      "transformer_mts_output_voltage": "24 V AC or 230 V AC",
+      "transformer_mts_ambient_temperature": "40 °C",
+      "transformer_mts_isolation_class": "T 40/B",
+      "transformer_mst_nominal_power_rating": "320...1000 VA",
+      "transformer_mst_input_voltage": "230, 400 V AC or multi voltage",
+      "transformer_mst_output_voltage": "24 V AC or 230 V AC",
+      "transformer_mst_ambient_temperature": "40 °C",
+      "transformer_mst_isolation_class": "T 40/B",
+      "transformer_mtl_nominal_power_rating": "25...2500 VA",
+      "transformer_mtl_input_voltage": "230/400 V AC ±15 V AC",
+      "transformer_mtl_output_voltage": "2 × 24 V AC or 2 × 115 V AC",
+      "transformer_mtl_ambient_temperature": "60 °C",
+      "transformer_mtl_isolation_class": "T 60/B",
+      "rectified_power_supply_men_input_voltage": "115/230 V AC and 230/400 V AC ±15 V AC reconnectable",
+      "rectified_power_supply_men_output_voltage": "24 V DC SELV",
+      "rectified_power_supply_men_output_current": "1.0/2.5/5/7.5/10/15/20 A",
+      "rectified_power_supply_mpl_input_voltage": "3 × 400 V AC ±5% reconnectable, 3 × 208...520 V AC",
+      "rectified_power_supply_mpl_output_voltage": "24 V DC SELV",
+      "rectified_power_supply_mpl_output_current": "5...60 A",
+      "rectified_power_supply_mtps_input_voltage": "230/400 V AC ±15 V AC reconnectable",
+      "rectified_power_supply_mtps_output_voltage": "24 V DC SELV",
+      "rectified_power_supply_mtps_output_current": "0.5/1/2/4/6/10 A",
+      "frequency": "50...60 Hz",
+      "mts_40va_dimensions_hwd": "79×78×93 mm",
+      "mts_40va_weight": "0.8 kg",
+      "mts_40va_article_number_screw_terminals_230v": "86346",
+      "mts_40va_article_number_spring_clamp_terminals_230v": "6686346",
+      "mts_40va_article_number_screw_terminals_24v": "86340",
+      "mts_40va_article_number_spring_clamp_terminals_24v": "6686340",
+      "mts_63va_dimensions_hwd": "79×78×93 mm",
+      "mts_63va_weight": "1.2 kg",
+      "mts_63va_article_number_screw_terminals_230v": "86347",
+      "mts_63va_article_number_spring_clamp_terminals_230v": "6686347",
+      "mts_63va_article_number_screw_terminals_24v": "86341",
+      "mts_63va_article_number_spring_clamp_terminals_24v": "6686341",
+      "mts_100va_dimensions_hwd": "86×84×98 mm",
+      "mts_100va_weight": "2.0 kg",
+      "mts_100va_article_number_screw_terminals_230v": "86348",
+      "mts_100va_article_number_spring_clamp_terminals_230v": "6686348",
+      "mts_100va_article_number_screw_terminals_24v": "86342",
+      "mts_100va_article_number_spring_clamp_terminals_24v": "6686342",
+      "mts_160va_dimensions_hwd": "101×96×106 mm",
+      "mts_160va_weight": "2.7 kg",
+      "mts_160va_article_number_screw_terminals_230v": "86349",
+      "mts_160va_article_number_spring_clamp_terminals_230v": "6686349",
+      "mts_160va_article_number_screw_terminals_24v": "86343",
+      "mts_160va_article_number_spring_clamp_terminals_24v": "6686343",
+      "mts_250va_dimensions_hwd": "102×96×108 mm",
+      "mts_250va_weight": "3.5 kg",
+      "mts_250va_article_number_screw_terminals_230v": "86351",
+      "mts_250va_article_number_spring_clamp_terminals_230v": "6686351",
+      "mts_250va_article_number_screw_terminals_24v": "86345",
+      "mts_250va_article_number_spring_clamp_terminals_24v": "6686345",
+      "cube67_connection_type": "M12",
+      "cube67_protection_class": "IP67",
+      "cube67_housing": "robust fully potted enclosure",
+      "cube67_modules_available": "over 80 modules",
+      "cube67_single_channel_diagnostics": "yes with LED indicator and control signal",
+      "cube67_hybrid_line": "yes for power supply and data transmission"
+    },
+    "specs_count": 73,
+    "series": "Murrelektronik General Catalog - MTS, MST, MTL, MEN, MPL, MTPS Transformers and Rectified Power Supplies; Cube67 I/O Systems",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "ean": "4048879636209",
+    "ean_source": "distributor",
+    "ean_tier": 2,
+    "ean_domain": "docs.rs-online.com",
+    "ean_source_url": "https://docs.rs-online.com/fe5f/0900766b815c4df1.pdf",
+    "datasheet_pdf": "downloads\\datasheets_v2\\D-71570.pdf",
+    "datasheet_size_kb": 19951,
+    "product_photos": [
+      "downloads\\datasheet_photos\\D-71570_p1_0.jpeg",
+      "downloads\\datasheet_photos\\D-71570_p4_0.jpeg",
+      "downloads\\datasheet_photos\\D-71570_p5_0.jpeg"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/D-71570_p5_0.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "_corrections": {
+      "marked_wrong": true,
+      "reason": "EAN prefix 4048879 confirms Murrelektronik. Datasheet title 'MTS – Isolation class T 40/B' indicates transformer/isolation device, not an electronic fuse. The seed_name is completely wrong - misattributes to Honeywell and misidentifies product type. The current brand and PN are correct, but the product was incorrectly catalogued as an electronic fuse when it's actually an MTS isolation/transformer device."
+    }
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 19951KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'MTS – Isolation class T 40/B' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

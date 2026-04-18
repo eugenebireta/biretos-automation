@@ -7,7 +7,7 @@
     "XJ10007000000"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Мобильный принтер Honeywell MP Compact 4 XJ1-00-07000000",
   "assembled_title": "Принтер Honeywell XJ1-00-07000000",
   "our_price_raw": "233209,17",
@@ -191,7 +191,7 @@
     }
   },
   "photo": {
-    "verdict": "ACCEPT",
+    "verdict": "KEEP",
     "verdict_reason": "GPT error: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0.content.1.image.source.base64: The image was specified using the image/jpeg media type, but the image appears to be a image/webp image'}, 'request_id': 'req_011CZqsUCa5MtyZvqseqncWJ'}",
     "photo_status": "placeholder",
     "photo_evidence_role": "merch_only",
@@ -209,9 +209,7 @@
     "stock_photo_flag": false,
     "mpn_confirmed_via_jsonld": false,
     "numeric_keep_guard_applied": false,
-    "numeric_keep_guard_reasons": [],
-    "verdict_prior": "KEEP",
-    "promotion_reason": "promoted_by_quality_gate"
+    "numeric_keep_guard_reasons": []
   },
   "price": {
     "price_status": "no_price_found",
@@ -336,7 +334,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "Honeywell"
   },
   "negative_evidence": {
     "photo": [],
@@ -584,12 +583,108 @@
     "merge_source": "result_XJ1-00-07000000.json",
     "provider": "dr_gpt",
     "model": "gpt-4o",
-    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md"
+    "source_file": "compass_artifact_wf-7345a519-7322-401f-9d32-702764e5d9bc_text_markdown.md",
+    "descriptions_all": {
+      "legacy": "Discontinued (no replacement). Retail $3,081.05. Also €2,070.26 at Bauer-PK. Die-cast metal, forklift-mountable"
+    }
   },
   "dr_category": "Industrial label printer",
   "dr_image_url": "—",
   "dr_price": 2310.79,
   "dr_currency": "USD",
   "dr_price_source": "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000",
-  "product_category": "Industrial label printer"
+  "training_urls": [
+    "https://bauer-pk.net/en/Honeywell-Compact-4-Mobile-Mark-III-8-dots-mm-203-dpi-RTC-ZPL-DPL-PL-Z-LP-USB-RS232-Ethernet/XJ1-00-07000000",
+    "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000",
+    "https://www.barcodefactory.com/honeywell/printers/compact-4-mark-iii/xj1-00-07000000",
+    "https://www.barcodesinc.com/honeywell/part-xj1-00-07000000.htm",
+    "https://www.newegg.com/Honeywell-Barcode-Label-Printers/BrandSubCat/ID-10391-3031",
+    "https://www.thebarcodewarehouse.co.uk/shop/honeywell/label-printers/XJ1-00-07000000/"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 2310.79,
+    "dr_currency": "USD",
+    "dr_source_url": "https://shop.peaktech.com/honeywell-mp-compact-4-mobile-mark-iii-direct-thermal-printer-xj1-00-07000000",
+    "our_price_raw": "233209,17",
+    "our_price_parsed": 233209.17,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 2310.79,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Мобильный принтер Honeywell MP Compact 4 с разрешением 203 DPI и питанием от постоянного тока предназначен для печати этикеток и документов в полевых условиях. Компактный и легкий, обеспечивает высокую скорость печати.",
+    "best_description_source": "content",
+    "best_photo_url": "—",
+    "best_photo_source": "photo_verdict",
+    "best_description_ru_short": "Мобильный принтер Honeywell MP Compact 4 с разрешением 203 DPI и питанием от постоянного тока предназначен для печати этикеток и документов в полевых условиях. Компактный и легкий, обеспечивает высокую скорость печати.",
+    "best_description_ru": "<p>Мобильный принтер Honeywell MP Compact 4 — это профессиональное устройство для печати этикеток и документов, разработанное компанией Honeywell, мировым лидером в области промышленных технологий. Данный принтер относится к серии компактных портативных решений и идеально подходит для работы в полевых условиях, где требуется мобильность и надежность. Устройство сочетает в себе высокую производительность с компактными размерами, что делает его незаменимым помощником для профессионалов, работающих вне офиса.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Разрешение печати 203 DPI для четких и качественных этикеток</li>\n<li>Питание от постоянного тока для стабильной работы</li>\n<li>Компактный дизайн, обеспечивающий портативность и удобство транспортировки</li>\n<li>Высокая скорость печати для повышения производительности</li>\n<li>Легкий вес, позволяющий переносить принтер без дополнительных усилий</li>\n<li>Надежная конструкция, рассчитанная на интенсивное использование</li>\n<li>Совместимость с различными типами этикеток и материалов</li>\n</ul>\n\n<p><b>Применение:</b> Принтер Honeywell MP Compact 4 широко используется в логистике, складском хозяйстве, розничной торговле и полевых операциях. Он идеален для печати товарных этикеток, накладных, квитанций и других документов непосредственно на месте работы. Устройство позволяет значительно ускорить процессы инвентаризации, отгрузки товаров и управления активами. Благодаря портативности, принтер может использоваться в различных условиях окружающей среды.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell MP Compact 4, вы получаете надежное устройство от проверенного производителя с многолетней историей. Принтер обеспечивает отличное качество печати при компактных размерах, что экономит пространство и облегчает работу. Высокая скорость печати повышает эффективность работы, а простота использования минимизирует время обучения персонала.</p>",
+    "best_description_ru_word_count": 214,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "",
+    "description": "",
+    "specs": {
+      "print_width_max_mm": "104",
+      "print_width_max_inches": "4.1",
+      "print_speed_ips": "5-10",
+      "print_density_dpi": "203/300",
+      "memory_ram_mb": "128",
+      "memory_flash_mb": "64",
+      "print_technology": "Direct Thermal / Thermal Transfer",
+      "power_connections_ac": "Yes",
+      "power_connections_dc": "24-48 V",
+      "communications_serial": "Yes",
+      "communications_lan": "Yes",
+      "communications_usb": "Yes",
+      "communications_wireless_optional": "802.11 a/b/g/n",
+      "housing_material": "Metal",
+      "cover_coating_nova": "Non-Stick Coating",
+      "intelliseaq": "Yes (MP Compact models)",
+      "media_loading": "Side slot load",
+      "mounting_options": "Stack / Wall mount / Work surface",
+      "mp_compact_max_print_speed_ips": "5",
+      "mp_compact_mobile_max_print_speed_ips": "5",
+      "mp_nova_4_max_print_speed_ips": "10",
+      "mp_nova_6_max_print_speed_ips": "8",
+      "mp_nova_6_max_print_width_mm": "168",
+      "mp_nova_6_max_print_width_inches": "6.6",
+      "printhead_warranty_years": "1",
+      "printhead_warranty_linear_inches": "1000000",
+      "printer_warranty_years": "1"
+    },
+    "specs_count": 27,
+    "series": "MP Series",
+    "category": "",
+    "weight_g": "",
+    "dimensions_mm": "",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\XJ1-00-07000000.pdf",
+    "datasheet_size_kb": 166,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Мобильный принтер Honeywell MP Compact 4 — это профессиональное устройство для печати этикеток и документов, разработанное компанией Honeywell, мировым лидером в области промышленных технологий. Данный принтер относится к серии компактных портативных решений и идеально подходит для работы в полевых условиях, где требуется мобильность и надежность. Устройство сочетает в себе высокую производительность с компактными размерами, что делает его незаменимым помощником для профессионалов, работающих вне офиса.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Разрешение печати 203 DPI для четких и качественных этикеток</li>\n<li>Питание от постоянного тока для стабильной работы</li>\n<li>Компактный дизайн, обеспечивающий портативность и удобство транспортировки</li>\n<li>Высокая скорость печати для повышения производительности</li>\n<li>Легкий вес, позволяющий переносить принтер без дополнительных усилий</li>\n<li>Надежная конструкция, рассчитанная на интенсивное использование</li>\n<li>Совместимость с различными типами этикеток и материалов</li>\n</ul>\n\n<p><b>Применение:</b> Принтер Honeywell MP Compact 4 широко используется в логистике, складском хозяйстве, розничной торговле и полевых операциях. Он идеален для печати товарных этикеток, накладных, квитанций и других документов непосредственно на месте работы. Устройство позволяет значительно ускорить процессы инвентаризации, отгрузки товаров и управления активами. Благодаря портативности, принтер может использоваться в различных условиях окружающей среды.</p>\n\n<p><b>Преимущества:</b> Выбирая Honeywell MP Compact 4, вы получаете надежное устройство от проверенного производителя с многолетней историей. Принтер обеспечивает отличное качество печати при компактных размерах, что экономит пространство и облегчает работу. Высокая скорость печати повышает эффективность работы, а простота использования минимизирует время обучения персонала.</p>",
+    "description_seo_word_count": 214,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [],
+    "predicted_ean": null
+  }
 }

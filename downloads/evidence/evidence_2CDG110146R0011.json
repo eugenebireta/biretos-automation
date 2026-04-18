@@ -3,8 +3,8 @@
   "generated_at": "2026-04-07T23:04:02.027168Z",
   "pn": "2CDG110146R0011",
   "pn_variants": [],
-  "brand": "Honeywell",
-  "subbrand": "",
+  "brand": "ABB",
+  "subbrand": null,
   "name": "Источник питания Honeywell SV/S30.640.5.1",
   "assembled_title": "Источник питания Honeywell 2CDG110146R0011",
   "our_price_raw": "82115,33",
@@ -147,7 +147,7 @@
       "pn_not_confirmed",
       "no_usable_image"
     ],
-    "overall_label_prior": "VERY_LOW",
+    "overall_label_prior": "LOW",
     "recalculated": true,
     "signals": {
       "identity_strong": true,
@@ -304,7 +304,8 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "confirmed_manufacturer": "ABB"
   },
   "negative_evidence": {
     "photo": [],
@@ -547,10 +548,177 @@
     "description_ru": "ABB/Busch-Jaeger KNX power supply with integrated choke; made in Germany; ~2 day lead",
     "provider": "unknown",
     "model": "unknown",
-    "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md"
+    "source_file": "compass_artifact_wf-521f6c3f-8a09-46c3-b5e9-c9c9875ee341_text_markdown.md",
+    "descriptions_all": {
+      "gpt": "ABB 2CDG110146R0011 — это блок питания KNX ABB i-bus модели SV/S30.640.5.1 для установки на DIN-рейку в распределительном щите. Устройство предназначено для питания линии KNX напряжением шины и одновременно содержит встроенный дроссель, необходимый для корректной работы линии. Номинальный ток 640 мА делает модель подходящей для типовых сегментов систем автоматизации зданий, где подключены датчики, исполнительные модули и панели управления. Производитель предусмотрел диагностические функции через светодиодную индикацию и коммуникационные объекты ETS, что облегчает сервис и поиск неисправностей. Устройство относится к серии MDRC и рассчитано на компактный монтаж в шкафу автоматики. Дополнительный выход напряжения позволяет организовать питание дополнительной линии при использовании внешнего дросселя. Блок применяют в системах освещения, климат-контроля, жалюзи, диспетчеризации и другой KNX-автоматике зданий. Для запуска и параметрирования используется стандартная среда ETS, а для расширенной диагностики — ABB i-bus Tool. При проектировании важно учитывать суммарное потребление устройств линии, резерв по току и правила топологии KNX.",
+      "gemini": "Блок питания ABB SV/S30.640.5.1 является ключевым компонентом для систем автоматизации зданий стандарта KNX. Устройство выдает стабилизированное напряжение 30 В постоянного тока с максимальным током 640 мА. Встроенный дроссель эффективно отделяет напряжение питания от информационных сигналов шины. Модель оснащена функциями расширенной диагностики, позволяющими мониторить состояние линии через ETS. Светодиодные индикаторы на корпусе наглядно отображают текущую нагрузку, перегрузку и короткое замыкание. Дополнительный выход без дросселя позволяет подключать внешние модули или вторую линию шины. Компактный корпус предназначен для монтажа на стандартную DIN-рейку и занимает 4 модуля. Блок питания обладает степенью защиты IP20 и работает в широком температурном диапазоне. Это надежное решение для создания масштабируемых и отказоустойчивых интеллектуальных систем управления."
+    },
+    "specs_all": {
+      "gpt": {
+        "Brand": "ABB",
+        "Series": "ABB i-bus KNX",
+        "Model": "SV/S30.640.5.1",
+        "Product type": "KNX power supply",
+        "Mounting": "DIN rail (MDRC)",
+        "Output current": "640 mA",
+        "Bus system": "KNX",
+        "Integrated choke": "Yes",
+        "Diagnostics": "LED display and ETS communication objects",
+        "Additional voltage output": "Yes",
+        "EAN": "4016779866699"
+      },
+      "gemini": {
+        "Brand": "ABB",
+        "Model": "SV/S30.640.5.1",
+        "Output Voltage": "30 V DC (SELV)",
+        "Output Current": "640 mA",
+        "Input Voltage": "100-240 V AC",
+        "Integrated Choke": "Yes",
+        "Diagnostics": "Advanced via ETS / i-bus tool",
+        "Mounting": "DIN Rail (MDRC)",
+        "Protection": "IP20",
+        "EAN": "4016779866699"
+      }
+    },
+    "specs": {
+      "Brand": "ABB",
+      "Series": "ABB i-bus KNX",
+      "Model": "SV/S30.640.5.1",
+      "Product type": "KNX power supply",
+      "Mounting": "DIN rail (MDRC)",
+      "Output current": "640 mA",
+      "Bus system": "KNX",
+      "Integrated choke": "Yes",
+      "Diagnostics": "LED display and ETS communication objects",
+      "Additional voltage output": "Yes",
+      "EAN": "4016779866699",
+      "Output Voltage": "30 V DC (SELV)",
+      "Output Current": "640 mA",
+      "Input Voltage": "100-240 V AC",
+      "Integrated Choke": "Yes",
+      "Protection": "IP20"
+    },
+    "notes_all": {
+      "gpt": "Артикул ABB часто встречается в каталогах Honeywell как ресейл KNX/BMS-позиция, но OEM — ABB."
+    }
   },
   "dr_image_url": "https://cdn.productimages.abb.com/9PAA00000098026_400x400.jpg",
   "dr_price": 353.43,
   "dr_currency": "EUR",
-  "dr_price_source": "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm"
+  "dr_price_source": "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm",
+  "training_urls": [
+    "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm",
+    "https://new.abb.com/products/2CDG110146R0011/sv-s30-640-5-1",
+    "https://sa.rsdelivers.com/product/abb/2cdg110146r0011-sv/s3064051/abb-sv/s-din-rail-power-supply-100-240v-ac-ac-input-30v/2320324",
+    "https://www.busch-jaeger.de/en/online-catalogue/detail/2CDG110146R0011",
+    "https://www.eibabo.us/abb/knx-power-supply-with-throttle-640ma-sv-s30.640.5.1-eb16516158",
+    "https://www.kempstoncontrols.co.uk/2CDG110146R0011/ABB/sku/709006",
+    "https://new.abb.com/products/2CDG110146R0011/s-vs30-640-5-1-power-supply-640ma-with-diagnostics-mdrc",
+    "https://search.abb.com/library/Download.aspx?DocumentID=2CDC514072D0201&LanguageCode=en&DocumentPartId=DataSheet&Action=Launch",
+    "https://www.volt-werk.com/products/abb-2cdg110146r0011-sv-s30-640-5-1-knx-power-supply-with-diagnostics-640-ma",
+    "https://docs.rs-online.com/e92b/A700000008275730.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 353.43,
+    "dr_currency": "EUR",
+    "dr_source_url": "https://industry-electronics.com/abb/2cdg110146r0011-sv-s30.640.5.1-powersupply-diagn.-640ma-lieske_743334.htm",
+    "our_price_raw": "82115,33",
+    "our_price_parsed": 82115.33,
+    "judge_status": "judged_deterministic",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": false,
+    "judge_trigger_reason": null,
+    "pack_qty": null
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 353.43,
+    "best_price_currency": "EUR",
+    "best_price_source": "price_contract",
+    "best_description": "Источник питания Honeywell SV/S30.640.5.1 предназначен для обеспечения стабильного питания в промышленных системах. Обладает высокой надежностью и долговечностью.",
+    "best_description_source": "content",
+    "best_photo_url": "https://cdn.productimages.abb.com/9PAA00000098026_400x400.jpg",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Источник питания Honeywell SV/S30.640.5.1 предназначен для обеспечения стабильного питания в промышленных системах. Обладает высокой надежностью и долговечностью.",
+    "best_description_ru": "<p>Представляем вашему вниманию высоконадежный источник питания ABB SV/S30.640.5.1 с диагностикой, разработанный для обеспечения стабильного и бесперебойного электропитания в самых требовательных промышленных системах. Этот компактный, но мощный модуль с артикулом 2CDG110146R0011 является идеальным решением для интеграции в системы автоматизации зданий и промышленные сети, где критически важна стабильность работы и возможность оперативной диагностики. Бренд ABB гарантирует высочайшее качество и долговечность, подтвержденные многолетним опытом в производстве электротехнического оборудования.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Выходной ток 640 мА: Обеспечивает достаточную мощность для питания широкого спектра устройств в системе KNX.</li>\n<li>Диагностические функции: Встроенные механизмы диагностики позволяют оперативно выявлять и устранять неисправности, минимизируя время простоя.</li>\n<li>Совместимость с KNX (TP): Полностью интегрируется в существующие и новые системы KNX, обеспечивая бесшовное взаимодействие.</li>\n<li>Монтаж на DIN-рейку (MDRC): Упрощает установку и интеграцию в стандартные электрические щитки и шкафы.</li>\n<li>Степень защиты IP20: Гарантирует защиту от твердых частиц размером более 12,5 мм, что соответствует требованиям для установки внутри помещений.</li>\n<li>Компактные размеры: 64.5 x 90 x 72 мм и вес всего 260 грамм позволяют экономить место в монтажном шкафу.</li>\n<li>Высокий таможенный тарифный номер 85044082: Указывает на принадлежность к категории высокотехнологичных источников питания.</li>\n<li>Широкий спектр E-номеров (Швейцария: 405800315, Финляндия: 2815459, Швеция: 1738478): Подтверждает международное признание и соответствие стандартам различных стран.</li>\n</ul>\n<p>Источник питания ABB SV/S30.640.5.1 находит широкое применение в различных сферах, где требуется надежное и стабильное электропитание для систем автоматизации. Он идеально подходит для использования в системах управления зданиями (BMS), промышленных автоматизированных комплексах, системах освещения, отопления, вентиляции и кондиционирования воздуха, а также в системах безопасности и контроля доступа. Благодаря своей совместимости с шиной KNX (TP), этот источник питания является незаменимым компонентом для создания интеллектуальных зданий и умных домов, обеспечивая стабильную работу всех подключенных устройств.</p>\n<p>Выбор источника питания ABB SV/S30.640.5.1 обусловлен его исключительной надежностью, долговечностью и продвинутыми диагностическими возможностями. Он минимизирует риски сбоев в работе системы, сокращает время на обслуживание и ремонт, а также обеспечивает стабильное функционирование всех подключенных KNX-устройств. Компактный дизайн и удобный монтаж на DIN-рейку делают его идеальным решением для любых проектов, где важны эффективность и простота интеграции.</p>",
+    "best_description_ru_word_count": 323,
+    "best_description_ru_source": "seo_merger_unknown"
+  },
+  "product_category": "power supply",
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "SV/S30.640.5.1 Power Supply with Diagnostics, 640 mA, MDRC",
+    "description": "Compact Power Supply 640 mA with integrated choke. Quick diagnostics by LED display and ETS communication objects. Analysis of the operating state and the bus line possible by means of ABB i-bus tool. Additional voltage output to supply an additional line in conjunction with an additional choke.",
+    "specs": {
+      "Customs Tariff Number": "85044082",
+      "Minimum Order Quantity": "1 piece",
+      "E-Number (Switzerland)": "405800315",
+      "E-Number (Finland)": "2815459",
+      "E-Number (Sweden)": "1738478",
+      "Package Level 1 Units": "box 1 piece",
+      "Package Level 1 EAN": "4016779866699",
+      "Package Level 1 Depth / Length": "77 mm",
+      "Package Level 1 Height": "65 mm",
+      "Package Level 1 Width": "93 mm",
+      "Package Level 1 Gross Weight": "0.3 kg",
+      "Compatible Bus Systems": "KNX (TP)",
+      "Degree of Protection": "IP20",
+      "Mounting Type": "DIN-rail",
+      "Data Sheet, Technical Information Document": "2CDC501052D0201",
+      "Instructions and Manuals Document": "2CDC501063D0201, 2CDG941089P0004",
+      "RoHS Information Document": "2CDK501053D2701",
+      "RoHS Status": "Following EU Directive 2011/65/EU",
+      "ETIM 5": "EC000675 - Power supply for bus system",
+      "ETIM 6": "EC000675 - Power supply for bus system",
+      "ETIM 7": "EC000675 - Power supply for bus system",
+      "eClass": "V11.0: 27143114",
+      "WEEE Category": "5. Small Equipment (No External Dimension More Than 50 cm)",
+      "UNSPSC": "39121004",
+      "IDEA Granular Category Code (IGCC)": "4127 >> Power supply units"
+    },
+    "specs_count": 25,
+    "series": "",
+    "category": "Low Voltage Products and Systems → Home and Building Automation → KNX → Power Supply → KNX Power Supplies",
+    "weight_g": 260,
+    "dimensions_mm": "64.5 x 90 x 72",
+    "certifications": [
+      "CE",
+      "RoHS Compliant"
+    ],
+    "article_no": "2CDG110146R0011",
+    "ean": "4016779866699",
+    "ean_source": "datasheet_parse",
+    "ean_tier": 1,
+    "datasheet_pdf": "downloads\\datasheets_v2\\2CDG110146R0011.pdf",
+    "datasheet_size_kb": 87,
+    "product_photos_verified": [],
+    "verified_photo_count": 0,
+    "description_seo_ru": "<p>Представляем вашему вниманию высоконадежный источник питания ABB SV/S30.640.5.1 с диагностикой, разработанный для обеспечения стабильного и бесперебойного электропитания в самых требовательных промышленных системах. Этот компактный, но мощный модуль с артикулом 2CDG110146R0011 является идеальным решением для интеграции в системы автоматизации зданий и промышленные сети, где критически важна стабильность работы и возможность оперативной диагностики. Бренд ABB гарантирует высочайшее качество и долговечность, подтвержденные многолетним опытом в производстве электротехнического оборудования.</p>\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Выходной ток 640 мА: Обеспечивает достаточную мощность для питания широкого спектра устройств в системе KNX.</li>\n<li>Диагностические функции: Встроенные механизмы диагностики позволяют оперативно выявлять и устранять неисправности, минимизируя время простоя.</li>\n<li>Совместимость с KNX (TP): Полностью интегрируется в существующие и новые системы KNX, обеспечивая бесшовное взаимодействие.</li>\n<li>Монтаж на DIN-рейку (MDRC): Упрощает установку и интеграцию в стандартные электрические щитки и шкафы.</li>\n<li>Степень защиты IP20: Гарантирует защиту от твердых частиц размером более 12,5 мм, что соответствует требованиям для установки внутри помещений.</li>\n<li>Компактные размеры: 64.5 x 90 x 72 мм и вес всего 260 грамм позволяют экономить место в монтажном шкафу.</li>\n<li>Высокий таможенный тарифный номер 85044082: Указывает на принадлежность к категории высокотехнологичных источников питания.</li>\n<li>Широкий спектр E-номеров (Швейцария: 405800315, Финляндия: 2815459, Швеция: 1738478): Подтверждает международное признание и соответствие стандартам различных стран.</li>\n</ul>\n<p>Источник питания ABB SV/S30.640.5.1 находит широкое применение в различных сферах, где требуется надежное и стабильное электропитание для систем автоматизации. Он идеально подходит для использования в системах управления зданиями (BMS), промышленных автоматизированных комплексах, системах освещения, отопления, вентиляции и кондиционирования воздуха, а также в системах безопасности и контроля доступа. Благодаря своей совместимости с шиной KNX (TP), этот источник питания является незаменимым компонентом для создания интеллектуальных зданий и умных домов, обеспечивая стабильную работу всех подключенных устройств.</p>\n<p>Выбор источника питания ABB SV/S30.640.5.1 обусловлен его исключительной надежностью, долговечностью и продвинутыми диагностическими возможностями. Он минимизирует риски сбоев в работе системы, сокращает время на обслуживание и ремонт, а также обеспечивает стабильное функционирование всех подключенных KNX-устройств. Компактный дизайн и удобный монтаж на DIN-рейку делают его идеальным решением для любых проектов, где важны эффективность и простота интеграции.</p>",
+    "description_seo_word_count": 323,
+    "description_seo_model": ""
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "ABB",
+      "candidates": [],
+      "product_hint": "KNX i-bus",
+      "needs_disambiguation": false,
+      "confidence": "high"
+    },
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'SV/S30.640.5.1 Power Supply with Diagnostics, 640 mA, MDRC' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

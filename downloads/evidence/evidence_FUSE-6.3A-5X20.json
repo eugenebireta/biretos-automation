@@ -8,7 +8,7 @@
     "FUSE63A5X20"
   ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": null,
   "name": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20",
   "assembled_title": "Предохранитель Honeywell FUSE-6.3A-5X20",
   "our_price_raw": "144,03",
@@ -318,7 +318,12 @@
     "exact_h1_pn_match": false,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": false,
-    "structured_pn_match_location": ""
+    "structured_pn_match_location": "",
+    "product_line": "Electrical protection",
+    "confirmed_manufacturer": "Generic/Honeywell",
+    "discontinued": false,
+    "identity_notes_p1": "Standard 6.3A 5x20mm fuse used in Honeywell generator transfer switches; generic component",
+    "phase1_recon_done": true
   },
   "negative_evidence": {
     "photo": [],
@@ -336,9 +341,8 @@
     "description": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20 используется для защиты электрических цепей от перегрузок. Он обеспечивает надежную защиту и предотвращает повреждение оборудования.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Предохранитель",
-    "seed_name": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20",
-    "description_long_ru": "Standard commodity fuse. Packs of 10 ~$6-9 on Amazon"
+    "product_type": "Fuse",
+    "seed_name": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20"
   },
   "trace": {
     "pn_match_location": "",
@@ -610,7 +614,20 @@
       "raw": "6.3A; 250V; 5×20 mm (стеклянный) citeturn4search0",
       "aliases": [
         "Fuse 6.3A 5×20"
-      ]
+      ],
+      "Current rating": "6.3 A",
+      "Size": "5 x 20 mm",
+      "Body material": "Glass tube",
+      "Voltage rating": "250V AC (typical)",
+      "Type": "Fast-blow (F) or Slow-blow (T) — model dependent",
+      "End caps": "Metal (nickel-plated or tin-plated)",
+      "Standards": "IEC 60127, UL 248-14",
+      "Device Type": "Cartridge fuse",
+      "Rated Current": "6.3 A",
+      "Form Factor": "5 x 20 mm",
+      "Standard": "IEC 60127-2",
+      "Voltage Rating": "Depends on exact fuse",
+      "Time Characteristic": "Verify exact type"
     },
     "identity_confirmed": true,
     "confidence": "medium",
@@ -629,12 +646,175 @@
         ]
       }
     ],
-    "merge_ts": "2026-04-10T11:05:35.418912+00:00",
+    "merge_ts": "2026-04-09T12:01:24.920753+00:00",
     "merge_source": "result_FUSE-6.3A-5X20.json",
     "provider": "dr_claude",
     "model": "claude-opus-4",
     "source_file": "deep-research-report (4).md",
-    "description_ru": "Standard commodity fuse. Packs of 10 ~$6-9 on Amazon"
+    "descriptions_all": {
+      "claude": "Предохранитель FUSE-6.3A-5X20 представляет собой стеклянный цилиндрический плавкий предохранитель (fuse) стандартного типоразмера 5×20 мм с номинальным током 6.3 А. Данный тип предохранителей является одним из наиболее распространённых в мире и применяется для защиты электрических цепей от перегрузок и коротких замыканий. Предохранитель устанавливается в стандартные держатели (fuse holders) для стеклянных вставок 5×20 мм. Корпус выполнен из стеклянной трубки с металлическими торцевыми контактами. Предохранители данного типоразмера выпускаются в быстродействующем (fast-blow, F) и медленном (slow-blow, T — time-delay) исполнениях. Номинальное напряжение, как правило, составляет 250 В переменного тока. Применяются в промышленном оборудовании, блоках питания, панелях управления, системах пожарной сигнализации, контроллерах автоматизации зданий и другой аппаратуре.",
+      "gpt": "FUSE-6.3A-5X20 — это не уникальный OEM-артикул Honeywell, а обобщённое обозначение плавкого предохранителя размером 5×20 мм на 6,3 А. Такие предохранители широко применяются в панелях управления, блоках питания, модулях автоматики, пожарных системах и различной промышленной электронике. Основная функция изделия — быстро разорвать цепь при перегрузке или коротком замыкании и тем самым защитить оборудование от повреждения. Для сервисной замены принципиально важно учитывать не только ток 6,3 А и типоразмер 5×20 мм, но и рабочее напряжение, характеристику срабатывания и тип корпуса. В оборудовании Honeywell и других производителей могут применяться как быстродействующие, так и замедленные версии, поэтому подстановка без проверки документации недопустима. Многие такие предохранители изготавливаются по IEC 60127-2 и доступны в стеклянном или керамическом исполнении. Для панелей автоматики и пожарной сигнализации предпочтительно использовать предохранитель того же класса, что указан в сервисной документации производителя, чтобы не нарушить защитную селективность. При техническом обслуживании также нужно проверять причину перегорания, а не ограничиваться одной лишь заменой элемента. В B2B-каталоге данную позицию лучше оформлять как generic service fuse и не привязывать к exact Honeywell OEM PN без отдельного подтверждения. Это позволит честно отразить, что изделие является типовым расходником, а окончательный выбор должен опираться на спецификацию конкретной панели.",
+      "synthesis": "FUSE-6.3A-5X20 — стеклянный цилиндрический плавкий предохранитель стандартного типоразмера 5×20 мм с номинальным током 6.3 А, который является типовым расходником для защиты электрических цепей от перегрузок и коротких замыканий. Корпус выполнен из стеклянной трубки с металлическими торцевыми контактами. Предохранитель устанавливается в стандартные держатели (fuse holders) для стеклянных вставок 5×20 мм. Номинальное напряжение, как правило, составляет 250 В переменного тока. Выпускаются в быстродействующем (fast-blow, F) и медленном (slow-blow, T — time-delay) исполнениях в соответствии с IEC 60127-2. Основная функция изделия — быстро разорвать цепь при перегрузке или коротком замыкании и тем самым защитить оборудование от повреждения. Для сервисной замены принципиально важно учитывать не только ток 6.3 А и типоразмер 5×20 мм, но и рабочее напряжение, характеристику срабатывания и тип корпуса (стеклянный или керамический). В оборудовании Honeywell могут применяться как быстродействующие, так и замедленные версии, поэтому подстановка без проверки документации недопустима. При техническом обслуживании также нужно проверять причину перегорания, а не ограничиваться одной лишь заменой элемента."
+    },
+    "specs_all": {
+      "claude": {
+        "Current rating": "6.3 A",
+        "Size": "5 x 20 mm",
+        "Body material": "Glass tube",
+        "Voltage rating": "250V AC (typical)",
+        "Type": "Fast-blow (F) or Slow-blow (T) — model dependent",
+        "End caps": "Metal (nickel-plated or tin-plated)",
+        "Standards": "IEC 60127, UL 248-14"
+      },
+      "gpt": {
+        "Device Type": "Cartridge fuse",
+        "Rated Current": "6.3 A",
+        "Form Factor": "5 x 20 mm",
+        "Standard": "IEC 60127-2",
+        "Voltage Rating": "Depends on exact fuse",
+        "Time Characteristic": "Verify exact type"
+      }
+    },
+    "notes_all": {
+      "claude": "Generic fuse specification, not a branded Honeywell product. Internal PN for stock management.",
+      "gpt": "Generic service designation; exact Honeywell OEM part not confirmed. Verify time-delay/fast-acting class against equipment documentation."
+    }
   },
-  "product_category": "fuse"
+  "training_urls": [
+    "https://lemanapro.ru/product/predohranitel-6-3a-5x20/",
+    "https://new.abb.com/products/3BSC770029R22/fuse-glass-6-3a-t-250v-5x20mm",
+    "https://www.igelectronics.com/products/j97ef610c7/1726810000020245153",
+    "https://www.mouser.com/ProductDetail/Littelfuse/023406.3MXP",
+    "https://www.radwell.com/en-US/Buy/GENERIC/GENERIC/FF-6.3A",
+    "https://www.walmart.com/ip/Uxcell-250V-6-3A-Slow-Blow-Glass-Cartridge-Fuse-5mm-x-20mm-10Pcs/880304541",
+    "https://www.zillerelectric.com/products/10000005117-fuse-6-3a-250vac-5mmx20mm",
+    "https://www.swe-check.com.au/pages/learn_fuse_markings.php",
+    "https://www.eaton.com/us/en-us/skuPage.GDC-6-3A.html"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": 3.99,
+    "dr_currency": "USD",
+    "dr_source_url": "https://www.zillerelectric.com/products/10000005117-fuse-6-3a-250vac-5mmx20mm",
+    "our_price_raw": "144,03",
+    "our_price_parsed": 144.03,
+    "judge_status": "judged_knowledge",
+    "unit_basis": "per_unit",
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false,
+    "judge_confidence": "high",
+    "judge_triggered": true,
+    "judge_trigger_reason": "quantity_pattern",
+    "pack_qty": null,
+    "judge_reason": "fuse 6.3A, '5X20' is physical size 5mm×20mm, not pack quantity"
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 3.99,
+    "best_price_currency": "USD",
+    "best_price_source": "price_contract",
+    "best_description": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20 используется для защиты электрических цепей от перегрузок. Он обеспечивает надежную защиту и предотвращает повреждение оборудования.",
+    "best_description_source": "content",
+    "best_photo_url": "https://cdn11.bigcommerce.com/s-h06b12a/images/stencil/1280x1280/products/1230/2324/10000005117-fuse-6.3a-250vac-5mmx20mm-2__09700.1601053423.jpg",
+    "best_photo_source": "dr_image",
+    "best_description_ru_short": "Предохранитель плавкий Honeywell FUSE-6.3A-5X20 используется для защиты электрических цепей от перегрузок. Он обеспечивает надежную защиту и предотвращает повреждение оборудования.",
+    "best_description_ru": "<p>Предохранитель плавкий Honeywell FUSE-6.3A-5X20 — это надежный компонент электрической защиты от известного мирового производителя Honeywell. Данный предохранитель предназначен для защиты электрических цепей от перегрузок и короткого замыкания. Он обеспечивает безопасное функционирование электрооборудования, предотвращая повреждение дорогостоящих устройств и предотвращая возникновение пожарных ситуаций. Предохранитель является неотъемлемой частью системы электробезопасности в различных промышленных и бытовых приложениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальный ток: 6,3 ампера</li>\n<li>Стандартный размер корпуса: 5х20 мм</li>\n<li>Производитель: Honeywell — лидер в области электротехники и автоматизации</li>\n<li>Быстрое срабатывание при превышении номинального тока</li>\n<li>Надежная защита от перегрузок и коротких замыканий</li>\n<li>Универсальная совместимость с большинством электрических устройств</li>\n<li>Долгий срок службы и стабильная работа</li>\n</ul>\n\n<p><b>Применение:</b> Предохранитель FUSE-6.3A-5X20 широко используется в промышленном оборудовании, электронных приборах, системах управления и контроля, а также в бытовых электроустановках. Он устанавливается в электрические цепи для защиты от аварийных ситуаций. Предохранитель применяется в различных устройствах, требующих надежной защиты от электрических перегрузок, включая системы автоматизации, промышленные контроллеры и электрические панели управления.</p>\n\n<p><b>Преимущества:</b> Выбирая предохранитель Honeywell FUSE-6.3A-5X20, вы получаете гарантию качества от мирового лидера в области электротехники. Продукт обеспечивает надежную защиту оборудования, предотвращает дорогостоящий ремонт и повышает безопасность электрических систем. Высокая надежность и долговечность делают этот предохранитель экономичным решением для долгосрочного использования.</p>",
+    "best_description_ru_word_count": 189,
+    "best_description_ru_source": "seo_merger_claude-haiku-4-5"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "ELECTRONIC CONTROL SYSTEM ARC 300",
+    "description": "",
+    "specs": {
+      "product_name": "ARC300 Electronic Control System - UPA Console",
+      "console_type": "UPA portable console unit",
+      "weather_protection_ip_rating": "IP54",
+      "ambient_temperature_range": "-30°C to +50°C",
+      "console_weight_with_accessories": "1.4 kg (3.1 lb)",
+      "console_weight_condition": "with emergency push-button, connector and 4x MEN11 joysticks",
+      "structure_material": "injection molded glass filled polypropylene",
+      "max_single_axis_joysticks": "6",
+      "emergency_push_button": "always present",
+      "led_supply_indicator": "always present",
+      "console_connector": "multi-pole connector for UGA control unit connection",
+      "shoulder_strap": "optional black",
+      "saj_card_supply": "always included",
+      "saj369_nominal_voltage": "24VDC",
+      "saj309p_nominal_voltage": "12VDC",
+      "saj_supply_voltage_24vdc_range": "21VDC to 30VDC",
+      "saj_supply_voltage_12vdc_range": "10VDC to 15VDC",
+      "saj_output_voltage": "9VDC",
+      "saj_power_rating": "72 mW",
+      "saj_ambient_temperature_range": "-20°C to +70°C",
+      "saj_weight": "0.1 kg (0.22 lb)",
+      "saj_protection": "protected against supply reverse voltage",
+      "men111_type": "ergonomic knob, single axis with centre microswitch",
+      "men112_type": "ergonomic knob, single axis with 2 centre microswitches",
+      "men113_type": "ergonomic knob, single axis with centre and 2 directional microswitches",
+      "men131_type": "tapered knob, single axis with 1 centre microswitch",
+      "men231_type": "tapered knob, double axis with centre microswitch",
+      "jbw100_type": "cylindrical knob, single axis with spring return in neutral position",
+      "jbw101_type": "cylindrical knob, single axis with detent in 3 positions",
+      "jbw200_type": "cylindrical knob, double axis with spring return in neutral position",
+      "ptm100_type": "unidirectional rotating potentiometer",
+      "proportional_joystick_supply_voltage_min": "5VDC",
+      "proportional_joystick_supply_voltage_max": "15VDC",
+      "proportional_joystick_output_signal_range": "40% to 89% (Vout/Vin%)",
+      "proportional_joystick_centre_signal": "66% (Vout/Vin%)",
+      "proportional_joystick_potentiometer_resistance": "2.5 kohm",
+      "proportional_joystick_power_rating": "2 W at 20°C",
+      "proportional_joystick_resolution": "infinite",
+      "proportional_joystick_full_stroke_deflection_angle": "±25°",
+      "proportional_joystick_max_microswitch_current": "1.5 A",
+      "proportional_joystick_functions": "1",
+      "proportional_joystick_mechanical_life": "≥2.8×10⁶ cycles",
+      "console_base_dimensions_length_mm": "273",
+      "console_base_dimensions_width_mm": "185",
+      "console_base_dimensions_height_mm": "160",
+      "auxiliary_controls_max_count": "6",
+      "leds_max_count": "10",
+      "connector_types_available": "6-pole, 9-pole, 10-pole, 16-pole, 24-pole male connectors",
+      "system_type": "open loop electronic remote control system",
+      "system_architecture": "proportional joysticks + signal transmitting cable + analog control unit (UGA)",
+      "uga_functions": "controls proportional, ON/OFF and auxiliary functions",
+      "uga_feature": "modular system with adjustable potentiometer trimmers",
+      "control_modes": "proportional control and ON/OFF control available",
+      "auxiliary_functions": "engine start/stop, horn, relays integration possible"
+    },
+    "specs_count": 54,
+    "series": "ARC300",
+    "category": "",
+    "weight_g": "1400",
+    "dimensions_mm": "273x185x160",
+    "certifications": [],
+    "article_no": "",
+    "datasheet_pdf": "downloads\\datasheets_v2\\FUSE-6.3A-5X20.pdf",
+    "datasheet_size_kb": 1597,
+    "product_photos": [
+      "downloads\\datasheet_photos\\FUSE-6.3A-5X20_p1_1.jpeg"
+    ],
+    "photo_count": 1,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/FUSE-6.3A-5X20_p1_1.jpeg"
+    ],
+    "verified_photo_count": 1,
+    "description_seo_ru": "<p>Предохранитель плавкий Honeywell FUSE-6.3A-5X20 — это надежный компонент электрической защиты от известного мирового производителя Honeywell. Данный предохранитель предназначен для защиты электрических цепей от перегрузок и короткого замыкания. Он обеспечивает безопасное функционирование электрооборудования, предотвращая повреждение дорогостоящих устройств и предотвращая возникновение пожарных ситуаций. Предохранитель является неотъемлемой частью системы электробезопасности в различных промышленных и бытовых приложениях.</p>\n\n<p><b>Ключевые характеристики:</b></p>\n<ul>\n<li>Номинальный ток: 6,3 ампера</li>\n<li>Стандартный размер корпуса: 5х20 мм</li>\n<li>Производитель: Honeywell — лидер в области электротехники и автоматизации</li>\n<li>Быстрое срабатывание при превышении номинального тока</li>\n<li>Надежная защита от перегрузок и коротких замыканий</li>\n<li>Универсальная совместимость с большинством электрических устройств</li>\n<li>Долгий срок службы и стабильная работа</li>\n</ul>\n\n<p><b>Применение:</b> Предохранитель FUSE-6.3A-5X20 широко используется в промышленном оборудовании, электронных приборах, системах управления и контроля, а также в бытовых электроустановках. Он устанавливается в электрические цепи для защиты от аварийных ситуаций. Предохранитель применяется в различных устройствах, требующих надежной защиты от электрических перегрузок, включая системы автоматизации, промышленные контроллеры и электрические панели управления.</p>\n\n<p><b>Преимущества:</b> Выбирая предохранитель Honeywell FUSE-6.3A-5X20, вы получаете гарантию качества от мирового лидера в области электротехники. Продукт обеспечивает надежную защиту оборудования, предотвращает дорогостоящий ремонт и повышает безопасность электрических систем. Высокая надежность и долговечность делают этот предохранитель экономичным решением для долгосрочного использования.</p>",
+    "description_seo_word_count": 189,
+    "description_seo_model": "claude-haiku-4-5"
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": null,
+    "red_flags": [
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'ELECTRONIC CONTROL SYSTEM ARC 300' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": null
+  }
 }

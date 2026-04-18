@@ -2,9 +2,11 @@
   "schema_version": "1.2",
   "generated_at": "2026-04-07T18:19:14.480694Z",
   "pn": "171111",
-  "pn_variants": [],
+  "pn_variants": [
+    "00171111"
+  ],
   "brand": "Honeywell",
-  "subbrand": "",
+  "subbrand": "PEHA",
   "name": "Термостатический вентиль Honeywell D 20.571.02 T",
   "assembled_title": "Рамка 1-постовая PEHA AURA, 171111",
   "our_price_raw": "598,00",
@@ -340,7 +342,14 @@
     "exact_h1_pn_match": true,
     "exact_product_context_pn_match": false,
     "exact_structured_pn_match": true,
-    "structured_pn_match_location": "title"
+    "structured_pn_match_location": "title",
+    "type_designation": "D 20.571.02 T",
+    "series": "AURA",
+    "color_material": "pure white",
+    "identity_notes_p1": "combination frame, 83x83mm, plastic",
+    "phase1_recon_done": true,
+    "confirmed_manufacturer": "PEHA",
+    "brand_source": "dr_auto_extract_2026-04-12"
   },
   "negative_evidence": {
     "photo": [],
@@ -391,7 +400,7 @@
     "description": "Термостатический вентиль для систем отопления, обеспечивающий автоматическое регулирование температуры. Способствует повышению комфорта и снижению затрат на энергию.",
     "description_source": "insales_import_seed",
     "site_placement": "Каталог/Промышленная автоматизация",
-    "product_type": "Вентиль",
+    "product_type": "frame 1-gang",
     "seed_name": "Термостатический вентиль Honeywell D 20.571.02 T",
     "description_long_ru": "Предположительно термостатический вентиль (клапан) производства Honeywell. Точное подтверждение продукта с артикулом 171111 и обозначением D 20.571.02 T в открытых источниках не найдено."
   },
@@ -656,7 +665,142 @@
   },
   "dr_image_url": "4\"x5\" Poly Ball; Liquid level",
   "deep_research": {
-    "description_ru": "Предположительно термостатический вентиль (клапан) производства Honeywell. Точное подтверждение продукта с артикулом 171111 и обозначением D 20.571.02 T в открытых источниках не найдено."
+    "description_ru": "Предположительно термостатический вентиль (клапан) производства Honeywell. Точное подтверждение продукта с артикулом 171111 и обозначением D 20.571.02 T в открытых источниках не найдено.",
+    "descriptions_all": {
+      "legacy": "Предположительно термостатический вентиль (клапан) производства Honeywell. Точное подтверждение продукта с артикулом 171111 и обозначением D 20.571.02 T в открытых источниках не найдено."
+    }
   },
-  "product_category": "PEHA AURA frame"
+  "training_urls": [
+    "https://www.aaladin.com/wp-content/uploads/2023/06/Parts_Catalog.pdf"
+  ],
+  "price_contract": {
+    "schema_version": "price_contract_v1",
+    "dr_value": null,
+    "dr_currency": null,
+    "dr_source_url": null,
+    "our_price_raw": "598,00",
+    "our_price_parsed": 598.0,
+    "judge_status": "pending",
+    "unit_basis": null,
+    "source": null,
+    "lineage": null,
+    "pack_suspect": false
+  },
+  "normalized": {
+    "schema_version": "normalized_v1",
+    "best_price": 194.0,
+    "best_price_currency": "SEK",
+    "best_price_source": "pipeline1",
+    "best_description": "Предположительно термостатический вентиль (клапан) производства Honeywell. Точное подтверждение продукта с артикулом 171111 и обозначением D 20.571.02 T в открытых источниках не найдено.",
+    "best_description_source": "dr",
+    "best_photo_url": "4\"x5\" Poly Ball; Liquid level",
+    "best_photo_source": "dr_image"
+  },
+  "from_datasheet": {
+    "merged_at": "2026-04-16T18:19:19.828922+00:00",
+    "schema_version": 2,
+    "title": "Parts Catalog Edition 200.1",
+    "description": "",
+    "specs": {
+      "model": "12-203",
+      "type": "ED",
+      "gpm": "2.2",
+      "pressure_psi": "300",
+      "steam_capability": "Yes",
+      "horsepower": "0.75",
+      "drive_type": "Direct",
+      "voltage_v": "115",
+      "current_a": "20",
+      "phase": "1",
+      "btu_output": "179000",
+      "stack_size_in": "7",
+      "pump_drive": "Direct Drive",
+      "motor_type": "Industrial High Efficiency Electric",
+      "temperature_control": "High Limit",
+      "fitting_material": "Heavy Duty Electro Plated",
+      "frame_material": "Welded Heavy Duty Steel",
+      "frame_outer_diameter_in": "2",
+      "hose_reel_socket": "Built-in",
+      "finish_coating": "Powder Coated Automotive Quality",
+      "wheel_type": "Pneumatic Tires on Dish Wheels",
+      "wrapper_material": "Powder Coated Steel",
+      "heat_chamber_design": "Extremely Efficient",
+      "high_pressure_hose_diameter_in": "0.25",
+      "high_pressure_hose_length_ft": "35",
+      "chassis_design": "Four Wheel",
+      "chamber_insulation_system": "Exclusive",
+      "heating_coil_material": "ASTM A53 Schedule 80 Steel Pipe",
+      "fuel_tank_material": "Corrosion Proof Polyethylene",
+      "coil_access": "Quick",
+      "burner_efficiency": "High Efficiency",
+      "burner_brand": "Beckett",
+      "fuel_oil_solenoid": "Included",
+      "fuel_filter_type": "In-line",
+      "trigger_gun_control": "Included",
+      "wand_length_in": "36",
+      "wand_insulation": "Insulated",
+      "nozzle_type": "Flood Nozzle",
+      "nozzle_spray_tip_angle_deg": "15",
+      "electrical_protection": "GFCI",
+      "electrical_cord_length_ft": "35",
+      "decals_type": "Tri Lingual"
+    },
+    "specs_count": 42,
+    "series": "12 Series",
+    "category": "",
+    "weight_g": "131542",
+    "dimensions_mm": "800x622x991",
+    "certifications": [
+      "ETL",
+      "CETL"
+    ],
+    "article_no": "",
+    "ean": "4010105171112",
+    "ean_source": "extended_grounding",
+    "ean_tier": 2,
+    "datasheet_pdf": "downloads\\datasheets_v2\\171111.pdf",
+    "datasheet_size_kb": 6991,
+    "product_photos": [
+      "downloads\\datasheet_photos\\171111_p1_0.jpeg",
+      "downloads\\datasheet_photos\\171111_p1_1.jpeg",
+      "downloads\\datasheet_photos\\171111_p2_0.png"
+    ],
+    "photo_count": 3,
+    "product_photos_verified": [
+      "downloads/datasheet_photos/171111_p1_0.jpeg",
+      "downloads/datasheet_photos/171111_p1_1.jpeg"
+    ],
+    "verified_photo_count": 2
+  },
+  "universal_rules_check": {
+    "checked_at": "2026-04-16T21:02:08.662766+00:00",
+    "detected_brand": {
+      "brand": "PEHA",
+      "candidates": [
+        "PEHA",
+        "Esser"
+      ],
+      "product_hint": "",
+      "needs_disambiguation": true,
+      "confidence": "medium"
+    },
+    "red_flags": [
+      {
+        "rule": "empty_datasheet_big_file",
+        "detail": "PDF 6991KB but 0 specs — likely wrong document",
+        "severity": "high"
+      },
+      {
+        "rule": "datasheet_title_mismatch",
+        "detail": "Title 'Parts Catalog Edition 200.1' doesn't match PN/seed",
+        "severity": "high"
+      }
+    ],
+    "predicted_ean": {
+      "ean": "4010105171112",
+      "source": "peha_rule_predicted",
+      "confidence": "high",
+      "verified_rate": 0.875
+    }
+  }
 }
