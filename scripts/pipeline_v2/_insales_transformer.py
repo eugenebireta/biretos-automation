@@ -15,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 ROOT = Path(__file__).resolve().parent.parent.parent
 EV_DIR = ROOT / "downloads" / "evidence"
 CANONICAL_FILE = ROOT / "downloads" / "staging" / "pipeline_v2_output" / "canonical_products.json"
+UNIFIED_FILE = ROOT / "downloads" / "knowledge" / "unified_product_dataset.json"
 SHOP_DATA = Path(r"C:\Users\eugene\Downloads\shop_data.csv")
 OUT_FILE = ROOT / "downloads" / "staging" / "pipeline_v2_export" / "insales_import_229sku.csv"
 
@@ -71,6 +72,21 @@ def main():
     # Load SEO long descriptions (generated separately via AI router pipeline)
     seo_file = ROOT / "downloads" / "staging" / "pipeline_v2_output" / "descriptions_seo.json"
     seo_descriptions = json.loads(seo_file.read_text(encoding="utf-8")) if seo_file.exists() else {}
+
+    # Load unified dataset — rich per-SKU InSales category (multi-path with ##)
+    # Source priority: sku_category_overrides > haiku_matched > ozon_direct > sibling_consensus
+    # Produced by scripts/build_unified_product_dataset.py (370 SKU, 247 with InSales category)
+    unified_categories: dict[str, str] = {}
+    if UNIFIED_FILE.exists():
+        try:
+            u = json.loads(UNIFIED_FILE.read_text(encoding="utf-8"))
+            for p in u.get("products", []):
+                pn_key = p.get("pn", "")
+                cat_insales = (p.get("category") or {}).get("insales") or ""
+                if pn_key and cat_insales.strip():
+                    unified_categories[pn_key] = cat_insales
+        except Exception:
+            pass
 
     headers = load_insales_headers()
     if not headers:
@@ -130,8 +146,9 @@ def main():
         if desc and not desc.startswith("<"):
             desc = f"<p>{desc}</p>"
 
-        # Category
-        category_path = BRAND_CATEGORY_HINT.get(brand, "Каталог")
+        # Category — prefer rich unified per-SKU classification (multi-path with ##)
+        # Fallback chain: unified_product_dataset > BRAND_CATEGORY_HINT > "Каталог"
+        category_path = unified_categories.get(pn) or BRAND_CATEGORY_HINT.get(brand) or "Каталог"
 
         # Photo
         photo_url = p.get("best_photo_url", "")
