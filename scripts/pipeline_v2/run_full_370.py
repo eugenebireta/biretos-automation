@@ -34,6 +34,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 EV_DIR = ROOT / "downloads" / "evidence"
 TRUST_CONFIG = json.loads((ROOT / "config" / "seed_source_trust.json").read_text(encoding="utf-8"))
 OUTPUT_DIR = ROOT / "downloads" / "staging" / "pipeline_v2_output"
+REJECTIONS_FILE = ROOT / "downloads" / "staging" / "normalizer_rejections.jsonl"
 
 SKIP_PNS = {"---", "--", "_", "PN", "-----", ""}
 
@@ -115,9 +116,39 @@ def collect_all_urls(d: dict) -> set[str]:
     return urls
 
 
+def _log_rejection(fh, *, pn: str, field: str, raw_value, reason: str,
+                   bound_min=None, bound_max=None, normalized_value=None,
+                   source_key: str = "", run_id: str = ""):
+    """Emit one rejection record to normalizer_rejections.jsonl.
+
+    Per DNA §7 pattern #9 (Fail Loud) + N1 recommendation from 2026-04-18 audit:
+    every dropped value must be logged with reason code so silent data loss
+    is auditable. See anti-pattern "Silent data drops" in KNOW_HOW.
+    """
+    rec = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "run_id": run_id,
+        "pn": pn,
+        "field": field,
+        "raw_value": str(raw_value) if raw_value is not None else None,
+        "normalized_value": normalized_value,
+        "reason": reason,  # out_of_bounds | ambiguous_unit | parse_failed | no_match
+        "bound_min": bound_min,
+        "bound_max": bound_max,
+        "source_key": source_key,  # key in from_datasheet.specs where value came from
+    }
+    fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    fh.flush()
+
+
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    REJECTIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
     now = datetime.now(timezone.utc)
+    run_id = now.strftime("run_%Y%m%dT%H%M%SZ")
+    # Open rejections log in append mode (accumulate across runs for 90-day retention window).
+    rej_fh = open(REJECTIONS_FILE, "a", encoding="utf-8")
+    rej_counts: dict[str, int] = {}
 
     files = sorted(EV_DIR.glob("evidence_*.json"))
     print(f"Pipeline v2 full run: {len(files)} evidence files")
@@ -337,10 +368,20 @@ def main():
                     kl = k.lower()
                     if any(x in kl for x in ["weight", "mass", "вес", "gewicht", "peso"]):
                         cand = _weight_to_g(k, v)
-                        if cand and 5 < cand < 500000:  # plausible range 5g..500kg
-                            w = cand
-                            value_norm["weight_g"] = w
-                            break
+                        if cand is None:
+                            _log_rejection(rej_fh, pn=pn, field="weight_g", raw_value=v,
+                                           reason="parse_failed", source_key=k, run_id=run_id)
+                            rej_counts["weight_parse_failed"] = rej_counts.get("weight_parse_failed", 0) + 1
+                            continue
+                        if cand <= 5 or cand >= 500000:
+                            _log_rejection(rej_fh, pn=pn, field="weight_g", raw_value=v,
+                                           reason="out_of_bounds", bound_min=5, bound_max=500000,
+                                           normalized_value=cand, source_key=k, run_id=run_id)
+                            rej_counts["weight_out_of_bounds"] = rej_counts.get("weight_out_of_bounds", 0) + 1
+                            continue
+                        w = cand
+                        value_norm["weight_g"] = w
+                        break
 
             if not L:
                 # common key patterns: dimensions_length_mm, length_mm, Length, height_mm etc.
@@ -353,19 +394,32 @@ def main():
                         kl = k.lower()
                         if any(kk == kl or kl.endswith("_" + kk) or kl.startswith(kk + "_") for kk in keys):
                             m = _re.search(r"([\d.]+)", str(v).replace(",", "."))
-                            if m:
-                                try: num = float(m.group(1))
-                                except ValueError: continue
-                                if "cm" in kl or "cm" in str(v).lower():
-                                    num *= 10
-                                if "m" in kl and "mm" not in kl and "cm" not in kl:
-                                    num *= 1000
-                                if 1 < num < 10000:  # plausible 1mm..10m
-                                    value_norm[dim_name] = int(num)
-                                    if dim_name == "length_mm": L = int(num)
-                                    if dim_name == "width_mm": W = int(num)
-                                    if dim_name == "height_mm": H = int(num)
-                                    break
+                            if not m:
+                                _log_rejection(rej_fh, pn=pn, field=dim_name, raw_value=v,
+                                               reason="parse_failed", source_key=k, run_id=run_id)
+                                rej_counts[f"{dim_name}_parse_failed"] = rej_counts.get(f"{dim_name}_parse_failed", 0) + 1
+                                continue
+                            try: num = float(m.group(1))
+                            except ValueError:
+                                _log_rejection(rej_fh, pn=pn, field=dim_name, raw_value=v,
+                                               reason="parse_failed", source_key=k, run_id=run_id)
+                                rej_counts[f"{dim_name}_parse_failed"] = rej_counts.get(f"{dim_name}_parse_failed", 0) + 1
+                                continue
+                            if "cm" in kl or "cm" in str(v).lower():
+                                num *= 10
+                            if "m" in kl and "mm" not in kl and "cm" not in kl:
+                                num *= 1000
+                            if num <= 1 or num >= 10000:
+                                _log_rejection(rej_fh, pn=pn, field=dim_name, raw_value=v,
+                                               reason="out_of_bounds", bound_min=1, bound_max=10000,
+                                               normalized_value=int(num), source_key=k, run_id=run_id)
+                                rej_counts[f"{dim_name}_out_of_bounds"] = rej_counts.get(f"{dim_name}_out_of_bounds", 0) + 1
+                                continue
+                            value_norm[dim_name] = int(num)
+                            if dim_name == "length_mm": L = int(num)
+                            if dim_name == "width_mm": W = int(num)
+                            if dim_name == "height_mm": H = int(num)
+                            break
 
             if w and "weight_g" not in value_norm: value_norm["weight_g"] = w
             if L and "length_mm" not in value_norm: value_norm["length_mm"] = L
@@ -484,6 +538,17 @@ def main():
     print()
     print(f"Output: {OUTPUT_DIR}")
     print("=" * 100)
+
+    # Normalizer rejection summary (N1 — DNA §7 pattern #9 Fail Loud)
+    rej_fh.close()
+    if rej_counts:
+        total_rej = sum(rej_counts.values())
+        print(f"\nNORMALIZER REJECTIONS this run: {total_rej}")
+        for reason, n in sorted(rej_counts.items(), key=lambda x: -x[1]):
+            print(f"  {reason:<35} {n:3d}")
+        print(f"  Full log: {REJECTIONS_FILE}")
+    else:
+        print("\nNORMALIZER REJECTIONS this run: 0")
 
 
 if __name__ == "__main__":

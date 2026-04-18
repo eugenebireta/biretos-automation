@@ -1,0 +1,38 @@
+{
+  "pn": "TRAY-3",
+  "pdf_sha256": "d1457fd65c0bfd5d748595aedd1e47dd371806c5708bdd0487dbf44553ac96fe",
+  "pdf_bytes": 946860,
+  "model_id": "gemini-2.5-flash",
+  "prompt_sha256_16": "68d7a9083032a8f6",
+  "schema_version": "1.0",
+  "promoted_at": "2026-04-18T11:19:32.730279+00:00",
+  "expected_output": {
+    "specs": {
+      "safety_critical_systems_failure_probability_per_hour_range": "1/10^7 to 1/10^9",
+      "safety_critical_systems_mtbf_range_hours": "10^7 to 10^9",
+      "typical_designer_career_length_years": "40",
+      "typical_designer_hands_on_experience_hours": "< 5,000",
+      "reported_lifetime_experience_hours": "< 10,000",
+      "shuttle_sts_124_event_date": "13 May 2008",
+      "shuttle_sts_124_event_time": "12:12 GMT",
+      "shuttle_sts_124_control_computers_count": "4",
+      "shuttle_sts_124_initial_computer_split": "3-1",
+      "shuttle_sts_124_computer_split_after_3_seconds": "2-1-1",
+      "shuttle_sts_124_final_computer_split": "1-1-1-1",
+      "shuttle_sts_124_fault_location": "MDM FA2 box (data link interface diode)",
+      "shuttle_sts_124_fault_type": "simple crack (fissure) through a diode",
+      "logical_1_voltage_range": "VCC to VIH",
+      "logical_half_voltage_range": "VIL to VIH",
+      "logical_0_voltage_range": "VIL to Ground",
+      "faulty_tx_message_repetition_rate_hz": "25",
+      "shuttle_byzantine_fault_example_age_years": "> 25",
+      "shuttle_byzantine_fault_example_cause": "wrong resistor value for bus termination",
+      "shuttle_byzantine_fault_example_effect_computer_split": "2-2",
+      "qantas_a380_total_fuel_tanks": "11",
+      "qantas_a380_engines_count": "4",
+      "qantas_a380_engines_working_normally_count": "1",
+      "qantas_a380_blown_tires_count": "4",
+      "qantas_a380_warning_messages_count": "54"
+    }
+  }
+}

@@ -16,8 +16,57 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 EV_DIR = ROOT / "downloads" / "evidence"
 CANONICAL_FILE = ROOT / "downloads" / "staging" / "pipeline_v2_output" / "canonical_products.json"
 UNIFIED_FILE = ROOT / "downloads" / "knowledge" / "unified_product_dataset.json"
+MANIFEST_FILE = ROOT / "downloads" / "knowledge" / "consumer_artifacts_manifest.json"
 SHOP_DATA = Path(r"C:\Users\eugene\Downloads\shop_data.csv")
 OUT_FILE = ROOT / "downloads" / "staging" / "pipeline_v2_export" / "insales_import_229sku.csv"
+
+
+def _staleness_guard(strict: bool = True) -> None:
+    """Abort if unified_product_dataset.json is stale vs evidence/*.json.
+
+    Per N1 Fail Loud (DNA §7 #9) + external audit 2026-04-18 consensus:
+    consumer transformers must not silently emit output from stale snapshots.
+    If manifest missing OR evidence_hash mismatch OR mtime drift — abort with
+    instruction to run rebuild_consumer_artifacts.py.
+
+    Pass strict=False to emit a warning instead of exit (used only in tests).
+    """
+    import hashlib
+
+    if not MANIFEST_FILE.exists():
+        msg = (
+            f"[staleness_guard] MANIFEST MISSING: {MANIFEST_FILE} does not exist.\n"
+            f"  Consumer artifacts have never been built with freshness guarantees.\n"
+            f"  Run: python scripts/pipeline_v2/rebuild_consumer_artifacts.py"
+        )
+        if strict:
+            raise SystemExit(msg)
+        print(f"WARNING: {msg}", file=sys.stderr)
+        return
+
+    manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+    expected_hash = manifest.get("evidence_hash", "")
+
+    parts = []
+    for f in sorted(EV_DIR.glob("evidence_*.json")):
+        st = f.stat()
+        parts.append(f"{f.name}:{st.st_size}:{st.st_mtime_ns}")
+    actual_hash = hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()[:16]
+
+    if actual_hash != expected_hash:
+        msg = (
+            f"[staleness_guard] EVIDENCE HASH MISMATCH:\n"
+            f"  manifest.evidence_hash = {expected_hash}  (build: {manifest.get('build_id', '?')})\n"
+            f"  actual evidence_hash   = {actual_hash}\n"
+            f"  Evidence has changed since last rebuild. Unified dataset is STALE.\n"
+            f"  Run: python scripts/pipeline_v2/rebuild_consumer_artifacts.py"
+        )
+        if strict:
+            raise SystemExit(msg)
+        print(f"WARNING: {msg}", file=sys.stderr)
+        return
+
+    print(f"[staleness_guard] OK — manifest fresh (build {manifest.get('build_id')}, evidence_hash {actual_hash})", file=sys.stderr)
 
 # Brand → InSales category default mapping (extend as needed)
 BRAND_CATEGORY_HINT = {
@@ -67,6 +116,15 @@ def load_insales_headers():
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--skip-staleness-guard", action="store_true",
+                        help="Skip manifest freshness check (use only for debugging)")
+    args = parser.parse_args()
+
+    if not args.skip_staleness_guard:
+        _staleness_guard(strict=True)
+
     canonical = json.loads(CANONICAL_FILE.read_text(encoding="utf-8"))
 
     # Load SEO long descriptions (generated separately via AI router pipeline)

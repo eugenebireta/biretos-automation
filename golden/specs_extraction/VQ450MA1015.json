@@ -1,0 +1,245 @@
+{
+  "pn": "VQ450MA1015",
+  "pdf_sha256": "2fed84782afb44ca6d821110a9b97e17f1f67d6018b6cc3fa39e2c5511520c91",
+  "pdf_bytes": 7050219,
+  "model_id": "gemini-2.5-flash",
+  "prompt_sha256_16": "68d7a9083032a8f6",
+  "schema_version": "1.0",
+  "promoted_at": "2026-04-18T11:19:32.751279+00:00",
+  "expected_output": {
+    "specs": {
+      "product_name": "SLATE Combustion Management System",
+      "model_number_base_module": "R8001A1001",
+      "protection_class": "IP00 / NEMA 1 (cabinet mounting)",
+      "ambient_temperature_operating": "-10 to 60 oC",
+      "maximum_humidity": "90 %rh",
+      "operation_mode": "Automatic",
+      "valve_proofing_system": "Integrated",
+      "supply_voltage": "24 Vdc / 24..264 Vac",
+      "mounting_type": "DIN-rail mounting (modular platform)",
+      "communication_protocols": [
+        "Ethernet",
+        "Modbus",
+        "BACnet"
+      ],
+      "diagnostics_interface": [
+        "touch display",
+        "PC",
+        "smart phone"
+      ],
+      "energy_efficiency_features": [
+        "O2 trim",
+        "VFD control"
+      ],
+      "replacement_method": "Plug-and-play replacement (configurable modular concept)",
+      "data_backup_options": [
+        "USB flash drive",
+        "SD cards"
+      ],
+      "compatible_flame_detectors_series": "C70xx-series",
+      "system_architecture_base_module_model": "R8001A1001",
+      "system_architecture_base_module_voltage": "24 Vdc / 24..264 Vac",
+      "system_architecture_base_module_mounting": "DIN rail",
+      "system_architecture_max_modules_per_base": "12",
+      "system_architecture_sub_base_model": "R8001S9001",
+      "configurable_safety_modules_available": [
+        {
+          "type": "Burner Control Module",
+          "model": "R8001B2001/U",
+          "comment": "Needs sub base"
+        },
+        {
+          "type": "Fuel Air Ratio Module",
+          "model": "R8001C6001/U",
+          "comment": "Needs sub base"
+        },
+        {
+          "type": "Limit Control Module",
+          "model": "R8001L8001/U",
+          "comment": "Needs sub base"
+        }
+      ],
+      "flame_amplifier_modules_available": [
+        {
+          "type": "IR Ampli-Check Flame Amplifier Module",
+          "model": "R8001F1041/U",
+          "comment": "Needs sub base"
+        },
+        {
+          "type": "UV Shutter-Check Flame Amplifier Module",
+          "model": "R8001S1051/U",
+          "comment": "Needs sub base"
+        },
+        {
+          "type": "UV Ampli-Check Flame Amplifier Module",
+          "model": "R8001S1071/U",
+          "comment": "Needs sub base"
+        },
+        {
+          "type": "Rectification Ampli-Check Flame Amplifier Module",
+          "model": "R8001V1031/U",
+          "comment": "Needs sub base"
+        }
+      ],
+      "programmable_logic_modules_available": [
+        {
+          "type": "Digital I/O Module",
+          "model": "R8001D4001/U",
+          "comment": "Needs sub base"
+        },
+        {
+          "type": "Annunciator Module",
+          "model": "R8001N7001/U",
+          "comment": "Needs sub base"
+        },
+        {
+          "type": "Analogue I/O Module",
+          "model": "R8001U3001/U",
+          "comment": "Needs sub base"
+        }
+      ],
+      "additional_modules_available": [
+        {
+          "type": "7\" Web based Colour Touchscreen Display",
+          "model": "R8001K5001/U"
+        },
+        {
+          "type": "10\" Web based Colour Touchscreen Display",
+          "model": "R8001K1010/U"
+        },
+        {
+          "type": "DIN rail Mounting Sub-base",
+          "model": "R8001S9001/U",
+          "comment": "One per module needed!"
+        },
+        {
+          "type": "SLATE Extension Cable",
+          "model": "50096820-001/U"
+        },
+        {
+          "type": "SLATE Connector Kit",
+          "model": "32008001-002/U"
+        }
+      ],
+      "compatible_actuators_available": [
+        {
+          "model": "R8001M1050/U",
+          "steps": "450",
+          "runtime": "30s",
+          "torque": "5.5 Nm",
+          "protection_class": "IP40",
+          "span": "90"
+        },
+        {
+          "model": "R8001M1150/U",
+          "steps": "450",
+          "runtime": "30s",
+          "torque": "17 Nm",
+          "protection_class": "IP40",
+          "span": "90"
+        },
+        {
+          "model": "R8001M4050/U",
+          "steps": "900",
+          "runtime": "15s",
+          "torque": "5.5 Nm",
+          "protection_class": "IP66",
+          "span": "90"
+        },
+        {
+          "model": "R8001M4150/U",
+          "steps": "900",
+          "runtime": "15s",
+          "torque": "17 Nm",
+          "protection_class": "IP66",
+          "span": "90"
+        },
+        {
+          "model": "MAXON-SMARTLINK-DS",
+          "torque": "33 or 101 Nm"
+        }
+      ],
+      "compatible_pc_software": [
+        {
+          "name": "SLATE AX PC software",
+          "model": "SLATEAXTOOL",
+          "description": "based on Niagara AX"
+        },
+        {
+          "name": "APPL-SLATESYSTEM"
+        }
+      ],
+      "compatible_flame_detectors": [
+        {
+          "model": "C7008A",
+          "type": "Flame rod",
+          "amplifier_module": "R8001V1031/U"
+        },
+        {
+          "model": "C7027",
+          "type": "MiniPeeper UV detector, standard version",
+          "operation": "Intermittent",
+          "amplifier_module": "R8001S1071/U"
+        },
+        {
+          "model": "C7035",
+          "type": "MiniPeeper UV detector, with field replaceable UV tube and high temperature specification",
+          "operation": "Intermittent",
+          "amplifier_module": "R8001S1071/U"
+        },
+        {
+          "model": "C7044",
+          "type": "MiniPeeper UV detector, with side view option",
+          "operation": "Intermittent",
+          "amplifier_module": "R8001S1071/U"
+        },
+        {
+          "model": "C7061A",
+          "type": "PurplePeeper UV detector, standard version",
+          "operation": "Intermittent",
+          "amplifier_module": "R8001V1031/U"
+        },
+        {
+          "model": "C7061A1",
+          "type": "MiniPeeper self-checking UV detector",
+          "operation": "Continuous",
+          "amplifier_module": "R8001S1051/U"
+        },
+        {
+          "model": "C7061F1",
+          "type": "MiniPeeper self-checking UV detector",
+          "operation": "Continuous",
+          "approval": "ATEX-Z1",
+          "amplifier_module": "R8001S1051/U"
+        },
+        {
+          "model": "C7061F2",
+          "type": "MiniPeeper self-checking UV detector",
+          "operation": "Continuous",
+          "location_use": "hazardous locations (US/CA only)",
+          "amplifier_module": "R8001S1051/U"
+        },
+        {
+          "model": "C7915",
+          "type": "Infrared detector",
+          "operation": "Continuous",
+          "amplifier_module": "R8001F1041/U"
+        }
+      ]
+    },
+    "weight_g": null,
+    "dimensions_mm": null,
+    "ean": null,
+    "series": "SLATE system",
+    "certifications": [
+      "CE",
+      "EN298",
+      "EN12067-2",
+      "EN1854",
+      "SIL 3 capable",
+      "CSA",
+      "UL",
+      "FM"
+    ]
+  }
+}

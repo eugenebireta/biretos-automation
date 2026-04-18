@@ -1,6 +1,20 @@
 {
   "_description": "Script registry and pipeline documentation. Claude MUST check this before doing any enrichment/catalog work manually. Humans: this is the single source of truth for all automation pipelines.",
-  "_updated": "2026-04-12",
+  "_updated": "2026-04-18",
+  "catalog_qc": {
+    "_doc": "Catalog quality-control pipeline. Report-only (ENRICH, never auto-mutate). Use --dry-run default.",
+    "scripts": {
+      "catalog_brand_enricher": {
+        "runtime": "local",
+        "local_source": "scripts/catalog_brand_enricher.py",
+        "input": "downloads/shop_data-*.csv (UTF-16 tab-delim) + downloads/knowledge/pn_brand_patterns.json + scripts/config/umbrella_brand_allowlist.yaml",
+        "output": "d:/BIRETOS/email_archive/reports/CATALOG_BRAND_ENRICHER.xlsx (4 sheets: UNBRANDED_SUGGESTIONS, CONFIDENT_MISMATCH, UMBRELLA_DECOMP, META)",
+        "purpose": "Surfaces brand suggestions for unbranded catalog items and bidirectional-hierarchy-aware mismatches. Reuses scripts.pn_brand_lib.detect_brand(). ENRICH mode only — never writes to catalog.",
+        "invocation": "python scripts/catalog_brand_enricher.py [--include-low] [--show-meta]",
+        "phase2_deferred": "bulk_relabel.csv generation + rejected_suggestions.json feedback loop — add after first owner review cycle."
+      }
+    }
+  },
   "full_enrichment_pipeline": {
     "_doc": "Complete product enrichment flow from raw Excel to InSales-ready export. Follow stages in order. NEVER skip to AI (Stage 2) without exhausting local (Stage 1).",
     "stages": [
@@ -81,6 +95,22 @@
           "required": ["Наименование (title_ru)", "Цена", "Количество", "Описание", "Категория InSales", "URL фото (облако)", "URL datasheet (облако)"],
           "source": "normalized{} block → export"
         }
+      },
+      {
+        "stage": "5.5",
+        "name": "Title Normalization (CONTRACT: title_ru must be Russian)",
+        "type": "llm",
+        "model": "claude-haiku-4-5",
+        "scripts": [
+          "scripts/pipeline_v2/_normalize_title_ru.py — ensures title_ru is Russian (≥3 Cyrillic + ≥2 words); cached"
+        ],
+        "contract": {
+          "input": "canonical_products.json with possibly-English title_ru",
+          "output": "canonical_products.json with title_ru guaranteed Russian OR normalization_status='failed'",
+          "validator": "assert_contract() raises AssertionError on any non-Russian title_ru"
+        },
+        "rationale": "builder.py can produce English titles when datasheet is English ('Switch frame'). This stage normalizes via Haiku before any downstream consumer (matcher, export, marketplace cards). Auto-invoked by run_full_370.py after build_canonical.",
+        "cache": "downloads/knowledge/title_ru_normalized_cache.json"
       },
       {
         "stage": 6,
@@ -271,5 +301,114 @@
       "triggers": ["нормализуй", "normalize evidence", "обнови normalized"],
       "usage": "python scripts/evidence_normalize.py [--dry-run]"
     }
+  },
+  "email_archive_pipeline": {
+    "description": "B2B email корпус для анализа спроса. Все скрипты на VPS (/root/), артефакты на D:\\BIRETOS\\email_archive\\. Reuses: pn_brand_patterns.json (shared with enrichment), sonnet_ground_truth для обучения regex.",
+    "tags": ["email", "crm", "demand_analytics", "pn_extraction"],
+    "order": [
+      "email_bulk_fetcher",
+      "email_pn_indexer",
+      "auto_annotate_goldset",
+      "learn_from_sonnet",
+      "apply_learned",
+      "build_clients_table",
+      "rebuild_pn_demand_v4",
+      "make_xlsx_report"
+    ],
+    "runtime_note": "Все скрипты email_archive_pipeline — runtime:'vps'. НЕ запускать локально (нет Postgres, нет IMAP creds, нет таблиц). Local_source — место хранения исходника в git-репо; remote_path — рабочая копия на VPS (biretos). Деплой: scp local_source biretos:remote_path. Для запуска: ssh biretos 'python3 remote_path ...'",
+    "scripts": {
+      "email_bulk_fetcher": {
+        "runtime": "vps",
+        "ssh_host": "biretos",
+        "local_source": "_scratchpad/email_bulk_fetcher.py",
+        "remote_path": "/root/email_bulk_fetcher.py",
+        "purpose": "IMAP → email_archive table (Postgres). HTML cleaning, threading, attachment text extraction (xlsx/pdf/docx). Signature images skipped from OCR queue.",
+        "triggers": ["email bulk fetch", "скачай всю почту", "email archive"],
+        "usage": "ssh biretos 'python3 /root/email_bulk_fetcher.py [--random=N | --folder=INBOX]'",
+        "output_table": "email_archive (12K+ rows)"
+      },
+      "email_pn_indexer": {
+        "runtime": "vps",
+        "ssh_host": "biretos",
+        "local_source": "_scratchpad/email_pn_indexer.py",
+        "remote_path": "/root/email_pn_indexer.py",
+        "purpose": "Regex-based PN extraction + 15 classification flags (is_rfq/quote/invoice/tracking/org_card/spam/marketplace/availability/confirmation/buy_request/sell_offer/etc). Uses pn_brand_patterns.json (SHARED with enrichment). Junk filter via pn_junk_hardcoded.json.",
+        "triggers": ["pn indexer", "переиндексируй письма", "classify emails"],
+        "usage": "ssh biretos 'python3 /root/email_pn_indexer.py [--reindex | --limit=N]'",
+        "reuses": ["downloads/knowledge/pn_brand_patterns.json", "scripts/pipeline_v2/identity.py (normalize_pn)"]
+      },
+      "auto_annotate_goldset": {
+        "runtime": "vps",
+        "ssh_host": "biretos",
+        "local_source": "_scratchpad/auto_annotate_goldset.py",
+        "remote_path": "/root/auto_annotate_goldset.py",
+        "purpose": "Ground truth: Sonnet 4.6 размечает случайную выборку писем → goldset_sonnet.jsonl. Cost ~$1 per 150 emails. SONNET = ground truth per feedback_sonnet_is_ground_truth.md.",
+        "triggers": ["sonnet goldset", "размечай через sonnet"],
+        "usage": "ssh biretos 'python3 /root/auto_annotate_goldset.py'",
+        "output": "/root/goldset_sonnet.jsonl (на VPS)"
+      },
+      "learn_from_sonnet": {
+        "runtime": "vps",
+        "ssh_host": "biretos",
+        "local_source": "_scratchpad/learn_from_sonnet.py",
+        "remote_path": "/root/learn_from_sonnet.py",
+        "purpose": "Diff regex vs Sonnet → auto-generate candidate patterns for MISS cases + junk list for FALSE+ cases. Tiered generic-test thresholds (0.05% / 0.2% / 1.0% by prefix length).",
+        "triggers": ["обучи regex", "learn patterns"],
+        "usage": "ssh biretos 'python3 /root/learn_from_sonnet.py'",
+        "output": ["/root/pn_patterns_candidates.json", "/root/LEARNING_REPORT.md"]
+      },
+      "apply_learned": {
+        "runtime": "vps",
+        "ssh_host": "biretos",
+        "local_source": "_scratchpad/apply_learned.py",
+        "remote_path": "/root/apply_learned.py",
+        "purpose": "Merge candidates + hand-crafted RU patterns into pn_brand_patterns.json (backup before merge). Update junk hardcoded list.",
+        "triggers": ["apply learned", "merge candidates"],
+        "usage": "ssh biretos 'python3 /root/apply_learned.py'"
+      },
+      "build_clients_table": {
+        "runtime": "vps",
+        "ssh_host": "biretos",
+        "local_source": "_scratchpad/build_clients_table.py",
+        "remote_path": "/root/build_clients_table.py",
+        "purpose": "Aggregate email_archive → clients (CRM): email, INN, company, contacts, total_rfq, requested_pns, brands",
+        "triggers": ["build clients", "crm aggregate"],
+        "usage": "ssh biretos 'python3 /root/build_clients_table.py'"
+      },
+      "rebuild_pn_demand_v4": {
+        "runtime": "vps",
+        "ssh_host": "biretos",
+        "local_source": "_scratchpad/rebuild_pn_demand_v4.py",
+        "remote_path": "/root/rebuild_pn_demand_v4.py",
+        "purpose": "pn_demand_v4: ONLY buy_request emails (no sell_offer), capped 2 per (client, year) anti-spam. Match against bireta.ru catalog. Output CSVs in /root/reports/.",
+        "triggers": ["pn demand", "rebuild demand", "что чаще запрашивают"],
+        "usage": "ssh biretos 'python3 /root/rebuild_pn_demand_v4.py'"
+      },
+      "make_xlsx_report": {
+        "runtime": "local",
+        "local_source": "_scratchpad/make_xlsx_v2.py",
+        "purpose": "Multi-sheet XLSX: top_demanded, NOT_in_catalog, brand_summary, clients, unanswered_rfq. Auto-open in Excel. Runs locally — needs Windows + openpyxl + CSV reports pulled from VPS via scp.",
+        "triggers": ["xlsx report", "итоговый отчёт"],
+        "usage": "python _scratchpad/make_xlsx_v2.py",
+        "output": "D:/BIRETOS/email_archive/reports/EMAIL_ARCHIVE_REPORT_v4.xlsx"
+      }
+    },
+    "shared_resources": {
+      "pn_brand_patterns.json": "downloads/knowledge/pn_brand_patterns.json — SAME file used by enrichment pipeline (192 patterns after email-driven additions)",
+      "bireta_catalog": "https://www.bireta.ru/marketplace/4630185.xls — 6234 SKU with cols: 1=name, 19=articul, 39=model, 40=partnumber, 46=brand",
+      "shop_data_csv": "downloads/insales_backup/2026-04-16/shop_data_pre_migration.csv — 337 unique brands, UTF-16 TSV encoding"
+    },
+    "postgres_tables": {
+      "email_archive": "all fetched emails with 15 classification flags",
+      "email_pn_index": "extracted PN → email_id with brand/family/confidence",
+      "email_order_archive": "archived parsed RFQ drafts (historical)",
+      "clients": "CRM aggregate from email_archive",
+      "pn_demand_v4": "demand metric: buy_request only, capped 2/client/year"
+    },
+    "known_gaps": [
+      "149 PN still regex-missed vs Sonnet (needs DR for full brand coverage)",
+      "OCR queue: 2632 scan PDFs on D:\\ pending local GPU paddleocr",
+      "1734-IB8 and similar were previously mis-counted as RFQ — fixed via is_sell_offer detection"
+    ]
   }
 }
