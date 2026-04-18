@@ -110,16 +110,37 @@ jobs:
 
           # M3b: Core business tables — raw DML from Tier-3 forbidden (PROJECT_DNA §5)
           #
-          # Whitelist tracks 8 pre-existing violations per AI-Audit
-          # `_scratchpad/ai_audits/2026-04-18_pr-blocker-iron-fence-m3b.md` (Variant A amended).
-          # Backlog tickets + refactor direction: docs/_governance/CORE_DML_REFACTOR_BACKLOG.md
+          # Scope: DEFAULT-DENY. Scan entire windmill-core-v1/ subtree, then subtract
+          # explicit allow-list of directories where raw DML is architecturally
+          # legitimate (Tier-1/Tier-2 domain services, tests, DDL migrations).
+          # Rationale: inclusion-list approach to global invariants misses any new
+          # directory. 2026-04-18 audit found ext-3 flagged workers/, local_worker/,
+          # windmill_executor/ were NOT in the previous 5-dir TIER3_DIRS scope — if
+          # Tier-3 DML gets added there tomorrow, inclusion-list would silently miss.
+          # Default-deny catches it. See anti-pattern in KNOW_HOW: "Scope by positive
+          # enumeration".
+          #
+          # Whitelist tracks 12 pre-existing violations. Each tied to a CORE-DML-NN
+          # ticket in docs/_governance/CORE_DML_REFACTOR_BACKLOG.md.
           #
           # Policy: append-only-shrinking.
-          # - New unwhitelisted violation → CI fail (enforces §5 for new code).
-          # - Stale whitelist entry (line no longer matches) → CI fail (forces whitelist
-          #   shrink when refactor lands; remove entry + close ticket in same PR).
+          # - UNKNOWN violation (not in whitelist + not in allow-list dir) → CI fail.
+          # - STALE whitelist entry (code refactored, line no longer matches) → CI fail.
           # Adding a new whitelist entry requires explicit owner governance batch.
           CORE_BIZ_TABLES="order_ledger|shipments|payment_transactions|reservations|stock_ledger_entries|availability_snapshot|documents"
+
+          # Directories where raw DML on core business tables is architecturally legitimate:
+          # domain/        — Tier-2 ports layer (domain services own core-table writes)
+          # tests/         — test code, may stub/fake DML
+          # tmp/           — smoke-test runners (e.g., runtime_smoke_runner_v3.py)
+          # migrations/    — DDL migrations (by definition)
+          # schema/        — schema definitions
+          # output/        — runtime-generated artifacts (not code)
+          # samples/       — sample data fixtures
+          # docs/          — documentation (may embed SQL examples)
+          # ci/            — CI helpers
+          # __pycache__/   — bytecode cache
+          ALLOW_LIST_REGEX='^(domain/|tests/|tmp/|migrations/|schema/|output/|samples/|docs/|ci/|__pycache__/|test_[a-zA-Z0-9_]+\.py)'
 
           # file:line pairs excluded from M3b check. Each pair must be tracked in
           # docs/_governance/CORE_DML_REFACTOR_BACKLOG.md under a CORE-DML-NN ticket.
@@ -137,18 +158,24 @@ jobs:
             'side_effects/invoice_worker.py:290' \
             'side_effects/telegram_command_worker.py:531')
 
-          ACTUAL_M3B=$(for dir in $TIER3_DIRS; do
-            [ -d "$dir" ] || continue
-            grep -rn --include='*.py' -E "(INSERT|UPDATE|DELETE|ALTER|DROP).*(${CORE_BIZ_TABLES})" "$dir" || true
-          done | awk -F: '{print $1":"$2}' | sort -u)
+          # DEFAULT-DENY scan: entire subtree, then filter out allow-list dirs.
+          ACTUAL_M3B=$(grep -rn --include='*.py' -E "(INSERT|UPDATE|DELETE|ALTER|DROP).*(${CORE_BIZ_TABLES})" . \
+              --exclude-dir=__pycache__ --exclude-dir=.venv --exclude-dir=.git \
+              --exclude-dir=node_modules --exclude-dir=dist --exclude-dir=build 2>/dev/null \
+            | sed 's|^\./||' \
+            | awk -F: '{print $1":"$2}' \
+            | grep -Ev "$ALLOW_LIST_REGEX" \
+            | sort -u || true)
+
           EXPECTED_M3B=$(printf '%s\n' "$M3B_WHITELIST" | sort -u)
 
           UNKNOWN_M3B=$(comm -23 <(printf '%s\n' "$ACTUAL_M3B") <(printf '%s\n' "$EXPECTED_M3B") | grep -v '^$' || true)
           STALE_M3B=$(comm -13 <(printf '%s\n' "$ACTUAL_M3B") <(printf '%s\n' "$EXPECTED_M3B") | grep -v '^$' || true)
 
           if [ -n "$UNKNOWN_M3B" ]; then
-            echo "::error::M3b BOUNDARY VIOLATION: new Tier-3 DML against Core business tables (DNA §5), not in whitelist"
+            echo "::error::M3b BOUNDARY VIOLATION: raw DML on Core business tables outside allow-list, not in whitelist (DNA §5)"
             echo "$UNKNOWN_M3B" | while IFS= read -r line; do echo "  new violation: $line"; done
+            echo "  Allow-list dirs: domain/ tests/ tmp/ migrations/ schema/ output/ samples/ docs/ ci/"
             echo "  See docs/_governance/CORE_DML_REFACTOR_BACKLOG.md for policy."
             FAILED=1
           fi
