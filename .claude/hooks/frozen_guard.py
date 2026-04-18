@@ -1,26 +1,40 @@
 #!/usr/bin/env python3
-"""PreToolUse(Write|Edit) hook — blocks writes to FROZEN files (PROJECT_DNA §3).
+"""PreToolUse(Write|MultiEdit|NotebookEdit) hook — blocks writes to FROZEN files.
 
-Dynamic sync: reads the authoritative list from docs/PROJECT_DNA.md §3 at each
-invocation (cached for 60s via .claude/hooks/_cache/). No hardcoded list —
-avoids drift flagged by AI-Audit 2026-04-18.
+Authoritative source: `docs/PROJECT_DNA.md` §3 (19 Tier-1 FROZEN paths).
+List is read dynamically at each invocation and cached 60s — no hardcoded
+list, so drift flagged by AI-Audit 2026-04-18 R2 is impossible.
 
 Behavior:
 - reads stdin JSON: {tool_name, tool_input: {file_path, ...}, ...}
-- if tool_name not in {Write, Edit, MultiEdit, NotebookEdit}: allow (exit 0)
-- if file_path resolves to a path in §3 list: BLOCK (exit 2 + stderr explanation)
-- if DNA.md missing / parse failed: FAIL-CLOSED (block with explanation)
-- logs every decision to .claude/hooks/_log/frozen_guard.jsonl
+- `tool_name` must be one of WATCHED_TOOLS (Edit excluded — see below)
+- if file resolves to a path in §3: BLOCK via exit 2 + stderr explanation
+- if DNA.md missing / parse failed: FAIL-CLOSED (exit 2, explicit check)
+- every decision logged to .claude/hooks/_log/frozen_guard.jsonl
 
-Exit codes (per Claude Code hooks protocol, best-effort interpretation):
-  0 — allow
-  2 — soft-block: stderr fed back to Claude as feedback (NOT hard kill)
+Exit codes (Deep Research Q1 confirmed, 2026-04-18):
+  0 — allow; tool proceeds silently
+  2 — soft-block; stderr fed to Claude as error context, tool does NOT proceed
+  any other — non-blocking error; tool proceeds. Never use.
 
-Tested against:
-  echo '{"tool_name":"Write","tool_input":{"file_path":"/abs/path"}}' | python frozen_guard.py
+Edit tool exclusion (Deep Research Q6):
+  claude-mem v12.0.0+ extends its File Read Gate to PreToolUse(Edit). When
+  both hooks run in parallel (hooks execution is parallel per Q1, not
+  sequential), precedence `deny > defer > ask > allow` means claude-mem's
+  deny wins, blocking with its own timeline-injection message instead of
+  our clearer "FROZEN file" reason. Drop Edit from matcher.
+  Alternative: set env `CLAUDE_MEM_EXCLUDED_PROJECTS=<abs-path>`.
 
-Not yet activated in settings.json — see _scratchpad/ai_audits/2026-04-18_claude-code-setup-optimization.md
-for rollout plan.
+Bypass:
+  `FROZEN_GUARD_BYPASS=1` env var — audited in log. Use only for explicit
+  owner-sanctioned unfreeze work (separate governance batch).
+
+Rationale for Python (not Bash):
+  Deep Research Q5 recommended Bash+awk (6-11ms hot-cache on Linux). On
+  Windows Git Bash / MSYS2 benchmarks showed Bash version ~300ms vs this
+  Python version ~70ms due to slow MSYS2 process spawning (each sha256sum,
+  awk, grep call ~50ms). Python wins on Windows. Bash-optimized version
+  kept for Linux CI at .claude/hooks/_reference/frozen_guard.sh.linux-optimized.
 """
 from __future__ import annotations
 
@@ -40,7 +54,8 @@ CACHE_FILE = CACHE_DIR / "frozen_list.json"
 LOG_FILE = Path(__file__).resolve().parent / "_log" / "frozen_guard.jsonl"
 CACHE_TTL_SECONDS = 60
 
-WATCHED_TOOLS = {"Write", "Edit", "MultiEdit", "NotebookEdit"}
+# Edit is intentionally excluded (see module docstring "Edit tool exclusion").
+WATCHED_TOOLS = {"Write", "MultiEdit", "NotebookEdit"}
 
 
 def _log(entry: dict) -> None:
@@ -54,13 +69,9 @@ def _log(entry: dict) -> None:
 
 
 def _parse_section_3(dna_text: str) -> list[str]:
-    """Extract file paths listed in §3 (between '## 3.' and '## 4.').
-
-    Paths are lines starting with '- `' and ending with '`'. Returns normalized
-    relative paths (forward-slash).
-    """
+    """Extract file paths from §3. Robust to CRLF, backticks, nested lists."""
     m = re.search(
-        r"^## 3\. [^\n]*\n(.*?)(?=^## \d)",
+        r"^##\s+3\.[^\n]*\n(.*?)(?=^##\s+\d+\.)",
         dna_text,
         re.MULTILINE | re.DOTALL,
     )
@@ -69,7 +80,7 @@ def _parse_section_3(dna_text: str) -> list[str]:
     block = m.group(1)
     paths: list[str] = []
     for line in block.splitlines():
-        bullet = re.match(r"^\s*-\s*`([^`]+)`\s*$", line)
+        bullet = re.match(r"^\s*[-*+]\s+`([^`]+)`\s*$", line.rstrip("\r"))
         if bullet:
             paths.append(bullet.group(1).strip().replace("\\", "/"))
     if not paths:
@@ -78,7 +89,7 @@ def _parse_section_3(dna_text: str) -> list[str]:
 
 
 def _load_frozen_list() -> tuple[list[str], str]:
-    """Return (list, source): cached or fresh-parsed. Raises on parse failure."""
+    """Return (list, source-descriptor). Raises on parse failure."""
     if not DNA_PATH.exists():
         raise FileNotFoundError(f"DNA not found at {DNA_PATH}")
 
@@ -101,11 +112,7 @@ def _load_frozen_list() -> tuple[list[str], str]:
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
         CACHE_FILE.write_text(
             json.dumps(
-                {
-                    "dna_hash": dna_hash,
-                    "cached_at": time.time(),
-                    "paths": paths,
-                },
+                {"dna_hash": dna_hash, "cached_at": time.time(), "paths": paths},
                 ensure_ascii=False,
                 indent=2,
             ),
@@ -117,13 +124,10 @@ def _load_frozen_list() -> tuple[list[str], str]:
 
 
 def _normalize_target(file_path: str, cwd: str) -> str:
-    """Return repo-relative POSIX path for comparison against the §3 list.
+    """Return repo-relative POSIX path.
 
-    Handles Windows+Git Bash quirks: cwd may come as '/d/path' while REPO is
-    'D:\\path'. Path.resolve() then produces junk like 'D:/d/path'. Strategy:
-    1) normalize separators to forward-slash on both target and REPO
-    2) if target absolute, try prefix-strip against REPO case-insensitively
-    3) if target relative, just normalize and return
+    Handles Windows+Git Bash quirks: Windows absolute `D:\\x\\y` or `D:/x/y`
+    vs Git Bash `/d/x/y` — both must reduce to the same repo-relative form.
     """
     raw = file_path.replace("\\", "/")
     if raw.startswith("./"):
@@ -136,16 +140,14 @@ def _normalize_target(file_path: str, cwd: str) -> str:
     repo_str = str(REPO).replace("\\", "/")
     if abs_target.lower().startswith(repo_str.lower() + "/"):
         return abs_target[len(repo_str) + 1 :]
-    # Git-Bash style: /d/BIRETOS/... — try matching on suffix with no drive
+    # Git-Bash style: /d/BIRETOS/... when repo is D:/BIRETOS/...
     drive_stripped_repo = re.sub(r"^[A-Za-z]:", "", repo_str)
     if abs_target.lower().startswith(drive_stripped_repo.lower() + "/"):
         return abs_target[len(drive_stripped_repo) + 1 :]
-    # give up — return as-is, will not match frozen_set
     return abs_target
 
 
 def main() -> int:
-    # Read stdin
     try:
         raw = sys.stdin.read()
         payload = json.loads(raw) if raw.strip() else {}
@@ -157,8 +159,7 @@ def main() -> int:
                 "error": str(e),
             }
         )
-        # Fail-open on unparseable stdin — we cannot know what tool this was
-        return 0
+        return 0  # fail-open on unparseable stdin (we cannot know the tool)
 
     tool_name = payload.get("tool_name", "")
     if tool_name not in WATCHED_TOOLS:
@@ -169,16 +170,11 @@ def main() -> int:
     cwd = payload.get("cwd") or os.getcwd()
 
     if not file_path:
-        # No path = nothing to check
         return 0
 
     try:
         frozen_paths, source = _load_frozen_list()
     except Exception as e:
-        msg = (
-            f"[frozen_guard] FAIL-CLOSED: cannot load PROJECT_DNA.md §3 ({e}). "
-            f"Blocking Write/Edit until resolved. Path: {DNA_PATH}"
-        )
         _log(
             {
                 "ts": datetime.now(timezone.utc).isoformat(),
@@ -188,39 +184,31 @@ def main() -> int:
                 "error": str(e),
             }
         )
-        print(msg, file=sys.stderr)
+        print(
+            f"[frozen_guard] FAIL-CLOSED: cannot load PROJECT_DNA.md §3 ({e})\n"
+            f"  Blocking Write/Edit until resolved. Path: {DNA_PATH}",
+            file=sys.stderr,
+        )
         return 2
 
     target = _normalize_target(file_path, cwd)
-    # Check: any frozen entry that equals or is a prefix-dir match
     frozen_set = {p.replace("\\", "/") for p in frozen_paths}
     match = target in frozen_set
 
-    entry = {
-        "ts": datetime.now(timezone.utc).isoformat(),
-        "tool": tool_name,
-        "file_path": file_path,
-        "normalized": target,
-        "source": source,
-        "frozen_count": len(frozen_paths),
-        "decision": "block" if match else "allow",
-    }
-    _log(entry)
+    _log(
+        {
+            "ts": datetime.now(timezone.utc).isoformat(),
+            "tool": tool_name,
+            "file_path": file_path,
+            "normalized": target,
+            "source": source,
+            "frozen_count": len(frozen_paths),
+            "decision": "block" if match else "allow",
+        }
+    )
 
     if match:
-        print(
-            "[frozen_guard] BLOCKED: target is listed in PROJECT_DNA.md §3 "
-            "(Tier-1 FROZEN).\n"
-            f"  path: {target}\n"
-            f"  source: {source}\n"
-            "  Any change = architectural violation. Ask owner for explicit "
-            "unfreeze decision (CORE Critical Pipeline) before editing.\n"
-            "  To override intentionally: remove this hook or set "
-            "FROZEN_GUARD_BYPASS=1 env var (audited via log).",
-            file=sys.stderr,
-        )
         if os.environ.get("FROZEN_GUARD_BYPASS") == "1":
-            # Audit trail: bypass used
             _log(
                 {
                     "ts": datetime.now(timezone.utc).isoformat(),
@@ -229,6 +217,15 @@ def main() -> int:
                 }
             )
             return 0
+        print(
+            f"[frozen_guard] BLOCKED: target is listed in PROJECT_DNA.md §3 (Tier-1 FROZEN).\n"
+            f"  path: {target}\n"
+            f"  source: {source}\n"
+            f"  Any change = architectural violation. Ask owner for explicit\n"
+            f"  unfreeze decision (separate Core Critical Pipeline) before editing.\n"
+            f"  Emergency override: FROZEN_GUARD_BYPASS=1 (audited via log).",
+            file=sys.stderr,
+        )
         return 2
 
     return 0
