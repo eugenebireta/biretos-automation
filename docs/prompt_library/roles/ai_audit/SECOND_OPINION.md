@@ -57,7 +57,7 @@ UNCLEAR без попытки верификации — не принимает
 ```
 SECOND_OPINION REPORT
 Вердикт: APPROVE / REVISE / REJECT / NEEDS_INFO
-Confidence: 0-10
+Confidence: verbal ladder (IPCC scale, see ADVOCATE for codes)
 Чек-лист (10 пунктов): PASS/FAIL/UNCLEAR + одна строка объяснения каждый
 Топ-3 concern (ранжированы по важности):
 Топ-1 предложение (одно, самое ценное):

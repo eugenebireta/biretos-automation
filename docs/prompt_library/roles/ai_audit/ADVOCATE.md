@@ -50,7 +50,14 @@
 ```
 ADVOCATE REPORT
 Вердикт: APPROVE / APPROVE_WITH_CAVEATS / REJECT (если даже steelman не спасает)
-Confidence: 0-10
+Confidence: <verbal ladder, см. ниже — integer 1-10 DEPRECATED>
+
+  confidence_verbal: "virtually certain" | "highly likely" | "likely"
+                   | "even odds" | "unlikely" | "highly unlikely"
+                   | "virtually impossible"
+  confidence_numeric: 0.05 | 0.20 | 0.40 | 0.50 | 0.60 | 0.80 | 0.95
+                      # IPCC-style ladder; agent выбирает verbal,
+                      # script транслирует в numeric
 3-5 ключевых силовых точек:
   — каждая с DNA §N cite ИЛИ file:line ИЛИ command
 1 caveat (даже адвокат признаёт):

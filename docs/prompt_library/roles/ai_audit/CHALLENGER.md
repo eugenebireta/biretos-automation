@@ -81,7 +81,10 @@ confidence_in_no_concerns: <verbal ladder, см. Patch 5a>
 ```
 CHALLENGER REPORT
 Вердикт: APPROVE / REVISE / REJECT
-Confidence: 0-10
+Confidence: verbal ladder (integer 1-10 DEPRECATED)
+   confidence_verbal + confidence_numeric — IPCC scale
+   (virtually certain / highly likely / likely / even odds /
+    unlikely / highly unlikely / virtually impossible)
 Топ-3 фатальных дыры (не мелочи):
   — каждая с concrete cite/file/command
   — risk_class (D1-D5) per concern, если применимо
