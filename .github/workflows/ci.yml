@@ -123,21 +123,19 @@ jobs:
 
           # file:line pairs excluded from M3b check. Each pair must be tracked in
           # docs/_governance/CORE_DML_REFACTOR_BACKLOG.md under a CORE-DML-NN ticket.
-          M3B_WHITELIST=$(cat <<'WHITELIST_EOF'
-ru_worker/ru_worker.py:983
-ru_worker/ru_worker.py:1016
-ru_worker/ru_worker.py:1790
-ru_worker/ru_worker.py:1821
-ru_worker/pii_redactor.py:172
-ru_worker/pii_redactor.py:196
-side_effects/cdek_shipment_worker.py:231
-side_effects/insales_paid_worker.py:136
-side_effects/invoice_worker.py:132
-side_effects/invoice_worker.py:207
-side_effects/invoice_worker.py:290
-side_effects/telegram_command_worker.py:531
-WHITELIST_EOF
-          )
+          M3B_WHITELIST=$(printf '%s\n' \
+            'ru_worker/ru_worker.py:983' \
+            'ru_worker/ru_worker.py:1016' \
+            'ru_worker/ru_worker.py:1790' \
+            'ru_worker/ru_worker.py:1821' \
+            'ru_worker/pii_redactor.py:172' \
+            'ru_worker/pii_redactor.py:196' \
+            'side_effects/cdek_shipment_worker.py:231' \
+            'side_effects/insales_paid_worker.py:136' \
+            'side_effects/invoice_worker.py:132' \
+            'side_effects/invoice_worker.py:207' \
+            'side_effects/invoice_worker.py:290' \
+            'side_effects/telegram_command_worker.py:531')
 
           ACTUAL_M3B=$(for dir in $TIER3_DIRS; do
             [ -d "$dir" ] || continue
