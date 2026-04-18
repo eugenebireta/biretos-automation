@@ -215,6 +215,42 @@ chain_of_custody:
 - chain_of_custody удовлетворяется через git commits подписанные ключом owner — не требует WORM storage.
 
 **Migration:** существующие v0.5 артефакты **не требуют перегенерации**. Новая schema 0.6 применяется к новым аудитам. Legacy артефакты остаются на schema 0.5.
+
+### Outcome labeling — horizon-stratified + blinded (v0.5.1 / Patch 7)
+
+Deep Research §6 (Chang 2022 disparate-censorship label bias + Bouwmeester 2012 PLoS Med blinded ascertainment + PROBAST Wolff 2019 DOI:10.7326/M18-1377): `outcome: confirmed | wrong | partial` заполненный через 7 дней **mis-scores REJECT/REVISE** из-за right-censoring. Label at T+7 / T+30 / T+90 stratified.
+
+Расширенная схема (additive к 0.6):
+
+```yaml
+outcomes:
+  t_plus_7:
+    label: "confirmed" | "wrong" | "partial" | "pending"
+    labeled_by: <principal_id>
+    labeled_at: <ISO timestamp>
+    blind_to_verdict: true    # labeler did NOT see verdict/confidence during labeling
+    blind_rationale_if_false: "<why blind was broken — explicit required>"
+    evidence: "<1-2 sentence factual justification>"
+  t_plus_30:
+    # same shape
+  t_plus_90:
+    # same shape
+```
+
+**Blinding discipline:** labeler UI (или CLI prompt) **прячет** verdict/confidence unless `blind_to_verdict=false` с rationale. Default — blind. Non-blind labeling разрешён только при explicit acknowledgment confirmation-bias risk.
+
+**Inter-labeler check:** раз в 20 аудитов — второй labeler relabels blind. Gwet's AC1 между labelers пишется в `labeler_consistency_report.md`. Target: AC1 ≥ 0.6 пороговый; если падает — blinding дисциплина нарушена, SOP нуждается в fix.
+
+### Tier-4 abort rules (v0.5.1 / Patch 10)
+
+См. `docs/_governance/AI_AUDIT_TIER4_ABORT_RULES.md` — пять условий пропуска Tier 4 несмотря на trigger (single-source, binary-no-candidates, long-tail-no-RAG, legally-admissible, undefined-criteria), плюс post-hoc citation-verification sweep для D4/D5 outputs с >3 cites/1000 words.
+
+### Snapshot-deprecation monitor (v0.5.1 / Patch 9)
+
+`python ai_audit/snapshot_monitor.py` — weekly check против curated deprecation table. Alert когда pinned snapshot ≤90 days от retirement. Действие по alert:
+1. Freeze all D4/D5 audits until golden-set regression passes on replacement.
+2. Golden set = 20 past audits (10 APPROVE, 10 REJECT, stratified by decision_class) хранятся в `_scratchpad/ai_audits/_golden_set/`.
+3. Semantic equivalence: ROUGE-L ≥ 0.85 на rationale + verdict match на ≥17/20 → greenlight migration.
 - **`owner_decision` и `outcome`** оставлять `null` — владелец заполнит позже. Владелец раз в неделю открывает артефакты и проставляет:
   - `owner_decision`: `ACCEPT` (действовал по вердикту), `OVERRIDE` (сделал иначе), `DROP` (отказался от идеи)
   - `outcome` через ≥7 дней: `confirmed`, `wrong`, `partial`
