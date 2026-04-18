@@ -28,6 +28,11 @@ This override applies only to that single liveness/conversational turn.
 
 1. **Собрать bundle через `python ai_audit/bundle_builder.py`** (v0.5): суть предложения, альтернативы, в чём сомнение. Builder авто-инжектит `relevant_docs_excerpts` (DNA / MASTER_PLAN §§ по keywords из bundle), `decision_class` (D1-D5 из MASTER_PLAN DECISION_CLASSES), `topic_type` (для routing LINEAGE_TRACER vs SECOND_OPINION). Если обязательных полей не хватает — спросить одним сообщением, не анкетой.
 2. **Переспросить экономию:** если задача обратимая/мелкая ("поменять строчку", "попробовать промпт"), переспросить один раз: "это точно тянет на аудит? решение обратимое". Если подтвердил — запустить.
+2.5. **Pre-R1 phases (v0.5.1 / Patches 1 + 11) — обязательно для D3/D4/D5:**
+   - **PRECEDENT_SCANNER** (Haiku, ~$0.01-0.03) — инжектит 2-3 исторических near-miss cases из `_scratchpad/ai_audits/_index.jsonl` + KNOW_HOW.md (#bug/#data_quirk) + COMPLETED_LOG.md rollbacks. Прописан в `docs/prompt_library/roles/ai_audit/PRECEDENT_SCANNER.md`. Output → injection-directive, каждый R1 агент MUST address каждый prior.
+   - **PREMORTEM** (Haiku, ~$0.01) — "back to the future": assume deployed, 6mo later caused failure. 5 past-tense mechanisms + most-missed-by-standard-review. Прописан в `docs/prompt_library/roles/ai_audit/PREMORTEM.md`. Top-ranked missed mechanism → инжектится в R1 bundle.
+   - Для D1/D2 — эти фазы опциональны (cheap, low-risk decisions).
+
 3. **Round 1 — параллельно 3 агента через Agent-тул, изолированно:**
    - ADVOCATE (Claude Sonnet 4.6 через Agent-тул) — сильнейший аргумент ЗА
    - CHALLENGER (**Gemini 2.5 Flash** по умолчанию, **Gemini 2.5 Pro + extended thinking при эскалации** — см. раздел "Эскалация CHALLENGER" ниже) через `python ai_audit/gemini_call.py --prompt "..." --system "..." [--escalate]` — сильнейший аргумент ПРОТИВ. ОБЯЗАТЕЛЬНО через этот скрипт — иначе будет Claude вместо Gemini.
