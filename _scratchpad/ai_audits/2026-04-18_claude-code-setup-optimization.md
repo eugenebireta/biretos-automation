@@ -24,7 +24,8 @@ owner_decision: null
 outcome: null
 decision_class: D3
 topic_type: general
-tier_used: 1
+tier_used: 4
+tier4_completed_at: 2026-04-18T16:53:00
 meta_5th_concern: "Отсутствует pre-deployment testing regime как отдельный deliverable — все три аудитора рекомендовали audit-mode, но никто не включил его как P0.0 в план. Это subsumes false-positive, measurement gap и 3-way orchestration concerns."
 unknowns_that_flip_verdict:
   - "Baseline количества destructive attempts в логах текущих сессий — измерение не проводилось"
@@ -150,3 +151,94 @@ Root cause: "Недостаточная спецификация proposal'а и 
 - **A) ACCEPT** — следовать пересмотренному плану (P0.0 → P0.2 → audit-mode P0.1).
 - **B) MINIMAL** — только P3.13 (docs refactor) + P0.2 (frozen_guard). Остальное не трогать.
 - **C) ESCALATE Tier 4 Deep Research** — глубокое исследование (1) Claude Code hook execution model, (2) community-vetted regex patterns для destructive-command filtering, (3) biretos-mcp дизайн. Оправдано если владелец хочет production-grade решение, а не пилот.
+
+---
+
+## Tier 4 Addendum — Deep Research findings (2026-04-18, 16:53)
+
+Deep Research (claude.ai) ответил на все 7 open questions из brief. Полный отчёт: [_scratchpad/deep_research/2026-04-18_claude-code-setup-deep-research-findings.md](../deep_research/2026-04-18_claude-code-setup-deep-research-findings.md). Ключевые находки, **меняющие план**:
+
+### ⚠️ 5 фактов, которые инвалидируют предположения Tier 1
+
+1. **Хуки выполняются ПАРАЛЛЕЛЬНО, не последовательно.** Anthropic docs: *"All matching hooks run in parallel... Design for independence."* Это **инвалидирует** всю дискуссию R2 о hook-ordering с claude-mem. Координация только через precedence `deny > defer > ask > allow`.
+
+2. **`exit 1` НЕ блокирует** — это "non-blocking error", tool call проходит. Блокирует только `exit 2`. Мой `frozen_guard.py` использует exit 2 — **корректно**.
+
+3. **Default timeout 600s — fail-OPEN.** При таймауте action проходит. Нет встроенного fail-closed timeout. Мой fail-closed на missing DNA работает через explicit exit 2 — **корректно**.
+
+4. **`$CLAUDE_TOOL_ARGS` не существует** (issue #9567). Только stdin JSON. Мой hook использует stdin JSON — **корректно**.
+
+5. **claude-mem v12.0.0+ расширил File Read Gate на PreToolUse(Edit).** При конфликте `deny > allow` — **claude-mem выиграет, мой Edit заблокируется injection timeline**. Митигация: (a) `CLAUDE_MEM_EXCLUDED_PROJECTS=<biretos-path>` env var, ИЛИ (b) drop Edit из matcher, оставить только Write|MultiEdit.
+
+### 🚨 Новый P0 (не был в Tier 1)
+
+**P0 UPGRADE claude-mem → ≥ v12.1.4** (5 минут). v12.1.3 имеет **100% observation-failure bug** при Claude Code ≥ 2.1.109 (commit 3d92684 — empty-string `--setting-sources` corruption). Сейчас Claude Code 2.1.90 — баг ещё не активен, но любой upgrade Claude Code сработает. Blocking для любой дальнейшей работы с memory.
+
+### ✅ Что подтверждено Deep Research
+
+- **P0.2 frozen_guard** (мой Python, 240 строк) — логика correct (stdin JSON, fail-closed via exit 2, bypass env). НО рекомендовано переписать на Bash (~90 строк awk + `flock` cache): Python cold-start 200-400ms vs Bash 6-11ms. Для частых Write/Edit — значимый overhead.
+- **Dynamic DNA sync** — моя SHA-256 cache стратегия совпадает с рекомендацией. Awk parser из finding §Q5 более robust чем мой regex (обрабатывает CRLF, nested lists, `## 10.` после `## 9.`).
+- **Git pre-commit companion** — новое предложение: при коммите `docs/PROJECT_DNA.md` — автоматически regenerate cache + commit. Сохраняет canonical cache в git для fresh clones и CI.
+- **P3.13 CLAUDE.md shrink** — никаких блокеров, proceed.
+
+### 🔄 Revised ladder (Tier 1 → Tier 4)
+
+| Item | Tier 1 verdict | Tier 4 revision | Reason |
+|------|---------------|-----------------|--------|
+| **NEW** claude-mem upgrade to ≥v12.1.4 | — | **P0 blocking** | 100% observation-failure on CC ≥2.1.109 |
+| P0.2 frozen_guard (Python) | APPROVE | **APPROVE с pending rewrite** to Bash (latency) | 200-400ms vs 6-11ms |
+| P0.2 matcher `Write|Edit|MultiEdit` | APPROVE | **REVISE → `Write|MultiEdit` only** (drop Edit) | claude-mem Edit Gate conflict |
+| P0.2 pre-commit companion | not in plan | **ADD** as part of P0.2 PR | Canonical cache for CI/fresh clones |
+| P3.13 spec extraction | APPROVE | APPROVE | unchanged |
+| P0.1 bash_guard | DEFER | **PROMOTE to P1 with audit-mode FIRST** | Q2 даёт 21-pattern table + Q3 даёт ~150 строк reference `_log_only.sh`. Можно ship audit-only сегодня (exit 0 always, collect metrics). Through 1000 events → FP<1% → promote to `ask`, потом `deny`. |
+| P0.3 /audit skill | DEFER | DEFER (unchanged) | Нужен subagent loop testing |
+| P1.4 subagents | PROCEED отдельным batch | **PROCEED + model tier-routing** (Sonnet для hard, Haiku для repetitive) | wshobson/agents паттерн — cut cost 3-5× |
+| P1.5 status line | PROCEED | PROCEED | unchanged |
+| P1.6 memory cleanup | PROCEED | PROCEED | unchanged |
+| P1.7 liveness hook | REJECT | **REJECT reaffirmed** | Parallel execution = can't gate anything |
+| P2.8 biretos-mcp | DEFER | **DEFER but stack frozen: FastMCP (Python), library-import, stdio+env, `mask_error_details=True`** | Q4 resolves stack question |
+| P2.9-10 MySQL/GitHub MCP | DEFER | DEFER | unchanged |
+| P3.11 SessionStart hook | DEFER | **REJECT** — antipattern (ruflo #1530: SessionStart daemons = zombies) | Q7 evidence |
+| P3.12 Stop hook | DEFER | **REVISE: use `{"continue":false}` JSON**, not exit 2 | Q7: exit-2 on Stop = infinite loop |
+| P3.13 AI-Audit spec externalization | APPROVE | APPROVE | unchanged |
+| P3.14 global defaultMode | REJECT | **REJECT reaffirmed** | Enterprise `allowManagedHooksOnly` conflict |
+
+### 🆕 Новые риски, surface'нутые Deep Research
+
+1. **`permissions.deny` silent-bypass bugs** (issues #6699/#8961/#27040). `"deny": ["Read(./.env)"]` может быть silently ignored. **Defense-in-depth PreToolUse hook обязателен, не optional**.
+2. **stdio MCP CVE April 2026** (Ox Security / The Register). До ship biretos-mcp — dedicated venv + `.env` outside repo + `gitleaks detect --no-git` в pre-commit.
+3. **Hook cascade latency real** — ruflo #1530: 11 hooks × 9 events = 18-21s regression. **Hard budget <100ms на каждом PreToolUse**; benchmark через `hyperfine` перед merge.
+4. **claude-mem roadmap на Gate расширения** — v12.0.0 добавил Edit; может расширить на Write. **Pin claude-mem version** в settings.json + мониторить CHANGELOG.
+5. **Broad matchers pairing heavy tools с high-frequency events** (Q7 antipattern) — не запускать тяжёлые проверки на каждый Write/Edit; narrow matcher + scope на `Bash(git commit*)`.
+
+### 🎯 Финальный revised plan (Tier 1 + Tier 4 merged)
+
+**Stage 0 (сейчас — 5 минут):**
+- [x] PR #52 merged (CLAUDE.md shrink + frozen_guard.py inactive + audit artifacts) — owner ACCEPT pending
+- [ ] `claude-mem` upgrade to ≥v12.1.4 (manual, owner action)
+
+**Stage 1 (после PR #52 ACCEPT, 1 день):**
+- [ ] Drop `Edit` из frozen_guard matcher (keep `Write|MultiEdit`)
+- [ ] Set `CLAUDE_MEM_EXCLUDED_PROJECTS=$PWD` в `.claude/settings.json` ИЛИ переписать на Bash для consistency
+- [ ] Добавить git pre-commit companion для frozen cache refresh
+- [ ] Активировать frozen_guard в `.claude/settings.json` (matcher на Write только)
+- [ ] Benchmark latency через `hyperfine` (<100ms cap)
+
+**Stage 2 (1-2 недели, параллельно с Stage 1 работой):**
+- [ ] bash_guard **audit-mode only** (exit 0 always, JSONL logging через Q3 reference). 21-pattern table из Q2.
+- [ ] После 1000+ events → analyze FP rate → promote rules в `ask` или `deny` индивидуально.
+
+**Stage 3 (после Stage 2 stabilization):**
+- [ ] subagents с model tier-routing (Sonnet/Haiku split)
+- [ ] status line
+- [ ] memory cleanup
+- [ ] biretos-mcp (FastMCP, если нужен по value)
+
+**REJECTED permanently:**
+- P1.7 liveness hook (parallel execution breaks gating)
+- P3.11 SessionStart daemon hook (antipattern)
+- P3.14 global defaultMode (enterprise conflict)
+
+### Revised final_verdict
+
+**REVISE → PROCEED** (по merge-plan выше). Deep Research подтвердил направление Tier 1, но конкретизировал stack и добавил 1 критичный P0 (claude-mem upgrade) + несколько технических исправлений.
