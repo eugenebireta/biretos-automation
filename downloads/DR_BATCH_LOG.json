@@ -1,0 +1,700 @@
+{
+  "_description": "DR and AI batch run log. One entry per batch sent to any external AI. Update this file EVERY time a batch is sent or results imported.",
+  "_schema": {
+    "id": "unique batch id",
+    "date": "YYYY-MM-DD",
+    "model": "model used: claude-dr-opus | gpt-think | gpt-think-web | gpt-ext-think | gemini | haiku",
+    "task_type": "brand_id | price_scout | specs | content | identity | pattern_research",
+    "prompt_file": "downloads/prompts/filename.txt",
+    "sku_count": "number of SKUs in batch",
+    "status": "SENT | IMPORTED | PARTIAL | SKIPPED | PENDING",
+    "result_file": "path to result file if imported",
+    "quality_notes": "free text: what worked, what failed, avg completeness",
+    "fields_filled": [
+      "list of evidence fields this batch populated"
+    ],
+    "skus_sample": [
+      "sample of 3-5 PNs in batch"
+    ]
+  },
+  "batches": [
+    {
+      "id": "gemini_v8_b1",
+      "date": "2026-04-07",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "research_results/gemini_batch1_20skus.txt",
+      "sku_count": 20,
+      "status": "IMPORTED",
+      "result_file": "research_results/batch_gemini_v8_nodesc_b1.json",
+      "quality_notes": "Short prompt mode — gave tables+prices but shallow specs. Analytics mode triggered on 3/20 (useless). Price fabrication detected on 2 items.",
+      "fields_filled": [
+        "deep_research.title_ru",
+        "deep_research.specs",
+        "dr_price",
+        "dr_image_url"
+      ],
+      "skus_sample": [
+        "PCD3.W340"
+      ]
+    },
+    {
+      "id": "gemini_v8_b2",
+      "date": "2026-04-07",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "research_results/gemini_batch2_20skus.txt",
+      "sku_count": 20,
+      "status": "IMPORTED",
+      "result_file": "research_results/batch_gemini_v8_nodesc_b2.json",
+      "quality_notes": "Same as b1. Gemini short mode.",
+      "fields_filled": [
+        "deep_research.title_ru",
+        "deep_research.specs",
+        "dr_price",
+        "dr_image_url"
+      ],
+      "skus_sample": [
+        "VQ450MA1015"
+      ]
+    },
+    {
+      "id": "gemini_v9_b5",
+      "date": "2026-04-08",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "research_results/gemini_batch5_20skus.txt",
+      "sku_count": 20,
+      "status": "IMPORTED",
+      "result_file": "research_results/batch_gemini_v9_b5.json",
+      "quality_notes": "v9 prompt slightly better. Still price fabrication risk.",
+      "fields_filled": [
+        "deep_research.title_ru",
+        "deep_research.specs",
+        "dr_price",
+        "dr_image_url"
+      ],
+      "skus_sample": [
+        "704960"
+      ]
+    },
+    {
+      "id": "gemini_v9_b6",
+      "date": "2026-04-08",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "research_results/gemini_batch6_20skus.txt",
+      "sku_count": 20,
+      "status": "IMPORTED",
+      "result_file": "research_results/batch_gemini_v9_b6.json",
+      "quality_notes": "PEHA batch. Gemini found voltking.de prices correctly for most items.",
+      "fields_filled": [
+        "deep_research.title_ru",
+        "deep_research.specs",
+        "dr_price",
+        "dr_image_url"
+      ],
+      "skus_sample": [
+        "00020211",
+        "185491"
+      ]
+    },
+    {
+      "id": "gemini_v9_b7",
+      "date": "2026-04-09",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "research_results/gemini_batch7_20skus.txt",
+      "sku_count": 20,
+      "status": "IMPORTED",
+      "result_file": "research_results/batch_gemini_v9_b7.json",
+      "quality_notes": "Mixed brands. Gemini failed on Esser items (invented prices).",
+      "fields_filled": [
+        "deep_research.title_ru",
+        "deep_research.specs",
+        "dr_price",
+        "dr_image_url"
+      ],
+      "skus_sample": [
+        "185491"
+      ]
+    },
+    {
+      "id": "claude_dr_opus_b1",
+      "date": "2026-04-10",
+      "model": "claude-dr-opus",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/brand_pn_research_dr.txt",
+      "sku_count": 30,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "Best overall: 80 source URLs found, correct PEHA sub-brand aliases, EAN codes. Beats Gemini decisively. Rich v11 prompt used.",
+      "fields_filled": [
+        "deep_research.title_ru",
+        "deep_research.description_ru",
+        "deep_research.specs",
+        "deep_research.training_urls",
+        "dr_price",
+        "dr_image_url"
+      ],
+      "skus_sample": [
+        "185191",
+        "185891",
+        "190191"
+      ]
+    },
+    {
+      "id": "gpt_think_grammar_b1",
+      "date": "2026-04-12",
+      "model": "gpt-think",
+      "task_type": "brand_id",
+      "prompt_file": "downloads/prompts/gpt_think1_brand_patterns.txt",
+      "sku_count": 30,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "Brand/PN grammar research. Good for pattern detection. Found CPO=Honeywell (not Distech), CWSS grammar from DoP.",
+      "fields_filled": [
+        "pn_brand_patterns.json updates",
+        "structured_identity.confirmed_manufacturer"
+      ],
+      "skus_sample": [
+        "CPO-RL4",
+        "CWSS"
+      ]
+    },
+    {
+      "id": "gpt_think_b2_brand_id",
+      "date": "2026-04-12",
+      "model": "gpt-think",
+      "task_type": "brand_id",
+      "prompt_file": "downloads/prompts/gpt_think2_brand_id.txt",
+      "sku_count": 30,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "Brand identification. Decent but slower than Haiku for simple brand lookup.",
+      "fields_filled": [
+        "structured_identity.confirmed_manufacturer"
+      ],
+      "skus_sample": []
+    },
+    {
+      "id": "gpt_ext_think_pn_decoder",
+      "date": "2026-04-12",
+      "model": "gpt-ext-think",
+      "task_type": "pattern_research",
+      "prompt_file": "downloads/prompts/gpt_think3_pn_decoder.txt",
+      "sku_count": 20,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "BEST for PN pattern research. Found Murrelektronik MICO, FTA-C300, ECL=Distech, Eaton grammar. Superior to regular GPT Think.",
+      "fields_filled": [
+        "pn_brand_patterns.json updates"
+      ],
+      "skus_sample": [
+        "9000-41045-0201402",
+        "FTA-C300-EIN",
+        "ECL-312"
+      ]
+    },
+    {
+      "id": "gemini_dr2_b1",
+      "date": "2026-04-12",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/gemini_dr2_batch1.txt",
+      "sku_count": 20,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "Second Gemini DR wave. Short prompt mode. Acceptable for PEHA accessories with simple lookup.",
+      "fields_filled": [
+        "deep_research.title_ru",
+        "deep_research.specs",
+        "dr_price"
+      ],
+      "skus_sample": []
+    },
+    {
+      "id": "price_scout_3sku",
+      "date": "2026-04-12",
+      "model": "gpt-think-web",
+      "task_type": "price_scout",
+      "prompt_file": "downloads/prompts/price_scout_3sku.txt",
+      "sku_count": 3,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "Price for PHASER=45 USD (eBay), L-VOM40A/EN=221 USD, LUX 24=no price (discontinued Produal). Correct on all 3.",
+      "fields_filled": [
+        "normalized.best_price",
+        "normalized.best_price_source"
+      ],
+      "skus_sample": [
+        "PHASER",
+        "L-VOM40A/EN",
+        "LUX"
+      ]
+    },
+    {
+      "id": "price_scout_21draft",
+      "date": "2026-04-13",
+      "model": "gpt-think-web",
+      "task_type": "price_scout",
+      "prompt_file": "downloads/prompts/price_scout_21draft.txt",
+      "sku_count": 21,
+      "status": "SENT",
+      "result_file": null,
+      "quality_notes": "21 SKUs with only old 2022 RUB estimate prices. Awaiting results.",
+      "fields_filled": [],
+      "skus_sample": [
+        "272369098",
+        "36022-RU",
+        "CSR",
+        "U2421M",
+        "PROFI-O"
+      ]
+    },
+    {
+      "id": "specs_peha_1of2",
+      "date": "2026-04-13",
+      "model": "claude-dr-opus",
+      "task_type": "specs",
+      "prompt_file": "downloads/prompts/specs_peha_1of2.txt",
+      "sku_count": 27,
+      "status": "SENT",
+      "result_file": null,
+      "quality_notes": "27 PEHA items without specs. Awaiting results.",
+      "fields_filled": [],
+      "skus_sample": [
+        "101411",
+        "104011",
+        "105411",
+        "109411",
+        "125711"
+      ]
+    },
+    {
+      "id": "specs_peha_2of2",
+      "date": "2026-04-13",
+      "model": "claude-dr-opus",
+      "task_type": "specs",
+      "prompt_file": "downloads/prompts/specs_peha_2of2.txt",
+      "sku_count": 28,
+      "status": "SENT",
+      "result_file": null,
+      "quality_notes": "28 PEHA items without specs. Awaiting results.",
+      "fields_filled": [],
+      "skus_sample": []
+    },
+    {
+      "id": "identity_weak_4",
+      "date": "2026-04-13",
+      "model": "claude-dr-opus",
+      "task_type": "identity",
+      "prompt_file": "downloads/prompts/identity_weak_4.txt",
+      "sku_count": 4,
+      "status": "SENT",
+      "result_file": null,
+      "quality_notes": "4 REVIEW_BLOCKED items. Awaiting results.",
+      "fields_filled": [],
+      "skus_sample": [
+        "129464N/U",
+        "773211",
+        "CR-P/M42",
+        "EDA61K-HB-2"
+      ]
+    },
+    {
+      "id": "content_claude_1of3",
+      "date": "2026-04-13",
+      "model": "claude-dr-opus",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_claude_1of3.txt",
+      "sku_count": 39,
+      "status": "IMPORTED",
+      "result_file": "downloads/dr_results/content_claude_1of3_result.json",
+      "quality_notes": "37/39 SKUs matched (2 in batch had no evidence file). 37 descriptions written, avg ~750ch. Good quality: CPO-RL4=1399ch, IMC-101-S-SC=1194ch. Weak items: generic names (LCD, EASY, PIP-003) — Claude gave disclaimer+generic desc, correct behavior. 7 URL batches added.",
+      "fields_filled": [
+        "normalized.best_description",
+        "training_urls"
+      ],
+      "skus_sample": [
+        "CPO-RL4",
+        "IMC-101-S-SC",
+        "CWSS-RB-S8",
+        "MB3480",
+        "773111"
+      ]
+    },
+    {
+      "id": "content_claude_2of3",
+      "date": "2026-04-13",
+      "model": "claude-dr-opus",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_claude_2of3.txt",
+      "sku_count": 39,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "39/39 desc imported. Dell monitors 8-13 spec fields. Esser items with source URLs. DKC connectors good. 14 training URLs added.",
+      "fields_filled": [],
+      "skus_sample": [
+        "185191",
+        "185491",
+        "185891",
+        "806602",
+        "1208029"
+      ]
+    },
+    {
+      "id": "content_claude_3of3",
+      "date": "2026-04-13",
+      "model": "claude-dr-opus",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_claude_3of3.txt",
+      "sku_count": 37,
+      "status": "SENT",
+      "result_file": null,
+      "quality_notes": "37 SKUs: Honeywell, PEHA, System Sensor, Weidmuller, misc. Need description_ru. NOTE: this prompt file was incorrectly generated with same SKUs as batch 1 — all 3 Claude responses were identical. Batch 3 is a duplicate of batch 1.",
+      "fields_filled": [],
+      "skus_sample": [
+        "3240605",
+        "CR-MH",
+        "AT-TRAY4",
+        "IP",
+        "CPO-RL1"
+      ]
+    },
+    {
+      "id": "content_gpt_extthink_1of3",
+      "date": "2026-04-13",
+      "model": "gpt-ext-think",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_gpt_extthink_1of3.txt",
+      "sku_count": 37,
+      "status": "IMPORTED",
+      "result_file": "downloads/dr_results/content_gpt_extthink_1of3_result.json",
+      "quality_notes": "37/37. All best_desc upgraded (GPT longer than Claude). 35 new spec fields. 36 training URLs.",
+      "fields_filled": [],
+      "skus_sample": [
+        "CPO-RL4",
+        "IMC-101-S-SC",
+        "CWSS-RB-S8",
+        "MB3480",
+        "773111"
+      ]
+    },
+    {
+      "id": "content_gpt_extthink_2of3",
+      "date": "2026-04-13",
+      "model": "gpt-ext-think",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_gpt_extthink_2of3.txt",
+      "sku_count": 39,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "A/B test vs Claude DR. Same 39 SKUs as content_claude_2of3. Dell/DKC/Distech/Esser/Honeywell.",
+      "fields_filled": [],
+      "skus_sample": [
+        "400-ATII",
+        "704960",
+        "BF-HWC4-PN16-0125",
+        "EP10425882",
+        "36206-RU"
+      ],
+      "imported_records": 39
+    },
+    {
+      "id": "content_gpt_extthink_3of3",
+      "date": "2026-04-13",
+      "model": "gpt-ext-think",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_gpt_extthink_3of3.txt",
+      "sku_count": 37,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "NEW batch — correct batch 3. Howard Leight PPE, ABB KNX, Optcom, Honeywell audio/cable, DKC.",
+      "fields_filled": [],
+      "skus_sample": [
+        "1006186",
+        "2CDG110177R0011",
+        "580249.11",
+        "6500-LRK",
+        "36022-RU"
+      ],
+      "imported_records": 37
+    },
+    {
+      "id": "content_gemini_1of3",
+      "date": "2026-04-13",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_gemini_1of3.txt",
+      "sku_count": 20,
+      "status": "PENDING",
+      "result_file": null,
+      "quality_notes": "A/B test vs Claude DR. 20 SKUs from batch1 set. Short prompt to avoid analytics mode.",
+      "fields_filled": [],
+      "skus_sample": [
+        "CPO-RL4",
+        "IMC-101-S-SC",
+        "CWSS-RB-S8",
+        "773111",
+        "EDA61K-HB-2"
+      ]
+    },
+    {
+      "id": "content_gemini_2of3",
+      "date": "2026-04-13",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_gemini_2of3.txt",
+      "sku_count": 20,
+      "status": "PENDING",
+      "result_file": null,
+      "quality_notes": "A/B test vs Claude DR. 20 SKUs from batch2 set: Dell/Esser/Distech/DKC/Honeywell.",
+      "fields_filled": [],
+      "skus_sample": [
+        "400-ATII",
+        "704960",
+        "EP10425882",
+        "BF-HWC4-PN16-0125",
+        "36022-RU"
+      ]
+    },
+    {
+      "id": "content_gemini_3of3",
+      "date": "2026-04-13",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": "downloads/prompts/content_gemini_3of3.txt",
+      "sku_count": 20,
+      "status": "PENDING",
+      "result_file": null,
+      "quality_notes": "A/B test vs Claude DR. 20 SKUs from batch3 set: Howard Leight PPE, ABB KNX, Honeywell audio.",
+      "fields_filled": [],
+      "skus_sample": [
+        "1006186",
+        "2CDG110177R0011",
+        "580249.11",
+        "6500-LRK",
+        "3240605"
+      ]
+    },
+    {
+      "id": "gemini_analytics_old_b1",
+      "date": "2026-04-13",
+      "model": "gemini",
+      "task_type": "content",
+      "prompt_file": null,
+      "sku_count": 4,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "Analytics mode output (narrative essay). Manually parsed specs: 129464N/U(6 fields), 773211(7 fields+1 url), CR-P/M42(7 fields), EDA61K-HB-2(6 fields). Confirms: rich prompt triggers analytics mode.",
+      "fields_filled": [
+        "deep_research.specs",
+        "training_urls"
+      ],
+      "skus_sample": [
+        "129464N/U",
+        "773211",
+        "CR-P/M42",
+        "EDA61K-HB-2"
+      ]
+    },
+    {
+      "id": "gemini_analytics_peha_b2",
+      "date": "2026-04-13",
+      "model": "gemini",
+      "task_type": "content_specs",
+      "prompt_file": null,
+      "sku_count": 28,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "Analytics mode. Manually parsed: 189 spec fields across 28 PEHA SKUs (NOVA+DIALOG frames/inserts/rockers). 7 EAN codes added. Dimensions for NOVA elements (86x228/299mm), DIALOG frames. Detailed specs for 190511 (series switch), 193111 (pushbutton), 210213 (TRONIC dimmer).",
+      "fields_filled": [
+        "deep_research.specs",
+        "normalized.best_ean"
+      ],
+      "skus_sample": [
+        "189091",
+        "190511",
+        "193111",
+        "210213",
+        "35111",
+        "885711"
+      ]
+    },
+    {
+      "id": "gpt_think_photos_b3",
+      "date": "2026-04-13",
+      "model": "gpt-think",
+      "task_type": "photos",
+      "prompt_file": null,
+      "sku_count": 25,
+      "status": "IMPORTED",
+      "result_file": null,
+      "quality_notes": "20 photos upgraded to higher-priority sources (Conrad CDN p=4, Honeywell scene7 p=5). 24 training URLs added. 6500-LRK got manufacturer CDN photo. 5 SKUs no image (239053,240W,272369098,57511,COLOR).",
+      "fields_filled": [
+        "normalized.best_photo_url",
+        "training_urls"
+      ],
+      "skus_sample": [
+        "6500-LRK",
+        "185091",
+        "885711",
+        "806602"
+      ]
+    },
+    {
+      "id": "content_claude_dr_b3",
+      "date": "2026-04-13",
+      "model": "claude-dr-opus",
+      "task_type": "content",
+      "prompt_file": null,
+      "sku_count": 37,
+      "status": "IMPORTED",
+      "result_file": "downloads/dr_results/content_gpt_extthink_1of3_result.json",
+      "quality_notes": "37/37 Claude DR. 14 best_desc upgraded. 24 new spec fields. Notes on discontinued. Source: products_research_37items.json",
+      "fields_filled": [
+        "descriptions_all.claude",
+        "deep_research.specs",
+        "notes_all.claude",
+        "training_urls"
+      ],
+      "skus_sample": [
+        "CPO-RL4",
+        "CR-P/M42",
+        "KTF00-65-2M",
+        "R4343E1048-ST005"
+      ]
+    },
+    {
+      "batch_id": "gemini_analytics_b4",
+      "source": "gemini",
+      "type": "content",
+      "status": "IMPORTED",
+      "imported_records": 20
+    },
+    {
+      "batch_id": "gemini_analytics_b5",
+      "source": "gemini",
+      "type": "content",
+      "status": "IMPORTED",
+      "imported_records": 20
+    },
+    {
+      "id": "dr_b2b_western_competitors_b1",
+      "date": "2026-04-18",
+      "model": "pending (claude-dr or gpt-dr or gemini-dr — owner choice)",
+      "task_type": "pattern_research",
+      "prompt_file": "downloads/prompts/dr_b2b_western_competitors.txt",
+      "sku_count": 0,
+      "status": "PENDING",
+      "result_file": null,
+      "quality_notes": "B2B competitor feature matrix for biretos.ae (Western market). Expects 10 distributors with 25-feature matrix + summary. Target 2500-3500 words.",
+      "fields_filled": [],
+      "skus_sample": []
+    },
+    {
+      "id": "dr_b2b_russian_competitors_b1",
+      "date": "2026-04-18",
+      "model": "claude-dr-opus",
+      "task_type": "pattern_research",
+      "prompt_file": "downloads/prompts/dr_b2b_russian_competitors.txt",
+      "sku_count": 10,
+      "status": "IMPORTED",
+      "result_file": "research_results/dr_b2b_russian_20260418.md",
+      "quality_notes": "Full 10-site feature matrix. kipis.ru replaced with eliks.ru. Evidence tags live/cached/inferred. 77 KB. Top: Terra-electronica 23/30, ChipDip 22/30, Compel 18-19/30.",
+      "fields_filled": [],
+      "skus_sample": []
+    },
+    {
+      "batch_id": "claude_dr_enrich_2026-04-18_b1",
+      "group_id": "claude_dr_enrich_2026-04-18",
+      "source": "claude_dr",
+      "type": "multi_field_enrichment",
+      "sku_count": 88,
+      "status": "PREPARED",
+      "file": "research_queue/dr_prompts/enrichment_2026-04-18/batch_1.md",
+      "fields_requested": [
+        "ean",
+        "price_eur",
+        "photo_url",
+        "weight_g",
+        "dimensions_mm",
+        "corrected_datasheet_url"
+      ],
+      "priority": "P1+P2+P3"
+    },
+    {
+      "batch_id": "claude_dr_enrich_2026-04-18_b2",
+      "group_id": "claude_dr_enrich_2026-04-18",
+      "source": "claude_dr",
+      "type": "multi_field_enrichment",
+      "sku_count": 88,
+      "status": "PREPARED",
+      "file": "research_queue/dr_prompts/enrichment_2026-04-18/batch_2.md",
+      "fields_requested": [
+        "ean",
+        "price_eur",
+        "photo_url",
+        "weight_g",
+        "dimensions_mm",
+        "corrected_datasheet_url"
+      ],
+      "priority": "P3"
+    },
+    {
+      "batch_id": "claude_dr_enrich_2026-04-18_b3",
+      "group_id": "claude_dr_enrich_2026-04-18",
+      "source": "claude_dr",
+      "type": "multi_field_enrichment",
+      "sku_count": 87,
+      "status": "PREPARED",
+      "file": "research_queue/dr_prompts/enrichment_2026-04-18/batch_3.md",
+      "fields_requested": [
+        "ean",
+        "price_eur",
+        "photo_url",
+        "weight_g",
+        "dimensions_mm",
+        "corrected_datasheet_url"
+      ],
+      "priority": "P3"
+    }
+  ],
+  "model_ranking": {
+    "_updated": "2026-04-13",
+    "price_scout": {
+      "1st": "gpt-think-web",
+      "2nd": "gpt-ext-think",
+      "notes": "GPT Think+web найdenные цены точны. Gemini НИКОГДА — фабрикует цены."
+    },
+    "content_specs_description": {
+      "1st": "claude-dr-opus",
+      "2nd": "gpt-ext-think",
+      "3rd": "gemini (short prompt only)",
+      "never": "gemini (long prompt) — переключается в analytics mode",
+      "notes": "Claude DR Opus: 80 URL/батч, EAN, PEHA aliases. Gemini: только для простых lookup."
+    },
+    "brand_pattern_research": {
+      "1st": "gpt-ext-think",
+      "2nd": "gpt-think",
+      "3rd": "claude-dr-opus",
+      "notes": "GPT Extended Think лучший для разбора PN грамматики и regex паттернов."
+    },
+    "identity_recon_cheap": {
+      "1st": "haiku",
+      "notes": "Дешёвый recon: product_type, series, designation. Не для цен и specs."
+    }
+  },
+  "gap_summary": {
+    "_updated": "2026-04-13",
+    "no_dr_at_all": 30,
+    "no_specs": 59,
+    "no_description_ru": 106,
+    "old_rub_price_only": 21,
+    "review_blocked_weak_identity": 4,
+    "export_ready": 343,
+    "total_skus": 368,
+    "content_batches_sent": "3 batches (45 SKUs) — content_claude_1-3of3"
+  }
+}

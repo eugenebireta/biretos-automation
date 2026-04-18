@@ -1,0 +1,239 @@
+#!/usr/bin/env bash
+# frozen_guard.sh — PreToolUse(Write|MultiEdit) hook.
+#
+# Blocks writes to files listed in docs/PROJECT_DNA.md §3 (Tier-1 FROZEN).
+# Reads the authoritative list from DNA.md via awk parser; caches by SHA-256.
+# Fail-closed: if DNA.md missing or §3 parses empty → exit 2 with stderr message.
+# Soft-block via exit 2 (fed to Claude as error context). Never exit 1.
+#
+# Latency budget: <100ms p95. Measured hot-cache ~10ms, cold-parse ~30ms on
+# Windows Git Bash (WSL/Linux faster per Deep Research Q5).
+#
+# Bypass: FROZEN_GUARD_BYPASS=1 env var (audited in log). Use only for
+# explicit owner-sanctioned unfreeze work.
+#
+# Input: stdin JSON from Claude Code PreToolUse protocol:
+#   {tool_name, tool_input: {file_path|notebook_path, ...}, cwd, session_id, ...}
+#
+# Refs: Deep Research Q1 (hook exec semantics), Q5 (dynamic DNA sync).
+
+set -u  # -u only; -e would abort on test failures; -o pipefail safe on bash
+
+# Resolve repo root (hook lives at .claude/hooks/frozen_guard.sh)
+HOOK_DIR="$(cd "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+REPO_ROOT="$(cd "$HOOK_DIR/../.." && pwd -P)"
+
+DNA_PATH="$REPO_ROOT/docs/PROJECT_DNA.md"
+CACHE_DIR="$HOOK_DIR/_cache"
+CACHE_LIST="$CACHE_DIR/frozen_list.txt"
+CACHE_HASH="$CACHE_DIR/frozen_list.sha256"
+LOG_FILE="$HOOK_DIR/_log/frozen_guard.jsonl"
+
+WATCHED_TOOLS_RE='^(Write|MultiEdit|NotebookEdit)$'
+# Edit is intentionally excluded — claude-mem v12.0.0+ extends File Read Gate
+# to PreToolUse(Edit). Precedence (deny > allow) means claude-mem would win,
+# causing timeline-injection. See Deep Research Q6. If/when claude-mem gates
+# Write too, either exclude it here or use CLAUDE_MEM_EXCLUDED_PROJECTS.
+
+mkdir -p "$CACHE_DIR" "$(dirname -- "$LOG_FILE")" 2>/dev/null
+
+# ---------- helpers ----------
+
+ts_iso() { date -u '+%Y-%m-%dT%H:%M:%S.%NZ' 2>/dev/null || date -u '+%Y-%m-%dT%H:%M:%SZ'; }
+
+# JSON-escape a string for safe inclusion in log fields.
+json_escape() {
+  local s="${1-}"
+  s="${s//\\/\\\\}"   # backslash
+  s="${s//\"/\\\"}"   # quote
+  s="${s//$'\n'/\\n}"
+  s="${s//$'\r'/\\r}"
+  s="${s//$'\t'/\\t}"
+  printf '%s' "$s"
+}
+
+# Append one JSONL line. Atomic for < 4KB on POSIX; our lines are <1KB.
+log_line() {
+  # Usage: log_line <decision> <tool> <file_path> <normalized> <source> <extra_json>
+  local dec="$1" tool="$2" fp="$3" norm="$4" src="$5" extra="${6:-}"
+  local line
+  line=$(printf '{"ts":"%s","decision":"%s","tool":"%s","file_path":"%s","normalized":"%s","source":"%s"%s}' \
+    "$(ts_iso)" \
+    "$(json_escape "$dec")" \
+    "$(json_escape "$tool")" \
+    "$(json_escape "$fp")" \
+    "$(json_escape "$norm")" \
+    "$(json_escape "$src")" \
+    "$extra")
+  printf '%s\n' "$line" >> "$LOG_FILE" 2>/dev/null || true
+}
+
+# Normalize a file_path from stdin against REPO_ROOT → relative POSIX.
+# Handles: relative, Windows absolute (D:/X or D:\X), Git-Bash /d/X style.
+normalize_target() {
+  local raw="${1//\\//}"   # backslash → slash
+  raw="${raw#./}"
+
+  # Relative → return as-is
+  case "$raw" in
+    /*|?:*) ;;  # absolute — fall through
+    *) printf '%s' "$raw"; return 0 ;;
+  esac
+
+  # Windows-style drive letter absolute (D:/path) → convert to Git-Bash style (/d/path)
+  if [[ "$raw" =~ ^([A-Za-z]):/ ]]; then
+    local drive_upper="${BASH_REMATCH[1]}"
+    local drive_lower
+    drive_lower=$(printf '%s' "$drive_upper" | tr 'A-Z' 'a-z')
+    raw="/$drive_lower/${raw:3}"
+  fi
+
+  # Now raw is /x/... style. repo is also /x/... via pwd -P.
+  local repo="${REPO_ROOT//\\//}"
+  local lraw lrepo
+  lraw=$(printf '%s' "$raw" | tr 'A-Z' 'a-z')
+  lrepo=$(printf '%s' "$repo" | tr 'A-Z' 'a-z')
+
+  if [[ "$lraw" == "$lrepo/"* ]]; then
+    printf '%s' "${raw:${#repo}+1}"
+    return 0
+  fi
+
+  # Give up — return as-is (won't match frozen_set)
+  printf '%s' "$raw"
+}
+
+# Parse §3 section of DNA.md → list of file paths (one per line).
+# Robust to: CRLF, `## 3.` vs `##  3.`, nested lists, unicode headings, §10+.
+parse_dna_section3() {
+  awk '
+    /^##[[:space:]]+3\./            { in_section = 1; next }
+    /^##[[:space:]]+[0-9]+\./       { in_section = 0 }
+    in_section && /^[[:space:]]*[-*+][[:space:]]+/ {
+      sub(/^[[:space:]]*[-*+][[:space:]]+/, "")
+      gsub(/`/, "")
+      sub(/[[:space:]\r]+$/, "")
+      if (length($0) > 0) print
+    }
+  ' "$1"
+}
+
+# Ensure frozen_list cache is fresh (re-parse if DNA hash changed).
+# Echoes "cache" or "fresh-parse <hash>" to stdout.
+refresh_cache_if_needed() {
+  [[ -f "$DNA_PATH" ]] || return 1
+
+  local current_hash
+  current_hash=$(sha256sum -- "$DNA_PATH" | awk '{print $1}')
+
+  local cached_hash=""
+  [[ -f "$CACHE_HASH" ]] && cached_hash=$(cat -- "$CACHE_HASH" 2>/dev/null || true)
+
+  if [[ "$current_hash" == "$cached_hash" && -s "$CACHE_LIST" ]]; then
+    printf 'cache (hash=%s)' "${current_hash:0:12}"
+    return 0
+  fi
+
+  # Re-parse
+  local tmp_list="$CACHE_LIST.tmp.$$"
+  parse_dna_section3 "$DNA_PATH" > "$tmp_list" || {
+    rm -f -- "$tmp_list"
+    return 2
+  }
+  if [[ ! -s "$tmp_list" ]]; then
+    rm -f -- "$tmp_list"
+    return 3  # parsed-empty — fail-closed
+  fi
+  mv -f -- "$tmp_list" "$CACHE_LIST"
+  printf '%s' "$current_hash" > "$CACHE_HASH"
+  printf 'fresh-parse (hash=%s)' "${current_hash:0:12}"
+  return 0
+}
+
+# ---------- main ----------
+
+# Read stdin JSON (keep raw for diag, extract fields via minimal parsing)
+STDIN_RAW=$(cat 2>/dev/null || printf '')
+
+# Early-exit if stdin missing (treat as no-op, fail-open on bad input)
+if [[ -z "$STDIN_RAW" ]]; then
+  log_line "noop_empty_stdin" "" "" "" "" ""
+  exit 0
+fi
+
+# Minimal JSON field extraction (no jq dependency).
+# Matches: "tool_name": "Write"
+extract_string_field() {
+  local field="$1"
+  local src="$2"
+  printf '%s' "$src" | awk -v f="$field" '
+    BEGIN { pat = "\"" f "\"[[:space:]]*:[[:space:]]*\"" }
+    match($0, pat) {
+      rest = substr($0, RSTART + RLENGTH)
+      if (match(rest, /^([^"\\]|\\.)*/)) {
+        s = substr(rest, 1, RLENGTH)
+        gsub(/\\"/, "\"", s)
+        gsub(/\\\\/, "\\", s)
+        gsub(/\\n/, "\n", s)
+        print s
+        exit
+      }
+    }'
+}
+
+TOOL_NAME=$(extract_string_field "tool_name" "$STDIN_RAW")
+if ! [[ "$TOOL_NAME" =~ $WATCHED_TOOLS_RE ]]; then
+  # Not a watched tool — allow silently (no log spam)
+  exit 0
+fi
+
+# For MultiEdit, file_path is still at tool_input.file_path; for NotebookEdit use notebook_path
+FILE_PATH=$(extract_string_field "file_path" "$STDIN_RAW")
+[[ -z "$FILE_PATH" ]] && FILE_PATH=$(extract_string_field "notebook_path" "$STDIN_RAW")
+
+if [[ -z "$FILE_PATH" ]]; then
+  log_line "noop_no_path" "$TOOL_NAME" "" "" "" ""
+  exit 0
+fi
+
+# Refresh cache
+SOURCE=$(refresh_cache_if_needed 2>/dev/null)
+rc=$?
+if (( rc != 0 )); then
+  case $rc in
+    1)  reason="DNA.md not found at $DNA_PATH" ;;
+    2)  reason="DNA.md exists but awk parsing failed" ;;
+    3)  reason="DNA.md §3 parsed but contained 0 file paths (likely structural change)" ;;
+    *)  reason="unknown parse error (rc=$rc)" ;;
+  esac
+  log_line "fail_closed" "$TOOL_NAME" "$FILE_PATH" "" "fail-closed" \
+    ",\"error\":\"$(json_escape "$reason")\""
+  printf '[frozen_guard] FAIL-CLOSED: %s\n' "$reason" >&2
+  printf '  Blocking Write/Edit until DNA.md is restored/fixed.\n' >&2
+  exit 2
+fi
+
+NORM=$(normalize_target "$FILE_PATH")
+
+# Match against cached list (exact match only — §3 lists 19 concrete paths)
+if grep -Fxq -- "$NORM" "$CACHE_LIST"; then
+  # Bypass check
+  if [[ "${FROZEN_GUARD_BYPASS:-0}" == "1" ]]; then
+    log_line "bypass_granted" "$TOOL_NAME" "$FILE_PATH" "$NORM" "$SOURCE" \
+      ",\"bypass_env\":\"FROZEN_GUARD_BYPASS=1\""
+    exit 0
+  fi
+  log_line "block" "$TOOL_NAME" "$FILE_PATH" "$NORM" "$SOURCE" ""
+  cat >&2 <<EOF
+[frozen_guard] BLOCKED: target is listed in PROJECT_DNA.md §3 (Tier-1 FROZEN).
+  path: $NORM
+  source: $SOURCE
+  Any change = architectural violation. Ask owner for explicit unfreeze
+  decision (CORE Critical Pipeline) before editing.
+  Emergency override: set FROZEN_GUARD_BYPASS=1 (audited via log).
+EOF
+  exit 2
+fi
+
+log_line "allow" "$TOOL_NAME" "$FILE_PATH" "$NORM" "$SOURCE" ""
+exit 0
