@@ -1,0 +1,63 @@
+{
+  "pn": "153711",
+  "pdf_sha256": "473aafb4b42ca4b9bca94cddec70ec0e53d2229ee4843aacd184e2eac612137b",
+  "pdf_bytes": 31344344,
+  "model_id": "gemini-2.5-flash",
+  "prompt_sha256_16": "68d7a9083032a8f6",
+  "schema_version": "1.0",
+  "promoted_at": "2026-04-18T11:19:32.007282+00:00",
+  "expected_output": {
+    "specs": {
+      "rolls": 4,
+      "roll_width_in": 3,
+      "max_voltage_kv": 1500,
+      "head_type": "variable",
+      "buffing_table_dimensions_in": "9x18",
+      "current_a": 1.5,
+      "voltage_v_operational": [
+        50,
+        110
+      ],
+      "polishing_head_type": "portable",
+      "max_work_surface_dimensions_in": "4x8",
+      "lap_diameter_in": [
+        8,
+        10,
+        18
+      ],
+      "polishing_diameter_in": 27,
+      "disk_places": 6,
+      "disk_diameter_in": 1,
+      "optical_polisher_wheels": 4,
+      "motion_type": "linear hand",
+      "polishing_head_diameter_in": 0.75,
+      "polishing_wheel_diameter_in": 8,
+      "polishing_wheel_speeds": 2,
+      "polishing_wheels": 2,
+      "speeds_available": [
+        2,
+        9
+      ],
+      "function_types": [
+        "grinding",
+        "lapping",
+        "tool grinder",
+        "wheel polisher",
+        "buffing"
+      ],
+      "rotary_heads": 2,
+      "frequency_hz": 60,
+      "phase": "single",
+      "type_specific": [
+        "wet rubber",
+        "Los Angeles abrasion machine"
+      ],
+      "bowl_diameter_in": 12
+    },
+    "series": "Abrader",
+    "weight_g": null,
+    "dimensions_mm": null,
+    "ean": null,
+    "certifications": []
+  }
+}
