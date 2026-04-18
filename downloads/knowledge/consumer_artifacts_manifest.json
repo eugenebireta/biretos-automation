@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "build_id": "build_20260418T111524Z",
+  "built_at": "2026-04-18T11:15:24.115740+00:00",
+  "evidence_hash": "d6e14244a4ea10f2",
+  "evidence_file_count": 374,
+  "artifacts": {
+    "categorizer_snapshot": {
+      "path": "downloads/staging/from_datasheet_for_categorizer.json",
+      "sha256_16": "67b0c411ecc663df",
+      "size": 1785568
+    },
+    "unified_product_dataset": {
+      "path": "downloads/knowledge/unified_product_dataset.json",
+      "sha256_16": "354f4f35e6335a8a",
+      "size": 3623875
+    }
+  },
+  "consumers_expected": [
+    "scripts/pipeline_v2/_insales_transformer.py"
+  ]
+}
