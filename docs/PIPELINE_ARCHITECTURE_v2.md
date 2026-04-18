@@ -629,3 +629,206 @@ Priority 4: Enrichment completeness (max data from confirmed sources)
 ```
 
 **Better an empty field than data from wrong product.**
+
+---
+
+## 13. Task Routing (added 2026-04-17, append-only)
+
+Before starting a task, use this table to find which pipeline OWNS the domain.
+Never invent a new data flow if an existing pipeline covers it.
+
+| Task | Orchestrator | Primary output |
+|---|---|---|
+| Load Excel / new SKU intake | scripts/pipeline_v2/run_full_370.py (Layer 0) | `downloads/evidence/evidence_{pn}.json` |
+| Find datasheet PDF | scripts/datasheet_pipeline.py | `downloads/datasheets_v2/{pn}.pdf` + evidence |
+| Extract specs from PDF | scripts/pipeline_v2/_extract_datasheets.py | evidence.datasheet.specs |
+| Find product photos | scripts/photo_pipeline.py | `downloads/datasheet_photos/` |
+| Resolve price per-unit | scripts/price_unit_judge_full_run.py | evidence.normalized.best_price |
+| Deep research new SKU | scripts/dr_prompt_generator.py → manual Gemini → scripts/dr_results_import.py | `research_results/result_*.json` |
+| Resolve identity | scripts/pipeline_v2/resolver.py (Layer 2) | identity_capsule |
+| Build canonical product | scripts/pipeline_v2/builder.py (Layer 5) | `downloads/staging/pipeline_v2_output/canonical_products.json` |
+| Normalize title to Russian | scripts/pipeline_v2/_normalize_title_ru.py (Layer 5.5) | `downloads/knowledge/title_ru_normalized_cache.json` |
+| Match our SKU to shop_data analogue | scripts/match_sku_to_shopdata_haiku.py | `downloads/knowledge/haiku_matched_predictions.json` |
+| Categorize (InSales/Ozon/WB) | scripts/build_exports_from_haiku.py | per-SKU category in unified dataset |
+| Build InSales import CSV | scripts/build_insales_from_template.py | `downloads/exports/v4_insales_import.csv` |
+| Build Ozon XLSX | scripts/build_exports_from_haiku.py | `downloads/exports/v3_ozon_import.xlsx` |
+| Build WB XLSX | scripts/build_exports_from_haiku.py | `downloads/exports/v3_wb_import.xlsx` |
+| Email → OrderDraft | orchestrator/email_order_bot.py | OrderDraft dataclass |
+| Telegram alerts | orchestrator/start_telegram.py | Telegram messages |
+| Lot scoring | scripts/lot_scoring/run_full_ranking_v341.py | `downloads/lots/summary.json` |
+
+---
+
+## 14. Inter-Pipeline Data Flow (added 2026-04-17, append-only)
+
+Canonical flow for catalog-card generation:
+
+```
+Excel import → evidence/{pn}.json
+    ↓
+Datasheet Pipeline → datasheets_v2/*.pdf + evidence.datasheet
+    ↓
+Photo Pipeline → datasheet_photos/ + evidence.photo
+    ↓
+Price Pipeline → evidence.normalized.best_price
+    ↓
+Pipeline v2 Layer 0-5 (run_full_370.py) → canonical_products.json
+    ↓ (title_ru may still be English here — CONTRACT)
+Pipeline v2 Layer 5.5 (_normalize_title_ru.py) → title_ru_normalized_cache.json
+    ↓
+build_unified_product_dataset.py → unified_product_dataset.json
+    ↓
+match_sku_to_shopdata_haiku.py → haiku_matched_predictions.json
+    ↓ (each SKU now has a shop_data analogue for Ozon/WB categories + attributes)
+build_insales_from_template.py  → v4_insales_import.csv
+build_exports_from_haiku.py     → v3_ozon_import.xlsx, v3_wb_import.xlsx
+```
+
+Data ownership (who writes where):
+
+| Path | Writer | Read-only for |
+|---|---|---|
+| `downloads/evidence/*.json` | Pipeline v2 (Layer 0-4) | everyone else |
+| `downloads/datasheets_v2/*.pdf` | datasheet_pipeline.py | everyone |
+| `downloads/datasheet_photos/` | photo_pipeline.py | everyone |
+| `downloads/staging/from_datasheet_for_categorizer.json` | datasheet-parse stage | everyone |
+| `downloads/staging/pipeline_v2_output/canonical_products.json` | builder.py + _normalize_title_ru.py | everyone |
+| `downloads/knowledge/title_ru_normalized_cache.json` | _normalize_title_ru.py | everyone |
+| `downloads/knowledge/unified_product_dataset.json` | build_unified_product_dataset.py | everyone |
+| `downloads/knowledge/haiku_matched_predictions.json` | match_sku_to_shopdata_haiku.py | everyone |
+| `downloads/knowledge/sku_category_overrides.json` | manual_overrides / resolve_sku scripts | everyone |
+| `downloads/marketplace_schemas/ozon/` | download_ozon_wb_schemas.py | everyone |
+| `downloads/marketplace_schemas/wb/` | download_ozon_wb_schemas.py | everyone |
+| `downloads/exports/*` | build_insales_from_template.py + build_exports_from_haiku.py | — |
+
+---
+
+## 15. Rules for AI Agents (added 2026-04-17, append-only)
+
+Binding rules for ANY AI agent (Claude, Gemini, local model) editing this project:
+
+1. **Read foundation first.** Before any task, open `docs/PROJECT_DNA.md` and this file. Never patch blindly.
+2. **Never duplicate another pipeline's output.** If data exists — read it, don't regenerate.
+3. **Never invent field names.** Check upstream pipeline output schema first (§7 Data Schemas).
+4. **Append-only for this file.** New insights go as new sections (§16+). Never edit frozen sections.
+5. **New data-flow? Update §13-14.** Add the task → orchestrator → output mapping.
+6. **New file in `docs/`? Ask first.** Only create if existing docs genuinely don't cover the topic.
+7. **Follow Priority Order (§12).** Identity accuracy over completeness. Empty field beats wrong data.
+8. **Upstream contract violations are bugs, not fixes-in-place.** If canonical_products.json has non-Russian title_ru, fix `builder.py` or add a Layer (like 5.5), don't patch downstream.
+
+---
+
+## 16. title_ru Contract (added 2026-04-17, append-only)
+
+**Format (catalog convention from shop_data.csv):**
+```
+[Тип товара Russian] [вариант] [бренд Latin] [модель] [PN]
+```
+
+**Mandatory content:**
+1. Russian product type at the start (Рамка, Датчик, Клапан, Модуль, Извещатель, Кронштейн, …)
+2. Brand in original Latin script (PEHA, Honeywell, ABB, Schneider, …)
+3. **PN at the END of the title** — mandatory for catalog matching
+
+**Examples (valid):**
+- `Рамка 2-местная PEHA NOVA белая глянцевая 00020211`
+- `Датчик температуры Honeywell D 20.572.51.70 101411`
+- `Беруши Howard Leight Bilsom 304L на шнурке одноразовые 1000106`
+- `Модуль управления Honeywell ADEMCO 4209U 183791`
+
+**Validator:** `scripts/pipeline_v2/_normalize_title_ru.py::is_russian_normalized(text, pn=...)`
+- Must return True for every `canonical_products[].title_ru` before downstream consumers read it.
+- Enforcement point: Layer 5.5 in `run_full_370.py` after `build_canonical()`.
+
+**Rationale:** Owner convention — catalog names include PN so humans can search catalog by PN or by description. Previous bug (2026-04-17): Layer 5.5 generated Russian titles but dropped PN. Haiku followed examples without PN → 130/370 titles missed PN. Fix: prompt examples now show PN mandatorily, validator now accepts `pn` kwarg and rejects titles missing PN fragment ≥4 chars.
+
+---
+
+## 17. Single-Source-of-Truth Discipline (added 2026-04-17, append-only)
+
+Owner requirement (2026-04-17): "Мне нужен единый источник правды. Не чтобы ты там кучу данных вибрировал и потом хрен знает, где правда, где ложь."
+
+### Two classes of files
+
+**WRITERS (authoritative, produce canonical data):**
+| Path | What | Who writes |
+|---|---|---|
+| `downloads/evidence/evidence_{pn}.json` | Per-SKU raw observations + normalized block | Pipeline v2 Layer 0-4 |
+| `downloads/datasheets_v2/{pn}.pdf` | Original datasheet PDFs | datasheet_pipeline.py |
+| `downloads/datasheet_photos/{pn}_*.{png,jpg}` | Extracted product photos | photo_pipeline.py |
+| `downloads/staging/pipeline_v2_output/canonical_products.json` | Canonical product passport | builder.py (Layer 5) |
+| `downloads/staging/from_datasheet_for_categorizer.json` | Datasheet parse (EAN/specs/photos) | _extract_datasheets.py |
+| `downloads/knowledge/title_ru_normalized_cache.json` | Layer 5.5 Russian titles | _normalize_title_ru.py |
+| `downloads/knowledge/haiku_matched_predictions.json` | SKU→shop_data matches | match_sku_to_shopdata_haiku.py |
+| `downloads/knowledge/sku_category_overrides.json` | Manual category overrides | human review / manual_overrides.py |
+| `shop_data.csv` | Owner-curated catalog ground truth | owner (InSales UI) |
+
+**CONSUMERS (aggregate or derive, never the source):**
+| Path | Reads from | Purpose |
+|---|---|---|
+| `downloads/knowledge/unified_product_dataset.json` | all Writers above | Aggregate view for exports. Read-only for downstream. |
+| `downloads/exports/*.csv/xlsx` | unified_product_dataset + schemas | Final marketplace import files |
+
+### Rules
+
+1. **Exactly ONE writer per field.** If two scripts want to write `title_ru` — that's a bug, not a feature.
+2. **Consumers never write back to Writer paths.** If consumer finds an error, fix it in the Writer.
+3. **Aggregate files are disposable.** `unified_product_dataset.json` can be rebuilt anytime from Writers. It is not a source of truth for anything.
+4. **Archive, never duplicate.** If a file becomes obsolete (replaced by a new approach), move it to `downloads/knowledge/_archived/` with README, don't leave both active.
+
+### Current archive (2026-04-17)
+
+Moved to `downloads/knowledge/_archived/` — no longer read by any script:
+- `catalog_knowledge_base.json` → replaced by `unified_product_dataset.json`
+- `extracted_properties_gemini.json` (v1 + v2) → replaced by `from_datasheet_for_categorizer.json`
+- `knn_v2_predictions.json`, `knn_ozon_wb_predictions.json` → replaced by `haiku_matched_predictions.json`
+- `sku_category_assignment.json` → replaced by `haiku_matched_predictions.json` + `sku_category_overrides.json`
+
+---
+
+## 18. Training Data Collection Policy (added 2026-04-17, append-only)
+
+Owner requirement (2026-04-17): "Каждый API-call должен быть возвратной инвестицией. Деньги за токены не должны уходить в воду."
+
+### Contract for ALL AI-calling scripts
+
+**Every external LLM call (Haiku / Claude / Gemini / GPT) MUST write a training record to `downloads/training_data/{task}.jsonl` in real time.**
+
+### Record schema (JSONL)
+
+```json
+{
+  "pn": "00020211",
+  "query_text": "Honeywell PEHA combination frames NOVA ...",
+  "candidates": [...],
+  "chosen_index": 14,
+  "chosen": { ...authoritative answer... },
+  "source_model": "claude-haiku-4-5-20251001",
+  "platform": "ozon" | "wildberries" | "insales" | "shop_data",
+  "task": "ozon_tree_classification" | "shop_data_nearest_neighbor" | "title_normalization" | etc.
+}
+```
+
+### Rules
+
+1. **Real-time persistence.** Open JSONL in append mode; `flush()` after each record. If the script crashes, the data paid for is preserved.
+2. **Task taxonomy.** Use consistent `task` names so the training sets can be aggregated and split later.
+3. **Include candidates + chosen_index** (not just final answer) — without candidates, the training pair is useless for classifier/ranker models.
+4. **Keep original query text** — the exact embedding input Haiku saw. Not the raw evidence record.
+5. **Never overwrite.** Training JSONL is append-only. If the task runs again on same PN, both records are kept (the newer overrides for production, but both survive in training data).
+
+### Writers currently conforming
+
+- `scripts/match_sku_to_shopdata_haiku.py` → `shop_data_matcher.jsonl` (retroactive extract)
+- `scripts/ozon_direct_match_haiku.py` → `ozon_category_classifier_live.jsonl`
+- `scripts/wb_direct_match_haiku.py` → `wb_category_classifier.jsonl`
+- `scripts/pipeline_v2/_normalize_title_ru.py` → NEEDS update (currently saves only to cache, not training)
+
+### Training targets
+
+When a JSONL file reaches ≥500 pairs, fine-tune a local model on RTX 3090:
+- Embedding-based classifier (multilingual-e5 + MLP head) — fast, 1-2 hours
+- Or LoRA on Gemma-3 / Qwen2.5 — slower, 8-12 hours
+- Once local model ≥85% accuracy on held-out set → switch production traffic from Haiku to local.
+
+**Rationale:** Haiku call = $0.003-0.005. 370 SKU × 3 tasks (Ozon/WB/shop_data) = ~$4. After local model replaces Haiku: 0 per call, same quality. Break-even at ~100 new SKUs.
