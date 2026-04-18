@@ -159,6 +159,62 @@ outcome: null            # через N дней: confirmed | wrong | partial
 - **`tier_used: 1 | 2 | 3 | 4`** (v0.5) — как глубоко эскалировали. Default 1.
 - **`meta_5th_concern: string | null`** (v0.5) — результат 5th-concern мета-фазы. Null если "field covered".
 - **`unknowns_that_flip_verdict: [list[str]]`** (v0.5) — объединённые unknowns ото всех аудиторов. Если пусто — арбитр не имеет права выдавать `NEEDS_INFO`.
+
+### Forensic replay schema (v0.5.1 / Patch 8)
+
+Deep Research выявил: "verdict recorded" ≠ "verdict replayable". Atil 2024 (arXiv:2408.04667) — даже при temperature=0 hosted API даёт swings до десятков процентов точности. Bitwise replay на hosted API infeasible; цель — **semantic replay** через golden-set anchor + полный prompt/response capture.
+
+Дополнительные поля YAML frontmatter (additive к существующей схеме):
+
+```yaml
+schema_version: "0.6"           # bumped from 0.5 (implicit)
+content_hash: sha256:...        # hash of everything below
+
+per_agent:                      # одна запись на каждый R1/R2/meta/arbiter call
+  - role: ADVOCATE | CHALLENGER | SECOND_OPINION | LINEAGE_TRACER
+         | PRECEDENT_SCANNER | PREMORTEM | R2_<role> | META | ARBITER
+    model:
+      provider: anthropic | google
+      model_id: claude-sonnet-4-5-20250929
+      api_version: <provider api-version string>
+      deprecation_date_known: <date | null>
+    sampling: {temperature, top_p, top_k, max_tokens, seed, stop_sequences}
+    prompt:
+      system_hash: sha256:...
+      user_hash: sha256:...
+      attachments: [{sha256, mime, bytes_len, source_path}]
+    context:
+      retrieved_docs: [{source_url_or_path, retrieved_at, content_hash}]
+      tools_available: <JSONSchema>
+    invocation_log: [{step, tool, args_hash, result_hash, at, latency_ms}]
+    runtime:
+      region: <...>
+      request_id: <provider id>
+      response_id: <provider id>
+      system_fingerprint: <if provider exposes>
+      token_usage: {prompt, completion, cache_hit}
+    output:
+      raw_hash: sha256:...
+      parsed: <...>
+
+replay:
+  strategy: semantic
+  golden_set_id: <ref>
+  tolerance: {metric: rouge_l, threshold: 0.85}
+  fallback_model: claude-sonnet-5-...   # filled when snapshot deprecated
+
+chain_of_custody:
+  - {actor, action, at, signature}   # git commit signatures satisfy this
+```
+
+**Правила схемы 0.6:**
+- `per_agent` обязателен, content_hash обязателен. При отсутствии — артефакт **не валиден** для post-hoc forensics и не может цитироваться при обжаловании вердикта.
+- `replay.strategy: semantic` — bitwise replay на hosted API infeasible. Golden-set anchor хранится в `_scratchpad/ai_audits/_golden_set/`.
+- `model.deprecation_date_known` — заполнять при каждом запуске из provider deprecation API (Anthropic `docs.claude.com/en/docs/about-claude/model-deprecations`, Google `ai.google.dev/gemini-api/docs/deprecations`).
+- Raw prompts/responses хранятся в артефакте verbatim (или в отдельном `_scratchpad/ai_audits/_raw/{artifact_id}/` если >100KB).
+- chain_of_custody удовлетворяется через git commits подписанные ключом owner — не требует WORM storage.
+
+**Migration:** существующие v0.5 артефакты **не требуют перегенерации**. Новая schema 0.6 применяется к новым аудитам. Legacy артефакты остаются на schema 0.5.
 - **`owner_decision` и `outcome`** оставлять `null` — владелец заполнит позже. Владелец раз в неделю открывает артефакты и проставляет:
   - `owner_decision`: `ACCEPT` (действовал по вердикту), `OVERRIDE` (сделал иначе), `DROP` (отказался от идеи)
   - `outcome` через ≥7 дней: `confirmed`, `wrong`, `partial`

@@ -6,6 +6,8 @@ line-length = 120
 "orchestrator/strojka.py" = ["E501"]
 "scripts/research_providers.py" = ["E501"]
 "scripts/dr_prompt_generator.py" = ["E501"]
+"scripts/_build_ean_dr_prompts.py" = ["E501"]
+"scripts/_build_enrichment_dr_batches.py" = ["E501"]
 # Test data strings and fixture dicts with long URLs/values
 "tests/enrichment/test_dr_results_import.py" = ["E501"]
 # sys.path manipulation before imports (project-wide pattern for scripts/)
