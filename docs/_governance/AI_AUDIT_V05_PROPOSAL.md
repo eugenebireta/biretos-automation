@@ -1,6 +1,6 @@
 # AI-Audit v0.5 — Improvement Proposal
 
-**Status:** PROPOSAL — pending owner approval before patching CLAUDE.md §AI-AUDIT + `docs/prompt_library/roles/`.
+**Status:** APPROVED by owner 2026-04-18 (all 9 items + new item #10 Deep Research tier added during review). Implementing in subsequent commits.
 **Authored:** 2026-04-18
 **Trigger:** Real-task comparison between internal AI-Audit (R1+R2 with Claude Sonnet/Haiku + Gemini Flash) and external 3-chat audit (Gemini chat + ChatGPT + Claude chat aggregator) on a CORE-DML amnesty task. External audit produced higher-quality output that cited `docs/PROJECT_DNA.md §7 pattern #9` verbatim, identified atomic-publish bug missed by internal, and named concrete missing directories (`scripts/`, `orchestrator/`, `workers/`). Internal audit failed root-cause synthesis, missed two real bugs, and treated 6 DML tickets uniformly despite one being D4 Financial.
 
@@ -64,6 +64,20 @@ In all cases, still confirm with owner before paying ~$1.50 for Opus call.
 **Gap:** For architectural/"forever" claims (FROZEN FILES, PINNED API, durability invariants), internal audit's cost savings aren't worth the quality risk. Owner's manual external flow is ~2 minutes and already achieves the better result.
 **Fix:** Add to §AI-AUDIT: "If the decision-under-audit touches `docs/PROJECT_DNA.md §3 (Frozen Files)`, `§4 (Pinned API)`, `§5 (Absolute Prohibitions)`, or uses words 'forever/irreversible/architectural invariant' — internal audit runs AS USUAL but owner is prompted: 'This claim touches durability. Copy the bundle to 3 external chats (Gemini/ChatGPT/Claude) and paste 3 verdicts back? [y/n]'. If owner says yes, arbiter waits for external verdicts before final recommendation."
 
+### 10. Claude Deep Research tier — **NEW HIGHEST ESCALATION** (added by owner)
+**Current:** Highest internal tier is Opus arbiter (~$1.50). External 3-chat is informal manual fallback.
+**Gap:** Some decisions are so high-stakes that even 3-chat external audit + Opus synthesis is not enough. Example: touching `docs/PROJECT_DNA.md §3` Frozen Files, one-shot financial migrations, architecture invariants with no rollback. For these, Claude Deep Research (claude.ai agentic multi-step investigation over minutes/hours) can surface issues missed by single-shot chat critique.
+**Fix:** Add top tier to escalation ladder:
+- **Tier 1:** Internal AI-Audit (R1+R2, ~$0.15, auto).
+- **Tier 2:** External 3-chat (Gemini + ChatGPT + Claude-chat aggregator, ~$0, manual copy-paste, ~2 min).
+- **Tier 3:** Opus arbiter (~$1.50, auto-triggered per #7 conditions, after owner confirm).
+- **Tier 4 (NEW):** Claude Deep Research on claude.ai, triggered when:
+  - Tier 3 Opus returns contradictory or still-inconclusive verdict, OR
+  - Decision touches FROZEN FILES / PINNED API / §5 prohibitions, OR
+  - Owner explicitly says "deep research" / "глубокое исследование".
+  - AI-Audit STOPS internal processing and produces a Deep Research brief: bundle + all Tier 1-3 findings + specific questions to investigate. Owner pastes brief into claude.ai Deep Research. When Deep Research results come back, owner pastes them into chat; arbiter integrates.
+  - Cost: Claude.ai subscription time (not marginal $); wait minutes-to-hours.
+
 ### 9. LINEAGE-TRACER role for data pipelines — **MISSING SPECIALIST**
 **Current:** Three generic roles (ADVOCATE/CHALLENGER/SECOND_OPINION) work on all topic types.
 **Gap:** For data-pipeline topics (the failing case: "249 records dropped to 0 over weeks"), a specialist role that *traces output fields back through transformations* produces higher-signal findings than a generic critic.
@@ -85,6 +99,7 @@ In all cases, still confirm with owner before paying ~$1.50 for Opus call.
 | 9 | LINEAGE-TRACER role | MEDIUM | MEDIUM (new template + router) | 5 |
 | 3 | Concrete example requirement | LOW | LOW (output format) | 7 |
 | 4 | Cost-decision / unknowns | LOW | LOW (output format) | 7 |
+| 10 | Claude Deep Research tier | HIGH (for FROZEN cases) | LOW (policy + brief-template) | 2 |
 
 ---
 
@@ -128,8 +143,7 @@ If acceptance fails, escalate to Opus arbiter (#7 new trigger) as final safety n
 
 ---
 
-## Owner Decision
+## Owner Decision — APPROVED 2026-04-18
 
-- [ ] APPROVE — proceed with step 1 (CLAUDE.md patch) as separate commit
-- [ ] REVISE — specify which of the 9 to drop/modify
-- [ ] REJECT — keep AI-Audit v0.4, use external-chat flow for high-stakes cases
+- [x] **APPROVE all 10 items** — proceed with implementation commits
+- Added during review: item #10 Claude Deep Research tier (owner instruction)
